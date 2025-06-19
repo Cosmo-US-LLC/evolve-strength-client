@@ -20,3 +20,43 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+
+
+/* animation for GymExperience start */
+
+@layer utilities {
+  .animate-fade {
+    animation: fadeIn 0.6s ease-in-out forwards;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(1.02);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+/* animation for GymExperience end */
+
+/* animation for const MembershipBenefits start */
+@keyframes grow-bar {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+.animate-grow-bar {
+  animation: grow-bar 0.5s ease-in-out forwards;
+}
+
+/* animation for const MembershipBenefits end */
+
