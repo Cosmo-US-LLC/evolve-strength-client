@@ -3,7 +3,6 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-// import { carouselItemsData } from "../../../../constants/wellnessHubData";
 import image1 from "../../../../assets/images/home/wellness-hub/Businesses.webp"
 import image2 from "../../../../assets/images/home/wellness-hub/Practitioners.webp"
 import image3 from "../../../../assets/images/home/wellness-hub/Trainers.webp"

@@ -8,6 +8,7 @@ const tabData = {
   trainer: {
     title: "PERSONAL TRAINER",
     image: personalTrainerImg,
+    description: "Build your own personal training business inside Canada’s most advanced fitness facility.",
     points: [
       "Keep 100 Percent of What You Earn",
       "Work On Your Own Terms",
@@ -18,6 +19,7 @@ const tabData = {
   expert: {
     title: "WELLNESS EXPERT",
     image: wellnessExpertImg,
+    description: "Build your own personal training business inside Canada’s most advanced fitness facility.",
     points: [
       "Grow your client base in our network",
       "Leverage high-end facilities and branding",
@@ -29,57 +31,69 @@ const tabData = {
 
 const CareerWithEvolve = () => {
   return (
-    <div className="w-full px-6 md:px-12 py-16 bg-white">
-      {/* Header */}
-      <div className="text-center mb-10">
-        <h2 className="text-2xl md:text-3xl font-bold">
-          BUILD YOUR CAREER WITH EVOLVE
-        </h2>
-        <p className="text-sm md:text-base text-gray-600 mt-4 max-w-2xl mx-auto">
-          Join our modern wellness hubs, designed with spacious, fully-equipped
-          spaces to help you expand your business and deliver exceptional client
-          care.
-        </p>
-      </div>
+    <div className="w-full py-12">
+      <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col items-start gap-6">
+        <div className="flex flex-col items-start gap-3">
+          <h2 className="uppercase">BUILD YOUR CAREER WITH EVOLVE</h2>
+          <h4 className="max-w-[680px] leading-[26px]">
+            Join our modern wellness hubs, designed with spacious,
+            fully-equipped spaces to help you expand your business and deliver
+            exceptional client care.
+          </h4>
+        </div>
 
-      {/* Tabs */}
-      <Tabs defaultValue="trainer" className="max-w-[1280px] mx-auto">
-        <TabsList className="flex justify-center mb-6 gap-4">
-          <TabsTrigger value="trainer">Personal Trainer</TabsTrigger>
-          <TabsTrigger value="expert">Wellness Expert</TabsTrigger>
-        </TabsList>
-
-        {Object.entries(tabData).map(([key, tab]) => (
-          <TabsContent
-            key={key}
-            value={key}
-            className="rounded-xl overflow-hidden shadow-lg"
-          >
-            <div
-              className="relative bg-cover bg-center min-h-[400px]"
-              style={{ backgroundImage: `url(${tab.image})` }}
+        <Tabs
+          defaultValue="trainer"
+          className="w-full flex items-center"
+        >
+          <TabsList className="flex gap-0 bg-[#2E2E2E] h-[50px] rounded-[5px] p-1 mb-4">
+            <TabsTrigger
+              value="trainer"
+              className="data-[state=active]:bg-white data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all"
             >
-              <div className="absolute inset-0 bg-black/40 z-0" />
-              <div className="relative z-10 p-6 md:p-10 text-white max-w-[500px]">
-                <h3 className="text-xl font-bold mb-4">{tab.title}</h3>
-                <div className="space-y-4 mb-6 text-sm">
-  {tab.points.map((point, idx) => (
-    <p
-      key={idx}
-      className="pb-2 border-b border-white/40 text-white"
-    >
-      {point}
-    </p>
-  ))}
-</div>
-                <button className="bg-green-600 hover:bg-green-700 px-5 py-2 rounded-md text-sm font-semibold transition">
-                  LEARN MORE
-                </button>
+              Personal Trainer
+            </TabsTrigger>
+
+            <TabsTrigger
+              value="expert"
+              className="data-[state=active]:bg-white data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all"
+            >
+              Wellness Expert
+            </TabsTrigger>
+          </TabsList>
+
+          {Object.entries(tabData).map(([key, tab]) => (
+            <TabsContent
+              key={key}
+              value={key}
+              className="rounded-[10px] overflow-hidden shadow-lg w-full"
+            >
+              <div
+                className="relative bg-cover bg-center no-repeat w-full min-h-[600px] flex flex-col justify-center"
+                style={{ backgroundImage: `url(${tab.image})` }}
+              >
+                <div className="relative z-10 p-10 max-w-[500px]">
+                  <h2 className=" mb-4 text-[#fff]">{tab.title}</h2>
+                  <h4 className="mb-4 text-[#fff] leading-[26px]">{tab.description}</h4>
+                  <div className="space-y-6 mb-6 font-[kanit] text-[18px] leading-[26px] font-[500]">
+                    {tab.points.map((point, idx) => (
+                      <p
+                        key={idx}
+                        className="flex pb-6 border-b border-[#FFFFFF] text-white"
+                      >
+                        {point}
+                      </p>
+                    ))}
+                  </div>
+                  <button className="btnPrimary">
+                    LEARN MORE
+                  </button>
+                </div>
               </div>
-            </div>
-          </TabsContent>
-        ))}
-      </Tabs>
+            </TabsContent>
+          ))}
+        </Tabs>
+      </div>
     </div>
   );
 };
