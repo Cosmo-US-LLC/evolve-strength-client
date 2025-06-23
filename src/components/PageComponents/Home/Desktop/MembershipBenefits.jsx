@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Dumbbell,
   Leaf,
@@ -57,74 +57,113 @@ const benefitItems = [
 
 const MembershipBenefits = () => {
   const [activeKey, setActiveKey] = useState("wellness");
+  const timerRef = useRef(null);
+  const [animationProgress, setAnimationProgress] = useState(0);
+  const [fade, setFade] = useState(true);
+
+ 
+  const activeIndex = benefitItems.findIndex((item) => item.key === activeKey);
+
+  useEffect(() => {
+    timerRef.current = setTimeout(() => {
+      const nextIndex = (activeIndex + 1) % benefitItems.length;
+      setActiveKey(benefitItems[nextIndex].key);
+    }, 6000);
+
+    return () => clearTimeout(timerRef.current);
+  }, [activeKey]);
+
+  useEffect(() => {
+    setAnimationProgress(0);
+    let start;
+    function animateBorder(timestamp) {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / 6000, 1);
+      setAnimationProgress(progress);
+      if (progress < 1) {
+        requestAnimationFrame(animateBorder);
+      }
+    }
+    const raf = requestAnimationFrame(animateBorder);
+    return () => cancelAnimationFrame(raf);
+  }, [activeKey]);
+
+  useEffect(() => {
+    setFade(false); 
+    const timeout = setTimeout(() => {
+      setFade(true);  
+    }, 100);  
+
+    return () => clearTimeout(timeout);
+  }, [activeKey]);
+
   const active = benefitItems.find((item) => item.key === activeKey);
 
   return (
-        <div className="w-full py-12">
+    <div className="w-full py-12 h-[770px]">
       <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col items-center justify-center gap-12">
-    
-      <h2 className="text-[#000000] uppercase">
-        ONE MEMBERSHIP, ENDLESS BENEFITS
-      </h2>
-
-      <div className="flex flex-row w-[100%] justify-between ">
-        
-        <div className="w-[50%] flex flex-col items-start justify-center gap-8">
-          {benefitItems.map((item) => {
-            const isActive = item.key === activeKey;
-            return (
-              <div
-                key={item.key}
-                className="relative cursor-pointer group pl-6 py-2"
-                onClick={() => setActiveKey(item.key)}
-              >
-              
-                <div className="absolute left-0 top-0 h-full w-[2px] bg-gray-300" />
-
-                
+        <h2 className="text-[#000000] uppercase">
+          ONE MEMBERSHIP, ENDLESS BENEFITS
+        </h2>
+        <div className="flex flex-row w-[100%] justify-between ">
+          <div className="w-[50%] flex flex-col items-start justify-center gap-8">
+            {benefitItems.map((item) => {
+              const isActive = item.key === activeKey;
+              return (
                 <div
-                  className={`absolute left-0 top-0 w-[2px] bg-green-600 transition-all duration-500 origin-top ${
-                    isActive ? "h-full" : "h-0"
-                  }`}
-                />
-
-                <h3
-                  className={`flex items-center text-[#000] leading-normal gap-2  transition-colors duration-300 ${
-                    isActive ? "text-[#4AB04A]" : "text-black"
-                  }`}
+                  key={item.key}
+                  className="relative cursor-pointer group pl-6   "
+                  onClick={() => setActiveKey(item.key)}
+                  style={{ zIndex: 0 }}
                 >
-                  
-                  {isActive && item.icon}
-                  {item.label}
-                </h3>
-
-                <div
-                  className={`transition-opacity duration-500 ease-in-out ${
-                    isActive ? "opacity-100" : "opacity-0 h-0 overflow-hidden"
-                  }`}
-                >
-                  <h4 className="mt-2 leading-[130%] max-w-md">
-                    {item.description}
-                  </h4>
+                   
+                  <div className="absolute left-0 top-0 h-full w-[2px] bg-gray-300" />
+                 
+                  <div
+                    className="absolute left-0 top-0 h-full w-[2px] bg-green-600"
+                    style={{
+                      transform: isActive
+                        ? `scaleY(${animationProgress})`
+                        : "scaleY(0)",
+                      transformOrigin: "top",
+                      transition: isActive ? "none" : "transform 0.2s",
+                      zIndex: 1,
+                    }}
+                  />
+                  <h3
+                    className={`flex items-center text-[#000] leading-normal gap-2  transition-colors duration-300 ${
+                      isActive ? "text-[#4AB04A]" : "text-black"
+                    }`}
+                  >
+                    {isActive && item.icon}
+                    {item.label}
+                  </h3>
+                  <div
+                    className={`transition-all duration-500 ease-in-out ${
+                      isActive
+                        ? "opacity-100 h-[50px] md:h-[70px] overflow-visible"
+                        : "opacity-0 h-0 overflow-hidden"
+                    }`}
+                  >
+                    <h4 className="mt-2 leading-[130%] max-w-md">
+                      {item.description}
+                    </h4>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-
-          <button className="btnPrimary">
-            BOOK A FREE TOUR
-          </button>
-        </div>
-        <div className="w-[50%] max-w-[460px]">
-          <img
-            key={active.image}
-            src={active.image}
-            alt={active.label}
-            className="rounded-[10px] object-cover w-full h-auto transition duration-700 ease-in-out transform scale-100 opacity-100"
-          />
+              );
+            })}
+            <button className="btnPrimary">BOOK A FREE TOUR</button>
+          </div>
+          <div className="w-[50%] max-w-[460px]">
+            <img
+              key={active.image}
+              src={active.image}
+              alt={active.label}
+              className={`rounded-[10px] object-cover w-full h-auto benefit-img-fade `}
+            />
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };
