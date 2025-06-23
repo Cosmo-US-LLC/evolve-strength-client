@@ -40,53 +40,59 @@ const FacilityShowcase = () => {
   }, [activeIndex]);
 
   return (
-    <div className="w-full bg-white">
-      <div className="px-6 md:px-12 py-10 max-w-[1280px] mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold mb-1">
-          TAKE A PEAK INSIDE CANADA’S BEST FITNESS FACILITY
+    <div className="w-full bg-white py-12">
+      <div className="max-w-[1280px] mx-auto px-8 flex flex-col gap-2 mb-6">
+        <h2 className="text-[#1C1C1C]">
+          TAKE A PEAK INSIDE CANADA’S BEST <br /> FITNESS FACILITY
         </h2>
-        <p className="text-gray-600 text-sm mb-6">Spacious. Affordable. Unmatched</p>
+        <h4 className="text-[#000] leading-[26px]">
+          Spacious. Affordable. Unmatched
+        </h4>
+      </div>
 
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <div className="relative overflow-x-auto rounded-full border px-4 py-1">
-            <TabsList className="flex w-full gap-4">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <div className="w-full max-w-[1220px] mx-auto relative rounded-[5px] border ">
+          <TabsList className="flex w-full gap-4 bg-[#fff] px-2 py-7">
+            {locations.map((loc) => (
+              <TabsTrigger
+                key={loc.key}
+                value={loc.key}
+                className="text-[16px] px-2 py-5 font-[Kanit] font-[500] leading-[16px] rounded-[5px] text-[#000] data-[state=active]:bg-[#4AB04A] data-[state=active]:text-[#FFF]"
+              >
+                {loc.label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </div>
+
+        <TabsContent value={activeTab} className="mt-6">
+          <Carousel
+            opts={{ align: "start" }}
+            setApi={(api) => (carouselRef.current = api)}
+            onSlideChange={(index) => setActiveTab(locations[index].key)}
+            className="w-full"
+          >
+            <CarouselContent>
               {locations.map((loc) => (
-                <TabsTrigger
-                  key={loc.key}
-                  value={loc.key}
-                  className="px-4 py-1 text-sm font-medium rounded-full data-[state=active]:bg-green-600 data-[state=active]:text-white"
-                >
-                  {loc.label}
-                </TabsTrigger>
+                <CarouselItem key={loc.key} className="w-full">
+                  <div className="relative">
+                    <img
+                      src={loc.image}
+                      alt={loc.label}
+                      className="w-full h-auto max-h-[600px] object-fill transition-all duration-500 "
+                    />
+                  </div>
+                </CarouselItem>
               ))}
-            </TabsList>
-          </div>
+            </CarouselContent>
 
-          <TabsContent value={activeTab} className="mt-6">
-            <Carousel
-              opts={{ align: "start" }}
-              setApi={(api) => (carouselRef.current = api)}
-              onSlideChange={(index) => setActiveTab(locations[index].key)}
-              className="w-full"
-            >
-              <CarouselContent>
-                {locations.map((loc) => (
-                  <CarouselItem key={loc.key} className="w-full">
-                    <div className="relative">
-                      <img
-                        src={loc.image}
-                        alt={loc.label}
-                        className="w-full h-auto object-cover rounded-md transition-all duration-500"
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
-            </Carousel>
-          </TabsContent>
-        </Tabs>
+            <CarouselPrevious className="left-[100px]" />
+            <CarouselNext className="right-[100px]" />
+          </Carousel>
+        </TabsContent>
+      </Tabs>
+      <div className="flex justify-center mt-6">
+        <button className="btnPrimary">Book a Free Tour</button>
       </div>
     </div>
   );

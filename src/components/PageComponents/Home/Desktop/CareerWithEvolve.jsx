@@ -8,7 +8,8 @@ const tabData = {
   trainer: {
     title: "PERSONAL TRAINER",
     image: personalTrainerImg,
-    description: "Build your own personal training business inside Canada’s most advanced fitness facility.",
+    description:
+      "Build your own personal training business inside Canada’s most advanced fitness facility.",
     points: [
       "Keep 100 Percent of What You Earn",
       "Work On Your Own Terms",
@@ -19,7 +20,8 @@ const tabData = {
   expert: {
     title: "WELLNESS EXPERT",
     image: wellnessExpertImg,
-    description: "Build your own personal training business inside Canada’s most advanced fitness facility.",
+    description:
+      "Build your own personal training business inside Canada’s most advanced fitness facility.",
     points: [
       "Grow your client base in our network",
       "Leverage high-end facilities and branding",
@@ -42,10 +44,7 @@ const CareerWithEvolve = () => {
           </h4>
         </div>
 
-        <Tabs
-          defaultValue="trainer"
-          className="w-full flex items-center"
-        >
+        <Tabs defaultValue="trainer" className="w-full flex items-center">
           <TabsList className="flex gap-0 bg-[#2E2E2E] h-[50px] rounded-[5px] p-1 mb-4">
             <TabsTrigger
               value="trainer"
@@ -74,7 +73,9 @@ const CareerWithEvolve = () => {
               >
                 <div className="relative z-10 p-10 max-w-[500px]">
                   <h2 className=" mb-4 text-[#fff]">{tab.title}</h2>
-                  <h4 className="mb-4 text-[#fff] leading-[26px]">{tab.description}</h4>
+                  <h4 className="mb-4 text-[#fff] leading-[26px]">
+                    {tab.description}
+                  </h4>
                   <div className="space-y-6 mb-6 font-[kanit] text-[18px] leading-[26px] font-[500]">
                     {tab.points.map((point, idx) => (
                       <p
@@ -85,9 +86,7 @@ const CareerWithEvolve = () => {
                       </p>
                     ))}
                   </div>
-                  <button className="btnPrimary">
-                    LEARN MORE
-                  </button>
+                  <button className="btnPrimary">LEARN MORE</button>
                 </div>
               </div>
             </TabsContent>
