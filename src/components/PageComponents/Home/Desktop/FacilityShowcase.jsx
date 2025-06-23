@@ -19,11 +19,7 @@ import sunridgeImg from "/src/assets/images/home/facility/image_5.webp";
 import downtownImg from "/src/assets/images/home/facility/image_6.webp";
 
 const locations = [
-  {
-    key: "post",
-    label: "Post",
-    images: [postImg1, postImg2, setonImg1, setonImg2],
-  },
+  { key: "post", label: "Post", images: [postImg1, postImg2] },
   {
     key: "brentwood",
     label: "Brentwood",

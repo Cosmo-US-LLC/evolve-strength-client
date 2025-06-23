@@ -57,3 +57,31 @@
 }
 
 /* animation for const MembershipBenefits end */
+
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+.benefit-border-animate {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #4ab04a;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 2s linear;
+  z-index: 1;
+}
+.benefit-border-animate.active {
+  transform: scaleY(1);
+}
+
+.benefit-img-fade {
+  opacity: 1;
+  /* transition: opacity 0.6s; */
+}
+.benefit-img-fade.hide {
+  opacity: 1;
+}
