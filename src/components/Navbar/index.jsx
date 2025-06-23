@@ -73,6 +73,7 @@ function Navbar() {
                 >
                   Wellness
                 </Link>
+                <div className="w-[1.5px] font-[vazirmatn] h-4 bg-[#F8F8F8]" />
                 <Link
                   smooth
                   to="#Careers"
@@ -80,6 +81,7 @@ function Navbar() {
                 >
                   Careers
                 </Link>
+
                 <Link
                   smooth
                   to="#Franchise"

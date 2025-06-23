@@ -50,7 +50,7 @@ h3 {
   font-weight: 400;
 }
 
-.footer_links{
+.footer_links {
   font-family: "Vazirmatn";
   font-size: 20px;
   font-style: normal;
@@ -58,14 +58,14 @@ h3 {
   line-height: 24px;
   letter-spacing: -0.2px;
 }
-.footer_description{
+.footer_description {
   font-family: "Vazirmatn";
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
 }
-.footer_quick_links{
+.footer_quick_links {
   font-family: "Vazirmatn";
   font-size: 14px;
   font-style: normal;
@@ -84,7 +84,7 @@ h3 {
   text-transform: uppercase;
 
   padding: 12px 24px;
-  background: #4AB04A;
+  background: #4ab04a;
   border: none;
   border-radius: 5px;
   backdrop-filter: blur(10px);
