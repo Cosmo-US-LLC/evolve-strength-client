@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Leaf,
   Dumbbell,
@@ -42,12 +42,19 @@ const services = [
 ];
 
 const WellnessServices = () => {
-  const [activeIndex, setActiveIndex] = useState(0); // default: Esthetician
+  const [activeIndex, setActiveIndex] = useState(0);
+
+    useEffect(() => {
+    services.forEach(service => {
+      const img = new Image();
+      img.src = service.bgImage;
+    });
+  }, []);
 
   return (
     <div className="w-full py-12">
       <div
-        className="relative flex flex-row items-center justify-center w-full min-h-[700px] bg-cover bg-center transition-all duration-700 ease-in-out"
+        className="relative flex flex-row items-center justify-center w-full min-h-[700px] bg-cover bg-center transition-all will-change-transform will-change-opacity"
         style={{ backgroundImage: `url(${services[activeIndex].bgImage})` }}
       >
 
