@@ -3,9 +3,9 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import image1 from "../../../../assets/images/home/wellness-hub/Businesses.webp"
-import image2 from "../../../../assets/images/home/wellness-hub/Practitioners.webp"
-import image3 from "../../../../assets/images/home/wellness-hub/Trainers.webp"
+import image1 from "../../../../assets/images/home/wellness-hub/Businesses.webp";
+import image2 from "../../../../assets/images/home/wellness-hub/Practitioners.webp";
+import image3 from "../../../../assets/images/home/wellness-hub/Trainers.webp";
 
 const carouselItemsData = [
   {
@@ -44,32 +44,33 @@ function WellnessHub() {
         </div>
 
         <div className="w-[50%] flex items-center justify-end pl-10">
-
-        <div className="min-w-[300px] max-w-[460px] h-[355px] overflow-y-hidden hover:overflow-y-scroll scrollbar-hide">
-          <Carousel
-            opts={{ align: "start" }}
-            orientation="vertical"
-            className="h-full"
-          >
-            <CarouselContent className="h-full snap-y snap-mandatory mb-12">
-              {carouselItemsData.map((item, index) => (
-                <CarouselItem
-                  key={index}
-                  className="snap-start h-[300px] flex items-center justify-center"
-                >
-                  <div className="bg-[#ffffff] w-full p-4 rounded-[10px] border border-[#DDDADA] shadow-sm">
-                    <h2 className="text-[#4AB04A] !font-[500] uppercase">
-                      {item.count}
-                    </h2>
-                    <h3 className="!font-[700] leading-[20px] mt-1">{item.title}</h3>
-                    <h4 className="mt-1 mb-2">{item.description}</h4>
-                    <img src={item.image} alt={item.title} />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-        </div>
+          <div className="min-w-[300px] max-w-[460px] h-[355px] overflow-y-hidden hover:overflow-y-scroll scrollbar-hide scroll-smooth">
+            <Carousel
+              opts={{ align: "start" }}
+              orientation="vertical"
+              className="h-full"
+            >
+              <CarouselContent className="h-full snap-y snap-mandatory mb-12">
+                {carouselItemsData.map((item, index) => (
+                  <CarouselItem
+                    key={index}
+                    className="snap-start h-[300px] flex items-center justify-center"
+                  >
+                    <div className="bg-[#ffffff] w-full p-4 rounded-[10px] border border-[#DDDADA] shadow-sm">
+                      <h2 className="text-[#4AB04A] !font-[500] uppercase">
+                        {item.count}
+                      </h2>
+                      <h3 className="!font-[700] leading-[20px] mt-1">
+                        {item.title}
+                      </h3>
+                      <h4 className="mt-1 mb-2">{item.description}</h4>
+                      <img src={item.image} alt={item.title} />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
         </div>
       </div>
     </div>
