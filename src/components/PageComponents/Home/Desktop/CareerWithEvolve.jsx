@@ -1,0 +1,100 @@
+import React from "react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+
+import personalTrainerImg from "/src/assets/images/home/CareerWithEvolve/career_1.webp";
+import wellnessExpertImg from "/src/assets/images/home/CareerWithEvolve/career_2.webp";
+
+const tabData = {
+  trainer: {
+    title: "PERSONAL TRAINER",
+    image: personalTrainerImg,
+    description:
+      "Build your own personal training business inside Canada’s most advanced fitness facility.",
+    points: [
+      "Keep 100 Percent of What You Earn",
+      "Work On Your Own Terms",
+      "Keep Full Ownership of Your Clients",
+      "Get Real Support From Real Trainers",
+    ],
+  },
+  expert: {
+    title: "WELLNESS EXPERT",
+    image: wellnessExpertImg,
+    description:
+      "Build your own personal training business inside Canada’s most advanced fitness facility.",
+    points: [
+      "Grow your client base in our network",
+      "Leverage high-end facilities and branding",
+      "Customise your schedule",
+      "Receive platform and marketing support",
+    ],
+  },
+};
+
+const CareerWithEvolve = () => {
+  return (
+    <div className="w-full py-12">
+      <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col items-start gap-6">
+        <div className="flex flex-col items-start gap-3">
+          <h2 className="uppercase">BUILD YOUR CAREER WITH EVOLVE</h2>
+          <h4 className="max-w-[680px] leading-[26px]">
+            Join our modern wellness hubs, designed with spacious,
+            fully-equipped spaces to help you expand your business and deliver
+            exceptional client care.
+          </h4>
+        </div>
+
+        <Tabs defaultValue="trainer" className="w-full flex items-center">
+          <TabsList className="flex gap-0 bg-[#2E2E2E] h-[50px] rounded-[5px] p-1 mb-4">
+            <TabsTrigger
+              value="trainer"
+              className="data-[state=active]:bg-white data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all"
+            >
+              Personal Trainer
+            </TabsTrigger>
+
+            <TabsTrigger
+              value="expert"
+              className="data-[state=active]:bg-white data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all"
+            >
+              Wellness Expert
+            </TabsTrigger>
+          </TabsList>
+
+          {Object.entries(tabData).map(([key, tab]) => (
+            <TabsContent
+              key={key}
+              value={key}
+              className="rounded-[10px] overflow-hidden shadow-lg w-full"
+            >
+              <div
+                className="relative bg-cover bg-center no-repeat w-full min-h-[600px] flex flex-col justify-center"
+                style={{ backgroundImage: `url(${tab.image})` }}
+              >
+                <div className="relative z-10 p-10 max-w-[500px]">
+                  <h2 className=" mb-4 text-[#fff]">{tab.title}</h2>
+                  <h4 className="mb-4 text-[#fff] leading-[26px]">
+                    {tab.description}
+                  </h4>
+                  <div className="space-y-6 mb-6 font-[kanit] text-[18px] leading-[26px] font-[500]">
+                    {tab.points.map((point, idx) => (
+                      <p
+                        key={idx}
+                        className="flex pb-6 border-b border-[#FFFFFF] text-white"
+                      >
+                        {point}
+                      </p>
+                    ))}
+                  </div>
+                  <button className="btnPrimary">LEARN MORE</button>
+                </div>
+              </div>
+            </TabsContent>
+          ))}
+        </Tabs>
+      </div>
+    </div>
+  );
+};
+
+export default CareerWithEvolve;

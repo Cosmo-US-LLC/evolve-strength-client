@@ -1,0 +1,39 @@
+.navbarWrapper {
+  position: relative;
+  z-index: 99;
+  height: 84px;
+  overflow: hidden;
+  background-color: #00000012;
+  backdrop-filter: blur(7.5px);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.5s ease-in-out;
+}
+
+.navbarWrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: height 0.6s ease-in-out;
+  z-index: -1;
+}
+
+.navbarWrapper.scrolled::before {
+  height: 100%;
+}
+.navBarLinks {
+  font-family: "Vazirmatn", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.navBarLinks:hover {
+  opacity: 0.8;
+}
