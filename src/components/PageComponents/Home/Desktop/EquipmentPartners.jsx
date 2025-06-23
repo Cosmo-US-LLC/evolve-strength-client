@@ -15,20 +15,20 @@ const partnerLogos = [
 
 const EquipmentPartners = () => {
   return (
-    <div className="bg-white py-12 px-6 text-center">
-      <h3 className="text-sm font-semibold text-black mb-8 uppercase tracking-wider">
-        Our Equipment Partners
-      </h3>
+    <div className="w-full py-12">
+      <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col items-center justify-center gap-10">
+        <h2 className="text-[#000000] uppercase">Our Equipment Partners</h2>
 
-      <div className="flex flex-wrap justify-center items-center gap-10">
-        {partnerLogos.map((logo, index) => (
-          <img
-            key={index}
-            src={logo.src}
-            alt={logo.alt}
-            className="h-10 grayscale hover:grayscale-0 transition duration-300"
-          />
-        ))}
+        <div className="flex flex-wrap justify-center items-center gap-10">
+          {partnerLogos.map((logo, index) => (
+            <img
+              key={index}
+              src={logo.src}
+              alt={logo.alt}
+              className="h-10 grayscale hover:grayscale-0 transition duration-300"
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

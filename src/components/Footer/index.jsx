@@ -161,7 +161,7 @@ function Footer() {
           <img
             src={ESFLogo}
             alt="footerImage"
-            className="w-[380px] h-auto absolute bottom-[-30px] right-[-60px] opacity-5"
+            className="w-[380px] h-auto absolute bottom-[-30px] right-[30px] opacity-5"
           />
         </div>
       </div>
