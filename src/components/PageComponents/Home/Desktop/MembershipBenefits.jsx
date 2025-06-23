@@ -93,7 +93,8 @@ const MembershipBenefits = () => {
                     isActive ? "text-[#4AB04A]" : "text-black"
                   }`}
                 >
-                  {item.icon}
+                  
+                  {isActive && item.icon}
                   {item.label}
                 </h3>
 

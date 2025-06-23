@@ -19,7 +19,7 @@ const EquipmentPartners = () => {
       <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col items-center justify-center gap-10">
         <h2 className="text-[#000000] uppercase">Our Equipment Partners</h2>
 
-        <div className="flex flex-wrap justify-center items-center gap-10">
+        <div className="w-full flex items-center justify-between px-8">
           {partnerLogos.map((logo, index) => (
             <img
               key={index}

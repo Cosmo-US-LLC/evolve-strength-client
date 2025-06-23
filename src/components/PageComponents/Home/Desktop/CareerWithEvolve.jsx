@@ -21,12 +21,12 @@ const tabData = {
     title: "WELLNESS EXPERT",
     image: wellnessExpertImg,
     description:
-      "Build your own personal training business inside Canada's most advanced fitness facility.",
+      "Flexible office spaces for wellness professionals inside Canada’s largest fitness facilities.",
     points: [
-      "Grow your client base in our network",
-      "Leverage high-end facilities and branding",
-      "Customise your schedule",
-      "Receive platform and marketing support",
+      "Build Your Business in a Prime Location",
+      "Premium Amenities for You & Your Clients",
+      "All-Inclusive Office Setup",
+      "Connect with a Like-Minded Community",
     ],
   },
 };
@@ -80,7 +80,11 @@ const CareerWithEvolve = () => {
                     {tab.points.map((point, idx) => (
                       <p
                         key={idx}
-                        className="flex pb-6 border-b border-[#FFFFFF] text-white"
+                        className={`flex pb-6 text-white ${
+                          idx !== tab.points.length - 1
+                            ? "border-b border-[#FFFFFF]"
+                            : ""
+                        }`}
                       >
                         {point}
                       </p>
