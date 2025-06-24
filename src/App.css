@@ -80,8 +80,30 @@
 
 .benefit-img-fade {
   opacity: 1;
-  /* transition: opacity 0.6s; */
+ 
 }
 .benefit-img-fade.hide {
   opacity: 1;
 }
+
+/* WELLNESS HUB start */
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  will-change: transform, opacity;
+}
+
+.card:hover {
+  transform: scale(1) !important;
+  opacity: 1 !important;
+}
+
+/* WELLNESS HUB end */

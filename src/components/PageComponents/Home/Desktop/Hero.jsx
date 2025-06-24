@@ -1,5 +1,33 @@
+// import React from "react";
+
+// function Hero() {
+//   return (
+// <section className="relative w-full h-[100vh] ">
+ 
+//   <video
+//     autoPlay
+//     muted
+//     loop
+//     playsInline
+//     className="absolute top-0 left-0 w-full h-full object-cover z-0"
+//     poster="/public/videos/evolve-hero-image.webp
+//     "
+//   >
+//     <source src="/videos/hero-video.mp4" type="video/mp4" />
+//     <source src="/public/videos/evlove-hero-video.webm" type="video/webm" />
+//     Your browser does not support the video tag.
+//   </video>
+// </section>
+//   );
+// }
+
+// export default Hero;
+
+
+
+
+
 import React from "react";
-import EvolveHero from "../../../../assets/images/home/hero/evolve-hero.webp";
 
 function Hero() {
   return (
