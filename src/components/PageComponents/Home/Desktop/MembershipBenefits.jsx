@@ -100,7 +100,7 @@ const MembershipBenefits = () => {
   const active = benefitItems.find((item) => item.key === activeKey);
 
   return (
-    <div className="w-full py-12 h-[770px]">
+    <div className="w-full py-12">
       <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col items-center justify-center gap-12">
         <h2 className="text-[#000000] uppercase">
           ONE MEMBERSHIP, ENDLESS BENEFITS
@@ -117,10 +117,10 @@ const MembershipBenefits = () => {
                   style={{ zIndex: 0 }}
                 >
                    
-                  <div className="absolute left-0 top-0 h-full w-[2px] bg-gray-300" />
+                  <div className="absolute left-0 top-0 h-full w-[2px] bg-[#E8EBEF]" />
                  
                   <div
-                    className="absolute left-0 top-0 h-full w-[2px] bg-green-600"
+                    className="absolute left-0 top-0 h-full w-[2px] bg-[#4AB04A]"
                     style={{
                       transform: isActive
                         ? `scaleY(${animationProgress})`
@@ -131,7 +131,7 @@ const MembershipBenefits = () => {
                     }}
                   />
                   <h3
-                    className={`flex items-center text-[#000] leading-normal gap-2  transition-colors duration-300 ${
+                    className={`flex items-center text-[#000] !font-[600] leading-normal gap-2  transition-colors duration-300 ${
                       isActive ? "text-[#4AB04A]" : "text-black"
                     }`}
                   >
@@ -141,11 +141,11 @@ const MembershipBenefits = () => {
                   <div
                     className={`transition-all duration-500 ease-in-out ${
                       isActive
-                        ? "opacity-100 h-[50px] md:h-[70px] overflow-visible"
+                        ? "opacity-100 h-[50px] overflow-visible"
                         : "opacity-0 h-0 overflow-hidden"
                     }`}
                   >
-                    <h4 className="mt-2 leading-[130%] max-w-md">
+                    <h4 className="mt-2 leading-[130%] max-w-xl">
                       {item.description}
                     </h4>
                   </div>
@@ -154,7 +154,7 @@ const MembershipBenefits = () => {
             })}
             <button className="btnPrimary">BOOK A FREE TOUR</button>
           </div>
-          <div className="w-[50%] max-w-[460px]">
+          <div className="w-[50%] max-w-[460px]  ">
             <img
               key={active.image}
               src={active.image}
