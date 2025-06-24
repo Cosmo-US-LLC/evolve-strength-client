@@ -131,8 +131,8 @@ const MembershipBenefits = () => {
                     }}
                   />
                   <h3
-                    className={`flex items-center text-[#000] !font-[600] leading-normal gap-2  transition-colors duration-300 ${
-                      isActive ? "text-[#4AB04A]" : "text-black"
+                    className={`flex items-center leading-normal gap-2  transition-colors duration-300 ${
+                      isActive ? "text-[#4AB04A]" : "text-[#000]"
                     }`}
                   >
                     {isActive && item.icon}
