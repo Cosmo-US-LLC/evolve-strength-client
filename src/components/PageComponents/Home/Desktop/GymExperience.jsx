@@ -49,7 +49,7 @@ const GymExperience = () => {
         <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       </div>
 
-      <div className="relative z-10 max-w-[1280px] mx-auto flex flex-row justify-end items-end min-h-[600px] px-8 gap-12">
+      <div className="relative z-10 max-w-[1280px] mx-auto flex flex-row justify-end items-end min-h-[700px] px-8 ">
         {gymCards.map((card, index) => {
           const isActive =
             hoveredIndex === index || (hoveredIndex === null && index === 0);
