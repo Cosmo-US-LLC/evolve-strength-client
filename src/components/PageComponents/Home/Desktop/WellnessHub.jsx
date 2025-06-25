@@ -40,7 +40,7 @@ function WellnessHub() {
        
       for (let i = cards.length - 1; i >= 0; i--) {
         const card = cards[i];
-        const cardTopCss = 20 + i * 20;
+        const cardTopCss = 40 + i * 40;
         if (card.getBoundingClientRect().top <= containerTop + cardTopCss + 1) {
           topCardIndex = i;
           break;
