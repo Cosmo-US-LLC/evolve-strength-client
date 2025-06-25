@@ -19,7 +19,7 @@ import sunridgeImg from "/src/assets/images/home/facility/image_5.webp";
 import downtownImg from "/src/assets/images/home/facility/image_6.webp";
 
 const locations = [
-  { key: "post", label: "Post", images: [postImg1, postImg2] },
+  { key: "post", label: "Post", images: [postImg1, postImg2,brentwoodImg1, brentwoodImg2,setonImg1, setonImg2,royalOakImg1, royalOakImg2] },
   {
     key: "brentwood",
     label: "Brentwood",
@@ -47,7 +47,7 @@ const FacilityShowcase = () => {
 
   return (
     <div className="w-full bg-white py-12">
-      <div className="max-w-[1280px] mx-auto px-8 flex flex-col gap-2 mb-6">
+      <div className="max-w-[1280px] mx-auto px-8 flex flex-col gap-2 mb-5">
         <h2 className="text-[#1C1C1C]">
           TAKE A PEAK INSIDE CANADA'S BEST <br /> FITNESS FACILITY
         </h2>
@@ -57,13 +57,13 @@ const FacilityShowcase = () => {
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <div className="w-full max-w-[1220px] mx-auto relative rounded-[5px] border ">
-          <TabsList className="flex w-full gap-4 bg-[#fff] px-2 py-7">
+        <div className="w-full max-w-[1220px] mx-auto relative rounded-[10px] border">
+          <TabsList className="flex w-full  bg-[#fff] h-[48px] p-[6px]">
             {locations.map((loc) => (
               <TabsTrigger
                 key={loc.key}
                 value={loc.key}
-                className="text-[16px] px-2 py-5 font-[Kanit] font-[500] leading-[16px] rounded-[5px] text-[#000] cursor-pointer data-[state=active]:bg-[#4AB04A] data-[state=active]:text-[#FFF]"
+                className="text-[16px] font-[Kanit] font-[500] leading-[16px] rounded-[5px] text-[#000] cursor-pointer data-[state=active]:bg-[#4AB04A] data-[state=active]:text-[#FFF]"
               >
                 {loc.label}
               </TabsTrigger>
@@ -84,15 +84,15 @@ const FacilityShowcase = () => {
                     <img
                       src={img}
                       alt={activeLocation.label + " image " + (idx + 1)}
-                      className="w-full h-auto max-h-[600px] object-fill transition-all duration-500 "
+                      className="w-full h-auto max-h-[700px] object-fill transition-all duration-500 "
                     />
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
 
-            <CarouselPrevious className="left-[100px]" />
-            <CarouselNext className="right-[100px]" />
+            <CarouselPrevious className="left-[100px] w-14 h-14 bg-transparent text-[#FFFFFF] border border-[#FFFFFF]" />
+            <CarouselNext className="right-[100px] w-14 h-14 bg-transparent text-[#FFFFFF] border border-[#FFFFFF]" />
           </Carousel>
         </TabsContent>
       </Tabs>
