@@ -1,17 +1,17 @@
 import React from "react";
-import PersonalTraningHero from "../components/PageComponents/PersonalTraning/Desktop/PersonalTraningHero";
-import PerfectTrainer from "../components/PageComponents/PersonalTraning/Desktop/PerfectTrainer";
-import FreeAssessment from "../components/PageComponents/PersonalTraning/Desktop/FreeAssessment";
-import FitnessCategoryMarquee from "../components/PageComponents/PersonalTraning/Desktop/FitnessCategoryMarquee";
-import PersonalGymExperience from "../components/PageComponents/PersonalTraning/Desktop/PersonalGymExperience";
-import SwitchToEvolve from "../components/PageComponents/PersonalTraning/Desktop/SwitchToEvolve";
-import ConsultationWithPersonalTrainers from "@/components/PageComponents/PersonalTraning/Desktop/ConsultationWithPersonalTrainers";
+import PersonalTrainingHero from "../components/PageComponents/PersonalTraining/Desktop/PersonalTrainingHero";
+import PerfectTrainer from "../components/PageComponents/PersonalTraining/Desktop/PerfectTrainer";
+import FreeAssessment from "../components/PageComponents/PersonalTraining/Desktop/FreeAssessment";
+import FitnessCategoryMarquee from "../components/PageComponents/PersonalTraining/Desktop/FitnessCategoryMarquee";
+import PersonalGymExperience from "../components/PageComponents/PersonalTraining/Desktop/PersonalGymExperience";
+import SwitchToEvolve from "../components/PageComponents/PersonalTraining/Desktop/SwitchToEvolve";
+import ConsultationWithPersonalTrainers from "@/components/PageComponents/PersonalTraining/Desktop/ConsultationWithPersonalTrainers";
 
-function PersonalTraning() {
+function PersonalTraining() {
   return (
     <div>
       <div className="max-md:hidden">
-        <PersonalTraningHero />
+        <PersonalTrainingHero />
         <PerfectTrainer />
         <FreeAssessment />
         <ConsultationWithPersonalTrainers/>
@@ -24,4 +24,4 @@ function PersonalTraning() {
   );
 }
 
-export default PersonalTraning;
+export default PersonalTraining;
