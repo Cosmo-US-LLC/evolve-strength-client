@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
   Dumbbell,
-  Leaf,
-  ShowerHead,
-  LayoutPanelTop,
+  // Leaf,
+  // ShowerHead,
+  // LayoutPanelTop,
   Flame,
 } from "lucide-react";
+import Leaf  from "/src/assets/images/home/MembershipBenefits/image_1_logo.svg";
+import ShowerHead  from "/src/assets/images/home/MembershipBenefits/image_5_logo.svg";
+import LayoutPanelTop  from "/src/assets/images/home/MembershipBenefits/image_4_logo.svg";
 import wellnessImg from "/src/assets/images/home/MembershipBenefits/image_1.webp";
 import equipmentImg from "/src/assets/images/home/MembershipBenefits/image_2.webp";
 import steamImg from "/src/assets/images/home/MembershipBenefits/image_3.webp";
@@ -16,9 +19,9 @@ const benefitItems = [
   {
     key: "wellness",
     label: "WELLNESS SERVICES",
-    icon: <Leaf className="w-5 h-5" />,
+    icon: <img src={Leaf} alt="Shower Head Icon" className="w-5 h-5" />,
     description:
-      "We prioritise strategies to get you the most out of your property sale, all while ensuring a smooth and stress-free process.",
+      "We priorities strategies to get you the most out of your property sale, all while ensuring a smooth and stress-free process.",
     image: wellnessImg,
   },
   {
@@ -40,7 +43,7 @@ const benefitItems = [
   {
     key: "layout",
     label: "SPACIOUS LAYOUTS",
-    icon: <LayoutPanelTop className="w-5 h-5" />,
+    icon: <img src={ShowerHead} alt="Shower Head Icon" className="w-5 h-5" />,
     description:
       "Move freely through open, thoughtfully designed training areas that give you room to breathe, lift, and grow.",
     image: layoutImg,
@@ -48,7 +51,7 @@ const benefitItems = [
   {
     key: "amenities",
     label: "PREMIUM AMENITIES",
-    icon: <ShowerHead className="w-5 h-5" />,
+    icon: <img src={LayoutPanelTop} alt="Shower Head Icon" className="w-5 h-5" />,
     description:
       "Enjoy elevated comforts like luxury showers and curated locker spaces that enhance every part of your fitness experience.",
     image: amenitiesImg,

@@ -71,7 +71,7 @@ function WellnessHub() {
     <div id="wellnessHub" className="bg-[#fff]">
       <div className="w-[100%] max-w-[1280px] px-8 pt-[100px] mx-auto flex justify-between">
         <div className="w-[50%] max-w-[600px] flex flex-col gap-4">
-          <h2 className="uppercase text-[#1C1C1C] leading-[39px]">
+          <h2 className="uppercase text-[#000] leading-[39px]">
             CANADA'S BEST FITNESS <br /> AND WELLNESS HUB
           </h2>
           <h4 className="text-[#000] leading-[26px]">
@@ -84,7 +84,7 @@ function WellnessHub() {
         <div className="w-[50%] flex items-center justify-end pl-10">
           <div
             ref={containerRef}
-            className="w-full max-w-[460px] h-[426px] overflow-y-auto scroll-smooth hide-scrollbar"
+            className="w-full max-w-[460px] h-[390px] overflow-y-auto scroll-smooth hide-scrollbar"
           >
             <div className="relative h-[1500px] ">
               {cardItems.map((item, index) => (

@@ -14,12 +14,12 @@ import {
 import estheticianBg from "/src/assets/images/home/wellness-services/esthetician.webp";
 import chiropracticBg from "/src/assets/images/home/wellness-services/chiropractic_care.webp";
 import massageBg from "/src/assets/images/home/wellness-services/chiropractic_head.webp";
-import pilatesBg from "/src/assets/images/home/wellness-services/acupuncture.webp";
-import acupunctureBg from "/src/assets/images/home/wellness-services/acupuncture_food.webp";
-import dietitianBg from "/src/assets/images/home/wellness-services/osteopathy.webp";
-import osteopathyBg from "/src/assets/images/home/wellness-services/osteopathy_glass.webp";
+import pilatesBg from "/src/assets/images/home/wellness-services/acupuncture_food.webp";
+import acupunctureBg from "/src/assets/images/home/wellness-services/acupuncture.webp";
+import dietitianBg from "/src/assets/images/home/wellness-services/acupuncture_food.webp"; 
+import osteopathyBg from "/src/assets/images/home/wellness-services/osteopathy.webp";
 import laserBg from "/src/assets/images/home/wellness-services/osteopathy_glass.webp";
-import mentalHealthBg from "/src/assets/images/home/wellness-services/osteopathy_glass.webp";
+import mentalHealthBg from "/src/assets/images/home/wellness-services/acupuncture.webp";
 
 const services = [
   { label: "Esthetician", icon: <Leaf />, bgImage: estheticianBg },
