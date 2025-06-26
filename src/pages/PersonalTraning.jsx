@@ -5,6 +5,7 @@ import FreeAssessment from "../components/PageComponents/PersonalTraning/Desktop
 import FitnessCategoryMarquee from "../components/PageComponents/PersonalTraning/Desktop/FitnessCategoryMarquee";
 import PersonalGymExperience from "../components/PageComponents/PersonalTraning/Desktop/PersonalGymExperience";
 import SwitchToEvolve from "../components/PageComponents/PersonalTraning/Desktop/SwitchToEvolve";
+import ConsultationWithPersonalTrainers from "@/components/PageComponents/PersonalTraning/Desktop/ConsultationWithPersonalTrainers";
 
 function PersonalTraning() {
   return (
@@ -13,6 +14,7 @@ function PersonalTraning() {
         <PersonalTraningHero />
         <PerfectTrainer />
         <FreeAssessment />
+        <ConsultationWithPersonalTrainers/>
         <FitnessCategoryMarquee/>
         <PersonalGymExperience/>
         <SwitchToEvolve/>
