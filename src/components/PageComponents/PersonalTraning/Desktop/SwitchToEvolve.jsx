@@ -29,7 +29,7 @@ const SwitchToEvolve = () => {
                 Train with the Best. Or Become the Best.
               </span>
               <button className="btnPrimary ml-3">Find a Trainer</button>
-              <button className="btnPrimary">Become a Trainer</button>
+              <button className="btnSecondary">Become a Trainer</button>
             </div>
           </div>
         </div>
