@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import Layout from "./components/Layout";
 import PersonalTraining from "./pages/PersonalTraining";
 import Wellness from "./pages/Wellness";
+import PersonalTraning from "./pages/PersonalTraining";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/personal-training" element={<PersonalTraining />} />
           <Route path="/wellness" element={<Wellness/>} />
+          <Route path="personal-training" element={<PersonalTraning />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
         </Route>
       </Routes>
     </>

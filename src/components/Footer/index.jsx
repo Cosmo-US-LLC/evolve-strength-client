@@ -168,7 +168,7 @@ function Footer() {
       <div className="bg-[#000000]">
         <div className="max-w-[1280px] px-8 py-6 mx-auto w-full flex justify-between items-center">
           <a
-            href="#"
+            href="privacy-policy"
             className="footer_quick_links text-[#6F6D66] hover:text-[#ffffff]"
           >
             Privacy Policy
