@@ -4,7 +4,7 @@ import "./App.css";
 import "./assets/styles/styles.css";
 import Home from "./pages/Home";
 import Layout from "./components/Layout";
-import PersonalTraining from "./pages/PersonalTraning";
+import PersonalTraining from "./pages/PersonalTraining";
 import Wellness from "./pages/Wellness";
 
 function App() {

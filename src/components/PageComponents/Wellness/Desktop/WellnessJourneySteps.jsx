@@ -48,7 +48,7 @@ const WellnessJourneySteps = () => {
 
           {/* <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all duration-300" /> */}
 
-          <div className="relative z-10 p-4 text-center text-white flex flex-col items-center transition-all duration-500 group-hover:pb-6">
+          <div className="relative z-10 px-4 text-center text-white flex flex-col items-center transition-all duration-500 group-hover:pb-6">
             <div className="bg-green-500 rounded-full w-12 h-12 flex items-center justify-center mb-3">
               {step.icon}
             </div>
