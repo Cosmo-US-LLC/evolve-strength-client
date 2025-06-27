@@ -6,6 +6,7 @@ import SteamAndSaunaRoom from "@/components/PageComponents/Wellness/Desktop/Stea
 import WellnessPricingRoom from "@/components/PageComponents/Wellness/Desktop/WellnessPricingRoom";
 import FrequentlyAskedQuestions from "@/components/PageComponents/Wellness/Desktop/FrequentlyAskedQuestions";
 import WellnessJourneySteps from "@/components/PageComponents/Wellness/Desktop/WellnessJourneySteps";
+import WellnessServicesForEveryone from "@/components/PageComponents/Wellness/Desktop/WellnessServicesForEveryone";
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
         <WellnessHero />
         <WellnessJourneySteps/>
         <WellnessPricingRoom/>
+        {/* <WellnessServicesForEveryone/> */}
         <SteamAndSaunaRoom/>
         <YogaAndRecoveryRoom/>
         <FrequentlyAskedQuestions {...faqContent}/>
