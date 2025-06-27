@@ -60,7 +60,7 @@ function Navbar() {
 
                 <Link
                   smooth
-                  to="/personal-traning"
+                  to="/personal-training"
                   className="navBarLinks text-[#F8F8F8]"
                 >
                   Training
@@ -68,7 +68,7 @@ function Navbar() {
 
                 <Link
                   smooth
-                  to="#Wellness"
+                  to="/wellness"
                   className="navBarLinks text-[#F8F8F8]"
                 >
                   Wellness

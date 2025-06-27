@@ -1,6 +1,6 @@
 import React from "react";
 
-function PersonalTraningHero() {
+function PersonalTrainingHero() {
   return (
     <div className="relative personalTrainingHeroSection">
       {/* <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/40" /> */}
@@ -22,4 +22,4 @@ function PersonalTraningHero() {
   );
 }
 
-export default PersonalTraningHero;
+export default PersonalTrainingHero;
