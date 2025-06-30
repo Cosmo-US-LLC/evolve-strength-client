@@ -177,7 +177,7 @@ function Footer() {
             Copyright © 2025 Evolve Strength
           </span>
           <a
-            href="#"
+            href="/terms-of-conditions"
             className="footer_quick_links text-[#6F6D66] hover:text-[#ffffff]"
           >
             Terms of Service
