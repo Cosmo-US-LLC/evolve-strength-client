@@ -118,7 +118,7 @@ function Footer() {
                     Careers
                   </a>
                   <a
-                    href="#"
+                    href="/faqs"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     FAQs
