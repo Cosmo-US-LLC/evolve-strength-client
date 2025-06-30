@@ -6,6 +6,10 @@ import Home from "./pages/Home";
 import Layout from "./components/Layout";
 import PersonalTraining from "./pages/PersonalTraining";
 import Wellness from "./pages/Wellness";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import Franchise from "./pages/Franchise";
+import Explore from "./pages/Explore";
+import FrequentlyAskedQuestions from "./pages/FrequentlyAskedQuestions";
 import PersonalTraning from "./pages/PersonalTraining";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 
@@ -15,10 +19,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="/explore" element={<Explore />} />
           <Route path="/personal-training" element={<PersonalTraining />} />
           <Route path="/wellness" element={<Wellness/>} />
-          <Route path="personal-training" element={<PersonalTraning />} />
-          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/franchise" element={<Franchise/>} />
+          <Route path="/faqs" element={<FrequentlyAskedQuestions/>} />
+          <Route path="/terms-of-conditions" element={<TermsAndConditions/>} />
+          <Route path="/personal-training" element={<PersonalTraning />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Route>
       </Routes>
     </>
