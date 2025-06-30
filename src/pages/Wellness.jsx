@@ -4,9 +4,9 @@ import WellnessHero from "@/components/PageComponents/Wellness/Desktop/WellnessH
 import YogaAndRecoveryRoom from "@/components/PageComponents/Wellness/Desktop/YogaAndRecoveryRoom";
 import SteamAndSaunaRoom from "@/components/PageComponents/Wellness/Desktop/SteamAndSaunaRoom";
 import WellnessPricingRoom from "@/components/PageComponents/Wellness/Desktop/WellnessPricingRoom";
-import FrequentlyAskedQuestions from "@/components/PageComponents/Wellness/Desktop/FrequentlyAskedQuestions";
 import WellnessJourneySteps from "@/components/PageComponents/Wellness/Desktop/WellnessJourneySteps";
 import WellnessServicesForEveryone from "@/components/PageComponents/Wellness/Desktop/WellnessServicesForEveryone";
+import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 
 function Home() {
   return (
