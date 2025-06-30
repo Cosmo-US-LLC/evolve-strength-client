@@ -28,17 +28,10 @@ function Navbar() {
           <nav
             className={`navbarWrapper fixed top-0 w-full  ${
               scrolled ? "scrolled" : ""
-            }`}
+            } ${currentPath === "/spaces" ? "!bg-[#000]" : ""}`}
           >
             <div className="max-w-[1280px] w-full h-full mx-auto px-8 flex items-center justify-between">
-              <Link
-                smooth
-                to="/"
-                className="flex items-center"
-                onClick={(e) => {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-              >
+              <Link smooth to="/" className="flex items-center">
                 <img
                   src={EvolveStrengthLogo}
                   alt="Attune Logo"
@@ -93,6 +86,13 @@ function Navbar() {
                   className="navBarLinks text-[#F8F8F8]"
                 >
                   Franchise
+                </Link>
+                 <Link
+                  smooth
+                  to="/spaces"
+                  className="navBarLinks text-[#F8F8F8]"
+                >
+                  Spaces
                 </Link>
               </div>
               <div className="flex items-center">

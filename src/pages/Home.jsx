@@ -1,6 +1,6 @@
 import React from "react";
 import Hero from "../components/PageComponents/Home/Desktop/Hero";
- 
+
 import WellnessHub from "../components/PageComponents/Home/Desktop/WellnessHub";
 import GymExperience from "@/components/PageComponents/Home/Desktop/GymExperience";
 import WellnessServices from "@/components/PageComponents/Home/Desktop/WellnessServices";
@@ -18,13 +18,13 @@ function Home() {
         <Hero />
         <WellnessHub />
         <GymExperience />
-        <MembershipBenefits/>
-        <TrainerCallout/>
+        <MembershipBenefits />
+        <TrainerCallout />
         <EquipmentPartners />
         <WellnessServices />
-        <FacilityShowcase/>
-        <CareerWithEvolve/>
-        <BusinessOpportunities/>
+        <FacilityShowcase />
+        <CareerWithEvolve />
+        <BusinessOpportunities />
       </div>
       <div className="md:hidden">Home Mobile</div>
     </div>
