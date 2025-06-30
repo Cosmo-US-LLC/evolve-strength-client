@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
+import { useLocation } from "react-router-dom";
 import "./styles.css";
 import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo.svg";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  const currentPath = location.pathname;
+  console.log(currentPath);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +49,7 @@ function Navbar() {
               <div className="flex items-center justify-center gap-8">
                 <Link
                   smooth
-                  to="#Explore"
+                  to="/explore"
                   className="navBarLinks text-[#F8F8F8]"
                 >
                   Explore
@@ -84,7 +89,7 @@ function Navbar() {
 
                 <Link
                   smooth
-                  to="#Franchise"
+                  to="/franchise"
                   className="navBarLinks text-[#F8F8F8]"
                 >
                   Franchise
