@@ -12,6 +12,8 @@ import Explore from "./pages/Explore";
 import FrequentlyAskedQuestions from "./pages/FrequentlyAskedQuestions";
 import Spaces from "./pages/Spaces";
 import ContactUs from "./pages/ContactUs";
+import PersonalTraning from "./pages/PersonalTraining";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/faqs" element={<FrequentlyAskedQuestions />} />
           <Route path="/terms-of-conditions" element={<TermsAndConditions />} />
+          <Route path="/personal-training" element={<PersonalTraning />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Route>
       </Routes>
     </>
