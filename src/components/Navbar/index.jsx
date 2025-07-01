@@ -87,13 +87,13 @@ function Navbar() {
                 >
                   Franchise
                 </Link>
-                 <Link
+                 {/* <Link
                   smooth
                   to="/spaces"
                   className="navBarLinks text-[#F8F8F8]"
                 >
                   Spaces
-                </Link>
+                </Link> */}
               </div>
               <div className="flex items-center">
                 <button className="btnSecondary">Book a Free Tour</button>

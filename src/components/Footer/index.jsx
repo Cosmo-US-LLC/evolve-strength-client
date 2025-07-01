@@ -129,6 +129,13 @@ function Footer() {
                   >
                     Contact Us
                   </a>
+                  <Link
+                    smooth
+                    to="/spaces"
+                    className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
+                  >
+                    Spaces
+                  </Link>
                 </div>
               </div>
             </div>
