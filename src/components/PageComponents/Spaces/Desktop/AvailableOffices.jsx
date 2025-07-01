@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+import CSSlides_1 from "@/assets/images/spaces/AvailableOffices/CSSlides_1.webp";
+import BSlides_1 from "@/assets/images/spaces/AvailableOffices/BSlides_1.webp";
+
 const tabs = [
   { id: "All", label: "All (08)" },
   { id: "Edmonton North", label: "Edmonton North" },
@@ -11,38 +14,40 @@ const tabs = [
   { id: "Brentwood", label: "Brentwood" },
 ];
 
+// ID and location match
+
 const allOffices = [
   {
     title: "Executive Office",
     location: "Edmonton North",
-    image: "/path/edmonton-north-1.webp",
+    image: CSSlides_1,
   },
   {
     title: "Executive Office",
     location: "Edmonton South",
-    image: "/path/edmonton-south-1.webp",
+    image: BSlides_1
   },
   {
     title: "Executive Office",
     location: "Edmonton Downtown",
-    image: "/path/edmonton-downtown-1.webp",
+    image: CSSlides_1,
   },
   {
     title: "Executive Office",
     location: "Calgary Sunridge",
-    image: "/path/calgary-sunridge-1.webp",
+    image: BSlides_1,
   },
   {
     title: "Executive Office",
     location: "Brentwood",
-    image: "/path/brentwood-1.webp",
+    image: CSSlides_1,
   },
   {
     title: "Executive Office",
     location: "Brentwood",
-    image: "/path/brentwood-2.webp",
+    image: BSlides_1,
   },
-  // Add more as needed
+
 ];
 
 const AvailableOffices = () => {
