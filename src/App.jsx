@@ -11,6 +11,7 @@ import Franchise from "./pages/Franchise";
 import Explore from "./pages/Explore";
 import FrequentlyAskedQuestions from "./pages/FrequentlyAskedQuestions";
 import Spaces from "./pages/Spaces";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (
@@ -20,12 +21,13 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/personal-training" element={<PersonalTraining />} />
-          <Route path="/wellness" element={<Wellness/>} />
-          <Route path="/franchise" element={<Franchise/>} />
-          <Route path="/spaces" element={<Spaces/>} />
+          <Route path="/wellness" element={<Wellness />} />
+          <Route path="/franchise" element={<Franchise />} />
+          <Route path="/spaces" element={<Spaces />} />
 
-          <Route path="/faqs" element={<FrequentlyAskedQuestions/>} />
-          <Route path="/terms-of-conditions" element={<TermsAndConditions/>} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/faqs" element={<FrequentlyAskedQuestions />} />
+          <Route path="/terms-of-conditions" element={<TermsAndConditions />} />
         </Route>
       </Routes>
     </>
