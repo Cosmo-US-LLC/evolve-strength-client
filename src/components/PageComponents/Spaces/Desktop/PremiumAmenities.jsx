@@ -33,64 +33,66 @@ const PremiumAmenities = () => {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-10">
-      <div className="flex flex-col md:flex-row gap-8">
-        <div className="md:w-1/2">
-          <h2 className="text-2xl font-extrabold uppercase mb-2">
-            Premium Amenities For You & Your Clients
-          </h2>
-          <p className="text-sm text-gray-600 mb-6">
-            Our rent includes access to shared amenities that make your space feel
-            professional and comfortable for both you and your clients.
-          </p>
+    <div className="py-12 bg-[#EEEEEE]">
+      <div className="max-w-[1280px] mx-auto px-8 flex ">
+        <div className="flex flex-row gap-8 justify-between w-full">
+          <div className="w-[50%] max-w-[562px] flex flex-col gap-6">
+            <h2 className="font-[700] text-[#000] uppercase">
+              Premium Amenities For You & Your Clients
+            </h2>
+            <h4 className="text-[#000] !font-[400] leading-[26px]">
+              Our rent includes access to shared amenities that make your space
+              feel professional and comfortable for both you and your clients.
+            </h4>
 
-          <ul className="space-y-0">
-            {amenities.map((item) => (
-              <li
-                key={item.title}
-                onClick={() => setActiveAmenity(item)}
-                onMouseEnter={() => {
-                  setHoverAmenity(item);
-                  handleImageChange(item);
-                }}
-                onMouseLeave={() => setHoverAmenity(null)}
-                className={`cursor-pointer py-2 text-sm font-medium transition-colors duration-300 border-b ${
-                  activeAmenity.title === item.title
-                    ? "font-semibold text-black"
-                    : "text-gray-600 hover:text-black"
-                }`}
-              >
-                {item.title}
-              </li>
-            ))}
-          </ul>
-        </div>
+            <ul className="space-y-4">
+              {amenities.map((item) => (
+                <li
+                  key={item.title}
+                  onClick={() => setActiveAmenity(item)}
+                  onMouseEnter={() => {
+                    setHoverAmenity(item);
+                    handleImageChange(item);
+                  }}
+                  onMouseLeave={() => setHoverAmenity(null)}
+                  className={`cursor-pointer pb-4 text-[24px] font-[500] font-[kanit] leading-normal border-[#000] hover:text-[#000] transition-colors duration-300 border-b ${
+                    activeAmenity.title === item.title
+                      ? " text-[#000] "
+                      : "opacity-50  "
+                  }`}
+                >
+                  {item.title}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <div className="md:w-1/2 flex flex-col items-center justify-center">
-          <img
-            src={currentImage.image}
-            alt={currentImage.title}
-            className={`rounded-lg w-full max-h-[300px] object-cover transition-opacity duration-300 ${
-              fade ? "opacity-0" : "opacity-100"
-            }`}
-          />
-          <div
-            className={`flex gap-4 mt-4 text-xs text-gray-700 transition-opacity duration-300 ${
-              fade ? "opacity-0" : "opacity-100"
-            }`}
-          >
-            <div className="flex items-center gap-1">
-              <XCircle className="w-4 h-4 text-gray-600" />
-              NO ADDITIONAL CONTRACTS
-            </div>
-            <div className="flex items-center gap-1">
-              <XCircle className="w-4 h-4 text-gray-600" />
-              NO EXTRA FEES
+          <div className="w-[50%] max-w-[462px] flex flex-col items-center justify-center">
+            <img
+              src={currentImage.image}
+              alt={currentImage.title}
+              className={`rounded-lg w-full  object-cover transition-opacity duration-300 ${
+                fade ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <div
+              className={`flex gap-4 mt-4 text-xs text-gray-700 transition-opacity duration-300 ${
+                fade ? "opacity-0" : "opacity-100"
+              }`}
+            >
+              <div className="flex items-center gap-1 text-[#000] text-[16px] font-[kanit] font-[500] uppercase leading-normal">
+                <XCircle className="w-5 h-5 text-[#000] " />
+                NO ADDITIONAL CONTRACTS
+              </div>
+              <div className="flex items-center gap-1 text-[#000] text-[16px] font-[kanit] font-[500] uppercase leading-normal">
+                <XCircle className="w-5 h-5 text-[#000]" />
+                NO EXTRA FEES
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
