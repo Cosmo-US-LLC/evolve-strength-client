@@ -1,3 +1,4 @@
+import AvailableOffices from "@/components/PageComponents/Spaces/Desktop/AvailableOffices";
 import EvolveEcosystem from "@/components/PageComponents/Spaces/Desktop/EvolveEcosystem";
 import GrowYourBusinessSection from "@/components/PageComponents/Spaces/Desktop/GrowYourBusinessSection";
 import WhoOurSpacesFor from "@/components/PageComponents/Spaces/Desktop/WhoOurSpacesFor";
@@ -11,6 +12,7 @@ function Spaces() {
         <GrowYourBusinessSection />
         <WhoOurSpacesFor />
         <WhyProfessionalsChooseUs />
+        <AvailableOffices />
         <EvolveEcosystem />
       </div>
       <div className="md:hidden">Home Mobile</div>

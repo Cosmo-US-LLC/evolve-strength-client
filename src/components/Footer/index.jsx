@@ -124,7 +124,7 @@ function Footer() {
                     FAQs
                   </a>
                   <a
-                    href="#"
+                    href="/contact-us"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Contact Us
