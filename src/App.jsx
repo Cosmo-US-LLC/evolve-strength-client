@@ -14,6 +14,7 @@ import Spaces from "./pages/Spaces";
 import ContactUs from "./pages/ContactUs";
 import PersonalTraning from "./pages/PersonalTraining";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import MembershipBenefits from "./pages/MembershipBenefits";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/wellness" element={<Wellness />} />
           <Route path="/franchise" element={<Franchise />} />
           <Route path="/spaces" element={<Spaces />} />
+          <Route path="/membership-benefits" element={<MembershipBenefits />} />
 
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/faqs" element={<FrequentlyAskedQuestions />} />
