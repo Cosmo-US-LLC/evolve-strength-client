@@ -31,7 +31,7 @@ function App() {
 
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/faqs" element={<FAQs />} />
-          <Route path="/terms-of-conditions" element={<TermsAndConditions />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="/personal-training" element={<PersonalTraning />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Route>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Instagram, ArrowRight } from "lucide-react";
-import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo.svg";
+import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo-w.webp";
 import { HashLink as Link } from "react-router-hash-link";
 import ESFLogo from "../../assets/images/home/footer/Evolve-Strength-footer-Logo.svg";
 // import { ReactComponent as ESFLogo } from "../../assets/images/home/footer/Evolve-Strength-footer-Logo.svg";
@@ -18,7 +18,7 @@ function Footer() {
                   to="/"
                   className="flex items-center"
                   onClick={(e) => {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    // window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
                 >
                   <img
@@ -195,7 +195,7 @@ function Footer() {
           </span>
           <Link
             smooth
-            to="/terms-of-conditions"
+            to="/terms-and-conditions"
             className="footer_quick_links text-[#6F6D66] hover:text-[#ffffff]"
           >
             Terms of Service
