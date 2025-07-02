@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";
 import "./styles.css";
-import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo.svg";
+import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo-w.webp";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,7 +28,13 @@ function Navbar() {
           <nav
             className={`navbarWrapper fixed top-0 w-full  ${
               scrolled ? "scrolled" : ""
-            } ${currentPath === "/spaces" ? "!bg-[#000]" : ""}`}
+            }  ${
+              currentPath === "/spaces" || 
+              currentPath === "/privacy-policy" ||
+              currentPath === "/terms-of-conditions"
+                ? "!bg-[#000]"
+                : ""
+            }`}
           >
             <div className="max-w-[1280px] w-full h-full mx-auto px-8 flex items-center justify-between">
               <Link smooth to="/" className="flex items-center">
@@ -87,13 +93,6 @@ function Navbar() {
                 >
                   Franchise
                 </Link>
-                 {/* <Link
-                  smooth
-                  to="/spaces"
-                  className="navBarLinks text-[#F8F8F8]"
-                >
-                  Spaces
-                </Link> */}
               </div>
               <div className="flex items-center">
                 <button className="btnSecondary">Book a Free Tour</button>
