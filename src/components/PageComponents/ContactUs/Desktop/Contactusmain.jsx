@@ -7,8 +7,6 @@ function Contactusmain() {
         <div className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-14">
             
       
-      {/* LEFT: LOCATIONS */}
-      
       <div className="">
   <h2 className="text-[#4AB04A] font-bold text-lg mb-4">OUR LOCATIONS</h2>
   <ul className="space-y-4 text-sm">
@@ -67,7 +65,7 @@ function Contactusmain() {
       </div>
     </li>
     <li>
-       <h3 className="font-bold text-base">Burnaby Brentwood</h3>
+       <h3 className=" ">Burnaby Brentwood</h3>
       <div className="  flex justify-between description  !font-[Kanit] !font-[300] !text-[14px]">
          
         <span className="w-[409px] h-[21px]">1920 Willingdon Ave #3105 Burnaby, British Columbia, V5C 0K3</span>
@@ -80,6 +78,7 @@ function Contactusmain() {
       <div className="  flex justify-between description  !font-[Kanit] !font-[300] !text-[14px]">
          
         <span className="w-[409px] h-[21px]">658 Homer St Vancouver, British Columbia, V6B 2R4</span>
+         <div className="] h-[21px]">-------------</div>
         
         
       </div>
@@ -87,6 +86,25 @@ function Contactusmain() {
    
   </ul>
 </div>
+ {/* RIGHT: FORM */}
+      <div className=" w-[664px] p-[32px_30px] items-center gap-[10px] rounded-[16px] bg-[#F7F5F5]">
+        <h3 className="font-bold mb-4 text-center">SEND US A MESSAGE</h3>
+        <form className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="text" placeholder="First Name" className=" bg-[#FFF] border p-2 rounded w-full" />
+            <input type="text" placeholder="Last Name" className="bg-[#FFF] border p-2 rounded w-full" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="email" placeholder="Email Address" className="bg-[#FFF] border p-2 rounded w-full" />
+            <input type="tel" placeholder="Phone Number" className="bg-[#FFF] border p-2 rounded w-full" />
+          </div>
+          <input type="text" placeholder="Location" className="bg-[#FFF] border p-2 rounded w-full" />
+          <textarea placeholder="Type your message here.." className="bg-[#FFF] border p-2 rounded w-full h-[300px]"></textarea>
+          <button type="submit" className=" bg-[#4AB04A] hover:bg-green-700 text-white w-full py-2 rounded">
+            SUBMIT NOW
+          </button>
+        </form>
+      </div>
 
 
         </div>

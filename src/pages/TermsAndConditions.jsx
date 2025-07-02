@@ -44,57 +44,62 @@ function TermsAndConditions() {
         <div className="max-w-[1280px] px-8 pb-[80px] mx-auto w-full h-full mt-30 bg-white text-black flex flex-col md:flex-row md:gap-[24px] p-6 md:p-12">
 
           {/* Sidebar */}
-          <aside className="flex flex-col w-[300px] py-[10px] gap-[10px] items-start">
-            <nav>
-              <ul className="space-y-2 leading-normal">
-                <li className="flex items-center gap-2.5">
-                  {activeId === "introduction" && (
-                    <span className="block w-1 h-5 bg-[#4AB04A] transition-all duration-300"></span>
-                  )}
-                  <button
-                    onClick={() => handleScroll("introduction")}
-                    className={`font-[Kanit] text-[16px] text-left ${
-                      activeId === "introduction" ? "text-[#4AB04A]" : "text-black"
-                    }`}
-                  >
-                    Terms And Conditions
-                  </button>
-                </li>
+         <aside className="flex flex-col w-[300px] py-[10px] gap-[10px] items-start fixed bg-white">
+  <nav>
+    <ul className="space-y-2 leading-normal">
+      <li className="flex items-center gap-2.5">
+        <span
+          className={`block w-1 h-5 bg-[#4AB04A] transition-all duration-300 ${
+            activeId === "introduction" ? "opacity-100" : "opacity-0"
+          }`}
+        />
+        <button
+          onClick={() => handleScroll("introduction")}
+          className={`font-[Kanit] text-[16px] text-left transition-colors duration-300 ${
+            activeId === "introduction" ? "text-[#4AB04A]" : "text-black"
+          }`}
+        >
+          Terms And Conditions
+        </button>
+      </li>
 
-                {[
-                  { id: "physician", label: "Physician" },
-                  { id: "facility-policy", label: "Facility Use Policy" },
-                  { id: "children", label: "Children" },
-                  { id: "membership", label: "Membership" },
-                  { id: "membership-info", label: "Membership Information" },
-                  { id: "entitlements", label: "Entitlements" },
-                  { id: "changes", label: "Changes" },
-                  { id: "providers", label: "Independent Service Providers" },
-                  { id: "fees", label: "Fees and Payment" },
-                  { id: "freezes", label: "Freezes and Cancellation" },
-                  { id: "email", label: "Email Notices" },
-                  { id: "changes-agreement", label: "Changes to this Agreement" },
-                  { id: "other-provisions", label: "Other Provisions" },
-                ].map((item) => (
-                  <li key={item.id} className="flex items-center gap-2.5">
-                    {activeId === item.id && (
-                      <span className="block w-1 h-5 bg-[#4AB04A] transition-all duration-300"></span>
-                    )}
-                    <button
-                      onClick={() => handleScroll(item.id)}
-                      className={`font-[Kanit] text-[16px] text-left ${
-                        activeId === item.id ? "text-[#4AB04A]" : "text-black"
-                      }`}
-                    >
-                      {item.label}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </aside>
+      {[
+        { id: "physician", label: "Physician" },
+        { id: "facility-policy", label: "Facility Use Policy" },
+        { id: "children", label: "Children" },
+        { id: "membership", label: "Membership" },
+        { id: "membership-info", label: "Membership Information" },
+        { id: "entitlements", label: "Entitlements" },
+        { id: "changes", label: "Changes" },
+        { id: "providers", label: "Independent Service Providers" },
+        { id: "fees", label: "Fees and Payment" },
+        { id: "freezes", label: "Freezes and Cancellation" },
+        { id: "email", label: "Email Notices" },
+        { id: "changes-agreement", label: "Changes to this Agreement" },
+        { id: "other-provisions", label: "Other Provisions" },
+      ].map((item) => (
+        <li key={item.id} className="flex items-center gap-2.5">
+          <span
+            className={`block w-1 h-5 bg-[#4AB04A] transition-all duration-300 ${
+              activeId === item.id ? "opacity-100" : "opacity-0"
+            }`}
+          />
+          <button
+            onClick={() => handleScroll(item.id)}
+            className={`font-[Kanit] text-[16px] text-left transition-colors duration-300 ${
+              activeId === item.id ? "text-[#4AB04A]" : "text-black"
+            }`}
+          >
+            {item.label}
+          </button>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</aside>
+
          {/* Main Content */}
-          <main className="w-3/4 pl-6 space-y-6 text-sm">
+          <main className="w-full md:ml-[300px] pl-6 space-y-6 text-sm ">
 
             <section id="introduction" className="self-stretch">
   <h2 className="w-[916px] min-h-[39px] font-bold mb-2 text-black font-kanit text-[18px] leading-normal">
@@ -103,7 +108,8 @@ function TermsAndConditions() {
   <h3 className="w-[916px] min-h-[30px] font-semibold mb-2 text-black font-kanit text-[18px] leading-normal">
     Introduction
   </h3>
-  <ul className="w-[916px] min-h-[573px] list-disc pl-5 space-y-2 text-black font-kanit text-[18px]  leading-normal">
+
+  <ul className="w-[916px] min-h-[573px] list-disc pl-5 space-y-2 text-[#000] font-[kanit] text-[18px] !font-[300]  leading-normal">
     <li>
       By becoming a member of an Evolve Strength fitness facility you agree to abide by the terms and conditions of this agreement (the “Agreement”). You acknowledge that at the time you signed up to become a member you were provided with access to this Agreement and were given time to review it. As well, a copy of this Agreement was or will be emailed to you.
     </li>
@@ -142,7 +148,7 @@ function TermsAndConditions() {
 
          <section id="physician" className="space-y-2">
   <h3 className="!text-xl font-semibold mb-2">Physician</h3>
-  <ul  className="w-[916px] min-h-[162px] list-disc pl-5 space-y-2 text-black font-kanit text-[18px]  leading-normal">
+  <ul  className="w-[916px] min-h-[162px] list-disc pl-5 space-y-2 text-black font-kanit !text-[18px]  leading-normal">
     <li>
       Evolve strongly encourages you to consult with your physician prior to engaging in any type of physical activity or exercise within any Facility and to consult with your physician on an ongoing basis with respect to such physical activity and exercise.
    
