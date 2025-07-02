@@ -9,8 +9,8 @@ function TermsAndConditions() {
       introduction: 100,
       physician: 80,
       "facility-policy": 90,
-      children: 70,
-      membership: 120,
+      children: 0,
+      membership: 100,
       "membership-info": 120,
       entitlements: 130,
       changes: 190,
@@ -120,17 +120,17 @@ function TermsAndConditions() {
 
             <div  className="flex flex-col gap-4">
              
-  <h1 id="introduction" className="!text-[40px]">
+  <h1 id="introduction" className="!text-[40px] !font-[700]">
     Terms and Conditions
   </h1>
   </div>
 
   <div>
-  <h3 className="">
+  <h3 className="!text-[20px] font-Kanit leading-normal">
     Introduction
   </h3>
 
-  <ul className=" list-disc pl-5 ">
+  <ul className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 !text-[18px]">
     <li>
       By becoming a member of an Evolve Strength fitness facility you agree to abide by the terms and conditions of this agreement (the “Agreement”). You acknowledge that at the time you signed up to become a member you were provided with access to this Agreement and were given time to review it. As well, a copy of this Agreement was or will be emailed to you.
     </li>
@@ -145,7 +145,7 @@ function TermsAndConditions() {
     </li>
     <li>
       In this Agreement:
-      <ul className="list-disc pl-5 ">
+      <ul className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 !text-[18px] ">
         <li>
           “Operator” means the operator of the Facility to which you are a member, which may also be the owner of the Facility; and
         </li>
@@ -168,8 +168,8 @@ function TermsAndConditions() {
 
 
          <div id="physician"  className="flex flex-col gap-4">
-  <h3 className="">Physician</h3>
-  <ul  className="list-disc pl-5">
+  <h3 className="!text-[20px] font-Kanit leading-normal">Physician</h3>
+  <ul  className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 !text-[18px]">
     <li>
       Evolve strongly encourages you to consult with your physician prior to engaging in any type of physical activity or exercise within any Facility and to consult with your physician on an ongoing basis with respect to such physical activity and exercise.
    
@@ -179,8 +179,8 @@ function TermsAndConditions() {
 </div>
 
            <div id="facility-policy"  className="flex flex-col gap-4">
-  <h3 className="">Facility Use Policy</h3>
-  <ul className="">
+  <h3 className="!text-[20px] font-Kanit leading-normal">Facility Use Policy</h3>
+  <ul className="leading-normal text-[#000] !font-[kanit] font-[300] !text-[18px]">
     <li>
       The facility use policy (the “Facility Use Policy”) sets out certain rules of conduct that must be followed by each member that uses a Facility. The Facility Use Policy can be found at the reception of each Facility. The Facility Use Policy is intended to help ensure that each Facility operates in a safe manner and in a manner that is satisfactory to members. You agree to comply with the Facility Use Policy of each Facility you are using. If you fail to comply with the Facility Use Policy, then your entitlements may be affected, including your membership may be terminated. The Facility Use Policy may be amended from time to time and you agree to comply with the same as amended following such amendment.
     </li>
@@ -191,8 +191,8 @@ function TermsAndConditions() {
 </div>
 
           <div id="children"  className="flex flex-col gap-4">
-  <h3 className="">Children</h3>
-  <ul  className=" list-disc pl-5 ">
+  <h3 className="!text-[20px] font-Kanit leading-normal">Children</h3>
+  <ul  className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 !text-[18px]">
     <li>
       Children under 14 years of age must be supervised by their parent or guardian or they must be participating in a class or being trained by a trainer at all times.
     
@@ -203,8 +203,8 @@ function TermsAndConditions() {
 
 
       <div id="membership-info"  className="flex flex-col gap-4">
-  <h3 className="">Membership </h3>
-  <ul  className=" list-disc pl-5">
+  <h3 className="!text-[20px] font-Kanit leading-normal">Membership </h3>
+  <ul  className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 !text-[18px]">
     <li>
       Membership InformationThere are a number of types of memberships, which may include:
     </li>
@@ -221,8 +221,8 @@ function TermsAndConditions() {
      <div/>
 
 <div id="membership"  className="flex flex-col gap-4">
-  <h3 className="">Membership Information</h3>
-  <ul  className="list-disc pl-5">
+  <h3 className="!text-[20px] font-Kanit leading-normal">Membership Information</h3>
+  <ul  className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 !text-[18px]">
     <li>
       As part of the membership process you are required to provide certain information. You agree to (a) provide true, accurate, current and complete information about yourself as requested, and (b) promptly update this information as required to keep it true, accurate, current and complete.
     </li>
@@ -232,8 +232,8 @@ function TermsAndConditions() {
 
 
            <div id="entitlements"  className="flex flex-col gap-4">
-  <h3 className="">Entitlements</h3>
-  <ul  className="list-disc pl-5 ">
+  <h3 className="!text-[20px] font-Kanit leading-normal">Entitlements</h3>
+  <ul  className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 !text-[18px] ">
     <li>
       Membership entitles you to:
       <ul className="list-disc pl-5">
@@ -247,11 +247,11 @@ function TermsAndConditions() {
   </ul>
 </div>
 <div id="changes" className="flex flex-col gap-4">
-  <h3 className="">Changes</h3>
-  <ul className=" list-disc pl-5 ">
+  <h3 className="!text-[20px] font-Kanit leading-normal">Changes</h3>
+  <ul className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 !text-[18px]">
     <li>
       For each Facility, the Operator of that Facility reserves the right to make changes at any time to:
-      <ul className="list-disc pl-5 ">
+      <ul className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 !text-[18px]">
         <li>The exercise equipment available;</li>
         <li>The services that are available; and</li>
         <li>The hours of operation.</li>
@@ -268,8 +268,8 @@ function TermsAndConditions() {
 
 
       <div id="providers"  className="flex flex-col gap-4">
-  <h3 className="">Independent Service Providers</h3>
-  <ul  className=" list-disc pl-5">
+  <h3 className="!text-[20px] font-Kanit leading-normal">Independent Service Providers</h3>
+  <ul  className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 !text-[18px]">
     <li>
       Each Facility may permit independent service providers to provide services at or through the Facility. Generally, all services, other than those necessary for the general operation of the Facility, are provided by independent service providers. The services of the independent service providers may include group fitness training, group exercise training, personal fitness training, personal exercise training, massage therapy, physiotherapy and acupuncture. While Evolve does minimally review the services of each independent service provider to ensure that they are the type of services that are appropriate for the Facility, Evolve does not, in any way, assess, review, verify or investigate the qualifications, competence or skills of the independent service provider nor the quality, safety or effectiveness of their services. You may use the services of the independent service providers solely at your own risk. Evolve will have no liability or obligation to you in connection with any of the services of any independent service provider, including, without limitation, any services of an independent service provider that results in injury or death. All services of an independent service provider are provided to you pursuant to a separate agreement between you and the independent service provider.
     </li>
@@ -277,8 +277,8 @@ function TermsAndConditions() {
 </div>
 
             <div id="fees"  className="flex flex-col gap-4">
-  <h3 className="">Fees and Payment</h3>
-  <ul  className="list-disc pl-5">
+  <h3 className="!text-[20px] font-Kanit leading-normal">Fees and Payment</h3>
+  <ul  className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 !text-[18px]">
     <li>
       The fees payable for your membership are set out at the reception of the Facility. Other amounts may be charged to your account as you may incur them through your use of the Facility and its related services and through your purchase of products from the Facility.
     </li>
@@ -293,7 +293,7 @@ function TermsAndConditions() {
     </li>
     <li>
       Your membership requires you to:
-      <ul className="list-disc pl-5">
+      <ul className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 !text-[18px]">
         <li>Pay all amounts when due;</li>
         <li>Ensure sufficient funds are available to cover all amounts due; and</li>
         <li>Advise in advance if your bank account or credit card is closed or changed.</li>
@@ -322,8 +322,8 @@ function TermsAndConditions() {
 
 
             <div id="freezes"  className="flex flex-col gap-4">
-  <h3 className="">Freezes and Cancellation</h3>
-  <ul  className=" list-disc pl-5">
+  <h3 className="!text-[20px] font-Kanit leading-normal">Freezes and Cancellation</h3>
+  <ul  className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 !text-[18px]">
     <li>
       A term membership of a year or longer may be put on hold for up to 180 days in a calendar year and a term membership shorter than a year may be put on hold for up to 60 days in a calendar year. You may freeze your account only once in a calendar year and a freeze may not be shorter than 14 days. You must follow and complete the published procedure to freeze your membership no less than 7 business days prior to the start of the freeze date. The freeze request must state both the freeze start date and reactivation date. If you do not provide sufficient notice, a timely stop to billing cannot be guaranteed. Provided sufficient notice is given, you will not be billed for your membership during the duration of the freeze. Billing will resume automatically at the end of the freeze. For greater certainty, the term of your membership will be extended by the length of each freeze.
     </li>
@@ -335,7 +335,7 @@ function TermsAndConditions() {
     </li>
     <li>
       Cancelling for Permanent Sickness or Permanent Physical Incapacity: If you wish to cancel a term membership due to permanent sickness or permanent physical incapacity, you are required to provide to the Operator with all of the following:
-      <ul className="list-disc pl-5">
+      <ul className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 !text-[18px]">
         <li>
           A written request for termination advising the nature of the illness or physical incapacity, outlining specifically how this prevents you from utilizing any of the services or equipment at the Facility; and
         </li>
@@ -346,7 +346,7 @@ function TermsAndConditions() {
     </li>
     <li>
       Cancellation by Evolve: Evolve reserves the right to terminate your membership on the occurrence of any of the following:
-      <ul className="list-disc pl-5">
+      <ul className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5">
         <li>Any failure to fully comply with the terms and conditions of this Agreement;</li>
         <li>Any failure to pay any amount when due, and such failure is not cured within 5 days of notice of the overdue amount;</li>
         <li>Any failure to fully comply with the Facilities Use Policy;</li>
@@ -361,7 +361,7 @@ function TermsAndConditions() {
 </div>
 <div id="email"  className="flex flex-col gap-4">
   <h3 className="">Email Notices</h3>
-  <ul className=" list-disc pl-5">
+  <ul className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 !text-[18px]">
     <li>
       Any notice, direction or other communication given to you regarding the matters contemplated by this Agreement may be given at the email address you provided during the registration process or if you should replace that email address within our systems, to the replacement email address.
     </li>
@@ -373,7 +373,7 @@ function TermsAndConditions() {
 
 <div id="changes-agreement"  className="flex flex-col gap-4">
   <h3 className="">Changes to this Agreement</h3>
-  <ul  className=" list-disc pl-5 space-y-2">
+  <ul  className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 space-y-2 !text-[18px]">
     <li>
       Evolve may amend this Agreement at any time. The amendments may include, without limitation, adding to, deleting from or modifying any of the provisions in this Agreement. Evolve will provide notice to you of the amended Agreement. The amended Agreement will automatically be effective 30 days following such notice. Your use of any Facility following such notice period mean that you accept the terms of this Agreement as amended. If you do not agree with any of the terms or conditions in the amended Agreement then you agree to immediately cease all use of the Facilities and to immediately cancel your membership, which shall be your sole recourse and remedy in the event you are dissatisfied with the amended Agreement. If you immediately cancel your membership on notice of the amendment, you will not be liable for any future membership fees following such cancellation. This Agreement may not be amended other than as described in Section 43.
     </li>
@@ -381,7 +381,7 @@ function TermsAndConditions() {
 </div>
 <div id="other-provisions" className="space-y-2">
   <h3 className="">Other Provisions</h3>
-  <ul className=" list-disc pl-5 space-y-2">
+  <ul className="leading-normal text-[#000] !font-[kanit] font-[300] list-disc pl-5 space-y-2!text-[18px]">
     <li>
       <span className="font-semibold">Interpretation:</span> In this Agreement unless the contrary intention appears: (i) the singular includes the plural and vice versa; and (ii) a reference to a party includes that party’s legal personal representative heirs and assigns.
     </li>
