@@ -9,11 +9,12 @@ import Wellness from "./pages/Wellness";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Franchise from "./pages/Franchise";
 import Explore from "./pages/Explore";
-import FrequentlyAskedQuestions from "./pages/FrequentlyAskedQuestions";
 import Spaces from "./pages/Spaces";
 import ContactUs from "./pages/ContactUs";
 import PersonalTraning from "./pages/PersonalTraining";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import MembershipBenefits from "./pages/MembershipBenefits";
+import FAQs from "./pages/FrequentlyAskedQuestions";
 
 function App() {
   return (
@@ -26,9 +27,10 @@ function App() {
           <Route path="/wellness" element={<Wellness />} />
           <Route path="/franchise" element={<Franchise />} />
           <Route path="/spaces" element={<Spaces />} />
+          <Route path="/membership-benefits" element={<MembershipBenefits />} />
 
           <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/faqs" element={<FrequentlyAskedQuestions />} />
+          <Route path="/faqs" element={<FAQs />} />
           <Route path="/terms-of-conditions" element={<TermsAndConditions />} />
           <Route path="/personal-training" element={<PersonalTraning />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
