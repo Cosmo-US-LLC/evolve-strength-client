@@ -18,7 +18,7 @@ import React from "react";
           <span>+1 (780) 589-7852</span>
         </div>
         <div className="flex items-center gap-1">
-          <span><img src="src/assets/images/ContactUs/fluent_building-16-filled.svg" alt="" /></span>
+          <span><img src="" alt="" /></span>
           <span>info@evolvestrength.com</span>
         </div>
       </div>
