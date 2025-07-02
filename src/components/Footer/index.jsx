@@ -124,18 +124,20 @@ function Footer() {
                   >
                     Careers
                   </a>
-                  <a
-                    href="/faqs"
+                  <Link
+                    smooth
+                    to="/faqs"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     FAQs
-                  </a>
-                  <a
-                    href="/contact-us"
+                  </Link>
+                  <Link
+                    smooth
+                    to="/contact-us"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Contact Us
-                  </a>
+                  </Link>
                   <Link
                     smooth
                     to="/spaces"
@@ -181,21 +183,23 @@ function Footer() {
       </div>
       <div className="bg-[#000000]">
         <div className="max-w-[1280px] px-8 py-6 mx-auto w-full flex justify-between items-center">
-          <a
-            href="privacy-policy"
+          <Link
+            smooth
+            to="privacy-policy"
             className="footer_quick_links text-[#6F6D66] hover:text-[#ffffff]"
           >
             Privacy Policy
-          </a>
+          </Link>
           <span className="footer_quick_links text-[#6F6D66]">
             Copyright © 2025 Evolve Strength
           </span>
-          <a
-            href="/terms-of-conditions"
+          <Link
+            smooth
+            to="/terms-of-conditions"
             className="footer_quick_links text-[#6F6D66] hover:text-[#ffffff]"
           >
             Terms of Service
-          </a>
+          </Link>
         </div>
       </div>
     </>

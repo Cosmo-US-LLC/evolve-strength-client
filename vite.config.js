@@ -9,8 +9,8 @@ export default defineConfig({
   theme: {
     extend: {
       fontFamily: {
-        kanit: ["Kanit", "sans-serif"],
-        vazir: ["Vazirmatn", "sans-serif"],
+        Kanit: ["Kanit"],
+        vazirmatn: ["Vazirmatn"],
       },
     },
   },
