@@ -4,7 +4,7 @@ function Contactusmain() {
   return (
      
     <div className="max-w-[1280px] px-8 pb-[135px] mx-auto w-full h-full">
-        <div className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-14">
+        <div className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-14 justify-center ">
             
       
       <div className="">
@@ -87,7 +87,7 @@ function Contactusmain() {
   </ul>
 </div>
  {/* RIGHT: FORM */}
-      <div className=" w-[664px] p-[32px_30px] items-center gap-[10px] rounded-[16px] bg-[#F7F5F5]">
+      <div className=" w-auto p-[32px_30px] items-center gap-[10px] rounded-[16px] bg-[#F7F5F5]">
         <h3 className="font-bold mb-4 text-center">SEND US A MESSAGE</h3>
         <form className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
