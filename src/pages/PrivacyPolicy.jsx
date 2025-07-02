@@ -20,7 +20,7 @@ function PrivacyPolicy() {
         <div className="max-w-[1280px] px-8 pb-[80px] mx-auto w-full h-full mt-30 bg-white text-black flex flex-col md:flex-row md:gap-[24px] p-6 md:p-12">
 
           {/* Sidebar */}
-          <aside className="flex flex-col w-[300px] py-[10px] gap-[10px] items-start">
+          <aside className="flex flex-col w-[300px] py-[10px] gap-[10px] items-start fixed  bg-white">
             <nav>
               <ul className="space-y-2 leading-normal">
                 <li className="flex items-center gap-2.5">
@@ -67,16 +67,16 @@ function PrivacyPolicy() {
             </nav>
           </aside>
           {/* Main Content */}
-          <main className="w-3/4 pl-6 space-y-6 text-sm">
+          <main className="w-full md:ml-[300px] pl-6 space-y-6 text-sm">
             <h2 id="information" className="text-2xl font-bold mb-6">Privacy Policy</h2>
 
             <section>
               <h3 className="text-xl font-semibold mb-2">Information We Collect</h3>
-              <p id="collect-p" className="w-[916px] mb-6   space-y-2 text-black font-kanit text-[18px]  leading-normal">
+              <h4 id="collect-p" className="w-[916px] mb-6   space-y-2 text-black  !text-[18px]  leading-normal">
                 When you visit the Evolve Strength website, we automatically collect information through cookies and similar tracking technologies. This includes your IP address, device type, browser type, operating system, the pages you visit, the duration of your visits, and the website you visited immediately before ours. This data helps us understand how visitors use our site and improve your experience.
                 <br /><br />
                 We also collect personal information that you voluntarily provide when you contact us, sign up for newsletters, or fill out forms on our website. This may include your name, email address, and any other details you choose to share. We use this information solely to respond to your requests and provide the services you ask for.
-              </p>
+              </h4>
             </section>
 
             <section>
