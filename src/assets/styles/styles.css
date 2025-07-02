@@ -16,7 +16,6 @@
   height: 700px;
 }
 
-
 /* wellness transition start */
 .wellnessHeroSection {
   background-image: url("/src/assets/images/wellness/wellnessHero/wellnessHero.webp");
@@ -56,10 +55,9 @@
 
 /* wellness transition end */
 
-
 /* MembershipBenefitsHero start */
 .MembershipBenefitsHeroBG {
-  background-image: url("/src/assets/images/membershipBenefits/membership_benefits_hero/membership_benefits_BG.webp");
+  background-image: url("@/assets/images/MembershipBenefits/membership_benefits_hero/membership_benefits_BG.webp");
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -68,7 +66,7 @@
 }
 
 .ReadyToEvolveBG {
-  background-image: url("/src/assets/images/membershipBenefits/ReadyToEvolve/ReadyToEvolveBG.webp");
+  background-image: url("@/assets/images/MembershipBenefits/ReadyToEvolve/ReadyToEvolveBG.webp");
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
