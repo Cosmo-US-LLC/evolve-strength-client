@@ -28,8 +28,7 @@ function TermsAndConditions() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
       const elMiddleY = rect.top + scrollTop + rect.height / 2;
-      const viewportMiddleY = window.innerHeight / 2;
-      const targetY = elMiddleY - viewportMiddleY - (offsets[id] || 100);
+      const targetY = rect.top + scrollTop - (offsets[id] || 100);
 
       window.scrollTo({
         top: targetY,
@@ -42,9 +41,9 @@ function TermsAndConditions() {
     <div>
       <div className="max-md:hidden">
         <div className="max-w-[1280px] px-8 pb-[80px] mx-auto w-full h-full mt-30 bg-white text-black flex flex-col md:flex-row md:gap-[24px] p-6 md:p-12">
-
+       <div className="relative flex">
           {/* Sidebar */}
-         <aside className="flex flex-col w-[300px] py-[10px] gap-[10px] items-start fixed bg-white">
+   <aside className="flex flex-col w-[300px] py-[10px] gap-[10px] items-start fixed bg-white">
   <nav>
     <ul className="space-y-2 leading-normal">
       <li className="flex items-center gap-2.5">
@@ -53,13 +52,28 @@ function TermsAndConditions() {
             activeId === "introduction" ? "opacity-100" : "opacity-0"
           }`}
         />
-        <button
-          onClick={() => handleScroll("introduction")}
+        <span
           className={`font-[Kanit] text-[16px] text-left transition-colors duration-300 ${
             activeId === "introduction" ? "text-[#4AB04A]" : "text-black"
           }`}
         >
           Terms And Conditions
+        </span>
+      </li>
+
+      <li className="flex items-center gap-2.5">
+        <span
+          className={`block w-1 h-5 bg-[#4AB04A] transition-all duration-300 ${
+            activeId === "intro-section" ? "opacity-100" : "opacity-0"
+          }`}
+        />
+        <button
+          onClick={() => handleScroll("intro-section")}
+          className={`font-[Kanit] text-[16px] text-left transition-colors duration-300 ${
+            activeId === "intro-section" ? "text-[#4AB04A]" : "text-black"
+          }`}
+        >
+          Introduction
         </button>
       </li>
 
@@ -98,18 +112,25 @@ function TermsAndConditions() {
   </nav>
 </aside>
 
+
+
+
          {/* Main Content */}
           <main className="w-full md:ml-[300px] pl-6 space-y-6 text-sm ">
 
-            <section id="introduction" className="self-stretch">
-  <h2 className="w-[916px] min-h-[39px] font-bold mb-2 text-black font-kanit text-[18px] leading-normal">
+            <div  className="flex flex-col gap-4">
+             
+  <h1 id="introduction" className="!text-[40px]">
     Terms and Conditions
-  </h2>
-  <h3 className="w-[916px] min-h-[30px] font-semibold mb-2 text-black font-kanit text-[18px] leading-normal">
+  </h1>
+  </div>
+
+  <div>
+  <h3 className="">
     Introduction
   </h3>
 
-  <ul className="w-[916px] min-h-[573px] list-disc pl-5 space-y-2 text-[#000] font-[kanit] text-[18px] !font-[300]  leading-normal">
+  <ul className=" list-disc pl-5 ">
     <li>
       By becoming a member of an Evolve Strength fitness facility you agree to abide by the terms and conditions of this agreement (the “Agreement”). You acknowledge that at the time you signed up to become a member you were provided with access to this Agreement and were given time to review it. As well, a copy of this Agreement was or will be emailed to you.
     </li>
@@ -124,7 +145,7 @@ function TermsAndConditions() {
     </li>
     <li>
       In this Agreement:
-      <ul className="list-disc pl-5 space-y-1">
+      <ul className="list-disc pl-5 ">
         <li>
           “Operator” means the operator of the Facility to which you are a member, which may also be the owner of the Facility; and
         </li>
@@ -143,23 +164,23 @@ function TermsAndConditions() {
       Depending on the type of membership, this Agreement permits the Operator to automatically charge your bank account or credit card for amounts due. This is detailed below in the section entitled “Fees and Payment”.
     </li>
   </ul>
-</section>
+</div>
 
 
-         <section id="physician" className="space-y-2">
-  <h3 className="!text-xl font-semibold mb-2">Physician</h3>
-  <ul  className="w-[916px] min-h-[162px] list-disc pl-5 space-y-2 text-black font-kanit !text-[18px]  leading-normal">
+         <div id="physician"  className="flex flex-col gap-4">
+  <h3 className="">Physician</h3>
+  <ul  className="list-disc pl-5">
     <li>
       Evolve strongly encourages you to consult with your physician prior to engaging in any type of physical activity or exercise within any Facility and to consult with your physician on an ongoing basis with respect to such physical activity and exercise.
    
       Evolve will have no liability to you in the event you (i) do not consult with your physician as described, (ii) you fail to follow your physician’s recommendations, or (iii) your physician fails to uncover any medical condition that you may have which may pose any type of medical risk in connection with your physical activity and exercise.
     </li>
   </ul>
-</section>
+</div>
 
-           <section id="facility-policy" className="space-y-2">
-  <h3 className="!text-xl font-semibold mb-2">Facility Use Policy</h3>
-  <ul className="w-[916px] min-h-[216px] list-disc pl-5 space-y-2 text-black font-kanit text-[18px]  leading-normal">
+           <div id="facility-policy"  className="flex flex-col gap-4">
+  <h3 className="">Facility Use Policy</h3>
+  <ul className="">
     <li>
       The facility use policy (the “Facility Use Policy”) sets out certain rules of conduct that must be followed by each member that uses a Facility. The Facility Use Policy can be found at the reception of each Facility. The Facility Use Policy is intended to help ensure that each Facility operates in a safe manner and in a manner that is satisfactory to members. You agree to comply with the Facility Use Policy of each Facility you are using. If you fail to comply with the Facility Use Policy, then your entitlements may be affected, including your membership may be terminated. The Facility Use Policy may be amended from time to time and you agree to comply with the same as amended following such amendment.
     </li>
@@ -167,23 +188,23 @@ function TermsAndConditions() {
       You are also required to comply with any other rules of a Facility as posted at the Facility.
     </li>
   </ul>
-</section>
+</div>
 
-          <section id="children" className="space-y-2">
-  <h3 className="!text-xl font-semibold mb-2">Children</h3>
-  <ul  className="w-[916px] min-h-[81px] list-disc pl-5 space-y-2 text-black font-kanit text-[18px]  leading-normal">
+          <div id="children"  className="flex flex-col gap-4">
+  <h3 className="">Children</h3>
+  <ul  className=" list-disc pl-5 ">
     <li>
       Children under 14 years of age must be supervised by their parent or guardian or they must be participating in a class or being trained by a trainer at all times.
     
       Evolve reserves the right to remove any children and their parent/guardian for being disruptive within a Facility.
     </li>
   </ul>
-</section>
+</div>
 
 
-      <section id="membership-info" className="space-y-2">
-  <h3 className="!text-xl font-semibold mb-2">Membership </h3>
-  <ul  className="w-[916px] min-h-[135px] list-disc pl-5 space-y-2 text-black font-kanit text-[18px]  leading-normal">
+      <div id="membership-info"  className="flex flex-col gap-4">
+  <h3 className="">Membership </h3>
+  <ul  className=" list-disc pl-5">
     <li>
       Membership InformationThere are a number of types of memberships, which may include:
     </li>
@@ -197,25 +218,25 @@ function TermsAndConditions() {
       A term membership, where the member commits to pay for a membership for a specific term, such as a month or year.
     </li>
   </ul>
-<section/>
+     <div/>
 
-<section id="membership" className="space-y-2">
-  <h3 className="!text-xl font-semibold mb-2">Membership Information</h3>
-  <ul  className="w-[916px] min-h-[81px] list-disc pl-5 space-y-2 text-black font-kanit text-[18px]  leading-normal">
+<div id="membership"  className="flex flex-col gap-4">
+  <h3 className="">Membership Information</h3>
+  <ul  className="list-disc pl-5">
     <li>
       As part of the membership process you are required to provide certain information. You agree to (a) provide true, accurate, current and complete information about yourself as requested, and (b) promptly update this information as required to keep it true, accurate, current and complete.
     </li>
   </ul>
-</section>
-</section>
+</div>
+</div>
 
 
-           <section id="entitlements" className="space-y-2">
-  <h3 className="!text-xl font-semibold mb-2">Entitlements</h3>
-  <ul  className="w-[916px] min-h-[135px] list-disc pl-5 space-y-2 text-black font-kanit text-[18px]  leading-normal">
+           <div id="entitlements"  className="flex flex-col gap-4">
+  <h3 className="">Entitlements</h3>
+  <ul  className="list-disc pl-5 ">
     <li>
       Membership entitles you to:
-      <ul className="list-disc pl-5 space-y-1">
+      <ul className="list-disc pl-5">
         <li>Workout as many times as you wish during the term of your membership.</li>
         <li>The use of the exercise equipment located on the gym floor and in the cardiovascular training areas of a Facility.</li>
       </ul>
@@ -224,20 +245,40 @@ function TermsAndConditions() {
       There may be additional fees to access any other areas, facilities, equipment or services.
     </li>
   </ul>
-</section>
+</div>
+<div id="changes" className="flex flex-col gap-4">
+  <h3 className="">Changes</h3>
+  <ul className=" list-disc pl-5 ">
+    <li>
+      For each Facility, the Operator of that Facility reserves the right to make changes at any time to:
+      <ul className="list-disc pl-5 ">
+        <li>The exercise equipment available;</li>
+        <li>The services that are available; and</li>
+        <li>The hours of operation.</li>
+      </ul>
+    </li>
+    <li>
+      The group fitness timetables, including altering class type, times and instructors, may be changed by the relevant independent service provider at any time.
+    </li>
+    <li>
+      You acknowledge that from time to time certain equipment may not be available due to repairs and other reasons.
+    </li>
+  </ul>
+</div>
 
-      <section id="providers" className="space-y-2">
-  <h3 className="!text-xl font-semibold mb-2">Independent Service Providers</h3>
-  <ul  className="w-[916px] min-h-[216px] list-disc pl-5 space-y-2 text-black font-kanit text-[18px]  leading-normal">
+
+      <div id="providers"  className="flex flex-col gap-4">
+  <h3 className="">Independent Service Providers</h3>
+  <ul  className=" list-disc pl-5">
     <li>
       Each Facility may permit independent service providers to provide services at or through the Facility. Generally, all services, other than those necessary for the general operation of the Facility, are provided by independent service providers. The services of the independent service providers may include group fitness training, group exercise training, personal fitness training, personal exercise training, massage therapy, physiotherapy and acupuncture. While Evolve does minimally review the services of each independent service provider to ensure that they are the type of services that are appropriate for the Facility, Evolve does not, in any way, assess, review, verify or investigate the qualifications, competence or skills of the independent service provider nor the quality, safety or effectiveness of their services. You may use the services of the independent service providers solely at your own risk. Evolve will have no liability or obligation to you in connection with any of the services of any independent service provider, including, without limitation, any services of an independent service provider that results in injury or death. All services of an independent service provider are provided to you pursuant to a separate agreement between you and the independent service provider.
     </li>
   </ul>
-</section>
+</div>
 
-            <section id="fees" className="space-y-2">
-  <h3 className="text-xl font-semibold mb-2">Fees and Payment</h3>
-  <ul  className="w-[916px] min-h-[999px] list-disc pl-5 space-y-2 text-black font-kanit text-[18px]  leading-normal">
+            <div id="fees"  className="flex flex-col gap-4">
+  <h3 className="">Fees and Payment</h3>
+  <ul  className="list-disc pl-5">
     <li>
       The fees payable for your membership are set out at the reception of the Facility. Other amounts may be charged to your account as you may incur them through your use of the Facility and its related services and through your purchase of products from the Facility.
     </li>
@@ -252,7 +293,7 @@ function TermsAndConditions() {
     </li>
     <li>
       Your membership requires you to:
-      <ul className="list-disc pl-5 space-y-1">
+      <ul className="list-disc pl-5">
         <li>Pay all amounts when due;</li>
         <li>Ensure sufficient funds are available to cover all amounts due; and</li>
         <li>Advise in advance if your bank account or credit card is closed or changed.</li>
@@ -277,12 +318,12 @@ function TermsAndConditions() {
       All government taxes are in addition to and will be automatically added to all payments.
     </li>
   </ul>
-</section>
+</div>
 
 
-            <section id="freezes" className="space-y-2">
-  <h3 className="text-xl font-semibold mb-2">Freezes and Cancellation</h3>
-  <ul  className="w-[916px] min-h-[999px] list-disc pl-5 space-y-2 text-black font-kanit text-[18px]  leading-normal">
+            <div id="freezes"  className="flex flex-col gap-4">
+  <h3 className="">Freezes and Cancellation</h3>
+  <ul  className=" list-disc pl-5">
     <li>
       A term membership of a year or longer may be put on hold for up to 180 days in a calendar year and a term membership shorter than a year may be put on hold for up to 60 days in a calendar year. You may freeze your account only once in a calendar year and a freeze may not be shorter than 14 days. You must follow and complete the published procedure to freeze your membership no less than 7 business days prior to the start of the freeze date. The freeze request must state both the freeze start date and reactivation date. If you do not provide sufficient notice, a timely stop to billing cannot be guaranteed. Provided sufficient notice is given, you will not be billed for your membership during the duration of the freeze. Billing will resume automatically at the end of the freeze. For greater certainty, the term of your membership will be extended by the length of each freeze.
     </li>
@@ -294,7 +335,7 @@ function TermsAndConditions() {
     </li>
     <li>
       Cancelling for Permanent Sickness or Permanent Physical Incapacity: If you wish to cancel a term membership due to permanent sickness or permanent physical incapacity, you are required to provide to the Operator with all of the following:
-      <ul className="list-disc pl-5 space-y-1">
+      <ul className="list-disc pl-5">
         <li>
           A written request for termination advising the nature of the illness or physical incapacity, outlining specifically how this prevents you from utilizing any of the services or equipment at the Facility; and
         </li>
@@ -305,7 +346,7 @@ function TermsAndConditions() {
     </li>
     <li>
       Cancellation by Evolve: Evolve reserves the right to terminate your membership on the occurrence of any of the following:
-      <ul className="list-disc pl-5 space-y-1">
+      <ul className="list-disc pl-5">
         <li>Any failure to fully comply with the terms and conditions of this Agreement;</li>
         <li>Any failure to pay any amount when due, and such failure is not cured within 5 days of notice of the overdue amount;</li>
         <li>Any failure to fully comply with the Facilities Use Policy;</li>
@@ -317,10 +358,10 @@ function TermsAndConditions() {
       Upon such termination by Evolve, you are required to pay the remaining balance of your membership fees to the end of the current term of your membership, in full, as well as all amounts that are outstanding.
     </li>
   </ul>
-</section>
-<section id="email" className="space-y-2">
-  <h3 className="!text-xl font-semibold mb-2">Email Notices</h3>
-  <ul className="w-[916px] min-h-[189px] list-disc pl-5 space-y-2 text-black font-kanit text-[18px] leading-normal">
+</div>
+<div id="email"  className="flex flex-col gap-4">
+  <h3 className="">Email Notices</h3>
+  <ul className=" list-disc pl-5">
     <li>
       Any notice, direction or other communication given to you regarding the matters contemplated by this Agreement may be given at the email address you provided during the registration process or if you should replace that email address within our systems, to the replacement email address.
     </li>
@@ -328,19 +369,19 @@ function TermsAndConditions() {
       A notice is deemed to be given and received by you on the sending of the email. You will be deemed to have received the email even if it is undelivered. If your email address changes, you are responsible for updating your email address in your account. Further, you are responsible to ensure that your email account and email address are functioning at all times. You will bear all risks for failure to comply with the foregoing.
     </li>
   </ul>
-</section>
+</div>
 
-<section id="changes-agreement" className="space-y-2">
-  <h3 className="!text-xl font-semibold mb-2">Changes to this Agreement</h3>
-  <ul  className="w-[916px] min-h-[243px] list-disc pl-5 space-y-2 text-black font-kanit text-[18px]  leading-normal">
+<div id="changes-agreement"  className="flex flex-col gap-4">
+  <h3 className="">Changes to this Agreement</h3>
+  <ul  className=" list-disc pl-5 space-y-2">
     <li>
       Evolve may amend this Agreement at any time. The amendments may include, without limitation, adding to, deleting from or modifying any of the provisions in this Agreement. Evolve will provide notice to you of the amended Agreement. The amended Agreement will automatically be effective 30 days following such notice. Your use of any Facility following such notice period mean that you accept the terms of this Agreement as amended. If you do not agree with any of the terms or conditions in the amended Agreement then you agree to immediately cease all use of the Facilities and to immediately cancel your membership, which shall be your sole recourse and remedy in the event you are dissatisfied with the amended Agreement. If you immediately cancel your membership on notice of the amendment, you will not be liable for any future membership fees following such cancellation. This Agreement may not be amended other than as described in Section 43.
     </li>
   </ul>
-</section>
-<section id="other-provisions" className="space-y-2">
-  <h3 className="!text-xl font-semibold mb-2">Other Provisions</h3>
-  <ul className="w-[916px] min-h-[486px] list-disc pl-5 space-y-2 text-black font-kanit text-[18px]  leading-normal">
+</div>
+<div id="other-provisions" className="space-y-2">
+  <h3 className="">Other Provisions</h3>
+  <ul className=" list-disc pl-5 space-y-2">
     <li>
       <span className="font-semibold">Interpretation:</span> In this Agreement unless the contrary intention appears: (i) the singular includes the plural and vice versa; and (ii) a reference to a party includes that party’s legal personal representative heirs and assigns.
     </li>
@@ -360,11 +401,11 @@ function TermsAndConditions() {
       <span className="font-semibold">Governing Law:</span> This Agreement is governed by the laws of the province in which the Facility to which you are a member is located and the laws of Canada applicable therein.
     </li>
   </ul>
-</section>
+</div>
 
 
           </main>
-
+</div>
         </div>
       </div>
 
