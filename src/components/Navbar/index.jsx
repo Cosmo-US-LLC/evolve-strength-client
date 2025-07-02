@@ -31,7 +31,8 @@ function Navbar() {
             }  ${
               currentPath === "/spaces" || 
               currentPath === "/privacy-policy" ||
-              currentPath === "/terms-of-conditions"
+              currentPath === "/terms-of-conditions" ||
+              currentPath === "/faqs"
                 ? "!bg-[#000]"
                 : ""
             }`}
