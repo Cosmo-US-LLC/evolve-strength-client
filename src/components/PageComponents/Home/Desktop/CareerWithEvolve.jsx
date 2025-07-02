@@ -9,7 +9,7 @@ const tabData = {
     title: "PERSONAL TRAINER",
     image: personalTrainerImg,
     description:
-      "Build your own personal training business inside Canada’s most advanced fitness facility.",
+      "Build your own personal training business inside Canada's most advanced fitness facility.",
     points: [
       "Keep 100 Percent of What You Earn",
       "Work On Your Own Terms",
@@ -21,12 +21,12 @@ const tabData = {
     title: "WELLNESS EXPERT",
     image: wellnessExpertImg,
     description:
-      "Build your own personal training business inside Canada’s most advanced fitness facility.",
+      "Flexible office spaces for wellness professionals inside Canada’s largest fitness facilities.",
     points: [
-      "Grow your client base in our network",
-      "Leverage high-end facilities and branding",
-      "Customise your schedule",
-      "Receive platform and marketing support",
+      "Build Your Business in a Prime Location",
+      "Premium Amenities for You & Your Clients",
+      "All-Inclusive Office Setup",
+      "Connect with a Like-Minded Community",
     ],
   },
 };
@@ -48,14 +48,14 @@ const CareerWithEvolve = () => {
           <TabsList className="flex gap-0 bg-[#2E2E2E] h-[50px] rounded-[5px] p-1 mb-4">
             <TabsTrigger
               value="trainer"
-              className="data-[state=active]:bg-white data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all"
+              className="data-[state=active]:bg-white data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all duration-700 ease-in-out"
             >
               Personal Trainer
             </TabsTrigger>
 
             <TabsTrigger
               value="expert"
-              className="data-[state=active]:bg-white data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all"
+              className="data-[state=active]:bg-white data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all duration-700 ease-in-out"
             >
               Wellness Expert
             </TabsTrigger>
@@ -80,7 +80,11 @@ const CareerWithEvolve = () => {
                     {tab.points.map((point, idx) => (
                       <p
                         key={idx}
-                        className="flex pb-6 border-b border-[#FFFFFF] text-white"
+                        className={`flex pb-6 text-white ${
+                          idx !== tab.points.length - 1
+                            ? "border-b border-[#FFFFFF]"
+                            : ""
+                        }`}
                       >
                         {point}
                       </p>

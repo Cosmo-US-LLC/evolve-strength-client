@@ -2,18 +2,19 @@ import path from "path"
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import svgr from "@svgr/rollup";
 
 export default defineConfig({
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        kanit: ["Kanit", "sans-serif"],
-        vazir: ["Vazirmatn", "sans-serif"],
+        Kanit: ["Kanit"],
+        vazirmatn: ["Vazirmatn"],
       },
     },
   },
-  plugins: [react(), tailwindcss()],
+  plugins: [react(), tailwindcss(), svgr()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
