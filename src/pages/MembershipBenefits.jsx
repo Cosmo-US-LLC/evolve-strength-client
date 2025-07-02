@@ -1,5 +1,4 @@
 import React from "react";
-import Hero from "../components/PageComponents/Home/Desktop/Hero";
 import MembershipBenefitsHero from "@/components/PageComponents/MembershipBenefits/Desktop/MembershipBenefitsHero";
 
 function MembershipBenefits() {

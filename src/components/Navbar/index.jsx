@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";
 import "./styles.css";
-import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo.svg";
+import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo-w.webp";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
