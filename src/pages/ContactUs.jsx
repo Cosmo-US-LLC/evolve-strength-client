@@ -7,7 +7,7 @@ function ContactUs() {
   return (
     <div>
       <div className="max-md:hidden">
-        {<ContactHero/> }
+        <ContactHero/> 
         <ContactIntro/>
         <Contactusmain/>
         
