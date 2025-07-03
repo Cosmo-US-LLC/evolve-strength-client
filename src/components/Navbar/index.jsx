@@ -29,10 +29,11 @@ function Navbar() {
             className={`navbarWrapper fixed top-0 w-full  ${
               scrolled ? "scrolled" : ""
             }  ${
-              currentPath === "/spaces" || 
+              currentPath === "/spaces" ||
               currentPath === "/privacy-policy" ||
               currentPath === "/terms-of-conditions" ||
-              currentPath === "/faqs"
+              currentPath === "/faqs" ||
+              currentPath === "/franchise"
                 ? "!bg-[#000]"
                 : ""
             }`}
