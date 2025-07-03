@@ -42,6 +42,10 @@ export const faqMain = {
     },
      {
       question:"Are there locker rooms and showers?",
+      answer:"Yes. All Evolve locations have locker rooms and showers for your convenience.",
+    },
+     {
+      question:"Is parking available?",
       answer:"Yes. On-site parking is available at all locations.",
     },
      {
