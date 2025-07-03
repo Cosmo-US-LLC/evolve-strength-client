@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -72,7 +71,6 @@
 
 .benefit-img-fade {
   opacity: 1;
- 
 }
 .benefit-img-fade.hide {
   opacity: 1;
@@ -99,3 +97,87 @@
 }
 
 /* WELLNESS HUB end */
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+@keyframes growLine {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+.vertical-line-animated {
+  animation: growLine 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.blinking-step-id {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink-once {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  60% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.2;
+  }
+  80% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.2;
+  }
+}
+
+.blinking-step-id-once {
+  animation: blink-once 4s linear 1;
+}
+
+.embla__container {
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
