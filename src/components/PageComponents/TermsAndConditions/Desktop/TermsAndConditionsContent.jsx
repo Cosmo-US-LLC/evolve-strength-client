@@ -25,9 +25,9 @@ const TermsAgreementContent = ({ termsMain }) => {
               <li>
                 <button
                   onClick={() => handleScroll('terms-agreement')}
-                  className={`text-left !font-[kanit] block w-fullcursor-pointer  ${
+                  className={`text-left  !font-[kanit] block w-fullcursor-pointer  ${
                     activeId === 'terms-agreement'
-                      ? 'text-[#4AB04A] gap- border-l-3 border-[#4AB04A] pl-2'
+                      ? 'text-[#4AB04A] pr-2 gap- border-l-3 border-[#4AB04A] pl-2'
                       : 'text-black'
                   }`}
                 >
@@ -36,16 +36,16 @@ const TermsAgreementContent = ({ termsMain }) => {
               </li>
             </ul>
 
-            <ul className=" scroll-smooth !font-[kanit] space-y-[10px]">
+            <ul className="pl-5 scroll-smooth !font-[kanit] space-y-[16px]">
               {termsMain.map((section) => (
                 <li key={section.id}>
                   <button
                     onClick={() => handleScroll(section.id)}
                     className={`block w-full text-left  cursor-pointer ${
                       activeId === section.id
-                        ? 'text-[#4AB04A] border-l-3 border-[#4AB04A] pl-2'
+                        ? 'text-[#4AB04A] border-l-3  border-[#4AB04A] pl-2'
                         : 'text-black'
-                    } hover:bg-gray-100`}
+                    }`}
                   >
                     {section.h1}
                   </button>

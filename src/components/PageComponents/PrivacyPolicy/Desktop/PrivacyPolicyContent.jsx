@@ -7,11 +7,11 @@ const PrivacyPolicyContant = ({ privacyMain }) => {
   const handleScroll = (id) => {
     const el = document.getElementById(id);
     if (el) {
-      const yOffset = -100; // Adjust this based on your sticky top offset
+      const yOffset = -100; 
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
       window.scrollTo({ top: y, behavior: 'smooth' });
-      setActiveId(id); // set the active button
+      setActiveId(id); 
     }
   };
 
@@ -38,7 +38,7 @@ const PrivacyPolicyContant = ({ privacyMain }) => {
               </li>
             </ul>
 
-            <ul className=" scroll-smooth !font-[kanit] space-y-[10px]">
+            <ul className="pl-3 scroll-smooth !font-[kanit] space-y-[10px]">
               {privacyMain.map((section) => (
                 <li key={section.id}>
                   <button
