@@ -81,7 +81,7 @@ function Footer() {
               <div className=" flex flex-row gap-[130px] py-8">
                 <div className="space-y-3 flex flex-col">
                   <a
-                    href="#"
+                    href="/about-us"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     About Us
