@@ -85,7 +85,7 @@
 }
 .AboutUsHero{
   background-image: url("src/assets/images/AboutUs/about_us_hero.webp");
-
+}
 /* Join As Trainer */
 .Whatyouearn {
   background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (3).webp");
@@ -94,7 +94,6 @@
   background-repeat: no-repeat;
   width: 100%;
   height: 700px;
-}
 }
 .Youkeepfull {
   background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (4).webp");

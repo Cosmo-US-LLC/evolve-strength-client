@@ -60,7 +60,7 @@ function Footer() {
             <div className="flex flex-col">
               <div className="w-[790px] text-white border-y border-y-[#2b2b2b] pt-6 pb-2">
                 <div className="footer_links flex flex-wrap items-center gap-6 mb-4">
-                  <a href="#" className="text-[#B2B1AA] hover:text-[#ffffff]">
+                  <a href="/join-as-trainer" className="text-[#B2B1AA] hover:text-[#ffffff]">
                     Become a Trainer
                   </a>
                   <span className="text-[#B2B1AA]">/</span>
