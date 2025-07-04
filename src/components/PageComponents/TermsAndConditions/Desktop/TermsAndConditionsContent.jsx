@@ -36,7 +36,7 @@ const TermsAgreementContent = ({ termsMain }) => {
               </li>
             </ul>
 
-            <ul className="pl-5 scroll-smooth !font-[kanit] space-y-[16px]">
+            <ul className="pl-5 scroll-smooth !font-[kanit] space-y-[10px]">
               {termsMain.map((section) => (
                 <li key={section.id}>
                   <button
