@@ -29,7 +29,7 @@ const PrivacyPolicyContant = ({ privacyMain }) => {
                   onClick={() => handleScroll('privacy-policy')}
                   className={`text-left !font-[kanit] block w-fullcursor-pointer ${
                     activeId === 'privacy-policy'
-                      ? 'text-[#4AB04A]  border-l-3 border-[#4AB04A] pl-1 '
+                      ? 'text-[#4AB04A] gap- border-l-3 border-[#4AB04A] pl-2 '
                       : 'text-black'
                   }`}
                 >
@@ -45,7 +45,7 @@ const PrivacyPolicyContant = ({ privacyMain }) => {
                     onClick={() => handleScroll(section.id)}
                     className={`block w-full text-left  cursor-pointer ${
                       activeId === section.id
-                        ? 'text-[#4AB04A] border-l-3 border-[#4AB04A] pl-1'
+                        ? 'text-[#4AB04A] border-l-3 border-[#4AB04A] pl-2'
                         : 'text-black'
                     }`}
                   >
