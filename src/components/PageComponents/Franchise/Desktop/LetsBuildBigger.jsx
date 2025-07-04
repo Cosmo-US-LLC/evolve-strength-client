@@ -1,9 +1,6 @@
 import React from "react";
 import letsBuildBiggerBG from "@/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG.webp";
 
-const bgImage =
-  "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1500&q=80";
-
 function LetsBuildBigger() {
   return (
     <div

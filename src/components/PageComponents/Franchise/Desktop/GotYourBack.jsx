@@ -1,7 +1,6 @@
 import React from "react";
+import gotYourBackBG from "@/assets/images/franchise/GotYourBack/gotYourBackBG.webp";
 
-const bgImage =
-  "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=1500&q=80";
 const list = [
   "Comprehensive onboarding and business training",
   "Ongoing coaching from experienced franchise advisors",
@@ -13,28 +12,25 @@ const list = [
 
 function GotYourBack() {
   return (
-    <section
-      className="relative w-full min-h-[600px] flex items-center justify-center"
+    <div
+      className="relative w-full min-h-[700px] flex items-center justify-center"
       style={{
-        backgroundImage: `url(${bgImage})`,
+        backgroundImage: `url(${gotYourBackBG})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent z-0" />
-      {/* Content */}
-      <div className="relative z-10 flex flex-col justify-center h-full w-full max-w-7xl px-4 py-16">
-        <div className="max-w-xl">
-          <h2 className="text-white text-3xl md:text-4xl font-extrabold mb-8 leading-tight">
-            WE'VE GOT YOUR BACK
-            <br />
-            EVERY STEP OF THE WAY
-          </h2>
-          <ul className="space-y-4 mb-10">
-            {list.map((item, idx) => (
-              <li key={idx} className="flex items-start text-white text-lg">
-                <span className="mt-1 mr-3 text-green-400">
+      <div className="w-full h-full max-w-[1280px] px-8 mx-auto relative z-10 flex flex-col justify-center">
+        <h2 className="text-white text-3xl md:text-4xl font-extrabold mb-8 leading-tight">
+          WE'VE GOT YOUR BACK
+          <br />
+          EVERY STEP OF THE WAY
+        </h2>
+        <ul className="space-y-3 mb-20">
+          {list.map((item, idx) => (
+            <li key={idx} className="flex items-start text-[#fff] text-lg">
+              <span className="mt-1 mr-3 text-green-400">
+                <div className="w-[22px] h-[22px] p-[2px] flex items-center justify-center rounded-full border-2 border-[#38B449]">
                   <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
                     <circle
                       cx="10"
@@ -45,23 +41,24 @@ function GotYourBack() {
                       fill="#38B449"
                     />
                   </svg>
-                </span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md">
-            <p className="text-black text-base font-semibold">
-              No prior fitness or business ownership
-              <br />
-              experience required — just a passion for
-              <br />
-              wellness and leadership.
-            </p>
-          </div>
+                </div>
+              </span>
+
+              <h4 className="font-[400] leading-[31px]">{item}</h4>
+            </li>
+          ))}
+        </ul>
+        <div className="bg-[#fff] flex items-center justify-center w-full max-w-[407px] px-6 min-h-[161px] rounded-t-[10px] absolute -bottom-[155px] left-[32px] ">
+          <h4 className="text-[#000] leading-[26px] font-[400]">
+            No prior fitness or business ownership
+            <br />
+            experience required — just a passion for
+            <br />
+            wellness and leadership.
+          </h4>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 

@@ -1,156 +1,96 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import slide1 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide1.webp";
+import slide2 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide2.webp";
+import slide3 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide3.webp";
+import slide4 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide4.webp";
+import slide5 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide5.webp";
+import slide6 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide6.webp";
+import slide7 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide7.webp";
+import slide8 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide8.webp";
+import slide9 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide9.webp";
 
-const images = [
-  "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1514512364185-4c2b678c5a16?auto=format&fit=crop&w=800&q=80",
+const professionals = [
+  { title: "Physiotherapy", image: slide1 },
+  { title: "Pilates", image: slide2 },
+  { title: "Massage Therapy", image: slide3 },
+  { title: "Chiropractic Care", image: slide4 },
+  { title: "Acupuncture", image: slide5 },
+  { title: "Dietitian Services", image: slide6 },
+  { title: "Dietitian Services", image: slide7 },
+  { title: "Laser Therapists", image: slide8 },
+  { title: "Esthetician", image: slide9 },
 ];
 
-function EvolveLookLike() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "center",
-    containScroll: "trimSnaps",
-  });
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const intervalRef = useRef();
-
-  // Auto-slide
-  useEffect(() => {
-    if (!emblaApi) return;
-    if (!isHovered) {
-      intervalRef.current = setInterval(() => {
-        emblaApi.scrollNext();
-      }, 3000);
-    }
-    return () => clearInterval(intervalRef.current);
-  }, [emblaApi, isHovered]);
-
-  // Update selected index on slide change
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    emblaApi.on("select", onSelect);
-    onSelect();
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi, onSelect]);
-
-  const scrollPrev = useCallback(
-    () => emblaApi && emblaApi.scrollPrev(),
-    [emblaApi]
-  );
-  const scrollNext = useCallback(
-    () => emblaApi && emblaApi.scrollNext(),
-    [emblaApi]
+const EvolveLookLike = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      containScroll: "keepSnaps",
+      loop: true,
+    },
+    [Autoplay({ delay: 3000, stopOnInteraction: false })]
   );
 
-  // Helper to determine slide type
-  const getSlideType = (idx) => {
-    if (idx === selectedIndex) return "center";
-    if (idx === (selectedIndex - 1 + images.length) % images.length)
-      return "left";
-    if (idx === (selectedIndex + 1) % images.length) return "right";
-    return "hidden";
-  };
+  const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
+  const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   return (
-    <div className="w-full max-w-7xl mx-auto py-12 px-4">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
-        <div>
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-2">
-            WHAT DOES EVOLVE LOOK LIKE?
+    <section className="py-12">
+      <div className=" flex flex-col gap-8">
+        <div className="flex flex-col gap-4 w-full max-w-[1280px] px-8 mx-auto">
+          <h2 className="text-[#000] uppercase ">
+            What Does Evolve Look Like?
           </h2>
-          <p className="text-lg text-gray-600">
-            See how we bring it all together.
-          </p>
+          <h4 className="leading-[26px] font-[400] text-[#000]">
+           See how we bring it all together.
+          </h4>
         </div>
-        <button className="mt-4 md:mt-0 bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-3 rounded-lg shadow transition-all">
-          APPLY NOW
-        </button>
-      </div>
-      {/* Embla Carousel */}
-      <div
-        className="mb-8"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <div ref={emblaRef} className="overflow-hidden">
-          <div className="flex">
-            {images.map((img, idx) => {
-              const slideType = getSlideType(idx);
-              let flexClass = "flex-[0_0_0%]";
-              let scale = 0.7;
-              let z = "z-0";
-              let opacity = "opacity-0";
-              if (slideType === "center") {
-                flexClass = "flex-[0_0_44%]";
-                scale = 1;
-                z = "z-10";
-                opacity = "opacity-100";
-              } else if (slideType === "left" || slideType === "right") {
-                flexClass = "flex-[0_0_28%]";
-                scale = 0.85;
-                z = "z-5";
-                opacity = "opacity-60";
-              }
-              return (
+
+        <div className="relative">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-4 pl-4">
+              {professionals.map((pro, idx) => (
                 <div
-                  key={img}
-                  className={`px-2 transition-all duration-300 ${flexClass} ${z} ${opacity}`}
-                  style={{
-                    transform: `scale(${scale})`,
-                  }}
+                  key={idx}
+                  className="flex-[0_0_70%] relative rounded-lg overflow-hidden"
                 >
-                  <div
-                    className={`rounded-2xl border border-gray-200 bg-white shadow-md overflow-hidden mx-auto transition-all duration-300`}
-                    style={{
-                      width: "100%",
-                      aspectRatio: slideType === "center" ? "16/9" : "4/5",
-                      height: slideType === "center" ? 320 : 180,
-                    }}
-                  >
-                    <img
-                      src={img}
-                      alt="Evolve slide"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                  <img
+                    src={pro.image}
+                    alt={pro.title}
+                    className="w-full h-[700px] object-cover"
+                  />
+                  <h3 className="absolute bottom-[40px] left-0 right-0 bg-[]  flex items-center justify-center text-[#FFF] leading-[24px] font-[500]">
+                    {pro.title}
+                  </h3>
                 </div>
-              );
-            })}
+              ))}
+            </div>
+          </div>
+
+          <div className="absolute -top-1/7 -translate-y-1/2 left-[86%] z-10">
+            <button
+              onClick={scrollPrev}
+              className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000]"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+          </div>
+          <div className="absolute -top-1/7 -translate-y-1/2 right-[6%] z-10">
+            <button
+              onClick={scrollNext}
+              className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000]"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
           </div>
         </div>
+
+        {/* <button className="btnPrimary">APPLY NOW</button> */}
       </div>
-      {/* Carousel Controls */}
-      <div className="flex justify-center items-center gap-6">
-        <button
-          onClick={scrollPrev}
-          className="w-12 h-12 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100 transition-all"
-          aria-label="Previous"
-        >
-          <span className="text-2xl">&#8592;</span>
-        </button>
-        <button
-          onClick={scrollNext}
-          className="w-12 h-12 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100 transition-all"
-          aria-label="Next"
-        >
-          <span className="text-2xl">&#8594;</span>
-        </button>
-      </div>
-    </div>
+    </section>
   );
-}
+};
 
 export default EvolveLookLike;

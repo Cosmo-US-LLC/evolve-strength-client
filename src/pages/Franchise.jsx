@@ -44,10 +44,10 @@ function Franchise() {
         <CanadianFitnessMarket />
         <EvolveLookLike />
         <EvolveSmarterInvestment />
-        <EvolveLocationsAndExpansionPlans />
         <WeHelpYouRightSpace />
         <TakesToLaunchEvolve />
         <GotYourBack />
+        <EvolveLocationsAndExpansionPlans />
         <HowtoJoinEvolveJourney />
         <LetsBuildBigger />
       </div>
