@@ -1,5 +1,4 @@
 import React from "react";
-import abouthero from "@/assets/images/AboutUs/about_us_hero.webp"
 
 function AboutUsHero() {
   return (
