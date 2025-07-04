@@ -85,9 +85,55 @@
 }
 .AboutUsHero{
   background-image: url("src/assets/images/AboutUs/about_us_hero.webp");
+
+/* Join As Trainer */
+.Whatyouearn {
+  background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (3).webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
   height: 700px;
 }
+}
+.Youkeepfull {
+  background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (4).webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.Workonyour {
+  background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (1).webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.Getrealsupport {
+  background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (2).webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.BuildYourOwn {
+  background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (5).webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+
+/* Tour Our Fitness */
+.TourOurFitness {
+  background-image: url("@/assets/images/JoinAsTrainer/TourOurFitness/TourOurFitness_bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+/* Tour Our Fitness */
+
+/* Join As Trainer */
