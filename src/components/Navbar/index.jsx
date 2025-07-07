@@ -33,7 +33,8 @@ function Navbar() {
               currentPath === "/privacy-policy" ||
               currentPath === "/terms-and-conditions" ||
               currentPath === "/faqs" ||
-              currentPath === "/franchise"
+              currentPath === "/franchise" ||
+              currentPath === "/corporate-membership"
                 ? "!bg-[#000]"
                 : ""
             }`}

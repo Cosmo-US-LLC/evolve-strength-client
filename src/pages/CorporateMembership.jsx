@@ -1,0 +1,36 @@
+import React from 'react'
+import { corporateMembershipFAQs } from '@/constants/faqContent';
+import CorporateMembershipHero from '@/components/PageComponents/CorporateMembership/Desktop/CorporateMembershipHero';
+import OneMembershipFullAccess from '@/components/PageComponents/CorporateMembership/Desktop/OneMembershipFullAccess';
+import FrequentlyAskedQuestions from '@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions';
+import EvolveEmployeePlan from '@/components/PageComponents/CorporateMembership/Desktop/EvolveEmployeePlan';
+import SeeItForYourSelf from '@/components/PageComponents/CorporateMembership/Desktop/SeeItForYourSelf';
+import PricingFitsYourBudget from '@/components/PageComponents/CorporateMembership/Desktop/PricingFitsYOurBudget';
+import MembershipPremiumAmenities from '@/components/PageComponents/CorporateMembership/Desktop/MembershipPremiumAmenities';
+import MembershipRecovery from '@/components/PageComponents/CorporateMembership/Desktop/MembershipRecovery';
+import WhyCompaniesChoose from '@/components/PageComponents/CorporateMembership/Desktop/WhyCompaniesChoose';
+import WhoItsFor from '@/components/PageComponents/CorporateMembership/Desktop/WhoItsFor';
+import BuildToTeamSupport from '@/components/PageComponents/CorporateMembership/Desktop/BuildToTeamSupport';
+
+function CorporateMembership() {
+  return (
+      <div>
+      <div className="max-md:hidden">
+        <CorporateMembershipHero />
+        <OneMembershipFullAccess />
+        <BuildToTeamSupport/>
+        <WhoItsFor/>
+        <WhyCompaniesChoose/>
+        <MembershipRecovery/>
+        <MembershipPremiumAmenities/>
+        <SeeItForYourSelf/>
+        <PricingFitsYourBudget/>
+        <EvolveEmployeePlan/>
+        <FrequentlyAskedQuestions {...corporateMembershipFAQs}/>
+      </div>
+      <div className="md:hidden">Home Mobile</div>
+    </div>
+  )
+}
+
+export default CorporateMembership
