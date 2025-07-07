@@ -1,7 +1,7 @@
 export const cardsData = [
   {
-    title: "OUR  ",
-     title2: "MISSION ",
+    title: "OUR MISSION  ",
+    
     icon: "",
     backgroundColor: "#F7F5F5",
     borderRadius: "10px",
