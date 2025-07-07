@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+import slide0 from "../../../../assets/images/franchise/evolveSmarterInvestment/step-0.webp";
+import slide1 from "../../../../assets/images/franchise/evolveSmarterInvestment/step-1.webp";
+import slide2 from "../../../../assets/images/franchise/evolveSmarterInvestment/step-2.webp";
+import slide3 from "../../../../assets/images/franchise/evolveSmarterInvestment/step-3.webp";
 
 const EvolveSmarterInvestment = () => {
   const steps = [
@@ -6,25 +10,25 @@ const EvolveSmarterInvestment = () => {
       id: "01",
       title: "Multiple Revenue Streams",
       desc: "Memberships, rentals, personal training, and healthcare subleasing",
-      image: "/path/to/image1.webp",
+      image: slide0,
     },
     {
       id: "02",
       title: "Premium Member Experience",
       desc: "High retention and low churn through results-driven programming and community.",
-      image: "/path/to/image2.webp",
+      image: slide1,
     },
     {
       id: "03",
       title: "Scalable Model",
       desc: "Standardized systems, national partnerships, and streamlined operations.",
-      image: "/path/to/image3.webp",
+      image: slide2,
     },
     {
       id: "04",
       title: "Strong EBITDA Performance",
       desc: "Our business model delivers healthy margins, with EBITDA reaching 22% to 28% by year three.",
-      image: "/path/to/image4.webp",
+      image: slide3,
     },
   ];
 
@@ -58,9 +62,9 @@ const EvolveSmarterInvestment = () => {
 
   return (
     <section className="max-w-6xl mx-auto px-4 py-12">
-      <div className="grid md:grid-cols-2 gap-8 items-start">
+      <div className="flex flex-col md:flex-row gap-8 items-start">
         {/* Steps */}
-        <div className=" ">
+        <div className="flex-1">
           {steps.map((step, index) => {
             const isActive = index === currentStep;
             const notLast = index < steps.length - 1;
@@ -151,12 +155,11 @@ const EvolveSmarterInvestment = () => {
           })}
         </div>
 
-        {/* Image */}
-        <div>
+        <div className="flex-1 flex justify-center items-center">
           <img
             src={steps[currentStep].image}
             alt={steps[currentStep].title}
-            className="w-full rounded transition-all duration-[4000ms]"
+            className="w-full rounded transition-all duration-[4000ms] max-w-[400px]"
           />
         </div>
       </div>
