@@ -28,9 +28,9 @@ const points = [
 const CanadianFitnessMarket = () => {
   return (
     <div className="pt-[80px] pb-12">
-      <div className="max-w-[1280px] px-8 mx-auto w-full h-full flex flex-col gap-4 items-center  ">
-        <div className="w-full flex flex-row gap-12 overflow-hidden">
-          <div className="w-[50%] flex flex-col gap-12 relative">
+      <div className="w-full h-full flex flex-col gap-4 items-center  ">
+        <div className="w-full flex flex-row px-8 gap-12 overflow-hidden">
+          <div className="max-w-[1280px] mx-auto px-8 flex flex-col gap-12 relative">
             <div className="flex flex-col gap-4">
               <h2 className="text-[#000] uppercase font-[700] max-w-[500px] leading-[39px]">
                 A $5.8B Canadian Fitness Market is Growing

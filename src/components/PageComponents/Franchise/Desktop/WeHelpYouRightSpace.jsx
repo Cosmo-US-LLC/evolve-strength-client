@@ -41,20 +41,20 @@ const features = [
 
 function WeHelpYouRightSpace() {
   return (
-    <div className="w-full max-w-7xl mx-auto py-16 px-4">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
-        <div>
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-2 leading-tight">
+    <div className="w-full max-w-[1280px] mx-auto py-16 px-4">
+      <div className="flex flex-row md:items-center md:justify-between mb-8">
+        <div className="flex flex-col gap-2">
+          <h2 className="text-[#000] font-[700] uppercase leading-[39px]">
             WE HELP YOU FIND AND BUILD
             <br />
             THE RIGHT SPACE
           </h2>
-          <p className="text-base text-gray-700 mt-2">
-            Location is everything and we help you get it right. Our real estate
+          <h4 className="leading-[26px] text-[#000]">
+            Location is everything and we help you get it right. Our real estate <br />
             team supports franchisees with:
-          </p>
+          </h4>
         </div>
-        <button className="mt-6 md:mt-0 bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-3 rounded-lg shadow transition-all">
+        <button className="btnPrimary">
           APPLY NOW
         </button>
       </div>
@@ -63,15 +63,15 @@ function WeHelpYouRightSpace() {
         {features.map((f, i) => (
           <div
             key={i}
-            className="bg-gray-100 rounded-xl p-6 flex flex-col justify-between min-h-[180px] shadow-sm"
+            className="bg-[#F5F5F5] rounded-[10px] p-6 flex flex-col justify-between min-h-[200px] shadow-sm"
           >
-            <div className="flex items-start justify-between mb-4">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
+            <div className="flex items-start justify-between">
+              <h3 className=" text-[#000]">
                 {f.title}
               </h3>
               <span className="ml-4">{f.icon}</span>
             </div>
-            <p className="text-gray-700 text-base">{f.desc}</p>
+            <p className="text-[#000] description max-w-[265px]">{f.desc}</p>
           </div>
         ))}
       </div>
