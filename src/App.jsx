@@ -15,6 +15,10 @@ import PersonalTraning from "./pages/PersonalTraining";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import MembershipBenefits from "./pages/MembershipBenefits";
 import FAQs from "./pages/FrequentlyAskedQuestions";
+import AboutUs from "./pages/AboutUs";
+import JoinAsTrainer from "./pages/JoinAsTrainer";
+import CorporateMembership from "./pages/CorporateMembership";
+import JoinTheMovement from "./pages/JoinTheMovement";
 
 function App() {
   return (
@@ -28,10 +32,14 @@ function App() {
           <Route path="/franchise" element={<Franchise />} />
           <Route path="/spaces" element={<Spaces />} />
           <Route path="/membership-benefits" element={<MembershipBenefits />} />
+          <Route path="/join-as-trainer" element={<JoinAsTrainer />} />
+          <Route path="/corporate-membership" element={<CorporateMembership />} />
 
+          <Route path="/join-the-Movement" element={<JoinTheMovement />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/faqs" element={<FAQs />} />
-          <Route path="/terms-of-conditions" element={<TermsAndConditions />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="/personal-training" element={<PersonalTraning />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Route>

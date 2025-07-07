@@ -1,6 +1,6 @@
 import React from "react";
 import { Instagram, ArrowRight } from "lucide-react";
-import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo.svg";
+import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo-w.webp";
 import { HashLink as Link } from "react-router-hash-link";
 import ESFLogo from "../../assets/images/home/footer/Evolve-Strength-footer-Logo.svg";
 // import { ReactComponent as ESFLogo } from "../../assets/images/home/footer/Evolve-Strength-footer-Logo.svg";
@@ -18,7 +18,7 @@ function Footer() {
                   to="/"
                   className="flex items-center"
                   onClick={(e) => {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    // window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
                 >
                   <img
@@ -60,7 +60,7 @@ function Footer() {
             <div className="flex flex-col">
               <div className="w-[790px] text-white border-y border-y-[#2b2b2b] pt-6 pb-2">
                 <div className="footer_links flex flex-wrap items-center gap-6 mb-4">
-                  <a href="#" className="text-[#B2B1AA] hover:text-[#ffffff]">
+                  <a href="/join-as-trainer" className="text-[#B2B1AA] hover:text-[#ffffff]">
                     Become a Trainer
                   </a>
                   <span className="text-[#B2B1AA]">/</span>
@@ -81,7 +81,7 @@ function Footer() {
               <div className=" flex flex-row gap-[130px] py-8">
                 <div className="space-y-3 flex flex-col">
                   <a
-                    href="#"
+                    href="/about-us"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     About Us
@@ -92,12 +92,13 @@ function Footer() {
                   >
                     Our Locations
                   </a>
-                  <a
-                    href="#"
+                   <Link
+                    smooth
+                    to="/corporate-membership"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Corporate Membership
-                  </a>
+                  </Link>
                   <Link
                     smooth
                     to="/membership-benefits"
@@ -195,7 +196,7 @@ function Footer() {
           </span>
           <Link
             smooth
-            to="/terms-of-conditions"
+            to="/terms-and-conditions"
             className="footer_quick_links text-[#6F6D66] hover:text-[#ffffff]"
           >
             Terms of Service

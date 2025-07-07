@@ -29,10 +29,14 @@ function Navbar() {
             className={`navbarWrapper fixed top-0 w-full  ${
               scrolled ? "scrolled" : ""
             }  ${
-              currentPath === "/spaces" || 
+              currentPath === "/spaces" ||
               currentPath === "/privacy-policy" ||
-              currentPath === "/terms-of-conditions" ||
-              currentPath === "/faqs"
+              currentPath === "/terms-and-conditions" ||
+              currentPath === "/faqs" ||
+              currentPath === "/franchise" ||
+              currentPath === "/join-as-trainer" ||
+              currentPath === "/join-the-Movement" ||
+              currentPath === "/corporate-membership"
                 ? "!bg-[#000]"
                 : ""
             }`}

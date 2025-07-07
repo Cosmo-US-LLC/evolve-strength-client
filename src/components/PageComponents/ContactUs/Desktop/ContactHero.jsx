@@ -1,5 +1,5 @@
 import React from "react";
-import ContactUshero from "@/assets/images/ContactUs/contact_us_hero.webp";
+
 
 function ContactHero() {
   return (
