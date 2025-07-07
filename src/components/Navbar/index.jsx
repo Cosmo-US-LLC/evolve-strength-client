@@ -34,6 +34,8 @@ function Navbar() {
               currentPath === "/terms-and-conditions" ||
               currentPath === "/faqs" ||
               currentPath === "/franchise" ||
+              currentPath === "/join-as-trainer" ||
+              currentPath === "/join-the-Movement" ||
               currentPath === "/corporate-membership"
                 ? "!bg-[#000]"
                 : ""
