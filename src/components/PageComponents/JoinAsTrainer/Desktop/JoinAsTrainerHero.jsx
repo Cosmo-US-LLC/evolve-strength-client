@@ -4,10 +4,10 @@ function JoinAsTrainerHero() {
   const [valueHourly, setValueHourly] = useState(50);
   const [sessions, setSessions] = useState(20);
   const handleChange = (e) => {
-    setValueHourly(Number(e.target.value));
+    setValueHourly(e.target.value);
   };
   const handleChangeSessions = (e) => {
-    setSessions(Number(e.target.value));
+    setSessions(e.target.value);
   };
 
   return (
