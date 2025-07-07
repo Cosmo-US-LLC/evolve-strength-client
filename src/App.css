@@ -181,3 +181,35 @@
 .embla__container {
   transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
+/* Join As Trainer */
+
+ input[type='range']::-webkit-slider-thumb {
+          appearance: none;
+          height: 16px;
+          width: 16px;
+          border-radius: 50%;
+          background: #4ab04a;
+          cursor: pointer;
+          margin-top: -5px;
+        }
+
+        input[type='range']::-moz-range-thumb {
+          height: 16px;
+          width: 16px;
+          border-radius: 50%;
+          background: #4ab04a;
+          cursor: pointer;
+        }
+
+        input[type='range']::-webkit-slider-runnable-track {
+          height: 6px;
+          border-radius: 6px;
+        }
+
+        input[type='range']::-moz-range-track {
+          height: 6px;
+          border-radius: 6px;
+          background: #ccc;
+        }
+
+    /* Join As Trainer */

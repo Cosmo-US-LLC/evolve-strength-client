@@ -84,6 +84,11 @@
   height: 700px;
 }
 .AboutUsHero{
+  background-image: url("src/assets/images/AboutUs/about_us_hero.webp");
+}
+/* Join As Trainer */
+.Whatyouearn {
+  background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (3).webp");
   background-image: url("@/assets/images/AboutUs/about_us_hero.webp");
   background-size: cover;
   background-position: center;
@@ -91,6 +96,47 @@
   width: 100%;
   height: 700px;
 }
+.Youkeepfull {
+  background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (4).webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.Workonyour {
+  background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (1).webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.Getrealsupport {
+  background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (2).webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.BuildYourOwn {
+  background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (5).webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+
+/* Tour Our Fitness */
+.TourOurFitness {
+  background-image: url("@/assets/images/JoinAsTrainer/TourOurFitness/TourOurFitness_bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+/* Tour Our Fitness */
+
+/* Join As Trainer */
 
 
 /* corporate membership BG */
@@ -105,3 +151,56 @@
 }
 
 /* corporate membership BG end */
+/* WhattoSubmit */
+.ReelsorWorkout {
+  background-image: url("@/assets/images/JoinTheMovement/WhattoSubmit/service_1.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.ProgressPhotos {
+  background-image: url("@/assets/images/JoinTheMovement/WhattoSubmit/service_2.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.TrainingStories {
+  background-image: url("@/assets/images/JoinTheMovement/WhattoSubmit/service_3.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.GrouporPartner {
+  background-image: url("@/assets/images/JoinTheMovement/WhattoSubmit/service_4.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.BehindtheScenes {
+  background-image: url("@/assets/images/JoinTheMovement/WhattoSubmit/service_5.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+/* WhattoSubmit */
+
+.SocialMedia {
+  background-image: url("@/assets/images/JoinTheMovement/SocialMedia/Instagram Grid.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.Trainherebg {
+  background-image: url("@/assets/images/JoinTheMovement/TrainHere/Trainherebg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
