@@ -60,9 +60,13 @@ function Footer() {
             <div className="flex flex-col">
               <div className="w-[790px] text-white border-y border-y-[#2b2b2b] pt-6 pb-2">
                 <div className="footer_links flex flex-wrap items-center gap-6 mb-4">
-                  <a href="/join-as-trainer" className="text-[#B2B1AA] hover:text-[#ffffff]">
+                  <Link
+                    smooth
+                    to="/join-as-trainer"
+                    className="text-[#B2B1AA] hover:text-[#ffffff]"
+                  >
                     Become a Trainer
-                  </a>
+                  </Link>
                   <span className="text-[#B2B1AA]">/</span>
                   <a href="#" className="text-[#B2B1AA] hover:text-[#ffffff]">
                     Become a Practitioner
@@ -80,19 +84,20 @@ function Footer() {
 
               <div className=" flex flex-row gap-[130px] py-8">
                 <div className="space-y-3 flex flex-col">
-                  <a
-                    href="/about-us"
+                  <Link
+                  smooth
+                    to="/about-us"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     About Us
-                  </a>
+                  </Link>
                   <a
                     href="#"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Our Locations
                   </a>
-                   <Link
+                  <Link
                     smooth
                     to="/corporate-membership"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
@@ -106,12 +111,13 @@ function Footer() {
                   >
                     Membership Benefits
                   </Link>
-                  <a
-                    href="#"
+                  <Link
+                  smooth
+                    to="/join-the-Movement"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Join the Movement
-                  </a>
+                  </Link>
 
                   <button className="mt-4 btnPrimary transition">
                     TAKE A TOUR
