@@ -1,8 +1,8 @@
-import JoinTheMovementHero from "@/components/PageComponents/JoinTheMovement/JoinTheMovementHero";
-import SocialMedia from "@/components/PageComponents/JoinTheMovement/SocialMedia";
-import TrainHere from "@/components/PageComponents/JoinTheMovement/TrainHere";
-import WhattoSubmit from "@/components/PageComponents/JoinTheMovement/WhattoSubmit";
-import WhyYouShould from "@/components/PageComponents/JoinTheMovement/WhyYouShould";
+import JoinTheMovementHero from "@/components/PageComponents/JoinTheMovement/Desktop/JoinTheMovementHero";
+import SocialMedia from "@/components/PageComponents/JoinTheMovement/Desktop/SocialMedia";
+import TrainHere from "@/components/PageComponents/JoinTheMovement/Desktop/TrainHere";
+import WhattoSubmit from "@/components/PageComponents/JoinTheMovement/Desktop/WhattoSubmit";
+import WhyYouShould from "@/components/PageComponents/JoinTheMovement/Desktop/WhyYouShould";
 import React from "react";
 
 

@@ -1,10 +1,10 @@
 import React from "react";
-import why_should_card1 from "../../../assets/images/JoinTheMovement/WhyYouShould/why_should_card _icon (1).svg";
-import why_should_card2 from "../../../assets/images/JoinTheMovement/WhyYouShould/why_should_card _icon (2).svg";
-import why_should_card3 from "../../../assets/images/JoinTheMovement/WhyYouShould/why_should_card _icon (3).svg";
-import why_should_card4 from "../../../assets/images/JoinTheMovement/WhyYouShould/why_should_card _icon (4).svg";
-import why_should_card5 from "../../../assets/images/JoinTheMovement/WhyYouShould/why_should_card _icon (5).svg";
-import why_should_card6 from "../../../assets/images/JoinTheMovement/WhyYouShould/why_should_card _icon (6).svg";
+import why_should_card1 from "../../../../assets/images/JoinTheMovement/WhyYouShould/why_should_card _icon (1).svg";
+import why_should_card2 from "../../../../assets/images/JoinTheMovement/WhyYouShould/why_should_card _icon (2).svg";
+import why_should_card3 from "../../../../assets/images/JoinTheMovement/WhyYouShould/why_should_card _icon (3).svg";
+import why_should_card4 from "../../../../assets/images/JoinTheMovement/WhyYouShould/why_should_card _icon (4).svg";
+import why_should_card5 from "../../../../assets/images/JoinTheMovement/WhyYouShould/why_should_card _icon (5).svg";
+import why_should_card6 from "../../../../assets/images/JoinTheMovement/WhyYouShould/why_should_card _icon (6).svg";
 
 function WhyYouShould() {
   const cardData = [

@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react'
 import ExploreHero from "@/components/PageComponents/Explore/Desktop/ExploreHero";
 
-function Explore() {
+function Locations() {
   return (
-     <div>
+         <div>
       <div className="max-md:hidden">
         <ExploreHero />
       </div>
       <div className="md:hidden">Home Mobile</div>
     </div>
-  );
+  )
 }
 
-export default Explore;
+export default Locations
