@@ -61,8 +61,14 @@ const EvolveSmarterInvestment = () => {
   }, [growingLineStep, steps.length]);
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-12">
-      <div className="flex flex-col md:flex-row gap-8 items-start">
+    <div className="py-12">
+    <div className="max-w-[1280px] mx-auto px-8 flex flex-col gap-12">
+      <div className=" flex flex-col gap-4 justify-center items-center text-center">
+          <h2>Why Evolve is a Smarter Investment</h2>
+          <h4 className="max-w-[760px]">Evolve is more than a gym. It is a full-service training and wellness hub with personal training, recovery services, and premium training space all under one roof. The franchise model offers multiple revenue streams and a strong competitive advantage.</h4>
+        </div>
+      <div className="flex flex-row gap-8 items-start">
+        
         {/* Steps */}
         <div className="flex-1">
           {steps.map((step, index) => {
@@ -163,7 +169,8 @@ const EvolveSmarterInvestment = () => {
           />
         </div>
       </div>
-    </section>
+    </div>
+    </div>
   );
 };
 

@@ -22,6 +22,7 @@ import WeHelpYouRightSpace from "@/components/PageComponents/Franchise/Desktop/W
 import LetsBuildBigger from "@/components/PageComponents/Franchise/Desktop/LetsBuildBigger";
 import TakesToLaunchEvolve from "@/components/PageComponents/Franchise/Desktop/TakesToLaunchEvolve";
 import EvolveFloorPlan from "@/components/PageComponents/Franchise/Desktop/EvolveFloorPlan";
+import OurFranchiseesSay from "@/components/PageComponents/Franchise/Desktop/OurFranchiseesSay";
 
 const slides = [
   postImg1,
@@ -50,6 +51,7 @@ function Franchise() {
         <EvolveFloorPlan/>
         <GotYourBack />
         <EvolveLocationsAndExpansionPlans />
+        <OurFranchiseesSay />
         <HowtoJoinEvolveJourney />
         <LetsBuildBigger />
       </div>
