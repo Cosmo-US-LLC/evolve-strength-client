@@ -1,6 +1,9 @@
 import AboutUsHero from "@/components/PageComponents/AboutUs/Desktop/AboutUsHero";
 import AboutUsMission from "@/components/PageComponents/AboutUs/Desktop/AboutUsMission";
-import { cardsData } from "@/constants/AboutUsMission";
+import AboutUsTrainers from "@/components/PageComponents/AboutUs/Desktop/AboutUsTrainers";
+import AboutUsOffer from "@/components/PageComponents/AboutUs/Desktop/AboutUsOffer";
+import AboutUsPractitioners from "@/components/PageComponents/AboutUs/Desktop/AboutUsPractitioners";
+import JoinUs from "@/components/PageComponents/AboutUs/Desktop/AboutUsJoinNow";
 import React from "react";
 
 function AboutUs() {
@@ -8,7 +11,11 @@ function AboutUs() {
     <div>
       <div className="max-md:hidden">
         <AboutUsHero/>
-        <AboutUsMission cardsData={cardsData} />
+        <AboutUsMission  />
+        <AboutUsOffer/>
+       <AboutUsTrainers/>
+       <AboutUsPractitioners/>
+       <JoinUs/>
       </div>
       <div className="md:hidden">Home Mobile</div>
     </div>
