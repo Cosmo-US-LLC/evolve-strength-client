@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import ExploreHero from "@/components/PageComponents/Explore/Desktop/ExploreHero";
+import DiscoverEvolve from "@/components/PageComponents/Explore/Desktop/DiscoverEvolve";
 
 function Explore() {
+  const [selected, setSelected] = useState("LOCATIONS");
+
   return (
     <div>
       <div className="max-md:hidden">
-        <div className="w-full h-[800px] flex items-center justify-center bg-gray-400">
-            <h1>Explore Page comming soon!</h1>
-        </div>
+        <ExploreHero />
+        <DiscoverEvolve selected={selected} onSelect={setSelected} />
       </div>
       <div className="md:hidden">Home Mobile</div>
     </div>

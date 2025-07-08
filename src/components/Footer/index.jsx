@@ -91,12 +91,12 @@ function Footer() {
                   >
                     About Us
                   </Link>
-                  <a
-                    href="#"
+                  <Link
+                    to="/locations"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Our Locations
-                  </a>
+                  </Link>
                   <Link
                     smooth
                     to="/corporate-membership"

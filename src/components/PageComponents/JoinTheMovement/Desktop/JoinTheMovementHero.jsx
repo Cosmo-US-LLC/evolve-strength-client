@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import herovector from "../../../assets/images/JoinTheMovement/JoinTheMovementHero/hero_vector (2).png";
-import herovector2 from "../../../assets/images/JoinTheMovement/JoinTheMovementHero/hero_vector (1).png";
-import upload_icon from "../../../assets/images/JoinTheMovement/JoinTheMovementHero/upload_icon.svg";
+import herovector from "../../../../assets/images/JoinTheMovement/JoinTheMovementHero/hero_vector (2).png";
+import herovector2 from "../../../../assets/images/JoinTheMovement/JoinTheMovementHero/hero_vector (1).png";
+import upload_icon from "../../../../assets/images/JoinTheMovement/JoinTheMovementHero/upload_icon.svg";
 
 function JoinTheMovementHero() {
   const fileInputRef = useRef(null);
