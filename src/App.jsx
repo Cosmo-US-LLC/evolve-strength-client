@@ -27,20 +27,21 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/explore" element={<Explore />} />
+          <Route path="/membership-benefits" element={<MembershipBenefits />} />
           <Route path="/personal-training" element={<PersonalTraining />} />
           <Route path="/wellness" element={<Wellness />} />
           <Route path="/franchise" element={<Franchise />} />
-          <Route path="/spaces" element={<Spaces />} />
-          <Route path="/membership-benefits" element={<MembershipBenefits />} />
-          <Route path="/join-as-trainer" element={<JoinAsTrainer />} />
+          <Route path="/spaces" element={<Spaces />} />   
           <Route path="/corporate-membership" element={<CorporateMembership />} />
 
           <Route path="/join-the-Movement" element={<JoinTheMovement />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/about-us" element={<AboutUs />} />
+           <Route path="/join-as-trainer" element={<JoinAsTrainer />} />
+          
+         
           <Route path="/faqs" element={<FAQs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-          <Route path="/personal-training" element={<PersonalTraning />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Route>
       </Routes>

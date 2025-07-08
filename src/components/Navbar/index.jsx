@@ -61,7 +61,7 @@ function Navbar() {
 
                 <Link
                   smooth
-                  to="#Membership"
+                  to="/membership-benefits"
                   className="navBarLinks text-[#F8F8F8]"
                 >
                   Membership
