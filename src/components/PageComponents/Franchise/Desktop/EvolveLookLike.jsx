@@ -59,7 +59,7 @@ const EvolveLookLike = () => {
                   <img
                     src={pro.image}
                     alt={pro.title}
-                    className="w-full h-[700px] object-cover"
+                    className="w-full h-[550px] object-cover"
                   />
                   <h3 className="absolute bottom-[40px] left-0 right-0 bg-[]  flex items-center justify-center text-[#FFF] leading-[24px] font-[500]">
                     {pro.title}
