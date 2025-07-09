@@ -1,9 +1,8 @@
 import React from "react";
-// import { cardsData } from "@/constants/AboutUsMission";
 import mission from "@/assets/images/AboutUs/about_mission.svg"
 import whoarewe from "@/assets/images/AboutUs/about_whoarewe.svg"
 import origin from "@/assets/images/AboutUs/about_origin.svg"
-import logo from "@/assets/images/AboutUs/AboutUs_logo.svg"
+import ourOriginStoryLogo from "@/assets/images/AboutUs/AboutUs_Trainers/our_origin_story_logo.svg"
 const cardsData = [
   {
     title: <p>OUR<br/>MISSION</p>,
@@ -80,7 +79,7 @@ function AboutUsMission() {
           <div className="flex flex-col items-start w-[865px] h-[293px] p-[32px_38px] gap-[10px] bg-[#1C1C1C] rounded-[10px] relative">
 
             <div className="absolute top-[19px] left-[610px] w-[172px] h-[107px] flex-shrink-0">
-              <img src={logo} alt="Logo" className="w-full h-full object-contain" />
+              <img src={ourOriginStoryLogo} alt="Logo" className="w-full h-full object-contain" />
             </div>
             <div className="text-green-600 text-3xl mb-2">
               <img src={origin} alt="Origin" />
