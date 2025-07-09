@@ -96,6 +96,9 @@ const LocationSeeItForYourSelf = () => {
           </Carousel>
         </TabsContent>
       </Tabs>
+      <div className="w-full flex justify-center mt-6  ">
+      <button className="btnPrimary  ">BOOK A FREE TOUR</button>
+      </div>
     </div>
   );
 };

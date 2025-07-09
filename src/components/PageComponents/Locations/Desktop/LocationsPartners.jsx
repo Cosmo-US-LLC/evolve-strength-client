@@ -15,7 +15,7 @@ const partnerLogos = [
 
 const LocationPartners = () => {
   return (
-    <div className="w-full py-12">
+    <div className="w-full py-12 bg-[#F9F9F9]">
       <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col items-center justify-center gap-10">
         <h2 className="text-[#000000] uppercase">Our Equipment Partners</h2>
 
