@@ -121,7 +121,7 @@
 /* Join As Trainer */
 .Whatyouearn {
   background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (3).webp");
-  background-image: url("@/assets/images/AboutUs/about_us_hero.webp");
+  /* background-image: url("@/assets/images/AboutUs/about_us_hero.webp"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
