@@ -1,7 +1,7 @@
 import React from 'react'
 import LocationHero from '@/components/PageComponents/Locations/Desktop/LocationHero'
 import LocationPartners from '@/components/PageComponents/Locations/Desktop/LocationsPartners'
-import PersonalizedAssesment from '@/components/PageComponents/Locations/Desktop/PersonalizedAssesment'
+import WhyChooseEvolve from '@/components/PageComponents/Locations/Desktop/LoWhyChooseEvlove'
 import RightTrainer from '@/components/PageComponents/Locations/Desktop/RightTrainer'
 import FitnessCategory from '@/components/PageComponents/Locations/Desktop/FitnessCategory'
 import Services from '@/components/PageComponents/Locations/Desktop/Services'
@@ -9,18 +9,26 @@ import Spacious from '@/components/PageComponents/Locations/Desktop/LocationsSpa
 import LocationsSeeItForYourSelf from '@/components/PageComponents/Locations/Desktop/LocationSeeITYourself'
 import JoinUsToday from '@/components/PageComponents/Locations/Desktop/JoinToday'
 import LocationFAQs from '@/components/PageComponents/Locations/Desktop/LocationFaqs'
+import LoWhyChooseEvolve from '@/components/PageComponents/Locations/Desktop/LoWhyChooseEvlove'
+import LocationPricing from '@/components/PageComponents/Locations/Desktop/LocationPricing'
+import MeetTheTrainers from '@/components/PageComponents/Locations/Desktop/MeetTheTrainers'
+import SetonLocation from '@/components/PageComponents/Locations/Desktop/SetonLocation'
+
 function Locations() {
   return (
          <div>
       <div className="max-md:hidden">
         <LocationHero />
         <LocationPartners/>
-        <PersonalizedAssesment/>
+        <LoWhyChooseEvolve/>
+        <LocationPricing/>
         <FitnessCategory/>
         <RightTrainer/>
         <Services/>
         <Spacious/>
         <LocationsSeeItForYourSelf/>
+        <SetonLocation/>
+        <MeetTheTrainers/>
         <JoinUsToday/>
         <LocationFAQs/>
 
