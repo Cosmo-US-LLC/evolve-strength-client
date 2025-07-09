@@ -3,7 +3,7 @@ import React from "react";
 import mission from "@/assets/images/AboutUs/about_mission.svg"
 import whoarewe from "@/assets/images/AboutUs/about_whoarewe.svg"
 import origin from "@/assets/images/AboutUs/about_origin.svg"
-import logo from "@/assets/images/AboutUs/AboutUs_logo.svg"
+import logo from "../../../../assets/images/AboutUs/AboutUs_logo.svg"
 const cardsData = [
   {
     title: <p>OUR<br/>MISSION</p>,
