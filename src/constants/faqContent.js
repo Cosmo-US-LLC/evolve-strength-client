@@ -122,3 +122,43 @@ export const faqMain = {
     },
   ],
 };
+
+export const Locationfaq = {
+  heading: "FREQUENTLY ASKED QUESTIONS",
+  subtext:
+    "Got questions? We’ve got answers. Whether you're curious about memberships, services, or what to expect on your first visit",
+  faqs: [
+  {
+    "question": "What happens on my first visit to the gym?",
+    "answer": "From the moment you walk in, our friendly staff will guide you through the gym, answer any questions, and help you feel comfortable. Whether you're here for a free tour or ready to start working out, we’re here to support you!"
+  },
+  {
+    "question": "Do I need experience to work with a personal trainer?",
+    "answer": "No. You don't need any experience. Our certified trainers work with all fitness levels. They will build a plan based on your goals, like losing weight, getting stronger, or just feeling healthier. You can start at your own pace."
+  },
+  {
+    "question": "Is personal training included in my membership?",
+    "answer": "No. Personal training and health services are not included in the regular membership. But when you join, you get a free fitness assessment with a certified trainer. This helps you understand where to start and what to focus on."
+  },
+  {
+    "question": "Does Evolve Strength have lockers and showers?",
+    "answer": "Yes. All Evolve Strength locations have clean change rooms, secure lockers, and well-kept showers."
+  },
+  {
+    "question": "Do you offer towel service?",
+    "answer": "Yes. Towel service is available as an add-on when you sign up. It’s a convenient option if you don’t want to bring your own."
+  },
+  {
+    "question": "Can I use any Evolve Strength location with my membership?",
+    "answer": "Yes. Your membership gives you access to every Evolve Strength location. You can train wherever it works best for your schedule."
+  },
+  {
+    "question": "Is parking available?",
+    "answer": "Yes. Every location has on-site parking, so you don't have to worry about finding a spot before your workout."
+  },
+  {
+    "question": "Do you have Wi-Fi?",
+    "answer": "Yes. Free Wi-Fi is available throughout the gym, so you can stream music, follow workouts, or stay connected during your visit."
+  }
+]
+};
