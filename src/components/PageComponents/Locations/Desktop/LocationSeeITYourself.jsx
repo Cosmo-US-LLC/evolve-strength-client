@@ -84,7 +84,7 @@ const LocationSeeItForYourSelf = () => {
                     <img
                       src={img}
                       alt={activeLocation.label + " image " + (idx + 1)}
-                      className="w-full h-auto max-h-[666px] object-fill transition-all duration-500 "
+                      className="w-full h-auto max-h-[px] object-fill transition-all duration-500 "
                     />
                   </div>
                 </CarouselItem>
