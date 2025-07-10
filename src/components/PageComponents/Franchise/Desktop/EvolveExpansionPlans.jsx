@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import LocationsHoverCard from "./LocationsHoverCard";
 import evolveLoctions from "../../../../assets/images/franchise/EvolveLocationPlans/evolve-locations.webp";
 
 function EvolveExpansionPlans() {
@@ -7,22 +8,25 @@ function EvolveExpansionPlans() {
 
   const provinces = {
     britishColumbia: {
-      name: "British Columbia",
-      locations: 3,
-      status: "Active",
-      description: "Multiple locations across BC with premium amenities",
+      name: "Edmonton South",
+      image: evolveLoctions,
+      address: "4825 89 St NW, Edmonton, Alberta, T6E 5K1",
+      phone: "(780) 690-4252",
+      email: "evolvesouth@evolvestrength.ca",
     },
     saskatchewan: {
-      name: "Saskatchewan",
-      locations: 1,
-      status: "Active",
-      description: "Growing presence in Saskatchewan",
+      name: "Saskatchewan Club",
+      image: evolveLoctions,
+      address: "123 Main St, Regina, Saskatchewan, S4P 3X1",
+      phone: "(306) 123-4567",
+      email: "saskatchewan@evolvestrength.ca",
     },
     ontario: {
-      name: "Ontario",
-      locations: 8,
-      status: "Active",
-      description: "Largest market with extensive network across Ontario",
+      name: "Toronto Downtown",
+      image: evolveLoctions,
+      address: "456 King St W, Toronto, Ontario, M5V 1L7",
+      phone: "(416) 987-6543",
+      email: "toronto@evolvestrength.ca",
     },
   };
 
@@ -232,128 +236,16 @@ function EvolveExpansionPlans() {
                     />
                   </svg>
                 </div>
-                {/*  */}
               </div>
             </>
           </div>
 
-          {/* Hover Card */}
-          {/* {hoveredProvince && provinces[hoveredProvince] && (
-            <div
-              className="fixed z-50 bg-white border border-gray-200 rounded-lg shadow-lg p-4 max-w-xs pointer-events-none"
-              style={{
-                left: mousePosition.x + 10,
-                top: mousePosition.y - 10,
-                transform: "translateY(-50%)",
-              }}
-            >
-              <div className="flex flex-col gap-2">
-                <h3 className="font-bold text-lg text-gray-900">
-                  {provinces[hoveredProvince].name}
-                </h3>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-gray-600">Locations:</span>
-                  <span className="font-semibold text-green-600">
-                    {provinces[hoveredProvince].locations}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-gray-600">Status:</span>
-                  <span className="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">
-                    {provinces[hoveredProvince].status}
-                  </span>
-                </div>
-                <p className="text-sm text-gray-700 mt-2">
-                  {provinces[hoveredProvince].description}
-                </p>
-              </div>
-            </div>
-          )} */}
-          {hoveredProvince && (
-            <div
-              className="fixed z-50 bg-white rounded-[16px] shadow-[0_4px_24px_rgba(0,0,0,0.16)] max-w-[340px] pointer-events-none border border-[#E5E7EB]"
-              style={{
-                left: mousePosition.x + 20,
-                top: mousePosition.y - 20,
-                transform: "translateY(-50%)",
-              }}
-            >
-              {/* Top image */}
-              <div className="w-full h-[140px] rounded-t-[16px] overflow-hidden relative">
-                <img
-                  src={evolveLoctions}
-                  alt="Evolve Strength Edmonton South"
-                  className="w-full h-full object-cover"
-                />
-                {/* Carousel dot indicator */}
-                <div className="absolute left-1/2 -translate-x-1/2 bottom-2 flex gap-1">
-                  <span className="block w-2 h-2 bg-white rounded-full shadow border border-[#E5E7EB]"></span>
-                </div>
-              </div>
-              {/* Card content */}
-              <div className="p-6 flex flex-col gap-4">
-                <h3 className="font-semibold text-[18px] text-[#111827] leading-6">
-                  Edmonton South
-                </h3>
-                <div className="flex items-start gap-3 text-[15px] text-[#374151]">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 mt-0.5 text-[#4AB04A] flex-shrink-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                  <span>4825 89 St NW, Edmonton, Alberta, T6E 5K1</span>
-                </div>
-                <div className="flex items-center gap-3 text-[15px] text-[#374151]">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 text-[#4AB04A] flex-shrink-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 4v6m0 0a9 9 0 110-18 9 9 0 010 18z"
-                    />
-                  </svg>
-                  <span>(780) 690-4252</span>
-                </div>
-                <div className="flex items-center gap-3 text-[15px] text-[#374151]">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 text-[#4AB04A] flex-shrink-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm-8 0V8a4 4 0 018 0v4"
-                    />
-                  </svg>
-                  <span>evolvesouth@evolvestrength.ca</span>
-                </div>
-              </div>
-            </div>
+          {hoveredProvince && provinces[hoveredProvince] && (
+            <LocationsHoverCard
+              show={!!hoveredProvince}
+              mousePosition={mousePosition}
+              data={provinces[hoveredProvince]}
+            />
           )}
         </div>
         <div className="w-[40%]">

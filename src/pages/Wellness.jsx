@@ -13,12 +13,12 @@ function Home() {
     <div>
       <div className="max-md:hidden">
         <WellnessHero />
-        <WellnessJourneySteps/>
-        <WellnessPricingRoom/>
-        {/* <WellnessServicesForEveryone/> */}
-        <SteamAndSaunaRoom/>
-        <YogaAndRecoveryRoom/>
-        <FrequentlyAskedQuestions {...faqContent}/>
+        <WellnessJourneySteps />
+        <WellnessPricingRoom />
+        <WellnessServicesForEveryone />
+        <SteamAndSaunaRoom />
+        <YogaAndRecoveryRoom />
+        <FrequentlyAskedQuestions {...faqContent} />
       </div>
       <div className="md:hidden">Home Mobile</div>
     </div>
