@@ -4,17 +4,19 @@ import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import onSite from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/on-site.webp";
 import waitingArea from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/waiting-area.webp";
+import showers from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/showers.webp";
 import lockerRoom from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/locker-room.webp";
 import steamRoom from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/steam-room.webp";
 
 const professionals = [
-  { title: " Parking", image: onSite },
+  { title: "On-Site Parking", image: onSite },
   { title: "Waiting Area", image: waitingArea },
+  { title: "Showers", image: showers },
   { title: "Locker Rooms", image: lockerRoom },
-  { title: "Saunas & Steam Rooms", image: steamRoom },
+  { title: "Steam Rooms and Saunas", image: steamRoom },
 ];
 
-const Spacious = () => {
+const MembershipPremiumAmenities = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       containScroll: "keepSnaps",
@@ -27,10 +29,9 @@ const Spacious = () => {
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   return (
-    <section className="py-20 bg-[#EEEEEE]">
+    <section className="py-12 ">
         
       <div className="max-w-[1280px] mx-auto px-8 flex flex-col items-start gap-8">
-       
         <div className="flex items-start flex-col gap-4">
                     <h2 className="text-[#000] uppercase ">Spacious and Modern Facilities</h2>
                     <h4 className="mb-6 !max-w-[800px]">Our gyms are designed to give you room to move, train, and recover without feeling crowded. Each location offers more training space than a typical gym in Canada. We build with purpose, ensuring every area supports your fitness and wellness journey.  </h4>
@@ -85,4 +86,4 @@ const Spacious = () => {
   );
 };
 
-export default Spacious;
+export default MembershipPremiumAmenities;

@@ -36,15 +36,15 @@ const MeetTheTrainers = () => {
         
       <div className="max-w-[1280px] mx-auto px-8 flex flex-col items-start gap-8">
        
-        <div className="flex  flex-col gap-4 items-center">
+        <div className="w-full flex  flex-col text-center mt-6 gap-4 ">
                     <h2 className="text-[#000] uppercase ">Meet the trainers at seton</h2>
-                    <h4 className="mb-6 !max-w-[800px]">Every great workout starts with a great coach. Meet yours. </h4>
-                
+                    <h4 className="mb-6 ">Every great workout starts with a great coach. Meet yours. </h4>
+                 
                 </div>
 
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-4 pl-4">
+            <div className="flex gap-4 pl-15">
               {professionals.map((pro, idx) => (
                 <div
                   key={idx}
@@ -56,15 +56,18 @@ const MeetTheTrainers = () => {
                     className="w-[400px] h-[273px] object-cover"
                   />
                    <div className="w-[253px] h-[95px] bg-[#F6F6F6] border-[10px] mt-2 justify-center rounded-2xl border-transparent">
-                  <h3 className="flex   text-[#000]     font-[500]">
-                    {pro.title}
-                    
-                  </h3>
-                  <p className="description text-[#767676] w-[167px]">{pro.des}</p>
-                  <button className="w-4 h-4 flex items-center justify-center rounded-full border border-black">
-                    <img src={downicon} alt="" />
-                  </button>
-                 
+                   <div className="w-full h-[95px] bg-[#F6F6F6]  rounded-[10px] flex  justify-between">
+  {/* Left: Name + Description */}
+  <div className="flex flex-col ">
+    <h3 className="text-[#000]  leading-tight">{pro.title}</h3>
+    <p className="text-[#767676]  ">{pro.des}</p>
+  </div>
+
+  {/* Right: Down Button */}
+  <button className="w-6 h-6 flex justify-center mt-6 mr-1 rounded-full border  border-black">
+    <img src={downicon} alt="More" />
+  </button>
+</div>
   
                 </div>
                 </div>
@@ -73,7 +76,7 @@ const MeetTheTrainers = () => {
             </div>
           </div>
 
-          <div className="absolute top-[30%] -left-[4%] translate-y-1/2 ">
+          <div className="absolute top-[30%] left-[1%] translate-y-1/2 ">
             <button
               onClick={scrollPrev}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"
@@ -81,7 +84,7 @@ const MeetTheTrainers = () => {
               <ChevronLeft className="w-6 h-6" />
             </button>
           </div>
-          <div className="absolute  top-[30%] translate-y-1/2 right-[6%] z-10">
+          <div className="absolute  top-[30%] translate-y-1/2 right-[4%] z-10">
             <button
               onClick={scrollNext}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"
@@ -91,10 +94,9 @@ const MeetTheTrainers = () => {
           </div>
         </div>
 
-        {/* <button className="btnPrimary">APPLY NOW</button> */}
+        
       </div>
     </section>
   );
 };
-
 export default MeetTheTrainers;

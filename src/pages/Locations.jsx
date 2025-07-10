@@ -13,6 +13,7 @@ import LoWhyChooseEvolve from '@/components/PageComponents/Locations/Desktop/LoW
 import LocationPricing from '@/components/PageComponents/Locations/Desktop/LocationPricing'
 import MeetTheTrainers from '@/components/PageComponents/Locations/Desktop/MeetTheTrainers'
 import SetonLocation from '@/components/PageComponents/Locations/Desktop/SetonLocation'
+import LoPersonalizedAssesment from '@/components/PageComponents/Locations/Desktop/Personalizedassessment'
 
 function Locations() {
   return (
@@ -23,6 +24,7 @@ function Locations() {
         <LoWhyChooseEvolve/>
         <LocationPricing/>
         <FitnessCategory/>
+        <LoPersonalizedAssesment/>
         <RightTrainer/>
         <Services/>
         <Spacious/>
@@ -40,3 +42,15 @@ function Locations() {
 }
 
 export default Locations
+
+
+
+
+
+
+
+
+
+
+   
+       
