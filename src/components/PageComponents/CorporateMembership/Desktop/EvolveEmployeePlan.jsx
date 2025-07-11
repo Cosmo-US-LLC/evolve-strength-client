@@ -15,7 +15,7 @@ function EvolveEmployeePlan() {
             works for your <br /> team.
           </p>
           <div className="flex gap-6">
-            <button className="btnPrimary">Join Now</button>
+            <button className="btnPrimary">Book a Free Consultation</button>
           </div>
         </div>
       </div>

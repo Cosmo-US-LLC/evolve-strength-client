@@ -59,7 +59,7 @@
 .MembershipBenefitsHeroBG {
   background-image: url("@/assets/images/MembershipBenefits/membership_benefits_hero/membership_benefits_BG.webp");
   background-size: cover;
-  background-position: bottom;
+  background-position: 100% 100%;
   background-repeat: no-repeat;
   width: 100%;
   height: 700px;
@@ -112,11 +112,11 @@
 }
 .JoinToday{
    background-image: url("@/assets/images/Locations/JoinToday.webp");
-  background-size: cover;
-  background-position: bottom;
+  background-size:cover;
+  background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  height: 800px;
+  height: 700px;
 }
 /* Join As Trainer */
 .Whatyouearn {
@@ -162,9 +162,10 @@
 .TourOurFitness {
   background-image: url("@/assets/images/JoinAsTrainer/TourOurFitness/TourOurFitness_bg.webp");
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
   width: 100%;
+  height: 666px;
 }
 /* Tour Our Fitness */
 

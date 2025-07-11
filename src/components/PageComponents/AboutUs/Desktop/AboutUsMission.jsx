@@ -43,7 +43,7 @@ const cardsData = [
 function AboutUsMission() {
   return (
     <div className="max-w-[1280px]  mx-auto w-full h-full">
-      <div className="flex flex-col md:flex-row gap-6 h-[700px] p-8 bg-[#FFF] mx-auto my-8">
+      <div className="flex flex-col md:flex-row gap-6 h-[660px] p-8 bg-[#FFF] mx-auto my-5">
 
         {/* OUR MISSION */}
     <div className="flex flex-col items-start w-[351px] h-[598px] pt-[32px] pr-[54px] pb-[96px] pl-[55px] bg-[#F7F5F5] rounded-[10px]">

@@ -3,8 +3,11 @@ import fitness from "../../../../assets/images/corporateMembership/whyChoose/eve
 import wellness from "../../../../assets/images/PersonalTraning/PersonalGymExperience/bodyweight_training.webp";
 import atmosphere from "../../../../assets/images/PersonalTraning/PersonalGymExperience/cardio.webp";
 import turfWorkouts from "../../../../assets/images/PersonalTraning/PersonalGymExperience/turf_workouts.webp";
-import olympicLifting from "../../../../assets/images/PersonalTraning/PersonalGymExperience/olympic_lifting.webp";
-import yoga from "../../../../assets/images/PersonalTraning/PersonalGymExperience/yoga.webp";
+import { ReactComponent as onePlace } from "@/assets/images/corporateMembership/whyChoose/one_place.svg";
+import { ReactComponent as TopTier } from "@/assets/images/corporateMembership/whyChoose/Top_Tier.svg";
+import { ReactComponent as WellnessSupport } from "@/assets/images/corporateMembership/whyChoose/WellnessSupport.svg";
+import { ReactComponent as BetterOutcomes } from "@/assets/images/corporateMembership/whyChoose/BetterOutcomes.svg";
+
 
 const gymCards = [
   {
