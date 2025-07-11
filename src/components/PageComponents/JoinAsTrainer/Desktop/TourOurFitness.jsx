@@ -1,22 +1,21 @@
-
 import React from "react";
 
 function TourOurFitness() {
-
   return (
-    <div className="w-full">
-      <div className="w-full max-w-[1440px] flex justify-start items-end min-h-[680px] TourOurFitness px-[180px] mx-auto pb-[100px] ">
-        <div className="max-w-[593px] w-[100%] space-y-[18px]">
-          <h2 className="!text-[#FFF] uppercase leading-[45px] font-[700]">
+    <div className="relative TourOurFitness">
+      {/* <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/40" /> */}
+      <div className="max-w-[1280px] px-8 pb-[80px] mx-auto w-full h-full">
+        <div className="relative z-2 flex  flex-col items-start justify-end h-full">
+          <h2 className="text-[#FFFFFF] uppercase max-w-[560px] !font-[700] leading-[39px] mb-5">
             Tour Our Fitness Facility
           </h2>
-          <h4 className="h4 !font-vazirmatn !font-[400] text-[#fff] !leading-[25px]">
+          <p className="text-[#FFFFFF] description !font-[400] max-w-[542px] leading-[24px] mb-6">
             Come see the space for yourself. Our training floors are one of the
             largest in Canada, built to support serious trainers like you.
-          </h4>
-            <div className="flex justify-start items-start ">
-          <button className="btnPrimary">START TODAY</button>
-        </div>
+          </p>
+          <div className="flex gap-6">
+            <button className="btnPrimary">START TODAY</button>
+          </div>
         </div>
       </div>
     </div>

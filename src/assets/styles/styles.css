@@ -59,7 +59,7 @@
 .MembershipBenefitsHeroBG {
   background-image: url("@/assets/images/MembershipBenefits/membership_benefits_hero/membership_benefits_BG.webp");
   background-size: cover;
-  background-position: bottom;
+  background-position: 100% 100%;
   background-repeat: no-repeat;
   width: 100%;
   height: 700px;
@@ -162,9 +162,10 @@
 .TourOurFitness {
   background-image: url("@/assets/images/JoinAsTrainer/TourOurFitness/TourOurFitness_bg.webp");
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
   width: 100%;
+  height: 666px;
 }
 /* Tour Our Fitness */
 
