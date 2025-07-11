@@ -8,11 +8,11 @@ function SetonLocation() {
   return (
     <div className="w-full max-w-[1280px] mx-auto px-4 py-15 flex flex-col gap-6 ">
       
-  <h1 className="!text-[40px]  mb-4 !font-bold text-center">
+  <h1 className="!text-[40px]   mb-4 !font-bold text-center">
     ABOUT OUR SETON LOCATION
   </h1>
 
-  <div className="flex  md:flex-row  gap-4">
+  <div className="flex  md:flex-row pl-5 gap-4">
     {/* Left: Image */}
     <div className=" ">
       <img
@@ -23,12 +23,12 @@ function SetonLocation() {
     </div>
 
     {/* Right: Map + Info */}
-    <div className="w-full md:w-1/2 flex flex-col gap-1">
+    <div className="w-[695px] h-[290px] flex flex-col gap-3">
       {/* Map Image */}
       <img
         src={Map}
         alt="Seton Map"
-        className="w-[793px] h-[290px] object-cover rounded-md"
+        className=" object-cover rounded-md"
       />
 
       {/* Address & Button */}
@@ -47,8 +47,8 @@ function SetonLocation() {
   </div>
 
   {/* Optional: Facility Timing Toggle */}
-  <div className=" ">
-    <button className="w-[1150px] flex items-center justify-between px-4 py-3 bg-[#F9F9F9] text-black  border border-gray-200 rounded">
+  <div className="pl-5  ">
+    <button className="w-[1210px]  flex items-center justify-between px-4 py-3 bg-[#F9F9F9] text-black  border border-gray-200 rounded">
       FACILITY TIMINGS
       <img src={icon} alt="" />
     </button>

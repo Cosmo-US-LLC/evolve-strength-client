@@ -19,6 +19,8 @@ import JoinAsTrainer from "./pages/JoinAsTrainer";
 import CorporateMembership from "./pages/CorporateMembership";
 import JoinTheMovement from "./pages/JoinTheMovement";
 import Locations from "./pages/Locations";
+import NotFoundPage from './pages/PageNotFound'
+import Loader from "./pages/Loader";
 
 function App() {
   return (
@@ -44,7 +46,10 @@ function App() {
            <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          
         </Route>
+        <Route path="/loader" element={<Loader />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
