@@ -1,4 +1,4 @@
-import path from "path"
+import path from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
@@ -9,7 +9,7 @@ export default defineConfig({
   theme: {
     extend: {
       fontFamily: {
-        Kanit: ["Kanit"],
+        kanit: ["Kanit"],
         vazirmatn: ["Vazirmatn"],
       },
     },

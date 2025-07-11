@@ -71,7 +71,7 @@ const AccessEvolveLocationWithEase = () => {
 
         <button
           onClick={handlePrevious}
-          className="absolute left-[86%] -top-1/9 -translate-y-1/2 h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow"
+          className="absolute left-[87%] -top-1/9 -translate-y-1/2 h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow"
         >
           <img
             src={LeftArrowIcon}

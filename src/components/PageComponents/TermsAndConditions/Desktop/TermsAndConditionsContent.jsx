@@ -6,7 +6,7 @@ const TermsAgreementContent = ({ termsMain }) => {
   const handleScroll = (id) => {
     const el = document.getElementById(id);
     if (el) {
-      const yOffset = -100; // Adjust based on your sticky header height
+      const yOffset = -150; // Adjust based on your sticky header height
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
       setActiveId(id);
@@ -14,12 +14,12 @@ const TermsAgreementContent = ({ termsMain }) => {
   };
 
   return (
-    <div className="max-w-[1280px] px-8 pb-[140px] mt-50 mx-auto w-full">
+    <div className="max-w-[1280px] px-8 pb-[140px] mt-32 mx-auto w-full">
       <div className="flex w-[1240px]">
 
         {/* Sidebar */}
         <section>
-          <div className="flex flex-col items-start w-[300px] p-[10px] gap-[10px] sticky top-[210px]">
+          <div className="flex flex-col items-start w-[300px] p-[10px] gap-[10px] sticky top-[150px]">
 
             <ul>
               <li>

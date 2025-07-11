@@ -44,7 +44,7 @@ const PremiumAmenitiesForYou = () => {
   ];
 
   return (
-    <div className="py-12">
+    <div className="py-12 bg-[#F9F9F9]">
       <div className="max-w-[1280px] px-8 mx-auto w-full flex flex-col gap-10">
         <div className="flex flex-col gap-3">
           <h2 className="text-[#000] uppercase">Premium Amenities for You</h2>

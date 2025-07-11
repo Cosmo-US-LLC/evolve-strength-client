@@ -1,7 +1,9 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import LeftArrowIcon from "@/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/left-arrow.svg";
+import RightArrowIcon from "@/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/right-arrow.svg";
 import slide1 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide1.webp";
 import slide2 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide2.webp";
 import slide3 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide3.webp";
@@ -37,7 +39,7 @@ const EveryThinkYouNeed = () => {
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   return (
-    <section className="py-12">
+    <section className="py-12 bg-[#F9F9F9]">
       <div className="max-w-[1280px] mx-auto px-8 flex flex-col items-start gap-8">
         <div className="flex flex-col gap-4">
           <h2 className="text-[#000] uppercase ">
@@ -45,9 +47,10 @@ const EveryThinkYouNeed = () => {
           </h2>
           <h4 className="text-[#000] w-[719px] leading-[26px] font-[400]">
             At most gyms, your fitness journey ends when you leave. Recovery
-            often means driving <br /> across town for physiotherapy, massage, or
-            rehab. At Evolve, everything you need is in one <br /> place. You can move
-            seamlessly between the gym and the wellness area, all within the <br />
+            often means driving <br /> across town for physiotherapy, massage,
+            or rehab. At Evolve, everything you need is in one <br /> place. You
+            can move seamlessly between the gym and the wellness area, all
+            within the <br />
             same building.
           </h4>
           <h4 className="leading-[26px] font-[400]">
@@ -77,12 +80,16 @@ const EveryThinkYouNeed = () => {
             </div>
           </div>
 
-          <div className="absolute -top-1/7 -translate-y-1/2 left-[86%] z-10">
+          <div className="absolute -top-1/7 -translate-y-1/2 left-[87%] z-10">
             <button
               onClick={scrollPrev}
               className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000]"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <img
+                src={LeftArrowIcon}
+                alt="Previous"
+                className="h-4 w-4 text-[#00000060]"
+              />
             </button>
           </div>
           <div className="absolute -top-1/7 -translate-y-1/2 right-[6%] z-10">
@@ -90,7 +97,11 @@ const EveryThinkYouNeed = () => {
               onClick={scrollNext}
               className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000]"
             >
-              <ChevronRight className="w-6 h-6" />
+              <img
+                src={RightArrowIcon}
+                alt="Next"
+                className="h-4 w-4 text-[#00000060]"
+              />
             </button>
           </div>
         </div>
