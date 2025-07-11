@@ -32,19 +32,19 @@ const MeetTheTrainers = () => {
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   return (
-    <section className="py-20 bg-[#FFFFFF]">
+    <section className="mb-12.5  bg-[#FFFFFF]">
         
-      <div className="max-w-[1280px] mx-auto px-8 flex flex-col items-start gap-8">
-       
+      <div className="max-w-[1280px] mx-auto px-8 flex flex-col items-start ">
+       <div>
         <div className="w-full flex  flex-col text-center mt-6 gap-4 ">
-                    <h2 className="text-[#000] uppercase ">Meet the trainers at seton</h2>
-                    <h4 className="mb-6 ">Every great workout starts with a great coach. Meet yours. </h4>
+                    <h2 className="text-[#000] uppercase mb-4 ">Meet the trainers at seton</h2>
+                    <h4 className="mb-10 ">Every great workout starts with a great coach. Meet yours. </h4>
                  
                 </div>
 
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-4 pl-15">
+            <div className="flex gap-6 pl-16">
               {professionals.map((pro, idx) => (
                 <div
                   key={idx}
@@ -68,7 +68,6 @@ const MeetTheTrainers = () => {
     <img src={downicon} alt="More" />
   </button>
 </div>
-  
                 </div>
                 </div>
                 
@@ -76,7 +75,7 @@ const MeetTheTrainers = () => {
             </div>
           </div>
 
-          <div className="absolute top-[30%] left-[1%] translate-y-1/2 ">
+          <div className="absolute top-[30%] left-[%] translate-y-1/2 ">
             <button
               onClick={scrollPrev}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"
@@ -84,7 +83,7 @@ const MeetTheTrainers = () => {
               <ChevronLeft className="w-6 h-6" />
             </button>
           </div>
-          <div className="absolute  top-[30%] translate-y-1/2 right-[4%] z-10">
+          <div className="absolute  top-[30%] translate-y-1/2 -right-[0.1%] z-10">
             <button
               onClick={scrollNext}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"
@@ -93,7 +92,7 @@ const MeetTheTrainers = () => {
             </button>
           </div>
         </div>
-
+</div>
         
       </div>
     </section>

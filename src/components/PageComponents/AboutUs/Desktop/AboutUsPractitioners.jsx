@@ -28,18 +28,18 @@ const AboutUsPractitioners = () => {
       containScroll: "keepSnaps",
       loop: true,
     },
-    [Autoplay({ delay: 4000, stopOnInteraction: false })]
+    [Autoplay({ delay: 3000, stopOnInteraction: false })]
   );
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   return (
-    <section className="py-12 bg-[#EEEEEE]">
+    <section className="py-5 bg-[#EEEEEE]">
       <div className="max-w-[1280px] mx-auto px-8 flex flex-col items-start gap-8">
-        <div className="flex items-start flex-col gap-4">
+        <div className="flex items-start flex-col gap-10">
                     <h2 className="text-[#000] uppercase ">Practitioners</h2>
-                    <h4 className="mb-6 !max-w-[800px]">Evolve brings together a team of licensed professionals so you can take care of your body and mind under one roof. We make it easy to access health services without having to leave your gym.  </h4>
+                    <h4 className=" !max-w-[800px]">Evolve brings together a team of licensed professionals so you can take care of your body and mind under one roof. We make it easy to access health services without having to leave your gym.  </h4>
               
                 </div>
                  
