@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import GrowYourBusinessSectionImage from "@/assets/images/spaces/GrowYourBusinessSection/GrowYourBusinessSectionImage.webp";
 
 function GrowYourBusinessSection() {
@@ -16,11 +17,13 @@ function GrowYourBusinessSection() {
               All-inclusive office spaces for wellness professionals inside
               Canada’s top fitness facilities.
             </h3>
-            <button className="btnPrimary">Book a Tour</button>
+            <Link to="/join-the-wait-list">
+              <button className="btnPrimary">Apply Now</button>
+            </Link>
             <h4 className="text-[#000] leading-[26px]">
               Limited spots available.{" "}
               <a
-                href="#"
+                href="/join-the-wait-list"
                 className="underline"
                 style={{
                   color: "#000",
