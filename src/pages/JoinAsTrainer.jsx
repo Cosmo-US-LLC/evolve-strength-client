@@ -5,6 +5,7 @@ import BuildYourCareer from "@/components/PageComponents/JoinAsTrainer/Desktop/B
 import WhyChooseEvolve from "@/components/PageComponents/JoinAsTrainer/Desktop/WhyChooseEvolve";
 import WhatTrainersAre from "@/components/PageComponents/JoinAsTrainer/Desktop/WhatTrainersAre";
 import TourOurFitness from "@/components/PageComponents/JoinAsTrainer/Desktop/TourOurFitness";
+import TrainerForm from "@/components/PageComponents/JoinAsTrainer/Desktop/TrainerForm";
 
 function JoinAsTrainer() {
   return (
@@ -15,6 +16,8 @@ function JoinAsTrainer() {
         <WhyChooseEvolve />
         <WhatTrainersAre />
         <TourOurFitness />
+        <TrainerForm/>
+
       </div>
       <div className="md:hidden">Home Mobile</div>
     </div>

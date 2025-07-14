@@ -49,8 +49,8 @@ const contactmain = {
 function Contactusmain() {
   return (
      
-    <div className="max-w-[1280px] px-8 pb-[135px] mx-auto w-full h-full">
-        <div className="  py-8 grid grid-cols-1 md:grid-cols-2 gap-14 justify-center ">
+    <div className="max-w-[1280px] px-8  mx-auto w-full h-full">
+        <div className="  py- grid grid-cols-1 md:grid-cols-2 gap-14 justify-center ">
             <div className="max-w-[1280px]  pb-[135px] mx-auto w-full h-full">
       <div className=" ">
         <div>
