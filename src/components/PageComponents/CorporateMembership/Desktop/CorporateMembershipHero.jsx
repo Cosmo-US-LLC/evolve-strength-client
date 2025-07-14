@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import corporateHero from "@/assets/images/corporateMembership/corporateMemberHero/corporateHero.webp";
 
 function CorporateMembershipHero() {
@@ -18,7 +19,9 @@ function CorporateMembershipHero() {
               performance, and recovery<br /> <br /> Locations Edmonton, Calgary, Burnaby,
               and Vancouver. 
             </h3>
+              <Link to="/corporate-membership-wizard">
             <button className="btnPrimary">Book a Free Consultation</button>
+            </Link>
           </div>
         </div>
         <div className="flex flex-col items-center justify-center">

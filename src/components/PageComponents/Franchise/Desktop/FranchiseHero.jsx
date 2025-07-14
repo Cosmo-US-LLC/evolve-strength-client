@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import GrowYourBusinessSectionImage from "@/assets/images/spaces/GrowYourBusinessSection/GrowYourBusinessSectionImage.webp";
 
 function FranchiseHero() {
@@ -17,7 +18,9 @@ function FranchiseHero() {
               Leverage our proven multi-revenue model combining fitness,
               healthcare, and real estate.
             </h3>
-            <button className="btnPrimary">Book a Tour</button>
+            <Link to="/your-fitness-future">
+              <button className="btnPrimary">Apply Now</button>
+            </Link>
           </div>
         </div>
         <div className="flex flex-col items-center justify-center">
