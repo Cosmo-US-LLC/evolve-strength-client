@@ -6,7 +6,7 @@ function TrainerCard({ trainer, selected, onClick }) {
     <div
       onClick={onClick}
       className={`
-        relative cursor-pointer transition-all duration-200 rounded-[10px] overflow-hidden min-w-[235px] h-[360px]
+        relative cursor-pointer transition-all duration-200 rounded-[10px] overflow-hidden max-w-[260px] h-[360px]
         ${selected ? "bg-[#4AB04A]" : ""}
       `}
     >
