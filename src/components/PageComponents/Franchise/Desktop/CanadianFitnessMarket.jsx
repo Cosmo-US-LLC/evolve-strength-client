@@ -68,11 +68,11 @@ const CanadianFitnessMarket = () => {
             <div className="w-[400px] h-[400px] absolute -bottom-[100px] right-[6px] rounded-full bg-[#4AB04A] flex items-center justify-center"></div>
 
             <div className="flex flex-col gap-1 z-10 absolute top-[130px] right-[230px]">
-              <div className="flex gap-2 ">
+              <div className="flex gap-2 pt-10">
                 <div className="w-[24px] h-[24px] rounded-full bg-[#4AB04A] text-white flex items-center justify-center text-[16px] font-[900] font-[kanit]">
                   1
                 </div>
-                <h3 className=" leading-[26px] !font-[600] text-[#000]">
+                <h3 className="  leading-[26px] !font-[600] text-[#000]">
                   $5.8B
                 </h3>
               </div>
@@ -82,7 +82,7 @@ const CanadianFitnessMarket = () => {
             </div>
 
             <div className="flex flex-col gap-1 z-10 absolute top-[280px] right-[100px]">
-              <div className="flex gap-2 ">
+              <div className="flex gap-2 pt-10 ">
                 <div className="w-[24px] h-[24px] rounded-full bg-[#4AB04A] text-white flex items-center justify-center text-[16px] font-[900] font-[kanit]">
                   2
                 </div>

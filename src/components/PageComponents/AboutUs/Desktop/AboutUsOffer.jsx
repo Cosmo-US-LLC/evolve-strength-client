@@ -1,7 +1,7 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import onSite from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/on-site.webp";
 import waitingArea from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/waiting-area.webp";
 import showers from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/showers.webp";
@@ -68,7 +68,7 @@ const MembershipPremiumAmenities = () => {
               onClick={scrollPrev}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ArrowLeft className="w-6 h-6" />
             </button>
           </div>
           <div className="absolute -top-1/6 -translate-y-1/2 right-[6%] z-10">
@@ -76,7 +76,7 @@ const MembershipPremiumAmenities = () => {
               onClick={scrollNext}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ArrowRight className="w-6 h-6" />
             </button>
           </div>
         </div>
