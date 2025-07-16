@@ -27,6 +27,7 @@ import CorporateMembershipWizard from "./components/Form/CorporateMembershipWiza
 import ApplyCorporateMembershipForm from "./components/Form/ApplyCorporateMembershipForm";
 import CompanyAlreadyRegistered from "./components/Form/CompanyAlreadyRegistered";
 import CheckMembershipForm from "./components/Form/CheckMembershipForm";
+import ApplicationSubmitted from "./components/Form/ApplicationSubmitted";
 
 function App() {
   return (
@@ -78,6 +79,14 @@ function App() {
         <Route
           path="/company-already-registered"
           element={<CompanyAlreadyRegistered />}
+        />
+        <Route
+          path="/apply-membership-form"
+          element={<ApplyCorporateMembershipForm />}
+        />
+        <Route
+          path="/application-submitted"
+          element={<ApplicationSubmitted />}
         />
        
         <Route path="/loader" element={<Loader />} />
