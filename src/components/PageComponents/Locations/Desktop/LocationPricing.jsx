@@ -48,7 +48,7 @@ function LocationPricing() {
         <h1 className="!text-[40px] max-w-[300px] leading-[39px] uppercase">
           {pricingContent.sectionTitle}
         </h1>
-        <p className="mt-4 description max-w-[300px]">
+        <p className="mt-4 !font-[kanit] !font-[300] description max-w-[300px]">
           {pricingContent.sectionSubtitle}
         </p>
       </div>
@@ -65,7 +65,7 @@ function LocationPricing() {
             <h2 className="text-[#4AB04A] mt-2">{plan.price}</h2>
             <hr className="my-4" />
             <p className="description !font-[kanit] mb-4 ">{plan.featuresTitle}</p>
-            <ul className="space-y-6 description !font-[kanit]text-sm mb-8">
+            <ul className="space-y-6 !description !font-[kanit]  text-sm mb-8">
               {plan.features.map((feature, i) => (
                 <li key={i} className="flex ">
                   <span className="text-black mr-2 "><img src={check} alt="" /></span>

@@ -1,7 +1,7 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Physiotherapy from "../../../../assets/images/corporateMembership/MembershipRecovery/Physiotherapy.webp";
 import Pilates from "../../../../assets/images/corporateMembership/MembershipRecovery/Pilates.webp";
 import MassageTherapy from "../../../../assets/images/corporateMembership/MembershipRecovery/Massage_Therapy.webp";
@@ -64,7 +64,7 @@ const MembershipRecovery = () => {
               onClick={scrollPrev}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ArrowLeft className="w-6 h-6" />
             </button>
           </div>
           <div className="absolute -top-1/6 -translate-y-1/2 right-[6%] z-10">
@@ -72,7 +72,7 @@ const MembershipRecovery = () => {
               onClick={scrollNext}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ArrowRight className="w-6 h-6" />
             </button>
           </div>
         </div>

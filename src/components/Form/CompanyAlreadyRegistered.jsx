@@ -21,14 +21,14 @@ function CompanyAlreadyRegistered({ onBack, onReturnHome }) {
         </div>
       </div>
       {/* Right Confirmation */}
-      <div className="flex flex-col items-center w-full max-w-[60%]">
+      <div className="flex flex-col items-center h-[650px]  w-full max-w-[60%]">
         <button
                   className="flex self-start  !items-start gap-2   text-[#222] text-[15px] mb-4 hover:underline"
                    onClick={() => navigate(-1)}
                 >
                   <ArrowLeft size={20} /> Back
                 </button>
-        <div className="w-full max-w-[420px] bg-white rounded-[10px]  p-6 flex flex-col items-center">
+        <div className="w-full max-w-[420px] self-start pl-30 bg-white rounded-[10px] mt-50 p-6 flex flex-col items-center">
           <div className="w-[537px]">
           <h3 className="text-[18px] md:text-[20px] font-[700] text-center mb-2">
             YOUR COMPANY IS ALREADY REGISTERED WITH EVOLVE.
@@ -40,7 +40,7 @@ function CompanyAlreadyRegistered({ onBack, onReturnHome }) {
           </p>
           </div>
           <Link to = "/">
-          <button className="btnPrimary w-full" onClick={onReturnHome}>
+          <button className="btnPrimary w-[537px]" onClick={onReturnHome}>
             RETURN TO HOMEPAGE
           </button>
           </Link>

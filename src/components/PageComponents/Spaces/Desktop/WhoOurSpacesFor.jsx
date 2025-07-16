@@ -1,7 +1,7 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import slide1 from "../../../../assets/images/spaces/WhoOurSpacesFor/slide1.webp";
 import slide2 from "../../../../assets/images/spaces/WhoOurSpacesFor/slide2.webp";
 import slide3 from "../../../../assets/images/spaces/WhoOurSpacesFor/slide3.webp";
@@ -75,7 +75,7 @@ const WhoOurSpacesFor = () => {
               onClick={scrollPrev}
               className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000]"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ArrowLeft className="w-6 h-6" />
             </button>
           </div>
           <div className="absolute -top-1/7 -translate-y-1/2 right-[6%] z-10">
@@ -83,7 +83,7 @@ const WhoOurSpacesFor = () => {
               onClick={scrollNext}
               className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000]"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ArrowRight className="w-6 h-6" />
             </button>
           </div>
         </div>

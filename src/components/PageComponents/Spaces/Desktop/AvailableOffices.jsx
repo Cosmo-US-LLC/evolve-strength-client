@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
-
+import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
 import CSSlides_1 from "@/assets/images/spaces/AvailableOffices/CSSlides_1.webp";
 import BSlides_1 from "@/assets/images/spaces/AvailableOffices/BSlides_1.webp";
 
@@ -215,7 +214,7 @@ const AvailableOffices = () => {
                   onClick={scrollPrev}
                   className="h-[45px] w-[45px] rounded-full flex items-center justify-center text-[#000000] border border-[#000000] bg-white"
                 >
-                  <ChevronLeft className="w-6 h-6" />
+                  <ArrowLeft className="w-6 h-6" />
                 </button>
               </div>
               <div className="absolute -top-1/10 -translate-y-1/2 right-[4%] z-10">
@@ -223,7 +222,7 @@ const AvailableOffices = () => {
                   onClick={scrollNext}
                   className="h-[45px] w-[45px] rounded-full flex items-center justify-center text-[#000000] border border-[#000000] bg-white"
                 >
-                  <ChevronRight className="w-6 h-6" />
+                  <ArrowRight className="w-6 h-6" />
                 </button>
               </div>
             </>
