@@ -18,15 +18,13 @@ const amenities = [
 
 const PremiumAmenities = () => {
   const [activeAmenity, setActiveAmenity] = useState(amenities[0]);
-  const [hoverAmenity, setHoverAmenity] = useState(null);
   const [fade, setFade] = useState(false);
 
-  const currentImage = hoverAmenity || activeAmenity;
-
   const handleImageChange = (item) => {
-    if (currentImage.title !== item.title) {
+    if (activeAmenity.title !== item.title) {
       setFade(true);
       setTimeout(() => {
+        setActiveAmenity(item);
         setFade(false);
       }, 200);
     }
@@ -49,12 +47,7 @@ const PremiumAmenities = () => {
               {amenities.map((item) => (
                 <li
                   key={item.title}
-                  onClick={() => setActiveAmenity(item)}
-                  onMouseEnter={() => {
-                    setHoverAmenity(item);
-                    handleImageChange(item);
-                  }}
-                  onMouseLeave={() => setHoverAmenity(null)}
+                  onClick={() => handleImageChange(item)}
                   className={`cursor-pointer pb-4 text-[24px] font-[500] font-[kanit] leading-normal border-[#000] hover:text-[#000] transition-colors duration-300 border-b ${
                     activeAmenity.title === item.title
                       ? " text-[#000] "
@@ -69,9 +62,9 @@ const PremiumAmenities = () => {
 
           <div className="w-[50%] max-w-[462px] flex flex-col items-center justify-center">
             <img
-              src={currentImage.image}
-              alt={currentImage.title}
-              className={`rounded-lg w-full  object-cover transition-opacity duration-300 ${
+              src={activeAmenity.image}
+              alt={activeAmenity.title}
+              className={`rounded-lg w-full  object-cover transition-opacity duration-500 ${
                 fade ? "opacity-0" : "opacity-100"
               }`}
             />

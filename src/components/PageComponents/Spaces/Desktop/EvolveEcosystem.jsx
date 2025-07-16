@@ -3,7 +3,7 @@ import trainerBg from "/src/assets/images/spaces/EvolveEcosystem/EvolveEcosystem
 
 function EvolveEcosystem() {
   return (
-    <div className="w-full py-12 bg-[#000000]">
+    <div className="w-full py-12 bg-[#fff]">
       <div className="w-full max-w-[1280px] px-8 mx-auto ">
         <div
           className="bg-cover bg-center min-h-[600px] flex flex-col justify-between px-[76px] py-16 items-start text-left rounded-xl overflow-hidden shadow-lg"
