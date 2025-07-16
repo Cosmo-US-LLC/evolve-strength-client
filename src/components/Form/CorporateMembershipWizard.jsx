@@ -26,7 +26,7 @@ function CorporateMembershipWizard({ onSelectOption }) {
           choose the option that best fits your journey.
         </p>
         <div className="flex flex-row gap-6 w-full justify-center">
-          <Link to="/company-already-registered">
+          <Link to="/check-membership-form">
           {/* Option 1 */}
           <button
             className="flex-1 bg-white border border-[#D4D4D4] rounded-[8px] p-6 flex flex-col items-center cursor-pointer hover:border-[#4AB04A] transition-all min-w-[220px] max-w-[260px] shadow-sm"
@@ -44,9 +44,9 @@ function CorporateMembershipWizard({ onSelectOption }) {
           </button>
           </Link>
           {/* Option 2 */}
-          <Link to="/check-membership-form">
+          <Link to="/apply-membership-form">
           <button
-            className="flex-1 bg-white border border-[#D4D4D4] rounded-[8px] p-6 flex flex-col items-center cursor-pointer hover:border-[#4AB04A] transition-all min-w-[220px] max-w-[260px] shadow-sm"
+            className="flex-1 bg-white border border-[#D4D4D4] rounded-[8px] p-6 flex flex-col items-center cursor-pointer hover:border-[#4AB04A] transition-all min-w-[220px] h-[208px] max-w-[260px] shadow-sm"
             onClick={() => onSelectOption("apply")}
           >
             <span className="mb-3">
