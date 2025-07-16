@@ -1,6 +1,6 @@
 import React from "react";
 import CategoryCard from "./CategoryCard";
-import { EXPLORE_DATA } from "../../../../../../constants/exploreData";
+import { EXPLORE_DATA } from "../../../../../../constants/UnUseExploreDataOld";
 
 function CategorySelector({ selected, onSelect }) {
   return (
