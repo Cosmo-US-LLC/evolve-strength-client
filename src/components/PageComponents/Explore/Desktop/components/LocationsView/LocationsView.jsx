@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getDataByCategory } from "../../../../../../constants/exploreData";
+import { getDataByCategory } from "../../../../../../constants/UnUseExploreDataOld";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
 import { ArrowUpCircle } from "lucide-react";
@@ -111,24 +111,69 @@ function LocationsView() {
                   {/* Trainer Cards Grid */}
                   {filteredTrainers && filteredTrainers.length > 0 && (
                     <>
-                      <div className="flex gap-6 flex-wrap bg-[#F6F6F6] p-12">
-                        {filteredTrainers.map((trainer, idx) => (
-                          <div key={idx} className="flex-1  ">
-                            <TrainerCard
-                              trainer={trainer}
-                              selected={selectedIdx === idx}
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setSelectedTrainer((prev) => ({
-                                  ...prev,
-                                  [trainerKey]: idx,
-                                }));
-                              }}
-                            />
-                          </div>
-                        ))}
-                      </div>
-                      <TrainerDetails trainer={filteredTrainers[selectedIdx]} />
+                      {/* Organize trainers into rows of 4 */}
+                      {(() => {
+                        const columns = 4;
+                        const rows = [];
+                        for (
+                          let i = 0;
+                          i < filteredTrainers.length;
+                          i += columns
+                        ) {
+                          rows.push(filteredTrainers.slice(i, i + columns));
+                        }
+
+                        return rows.map((row, rowIdx) => {
+                          const startIdx = rowIdx * columns;
+
+                          return (
+                            <div key={rowIdx}>
+                              {/* Trainer Cards Row */}
+                              <div className="flex gap-6 flex-wrap bg-[#F6F6F6] p-12">
+                                {row.map((trainer, colIdx) => {
+                                  const globalIdx = startIdx + colIdx;
+
+                                  return (
+                                    <div key={globalIdx} className="flex-1">
+                                      <TrainerCard
+                                        trainer={trainer}
+                                        selected={selectedIdx === globalIdx}
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          // Toggle: if same trainer is clicked, hide it; otherwise show new trainer
+                                          if (selectedIdx === globalIdx) {
+                                            setSelectedTrainer((prev) => ({
+                                              ...prev,
+                                              [trainerKey]: null,
+                                            }));
+                                          } else {
+                                            setSelectedTrainer((prev) => ({
+                                              ...prev,
+                                              [trainerKey]: globalIdx,
+                                            }));
+                                          }
+                                        }}
+                                      />
+                                    </div>
+                                  );
+                                })}
+                              </div>
+
+                              {/* Details panel below the entire row */}
+                              {selectedIdx !== null &&
+                                selectedIdx !== undefined &&
+                                Math.floor(selectedIdx / columns) ===
+                                  rowIdx && (
+                                  <div className="w-full mt-6">
+                                    <TrainerDetails
+                                      trainer={filteredTrainers[selectedIdx]}
+                                    />
+                                  </div>
+                                )}
+                            </div>
+                          );
+                        });
+                      })()}
                     </>
                   )}
                   {filteredTrainers && filteredTrainers.length === 0 && (

@@ -4,7 +4,7 @@ function TrainerDetails({ trainer }) {
   // Check if trainer exists
   if (!trainer) {
     return (
-      <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+      <div>
         {/* <p className="text-gray-500">No trainer information available.</p> */}
       </div>
     );

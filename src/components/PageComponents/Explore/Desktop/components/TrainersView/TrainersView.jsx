@@ -3,7 +3,7 @@ import {
   getAllTrainers,
   getAllLocations,
   getToday,
-} from "../../../../../../constants/exploreData";
+} from "../../../../../../constants/UnUseExploreDataOld";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
 import { ArrowUpCircle, Check } from "lucide-react";
@@ -184,78 +184,29 @@ function TrainersView() {
                       <TrainerCard
                         trainer={trainer}
                         selected={selectedTrainerIdx === globalIdx}
-                        onClick={() => setSelectedTrainerIdx(globalIdx)}
+                        onClick={() => {
+                          // Toggle: if same card is clicked, hide it; otherwise show new card
+                          if (selectedTrainerIdx === globalIdx) {
+                            setSelectedTrainerIdx(null);
+                          } else {
+                            setSelectedTrainerIdx(globalIdx);
+                          }
+                        }}
                       />
-
-                      {/* Details panel below the selected card */}
-                      {selectedTrainerIdx === globalIdx && (
-                        <div className="absolute top-full left-0 right-0 z-20 mt-4">
-                          <div className="bg-white rounded-[10px] p-6 shadow-sm border border-gray-100">
-                            <div className="flex items-center justify-between">
-                              <div className="flex-1">
-                                {/* About Section */}
-                                <div className="mb-4">
-                                  <h3 className="font-bold text-gray-900 mb-2 text-sm">
-                                    About:
-                                  </h3>
-                                  <p className="text-gray-700 leading-relaxed text-sm">
-                                    {trainer.about ||
-                                      "No description available."}
-                                  </p>
-                                </div>
-
-                                {/* Certification Section */}
-                                <div className="mb-4">
-                                  <h3 className="font-bold text-gray-900 mb-2 text-sm">
-                                    Certification:
-                                  </h3>
-                                  <p className="text-gray-700 text-sm">
-                                    {trainer.certification ||
-                                      "Certification information not available."}
-                                  </p>
-                                </div>
-
-                                {/* Areas of Focus Section */}
-                                <div className="mb-4">
-                                  <h3 className="font-bold text-gray-900 mb-2 text-sm">
-                                    Areas of Focus:
-                                  </h3>
-                                  <div className="flex flex-wrap gap-2">
-                                    {trainer.areasOfFocus &&
-                                    trainer.areasOfFocus.length > 0 ? (
-                                      trainer.areasOfFocus.map(
-                                        (area, index) => (
-                                          <span
-                                            key={index}
-                                            className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
-                                          >
-                                            {area}
-                                          </span>
-                                        )
-                                      )
-                                    ) : (
-                                      <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
-                                        No areas specified
-                                      </span>
-                                    )}
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* BOOK NOW Button */}
-                              <div className="ml-6">
-                                <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-200 uppercase text-sm">
-                                  Book Now
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
                     </div>
                   );
                 })}
               </div>
+
+              {/* Details panel below the entire row */}
+              {selectedTrainerIdx !== null &&
+                Math.floor(selectedTrainerIdx / columns) === rowIdx && (
+                  <div className="w-full mb-8">
+                    <TrainerDetails
+                      trainer={filteredTrainers[selectedTrainerIdx]}
+                    />
+                  </div>
+                )}
             </div>
           );
         })}

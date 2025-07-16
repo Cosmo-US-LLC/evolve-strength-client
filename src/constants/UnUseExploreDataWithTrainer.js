@@ -1,13 +1,24 @@
-// Updated explore data that references both trainer IDs and service IDs from centralized data files
+// Updated explore data that references trainer IDs from centralized trainer data
 // This approach eliminates data duplication and ensures consistency
 
 import { TRAINER_IDS, getTrainersByIds } from "./trainerData.js";
-import { SERVICE_IDS, getServicesByIds } from "./serviceData.js";
 
 // category images
 import exploreLocations from "../assets/images/explore/discoverTWS/locations.webp";
 import exploreWellness from "../assets/images/explore/discoverTWS/wellness.webp";
 import exploreTrainers from "../assets/images/explore/discoverTWS/trainers.webp";
+
+// icons
+import AllIcon from "@/assets/images/explore/locations/all-icon.svg";
+import ChiropracticIcon from "@/assets/images/explore/locations/chiropractic.svg";
+import MassageTherapyIcon from "@/assets/images/explore/locations/message-therapy.svg";
+import PilatesIcon from "@/assets/images/explore/locations/pilates.svg";
+import AcupunctureIcon from "@/assets/images/explore/locations/acupuncture.svg";
+import DietitianServicesIcon from "@/assets/images/explore/locations/dietitian-services.svg";
+import EstheticianIcon from "@/assets/images/explore/locations/esthetician.svg";
+import LaserTherapyIcon from "@/assets/images/explore/locations/laser-therapy.svg";
+import OsteopathyIcon from "@/assets/images/explore/locations/osteopathy.svg";
+import MentalHealthIcon from "@/assets/images/explore/locations/mental-health.svg";
 
 export const EXPLORE_DATA = [
   {
@@ -23,17 +34,49 @@ export const EXPLORE_DATA = [
         city: "EDMONTON",
         branch: "SOUTH",
         details: "Details for EDMONTON SOUTH",
-        serviceIds: [
-          SERVICE_IDS.ALL,
-          SERVICE_IDS.CHIROPRACTIC,
-          SERVICE_IDS.MASSAGE_THERAPY,
-          SERVICE_IDS.PILATES,
-          SERVICE_IDS.ACUPUNCTURE,
-          SERVICE_IDS.DIETITIAN,
-          SERVICE_IDS.ESTHETICIAN,
-          SERVICE_IDS.LASER_THERAPY,
-          SERVICE_IDS.OSTEOPATHY,
-          SERVICE_IDS.MENTAL_HEALTH,
+        services: [
+          { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-chiropractic",
+            name: "Chiropractic Care",
+            icon: ChiropracticIcon,
+          },
+          {
+            id: "service-massage",
+            name: "Massage Therapy",
+            icon: MassageTherapyIcon,
+          },
+          { id: "service-pilates", name: "Pilates", icon: PilatesIcon },
+          {
+            id: "service-acupuncture",
+            name: "Acupuncture",
+            icon: AcupunctureIcon,
+          },
+          {
+            id: "service-dietitian",
+            name: "Dietitian Services",
+            icon: DietitianServicesIcon,
+          },
+          {
+            id: "service-esthetician",
+            name: "Esthetician",
+            icon: EstheticianIcon,
+          },
+          {
+            id: "service-laser",
+            name: "Laser Therapy",
+            icon: LaserTherapyIcon,
+          },
+          {
+            id: "service-osteopathy",
+            name: "Osteopathy",
+            icon: OsteopathyIcon,
+          },
+          {
+            id: "service-mental-health",
+            name: "Mental Health Support",
+            icon: MentalHealthIcon,
+          },
         ],
         trainerIds: [
           TRAINER_IDS.JORDAN_BROWNE,
@@ -55,12 +98,28 @@ export const EXPLORE_DATA = [
         city: "CALGARY",
         branch: "ROYAL OAK",
         details: "Details for CALGARY ROYAL OAK",
-        serviceIds: [
-          SERVICE_IDS.ALL,
-          SERVICE_IDS.MASSAGE_THERAPY,
-          SERVICE_IDS.ACUPUNCTURE,
-          SERVICE_IDS.DIETITIAN,
-          SERVICE_IDS.ESTHETICIAN,
+        services: [
+          { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-massage",
+            name: "Massage Therapy",
+            icon: MassageTherapyIcon,
+          },
+          {
+            id: "service-acupuncture",
+            name: "Acupuncture",
+            icon: AcupunctureIcon,
+          },
+          {
+            id: "service-dietitian",
+            name: "Dietitian Services",
+            icon: DietitianServicesIcon,
+          },
+          {
+            id: "service-esthetician",
+            name: "Esthetician",
+            icon: EstheticianIcon,
+          },
         ],
         trainerIds: [
           TRAINER_IDS.DENISSE_PETERS,
@@ -72,11 +131,23 @@ export const EXPLORE_DATA = [
         city: "EDMONTON",
         branch: "NORTH",
         details: "Details for EDMONTON NORTH",
-        serviceIds: [
-          SERVICE_IDS.ALL,
-          SERVICE_IDS.CHIROPRACTIC,
-          SERVICE_IDS.MASSAGE_THERAPY,
-          SERVICE_IDS.MENTAL_HEALTH,
+        services: [
+          { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-chiropractic",
+            name: "Chiropractic Care",
+            icon: ChiropracticIcon,
+          },
+          {
+            id: "service-massage",
+            name: "Massage Therapy",
+            icon: MassageTherapyIcon,
+          },
+          {
+            id: "service-mental-health",
+            name: "Mental Health Support",
+            icon: MentalHealthIcon,
+          },
         ],
         trainerIds: [TRAINER_IDS.MARYAM_NEAMAH, TRAINER_IDS.ROBERT_TENHOVE],
       },
@@ -85,11 +156,19 @@ export const EXPLORE_DATA = [
         city: "EDMONTON",
         branch: "DOWNTOWN",
         details: "Details for EDMONTON DOWNTOWN",
-        serviceIds: [
-          SERVICE_IDS.ALL,
-          SERVICE_IDS.MASSAGE_THERAPY,
-          SERVICE_IDS.PILATES,
-          SERVICE_IDS.LASER_THERAPY,
+        services: [
+          { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-massage",
+            name: "Massage Therapy",
+            icon: MassageTherapyIcon,
+          },
+          { id: "service-pilates", name: "Pilates", icon: PilatesIcon },
+          {
+            id: "service-laser",
+            name: "Laser Therapy",
+            icon: LaserTherapyIcon,
+          },
         ],
         trainerIds: [TRAINER_IDS.LEAH_CHEUNG, TRAINER_IDS.PAIGE_THOMSON],
       },
@@ -98,11 +177,23 @@ export const EXPLORE_DATA = [
         city: "CALGARY",
         branch: "SUNRIDGE",
         details: "Details for CALGARY SUNRIDGE",
-        serviceIds: [
-          SERVICE_IDS.ALL,
-          SERVICE_IDS.MASSAGE_THERAPY,
-          SERVICE_IDS.ESTHETICIAN,
-          SERVICE_IDS.OSTEOPATHY,
+        services: [
+          { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-massage",
+            name: "Massage Therapy",
+            icon: MassageTherapyIcon,
+          },
+          {
+            id: "service-esthetician",
+            name: "Esthetician",
+            icon: EstheticianIcon,
+          },
+          {
+            id: "service-osteopathy",
+            name: "Osteopathy",
+            icon: OsteopathyIcon,
+          },
         ],
         trainerIds: [
           TRAINER_IDS.MICHELLE_MOEN,
@@ -114,11 +205,23 @@ export const EXPLORE_DATA = [
         city: "BURNABY",
         branch: "SOUTH",
         details: "Details for BURNABY SOUTH",
-        serviceIds: [
-          SERVICE_IDS.ALL,
-          SERVICE_IDS.MASSAGE_THERAPY,
-          SERVICE_IDS.ACUPUNCTURE,
-          SERVICE_IDS.OSTEOPATHY,
+        services: [
+          { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-massage",
+            name: "Massage Therapy",
+            icon: MassageTherapyIcon,
+          },
+          {
+            id: "service-acupuncture",
+            name: "Acupuncture",
+            icon: AcupunctureIcon,
+          },
+          {
+            id: "service-osteopathy",
+            name: "Osteopathy",
+            icon: OsteopathyIcon,
+          },
         ],
         trainerIds: [TRAINER_IDS.NAOMI_SACHS, TRAINER_IDS.KIERYN_MARCELLUS],
       },
@@ -127,11 +230,23 @@ export const EXPLORE_DATA = [
         city: "VANCOUVER",
         branch: "THE POST",
         details: "Details for VANCOUVER THE POST",
-        serviceIds: [
-          SERVICE_IDS.ALL,
-          SERVICE_IDS.DIETITIAN,
-          SERVICE_IDS.ESTHETICIAN,
-          SERVICE_IDS.MENTAL_HEALTH,
+        services: [
+          { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-dietitian",
+            name: "Dietitian Services",
+            icon: DietitianServicesIcon,
+          },
+          {
+            id: "service-esthetician",
+            name: "Esthetician",
+            icon: EstheticianIcon,
+          },
+          {
+            id: "service-mental-health",
+            name: "Mental Health Support",
+            icon: MentalHealthIcon,
+          },
         ],
         trainerIds: [
           TRAINER_IDS.STEVEN_FITZPATRICK,
@@ -150,7 +265,7 @@ export const EXPLORE_DATA = [
     data: [
       {
         id: "wellness-massage-therapy",
-        serviceId: SERVICE_IDS.MASSAGE_THERAPY,
+        name: "MASSAGE THERAPY",
         trainerIds: [
           TRAINER_IDS.DENISSE_PETERS,
           TRAINER_IDS.NAOMI_SACHS,
@@ -159,12 +274,12 @@ export const EXPLORE_DATA = [
       },
       {
         id: "wellness-dietitian",
-        serviceId: SERVICE_IDS.DIETITIAN,
+        name: "DIETITIAN",
         trainerIds: [TRAINER_IDS.LEAH_CHEUNG, TRAINER_IDS.STEVEN_FITZPATRICK],
       },
       {
         id: "wellness-osteopathy",
-        serviceId: SERVICE_IDS.OSTEOPATHY,
+        name: "OSTEOPATHY",
         trainerIds: [
           TRAINER_IDS.PAIGE_THOMSON,
           TRAINER_IDS.MICHELLE_MOEN,
@@ -173,7 +288,7 @@ export const EXPLORE_DATA = [
       },
       {
         id: "wellness-esthetician",
-        serviceId: SERVICE_IDS.ESTHETICIAN,
+        name: "ESTHETICIAN",
         trainerIds: [
           TRAINER_IDS.MARYAM_NEAMAH,
           TRAINER_IDS.CHRISTOPHER_MERRELL,
@@ -181,27 +296,27 @@ export const EXPLORE_DATA = [
       },
       {
         id: "wellness-pilates",
-        serviceId: SERVICE_IDS.PILATES,
+        name: "PILATES",
         trainerIds: [TRAINER_IDS.SHARINA_PALAYPAY, TRAINER_IDS.PAIGE_THOMSON],
       },
       {
         id: "wellness-chiropractic",
-        serviceId: SERVICE_IDS.CHIROPRACTIC,
+        name: "CHIROPRACTIC",
         trainerIds: [TRAINER_IDS.ROBERT_TENHOVE],
       },
       {
         id: "wellness-acupuncture",
-        serviceId: SERVICE_IDS.ACUPUNCTURE,
+        name: "ACUPUNCTURE",
         trainerIds: [TRAINER_IDS.KIERYN_MARCELLUS, TRAINER_IDS.DENISSE_PETERS],
       },
       {
         id: "wellness-laser-therapy",
-        serviceId: SERVICE_IDS.LASER_THERAPY,
+        name: "LASER THERAPY",
         trainerIds: [TRAINER_IDS.MARYAM_NEAMAH, TRAINER_IDS.PAIGE_THOMSON],
       },
       {
         id: "wellness-mental-health",
-        serviceId: SERVICE_IDS.MENTAL_HEALTH,
+        name: "MENTAL HEALTH SUPPORT",
         trainerIds: [TRAINER_IDS.MARYAM_NEAMAH, TRAINER_IDS.DENISSE_PETERS],
       },
     ],
@@ -240,22 +355,10 @@ export const getTrainersForLocation = (locationId) => {
   return getTrainersByIds(location.trainerIds);
 };
 
-export const getServicesForLocation = (locationId) => {
-  const location = getLocationById(locationId);
-  if (!location) return [];
-  return getServicesByIds(location.serviceIds);
-};
-
 export const getTrainersForWellnessService = (serviceId) => {
   const service = getWellnessServiceById(serviceId);
   if (!service) return [];
   return getTrainersByIds(service.trainerIds);
-};
-
-export const getServiceForWellness = (wellnessId) => {
-  const wellness = getWellnessServiceById(wellnessId);
-  if (!wellness) return null;
-  return getServiceById(wellness.serviceId);
 };
 
 export const getAllLocations = () => {
@@ -274,28 +377,8 @@ export const getAllWellnessServices = () => {
     EXPLORE_DATA.find((item) => item.id === "WELLNESS")?.data || [];
   return wellnessData.map((service) => ({
     id: service.id,
-    serviceId: service.serviceId,
+    name: service.name,
   }));
-};
-
-export const getLocationsByService = (serviceId) => {
-  const locationsData =
-    EXPLORE_DATA.find((item) => item.id === "LOCATIONS")?.data || [];
-  return locationsData.filter((location) =>
-    location.serviceIds.includes(serviceId)
-  );
-};
-
-export const getTrainersByService = (serviceId) => {
-  const locationsData =
-    EXPLORE_DATA.find((item) => item.id === "LOCATIONS")?.data || [];
-  const allTrainerIds = locationsData
-    .filter((location) => location.serviceIds.includes(serviceId))
-    .flatMap((location) => location.trainerIds);
-
-  // Remove duplicates
-  const uniqueTrainerIds = [...new Set(allTrainerIds)];
-  return getTrainersByIds(uniqueTrainerIds);
 };
 
 export default EXPLORE_DATA;
