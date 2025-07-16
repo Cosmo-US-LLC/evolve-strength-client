@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   getDataByCategory,
   getAllLocations,
-} from "../../../../../../constants/exploreData";
+} from "../../../../../../constants/UnUseExploreDataOld";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
 import { ArrowUpCircle, Check, ArrowLeft } from "lucide-react";
@@ -175,27 +175,72 @@ function WellnessView() {
                   {/* Trainer Cards Grid */}
                   {filteredTrainers && filteredTrainers.length > 0 && (
                     <>
-                      <div className="flex gap-6 flex-wrap">
-                        {filteredTrainers.map((trainer, idx) => (
-                          <div
-                            key={idx}
-                            className="flex-1 min-w-[200px] max-w-[300px]"
-                          >
-                            <TrainerCard
-                              trainer={trainer}
-                              selected={selectedIdx === idx}
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setSelectedTrainer((prev) => ({
-                                  ...prev,
-                                  [service.name]: idx,
-                                }));
-                              }}
-                            />
-                          </div>
-                        ))}
-                      </div>
-                      <TrainerDetails trainer={filteredTrainers[selectedIdx]} />
+                      {/* Organize trainers into rows of 4 */}
+                      {(() => {
+                        const columns = 4;
+                        const rows = [];
+                        for (
+                          let i = 0;
+                          i < filteredTrainers.length;
+                          i += columns
+                        ) {
+                          rows.push(filteredTrainers.slice(i, i + columns));
+                        }
+
+                        return rows.map((row, rowIdx) => {
+                          const startIdx = rowIdx * columns;
+
+                          return (
+                            <div key={rowIdx}>
+                              {/* Trainer Cards Row */}
+                              <div className="flex gap-6 mb-8 flex-wrap">
+                                {row.map((trainer, colIdx) => {
+                                  const globalIdx = startIdx + colIdx;
+
+                                  return (
+                                    <div
+                                      key={globalIdx}
+                                      className="flex-1 min-w-[200px] max-w-[300px]"
+                                    >
+                                      <TrainerCard
+                                        trainer={trainer}
+                                        selected={selectedIdx === globalIdx}
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          // Toggle: if same trainer is clicked, hide it; otherwise show new trainer
+                                          if (selectedIdx === globalIdx) {
+                                            setSelectedTrainer((prev) => ({
+                                              ...prev,
+                                              [service.name]: null,
+                                            }));
+                                          } else {
+                                            setSelectedTrainer((prev) => ({
+                                              ...prev,
+                                              [service.name]: globalIdx,
+                                            }));
+                                          }
+                                        }}
+                                      />
+                                    </div>
+                                  );
+                                })}
+                              </div>
+
+                              {/* Details panel below the entire row */}
+                              {selectedIdx !== null &&
+                                selectedIdx !== undefined &&
+                                Math.floor(selectedIdx / columns) ===
+                                  rowIdx && (
+                                  <div className="w-full mb-8">
+                                    <TrainerDetails
+                                      trainer={filteredTrainers[selectedIdx]}
+                                    />
+                                  </div>
+                                )}
+                            </div>
+                          );
+                        });
+                      })()}
                     </>
                   )}
                   {filteredTrainers && filteredTrainers.length === 0 && (

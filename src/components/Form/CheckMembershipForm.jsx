@@ -54,16 +54,16 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
         </div>
       </div>
       {/* Right Form */}
-      <div className="flex flex-col items-stretch w-full max-w-[60%]">
+      <div className="flex flex-col items-start   h-[660px] justify-between w-full max-w-[60%]">
         
         <button
-          className="flex items-center gap-2 text-[#222] text-[15px] mb-4 hover:underline"
+          className="flex self-start gap-2 text-[#222] text-[15px] hover:underline"
            onClick={() => navigate(-1)}
         >
           <ArrowLeft size={20} /> Back
         </button>
         
-        <div className="w-full max-w-[420px] bg-white rounded-[10px]   p-6">
+        <div className="w-full max-w-[420px] bg-white rounded-[10px]   mb-30">
           <div className="pb-4  w-[537px] h-[26px]">
           <h3 className="text-center  leading-[26px]  mb-2">
             CHECK YOUR COMPANY MEMBERSHIP

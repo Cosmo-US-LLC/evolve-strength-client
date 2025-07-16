@@ -1,7 +1,7 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Trainers from "@/assets/images/Locations/WhyChooseEvolve/personal_trainer.webp"
 import Equipments from "@/assets/images/Locations/WhyChooseEvolve/Equipments.webp"
 import Health from "@/assets/images/Locations/WhyChooseEvolve/Health.webp"
@@ -66,7 +66,7 @@ const LoWhyChooseEvolve = () => {
               onClick={scrollPrev}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ArrowLeft className="w-6 h-6" />
             </button>
           </div>
           <div className="absolute -top-1/6 -translate-y-1/2 right-[6%] z-10">
@@ -74,7 +74,7 @@ const LoWhyChooseEvolve = () => {
               onClick={scrollNext}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ArrowRight className="w-6 h-6" />
             </button>
           </div>
         </div>

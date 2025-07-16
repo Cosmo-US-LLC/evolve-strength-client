@@ -1,7 +1,7 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import kieryn from "@/assets/images/Locations/MeetTheTrainers/Kieryn.webp"
 import Naomi from "@/assets/images/Locations/MeetTheTrainers/Naomi.webp"
 import Paige from "@/assets/images/Locations/MeetTheTrainers/Paige.webp"
@@ -80,7 +80,7 @@ const MeetTheTrainers = () => {
               onClick={scrollPrev}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ArrowLeft className="w-6 h-6" />
             </button>
           </div>
           <div className="absolute  top-[30%] translate-y-1/2 -right-[0.1%] z-10">
@@ -88,7 +88,7 @@ const MeetTheTrainers = () => {
               onClick={scrollNext}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ArrowRight className="w-6 h-6" />
             </button>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import strength from "@/assets/images/AboutUs/AboutUs_Trainers/Strenght_Training.webp"
 import Cardio from "@/assets/images/AboutUs/AboutUs_Trainers/Cardio.webp"
 import Body from "@/assets/images/AboutUs/AboutUs_Trainers/Weight_Training.webp"
@@ -71,7 +71,7 @@ const AboutUsTrainers = () => {
                             onClick={scrollPrev}
                             className="p-2 rounded-full border border-[#000000] text-[#000000]"
                         >
-                            <ChevronLeft className="w-6 h-6" />
+                            <ArrowLeft className="w-6 h-6" />
                         </button>
                     </div>
                     <div className="absolute -top-1/6 -translate-y-1/2 right-[6%] z-10">
@@ -79,7 +79,7 @@ const AboutUsTrainers = () => {
                             onClick={scrollNext}
                             className="p-2 rounded-full border border-[#000000] text-[#000000]"
                         >
-                            <ChevronRight className="w-6 h-6" />
+                            <ArrowRight className="w-6 h-6" />
                         </button>
                     </div>
                 </div>
