@@ -1,58 +1,51 @@
 import React from "react";
 
 function TrainerDetails({ trainer }) {
-  // Check if trainer exists
-  if (!trainer) {
-    return (
-      <div>
-        {/* <p className="text-gray-500">No trainer information available.</p> */}
-      </div>
-    );
-  }
+  // if (!trainer) {
+  //   return (
+  //     <div>
+
+  //     </div>
+  //   );
+  // }
 
   return (
-    <div className="bg-white rounded-[10px] p-6 shadow-sm border border-gray-100 h-full">
-      {/* About Section */}
-      <div className="mb-6">
-        <h3 className="font-bold text-gray-900 mb-2">About:</h3>
-        <p className="text-gray-700 leading-relaxed text-sm">
+    <div className="flex flex-col gap-6 bg-[#FFF] rounded-[10px] p-6 border-2 border-[#CCCCCC] h-full">
+      <div className="max-w-[939px] flex flex-col">
+        <h3 className="text-[#000]">About:</h3>
+        <p className="text-[#000] description leading-[25px]">
           {trainer.about || "No description available."}
         </p>
       </div>
 
-      {/* Certification Section */}
-      <div className="mb-6">
-        <h3 className="font-bold text-gray-900 mb-2">Certification:</h3>
-        <p className="text-gray-700 text-sm">
+      <div className="max-w-[939px] flex flex-col gap-0.5">
+        <h3 className="text-[#000]">Certification:</h3>
+        <p className="text-[#000] description leading-[25px]">
           {trainer.certification || "Certification information not available."}
         </p>
       </div>
 
-      {/* Areas of Focus Section with BOOK NOW Button */}
-      <div className="mb-6">
-        <h3 className="font-bold text-gray-900 mb-3">Areas of Focus:</h3>
+      <div className="flex flex-col gap-0.5">
+        <h3 className="text-[#000]">Areas of Focus:</h3>
         <div className="flex items-center justify-between">
           <div className="flex flex-wrap gap-2">
             {trainer.areasOfFocus && trainer.areasOfFocus.length > 0 ? (
               trainer.areasOfFocus.map((area, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                  className="px-3 h-[40px] flex items-center justify-center description bg-[#F6F6F6] text-[#000] rounded-[5px]"
                 >
                   {area}
                 </span>
               ))
             ) : (
-              <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+              <span className="px-3 h-[40px] flex items-center justify-center description bg-[#F6F6F6] text-[#000] rounded-[5px]">
                 No areas specified
               </span>
             )}
           </div>
 
-          {/* BOOK NOW Button */}
-          <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-200 uppercase ml-4">
-            Book Now
-          </button>
+          <button className="btnPrimary">Book Now</button>
         </div>
       </div>
     </div>
