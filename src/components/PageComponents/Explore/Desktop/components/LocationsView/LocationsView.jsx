@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { getDataByCategory } from "../../../../../../constants/UnUseExploreDataOld";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
-import { ArrowUpCircle } from "lucide-react";
+import { ArrowUpCircle, ChevronDown, CircleChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
 function LocationsView() {
@@ -49,12 +49,12 @@ function LocationsView() {
 
           return (
             <div key={locKey} className="">
-              {/* Location Header */}
+               
               <div
                 className={`
                   flex items-center justify-between py-5 cursor-pointer border-b border-gray-200 bg-white
-                  ${isSelected ? "bg-green-50" : "bg-white"}
-                  ${index === 0 ? "border-t border-gray-200" : ""}
+                  ${isSelected ? "bg-green-50" : "bg-[#fff]"}
+                  ${index === 0 ? "border-t border-[#CCCCCC]" : ""}
                 `}
                 onClick={() => handleToggle(locKey)}
               >
@@ -65,10 +65,10 @@ function LocationsView() {
                   <span className="text-[#000] text-[24px] font-[300] leading-[20px] font-[kanit] uppercase">
                     {loc.branch}
                   </span>
-                  <ArrowUpCircle
+                  <CircleChevronDown
                     className={`w-6 h-6 text-gray-400 transition-transform duration-200 ${
                       isOpen ? "rotate-180" : "rotate-0"
-                    }`}
+                    }`}                
                   />
                 </div>
                 <Link
@@ -80,11 +80,10 @@ function LocationsView() {
                 </Link>
               </div>
 
-              {/* Expanded Content */}
+            
               {isOpen && (
-                <div className="py-4 bg-white">
-                  {/* Service Tabs */}
-                  <div className="flex flex-wrap justify-center gap-3 mb-8 py-8">
+                <div className="bg-[#fff]">
+                  <div className="flex flex-wrap justify-center gap-3 py-10">
                     {loc.services &&
                       loc.services.map((service) => (
                         <button
@@ -108,7 +107,6 @@ function LocationsView() {
                       ))}
                   </div>
 
-                  {/* Trainer Cards Grid */}
                   {filteredTrainers && filteredTrainers.length > 0 && (
                     <>
                       {/* Organize trainers into rows of 4 */}
@@ -128,19 +126,17 @@ function LocationsView() {
 
                           return (
                             <div key={rowIdx}>
-                              {/* Trainer Cards Row */}
-                              <div className="flex gap-6 flex-wrap bg-[#F6F6F6] p-12">
+                              <div className="flex gap-6 flex-wrap bg-[#F6F6F6] px-12 pt-12">
                                 {row.map((trainer, colIdx) => {
                                   const globalIdx = startIdx + colIdx;
 
                                   return (
-                                    <div key={globalIdx} className="">
+                                    <div key={globalIdx} className=" mb-3">
                                       <TrainerCard
                                         trainer={trainer}
                                         selected={selectedIdx === globalIdx}
                                         onClick={(e) => {
                                           e.stopPropagation();
-                                          // Toggle: if same trainer is clicked, hide it; otherwise show new trainer
                                           if (selectedIdx === globalIdx) {
                                             setSelectedTrainer((prev) => ({
                                               ...prev,
@@ -159,12 +155,11 @@ function LocationsView() {
                                 })}
                               </div>
 
-                              {/* Details panel below the entire row */}
                               {selectedIdx !== null &&
                                 selectedIdx !== undefined &&
                                 Math.floor(selectedIdx / columns) ===
                                   rowIdx && (
-                                  <div className="w-full mt-6">
+                                  <div className="w-full bg-[#F6F6F6] px-12 py-6">
                                     <TrainerDetails
                                       trainer={filteredTrainers[selectedIdx]}
                                     />

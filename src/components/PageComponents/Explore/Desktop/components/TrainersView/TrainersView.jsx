@@ -6,7 +6,7 @@ import {
 } from "../../../../../../constants/UnUseExploreDataOld";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
-import { ArrowUpCircle, Check } from "lucide-react";
+import { ArrowUpCircle, Check, ChevronDown } from "lucide-react";
 
 function TrainersView() {
   const [selectedTab, setSelectedTab] = useState("All");
@@ -18,7 +18,7 @@ function TrainersView() {
   const allLocations = getAllLocations();
 
   useEffect(() => {
-    setSelectedTrainerIdx(null); // Reset selected trainer when filter changes
+    setSelectedTrainerIdx(null);
   }, [selectedTab, selectedLocation]);
 
   let filteredTrainers = allTrainers;
@@ -44,13 +44,13 @@ function TrainersView() {
   }
 
   return (
-    <div>
-      <div className="flex items-center mb-8">
+    <div className="pt-6">
+      <div className="flex items-center mb-10">
         <button
-          className={`border border-gray-300 rounded-lg px-7 py-3 font-medium text-base cursor-pointer mr-3 outline-none transition-all duration-200 ${
+          className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-7 py-3 font-[300] leading-[20px] capitalize text-[18px] cursor-pointer mr-3 outline-none transition-all duration-200 ${
             selectedTab === "All"
-              ? "bg-black text-white shadow-md"
-              : "bg-white text-gray-800 hover:bg-gray-50"
+              ? "bg-[#000] text-[#FFF]"
+              : "bg-[#fff] text-[#000] hover:bg-gray-50"
           }`}
           onClick={() => {
             setSelectedTab("All");
@@ -60,10 +60,10 @@ function TrainersView() {
           All
         </button>
         <button
-          className={`border border-gray-300 rounded-lg px-7 py-3 font-medium text-base cursor-pointer mr-3 outline-none transition-all duration-200 ${
+          className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-7 py-3 font-[300] leading-[20px] capitalize text-[18px] cursor-pointer mr-3 outline-none transition-all duration-200  ${
             selectedTab === "Alphabetical"
-              ? "bg-black text-white shadow-md"
-              : "bg-white text-gray-800 hover:bg-gray-50"
+              ? "bg-[#000] text-[#FFF]"
+              : "bg-[#fff] text-[#000] hover:bg-gray-50"
           }`}
           onClick={() => {
             setSelectedTab("Alphabetical");
@@ -74,10 +74,10 @@ function TrainersView() {
         </button>
         <div className="relative">
           <button
-            className={`border border-gray-300 rounded-lg px-7 py-3 font-medium text-base cursor-pointer mr-3 outline-none transition-all duration-200 ${
+            className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-7 py-3 font-[300] leading-[20px] capitalize text-[18px] cursor-pointer mr-3 outline-none transition-all duration-200  ${
               selectedTab === "Locations"
-                ? "bg-black text-white shadow-md"
-                : "bg-white text-gray-800 hover:bg-gray-50"
+                ? "bg-[#000] text-[#FFF]"
+              : "bg-[#fff] text-[#000] hover:bg-gray-50"
             }`}
             onClick={() => {
               setSelectedTab("Locations");
@@ -86,8 +86,8 @@ function TrainersView() {
           >
             <div className="flex items-center gap-2">
               <span>Locations</span>
-              <ArrowUpCircle
-                className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
+              <ChevronDown
+                className={`pt-1 text-gray-400 transition-transform duration-200 ${
                   showLocationDropdown ? "rotate-180" : "rotate-0"
                 }`}
               />
@@ -95,7 +95,7 @@ function TrainersView() {
           </button>
           {selectedTab === "Locations" && showLocationDropdown && (
             <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[250px]">
-              {/* All Locations Option */}
+             
               <div
                 className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
                 onClick={() => {
@@ -106,8 +106,8 @@ function TrainersView() {
                 <div
                   className={`w-4 h-4 border-2 rounded flex items-center justify-center ${
                     !selectedLocation
-                      ? "bg-green-600 border-green-600"
-                      : "border-gray-300"
+                      ? "bg-[#4AB04A] border-[#4AB04A]"
+                      : "border-[#CCCCCC]"
                   }`}
                 >
                   {!selectedLocation && (
@@ -130,25 +130,25 @@ function TrainersView() {
                   <div
                     className={`w-4 h-4 border-2 rounded flex items-center justify-center ${
                       selectedLocation === location
-                        ? "bg-green-600 border-green-600"
-                        : "border-gray-300"
+                       ? "bg-[#4AB04A] border-[#4AB04A]"
+                      : "border-[#CCCCCC]"
                     }`}
                   >
                     {selectedLocation === location && (
                       <Check className="w-3 h-3 text-white" />
                     )}
                   </div>
-                  <span className="text-black">{location}</span>
+                  <span className="text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">{location}</span>
                 </div>
               ))}
             </div>
           )}
         </div>
         <button
-          className={`border border-gray-300 rounded-lg px-7 py-3 font-medium text-base cursor-pointer mr-3 outline-none transition-all duration-200 ${
+          className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-7 py-3 font-[300] leading-[20px] capitalize text-[18px] cursor-pointer mr-3 outline-none transition-all duration-200 ${
             selectedTab === "New Trainers"
-              ? "bg-black text-white shadow-md"
-              : "bg-white text-gray-800 hover:bg-gray-50"
+              ? "bg-[#000] text-[#FFF]"
+              : "bg-[#fff] text-[#000] hover:bg-gray-50"
           }`}
           onClick={() => {
             setSelectedTab("New Trainers");
@@ -159,33 +159,22 @@ function TrainersView() {
         </button>
       </div>
 
-      {/* Trainers grid with details panel below selected card */}
-      <div className="w-full">
+      <div className="w-full mb-12">
         {rows.map((row, rowIdx) => {
           const startIdx = rowIdx * columns;
 
           return (
-            <div key={rowIdx}>
-              {/* Trainer Cards Row */}
-              <div
-                className="flex gap-6 mb-8 flex-wrap"
-                style={{
-                  marginTop: rowIdx === 0 ? "0.5rem" : "2rem",
-                }}
-              >
+            <div key={rowIdx} className="">
+              <div className="flex gap-6 flex-wrap bg-[#F6F6F6] px-12 pt-12">
                 {row.map((trainer, idx) => {
                   const globalIdx = startIdx + idx;
 
                   return (
-                    <div
-                      key={globalIdx}
-                      className="relative flex-1 min-w-[200px] max-w-[300px]"
-                    >
+                    <div key={globalIdx} className="relative">
                       <TrainerCard
                         trainer={trainer}
                         selected={selectedTrainerIdx === globalIdx}
                         onClick={() => {
-                          // Toggle: if same card is clicked, hide it; otherwise show new card
                           if (selectedTrainerIdx === globalIdx) {
                             setSelectedTrainerIdx(null);
                           } else {
@@ -198,10 +187,9 @@ function TrainersView() {
                 })}
               </div>
 
-              {/* Details panel below the entire row */}
               {selectedTrainerIdx !== null &&
                 Math.floor(selectedTrainerIdx / columns) === rowIdx && (
-                  <div className="w-full mb-8">
+                  <div className="w-full bg-[#F6F6F6] px-12 py-6">
                     <TrainerDetails
                       trainer={filteredTrainers[selectedTrainerIdx]}
                     />
