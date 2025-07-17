@@ -5,7 +5,7 @@ import {
 } from "../../../../../../constants/UnUseExploreDataOld";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
-import { ArrowUpCircle, Check, ArrowLeft } from "lucide-react";
+import { ArrowUpCircle, Check, ArrowLeft, ChevronDown, CircleChevronDown } from "lucide-react";
 
 function WellnessView() {
   const [expanded, setExpanded] = useState(null);
@@ -44,7 +44,7 @@ function WellnessView() {
   };
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white pt-6 pb-16">
       {/* Service List */}
       <div className="space-y-0">
         {wellnessData.map((service, index) => {
@@ -58,9 +58,9 @@ function WellnessView() {
               {/* Service Header */}
               <div
                 className={`
-                    flex items-center justify-between py-5 cursor-pointer border-b border-gray-200 bg-white
-                    ${isSelected ? "bg-green-50" : "bg-white"}
-                    ${index === 0 ? "border-t border-gray-200" : ""}
+                  flex items-center justify-between py-5 cursor-pointer border-b border-gray-200 bg-white
+                  ${isSelected ? "bg-green-50" : "bg-[#fff]"}
+                  ${index === 0 ? "border-t border-[#CCCCCC]" : ""}
                   `}
                 onClick={() => handleToggle(service.name)}
               >
@@ -75,7 +75,7 @@ function WellnessView() {
                   <span className="text-[#000] text-[24px] font-[600] leading-[20px] font-[kanit] uppercase">
                     {service.name}
                   </span>
-                  <ArrowUpCircle
+                  <CircleChevronDown
                     className={`w-6 h-6 text-gray-400 transition-transform duration-200 ${
                       isOpen ? "rotate-180" : "rotate-0"
                     }`}
@@ -89,13 +89,11 @@ function WellnessView() {
                 </button>
               </div>
 
-              {/* Expanded Content */}
               {isOpen && (
-                <div className="py-6 px-6 bg-white">
-                  {/* Location Filter - Inside Service */}
+                <div className="py-6 bg-white">
                   <div className="relative mb-6">
                     <button
-                      className="bg-white rounded-lg px-4 py-3 border border-gray-200 flex items-center justify-between min-w-[200px] shadow-sm"
+                      className="bg-[#fff] rounded-[8px] px-4 py-3 border border-[#CCCCCC] flex items-center justify-between min-w-[200px]"
                       onClick={() =>
                         setShowLocationDropdown(!showLocationDropdown)
                       }
@@ -116,17 +114,15 @@ function WellnessView() {
                           )
                         </span>
                       </div>
-                      <ArrowUpCircle
-                        className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
+                      <ChevronDown
+                        className={`pt-1 text-gray-400 transition-transform duration-200 ${
                           showLocationDropdown ? "rotate-180" : "rotate-0"
                         }`}
                       />
                     </button>
 
-                    {/* Location Dropdown */}
                     {showLocationDropdown && (
                       <div className="absolute top-full left-0 mt-2 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[250px]">
-                        {/* All Locations Option */}
                         <div
                           className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
                           onClick={() => setSelectedLocations([])}
@@ -134,20 +130,19 @@ function WellnessView() {
                           <div
                             className={`w-4 h-4 border-2 rounded flex items-center justify-center ${
                               selectedLocations.length === 0
-                                ? "bg-green-600 border-green-600"
-                                : "border-gray-300"
+                                ? "bg-[#4AB04A] border-[#4AB04A]"
+                                : "border-[#CCCCCC]"
                             }`}
                           >
                             {selectedLocations.length === 0 && (
                               <Check className="w-3 h-3 text-white" />
                             )}
                           </div>
-                          <span className="text-black font-medium">
+                          <span className="text-[#000] text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
                             All Locations
                           </span>
                         </div>
 
-                        {/* Individual Location Options */}
                         {allLocations.map((location, idx) => (
                           <div
                             key={idx}
@@ -165,17 +160,17 @@ function WellnessView() {
                                 <Check className="w-3 h-3 text-white" />
                               )}
                             </div>
-                            <span className="text-black">{location}</span>
+                            <span className="text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
+                              {location}
+                            </span>
                           </div>
                         ))}
                       </div>
                     )}
                   </div>
 
-                  {/* Trainer Cards Grid */}
                   {filteredTrainers && filteredTrainers.length > 0 && (
                     <>
-                      {/* Organize trainers into rows of 4 */}
                       {(() => {
                         const columns = 4;
                         const rows = [];
@@ -192,22 +187,18 @@ function WellnessView() {
 
                           return (
                             <div key={rowIdx}>
-                              {/* Trainer Cards Row */}
-                              <div className="flex gap-6 mb-8 flex-wrap">
+                              <div className="flex gap-6 flex-wrap bg-[#F6F6F6] px-12 pt-12">
                                 {row.map((trainer, colIdx) => {
                                   const globalIdx = startIdx + colIdx;
 
                                   return (
-                                    <div
-                                      key={globalIdx}
-                                      className="flex-1 min-w-[200px] max-w-[300px]"
-                                    >
+                                    <div key={globalIdx} className="flex-1">
                                       <TrainerCard
                                         trainer={trainer}
                                         selected={selectedIdx === globalIdx}
                                         onClick={(e) => {
                                           e.stopPropagation();
-                                          // Toggle: if same trainer is clicked, hide it; otherwise show new trainer
+
                                           if (selectedIdx === globalIdx) {
                                             setSelectedTrainer((prev) => ({
                                               ...prev,
@@ -226,12 +217,11 @@ function WellnessView() {
                                 })}
                               </div>
 
-                              {/* Details panel below the entire row */}
                               {selectedIdx !== null &&
                                 selectedIdx !== undefined &&
                                 Math.floor(selectedIdx / columns) ===
                                   rowIdx && (
-                                  <div className="w-full mb-8">
+                                  <div className="w-full bg-[#F6F6F6] px-12 py-6">
                                     <TrainerDetails
                                       trainer={filteredTrainers[selectedIdx]}
                                     />
