@@ -19,7 +19,20 @@ import sunridgeImg from "/src/assets/images/home/facility/image_5.webp";
 import downtownImg from "/src/assets/images/home/facility/image_6.webp";
 
 const locations = [
-  { key: "post", label: "Post", images: [postImg1, postImg2,brentwoodImg1, brentwoodImg2,setonImg1, setonImg2,royalOakImg1, royalOakImg2] },
+  {
+    key: "post",
+    label: "Post",
+    images: [
+      postImg1,
+      postImg2,
+      brentwoodImg1,
+      brentwoodImg2,
+      setonImg1,
+      setonImg2,
+      royalOakImg1,
+      royalOakImg2,
+    ],
+  },
   {
     key: "brentwood",
     label: "Brentwood",
@@ -80,19 +93,19 @@ const FacilityShowcase = () => {
             <CarouselContent>
               {activeLocation.images.map((img, idx) => (
                 <CarouselItem key={idx} className="w-full">
-                  <div className="relative">
+                  <div className="relative w-full aspect-[4/3] md:aspect-[16/9] xl:aspect-[21/9] 2xl:aspect-[24/9] overflow-hidden">
                     <img
                       src={img}
-                      alt={activeLocation.label + " image " + (idx + 1)}
-                      className="w-full h-auto max-h-[700px] object-fill transition-all duration-500 "
+                      alt={`${activeLocation.label} image ${idx + 1}`}
+                      className="w-full h-full object-cover transition-all duration-500"
                     />
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
 
-            <CarouselPrevious className="left-[100px] w-14 h-14 bg-transparent text-[#FFFFFF] border border-[#FFFFFF]" />
-            <CarouselNext className="right-[100px] w-14 h-14 bg-transparent text-[#FFFFFF] border border-[#FFFFFF]" />
+            <CarouselPrevious className="left-4 md:left-[100px] w-12 h-12 md:w-14 md:h-14 bg-transparent text-white border border-white" />
+            <CarouselNext className="right-4 md:right-[100px] w-12 h-12 md:w-14 md:h-14 bg-transparent text-white border border-white" />
           </Carousel>
         </TabsContent>
       </Tabs>
