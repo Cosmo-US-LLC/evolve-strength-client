@@ -71,7 +71,9 @@ const RightTrainer = () => {
 
   return (
     <div className="relative w-full overflow-hidden ">
+      <div className="absolute inset-0 bg-[#000] opacity-25 z-10"></div>
       <div className="absolute inset-0 z-0 overflow-hidden">
+        
         <div
           key={activeIndex}
           className="absolute inset-0 bg-cover bg-center transition-all animate-fade will-change-transform will-change-opacity"
@@ -81,7 +83,7 @@ const RightTrainer = () => {
         />
         <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       </div>
-      <div className="relative z-10 max-w-[1280px] mx-auto flex flex-col gap-4 px-8 pt-[100px]">
+      <div className="relative z-10 max-w-[1280px] mx-auto flex flex-col gap-4 px-8 pt-[100px] ">
         <h2 className="text-[#FFFFFF] uppercase leading-[42px]">
           The Right Trainer. <br />
           For You.
