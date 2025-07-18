@@ -62,7 +62,7 @@ const AccessEvolveLocationWithEase = () => {
                 <img
                   src={slide.imageUrl}
                   alt={slide.alt}
-                  className="w-full h-[500px] object-cover"
+                  className="w-full aspect-[4/3] md:aspect-[16/9] xl:aspect-[21/9] 2xl:aspect-[24/9] object-cover"
                 />
               </CarouselItem>
             ))}

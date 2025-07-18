@@ -4,7 +4,7 @@ import letsBuildBiggerBG from "@/assets/images/franchise/letsBuildBigger/lets-bu
 function LetsBuildBigger() {
   return (
     <div
-      className="relative w-full min-h-[600px] flex items-center justify-center"
+      className="relative w-full aspect-[16/9] flex items-center justify-center"
       style={{
         backgroundImage: `url(${letsBuildBiggerBG})`,
         backgroundSize: "cover",

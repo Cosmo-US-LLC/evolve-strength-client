@@ -4,14 +4,14 @@ import PersonalizedAssesment from "./PersonalizedAssesment";
 
 function LoPersonalizedAssesment() {
   return (
-    <div className="relative w-full h-[840px]">
+    <div className="relative w-full aspect-[16/9]">
       <img
         src={Assessment}
         alt="Gym trainers high five"
         className="absolute inset-0 w-full h-full object-fill"
       />
 
-      <div className="w-full max-w-[1280px] px-8 py-16 mx-auto z-10 h-full items-end flex flex-row relative">
+      <div className="w-full max-w-[1280px] px-8 pb-[120px] mx-auto z-10 h-full items-end flex flex-row relative">
         <div className="bg-[#ffffff] rounded-[10px] shadow-lg p-8 max-w-[346px]">
           <h3 className="text-[#000] uppercase leading-[26px] !font-[700]">
             Start Strong with a Free Personalised Assessment
@@ -27,7 +27,7 @@ function LoPersonalizedAssesment() {
           </a>
         </div>
       </div>
-      {/* <div className="absolute inset-0 bg-black/10 backdrop-blur-sm"></div> */}
+      <div className="absolute inset-0 bg-black/20"></div>
     </div>
   );
 }

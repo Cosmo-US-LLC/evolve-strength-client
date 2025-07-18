@@ -71,26 +71,29 @@ const PersonalGymExperience = () => {
 
   return (
     <div className="relative w-full overflow-hidden mb-12">
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      
         <div
           key={activeIndex}
-          className="absolute inset-0 bg-cover bg-center transition-all animate-fade will-change-transform will-change-opacity"
+          className="absolute inset-0 bg-cover bg-center aspect-[16/9] transition-all animate-fade will-change-transform will-change-opacity"
           style={{
             backgroundImage: `url(${gymCards[activeIndex].bgImage})`,
           }}
         />
         <div className="absolute inset-0 bg-black/20 pointer-events-none" />
-      </div>
-      <div className="relative z-10 max-w-[1280px] mx-auto flex flex-col gap-4 px-8 pt-[100px]">
-        <h2 className="text-[#FFFFFF] uppercase leading-[42px]">
-          SPECIALISED PERSONAL <br /> TRAINING, CUSTOMISED TO YOU
-        </h2>
-        <h4 className="text-[#fff] leading-[26px] max-w-[600px]">
-          We offer expert coaches across every major training discipline.
-          Whether you’re <br /> working toward performance goals, recovering from
-          injury, or starting your <br/> fitness journey, we’ll match you with the
-          right trainer and approach, all under one <br /> roof at Evolve.
-        </h4>
+       
+      <div className="relative z-10 max-w-[1280px] mx-auto  px-8 ">
+        <div className="absolute top-[100px] flex flex-col gap-4">
+          <h2 className="text-[#FFFFFF] uppercase leading-[42px]">
+            SPECIALISED PERSONAL <br /> TRAINING, CUSTOMISED TO YOU
+          </h2>
+          <h4 className="text-[#fff] leading-[26px] max-w-[600px]">
+            We offer expert coaches across every major training discipline.
+            Whether you’re <br /> working toward performance goals, recovering
+            from injury, or starting your <br /> fitness journey, we’ll match
+            you with the right trainer and approach, all under one <br /> roof
+            at Evolve.
+          </h4>
+        </div>
       </div>
 
       <div className="relative z-10 max-w-[1280px] mx-auto flex flex-row justify-end items-end min-h-[700px] px-8 ">
