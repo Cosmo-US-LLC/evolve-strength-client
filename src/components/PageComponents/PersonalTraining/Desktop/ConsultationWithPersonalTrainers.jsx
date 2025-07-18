@@ -7,6 +7,8 @@ import trainer5 from "@/assets/images/PersonalTraning/ConsultationWithPersonalTr
 import trainer6 from "@/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide6.webp";
 import trainer7 from "@/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide7.webp";
 import trainer8 from "@/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide8.webp";
+import useCounter from "@/hooks/useCounter";
+import useSyncedCounter from "@/hooks/useSyncedCounter";
 
 const scrollAnimation = `
 @keyframes scroll-up {
@@ -20,11 +22,19 @@ const scrollAnimation = `
 `;
 
 const ConsultationWithPersonalTrainers = () => {
+
+  const { elementRef, hasStarted } = useCounter(1, 2000); // dummy count for trigger
+
+  // Use useSyncedCounter for all counters, triggered by hasStarted
+  const worldClassTrainers = useSyncedCounter(205, 3000, hasStarted);
+  const specialisedOfferings = useSyncedCounter(150, 3000, hasStarted);
+  // const facilitiesCount = useSyncedCounter(8, 3000, hasStarted);
+
   const firstColumn = [trainer1, trainer2, trainer3, trainer4];
   const secondColumn = [trainer5, trainer6, trainer7, trainer8];
 
   return (
-    <div className="bg-white relative overflow-hidden">
+    <div className="bg-white relative overflow-hidden" ref={elementRef}>
       <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-row items-center justify-between">
         <style>{scrollAnimation}</style>
 
@@ -50,7 +60,7 @@ const ConsultationWithPersonalTrainers = () => {
                 World-Class Trainers
               </p>
               <h4 className="text-[55px] text-kanit font-[600] leading-[50px] text-[#000] mt-4">
-                205+
+                {worldClassTrainers}+
               </h4>
             </div>
             <div>
@@ -58,7 +68,7 @@ const ConsultationWithPersonalTrainers = () => {
                 Specialised Offerings
               </p>
               <h4 className="text-[55px] text-kanit font-[600] leading-[50px] text-[#000] mt-4">
-                150+
+                {specialisedOfferings}+
               </h4>
             </div>
           </div>

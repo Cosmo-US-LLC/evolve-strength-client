@@ -13,7 +13,7 @@ const list = [
 function GotYourBack() {
   return (
     <div
-      className="relative w-full min-h-[700px] flex items-center justify-center"
+      className="relative w-full aspect-[16/9] flex items-center justify-center"
       style={{
         backgroundImage: `url(${gotYourBackBG})`,
         backgroundSize: "cover",
@@ -48,7 +48,7 @@ function GotYourBack() {
             </li>
           ))}
         </ul>
-        <div className="bg-[#fff] flex items-center justify-center w-full max-w-[407px] px-6 min-h-[161px] rounded-t-[10px] absolute -bottom-[155px] left-[32px] ">
+        <div className="bg-[#fff] flex items-center justify-center w-full max-w-[407px] px-6 min-h-[161px] rounded-t-[10px] absolute -bottom-[10px] left-[32px] ">
           <h4 className="text-[#000] leading-[26px] font-[400]">
             No prior fitness or business ownership
             <br />
