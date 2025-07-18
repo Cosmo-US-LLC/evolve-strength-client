@@ -3,7 +3,7 @@ import FreeAssessmentBG from "../../../../assets/images/MembershipBenefits/FreeA
 
 function FreeAssessmentForMembership() {
   return (
-    <div className="relative w-full h-[700px]">
+    <div className="relative w-full aspect-[4/3] md:aspect-[16/9] xl:aspect-[21/9] 2xl:aspect-[24/9]">
       <img
         src={FreeAssessmentBG}
         alt="Gym trainers high five"
