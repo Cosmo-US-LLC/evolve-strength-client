@@ -2,7 +2,7 @@ import React from "react";
 
 function ExploreHero() {
   return (
-    <div className="relative ExploreHeroBG">
+    <div className="relative ExploreHeroBG ">
       {/* <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/40" /> */}
       <div className="max-w-[1280px] px-8 pb-[80px] mx-auto w-full h-full">
         <div className="relative z-2 flex  flex-col items-start justify-end h-full">
