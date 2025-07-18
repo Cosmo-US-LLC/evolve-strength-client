@@ -41,7 +41,7 @@ const GymExperience = () => {
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div
           key={activeIndex}
-           className="absolute inset-0 bg-cover bg-center transition-all animate-fade will-change-transform will-change-opacity"
+           className="absolute inset-0 bg-cover bg-center transition-all  animate-fade will-change-transform will-change-opacity"
           style={{
             backgroundImage: `url(${gymCards[activeIndex].bgImage})`,
           }}

@@ -3,7 +3,7 @@ import FreeAssessmentBG from "../../../../assets/images/spaces/WhyProfessionalsC
 
 function WhyProfessionalsChooseUs() {
   return (
-    <div className="relative w-full h-[700px]">
+    <div className="relative w-full aspect-[16/9]">
       <img
         src={FreeAssessmentBG}
         alt="Gym trainers high five"

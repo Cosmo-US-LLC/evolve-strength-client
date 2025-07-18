@@ -80,11 +80,11 @@ const SeeItForYourSelf = () => {
             <CarouselContent>
               {activeLocation.images.map((img, idx) => (
                 <CarouselItem key={idx} className="w-full">
-                  <div className="relative">
+                  <div className="relative aspect-[4/3] md:aspect-[16/9] xl:aspect-[21/9] 2xl:aspect-[24/9] overflow-hidden">
                     <img
                       src={img}
                       alt={activeLocation.label + " image " + (idx + 1)}
-                      className="w-full h-auto max-h-[666px] object-fill transition-all duration-500 "
+                      className="w-full object-fill transition-all duration-500 "
                     />
                   </div>
                 </CarouselItem>
