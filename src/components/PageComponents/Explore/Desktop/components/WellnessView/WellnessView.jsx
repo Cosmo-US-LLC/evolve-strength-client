@@ -192,7 +192,7 @@ function WellnessView() {
                                   const globalIdx = startIdx + colIdx;
 
                                   return (
-                                    <div key={globalIdx} className="flex-1">
+                                    <div key={globalIdx} className="">
                                       <TrainerCard
                                         trainer={trainer}
                                         selected={selectedIdx === globalIdx}
