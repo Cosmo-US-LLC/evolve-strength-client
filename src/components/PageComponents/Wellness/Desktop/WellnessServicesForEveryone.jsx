@@ -79,7 +79,7 @@ function WellnessServicesForEveryone() {
   const handleNext = () => emblaApi && emblaApi.scrollNext();
 
   return (
-    <section className="relative w-full aspect-[16/9] flex items-center justify-center bg-black/80 overflow-hidden">
+    <section className="relative w-full h-[666px] flex items-center justify-center bg-black/80 overflow-hidden">
       <img
         src={services[selectedIndex]?.image || ""}
         alt="Wellness Hero"
@@ -141,13 +141,13 @@ function WellnessServicesForEveryone() {
             </div>
             <button
               onClick={handlePrev}
-              className="z-10 absolute right-[8%] bottom-[60px] -translate-y-1/2 h-[46px] w-[46px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
+              className="z-10 absolute right-[8%] bottom-[10px] -translate-y-1/2 h-[46px] w-[46px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
             >
               <ArrowLeft className="w-6 h-6 text-white" />
             </button>
             <button
               onClick={handleNext}
-              className="absolute right-[3%] bottom-[60px] -translate-y-1/2 h-[46px] w-[46px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
+              className="absolute right-[3%] bottom-[10px] -translate-y-1/2 h-[46px] w-[46px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
             >
               <ArrowRight className="w-6 h-6 text-white" />
             </button>
