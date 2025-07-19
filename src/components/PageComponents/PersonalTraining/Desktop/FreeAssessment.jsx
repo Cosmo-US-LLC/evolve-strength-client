@@ -1,16 +1,9 @@
 import React from "react";
-import FreeAssessmentBG from "../../../../assets/images/PersonalTraning/FreeAssessment/FreeAssessment.webp";
 
 function FreeAssessment() {
   return (
-    <div className="relative w-full aspect-[16/9]">
-      <img
-        src={FreeAssessmentBG}
-        alt="Gym trainers high five"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-
-      <div className="w-full max-w-[1280px] px-8 pb-[120px] mx-auto z-10 h-full items-end flex flex-row relative">
+    <div className="relative w-full personalTrainingFreeAssessment">
+      <div className="w-full max-w-[1280px] px-8 py-16 mx-auto z-10 h-full items-end flex flex-row relative">
         <div className="bg-[#ffffff] rounded-[10px] shadow-lg p-8 max-w-[346px]">
           <h3 className="text-[#000] uppercase leading-[26px] !font-[700]">
             START STRONG WITH A FREE PERSONALISED ASSESSMENT
