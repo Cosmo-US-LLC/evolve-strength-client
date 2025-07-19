@@ -10,12 +10,12 @@ function AboutUs() {
   return (
     <div>
       <div className="max-md:hidden">
-        <AboutUsHero/>
-        <AboutUsMission  />
-        <AboutUsOffer/>
-       <AboutUsTrainers/>
-       <AboutUsPractitioners/>
-       <JoinUs/>
+        <AboutUsHero />
+        <AboutUsMission />
+        <AboutUsOffer />
+        <AboutUsTrainers />
+        <AboutUsPractitioners />
+        <JoinUs />
       </div>
       <div className="md:hidden">Home Mobile</div>
     </div>

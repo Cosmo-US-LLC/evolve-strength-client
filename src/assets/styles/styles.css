@@ -16,6 +16,15 @@
   height: 700px;
 }
 
+.personalTrainingFreeAssessment{
+  background-image: url("@/assets/images/PersonalTraning/FreeAssessment/FreeAssessment.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 700px;
+}
+
 /* wellness transition start */
 .wellnessHeroSection {
   background-image: url("/src/assets/images/wellness/wellnessHero/wellnessHero.webp");
@@ -29,11 +38,10 @@
 .YogaAndRecoveryRoomBG {
   background-image: url("/src/assets/images/wellness/YogaAndRecoveryRoom/YogaAndRecoveryRoomBG.webp");
   background-size: cover;
-  background-position: bottom;
+  background-position: top;
   background-repeat: no-repeat;
   width: 100%;
-  /* height: 700px; */
-  aspect-ratio: 16 / 9;
+  height: 700px;
 }
 
 .SteamAndSaunaRoomBG {
@@ -42,18 +50,16 @@
   background-position: bottom;
   background-repeat: no-repeat;
   width: 100%;
-  /* height: 700px; */
-  aspect-ratio: 16 / 9;
+  height: 700px;
 }
 
 .WellnessPricingRoomBG {
   background-image: url("/src/assets/images/wellness/WellnessPricingRoom/WellnessPricingRoom.webp");
   background-size: cover;
-  background-position: bottom;
+  background-position: top;
   background-repeat: no-repeat;
   width: 100%;
-  /* height: 700px; */
-  aspect-ratio: 16 / 9;
+  height: 700px;
 }
 
 /* wellness transition end */
@@ -68,14 +74,50 @@
   height: 700px;
 }
 
+.MembershipBenefitsFreeAssessment {
+  background-image: url("@/assets/images/MembershipBenefits/FreeAssessmentForMembership/free-assessment-BG.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 700px;
+}
+
+
 .ReadyToEvolveBG {
   background-image: url("@/assets/images/MembershipBenefits/ReadyToEvolve/ReadyToEvolveBG.webp");
   background-size: cover;
-  background-position: bottom;
+  background-position: top;
   background-repeat: no-repeat;
   width: 100%;
-  /* height: 700px; */
-  aspect-ratio: 16 / 9;
+  height: 700px;
+}
+
+.franchiseLetsBuildBigger {
+  background-image: url("@/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 700px;
+}
+
+.franchiseGotYourBack {
+  background-image: url("@/assets/images/franchise/GotYourBack/gotYourBackBG.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 700px;
+}
+
+.spacesWhyChooseUs {
+  background-image: url("@/assets/images/spaces/WhyProfessionalsChooseUs/why_professionals_choose_us.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 700px;
 }
 
 .ExploreHeroBG {
@@ -85,7 +127,6 @@
   background-repeat: no-repeat;
   width: 100%;
   height: 700px;
-  /* aspect-ratio: 16 / 9; */
 }
 
 
@@ -99,6 +140,7 @@
   width: 100%;
   height: 740px;
 }
+
 .AboutUsHero{
   background-image: url("@/assets/images/AboutUs/about_us_hero.webp");
   background-size: cover;
@@ -107,6 +149,7 @@
   width: 100%;
   height: 700px;
 }
+
 .LocationsHero{
    background-image: url("@/assets/images/Locations/LocationsHero.webp");
   background-size: cover;
@@ -115,6 +158,7 @@
   width: 100%;
   height: 700px;
 }
+
 .JoinToday{
    background-image: url("@/assets/images/Locations/JoinToday.webp");
   background-size:cover;
@@ -124,10 +168,9 @@
   /* height: 700px; */
   aspect-ratio: 16 / 9;
 }
-/* Join As Trainer */
+
 .Whatyouearn {
   background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (3).webp");
-  /* background-image: url("@/assets/images/AboutUs/about_us_hero.webp"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -163,8 +206,6 @@
   width: 100%;
 }
 
-
-/* Tour Our Fitness */
 .TourOurFitness {
   background-image: url("@/assets/images/JoinAsTrainer/TourOurFitness/TourOurFitness_bg.webp");
   background-size: cover;
@@ -173,25 +214,16 @@
   width: 100%;
   height: 666px;
 }
-/* Tour Our Fitness */
-
-/* Join As Trainer */
-
-
-/* corporate membership BG */
 
 .employeePlanBG {
   background-image: url("@/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanBG.webp");
   background-size: cover;
-  background-position: bottom;
+  background-position: top;
   background-repeat: no-repeat;
   width: 100%;
-  /* height: 666px; */
-  aspect-ratio: 16 / 9;
+  height: 700px;
 }
 
-/* corporate membership BG end */
-/* WhattoSubmit */
 .ReelsorWorkout {
   background-image: url("@/assets/images/JoinTheMovement/WhattoSubmit/service_1.webp");
   background-size: cover;
@@ -227,7 +259,6 @@
   background-repeat: no-repeat;
   width: 100%;
 }
-/* WhattoSubmit */
 
 .socialMedia {
   background-image: url("@/assets/images/JoinTheMovement/SocialMedia/Instagram_Grid.png");
@@ -237,11 +268,11 @@
   width: 100%;
 }
 
-.Trainherebg {
+.aboutUsReadyToEvolve {
   background-image: url("@/assets/images/JoinTheMovement/TrainHere/Trainherebg.webp");
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 700px;
 }

@@ -54,7 +54,7 @@ const WellnessServices = () => {
   return (
     <div className="w-full py-12">
       <div
-        className="relative flex flex-row items-center justify-center w-full aspect-[4/3] md:aspect-[16/9] xl:aspect-[21/9] 2xl:aspect-[24/9] bg-cover bg-center transition-all will-change-transform will-change-opacity"
+        className="relative flex flex-row items-center justify-center w-full min-h-[700px] bg-cover bg-center transition-all will-change-transform will-change-opacity"
         style={{ backgroundImage: `url(${services[activeIndex].bgImage})` }}
       >
 

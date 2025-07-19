@@ -1,15 +1,9 @@
 import React from "react";
-import letsBuildBiggerBG from "@/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG.webp";
 
 function LetsBuildBigger() {
   return (
     <div
-      className="relative w-full aspect-[16/9] flex items-center justify-center"
-      style={{
-        backgroundImage: `url(${letsBuildBiggerBG})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative w-full flex items-center justify-center franchiseLetsBuildBigger"
     >
       <div className="max-w-[1280px] mx-auto px-8 relative z-10 flex flex-col gap-6 items-center justify-center w-full text-center">
         <h2 className="text-[#fff] uppercase leading-[39px] font-[700]">

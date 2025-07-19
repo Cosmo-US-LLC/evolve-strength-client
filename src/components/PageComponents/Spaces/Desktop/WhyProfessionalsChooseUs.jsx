@@ -3,13 +3,7 @@ import FreeAssessmentBG from "../../../../assets/images/spaces/WhyProfessionalsC
 
 function WhyProfessionalsChooseUs() {
   return (
-    <div className="relative w-full aspect-[16/9]">
-      <img
-        src={FreeAssessmentBG}
-        alt="Gym trainers high five"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-
+    <div className="relative w-full spacesWhyChooseUs">
       <div className="w-full max-w-[1280px] px-8   mx-auto z-10 h-full items-center flex flex-row relative">
         <div className="bg-[#ffffff] rounded-[10px] shadow-lg p-6 max-w-[500px]">
           <h3 className="text-[#000] uppercase leading-[26px] !font-[700]">
