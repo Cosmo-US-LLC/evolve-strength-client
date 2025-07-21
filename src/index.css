@@ -62,7 +62,8 @@
 /* Vazirmatn font weights */
 @font-face {
   font-family: "Vazirmatn";
-  src: url("./assets/fonts/Vazirmatn/static/Vazirmatn-Thin.ttf") format("truetype");
+  src: url("./assets/fonts/Vazirmatn/static/Vazirmatn-Thin.ttf")
+    format("truetype");
   font-weight: 100;
   font-style: normal;
 }
@@ -75,31 +76,36 @@
 }
 @font-face {
   font-family: "Vazirmatn";
-  src: url("./assets/fonts/Vazirmatn/static/Vazirmatn-Light.ttf") format("truetype");
+  src: url("./assets/fonts/Vazirmatn/static/Vazirmatn-Light.ttf")
+    format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "Vazirmatn";
-  src: url("./assets/fonts/Vazirmatn/static/Vazirmatn-Regular.ttf") format("truetype");
+  src: url("./assets/fonts/Vazirmatn/static/Vazirmatn-Regular.ttf")
+    format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Vazirmatn";
-  src: url("./assets/fonts/Vazirmatn/static/Vazirmatn-Medium.ttf") format("truetype");
+  src: url("./assets/fonts/Vazirmatn/static/Vazirmatn-Medium.ttf")
+    format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Vazirmatn";
-  src: url("./assets/fonts/Vazirmatn/static/Vazirmatn-SemiBold.ttf") format("truetype");
+  src: url("./assets/fonts/Vazirmatn/static/Vazirmatn-SemiBold.ttf")
+    format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: "Vazirmatn";
-  src: url("./assets/fonts/Vazirmatn/static/Vazirmatn-Bold.ttf") format("truetype");
+  src: url("./assets/fonts/Vazirmatn/static/Vazirmatn-Bold.ttf")
+    format("truetype");
   font-weight: 700;
   font-style: normal;
 }
@@ -112,7 +118,8 @@
 }
 @font-face {
   font-family: "Vazirmatn";
-  src: url("./assets/fonts/Vazirmatn/static/Vazirmatn-Black.ttf") format("truetype");
+  src: url("./assets/fonts/Vazirmatn/static/Vazirmatn-Black.ttf")
+    format("truetype");
   font-weight: 900;
   font-style: normal;
 }
@@ -143,12 +150,13 @@ h3 {
   font-weight: 500;
 }
 
-.h4 {
+h4 {
   font-family: "Kanit";
   font-size: 18px;
   font-style: normal;
   font-weight: 300;
 }
+
 h5 {
   font-family: "Kanit";
   font-size: 14px;
@@ -210,6 +218,25 @@ h5 {
   background-color: rgba(255, 255, 255, 0.1);
   color: #fff;
   border: 1px solid #fff;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 52px;
+  }
+  h2 {
+    font-size: 32px;
+    line-height: 32px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+  .description {
+    font-size: 14px;
+  }
 }
 
 @theme inline {
