@@ -3,10 +3,10 @@ import trainerBg from "/src/assets/images/PersonalTraning/SwitchToEvolve/switchT
 
 const SwitchToEvolve = () => {
   return (
-    <div className="w-full py-12 ">
-      <div className="w-full max-w-[1280px] px-8 mx-auto ">
+    <div className="w-full py-12">
+      <div className="w-full max-w-[1280px] px-4 md:px-8 mx-auto ">
         <div
-          className="bg-cover bg-center min-h-[600px] flex flex-col justify-between px-[76px] py-16 items-start text-left rounded-xl overflow-hidden shadow-lg"
+          className="bg-cover bg-center min-h-[600px] flex flex-col justify-between px-2 md:px-[76px] py-16 items-start text-left rounded-xl overflow-hidden shadow-lg"
           style={{ backgroundImage: `url(${trainerBg})` }}
         >
           {/* <div className="absolute inset-0 bg-black/40 z-0" /> */}
@@ -24,12 +24,14 @@ const SwitchToEvolve = () => {
           </div>
 
           <div className="w-full flex justify-center items-center">
-            <div className="relative z-10 w-full max-w-[750px] bg-[#0000006E] backdrop-blur-[25px] rounded-[10px] flex justify-center gap-6 items-center px-6 py-4 text-[#fff]">
+            <div className="relative z-10 w-full max-w-[750px] bg-[#0000006E] backdrop-blur-[25px] rounded-[10px] flex flex-col md:flex-row justify-center gap-4 md:gap-6 items-center px-2 md:px-6 py-4 text-[#fff]">
               <span className="description text-[#fff]">
                 Train with the Best. Or Become the Best.
               </span>
-              <button className="btnPrimary ml-3">Find a Trainer</button>
-              <button className="btnSecondary">Become a Trainer</button>
+              <div className="flex flex-row w-full gap-2 md:gap-4">
+                <button className="btnPrimary ml-3 ">Find a Trainer</button>
+                <button className="btnSecondary">Become a Trainer</button>
+              </div>
             </div>
           </div>
         </div>
