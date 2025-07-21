@@ -5,12 +5,12 @@ import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAske
 function FAQs() {
   return (
     <div>
-      <div className="max-md:hidden">
+      <div className="">
       </div>
       <div className=' pt-[50px]'>
       <FrequentlyAskedQuestions {...faqMain} />
       </div>
-      <div className="md:hidden">Home Mobile</div>
+      
     </div>
   )
 }

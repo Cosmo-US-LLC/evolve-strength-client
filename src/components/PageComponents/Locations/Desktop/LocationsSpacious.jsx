@@ -34,7 +34,7 @@ const MembershipPremiumAmenities = () => {
       <div className="max-w-[1280px] mx-auto px-8 flex flex-col items-start gap-8">
         <div className="flex items-start flex-col gap-4">
                     <h2 className="text-[#000] uppercase ">Spacious and Modern Facilities</h2>
-                    <h4 className="mb-6 !max-w-[800px]">Our gyms are designed to give you room to move, train, and recover without feeling crowded. Each location offers more training space than a typical gym in Canada. We build with purpose, ensuring every area supports your fitness and wellness journey.  </h4>
+                    <h4 className="mb-6 !max-w-[800px]">Our gyms give you space to move, train, and recover without the crowd. Each location has more training space than a typical gym in Canada. Every area is designed with purpose to support your fitness and wellness goals.   </h4>
                 <button className="btnPrimary ">
                  BOOK A FREE TOUR
                 </button>
