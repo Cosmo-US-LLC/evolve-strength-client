@@ -24,6 +24,7 @@
 .navbarWrapper.scrolled::before {
   height: 100%;
 }
+
 .navBarLinks {
   position: relative;
   display: inline-block;
@@ -43,7 +44,7 @@
   left: 0;
   height: 2px;
   width: 0%;
-  background-color: #4AB04A;
+  background-color: #4ab04a;
   transition: width 0.3s ease-in-out;
 }
 
@@ -51,3 +52,22 @@
   width: 100%;
 }
 
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .navbarWrapper {
+    height: 70px;
+  }
+
+  .navbarWrapper::before {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+}
+
+/* Sheet Animation Overrides */
+[data-slot="sheet-content"] {
+  background-color: #000 !important;
+}
+
+[data-slot="sheet-overlay"] {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
