@@ -47,12 +47,12 @@ const LocationSeeItForYourSelf = () => {
 
   return (
     <div className=" bg-white ">
-      <div className="max-w-[1280px] mx-auto px-8 flex flex-col py-15 gap-2">
+      <div className="max-w-[1240px] h-[200px] mx-auto px-8 flex flex-col py-15 gap-2">
         <h2 className="text-[#1C1C1C]">
-         See It For Yourself
+         Access All Evolve Locations with <br /> Your Membership
         </h2>
-        <h4 className="text-[#000] max-w-[540px]">
-          Our spaces are bigger, better equipped, and more flexible than most corporate fitness programs.
+        <h4 className="text-[#000] ">
+        Spacious. Affordable. Unmatched
         </h4>
       </div>
 

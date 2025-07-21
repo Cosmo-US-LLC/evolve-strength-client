@@ -48,54 +48,78 @@ const contactmain = {
 
 function Contactusmain() {
   return (
-     
-    <div className="max-w-[1280px] px-8  mx-auto w-full h-full">
-        <div className="  py- grid grid-cols-1 md:grid-cols-2 gap-14 justify-center ">
-            <div className="max-w-[1280px]  pb-[135px] mx-auto w-full h-full">
-      <div className=" ">
-        <div>
-          <h2 className="text-[#4AB04A] font-bold text-lg mb-4">{contactmain.heading}</h2>
-          <ul className="space-y-6 text-sm">
-            {contactmain.locations.map((location, index) => (
-              <li key={index}>
-                <h3 className="font-bold text-base">{location.cityname}</h3>
-                <div className="flex justify-between description !font-[Kanit] !font-[300] !text-[14px]">
-                  <span className="w-[409px] h-[21px]">{location.address}</span>
-                  <div className="h-[21px]">{location.number}</div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-      
-     
-  
- {/* RIGHT: FORM */}
-      <div className=" w-auto h-[687px] p-[32px_30px] items-center gap-[10px] rounded-[16px] bg-[#F7F5F5]">
-        <h3 className="font-bold mb-4 text-center">SEND US A MESSAGE</h3>
-        <form className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input type="text" placeholder="First Name" className=" bg-[#FFF] border p-2 rounded w-full" />
-            <input type="text" placeholder="Last Name" className="bg-[#FFF] border p-2 rounded w-full" />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input type="email" placeholder="Email Address" className="bg-[#FFF] border p-2 rounded w-full" />
-            <input type="tel" placeholder="Phone Number" className="bg-[#FFF] border p-2 rounded w-full" />
-          </div>
-          <input type="text" placeholder="Location" className="bg-[#FFF] border p-2 rounded w-full" />
-          <textarea placeholder="Type your message here.." className="bg-[#FFF] border p-2 rounded w-full h-[300px]"></textarea>
-          <button type="submit" className=" bg-[#4AB04A] hover:bg-green-700 text-white w-full py-2 rounded">
-            SUBMIT NOW
-          </button>
-        </form>
-      </div>
-
-
-        </div>
-        </div>
+    <div className="max-w-[1280px] px-4 md:px-8 md:mb-15 mb-12  mx-auto flex md:flex-row flex-col w-full h-full">
+    
+         
+           
+            <div className="w-full md:w-[50%] mb-8  ">
+              <h2 className="text-[#4AB04A] font-bold text-lg mb-4">
+                {contactmain.heading}
+              </h2>
+              <ul className="space-y-6 text-sm">
+                {contactmain.locations.map((location, index) => (
+                  <li key={index}>
+                    <h3 className="font-bold text-base ">{location.cityname}</h3>
+                    <div className=" flex flex-col md:flex-row gap-2 py-3 md:py-0 description border-b border-[#9D9D9D] md:border-none !font-[Kanit] !font-[300] !text-[14px]">
+                      <span className="w-[409px] h-[21px]">
+                        {location.address}
+                      </span>
+                      <div className="h-[21px]">{location.number}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
         
+        
+
+        {/* RIGHT: FORM */}
+        <div className=" w-full md:w-[50%] h-full  md:h-[687px] p-[32px_30px] items-center gap-[10px] rounded-[16px] bg-[#F7F5F5]">
+          <h3 className="font-bold mb-4 text-center">SEND US A MESSAGE</h3>
+          <form className="space-y-4">
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-2 md:gap-4">
+              <input
+                type="text"
+                placeholder="First Name"
+                className=" bg-[#FFF] border p-2 rounded w-full"
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                className="bg-[#FFF] border p-2 rounded w-full"
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-2 md:gap-6">
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="bg-[#FFF] border p-2 rounded w-full"
+              />
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                className="bg-[#FFF] border p-2 rounded w-full"
+              />
+            </div>
+            <input
+              type="text"
+              placeholder="Location"
+              className="bg-[#FFF] border p-2 rounded w-full"
+            />
+            <textarea
+              placeholder="Type your message here.."
+              className="bg-[#FFF] border p-2 rounded w-full h-[300px]"
+            ></textarea>
+            <button
+              type="submit"
+              className=" bg-[#4AB04A] hover:bg-green-700 text-white w-full py-2 rounded"
+            >
+              SUBMIT NOW
+            </button>
+          </form>
+        </div>
+   
+    </div>
   );
 }
 

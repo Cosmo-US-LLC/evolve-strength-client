@@ -9,7 +9,7 @@ import React from "react";
 function AboutUs() {
   return (
     <div>
-      <div className="max-md:hidden">
+      <div className="">
         <AboutUsHero />
         <AboutUsMission />
         <AboutUsOffer />
@@ -17,7 +17,7 @@ function AboutUs() {
         <AboutUsPractitioners />
         <JoinUs />
       </div>
-      <div className="md:hidden">Home Mobile</div>
+      
     </div>
   );
 }
