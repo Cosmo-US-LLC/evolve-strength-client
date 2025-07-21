@@ -63,7 +63,7 @@ function Navbar() {
                 : ""
             }`}
           >
-            <div className="max-w-[1280px] w-full h-full mx-auto px-8 flex items-center justify-between">
+            <div className="max-w-[1280px] w-full h-full mx-auto px-4 md:px-8 flex items-center justify-between">
               <Link smooth to="/" className="flex items-center">
                 <img
                   src={EvolveStrengthLogo}
