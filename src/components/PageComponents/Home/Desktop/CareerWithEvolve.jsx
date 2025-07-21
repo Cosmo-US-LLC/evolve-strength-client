@@ -33,8 +33,8 @@ const tabData = {
 
 const CareerWithEvolve = () => {
   return (
-    <div className="w-full py-12">
-      <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col items-start gap-6">
+    <div className="w-full md:py-12 max-md:pb-[48px] max-md:pt-0">
+      <div className="w-full max-w-[1280px] md:px-8 max-md:px-[16px] mx-auto flex flex-col items-start gap-6">
         <div className="flex flex-col items-start gap-3">
           <h2 className="uppercase">BUILD YOUR CAREER WITH EVOLVE</h2>
           <h4 className="max-w-[680px] leading-[26px]">
@@ -71,7 +71,7 @@ const CareerWithEvolve = () => {
                 className="relative bg-cover bg-center no-repeat w-full min-h-[600px] flex flex-col justify-center"
                 style={{ backgroundImage: `url(${tab.image})` }}
               >
-                <div className="relative z-10 p-10 max-w-[500px]">
+                <div className="relative z-10 md:p-10 max-md:px-[16px] max-md:py-[48px] max-w-[500px]">
                   <h2 className=" mb-4 text-[#fff]">{tab.title}</h2>
                   <h4 className="mb-4 text-[#fff] leading-[26px]">
                     {tab.description}
