@@ -282,4 +282,10 @@
   .personalTrainingFreeAssessment {
     background-image: url("@/assets/images/PersonalTraning/FreeAssessment/FreeAssessmentMob.webp");
   }
+  .ContactHeroBG{
+    background-image: url("@/assets/images/ContactUs/herosection.webp");
+  }
+  .AboutUsHero{
+    background-image: url("@/assets/images/AboutUs/Abouthero_mob.webp");
+  }
 }

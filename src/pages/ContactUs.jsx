@@ -6,14 +6,13 @@ import Contactusmain from "@/components/PageComponents/ContactUs/Desktop/Contact
 function ContactUs() {
   return (
     <div>
-      <div className="max-md:hidden">
+      <div className="">
         <ContactHero/> 
         <ContactIntro/>
         <Contactusmain/>
         
 
       </div>
-      <div className="md:hidden">Home Mobile</div>
     </div>
   );
 }
