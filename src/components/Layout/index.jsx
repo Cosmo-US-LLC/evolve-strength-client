@@ -14,7 +14,9 @@ function Layout() {
       <div className="">
         <Outlet />
       </div>
-      <div className="">{/* <Footer /> */}</div>
+      <div className="">
+        <Footer />
+      </div>
     </div>
   );
 }
