@@ -69,8 +69,8 @@ function WellnessHub() {
 
   return (
     <div id="wellnessHub" className="bg-[#fff]">
-      <div className="w-[100%] max-w-[1280px] px-8 pt-[100px] mx-auto flex justify-between">
-        <div className="w-[50%] max-w-[600px] flex flex-col gap-4">
+      <div className="w-[100%] max-w-[1280px] px-8 md:pt-[100px] max-md:pt-[48px] mx-auto md:flex justify-between">
+        <div className="md:w-[50%] md:max-w-[600px] max-md:w-full flex flex-col gap-4">
           <h2 className="uppercase text-[#000] leading-[39px]">
             CANADA'S BEST FITNESS <br /> AND WELLNESS HUB
           </h2>
@@ -81,12 +81,12 @@ function WellnessHub() {
           </h4>
         </div>
 
-        <div className="w-[50%] flex items-center justify-end pl-10">
+        <div className="md:w-[50%] max-md:w-full flex items-center justify-end md:pl-10">
           <div
             ref={containerRef}
-            className="w-full max-w-[460px] h-[390px] overflow-y-auto scroll-smooth hide-scrollbar"
+            className="w-full md:w-[460px] md:h-[390px] max-md:h-[325px] max-md:w-[100%] overflow-y-auto scroll-smooth hide-scrollbar max-md:mt-[20px]"
           >
-            <div className="relative h-[1500px] ">
+            <div className="relative md:h-[1500px] max-md:h-[920px] ">
               {cardItems.map((item, index) => (
                 <div
                   key={index}

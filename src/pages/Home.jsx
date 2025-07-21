@@ -14,7 +14,7 @@ import FacilityShowcase from "@/components/PageComponents/Home/Desktop/FacilityS
 function Home() {
   return (
     <div>
-      <div className="max-md:hidden">
+      <div className="overflow-hidden">
         <Hero />
         <WellnessHub />
         <GymExperience />
@@ -26,7 +26,6 @@ function Home() {
         <CareerWithEvolve />
         <BusinessOpportunities />
       </div>
-      <div className="md:hidden">Home Mobile</div>
     </div>
   );
 }

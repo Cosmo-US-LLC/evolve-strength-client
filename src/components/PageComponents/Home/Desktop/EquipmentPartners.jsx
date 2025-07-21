@@ -15,20 +15,20 @@ const partnerLogos = [
 
 const EquipmentPartners = () => {
   return (
-    <div className="w-full py-12">
-      <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col items-center justify-center gap-10">
-        <h2 className="text-[#000000] uppercase">Our Equipment Partners</h2>
+    <div className="w-full md:py-12 max-md:pb-[48px] max-md:pt-0">
+      <div className="w-full max-w-[1280px] md:px-8 max-md:px-[0px] mx-auto flex flex-col items-center justify-center gap-10">
+        <h2 className="text-[#000000] max-md:text-center uppercase">Our Equipment Partners</h2>
 
-        <div className="w-full flex items-center justify-between px-8">
-          {partnerLogos.map((logo, index) => (
+        <marquee behavior="scroll" direction="right" scrollamount="3" className="w-full">
+          {partnerLogos.concat(partnerLogos).map((logo, index) => (
             <img
               key={index}
               src={logo.src}
               alt={logo.alt}
-              className="h-10 grayscale hover:grayscale-0 transition duration-300"
+              className="h-10 mx-8 grayscale hover:grayscale-0 transition duration-300 inline-block"
             />
           ))}
-        </div>
+        </marquee>
       </div>
     </div>
   );
