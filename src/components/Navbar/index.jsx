@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import "./styles.css";
 import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo-w.webp";
+import ESFLogo from "../../assets/images/home/footer/Evolve-Strength-footer-Logo.svg";
 import {
   Sheet,
   SheetContent,
@@ -138,6 +139,11 @@ function Navbar() {
                           Book a Free Tour
                         </button>
                       </div>
+                      <img
+                        src={ESFLogo}
+                        alt="footerImage"
+                        className="w-[220px] h-auto absolute bottom-[10px] right-[0px] opacity-30 "
+                      />
                     </div>
                   </SheetContent>
                 </Sheet>
