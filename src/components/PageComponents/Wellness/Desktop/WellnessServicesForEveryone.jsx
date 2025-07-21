@@ -79,7 +79,7 @@ function WellnessServicesForEveryone() {
   const handleNext = () => emblaApi && emblaApi.scrollNext();
 
   return (
-    <section className="relative w-full h-[700px] flex items-center justify-center bg-black/80 overflow-hidden">
+    <section className="relative w-full h-[666px] flex items-center justify-center bg-black/80 overflow-hidden">
       <img
         src={services[selectedIndex]?.image || ""}
         alt="Wellness Hero"
@@ -101,7 +101,7 @@ function WellnessServicesForEveryone() {
           <button className="btnPrimary">FIND A WELLNESS EXPERT</button>
         </div>
 
-        <div className="flex flex-col h-[100%] items-end justify-between py-32 gap-8 flex-1 min-w-[600px]">
+        <div className="flex flex-col   items-end justify-between h-[460px] gap-8 flex-1 min-w-[600px]">
           <div className="flex gap-3 mb-6 justify-end w-full pr-2">
             {services.map((_, i) => (
               <div
@@ -141,13 +141,13 @@ function WellnessServicesForEveryone() {
             </div>
             <button
               onClick={handlePrev}
-              className="z-10 absolute right-[8%] bottom-[36px] -translate-y-1/2 h-[46px] w-[46px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
+              className="z-10 absolute right-[8%] bottom-[10px] -translate-y-1/2 h-[46px] w-[46px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
             >
               <ArrowLeft className="w-6 h-6 text-white" />
             </button>
             <button
               onClick={handleNext}
-              className="absolute right-[3%] bottom-[36px] -translate-y-1/2 h-[46px] w-[46px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
+              className="absolute right-[3%] bottom-[10px] -translate-y-1/2 h-[46px] w-[46px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
             >
               <ArrowRight className="w-6 h-6 text-white" />
             </button>

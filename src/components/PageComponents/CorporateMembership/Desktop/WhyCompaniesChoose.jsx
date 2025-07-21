@@ -8,7 +8,6 @@ import { ReactComponent as TopTier } from "@/assets/images/corporateMembership/w
 import { ReactComponent as WellnessSupport } from "@/assets/images/corporateMembership/whyChoose/WellnessSupport.svg";
 import { ReactComponent as BetterOutcomes } from "@/assets/images/corporateMembership/whyChoose/BetterOutcomes.svg";
 
-
 const gymCards = [
   {
     count: "01",
@@ -54,16 +53,15 @@ const WhyCompaniesChoose = () => {
 
   return (
     <div className="relative w-full overflow-hidden mb-12">
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <div
-          key={activeIndex}
-          className="absolute inset-0 bg-cover bg-center transition-all animate-fade will-change-transform will-change-opacity"
-          style={{
-            backgroundImage: `url(${gymCards[activeIndex].bgImage})`,
-          }}
-        />
-        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
-      </div>
+      <div
+        key={activeIndex}
+        className="absolute inset-0 bg-cover bg-center transition-all animate-fade will-change-transform will-change-opacity"
+        style={{
+          backgroundImage: `url(${gymCards[activeIndex].bgImage})`,
+        }}
+      />
+      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+
       <div className="relative z-10 w-full max-w-[1280px] mx-auto flex flex-col items-start justify-start gap-4 px-8">
         <h2 className="text-[#FFFFFF] uppercase leading-[39px] absolute top-[180px]">
           Why Companies <br /> Choose Evolve

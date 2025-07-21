@@ -1,5 +1,4 @@
 import React from "react";
-import gotYourBackBG from "@/assets/images/franchise/GotYourBack/gotYourBackBG.webp";
 
 const list = [
   "Comprehensive onboarding and business training",
@@ -13,12 +12,7 @@ const list = [
 function GotYourBack() {
   return (
     <div
-      className="relative w-full min-h-[700px] flex items-center justify-center"
-      style={{
-        backgroundImage: `url(${gotYourBackBG})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative w-full franchiseGotYourBack flex items-center justify-center"
     >
       <div className="w-full h-full max-w-[1280px] px-8 mx-auto relative z-10 flex flex-col justify-center">
         <h2 className="text-white text-3xl md:text-4xl font-extrabold mb-8 leading-tight">
@@ -48,7 +42,7 @@ function GotYourBack() {
             </li>
           ))}
         </ul>
-        <div className="bg-[#fff] flex items-center justify-center w-full max-w-[407px] px-6 min-h-[161px] rounded-t-[10px] absolute -bottom-[155px] left-[32px] ">
+        <div className="bg-[#fff] flex items-center justify-center w-full max-w-[407px] px-6 min-h-[161px] rounded-t-[10px] absolute -bottom-[10px] left-[32px] ">
           <h4 className="text-[#000] leading-[26px] font-[400]">
             No prior fitness or business ownership
             <br />

@@ -1,15 +1,8 @@
 import React from "react";
-import FreeAssessmentBG from "../../../../assets/images/MembershipBenefits/FreeAssessmentForMembership/free-assessment-BG.webp";
 
 function FreeAssessmentForMembership() {
   return (
-    <div className="relative w-full h-[700px]">
-      <img
-        src={FreeAssessmentBG}
-        alt="Gym trainers high five"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-
+    <div className="relative w-full MembershipBenefitsFreeAssessment">
       <div className="w-full max-w-[1280px] px-8 py-16 mx-auto z-10 h-full items-center flex flex-row relative">
         <div className="bg-[#ffffff] rounded-[10px] shadow-lg p-8 max-w-[346px]">
           <h3 className="text-[#000] uppercase leading-[26px] !font-[700]">

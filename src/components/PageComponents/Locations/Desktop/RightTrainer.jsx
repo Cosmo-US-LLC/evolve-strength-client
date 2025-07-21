@@ -76,7 +76,7 @@ const RightTrainer = () => {
         
         <div
           key={activeIndex}
-          className="absolute inset-0 bg-cover bg-center transition-all animate-fade will-change-transform will-change-opacity"
+          className="aspect-[16/9]  bg-cover bg-center transition-all animate-fade will-change-transform will-change-opacity"
           style={{
             backgroundImage: `url(${gymCards[activeIndex].bgImage})`,
           }}
@@ -91,9 +91,11 @@ const RightTrainer = () => {
         <h4 className="text-[#fff] leading-[26px] max-w-[600px]">
          We offer expert trainers across every major training discipline. Whether you’re <br /> working toward performance goals, recovering from injury, or starting your <br /> fitness journey, we’ll match you with the right trainer and approach, all under one <br /> roof at Evolve.ve.
         </h4>
+        </div>
       </div>
 
-      <div className="relative z-10 max-w-[1280px] mx-auto flex flex-row justify-end items-end min-h-[700px] px-8 ">
+      <div className="relative max-w-[1280px] mx-auto px-8 ">
+        <div className="flex flex-row justify-end items-end absolute bottom-0 ">
         {gymCards.map((card, index) => {
           const isActive =
             hoveredIndex === index || (hoveredIndex === null && index === 0);
@@ -103,7 +105,7 @@ const RightTrainer = () => {
               key={index}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className="flex-1 p-8 rounded-t-[5px] flex flex-col gap-8 cursor-pointer relative group overflow-hidden transition-all duration-200 transform hover:scale-[1.03] hover:shadow-2xl"
+              className="flex-1 p-7 rounded-t-[5px] flex flex-col gap-8 cursor-pointer relative group overflow-hidden transition-all duration-200 transform hover:scale-[1.03] hover:shadow-2xl"
             >
               <div
                 className={`absolute inset-0 z-0 bg-[#ffffff] h-[100%] flex flex-col items-center justify-center transition-transform duration-200 ease-in-out ${
@@ -112,7 +114,7 @@ const RightTrainer = () => {
               />
 
               <div
-                className={`relative z-10 transition-colors duration-500 w-[246px] h-[100px]   ${
+                className={`relative z-10 transition-colors duration-500 w-[146px] h-[100px]   ${
                   isActive ? "text-[#1C1C1C]" : "text-[#ffffff]"
                 }`}
               >
@@ -134,6 +136,7 @@ const RightTrainer = () => {
             </div>
           );
         })}
+        </div>
       </div>
     </div>
   );
