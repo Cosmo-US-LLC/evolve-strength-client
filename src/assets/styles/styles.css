@@ -281,10 +281,22 @@
   .personalTrainingFreeAssessment {
     background-image: url("@/assets/images/PersonalTraning/FreeAssessment/FreeAssessmentMob.webp");
   }
-  .ContactHeroBG{
+  .wellnessHeroSection {
+  background-image: url("/src/assets/images/wellness/wellnessHero/wellnessMobHero.webp");
+}
+  .WellnessPricingRoomBG {
+  background-image: url("/src/assets/images/wellness/WellnessPricingRoom/WellnessPricingRoomMobBG.webp");
+}
+  .SteamAndSaunaRoomBG {
+  background-image: url("/src/assets/images/wellness/SteamAndSaunaRoom/SteamAndSaunaRoomMobBG.webp");
+}
+  .YogaAndRecoveryRoomBG {
+    background-image: url("/src/assets/images/wellness/YogaAndRecoveryRoom/YogaAndRecoveryRoomMobBG.webp");
+  }
+  .ContactHeroBG {
     background-image: url("@/assets/images/ContactUs/herosection.webp");
   }
-  .AboutUsHero{
+  .AboutUsHero {
     background-image: url("@/assets/images/AboutUs/Abouthero_mob.webp");
   }
 }
