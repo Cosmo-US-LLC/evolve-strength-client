@@ -42,11 +42,11 @@ const cardsData = [
 
 function AboutUsMission() {
   return (
-    <div className="max-w-[1280px]  mx-auto w-full h-full">
-      <div className="flex flex-col md:flex-row gap-6 h-[660px] p-8 bg-[#FFF] mx-auto my-5">
+    <div className="max-w-[1280px] mx-auto w-full h-full">
+      <div className="flex flex-col md:flex-row gap-6 md:h-[660px] h-auto p-8 bg-[#FFF] mx-auto my-5">
 
         {/* OUR MISSION */}
-    <div className="flex flex-col items-start w-[351px] h-[598px] pt-[32px] pr-[54px] pb-[96px] pl-[55px] bg-[#F7F5F5] rounded-[10px]">
+    <div className="flex flex-col items-start w-full md:w-[351px] md:h-[598px] h-auto pt-[32px] pr-[54px] pb-[96px] pl-[55px] bg-[#F7F5F5] rounded-[10px]">
   
   <div className="w-[48px] mb-4">
     <img src={mission} alt="Mission Icon" className="w-full h-auto" />
@@ -65,9 +65,9 @@ function AboutUsMission() {
 
 
         {/* RIGHT TWO CARDS */}
-        <div className="space-y-3">
+        <div className="space-y-3 flex-1">
           {/* WHO WE ARE */}
-          <div className="flex flex-col items-start w-[865px] h-[293px] p-[32px_38px] gap-[10px] bg-[#F7F5F5] rounded-[10px]">
+          <div className="flex flex-col items-start w-full md:w-[865px] md:h-[293px] h-auto p-[32px_38px] gap-[10px] bg-[#F7F5F5] rounded-[10px]">
             <div className="text-green-600 text-3xl mb-2"><img src={whoarewe} /></div>
             <h2 className="text-[40px] font-[700] leading-[39px] uppercase text-[#1C1C1C] font-[kanit]">
               {cardsData[1].title}
@@ -76,9 +76,9 @@ function AboutUsMission() {
           </div>
 
           {/* ORIGIN STORY */}
-          <div className="flex flex-col items-start w-[865px] h-[293px] p-[32px_38px] gap-[10px] bg-[#1C1C1C] rounded-[10px] relative">
+          <div className="flex flex-col items-start w-full md:w-[865px] md:h-[293px] h-auto p-[32px_38px] gap-[10px] bg-[#1C1C1C] rounded-[10px] relative">
 
-            <div className="absolute top-[19px] left-[610px] w-[172px] h-[107px] flex-shrink-0">
+            <div className="absolute top-[19px] left-[610px] w-[172px] h-[107px] flex-shrink-0 hidden md:block">
               <img src={ourOriginStoryLogo} alt="Logo" className="w-full h-full object-contain" />
             </div>
             <div className="text-green-600 text-3xl mb-2">

@@ -286,5 +286,9 @@
   }
   .AboutUsHero{
     background-image: url("@/assets/images/AboutUs/Abouthero_mob.webp");
+    height: 400px;
+  }
+  .aboutUsReadyToEvolve{
+    height: 500px;
   }
 }

@@ -47,12 +47,12 @@ const MembershipPremiumAmenities = () => {
               {professionals.map((pro, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_32.5%] relative"
+                  className="flex-[0_0_80%] md:flex-[0_0_32.5%] relative"
                 >
                   <img
                     src={pro.image}
                     alt={pro.title}
-                    className="w-[400px] h-[273px] object-cover"
+                    className="w-full md:w-[400px] h-[273px] object-cover"
                   />
                   <h3 className="flex items-center mt-6 text-[#000] leading-[24px] font-[500]">
                     {pro.title}
@@ -63,7 +63,7 @@ const MembershipPremiumAmenities = () => {
             </div>
           </div>
 
-          <div className="absolute -top-1/6 -translate-y-1/2 left-[86%] z-10">
+          <div className="absolute -top-1/6 -translate-y-1/2 left-[86%] z-10 hidden md:block">
             <button
               onClick={scrollPrev}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"
@@ -71,7 +71,7 @@ const MembershipPremiumAmenities = () => {
               <ArrowLeft className="w-6 h-6" />
             </button>
           </div>
-          <div className="absolute -top-1/6 -translate-y-1/2 right-[6%] z-10">
+          <div className="absolute -top-1/6 -translate-y-1/2 right-[6%] z-10 hidden md:block">
             <button
               onClick={scrollNext}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"
