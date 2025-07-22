@@ -19,7 +19,7 @@ const EquipmentPartners = () => {
       <div className="w-full max-w-[1280px] md:px-8 max-md:px-[0px] mx-auto flex flex-col items-center justify-center gap-10">
         <h2 className="text-[#000000] max-md:text-center uppercase">Our Equipment Partners</h2>
 
-        <marquee behavior="scroll" direction="right" scrollamount="3" className="w-full">
+        <marquee behavior="scroll" direction="left" scrollamount="3" className="w-full">
           {partnerLogos.concat(partnerLogos).map((logo, index) => (
             <img
               key={index}

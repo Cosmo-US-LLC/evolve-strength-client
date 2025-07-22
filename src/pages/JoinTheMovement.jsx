@@ -10,14 +10,13 @@ import React from "react";
 function JoinTheMovement() {
   return (
     <div>
-      <div className="max-md:hidden">
+      <div>
         <JoinTheMovementHero />
         <WhyYouShould />
         <WhattoSubmit />
         <SocialMedia />
         <TrainHere />
       </div>
-      <div className="md:hidden">Home Mobile</div>
     </div>
   );
 }
