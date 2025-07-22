@@ -44,27 +44,27 @@ function WhyYouShould() {
   ];
 
   return (
-    <div className="w-full py-[80px] bg-[#F9F9F9]">
+    <div className="w-full md:py-[80px] max-md:py-[48px] bg-[#F9F9F9]">
       <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col gap-12">
         <div className="space-y-[50px]">
           <div className="">
-            <h2 className="leading-[39px] uppercase">Why You Should Share</h2>
+            <h2 className="leading-[39px] max-md:text-center uppercase">Why You Should Share</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[32px]">
             {cardData.map((item, index) => (
               <div
                 key={index}
-                className="max-w-[378px] space-y-[14px]  rounded-[10px]"
+                className="max-w-[378px] space-y-[14px] max-md:flex max-md:flex-col max-md:items-center  rounded-[10px]"
               >
                 <img
                   src={item.img}
                   alt={item.title}
                   className="w-[60px] !mt-0 h-[60px]"
                 />
-                <h3 className="font-[500] !mt-[25px] leading-[16px]">
+                <h3 className="font-[500] max-md:text-center !mt-[25px] leading-[16px]">
                   {item.title}
                 </h3>
-                <h4 className="text-[18px] font-[300] leading-[26px] font-[Kanit]">
+                <h4 className="text-[18px] max-md:text-center font-[300] leading-[26px] font-[Kanit]">
                   {item.description}
                 </h4>
               </div>

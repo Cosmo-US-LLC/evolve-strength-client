@@ -35,7 +35,8 @@ const WhoOurSpacesFor = () => {
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   return (
-    <section className="py-12">
+    <div>
+        <section className="py-12 max-md:hidden">
       <div className="max-w-[1280px] mx-auto px-8 flex flex-col items-start gap-8">
         <div className="flex flex-col gap-4">
           <h2 className="text-[#000] uppercase ">Who Our Spaces Are For</h2>
@@ -91,6 +92,48 @@ const WhoOurSpacesFor = () => {
         <button className="btnPrimary">APPLY NOW</button>
       </div>
     </section>
+    <div className="md:hidden">
+        <section className="pb-[48px]">
+      <div className="max-w-[1280px] mx-auto px-[16px] flex flex-col items-start gap-5">
+        <div className="flex flex-col gap-4">
+          <h2 className="text-[#000] uppercase ">Who Our Spaces Are For</h2>
+          <h4 className="text-[#000]  leading-[26px] font-[400]">
+            Whether you’re launching your first office or expanding to a new
+            location, our spaces are designed for wellness professionals who
+            want simplicity, stability, and support.
+          </h4>
+          <h4 className="leading-[26px] font-[500]">
+            Professionals we serve include.
+          </h4>
+        </div>
+
+        <div className="relative">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-4 pl-4">
+              {professionals.map((pro, idx) => (
+                <div
+                  key={idx}
+                  className="flex-[0_0_83.333%] relative rounded-lg overflow-hidden"
+                >
+                  <img
+                    src={pro.image}
+                    alt={pro.title}
+                    className="w-full h-[400px] object-cover"
+                  />
+                  <h3 className="absolute bottom-[40px] left-0 right-0 bg-[]  flex items-center justify-center text-[#FFF] leading-[24px] font-[500]">
+                    {pro.title}
+                  </h3>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <button className="btnPrimary">APPLY NOW</button>
+      </div>
+    </section>
+    </div>
+    </div>
   );
 };
 
