@@ -12,18 +12,18 @@ function SetonLocation() {
     ABOUT OUR SETON LOCATION
   </h1>
 
-  <div className="flex  md:flex-row pl-5 gap-4">
+  <div className="flex flex-col md:flex-row pl-5 gap-4">
     {/* Left: Image */}
     <div className=" ">
       <img
         src={building}
         alt="Evolve Strength Seton"
-        className="w-[500px] h-[381px]object-cover rounded-md"
+        className="w-full md:w-[500px] h-auto md:h-[381px]object-cover rounded-md"
       />
     </div>
 
     {/* Right: Map + Info */}
-    <div className="w-[695px] h-[290px] flex flex-col ">
+    <div className="w-full md:w-[695px] h-auto md:h-[290px] flex flex-col ">
       {/* Map Image */}
       <img
         src={Map}
@@ -48,7 +48,7 @@ function SetonLocation() {
 
   {/* Optional: Facility Timing Toggle */}
   <div className="pl-5  ">
-    <button className="w-[1210px]  flex items-center justify-between px-4 py-3 bg-[#F9F9F9] !font-[600] text-black  border border-gray-200 rounded">
+    <button className="w-full md:w-[1210px]  flex items-center justify-between px-4 py-3 bg-[#F9F9F9] !font-[600] text-black  border border-gray-200 rounded">
       FACILITY TIMINGS
       <img src={icon} alt="" />
     </button>

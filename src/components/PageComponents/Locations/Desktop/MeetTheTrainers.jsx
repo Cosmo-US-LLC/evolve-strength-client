@@ -44,16 +44,16 @@ const MeetTheTrainers = () => {
 
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-6 pl-16">
+            <div className="flex gap-6 pl-0 md:pl-16">
               {professionals.map((pro, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_20.5%] relative"
+                  className="flex-[0_0_100%] md:flex-[0_0_20.5%] relative"
                 >
                   <img
                     src={pro.image}
                     alt={pro.title}
-                    className="w-[400px] h-[273px] object-cover"
+                    className="w-full md:w-[400px] md:h-[273px] object-cover"
                   />
                    <div className="w-[253px] h-[95px] bg-[#F6F6F6] border-[10px] mt-2 justify-center rounded-2xl border-transparent">
                    <div className="w-full h-[95px] bg-[#F6F6F6]  rounded-[10px] flex  justify-between">
@@ -75,7 +75,7 @@ const MeetTheTrainers = () => {
             </div>
           </div>
 
-          <div className="absolute top-[30%] left-[%] translate-y-1/2 ">
+          <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-0 ">
             <button
               onClick={scrollPrev}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"
@@ -83,7 +83,7 @@ const MeetTheTrainers = () => {
               <ArrowLeft className="w-6 h-6" />
             </button>
           </div>
-          <div className="absolute  top-[30%] translate-y-1/2 -right-[0.1%] z-10">
+          <div className="absolute top-1/2 -translate-y-1/2 right-4 md:right-0 z-10">
             <button
               onClick={scrollNext}
               className="p-2 rounded-full border border-[#000000] text-[#000000]"

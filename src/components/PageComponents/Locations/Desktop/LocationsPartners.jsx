@@ -19,7 +19,7 @@ const LocationPartners = () => {
       <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col items-center justify-center gap-10">
         <h2 className="text-[#000000] uppercase">Our Equipment Partners</h2>
 
-        <div className="w-full flex items-center justify-between px-8">
+        <div className="w-full flex flex-wrap items-center justify-between px-8 gap-6 md:gap-0">
           {partnerLogos.map((logo, index) => (
             <img
               key={index}
