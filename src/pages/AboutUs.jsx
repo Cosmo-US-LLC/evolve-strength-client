@@ -13,7 +13,7 @@ function AboutUs() {
         <AboutUsHero />
         <AboutUsMission />
         <AboutUsOffer />
-        <AboutUsTrainers />
+        {/* <AboutUsTrainers /> */}
         <AboutUsPractitioners />
         <JoinUs />
       </div>

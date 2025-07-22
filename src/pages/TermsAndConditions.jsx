@@ -5,11 +5,11 @@ import { termsMain } from '@/constants/TermsAndConditionsData'
 function TermsAndConditions() {
   return (
     <div>
-      <div className="max-md:hidden">
+      <div className="">
        <TermsAgreementContent termsMain={termsMain} />
 
       </div>
-      <div className="md:hidden">Home Mobile</div>
+      
     </div>
   )
 }

@@ -16,12 +16,10 @@ const PrivacyPolicyContant = ({ privacyMain }) => {
   };
 
   return (
-    <div className="max-w-[1280px] px-8 pb-[140px] mt-32 mx-auto w-full">
-      <div className="flex w-[1240px]">
-
-        {/* Sidebar */}
-        <section>
-          <div className="flex flex-col items-start w-[300px] p-[10px] gap-[10px] sticky top-[150px]">
+    <div className="max-w-[1280px] px-8 pb-[140px] mt-32 mx-auto w-full flex ">
+ 
+ 
+          <div className="flex flex-col  items-start w-[300px] p-[10px] gap-[10px] sticky top-[150px] max-md:hidden">
 
             <ul>
               <li>
@@ -55,12 +53,9 @@ const PrivacyPolicyContant = ({ privacyMain }) => {
               ))}
             </ul>
 
-          </div>
-        </section>
-
-        {/* Main content */}
-        <section>
-          <div className="flex flex-col gap-6 flex-1 p-2">
+   </div>
+ 
+          <div className="flex flex-col gap-6 flex-1 p-2 w-full ">
             <h1 id="privacy-policy" className='!text-[40px]'>Privacy Policy</h1>
             {privacyMain.map((section) => (
               <div key={section.id} className="flex flex-col gap-4">
@@ -78,9 +73,8 @@ const PrivacyPolicyContant = ({ privacyMain }) => {
               </div>
             ))}
           </div>
-        </section>
-
-      </div>
+      
+ 
     </div>
   );
 };

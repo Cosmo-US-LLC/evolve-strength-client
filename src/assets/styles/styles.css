@@ -308,4 +308,8 @@
   .AboutUsHero {
     background-image: url("@/assets/images/AboutUs/Abouthero_mob.webp");
   }
+  .aboutUsReadyToEvolve{
+    background-image: url("@/assets/images/AboutUs/About_trainer.webp");
+  }
 }
+
