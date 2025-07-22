@@ -10,7 +10,7 @@ import React from "react";
 function Spaces() {
   return (
     <div>
-      <div className="max-md:hidden">
+      <div className="">
         <GrowYourBusinessSection />
         <WhyEvolveIsDifferent />
         <WhoOurSpacesFor />
@@ -19,7 +19,7 @@ function Spaces() {
         <AvailableOffices />
         <EvolveEcosystem />
       </div>
-      <div className="md:hidden">Home Mobile</div>
+      {/* <div className="md:hidden">Home Mobile</div> */}
     </div>
   );
 }
