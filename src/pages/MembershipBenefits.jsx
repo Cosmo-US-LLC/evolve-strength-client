@@ -11,17 +11,14 @@ import AccessEvolveLocationWithEase from "@/components/PageComponents/Membership
 function MembershipBenefits() {
   return (
     <div>
-      <div className="max-md:hidden">
-        <MembershipBenefitsHero />
-        <TrainWithOutWait />
-        <FreeAssessmentForMembership />
-        <AccessEvolveLocationWithEase />
-        <PremiumAmenitiesForYou />
-        <EveryThinkYouNeed />
-        <FitnessCategoryMarquee/>
-        <ReadyToEvolve />
-      </div>
-      <div className="md:hidden">Home Mobile</div>
+      <MembershipBenefitsHero />
+      <TrainWithOutWait />
+      <FreeAssessmentForMembership />
+      <AccessEvolveLocationWithEase />
+      <PremiumAmenitiesForYou />
+      <EveryThinkYouNeed />
+      <FitnessCategoryMarquee />
+      <ReadyToEvolve />
     </div>
   );
 }
