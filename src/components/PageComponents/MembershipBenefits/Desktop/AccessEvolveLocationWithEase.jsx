@@ -42,9 +42,9 @@ const AccessEvolveLocationWithEase = () => {
         <h2 className="text-[#000] uppercase leading-[39px] max-w-[703px]">
           ACCESS EVERY EVOLVE LOCATION WITH EASE
         </h2>
-        <h4 className="text-[#000] max-w-[890px] font-[400] leading-[22px]">
+        <h4 className="text-[#000] w-full max-w-[358px] md:max-w-[890px] font-[400] leading-[22px]">
           Train where you want, when you want. Your Evolve membership gives you
-          seamless access to all our locations <br /> across Canada. Step into
+          seamless access to all our locations across Canada. Step into
           spacious, modern facilities designed for your comfort.
         </h4>
       </div>
@@ -71,7 +71,7 @@ const AccessEvolveLocationWithEase = () => {
 
         <button
           onClick={handlePrevious}
-          className="absolute left-[87%] -top-1/9 -translate-y-1/2 h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow"
+          className="absolute left-[36%] md:left-[87%] -bottom-[86px] md:-top-1/9 -translate-y-1/2 h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow"
         >
           <img
             src={LeftArrowIcon}
@@ -81,7 +81,7 @@ const AccessEvolveLocationWithEase = () => {
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-[80px] -top-1/9 -translate-y-1/2 h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow"
+          className="absolute right-[36%] md:right-[80px]  -bottom-[86px] md:-top-1/9  -translate-y-1/2 h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow"
         >
           <img
             src={RightArrowIcon}
@@ -91,7 +91,7 @@ const AccessEvolveLocationWithEase = () => {
         </button>
       </div>
 
-      <button className="btnPrimary">BOOK A FREE TOUR</button>
+      <button className="btnPrimary mt-12">BOOK A FREE TOUR</button>
     </div>
   );
 };

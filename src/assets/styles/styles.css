@@ -281,10 +281,31 @@
   .personalTrainingFreeAssessment {
     background-image: url("@/assets/images/PersonalTraning/FreeAssessment/FreeAssessmentMob.webp");
   }
-  .ContactHeroBG{
+  .wellnessHeroSection {
+    background-image: url("/src/assets/images/wellness/wellnessHero/wellnessMobHero.webp");
+  }
+  .WellnessPricingRoomBG {
+    background-image: url("/src/assets/images/wellness/WellnessPricingRoom/WellnessPricingRoomMobBG.webp");
+  }
+  .SteamAndSaunaRoomBG {
+    background-image: url("/src/assets/images/wellness/SteamAndSaunaRoom/SteamAndSaunaRoomMobBG.webp");
+  }
+  .YogaAndRecoveryRoomBG {
+    background-image: url("/src/assets/images/wellness/YogaAndRecoveryRoom/YogaAndRecoveryRoomMobBG.webp");
+  }
+  .MembershipBenefitsHeroBG {
+    background-image: url("@/assets/images/MembershipBenefits/membership_benefits_hero/membership_benefits_mob_BG.webp");
+  }
+  .MembershipBenefitsFreeAssessment {
+    background-image: url("@/assets/images/MembershipBenefits/FreeAssessmentForMembership/free-assessment-mob-BG.webp");
+  }
+  .ReadyToEvolveBG {
+    background-image: url("@/assets/images/MembershipBenefits/ReadyToEvolve/ReadyToEvolveMobBG.webp");
+  }
+  .ContactHeroBG {
     background-image: url("@/assets/images/ContactUs/herosection.webp");
   }
-  .AboutUsHero{
+  .AboutUsHero {
     background-image: url("@/assets/images/AboutUs/Abouthero_mob.webp");
   }
 }

@@ -8,7 +8,8 @@ import step4 from "../../../../assets/images/wellness/WellnessJourneySteps/step_
 const steps = [
   {
     title: "Step 1: Find Your Practitioner",
-    description: "Choose from our expert team—physio, chiro, massage, nutrition, and more.",
+    description:
+      "Choose from our expert team—physio, chiro, massage, nutrition, and more.",
     image: step1,
     icon: <Search className="w-5 h-5 text-white" />,
   },
@@ -26,7 +27,8 @@ const steps = [
   },
   {
     title: "Step 4: Be a Better You",
-    description: "See results and enjoy your improved well-being.Be a Better You",
+    description:
+      "See results and enjoy your improved well-being.Be a Better You",
     image: step4,
     icon: <Smile className="w-5 h-5 text-white" />,
   },
@@ -34,11 +36,11 @@ const steps = [
 
 const WellnessJourneySteps = () => {
   return (
-    <section className="flex flex-col md:flex-row">
+    <section className="flex flex-wrap">
       {steps.map((step, index) => (
         <div
           key={index}
-          className="relative w-full md:w-1/4 aspect-[3/4] overflow-hidden group flex items-end justify-center"
+          className="relative w-1/2 sm:w-1/2 md:w-1/4 aspect-[3/4] overflow-hidden group flex items-end justify-center"
         >
           <img
             src={step.image}
@@ -48,20 +50,20 @@ const WellnessJourneySteps = () => {
 
           {/* <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all duration-300" /> */}
 
-          <div className="relative z-10 px-4 text-center text-white flex flex-col items-center transition-all duration-500 group-hover:pb-6">
-            <div className="bg-green-500 rounded-full w-12 h-12 flex items-center justify-center mb-3">
+          <div className="relative z-10 px-2 md:px-4 py-2 sm:py-3 md:py-0 text-center text-white flex flex-col items-start md:items-center transition-all duration-500 group-hover:pb-6">
+            <div className="bg-green-500 rounded-full w-10 h-10 flex items-center justify-center mb-1.5 sm:mb-2 md:mb-3">
               {step.icon}
             </div>
 
             <h3
-              className={`font-semibold text-base sm:text-lg mb-1 transition-all duration-500 ${
+              className={`text-left md:text-center font-[300] md:font-[400] font-[kanit] leading-[18px] md:leading-[26px] mb-2 transition-all duration-500 ${
                 index === 0 ? "" : "group-hover:-translate-y-1"
               }`}
             >
               {step.title}
             </h3>
 
-            <p className="text-sm opacity-0 translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+            <p className="text-[14px] md:text-[16px] text-left md:text-center font-[300] md:font-[400] font-[kanit] leading-tight md:leading-relaxed text-[#fff] md:opacity-0 md:translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
               {step.description}
             </p>
           </div>

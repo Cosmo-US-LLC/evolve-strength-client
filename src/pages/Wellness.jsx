@@ -11,16 +11,13 @@ import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAske
 function Home() {
   return (
     <div>
-      <div className="max-md:hidden">
-        <WellnessHero />
-        <WellnessJourneySteps />
-        <WellnessPricingRoom />
-        <WellnessServicesForEveryone />
-        <SteamAndSaunaRoom />
-        <YogaAndRecoveryRoom />
-        <FrequentlyAskedQuestions {...faqContent} />
-      </div>
-      <div className="md:hidden">Home Mobile</div>
+      <WellnessHero />
+      <WellnessJourneySteps />
+      <WellnessPricingRoom />
+      <WellnessServicesForEveryone />
+      <SteamAndSaunaRoom />
+      <YogaAndRecoveryRoom />
+      <FrequentlyAskedQuestions {...faqContent} />
     </div>
   );
 }
