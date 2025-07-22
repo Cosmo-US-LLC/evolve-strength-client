@@ -8,10 +8,10 @@ function PrivacyPolicy() {
 
   return (
     <div>
-      <div className="max-md:hidden">
+      <div className="">
        <PrivacyPolicyContant privacyMain={privacyMain}/>
       </div>
-      <div className="md:hidden">Home Mobile</div>
+      
     </div>
   );
 }
