@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Leaf,
   Dumbbell,
@@ -9,7 +9,16 @@ import {
   Sparkles,
   Brain,
   Hand,
+  ArrowLeft,
+  ArrowRight,
 } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 
 import estheticianBg from "/src/assets/images/home/wellness-services/esthetician.webp";
 import chiropracticBg from "/src/assets/images/home/wellness-services/chiropractic_care.webp";
@@ -43,6 +52,7 @@ const services = [
 
 const WellnessServices = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const sliderRef = useRef(null);
 
     useEffect(() => {
     services.forEach(service => {
@@ -52,9 +62,10 @@ const WellnessServices = () => {
   }, []);
 
   return (
-    <div className="w-full py-12">
+    <div className="w-full md:py-12 max-md:pb-[48px] max-md:pt-0">
+      {/* Desktop View */}
       <div
-        className="relative flex flex-row items-center justify-center w-full min-h-[700px] bg-cover bg-center transition-all will-change-transform will-change-opacity"
+        className="relative flex flex-row items-center justify-center w-full min-h-[700px] bg-cover bg-center transition-all will-change-transform will-change-opacity max-md:hidden"
         style={{ backgroundImage: `url(${services[activeIndex].bgImage})` }}
       >
 
@@ -106,6 +117,55 @@ const WellnessServices = () => {
               );
             })}
           </div>
+        </div>
+      </div>
+      {/* Mobile View */}
+      <div
+        className="md:hidden relative w-full min-h-[552px] bg-cover bg-center  flex flex-col px-[16px] py-[32px] justify-between items-center overflow-hidden"
+        style={{ backgroundImage: `url(${services[activeIndex].bgImage})` }}
+      >
+        <div className="absolute inset-0 bg-black/40 z-0" />
+        <div className="relative z-10 flex flex-col items-center w-full  gap-6">
+          <h2 className="uppercase text-[#ffffff] font-bold">
+            WELLNESS SERVICES FOR EVERYONE.
+          </h2>
+          <p className="description leading-[20px] text-[#ffffff] ">
+            Take full advantage of a wide range of wellness services at every Evolve location, available at an additional cost.
+          </p>
+         <div className="flex justify-start">
+         <button className="btnPrimary ">
+            FIND A WELLNESS EXPERT
+          </button>
+         </div>
+        </div>
+        <div className="relative w-full mt-6">
+          <Carousel opts={{ align: "start" }} className="w-full">
+            <CarouselContent className="pl-5 gap-2">
+              {services.map((service, index) => {
+                const isActive = index === activeIndex;
+                return (
+                  <CarouselItem
+                    key={index}
+                    className={`flex-shrink-0 w-[100%] max-w-[173px] h-[102px] flex flex-col items-center justify-center text-[#fff] rounded-[10px] cursor-pointer transition-all duration-300 ${
+                      isActive
+                        ? "bg-white/20 border-white ring-2 ring-white border"
+                        : "bg-[#00000066] border-transparent border"
+                    }`}
+                    onClick={() => setActiveIndex(index)}
+                  >
+                    <div className={`mb-1 text-[20px] ${isActive ? 'text-[#4AB04A]' : ''}`}>{service.icon}</div>
+                    <div className="text-[14px] font-kanit font-[400] leading-[20px] uppercase text-[#fff] text-center">
+                      {typeof service.label === 'string' ? service.label : (
+                        <span className="whitespace-pre-line">{service.label}</span>
+                      )}
+                    </div>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+            <CarouselPrevious className="left-0 top-1/2 -translate-y-1/2 bg-white/80 border border-gray-300" />
+            <CarouselNext className="right-0 top-1/2 -translate-y-1/2 bg-white/80 border border-gray-300" />
+          </Carousel>
         </div>
       </div>
     </div>

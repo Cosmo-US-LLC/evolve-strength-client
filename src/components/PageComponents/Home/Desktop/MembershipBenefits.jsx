@@ -103,12 +103,13 @@ const MembershipBenefits = () => {
   const active = benefitItems.find((item) => item.key === activeKey);
 
   return (
-    <div className="w-full py-12">
+  <div>
+      <div className="w-full py-12 max-md:hidden">
       <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col items-center justify-center gap-12">
         <h2 className="text-[#000000] uppercase">
           ONE MEMBERSHIP, ENDLESS BENEFITS
         </h2>
-        <div className="flex flex-row w-[100%] justify-between ">
+        <div className="flex flex-row w-[100%] px-8 justify-between ">
           <div className="w-[50%] flex flex-col items-start justify-center gap-8">
             {benefitItems.map((item) => {
               const isActive = item.key === activeKey;
@@ -168,6 +169,74 @@ const MembershipBenefits = () => {
         </div>
       </div>
     </div>
+    <div className="md:hidden">
+      <div className="flex flex-col gap-4 px-[16px] py-[48px]">
+        <h2 className="text-[#000000] uppercase  font-bold mb-2 ">ONE MEMBERSHIP, ENDLESS BENEFITS</h2>
+        {benefitItems.map((item) => {
+          const isActive = item.key === activeKey;
+          return (
+            <div
+              key={item.key}
+              className="relative cursor-pointer group"
+              onClick={() => setActiveKey(item.key)}
+            >
+              <div className="flex flex-row items-center">
+                <div className="flex-1 ">
+                 <div className="relative min-h-[40px] h-full flex items-center">
+                 <div className="  " style={{height: '100%'}}>
+                    <div className="absolute left-0 top-0 h-full w-[2px] bg-[#E8EBEF] rounded-l-[10px]" />
+                    <div
+                      className="absolute left-0 top-0 h-full w-[2px] bg-[#4AB04A] rounded-l-[10px]"
+                      style={{
+                        height: '100%',
+                        transform: isActive ? `scaleY(${animationProgress})` : "scaleY(0)",
+                        transformOrigin: "top",
+                        transition: isActive ? "none" : "transform 0.2s",
+                        zIndex: 1,
+                      }}
+                    />
+                  </div>
+                  <div className={`transition-all pl-4  duration-500 ease-in-out`}> 
+                    <h3
+                      className={`flex items-center leading-normal gap-2 transition-colors duration-300 text-lg font-semibold ${
+                        isActive ? "text-[#4AB04A]" : "text-[#000]"
+                      }`}
+                    >
+                      {isActive && item.icon}
+                      {item.label}
+                    </h3>
+                    <div
+                      className={`transition-all duration-500 ease-in-out text-[15px] ${
+                        isActive
+                          ? "opacity-100 h-auto mt-2 mb-2"
+                          : "opacity-0 h-0 overflow-hidden"
+                      }`}
+                    >
+                      <h4 className="leading-[130%]">{item.description}</h4>
+                    </div>
+                  </div>
+                 </div>
+                  {isActive && (
+                    <div className="w-full flex justify-center mt-4">
+                      <img
+                        key={item.image}
+                        src={item.image}
+                        alt={item.label}
+                        className="rounded-[10px] object-cover w-full max-w-[340px] h-auto shadow"
+                      />
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+       <div className="flex justify-start">
+       <button className="btnPrimary !pt-[14px] !pb-[14px] mt-6">BOOK A FREE TOUR</button>
+       </div>
+      </div>
+    </div>
+  </div>
   );
 };
 
