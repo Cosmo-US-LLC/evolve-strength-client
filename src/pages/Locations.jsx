@@ -18,7 +18,7 @@ import LoPersonalizedAssesment from '@/components/PageComponents/Locations/Deskt
 function Locations() {
   return (
          <div>
-      <div className="max-md:hidden">
+      <div className="overflow-x-hidden">
         <LocationHero />
         <LocationPartners/>
         <LoWhyChooseEvolve/>
@@ -36,7 +36,6 @@ function Locations() {
 
 
       </div>
-      <div className="md:hidden">Home Mobile</div>
     </div>
   )
 }

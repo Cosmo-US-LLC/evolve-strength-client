@@ -54,11 +54,11 @@ function LocationPricing() {
       </div>
 
       {/* Pricing Cards */}
-      <div className="flex gap-[24px]">
+      <div className="flex flex-col md:flex-row gap-4 md:gap-[24px]">
         {pricingContent.plans.map((plan, index) => (
           <div
             key={index}
-            className="flex flex-col w-[320px] p-[32px] shadow-lg border border-gray-200 rounded-[8px] bg-white"
+            className="flex flex-col w-full md:w-[320px] p-[32px] shadow-lg border border-gray-200 rounded-[8px] bg-white"
           >
             <h3 className=" ">{plan.title}</h3>
             <p className="!description">{plan.billing}</p>
