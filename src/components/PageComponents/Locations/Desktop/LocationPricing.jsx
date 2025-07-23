@@ -41,20 +41,20 @@ const pricingContent = {
 
 function LocationPricing() {
   return (
-  <div className='w-full max-w-[1280px] px-8 mx-auto flex flex-col gap-12'>
-    <div className='flex  py-[60px] w-full '>
+  <div className='w-full max-w-[1280px] md:px-8 px-4 mx-auto flex flex-col gap-12'>
+    <div className='flex flex-col md:flex-row py-[60px] w-full '>
       {/* Left Text Section */}
       <div className="flex flex-col w-full justify-center">
         <h1 className="!text-[40px] max-w-[300px] leading-[39px] uppercase">
           {pricingContent.sectionTitle}
         </h1>
-        <p className="mt-4 !font-[kanit] !font-[300] description max-w-[300px]">
+        <p className="mt-4 mb-4  !font-[kanit] !font-[300] description max-w-[300px]">
           {pricingContent.sectionSubtitle}
         </p>
       </div>
 
       {/* Pricing Cards */}
-      <div className="flex gap-[24px]">
+      <div className="flex flex-col md:flex-row gap-[24px]">
         {pricingContent.plans.map((plan, index) => (
           <div
             key={index}

@@ -4,12 +4,7 @@ import PersonalizedAssesment from "./PersonalizedAssesment";
 
 function LoPersonalizedAssesment() {
   return (
-    <div className="relative w-full aspect-[16/9]">
-      <img
-        src={Assessment}
-        alt="Gym trainers high five"
-        className="absolute inset-0 w-full h-full object-fill"
-      />
+    <div className="relative w-full LoAssesment">
 
       <div className="w-full max-w-[1280px] px-8 pb-[120px] mx-auto z-10 h-full items-end flex flex-row relative">
         <div className="bg-[#ffffff] rounded-[10px] shadow-lg p-8 max-w-[346px]">
