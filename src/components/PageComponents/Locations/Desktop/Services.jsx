@@ -10,6 +10,13 @@ import {
   Brain,
   Hand,
 } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 
 import estheticianBg from "/src/assets/images/home/wellness-services/esthetician.webp";
 import chiropracticBg from "/src/assets/images/home/wellness-services/chiropractic_care.webp";
@@ -52,9 +59,10 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="w-full md:py-12 max-md:pb-12 max-md:pt-0">
+      {/* Desktop View */}
       <div
-        className="relative flex flex-row items-center justify-center w-full  aspect-[16/9] bg-cover bg-center transition-all will-change-transform will-change-opacity"
+        className="relative flex flex-row items-center justify-center w-full aspect-[16/9] bg-cover bg-center transition-all will-change-transform will-change-opacity max-md:hidden"
         style={{ backgroundImage: `url(${services[activeIndex].bgImage})` }}
       >
 
@@ -105,6 +113,54 @@ const Services = () => {
               );
             })}
           </div>
+        </div>
+      </div>
+
+      {/* Mobile View */}
+      <div
+        className="md:hidden relative w-full min-h-[552px] bg-cover bg-center flex flex-col px-4 py-8 justify-between items-center overflow-hidden"
+        style={{ backgroundImage: `url(${services[activeIndex].bgImage})` }}
+      >
+        <div className="absolute inset-0 bg-black/40 z-0" />
+        <div className="relative z-10 flex flex-col items-center w-full gap-6">
+          <h2 className="uppercase text-[#ffffff] font-bold text-center">
+            WELLNESS SERVICES FOR EVERYONE.
+          </h2>
+          <p className="description leading-[20px] text-[#ffffff] text-center">
+            Fitness goes beyond the gym. Our in-house wellness team helps you recover, manage pain, and improve movement.
+          </p>
+          <div className="flex justify-start">
+            <button className="btnPrimary">BOOK A FREE TOUR</button>
+          </div>
+        </div>
+        <div className="relative w-full mt-6">
+          <Carousel opts={{ align: 'start' }} className="w-full">
+            <CarouselContent className="pl-5 gap-2">
+              {services.map((service, index) => {
+                const isActive = index === activeIndex;
+                return (
+                  <CarouselItem
+                    key={index}
+                    className={`flex-shrink-0 w-full max-w-[173px] h-[102px] flex flex-col items-center justify-center text-[#fff] rounded-[10px] cursor-pointer transition-all duration-300 ${
+                      isActive
+                        ? 'bg-white/20 border-white ring-2 ring-white border'
+                        : 'bg-[#00000066] border-transparent border'
+                    }`}
+                    onClick={() => setActiveIndex(index)}
+                  >
+                    <div className={`mb-1 text-[20px] ${isActive ? 'text-[#4AB04A]' : ''}`}>{service.icon}</div>
+                    <div className="text-[14px] font-kanit font-[400] leading-[20px] uppercase text-[#fff] text-center">
+                      {typeof service.label === 'string' ? service.label : (
+                        <span className="whitespace-pre-line">{service.label}</span>
+                      )}
+                    </div>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+            <CarouselPrevious className="left-0 top-1/2 -translate-y-1/2 bg-white/80 border border-gray-300" />
+            <CarouselNext className="right-0 top-1/2 -translate-y-1/2 bg-white/80 border border-gray-300" />
+          </Carousel>
         </div>
       </div>
     </div>
