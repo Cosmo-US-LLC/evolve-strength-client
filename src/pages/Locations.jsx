@@ -18,17 +18,17 @@ import LoPersonalizedAssesment from '@/components/PageComponents/Locations/Deskt
 function Locations() {
   return (
          <div>
-      <div className="max-md:hidden">
+      <div className="">
         <LocationHero />
-        <LocationPartners/>
+        {/* <LocationPartners/> */}
         <LoWhyChooseEvolve/>
         <LocationPricing/>
         <FitnessCategory/>
         <LoPersonalizedAssesment/>
-        <RightTrainer/>
+        {/* <RightTrainer/> */}
         <Services/>
         <Spacious/>
-        <LocationsSeeItForYourSelf/>
+        {/* <LocationsSeeItForYourSelf/> */}
         <SetonLocation/>
         <MeetTheTrainers/>
         <JoinUsToday/>
@@ -36,7 +36,7 @@ function Locations() {
 
 
       </div>
-      <div className="md:hidden">Home Mobile</div>
+     
     </div>
   )
 }

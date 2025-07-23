@@ -35,65 +35,53 @@ const AboutUsPractitioners = () => {
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   return (
-    <section className="py-5 bg-[#EEEEEE]">
-      <div className="max-w-[1280px] mx-auto px-8 flex flex-col items-start gap-8">
+    <section className="py-4 md:py-12 bg-[#EEEEEE]">
+      <div className="max-w-[1280px] mx-auto px-4   md:px-8 flex flex-col items-start gap-8">
         <div className="flex items-start flex-col gap-10">
                     <h2 className="text-[#000] uppercase ">Practitioners</h2>
                     <h4 className=" !max-w-[800px]">Evolve brings together a team of licensed professionals so you can take care of your body and mind under one roof. We make it easy to access health services without having to leave your gym.  </h4>
               
                 </div>
-                 
-
-        <div className="relative">
-           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex md:gap-4 md:pl-4 ">
+        <div className="relative w-full">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-4 pl-0 md:pl-4">
               {professionals.map((pro, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_100%] md:flex-[0_0_32.5%]  "
+                  className="flex-[0_0_100%] md:flex-[0_0_32.5%] relative"
                 >
                   <img
                     src={pro.image}
                     alt={pro.title}
-                    className="md:w-[400px]  h-[244px] md:h-[273px] p-1 md:p-0 object-cover"
+                    className="w-full h-[200px] md:h-[273px] object-cover rounded-lg"
                   />
-                  <h3 className="flex items-center mt-6 text-[#000] ml-2 leading-[24px] font-[500]">
+                  <h3 className="flex items-center mt-4 md:mt-6 text-[#000] leading-[20px] md:leading-[24px] font-[500] text-sm md:text-base">
                     {pro.title}
                   </h3>
                 </div>
-                
               ))}
             </div>
           </div>
-          <br />
-          <button className="btnPrimary ">
-                 FIND A WELLNESS EXPERT
-                </button>
-
-         <div className="absolute -top-1/9 left-[0%]  md:-top-1/6 md:left-[86%] -translate-y-1/2  z-10">
-                            <button
-                              onClick={scrollPrev}
-                              className="p-2 rounded-full border border-[#000000] text-[#000000]"
-                            >
-                              <ArrowLeft className="md:w-6 md:h-6 w-4 h-4" />
-                            </button>
-                          </div>
-                          <div className="absolute -top-1/9  md:-top-1/6  -translate-y-1/2 left-[82%] md:left-auto md:right-[6%] z-10">
-                            <button
-                              onClick={scrollNext}
-                              className="p-2 rounded-full border border-[#000000] text-[#000000]"
-                            >
-                              <ArrowRight className="md:w-6 md:h-6  w-4 h-4" />
-                            </button>
-                          </div>
-                        </div>
-         
-                        
-
-        {/* <button className="btnPrimary">APPLY NOW</button> */}
+          <div className="absolute -top-1/9 md:-top-1/6 -translate-y-1/2 left-[74%] md:left-[86%] z-10">
+            <button
+              onClick={scrollPrev}
+              className=" p-2 rounded-full border border-[#000000] text-[#000000] "
+            >
+              <ArrowLeft className="w-4 h-4 md:w-6 md:h-6" />
+            </button>
+          </div>
+          <div className="absolute -top-1/9 md:-top-1/6 -translate-y-1/2 right-[4%] md:right-[6%] z-10">
+            <button
+              onClick={scrollNext}
+              className=" p-2 rounded-full border border-[#000000] text-[#000000] "
+            >
+              <ArrowRight className="w-4 h-4 md:w-6 md:h-6" />
+            </button>
+          </div>
+        </div>
+        <button className="btnPrimary md:mt-8   uppercase">Find a Wellness Expert</button>
       </div>
     </section>
   );
 };
-
 export default AboutUsPractitioners;

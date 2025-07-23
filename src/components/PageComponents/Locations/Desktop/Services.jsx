@@ -54,7 +54,7 @@ const Services = () => {
   return (
     <div className="">
       <div
-        className="relative flex flex-row items-center justify-center w-full  aspect-[16/9] bg-cover bg-center transition-all will-change-transform will-change-opacity"
+        className="relative flex flex-row items-center justify-center w-full aspect-[16/9] bg-cover bg-center transition-all will-change-transform will-change-opacity "
         style={{ backgroundImage: `url(${services[activeIndex].bgImage})` }}
       >
 
