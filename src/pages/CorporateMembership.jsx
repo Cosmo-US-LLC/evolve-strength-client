@@ -22,7 +22,7 @@ function CorporateMembership() {
       <WhyCompaniesChoose />
       <MembershipRecovery />
       <MembershipPremiumAmenities />
-      <SeeItForYourSelf />
+      {/* <SeeItForYourSelf /> */}
       <PricingFitsYourBudget />
       <EvolveEmployeePlan />
       <FrequentlyAskedQuestions {...corporateMembershipFAQs} />

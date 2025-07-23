@@ -41,11 +41,14 @@ const MembershipRecovery = () => {
           <h2 className="text-[#000] uppercase ">Recovery Services</h2>
         </div>
 
-        <div className="relative">
+        <div className="relative w-full">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-0 md:gap-4 pl-0 md:pl-4">
               {professionals.map((pro, idx) => (
-                <div key={idx} className="flex-[0_0_100%] md:flex-[0_0_32.5%] relative">
+                <div
+                  key={idx}
+                  className="flex-[0_0_100%] md:flex-[0_0_32.5%] relative"
+                >
                   <img
                     src={pro.image}
                     alt={pro.title}
