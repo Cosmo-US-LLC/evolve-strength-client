@@ -22,11 +22,11 @@ const BusinessOpportunities = () => {
     <div className="w-full py-12 bg-[#F9F9F9]">
       <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col justify-center items-center gap-12">
         <h2 className="">BUILD YOUR FUTURE WITH EVOLVE</h2>
-        <div className="flex flex-row w-[100%] min-h-[370px] gap-8">
+        <div className="flex md:flex-row max-md:flex-col w-[100%] min-h-[370px] gap-8">
           {opportunities.map((item, index) => (
             <div
               key={index}
-              className="flex-1 relative rounded-xl overflow-hidden shadow-md group"
+              className="md:flex-1 max-md:flex max-md:items-end  relative rounded-xl overflow-hidden shadow-md group"
               style={{
                 backgroundImage: `url(${item.image})`,
                 backgroundSize: "cover",

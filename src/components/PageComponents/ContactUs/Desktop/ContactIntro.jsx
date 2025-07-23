@@ -1,4 +1,6 @@
 import React from "react";
+import phoneicon from "@/assets/images/ContactUs/carbon_phone-filled (1).svg"
+import buildingicon from "@/assets/images/ContactUs/fluent_building-16-filled.svg"
 
  function ContactIntro() {
   return (
@@ -14,11 +16,11 @@ import React from "react";
 
       <div className="flex justify-center items-center gap-4 description ">
         <div className="flex items-center gap-1">
-          <span><img src="src/assets/images/ContactUs/carbon_phone-filled (1).svg" alt="" /></span>
+          <span><img src={phoneicon} alt="" /></span>
           <span>+1 (780) 589-7852</span>
         </div>
         <div className="flex items-center gap-1">
-          <span><img src="src/assets/images/ContactUs/fluent_building-16-filled.svg" alt="" /></span>
+          <span><img src={buildingicon} alt="" /></span>
           <span>info@evolvestrength.com</span>
         </div>
       </div>

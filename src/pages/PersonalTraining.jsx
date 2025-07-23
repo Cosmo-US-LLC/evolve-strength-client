@@ -10,16 +10,16 @@ import ConsultationWithPersonalTrainers from "@/components/PageComponents/Person
 function PersonalTraining() {
   return (
     <div>
-      <div className="max-md:hidden">
+      <div className="">
         <PersonalTrainingHero />
         <PerfectTrainer />
         <FreeAssessment />
-        <ConsultationWithPersonalTrainers/>
-        <FitnessCategoryMarquee/>
-        <PersonalGymExperience/>
-        <SwitchToEvolve/>
+        <ConsultationWithPersonalTrainers />
+        <FitnessCategoryMarquee />
+        {/* <PersonalGymExperience /> */}
+        <SwitchToEvolve />
       </div>
-      <div className="md:hidden">Home Mobile</div>
+      {/* <div className="md:hidden">Home Mobile</div> */}
     </div>
   );
 }

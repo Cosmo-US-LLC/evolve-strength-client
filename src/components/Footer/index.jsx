@@ -1,16 +1,17 @@
 import React from "react";
 import { Instagram, ArrowRight } from "lucide-react";
-import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo.svg";
+import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo-w.webp";
 import { HashLink as Link } from "react-router-hash-link";
 import ESFLogo from "../../assets/images/home/footer/Evolve-Strength-footer-Logo.svg";
+import "./styles.css";
 // import { ReactComponent as ESFLogo } from "../../assets/images/home/footer/Evolve-Strength-footer-Logo.svg";
 
 function Footer() {
   return (
     <>
       <div className="relative bg-[#191919]">
-        <div className="relative max-w-[1280px] px-8 mx-auto w-full h-full flex flex-col">
-          <div className="flex flex-row gap-16 pt-12 pb-6">
+        <div className="relative max-w-[1280px] px-4 md:px-8 mx-auto w-full h-full flex flex-col">
+          <div className="flex flex-col md:flex-row gap-16 pt-12 pb-6">
             <div className="bg-[#262626] text-white p-6 rounded-[12px] max-w-[360px] flex flex-col gap-8">
               <div className="">
                 <Link
@@ -18,7 +19,7 @@ function Footer() {
                   to="/"
                   className="flex items-center"
                   onClick={(e) => {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    // window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
                 >
                   <img
@@ -58,11 +59,15 @@ function Footer() {
             </div>
 
             <div className="flex flex-col">
-              <div className="w-[790px] text-white border-y border-y-[#2b2b2b] pt-6 pb-2">
+              <div className="max-w-[790px] text-white border-y border-y-[#2b2b2b] pt-6 pb-2">
                 <div className="footer_links flex flex-wrap items-center gap-6 mb-4">
-                  <a href="#" className="text-[#B2B1AA] hover:text-[#ffffff]">
+                  <Link
+                    smooth
+                    to="/join-as-trainer"
+                    className="text-[#B2B1AA] hover:text-[#ffffff]"
+                  >
                     Become a Trainer
-                  </a>
+                  </Link>
                   <span className="text-[#B2B1AA]">/</span>
                   <a href="#" className="text-[#B2B1AA] hover:text-[#ffffff]">
                     Become a Practitioner
@@ -78,26 +83,28 @@ function Footer() {
                 </p>
               </div>
 
-              <div className=" flex flex-row gap-[130px] py-8">
+              <div className=" flex flex-row gap-[70px] md:gap-[130px] py-8">
                 <div className="space-y-3 flex flex-col">
-                  <a
-                    href="#"
+                  <Link
+                  smooth
+                    to="/about-us"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     About Us
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    to="/locations"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Our Locations
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    smooth
+                    to="/corporate-membership"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Corporate Membership
-                  </a>
+                  </Link>
                   <Link
                     smooth
                     to="/membership-benefits"
@@ -105,12 +112,13 @@ function Footer() {
                   >
                     Membership Benefits
                   </Link>
-                  <a
-                    href="#"
+                  <Link
+                  smooth
+                    to="/join-the-Movement"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Join the Movement
-                  </a>
+                  </Link>
 
                   <button className="mt-4 btnPrimary transition">
                     TAKE A TOUR
@@ -149,12 +157,12 @@ function Footer() {
               </div>
             </div>
           </div>
-          <div className="flex flex-row items-center justify-between w-full max-w-[780px] h-[100px] gap-6">
+          <div className="flex flex-row items-center justify-between w-full max-w-[814px] h-[100px] gap-6">
             <div className="text-[#4AB04A] hover:text-[#ffffff] border-[2px] border-[#4AB04A] cursor-pointer hover:border-[#ffffff] rounded-full p-4">
               <Instagram className="w-7 h-7 " />
             </div>
 
-            <div className="flex flex-row gap-10 ">
+            <div className="flex flex-row gap-6 md:gap-10 ">
               <div>
                 <p className="footer_quick_links uppercase text-[#6F6D66]  ">
                   Selection Committee
@@ -177,12 +185,19 @@ function Footer() {
           <img
             src={ESFLogo}
             alt="footerImage"
-            className="w-[380px] h-auto absolute bottom-[-30px] right-[30px] opacity-5"
+            className="w-[280px] h-auto absolute bottom-[-30px] right-[30px] opacity-5 max-md:hidden"
+          />
+        </div>
+        <div className="flex w-full items-end justify-end md:hidden">
+          <img
+            src={ESFLogo}
+            alt="footerImage"
+            className="w-[280px] h-auto opacity-5 "
           />
         </div>
       </div>
       <div className="bg-[#000000]">
-        <div className="max-w-[1280px] px-8 py-6 mx-auto w-full flex justify-between items-center">
+        <div className="max-w-[1280px] px-4 md:px-8 py-6 mx-auto w-full flex justify-between items-center">
           <Link
             smooth
             to="privacy-policy"
@@ -195,7 +210,7 @@ function Footer() {
           </span>
           <Link
             smooth
-            to="/terms-of-conditions"
+            to="/terms-and-conditions"
             className="footer_quick_links text-[#6F6D66] hover:text-[#ffffff]"
           >
             Terms of Service

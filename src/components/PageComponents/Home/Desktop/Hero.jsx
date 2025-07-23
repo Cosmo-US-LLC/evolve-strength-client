@@ -31,18 +31,19 @@ import React from "react";
 
 function Hero() {
   return (
-    <div className="relative heroSection">
+    <div>
+    <div className="relative heroSection md:h-[700px] max-md:h-[404px]">
       {/* <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/40" /> */}
-      <div className="max-w-[1280px] px-8 pb-[135px] mx-auto w-full h-full">
+      <div className="max-w-[1280px] px-8 md:pb-[135px] max-md:pb-[24px] mx-auto w-full h-full">
         <div className="relative z-2 flex  flex-col items-start justify-end h-full">
           <h1 className="text-[#FFFFFF] uppercase leading-[79px]">Evolve</h1>
-          <h3 className="text-[#FFFFFF] !font-[400] leading-[24px] mb-7">
+          <h3 className="text-[#FFFFFF] !font-[400] leading-[24px] md:mb-7 max-md:mb-[16px]">
             More Space. More Possibilities.
           </h3>
-
           <button className="btnPrimary">Book a Free Tour</button>
         </div>
       </div>
+    </div>
     </div>
   );
 }
