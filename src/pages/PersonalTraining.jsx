@@ -16,7 +16,7 @@ function PersonalTraining() {
         <FreeAssessment />
         <ConsultationWithPersonalTrainers />
         <FitnessCategoryMarquee />
-        {/* <PersonalGymExperience /> */}
+        <PersonalGymExperience />
         <SwitchToEvolve />
       </div>
       {/* <div className="md:hidden">Home Mobile</div> */}

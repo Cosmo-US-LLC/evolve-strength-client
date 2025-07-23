@@ -302,6 +302,9 @@
   .ReadyToEvolveBG {
     background-image: url("@/assets/images/MembershipBenefits/ReadyToEvolve/ReadyToEvolveMobBG.webp");
   }
+  .employeePlanBG {
+  background-image: url("@/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanMobBG.webp");
+}
   .ContactHeroBG {
     background-image: url("@/assets/images/ContactUs/herosection.webp");
   }
