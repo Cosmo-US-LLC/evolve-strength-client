@@ -23,11 +23,10 @@ const LoWhyChooseEvolve = () => {
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
-
   return (
     <section className="py-12 bg-[#FFFFFF]">
         
-      <div className="max-w-[1280px] mx-auto px-8 flex flex-col items-start gap-8">
+      <div className="max-w-[1280px] mx-auto md:px-8 px-4 flex flex-col items-start gap-8">
        
         <div className="flex items-start flex-col gap-4">
                     <h2 className="text-[#000] uppercase ">Why Choose Evolve?</h2>
@@ -43,7 +42,7 @@ const LoWhyChooseEvolve = () => {
               {professionals.map((pro, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_50%] relative"
+                  className="md:flex-[0_0_50%] flex-[0_0_100%] relative"
                 >
                   <img
                     src={pro.image}
@@ -61,20 +60,20 @@ const LoWhyChooseEvolve = () => {
             </div>
           </div>
 
-          <div className="absolute -top-1/6 -translate-y-1/2 left-[86%] z-10">
+           <div className="absolute -top-1/12 md:-top-1/6 -translate-y-1/2 left-[74%] md:left-[86%] z-10">
             <button
               onClick={scrollPrev}
-              className="p-2 rounded-full border border-[#000000] text-[#000000]"
+              className=" p-2 rounded-full border border-[#000000] text-[#000000] "
             >
-              <ArrowLeft className="w-6 h-6" />
+              <ArrowLeft className="w-4 h-4 md:w-6 md:h-6" />
             </button>
           </div>
-          <div className="absolute -top-1/6 -translate-y-1/2 right-[6%] z-10">
+          <div className="absolute -top-1/12 md:-top-1/6 -translate-y-1/2 right-[4%] md:right-[6%] z-10">
             <button
               onClick={scrollNext}
-              className="p-2 rounded-full border border-[#000000] text-[#000000]"
+              className=" p-2 rounded-full border border-[#000000] text-[#000000] "
             >
-              <ArrowRight className="w-6 h-6" />
+              <ArrowRight className="w-4 h-4 md:w-6 md:h-6" />
             </button>
           </div>
         </div>
