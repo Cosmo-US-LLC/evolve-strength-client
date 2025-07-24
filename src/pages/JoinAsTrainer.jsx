@@ -10,16 +10,12 @@ import TrainerForm from "@/components/PageComponents/JoinAsTrainer/Desktop/Train
 function JoinAsTrainer() {
   return (
     <div>
-      <div className="max-md:hidden">
         <JoinAsTrainerHero />
         <BuildYourCareer />
         <WhyChooseEvolve />
         <WhatTrainersAre />
         <TourOurFitness />
-        <TrainerForm/>
-
-      </div>
-      <div className="md:hidden">Home Mobile</div>
+        {/* <TrainerForm/> */}
     </div>
   );
 }
