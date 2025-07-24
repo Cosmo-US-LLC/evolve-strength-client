@@ -59,19 +59,19 @@ function TrainerCard({
         {/* Carousel Container */}
         <div
           ref={carouselRef}
-          className="flex gap-4 overflow-x-auto scrollbar-hide px-4 py-2"
+          className="flex gap-4 overflow-x-auto scrollbar-hide"
           style={{ scrollSnapType: "x mandatory" }}
         >
           {trainers.map((trainer, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-[260px]"
+              className="flex-shrink-0 w-full"
               style={{ scrollSnapAlign: "start" }}
             >
               <div
                 onClick={() => onTrainerSelect(index)}
                 className={`
-                  relative cursor-pointer transition-all duration-200 rounded-[10px] overflow-hidden max-w-[260px]
+                  relative cursor-pointer transition-all duration-200 rounded-[10px] overflow-hidden  
                   ${selectedTrainer === index ? "bg-[#4AB04A]" : ""}
                 `}
               >
@@ -128,7 +128,7 @@ function TrainerCard({
         </div>
 
         {/* Dots Indicator */}
-        <div className="flex justify-center gap-2 mt-4">
+        {/* <div className="flex justify-center gap-2 mt-4">
           {trainers.map((_, index) => (
             <button
               key={index}
@@ -147,7 +147,7 @@ function TrainerCard({
               }`}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     );
   }

@@ -6,12 +6,6 @@ import WellnessView from "../WellnessView/WellnessView";
 import TrainersView from "../TrainersView/TrainersView";
 
 function CategorySelector({ selected, onSelect }) {
-  const handleCategorySelect = (categoryId) => {
-    // Accordion behavior: always select the clicked category (no deselection)
-    // This ensures only one category is active at a time
-    onSelect && onSelect(categoryId);
-  };
-
   const renderViewContent = (categoryId) => {
     switch (categoryId) {
       case "LOCATIONS":
@@ -28,21 +22,21 @@ function CategorySelector({ selected, onSelect }) {
   return (
     <div className="w-full py-8 md:py-12 flex flex-col gap-8 md:gap-12">
       {/* Main Heading */}
-      <div className="text-center px-4 md:px-0">
-        <h3 className="leading-[20px] md:leading-[24px] font-[400] text-[#000] text-sm md:text-base">
+      <div className="text-left md:text-center">
+        <h3 className="leading-[20px] md:leading-[24px] !text-[19px] md:!text-[24px] w-full font-[400] text-[#000]  ">
           Discover trainers, wellness services, and amenities that fit your
           goals at Evolve.
         </h3>
       </div>
 
       {/* Mobile: Accordion Cards with Content Below Each */}
-      <div className="md:hidden flex flex-col gap-4 px-4">
+      <div className="md:hidden flex flex-col gap-4  ">
         {EXPLORE_DATA.map((card) => (
           <div key={card.id} className="flex flex-col">
             <CategoryCard
               card={card}
               selected={selected === card.id}
-              onClick={() => handleCategorySelect(card.id)}
+              onClick={() => onSelect && onSelect(card.id)}
             />
             {/* Mobile Accordion Content - appears below each card */}
             {selected === card.id && (
@@ -61,7 +55,7 @@ function CategorySelector({ selected, onSelect }) {
               key={card.id}
               card={card}
               selected={selected === card.id}
-              onClick={() => handleCategorySelect(card.id)}
+              onClick={() => onSelect && onSelect(card.id)}
             />
           ))}
         </div>

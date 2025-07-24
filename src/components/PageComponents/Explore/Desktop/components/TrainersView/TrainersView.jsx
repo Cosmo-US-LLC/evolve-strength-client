@@ -44,13 +44,13 @@ function TrainersView() {
   }
 
   return (
-    <div className="pt-4 md:pt-6 px-4 md:px-0">
+    <div className="pt-4 md:pt-6">
       {/* Filter Tabs */}
       {/* Mobile: Horizontal Scrollable Filters */}
       <div className="md:hidden mb-6">
-        <div className="flex gap-3 overflow-x-auto scrollbar-hide px-4 py-2">
+        <div className="flex gap-1 overflow-x-auto scrollbar-hide py-2">
           <button
-            className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-4 py-2 font-[300] leading-[20px] capitalize text-[16px] cursor-pointer outline-none transition-all duration-200 flex-shrink-0 ${
+            className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-3 py-2 font-[300] leading-[20px] capitalize text-[16px] cursor-pointer outline-none transition-all duration-200 flex-shrink-0 ${
               selectedTab === "All"
                 ? "bg-[#000] text-[#FFF]"
                 : "bg-[#fff] text-[#000] hover:bg-gray-50"
@@ -63,7 +63,7 @@ function TrainersView() {
             All
           </button>
           <button
-            className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-4 py-2 font-[300] leading-[20px] capitalize text-[16px] cursor-pointer outline-none transition-all duration-200 flex-shrink-0 ${
+            className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-2 py-2 font-[300] leading-[20px] capitalize text-[16px] cursor-pointer outline-none transition-all duration-200 flex-shrink-0 ${
               selectedTab === "Alphabetical"
                 ? "bg-[#000] text-[#FFF]"
                 : "bg-[#fff] text-[#000] hover:bg-gray-50"
@@ -77,7 +77,7 @@ function TrainersView() {
           </button>
           <div className="relative flex-shrink-0">
             <button
-              className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-4 py-2 font-[300] leading-[20px] capitalize text-[16px] cursor-pointer outline-none transition-all duration-200 ${
+              className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-2 py-2 font-[300] leading-[20px] capitalize text-[16px] cursor-pointer outline-none transition-all duration-200 ${
                 selectedTab === "Locations"
                   ? "bg-[#000] text-[#FFF]"
                   : "bg-[#fff] text-[#000] hover:bg-gray-50"
@@ -151,7 +151,7 @@ function TrainersView() {
             )}
           </div>
           <button
-            className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-4 py-2 font-[300] leading-[20px] capitalize text-[16px] cursor-pointer outline-none transition-all duration-200 flex-shrink-0 ${
+            className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-2 py-2 font-[300] leading-[20px] capitalize text-[16px] cursor-pointer outline-none transition-all duration-200 flex-shrink-0 ${
               selectedTab === "New Trainers"
                 ? "bg-[#000] text-[#FFF]"
                 : "bg-[#fff] text-[#000] hover:bg-gray-50"
@@ -289,7 +289,7 @@ function TrainersView() {
         {filteredTrainers && filteredTrainers.length > 0 && (
           <>
             {/* Mobile: Trainer Carousel */}
-            <div className="md:hidden bg-[#F6F6F6] py-6">
+            <div className="md:hidden bg-[#F6F6F6] px-4 py-6 rounded-t-[5px]">
               <TrainerCard
                 isCarousel={true}
                 trainers={filteredTrainers}

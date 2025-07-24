@@ -64,7 +64,7 @@ function WellnessView() {
               {/* Service Header */}
               <div
                 className={`
-                  flex items-center justify-between py-4 md:py-5 cursor-pointer border-b border-gray-200 bg-white px-4 md:px-0
+                  flex items-center justify-between py-4 md:py-5 cursor-pointer border-b border-gray-200 bg-white
                   ${isSelected ? "bg-green-50" : "bg-[#fff]"}
                   ${index === 0 ? "border-t border-[#CCCCCC]" : ""}
                   hover:bg-gray-50 transition-all duration-300 ease-in-out
@@ -97,7 +97,7 @@ function WellnessView() {
               </div>
 
               {isOpen && (
-                <div className="py-4 md:py-6 bg-white px-4 md:px-0">
+                <div className="py-4 md:py-6 bg-white">
                   <div className="relative mb-4 md:mb-6">
                     <button
                       className="bg-[#fff] rounded-[8px] px-3 md:px-4 py-2 md:py-3 border border-[#CCCCCC] flex items-center justify-between min-w-[180px] md:min-w-[200px]"
@@ -179,7 +179,7 @@ function WellnessView() {
                   {filteredTrainers && filteredTrainers.length > 0 && (
                     <>
                       {/* Mobile: Trainer Carousel */}
-                      <div className="md:hidden bg-[#F6F6F6] py-6">
+                      <div className="md:hidden bg-[#F6F6F6] py-6 px-4 rounded-t-[5px]">
                         <TrainerCard
                           isCarousel={true}
                           trainers={filteredTrainers}

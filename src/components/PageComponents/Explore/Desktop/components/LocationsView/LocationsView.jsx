@@ -53,7 +53,7 @@ function LocationsView() {
               {/* Location Header */}
               <div
                 className={`
-                  flex items-center justify-between py-4 md:py-5 cursor-pointer border-b border-gray-200 bg-white px-4 md:px-0
+                  flex items-center justify-between py-4 md:py-5 cursor-pointer border-b border-gray-200 bg-white  
                   ${isOpen ? "bg-green-50" : "bg-[#fff]"}
                   ${index === 0 ? "border-t border-[#CCCCCC]" : ""}
                   hover:bg-gray-50 transition-all duration-300 ease-in-out
@@ -75,14 +75,14 @@ function LocationsView() {
                   className="uppercase text-[16px] md:text-[20px] font-[400] leading-[20px] font-[kanit] text-[#4AB04A] hover:text-[#000] underline transition-colors duration-300"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  VIEW LOCATION
+                  JOIN NOW
                 </Link>
               </div>
 
               {/* Accordion Content with Smooth Animation */}
               <div
                 className={`
-                  bg-[#fff] px-4 md:px-0 overflow-hidden transition-all duration-500 ease-in-out
+                  bg-[#fff] overflow-hidden transition-all duration-500 ease-in-out
                   ${isOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}
                 `}
               >
@@ -94,7 +94,7 @@ function LocationsView() {
                 >
                   {/* Mobile: Horizontal Scrollable Services */}
                   <div className="md:hidden py-6">
-                    <div className="flex gap-3 overflow-x-auto scrollbar-hide px-4 py-2">
+                    <div className="flex gap-3 overflow-x-auto scrollbar-hide py-2">
                       {loc.services &&
                         loc.services.map((service) => (
                           <button
@@ -104,7 +104,7 @@ function LocationsView() {
                               handleServiceSelect(locKey, service.name);
                             }}
                             className={`
-                              flex items-center justify-center gap-2 flex-shrink-0 min-w-[200px] h-[48px] rounded-[6px] text-[16px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105
+                              flex items-center justify-center gap-2 flex-shrink-0  px-4 h-[48px] rounded-[6px] text-[16px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105
                               ${
                                 selectedService === service.name
                                   ? "bg-[#000] text-white shadow-lg"
@@ -157,7 +157,7 @@ function LocationsView() {
                   {filteredTrainers && filteredTrainers.length > 0 && (
                     <>
                       {/* Mobile: Trainer Carousel */}
-                      <div className="md:hidden bg-[#F6F6F6] py-6">
+                      <div className="md:hidden bg-[#F6F6F6] px-4 py-6 rounded-t-[5px]">
                         <TrainerCard
                           isCarousel={true}
                           trainers={filteredTrainers}
