@@ -18,22 +18,22 @@ import EvolveExpansionPlans from "@/components/PageComponents/Franchise/Desktop/
 function Franchise() {
   return (
     <div>
-      <div className="max-md:hidden">
+      <div className="">
         <FranchiseHero />
-        <FranchiseJourneySteps />
-        <CanadianFitnessMarket />
+        {/* <FranchiseJourneySteps /> */}
+        {/* <CanadianFitnessMarket /> */}
         <EvolveLookLike />
         <EvolveSmarterInvestment />
-        <WeHelpYouRightSpace />
+        {/* <WeHelpYouRightSpace /> */}
         <TakesToLaunchEvolve />
         <EvolveFloorPlan/>
         <GotYourBack />
-        <EvolveExpansionPlans  />
+        {/* <EvolveExpansionPlans  /> */}
         <OurFranchiseesSay />
-        <HowtoJoinEvolveJourney />
+        {/* <HowtoJoinEvolveJourney /> */}
         <LetsBuildBigger />
       </div>
-      <div className="md:hidden">Home Mobile</div>
+      
     </div>
   );
 }
