@@ -24,11 +24,7 @@ const steps = [
   },
   {
     title: "1200+",
-    description: (
-      <p>
-        Currently Active Members in <br /> All Branches
-      </p>
-    ),
+    description: <p>Currently Active Members in All Branches</p>,
     image: step2,
     icon: <ActiveMembersIcon />,
   },
@@ -56,11 +52,11 @@ const steps = [
 
 function FranchiseJourneySteps() {
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-wrap">
       {steps.map((step, index) => (
         <div
           key={index}
-          className="relative w-full md:w-1/4 aspect-[3/4] overflow-hidden group flex items-end justify-center"
+          className="relative w-1/2 md:w-1/4 aspect-[3/4] overflow-hidden group flex items-end justify-center"
         >
           <img
             src={step.image}
@@ -70,20 +66,20 @@ function FranchiseJourneySteps() {
 
           {/* <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all duration-300" /> */}
 
-          <div className="relative z-10 px-4 text-center text-white flex flex-col items-center transition-all duration-500 group-hover:pb-6">
-            <div className="bg-green-500 rounded-full w-12 h-12 flex items-center justify-center mb-3">
+          <div className="relative z-10 px-2 md:px-4 py-2 md:py-0 text-left md:text-center text-white flex flex-col items-start md:items-center transition-all duration-500 group-hover:pb-6">
+            <div className="bg-green-500 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center mb-2 md:mb-3">
               {step.icon}
             </div>
 
             <h2
-              className={`font-semibold text-base sm:text-lg mb-1 transition-all duration-500 ${
+              className={`font-semibold text-sm md:text-base lg:text-lg mb-1 transition-all duration-500 ${
                 index === 0 ? "" : "group-hover:-translate-y-1"
               }`}
             >
               {step.title}
             </h2>
 
-            <p className="text-[20px] opacity-0 translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+            <p className="text-[14px] md:text-[20px] opacity-100 md:opacity-0 translate-y-0 md:translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
               {step.description}
             </p>
           </div>
