@@ -332,6 +332,8 @@
   .LoAssesment{
     background-image: url("@/assets/images/Locations/LoAssesment.webp");
   }
-  
+  .JoinToday{
+    background-image: url("@/assets/images/Locations/JoinToday_Mob.webp");
+  }
 }
 
