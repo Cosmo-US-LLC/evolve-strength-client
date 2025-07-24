@@ -7,11 +7,8 @@ function Explore() {
 
   return (
     <div>
-      <div className="max-md:hidden">
-        <ExploreHero />
-        <DiscoverEvolve selected={selected} onSelect={setSelected} />
-      </div>
-      <div className="md:hidden">Home Mobile</div>
+      <ExploreHero />
+      <DiscoverEvolve selected={selected} onSelect={setSelected} />
     </div>
   );
 }
