@@ -4,11 +4,11 @@ import GrowYourBusinessSectionImage from "@/assets/images/spaces/GrowYourBusines
 
 function FranchiseHero() {
   return (
-    <div className="w-full pb-12 px-4 pt-[120px]">
+    <div className="w-full pb-12 pt-[90px] md:pt-[120px]">
       <div className="w-full max-w-[1280px] px-4 md:px-8 mx-auto flex flex-col gap-12">
-        <div className="flex md:flex-row flex-col gap-10">
+        <div className="flex md:flex-row flex-col gap-4 md:gap-10">
           <div className="md:w-[50%] w-full flex ">
-            <h1 className="max-w-[655px] text-left leading-[56px] uppercase">
+            <h1 className="max-w-[655px] text-left leading-[50px] md:leading-[56px] uppercase">
               Franchise with Evolve
             </h1>
           </div>
