@@ -10,7 +10,7 @@ function TakesToLaunchEvolve() {
         <h4 className="text-[#fff] leading-[26px] font-[300] text-center mb-6">
           Startup Investment:
         </h4>
-        <div className="flex flex-col md:flex-row gap-10 md:gap-20 justify-center items-end w-full">
+        <div className="flex flex-col md:flex-row gap-5 md:gap-20 justify-center md:items-end w-full">
           <div className="flex flex-col items-center">
             <div className="text-[#fff] text-[55px] font-[300] leading-[55px] mb-2">
               $250,000

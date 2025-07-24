@@ -121,16 +121,16 @@ const EvolveLookLike = () => {
     <section className="py-12">
       <div className="relative flex flex-col gap-16">
         {/* Header */}
-        <div className=" w-full max-w-[1280px] mx-auto px-8 flex items-end justify-between mb-4">
-          <div className="flex-1 flex flex-col gap-3">
-            <h2 className="text-[#000] uppercase">
+        <div className=" w-full max-w-[1280px] mx-auto md:px-8 px-4 md:flex md:items-end md:justify-between items-center justify-center mb-4">
+          <div className="md:flex-1  flex flex-col gap-3">
+            <h2 className="text-[#000] uppercase ">
               What Does Evolve Look Like?
             </h2>
-            <h4 className="text-[#000] font-normal">
+            <h4 className="text-[#000] font-normal ">
               See how we bring it all together.
             </h4>
           </div>
-          <div className="flex-1 flex justify-end">
+          <div className="md:flex-1 flex items-start flex-col md:flex-row md:justify-end pt-3 md:pt-0 ">
             <button className="btnPrimary">APPLY NOW</button>
           </div>
         </div>
@@ -148,7 +148,7 @@ const EvolveLookLike = () => {
                     maxWidth: "70%",
                   }}
                 >
-                  <div className="embla__slide__content bg-white rounded-[10px] shadow-md h-[450px] flex items-center justify-center">
+                  <div className="embla__slide__content bg-white rounded-[10px] shadow-md md:h-[450px] h-[200px] flex items-center justify-center">
                     <img
                       src={pro.image}
                       alt={pro.title}
