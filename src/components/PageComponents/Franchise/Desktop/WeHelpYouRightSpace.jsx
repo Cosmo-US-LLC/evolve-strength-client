@@ -5,6 +5,14 @@ import { ReactComponent as ArchitecturalIcon } from "@/assets/images/franchise/w
 import { ReactComponent as ConstructionIcon } from "@/assets/images/franchise/weHelpYouRightSpace/icon4.svg";
 import { ReactComponent as SpaceIcon } from "@/assets/images/franchise/weHelpYouRightSpace/icon5.svg";
 import { ReactComponent as OngoingIcon } from "@/assets/images/franchise/weHelpYouRightSpace/icon6.svg";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const features = [
   {
@@ -40,35 +48,84 @@ const features = [
 ];
 
 function WeHelpYouRightSpace() {
+  const [api, setApi] = React.useState();
+
+  const scrollPrev = () => {
+    api?.scrollPrev();
+  };
+
+  const scrollNext = () => {
+    api?.scrollNext();
+  };
+
   return (
-    <div className="w-full max-w-[1280px] mx-auto py-16 px-4">
-      <div className="flex flex-row md:items-center md:justify-between mb-8">
-        <div className="flex flex-col gap-2">
-          <h2 className="text-[#000] font-[700] uppercase leading-[39px]">
-            WE HELP YOU FIND AND BUILD
-            <br />
-            THE RIGHT SPACE
+    <div className="w-full max-w-[1280px] mx-auto py-6 md:py-14 px-4">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+        <div className="flex flex-col gap-2 pb-4 md:pb-0">
+          <h2 className="text-[#000] w-full md:max-w-[566px] font-[700] uppercase leading-[39px]">
+            WE HELP YOU FIND AND BUILD THE RIGHT SPACE
           </h2>
-          <h4 className="leading-[26px] text-[#000]">
-            Location is everything and we help you get it right. Our real estate <br />
+          <h4 className="leading-[26px] w-full md:max-w-[566px] text-[#000]">
+            Location is everything and we help you get it right. Our real estate{" "}
             team supports franchisees with:
           </h4>
         </div>
-        <button className="btnPrimary">
-          APPLY NOW
-        </button>
+        <button className="btnPrimary">APPLY NOW</button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Mobile Carousel */}
+      <div className="block md:hidden">
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full"
+          setApi={setApi}
+        >
+          <CarouselContent>
+            {features.map((f, i) => (
+              <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
+                <div className="bg-[#F5F5F5] rounded-[10px] p-6 flex flex-col justify-between min-h-[200px] shadow-sm">
+                  <div className="flex items-start justify-between">
+                    <h3 className="text-[#000]">{f.title}</h3>
+                    <span className="ml-4">{f.icon}</span>
+                  </div>
+                  <p className="text-[#000] description max-w-[265px]">
+                    {f.desc}
+                  </p>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+
+        {/* Custom Navigation Arrows */}
+        <div className="flex justify-center items-center gap-4 mt-6">
+          <button
+            onClick={scrollPrev}
+            className="w-12 h-12 rounded-full bg-[#F5F5F5] flex items-center justify-center hover:bg-gray-200 transition-colors"
+          >
+            <ChevronLeft className="w-6 h-6 text-gray-600" />
+          </button>
+          <button
+            onClick={scrollNext}
+            className="w-12 h-12 rounded-full bg-[#F5F5F5] flex items-center justify-center hover:bg-gray-200 transition-colors"
+          >
+            <ChevronRight className="w-6 h-6 text-gray-600" />
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop Grid */}
+      <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map((f, i) => (
           <div
             key={i}
             className="bg-[#F5F5F5] rounded-[10px] p-6 flex flex-col justify-between min-h-[200px] shadow-sm"
           >
             <div className="flex items-start justify-between">
-              <h3 className=" text-[#000]">
-                {f.title}
-              </h3>
+              <h3 className=" text-[#000]">{f.title}</h3>
               <span className="ml-4">{f.icon}</span>
             </div>
             <p className="text-[#000] description max-w-[265px]">{f.desc}</p>
