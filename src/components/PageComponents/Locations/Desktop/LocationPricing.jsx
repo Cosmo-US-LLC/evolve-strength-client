@@ -42,7 +42,7 @@ const pricingContent = {
 function LocationPricing() {
   return (
   <div className='w-full max-w-[1280px] md:px-8 px-4 mx-auto flex flex-col gap-12'>
-    <div className='flex flex-col md:flex-row py-[60px] w-full '>
+    <div className='flex flex-col md:flex-row py-[60px] w-full justify-center items-center '>
       {/* Left Text Section */}
       <div className="flex flex-col w-full justify-center">
         <h1 className="!text-[40px] max-w-[300px] leading-[39px] uppercase">
