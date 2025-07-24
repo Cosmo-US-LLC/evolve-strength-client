@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react"
 
 function WhyChooseEvolve() {
@@ -84,7 +83,7 @@ function WhyChooseEvolve() {
 
   return (
     <div className="w-full py-[54px] bg-[#F9F9F9]">
-      <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col gap-12">
+      <div className="w-full max-w-[1280px] px-4 md:px-8 mx-auto flex flex-col gap-12">
         <div className="space-y-[24px]">
           <h2 className="max-w-[707px] text-left leading-[56px] uppercase">Why Choose Evolve</h2>
         </div>
@@ -94,7 +93,7 @@ function WhyChooseEvolve() {
             <div
               key={index}
               id={`card-${index}`}
-              className="h-[90vh] sticky top-0 backface-hidden md:w-full transition-all duration-500 ease-out"
+              className="h-[60vh] md:h-[90vh] flex flex-col gap-4 md:gap-0 sticky top-0 backface-hidden md:w-full transition-all duration-500 ease-out"
               style={{
                 transform: cardTransforms[index].transform,
                 opacity: cardTransforms[index].opacity,
@@ -102,7 +101,7 @@ function WhyChooseEvolve() {
               }}
             >
               <div
-                className={`px-[70px] rounded-[10px] pt-[60px] pb-[70px] flex items-end relative h-full bg-cover bg-center ${card.bgClass}`}
+                className={`px-[20px] md:px-[70px] rounded-[10px] pt-[60px] pb-[30px] md:pb-[70px] flex items-end relative h-full bg-cover bg-center ${card.bgClass}`}
               >
                 <div className="relative z-[9] space-y-[14px]">
                   <h3 className="text-white !font-[700] leading-[20px] !font-Vazirmatn">{card.title}</h3>
@@ -120,6 +119,9 @@ function WhyChooseEvolve() {
             </div>
           ))}
         </div>
+      </div>
+      <div className="flex justify-center pt-[40px]">
+        <button className="btnPrimary">Start Today</button>
       </div>
     </div>
   )

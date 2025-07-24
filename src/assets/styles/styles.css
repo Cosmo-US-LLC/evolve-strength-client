@@ -330,4 +330,13 @@
   .LoAssesment {
     background-image: url("@/assets/images/Locations/LoAssesment.webp");
   }
+ 
+  .JoinToday{
+    background-image: url("@/assets/images/Locations/JoinToday_Mob.webp");
+
+  }
+  .franchiseLetsBuildBigger{
+    background-image: url("@/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG-Mob.webp");
+  }
+ 
 }

@@ -20,15 +20,15 @@ function Locations() {
          <div>
       <div className="">
         <LocationHero />
-        {/* <LocationPartners/> */}
+        <LocationPartners/>
         <LoWhyChooseEvolve/>
         <LocationPricing/>
         <FitnessCategory/>
         <LoPersonalizedAssesment/>
-        {/* <RightTrainer/> */}
+        <RightTrainer/>
         <Services/>
         <Spacious/>
-        {/* <LocationsSeeItForYourSelf/> */}
+        <LocationsSeeItForYourSelf/>
         <SetonLocation/>
         <MeetTheTrainers/>
         <JoinUsToday/>

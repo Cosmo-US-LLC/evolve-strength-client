@@ -23,10 +23,10 @@ const EvolveFloorPlan = () => {
 
   return (
     <div className="pb-16 pt-[130px]">
-      <div className="w-full max-w-[1280px] mx-auto px-8 flex flex-row gap-8 items-start">
+      <div className="w-full max-w-[1280px] mx-auto md:px-8 px-4 flex md:flex-row flex-col gap-8 items-start">
         
       
-          <div className="w-[50%] flex flex-col gap-6 justify-center">
+          <div className="md:w-[50%] w-full flex flex-col  gap-6 justify-center">
             <h2 className="text-[#000] uppercase font-[700] leading-[39px]">
               Preferred Size Range: <br /> 20,000–35,000 SQ FT
             </h2>
@@ -36,7 +36,7 @@ const EvolveFloorPlan = () => {
             </p>
           </div>
 
-          <div className="relative w-[50%]">
+          <div className="relative md:w-[50%] pt-10 md:pt-0">
             <Carousel className="w-full">
               <div className="absolute -top-[40px] right-[50px] flex z-10">
                 <CarouselPrevious className="bg-[#fff] w-[42px] h-[42px] p-1 rounded-full hover:bg-gray-100" />
