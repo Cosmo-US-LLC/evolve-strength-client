@@ -158,7 +158,7 @@
 
 .JoinToday {
   background-image: url("@/assets/images/Locations/JoinToday.webp");
-   background-size: cover;
+  background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
   width: 100%;
@@ -166,13 +166,12 @@
 }
 .LoAssesment {
   background-image: url("@/assets/images/Locations/Assesment.webp");
-   background-size: cover;
+  background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
   width: 100%;
   height: 700px;
 }
-
 
 .Whatyouearn {
   background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (3).webp");
@@ -286,6 +285,9 @@
   .personalTrainingHeroSection {
     background-image: url("/src/assets/images/PersonalTraning/hero/evolve-personal-training-mob.webp");
   }
+  .ExploreHeroBG {
+    background-image: url("@/assets/images/explore/exploreHero/evolve_mob_hero.webp");
+  }
   .personalTrainingFreeAssessment {
     background-image: url("@/assets/images/PersonalTraning/FreeAssessment/FreeAssessmentMob.webp");
   }
@@ -311,27 +313,24 @@
     background-image: url("@/assets/images/MembershipBenefits/ReadyToEvolve/ReadyToEvolveMobBG.webp");
   }
   .employeePlanBG {
-  background-image: url("@/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanMobBG.webp");
-}
+    background-image: url("@/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanMobBG.webp");
+  }
   .ContactHeroBG {
     background-image: url("@/assets/images/ContactUs/herosection.webp");
-    
   }
   .AboutUsHero {
     background-image: url("@/assets/images/AboutUs/Abouthero_mob.webp");
-   
   }
-  .aboutUsReadyToEvolve{
+  .aboutUsReadyToEvolve {
     background-image: url("@/assets/images/AboutUs/About_trainer.webp");
-    
-    
   }
-  .LocationsHero{
+  .LocationsHero {
     background-image: url("@/assets/images/Locations/herosection_mob.webp");
   }
-  .LoAssesment{
+  .LoAssesment {
     background-image: url("@/assets/images/Locations/LoAssesment.webp");
   }
+ 
   .JoinToday{
     background-image: url("@/assets/images/Locations/JoinToday_Mob.webp");
 
@@ -339,5 +338,5 @@
   .franchiseLetsBuildBigger{
     background-image: url("@/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG-Mob.webp");
   }
+ 
 }
-

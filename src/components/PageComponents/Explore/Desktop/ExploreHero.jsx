@@ -4,9 +4,9 @@ function ExploreHero() {
   return (
     <div className="relative ExploreHeroBG ">
       {/* <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/40" /> */}
-      <div className="max-w-[1280px] px-8 pb-[80px] mx-auto w-full h-full">
+      <div className="max-w-[1280px] px-4 md:px-8 pb-[80px] mx-auto w-full h-full">
         <div className="relative z-2 flex  flex-col items-start justify-end h-full">
-          <h1 className="text-[#FFFFFF] uppercase max-w-[807px] leading-[70px] mb-5">
+          <h1 className="text-[#FFFFFF] uppercase !text-[70px] max-md:!text-[50px] md:max-w-[827px] leading-[52px] md:leading-[70px] mb-5">
             Discover Trainers, Wellness Services and Amenities at Evolve
           </h1>
           <h3 className="text-[#FFFFFF] !font-[300] max-w-[707px] leading-[29px] mb-6">
