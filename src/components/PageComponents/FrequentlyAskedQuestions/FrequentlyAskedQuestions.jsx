@@ -8,7 +8,7 @@ import {
 const FrequentlyAskedQuestions = ({ heading, subtext, faqs }) => {
   return (
     <section className="py-22">
-      <div className="max-w-[1280px] px-8 mx-auto w-full h-full  flex flex-col justify-center items-center text-center">
+      <div className="max-w-[1280px] md:px-8 px-4 mx-auto w-full h-full  flex flex-col justify-center items-center text-center">
         <h2 className="text-[#000] uppercase mb-4">
           {heading}
         </h2>

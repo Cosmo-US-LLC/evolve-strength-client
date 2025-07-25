@@ -42,7 +42,7 @@ function WhattoSubmit() {
 
   return (
     <div className="w-full pb-[70px] pt-[82px]">
-      <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col gap-12">
+      <div className="w-full max-w-[1280px] md:px-8 px-4 mx-auto flex flex-col gap-12">
         <div className="space-y-[16px] max-md:pb-[30px]">
           <h2 className="uppercase leading-[39px] font-[700]">
             What to Submit

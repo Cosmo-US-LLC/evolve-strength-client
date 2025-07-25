@@ -233,7 +233,7 @@ function BuildYourCareer() {
                     />
                   </div>
                 </div>
-                <div className="mt-8 text-center">
+                <div className="mt-8 text-center px-4">
                     <h2 className="uppercase">
                         BUILD YOUR CAREER WITH EVOLVE
                     </h2>

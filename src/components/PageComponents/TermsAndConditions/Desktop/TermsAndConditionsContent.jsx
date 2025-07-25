@@ -14,7 +14,7 @@ const TermsAgreementContent = ({ termsMain }) => {
   };
 
   return (
-    <div className="max-w-[1280px] px-8 pb-[140px] mt-32 mx-auto w-full flex">
+    <div className="max-w-[1280px] md:px-8 px-4 pb-[140px] mt-32 mx-auto w-full flex">
      
 
     

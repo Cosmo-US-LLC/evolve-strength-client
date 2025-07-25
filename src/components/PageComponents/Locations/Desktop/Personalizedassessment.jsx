@@ -6,8 +6,8 @@ function LoPersonalizedAssesment() {
   return (
     <div className="relative w-full LoAssesment">
 
-      <div className="w-full max-w-[1280px] px-8 pb-[120px] mx-auto z-10 h-full items-end flex flex-row relative">
-        <div className="bg-[#ffffff] rounded-[10px] shadow-lg p-8 max-w-[346px]">
+      <div className="w-full max-w-[1280px] md:px-8 px-4 pb-[120px] mx-auto z-10 h-full items-end flex flex-row relative">
+        <div className="bg-[#ffffff] rounded-[10px] shadow-lg p-8 w-full md:max-w-[346px]">
           <h3 className="text-[#000] uppercase leading-[26px] !font-[700]">
             Start Strong with a Free Personalised Assessment
           </h3>
