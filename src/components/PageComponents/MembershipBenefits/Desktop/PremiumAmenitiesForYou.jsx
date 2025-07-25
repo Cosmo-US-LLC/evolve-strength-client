@@ -66,7 +66,7 @@ const PremiumAmenitiesForYou = () => {
 
   return (
     <div className="py-12 bg-[#F9F9F9]">
-      <div className="max-w-[1280px] px-8 mx-auto w-full flex flex-col gap-10">
+      <div className="max-w-[1280px] px-4 md:px-8 mx-auto w-full flex flex-col gap-10">
         <div className="flex flex-col gap-3">
           <h2 className="text-[#000] uppercase">Premium Amenities for You</h2>
           <h4 className="text-[#000] leading-[26px] font-[400]">
@@ -130,7 +130,7 @@ const PremiumAmenitiesForYou = () => {
             </CarouselContent>
           </Carousel>
 
-          <div className="absolute -top-1/9 md:-top-1/7 -translate-y-1/2 left-[74%] md:left-[87%] z-10">
+          <div className="absolute -top-1/12 md:-top-1/7 -translate-y-1/2 left-[75%] md:left-[87%] z-10">
             <button
               onClick={scrollPrev}
               className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000]"
@@ -142,7 +142,7 @@ const PremiumAmenitiesForYou = () => {
               />
             </button>
           </div>
-          <div className="absolute -top-1/9 md:-top-1/7 -translate-y-1/2 right-[2%] md:right-[6%] z-10">
+          <div className="absolute -top-1/12 md:-top-1/7 -translate-y-1/2 right-[3%] md:right-[6%] z-10">
             <button
               onClick={scrollNext}
               className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000]"

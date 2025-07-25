@@ -69,7 +69,7 @@ function WellnessHub() {
 
   return (
     <div id="wellnessHub" className="bg-[#fff]">
-      <div className="w-[100%] max-w-[1280px] px-8 md:pt-[100px] max-md:pt-[48px] mx-auto md:flex justify-between">
+      <div className="w-[100%] max-w-[1280px] md:px-8 px-4 md:pt-[100px] max-md:pt-[48px] mx-auto md:flex justify-between">
         <div className="md:w-[50%] md:max-w-[600px] max-md:w-full flex flex-col gap-4">
           <h2 className="uppercase text-[#000] leading-[39px]">
             CANADA'S BEST FITNESS <br /> AND WELLNESS HUB

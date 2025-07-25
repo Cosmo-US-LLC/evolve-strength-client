@@ -48,8 +48,8 @@ const cardsData = [
 
 function AboutUsMission() {
   return (
-    <div className="max-w-[1280px]  mx-auto ">
-      <div className="flex flex-col md:flex-row gap-4 p-8 bg-[#FFF] mx-auto my-5">
+    <div className="max-w-[1280px]  mx-auto  ">
+      <div className="flex flex-col md:flex-row gap-4 md:p-8 p-4 bg-[#FFF] mx-auto my-5">
        
         <div className="w-[100%] flex flex-col items-start bg-[#F7F5F5] p-4 md:p-8 rounded-[10px]">
           <div className=" mb-4 h-[40px] w-[45px] md:h-auto md:w-auto">

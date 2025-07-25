@@ -60,7 +60,7 @@ function Contactusmain() {
                 {contactmain.locations.map((location, index) => (
                   <li key={index}>
                     <h3 className="font-bold text-base ">{location.cityname}</h3>
-                    <div className=" flex flex-col md:flex-row gap-2 py-3 md:py-0 description border-b border-[#9D9D9D] md:border-none !font-[Kanit] !font-[300] !text-[14px]">
+                    <div className=" flex flex-col md:flex-row gap-4 md:gap-2 py-3 md:py-0 description border-b border-[#9D9D9D] md:border-none !font-[Kanit] !font-[300] !text-[14px]">
                       <span className="w-[358px] h-[21px]">
                         {location.address}
                       </span>

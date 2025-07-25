@@ -31,7 +31,7 @@ const MembershipPremiumAmenities = () => {
   return (
     <section className="py-12 bg-[#EEEEEE]">
         
-      <div className="max-w-[1280px] mx-auto px-8 flex flex-col items-start gap-8">
+      <div className="max-w-[1280px] mx-auto md:px-8 px-4 flex flex-col items-start gap-8">
        <h1 className="!text-[40px] text-[#4AB04A] md:text-center md:self-center">WHAT WE OFFER</h1>
         <div className="flex items-start flex-col gap-4 pb-6 md:pb-0">
                     <h2 className="text-[#000] uppercase ">Spacious and Modern Facilities</h2>

@@ -14,9 +14,9 @@ function JoinAsTrainerHero() {
     <div className="w-full pb-12 pt-24 md:pt-[120px]">
       <div className="w-full max-w-[1280px] px-4 sm:px-8 mx-auto flex flex-col gap-12">
         <div className="flex flex-col md:flex-row items-center gap-10">
-          <div className="w-full md:w-[70%] space-y-[24px] text-left">
-            <h1 className="max-w-[707px] text-4xl md:text-5xl leading-tight md:leading-[56px] uppercase">
-              Looking to Evolve <br /> Your Career?
+          <div className="w-full md:w-[70%] md:space-y-[24px] space-y-[12px] text-left">
+            <h1 className="md:max-w-[707px] text-4xl md:text-5xl leading-[52px]  md:leading-[56px] uppercase">
+              Looking to Evolve  Your Career?
             </h1>
             <h3 className="text-[#000] leading-[26px] font-[400] w-full md:w-[585px]">
               Giving up a percentage sounds fair until you do the math. Use the
@@ -24,11 +24,11 @@ function JoinAsTrainerHero() {
               <br /> At Evolve, you pay a flat fee and keep the rest. Join us
               and feel the difference.
             </h3>
-           <h3 className="!text-[#1C1C1C] leading-[39px] uppercase !font-[700]">You’re Losing Money at Your Current Gym</h3>
+           <h3 className="!text-[#1C1C1C] md:leading-[39px]  !text-[16px] md:!text-[24px] uppercase !font-[700]">You’re Losing Money at Your Current Gym</h3>
           </div>
           <div className="w-full md:max-w-[352px] rounded-[10px] border-[1px] bg-[#fff] border-[#D4D4D4]">
             <div className="py-[12px] rounded-t-[10px] bg-[#000]">
-              <h3 className="text-[#fff] text-center leading-[26px] !font-[500] uppercase">
+              <h3 className="text-[#fff] text-center leading-[26px]  !font-[500] uppercase">
                 Calculation
               </h3>
             </div>
