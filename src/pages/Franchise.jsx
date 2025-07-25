@@ -23,8 +23,8 @@ function Franchise() {
         <CanadianFitnessMarket />
         <EvolveLookLike />
         <EvolveSmarterInvestment />
-        <WeHelpYouRightSpace />
         <TakesToLaunchEvolve />
+        <WeHelpYouRightSpace />
         <EvolveFloorPlan />
         <GotYourBack />
         <EvolveExpansionPlans />
