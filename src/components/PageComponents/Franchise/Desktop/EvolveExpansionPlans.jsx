@@ -42,13 +42,13 @@ function EvolveExpansionPlans() {
     setHoveredProvince(null);
   };
   return (
-    <div className="w-full max-w-[1280px] mx-auto px-8 py-20 flex flex-col gap-16">
+    <div className="w-full max-w-[1280px] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-8 md:gap-16">
       <h2 className="text-center text-[#000] uppercase ">
         EVOLVE LOCATIONS & EXPANSION PLANS
       </h2>
-      <div className="flex justify-center items-center">
-        <div className="w-[60%]">
-          <div className="w-[620px] relative  overflow-visible">
+      <div className="flex flex-col-reverse md:flex-row gap-12 md:gap-0 justify-center items-center">
+        <div className="w-[100%] md:w-[60%]">
+          <div className="w-full md:w-[620px] relative  overflow-visible">
             <>
               <div className="relative  overflow-visible">
                 <svg
@@ -248,7 +248,7 @@ function EvolveExpansionPlans() {
             />
           )}
         </div>
-        <div className="w-[40%]">
+        <div className="w-[100%] md:w-[40%]">
           <div className="flex flex-col gap-8 max-w-[493px] border border-[#CCCCCC] bg-[#F6F6F6] px-8 py-12 rounded-[10px]">
             <div className="flex flex-col gap-3">
               <h3 className=" text-[#000] leading-[25px] capitalize font-[400]">

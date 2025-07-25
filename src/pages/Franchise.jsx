@@ -20,7 +20,7 @@ function Franchise() {
       <div className="">
         <FranchiseHero />
         <FranchiseJourneySteps />
-        {/* <CanadianFitnessMarket /> */}
+        <CanadianFitnessMarket />
         <EvolveLookLike />
         <EvolveSmarterInvestment />
         <WeHelpYouRightSpace />
