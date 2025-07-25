@@ -53,18 +53,68 @@ const steps = [
 
 function HowtoJoinEvolveJourney() {
   return (
-    <div className="pt-12 pb-16">
-      <div className="max-w-[1280px] mx-auto px-8">
-        <div className="flex flex-col items-center justify-center gap-4 mb-6">
+    <div className="pt-4 md:pt-12 pb-12 md:pb-16">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
+        <div className="flex flex-col items-center justify-center gap-4 mb-0 md:mb-6">
           <h2 className="text-center uppercase font-[#000] font-[700] leading-[39px]">
             HOW TO JOIN EVOLVE JOURNEY
           </h2>
-          <h4 className="text-center text-[#000] font-[400] leading-[26px] mb-10">
-            Joining is easy—choose your location, pick your plan, <br /> and
-            begin your path to strength and wellness.
+          <h4 className="text-center max-w-[358px] md:max-w-[604px] text-[#000] font-[300] md:font-[400] leading-[20px] md:leading-[26px] mb-10">
+            Joining is easy—choose your location, pick your plan, and begin your
+            path to strength and wellness.
           </h4>
         </div>
-        <div className="relative flex flex-col gap-8">
+        <div className="block md:hidden">
+          <div className="relative">
+            {/* Mobile Timeline Line */}
+            <div className="absolute left-1 top-0 bottom-0 w-[2px] bg-[#4AB04A] z-0" />
+
+            {steps.map((step) => (
+              <div key={step.number} className="relative flex mb-8 last:mb-0">
+                {/* Timeline Dot */}
+                <div className="absolute left-[25px] top-[160px] z-20 flex items-center justify-center w-4 h-4 rounded-full bg-[#fff] border-2 border-[#4AB04A]">
+                  <span className="block w-2 h-2 rounded-full bg-[#4AB04A]"></span>
+                </div>
+
+                {/* Horizontal Connector Line */}
+                <div className="absolute left-1 top-[168px] z-10 flex items-center">
+                  <span
+                    className="block rounded"
+                    style={{
+                      width: "23px",
+                      height: 2.5,
+                      background: "#38B449",
+                    }}
+                  ></span>
+                </div>
+
+                {/* Card */}
+                <div className="ml-8 bg-[#fff] rounded-[10px] border border-[#CCCCCC] shadow-md px-4 py-4 flex flex-col items-center gap-4">
+                  {/* Text Content */}
+                  <div className="flex-1 flex flex-col gap-2">
+                    <div className="flex items-center gap-3">
+                      <h2 className="text-[#4AB04A] font-[500] tracking-[-0.72px]">
+                        {step.number}
+                      </h2>
+                      <h4 className="!font-[500] !text-[20px]">{step.title}</h4>
+                    </div>
+                    <h4 className="text-[#000]  leading-[20px]">
+                      {step.description}
+                    </h4>
+                  </div>
+
+                  {/* Image */}
+                  <img
+                    src={step.image}
+                    alt={step.title}
+                    className="w-[288px] h-[180px] object-cover rounded-lg flex-shrink-0"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="hidden md:flex relative  flex-col gap-8">
           <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-[#4AB04A] -translate-x-1/2 z-0" />
           {steps.map((step, idx) => {
             const isRightToLeft = idx % 2 === 0;
@@ -96,7 +146,7 @@ function HowtoJoinEvolveJourney() {
                     <h2 className="text-[#4AB04A] font-[500] leading-[39px] tracking-[-1.2px]">
                       {step.number}
                     </h2>
-                    <h4 className="font-bold text-lg">{step.title}</h4>
+                    <h4 className="!font-[500] text-lg">{step.title}</h4>
                     <h4 className="text-[#000] font-[400] leading-[24px]">
                       {step.description}
                     </h4>

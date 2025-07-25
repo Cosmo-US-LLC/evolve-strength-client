@@ -22,14 +22,14 @@ function Franchise() {
         <FranchiseJourneySteps />
         {/* <CanadianFitnessMarket /> */}
         <EvolveLookLike />
-        {/* <EvolveSmarterInvestment /> */}
+        <EvolveSmarterInvestment />
         <WeHelpYouRightSpace />
         <TakesToLaunchEvolve />
         <EvolveFloorPlan />
         <GotYourBack />
-        {/* <EvolveExpansionPlans  /> */}
+        <EvolveExpansionPlans />
         <OurFranchiseesSay />
-        {/* <HowtoJoinEvolveJourney /> */}
+        <HowtoJoinEvolveJourney />
         <LetsBuildBigger />
       </div>
     </div>
