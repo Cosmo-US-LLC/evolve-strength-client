@@ -347,6 +347,13 @@
   .franchiseLetsBuildBigger{
     background-image: url("@/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG-Mob.webp");
   }
+ 
+
+  .socialMedia {
+  background-image: url("@/assets/images/JoinTheMovement/SocialMedia/socialMediaMob.webp");
+}
+ 
+ 
   .SpacesHeroBG {
   background-image: url("@/assets/images/spaces/GrowYourBusinessSection/Spaces_mob_hero.webp");
   height: 233px;
@@ -354,4 +361,5 @@
  .spacesWhyChooseUs{
   background-image: url("@/assets/images/spaces/WhyProfessionalsChooseUs/spacesWhyChooseUs_mob.webp");
  }
+ 
 }
