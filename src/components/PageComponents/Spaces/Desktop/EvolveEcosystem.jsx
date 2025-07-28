@@ -3,10 +3,10 @@ import trainerBg from "/src/assets/images/spaces/EvolveEcosystem/EvolveEcosystem
 
 function EvolveEcosystem() {
   return (
-    <div className="w-full md:py-12 max-md:pt-0 max-md:pb-[48px] bg-[#fff]">
-      <div className="w-full max-w-[1280px] md:px-8 max-md:px-[16px] mx-auto ">
+    <div className="w-full md:py-12 max-md:pt-0 pb-[48px] bg-[#fff]">
+      <div className="w-full max-w-[1280px] md:px-8  mx-auto ">
         <div
-          className="bg-cover bg-center min-h-[600px] flex flex-col max-md:px-[16px] justify-between md:px-[76px]  md:py-16 max-md:py-[24px]  items-start text-left rounded-xl overflow-hidden shadow-lg"
+          className="bg-cover bg-center min-h-[600px] flex flex-col max-md:px-[16px] justify-between md:px-[76px]  md:py-16 max-md:py-[24px]  items-start text-left md:rounded-xl overflow-hidden shadow-lg"
           style={{ backgroundImage: `url(${trainerBg})` }}
         >
           {/* <div className="absolute inset-0 bg-black/40 z-0" /> */}

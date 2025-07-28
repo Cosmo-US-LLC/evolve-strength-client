@@ -147,7 +147,7 @@ function WhyEvolveIsDifferent() {
         </div>
       </div>
      <div className="relative block md:hidden  max-md:pb-[48px]">
-      <h2 className="text-center text-[#000] font-bold uppercase  px-4 mb-6">
+      <h2 className="text-left text-[#000] font-bold uppercase  px-4 mb-6">
         Why Evolve Is Different
       </h2>
 
@@ -175,12 +175,12 @@ function WhyEvolveIsDifferent() {
                     <h3 className="text-[#4AB04A] font-medium text-[16px]">
                       {card.number}
                     </h3>
-                    <h4 className="text-black font-semibold text-[18px]">
+                    <h3 className="text-black font-bold text-[18px]">
                       {card.title}
-                    </h4>
-                    <p className="text-black text-[14px] leading-[20px]">
+                    </h3>
+                    <h4 className="text-black text-[14px] leading-[20px]">
                       {card.description}
-                    </p>
+                    </h4>
                   </div>
                 </div>
               </CarouselItem>

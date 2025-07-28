@@ -28,6 +28,13 @@ import ApplyCorporateMembershipForm from "./components/Form/ApplyCorporateMember
 import CompanyAlreadyRegistered from "./components/Form/CompanyAlreadyRegistered";
 import CheckMembershipForm from "./components/Form/CheckMembershipForm";
 import ApplicationSubmitted from "./components/Form/ApplicationSubmitted";
+import South from "./pages/South";
+import North from "./pages/North";
+import RoyalOak from "./pages/RoyalOak";
+import Brentwood from "./pages/Brentwood";
+import Downtown from "./pages/Downtown";
+import Post from "./pages/Post";
+import Sunridge from "./pages/Sunridge";
 
 function App() {
   return (
@@ -48,7 +55,15 @@ function App() {
 
           <Route path="/join-the-Movement" element={<JoinTheMovement />} />
           <Route path="/join-as-trainer" element={<JoinAsTrainer />} />
+
           <Route path="/locations" element={<Locations />} />
+          <Route path="/locations/edmonton-south" element={<South />} />
+          <Route path="/locations/edmonton-north" element={<North />} />
+          <Route path="/locations/edmonton-downtown" element={<Downtown />} />
+          <Route path="/locations/calgary-sunridge" element={<Sunridge />} />
+          <Route path="/locations/calgary-royal-oak" element={<RoyalOak />} />
+          <Route path="/locations/burnaby-brentwood" element={<Brentwood />} />
+          <Route path="/locations/vancouver-post" element={<Post />} />
 
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/contact-us" element={<ContactUs />} />
@@ -57,6 +72,8 @@ function App() {
             path="/terms-and-conditions"
             element={<TermsAndConditions />}
           />
+          
+
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Route>
 
