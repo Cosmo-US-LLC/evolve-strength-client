@@ -4,12 +4,12 @@ import FreeAssessmentBG from "../../../../assets/images/spaces/WhyProfessionalsC
 function WhyProfessionalsChooseUs() {
   return (
     <div className="relative w-full spacesWhyChooseUs">
-      <div className="w-full max-w-[1280px] px-8   mx-auto z-10 h-full items-center flex flex-row relative">
-        <div className="bg-[#ffffff] rounded-[10px] shadow-lg p-6 max-w-[500px]">
+      <div className="w-full max-w-[1280px] md:px-8 px-4   mx-auto z-10 h-full items-center flex flex-row relative">
+        <div className="bg-[#ffffff] rounded-[10px] mt-70 shadow-lg p-6 max-w-[500px]">
           <h3 className="text-[#000] uppercase leading-[26px] !font-[700]">
             Why Professionals Choose Us?
           </h3>
-          <p className="text-[#000] description mt-4 mb-6 leading-[26px]">
+          <p className="text-[#000] description md:mt-4 md:mb-6 mt-2 mb-3 leading-[26px]">
             Some practitioners join us to open their first business without
             taking on too much risk. Others expand to new locations because it’s
             easy to replicate their setup across our network. <br /> <br />
