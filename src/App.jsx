@@ -56,7 +56,7 @@ function App() {
           <Route path="/join-the-Movement" element={<JoinTheMovement />} />
           <Route path="/join-as-trainer" element={<JoinAsTrainer />} />
 
-          <Route path="/locations" element={<Locations />} />
+          <Route path="/locations/calgary-seton" element={<Locations />} />
           <Route path="/locations/edmonton-south" element={<South />} />
           <Route path="/locations/edmonton-north" element={<North />} />
           <Route path="/locations/edmonton-downtown" element={<Downtown />} />
