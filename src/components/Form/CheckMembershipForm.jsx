@@ -63,14 +63,14 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
           <ArrowLeft size={20} /> Back
         </button>
         
-        <div className="w-full md:max-w-[420px] bg-white rounded-[10px]   md:mb-30">
+        <div className="w-full md:max-w-[420px] bg-white rounded-[10px] mt-10  md:mb-30">
           <div className="pb-4  md:w-[537px] h-[26px]">
-          <h3 className="md:text-center  leading-[26px]  mb-2">
+          <h3 className="md:text-center  leading-[26px]  md:mb-2">
             CHECK YOUR COMPANY MEMBERSHIP
           </h3>
           </div>
-          <div className="pt-[16px] pb-[32px] text-center leading-[19px] md:w-[537px] md:h-[26px]">
-          <h4 className="">
+          <div className="pt-[16px] pb-[32px] text-center md:leading-[19px] md:w-[537px] md:h-[26px]">
+          <h4 >
             Enter your details to see if your organization is already enrolled 
             with Evolve.
           </h4>
