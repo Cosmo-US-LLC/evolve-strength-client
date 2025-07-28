@@ -45,7 +45,7 @@ const WhoOurSpacesFor = () => {
             location, our spaces are <br /> designed for wellness professionals who
             want simplicity, stability, and support.
           </h4>
-          <h4 className="leading-[26px] font-[500]">
+          <h4 className="leading-[26px] font-[500] ">
             Professionals we serve include.
           </h4>
         </div>
@@ -102,7 +102,7 @@ const WhoOurSpacesFor = () => {
             location, our spaces are designed for wellness professionals who
             want simplicity, stability, and support.
           </h4>
-          <h4 className="leading-[26px] font-[500]">
+          <h4 className="leading-[26px]  !font-semibold">
             Professionals we serve include.
           </h4>
         </div>

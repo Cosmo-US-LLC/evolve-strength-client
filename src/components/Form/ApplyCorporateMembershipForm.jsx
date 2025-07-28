@@ -49,9 +49,9 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
   };
 
   return (
-    <div className="flex gap-12 p-6 flex-row max-w-[1280px] mx-auto items-center min-h-screen">
+    <div className="flex gap-12 md:p-6 p-4 flex-row max-w-[1280px] mx-auto items-center min-h-screen">
       {/* Left Image */}
-      <div className="w-full max-w-[40%] flex-shrink-0 flex">
+      <div className="w-full max-w-[40%] flex-shrink-0 flex max-md:hidden">
         <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white">
           <img
             src={locationImg}
@@ -68,8 +68,8 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
                 >
                   <ArrowLeft size={20} /> Back
                 </button>
-        <div className="w-full max-w-[420px] bg-white rounded-[10px]  p-3">
-          <div className="w-[537px]">
+        <div className="w-full md:max-w-[420px] bg-white rounded-[10px]  p-3">
+          <div className="md:w-[537px] w-full">
           <h3 className="text-[20px] md:text-[22px] font-[700] text-center mb-2 ">
             APPLY FOR A CORPORATE MEMBERSHIP
           </h3>
@@ -80,7 +80,7 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
             your workplace! We'll be in touch shortly.
           </h4>
           </div>
-          <div className="w-[537px]  self-stretch gap-[12px] p-[32px_24px] rounded-[10px] border border-[#D4D4D4] bg-[#FCFCFC]">
+          <div className="md:w-[537px] w-full  self-stretch gap-[12px] p-[32px_24px] rounded-[10px] border border-[#D4D4D4] bg-[#FCFCFC]">
           <form
             className="flex flex-col gap-3"
             onSubmit={handleSubmit}
