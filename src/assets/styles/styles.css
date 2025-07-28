@@ -338,5 +338,9 @@
   .franchiseLetsBuildBigger{
     background-image: url("@/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG-Mob.webp");
   }
+
+  .socialMedia {
+  background-image: url("@/assets/images/JoinTheMovement/SocialMedia/socialMediaMob.webp");
+}
  
 }
