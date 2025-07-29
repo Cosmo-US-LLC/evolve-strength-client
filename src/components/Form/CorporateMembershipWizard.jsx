@@ -5,7 +5,7 @@ import { Building2 } from "lucide-react";
 
 function CorporateMembershipWizard({ onSelectOption }) {
   return (
-    <div className="flex gap-12 md:p-6 p-4 md:flex-row flex-col max-w-[1280px] mx-auto justify-center items-center min-h-screen">
+    <div className="flex md:gap-12 md:p-6 p-4 md:flex-row flex-col md:max-w-[1280px] mx-auto justify-center items-center md:min-h-screen">
       {/* Left Image */}
       <div className="w-full max-w-[40%] flex-shrink-0 flex">
         <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white max-md:hidden">

@@ -15,6 +15,7 @@ import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLo
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import PersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/PersonalizedAssessment";
 
+
 function CalgarySeton() {
   return (
     <>
@@ -30,7 +31,7 @@ function CalgarySeton() {
       <LocationsSeeItForYourSelf />
       <SetonLocation />
       <MeetTheTrainers />
-      <JoinUsToday />
+      <JoinUsToday  />
       <FrequentlyAskedQuestions {...LocationFaq} />
     </>
   );
