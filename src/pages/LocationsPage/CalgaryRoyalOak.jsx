@@ -1,5 +1,6 @@
 import React from "react";
 import { LocationFaq } from "@/constants/faqContent";
+import { getLocationById } from "@/constants/UnUseExploreDataWithTrainer";
 import LocationHero from "@/components/PageComponents/Locations/Desktop/LocationHero";
 import LocationPartners from "@/components/PageComponents/Locations/Desktop/LocationsPartners";
 import RightTrainer from "@/components/PageComponents/Locations/Desktop/RightTrainer";
@@ -16,9 +17,11 @@ import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAske
 import PersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/PersonalizedAssessment";
 
 function CalgaryRoyalOak() {
+  const locationData = getLocationById("location-calgary-royal-oak");
+
   return (
     <>
-      <LocationHero />
+      <LocationHero locationData={locationData} />
       <LocationPartners />
       <LoWhyChooseEvolve />
       <LocationPricing />

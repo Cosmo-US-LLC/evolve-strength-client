@@ -1,5 +1,6 @@
 import React from "react";
 import { LocationFaq } from "@/constants/faqContent";
+import { getLocationById } from "@/constants/UnUseExploreDataWithTrainer";
 import LocationHero from "@/components/PageComponents/Locations/Desktop/LocationHero";
 import LocationPartners from "@/components/PageComponents/Locations/Desktop/LocationsPartners";
 import RightTrainer from "@/components/PageComponents/Locations/Desktop/RightTrainer";
@@ -16,9 +17,11 @@ import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAske
 import PersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/PersonalizedAssessment";
 
 function VancouverPost() {
+  const locationData = getLocationById("location-vancouver-post");
+
   return (
-        <>
-      <LocationHero />
+    <>
+      <LocationHero locationData={locationData} />
       <LocationPartners />
       <LoWhyChooseEvolve />
       <LocationPricing />
@@ -33,7 +36,7 @@ function VancouverPost() {
       <JoinUsToday />
       <FrequentlyAskedQuestions {...LocationFaq} />
     </>
-  )
+  );
 }
 
-export default VancouverPost
+export default VancouverPost;

@@ -7,8 +7,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import postImg1 from "/src/assets/images/home/facility/image_1.webp";
-import postImg2 from "/src/assets/images/home/facility/image_2.webp";
+import postImg1 from "/src/assets/images/home/facility/post_1.png";
+import postImg2 from "/src/assets/images/home/facility/post_2.png";
+import postImg3 from "/src/assets/images/home/facility/post_3.png";
+import postImg4 from "/src/assets/images/home/facility/post_4.png";
+import postImg5 from "/src/assets/images/home/facility/post_5.png";
+import postImg6 from "/src/assets/images/home/facility/post_6.png";
+import postImg7 from "/src/assets/images/home/facility/post_7.png";
+import postImg8 from "/src/assets/images/home/facility/image_8.webp";
 import brentwoodImg1 from "/src/assets/images/home/facility/image_3.webp";
 import brentwoodImg2 from "/src/assets/images/home/facility/image_4.webp";
 import setonImg1 from "/src/assets/images/home/facility/image_5.webp";
@@ -26,12 +32,12 @@ const locations = [
     images: [
       postImg1,
       postImg2,
-      brentwoodImg1,
-      brentwoodImg2,
-      setonImg1,
-      setonImg2,
-      royalOakImg1,
-      royalOakImg2,
+      postImg3,
+      postImg4,
+      postImg5,
+      postImg6,
+      postImg7,
+      postImg8,
     ],
   },
   {
@@ -54,12 +60,12 @@ const FacilityShowcase = () => {
 
   const scrollTabsLeft = () => {
     if (tabBarRef.current) {
-      tabBarRef.current.scrollBy({ left: -120, behavior: 'smooth' });
+      tabBarRef.current.scrollBy({ left: -120, behavior: "smooth" });
     }
   };
   const scrollTabsRight = () => {
     if (tabBarRef.current) {
-      tabBarRef.current.scrollBy({ left: 120, behavior: 'smooth' });
+      tabBarRef.current.scrollBy({ left: 120, behavior: "smooth" });
     }
   };
 
@@ -70,8 +76,6 @@ const FacilityShowcase = () => {
       carouselRef.current.scrollTo(0);
     }
   }, [activeTab]);
-
-  
 
   return (
     <div className="w-full bg-white md:py-12">
@@ -84,7 +88,11 @@ const FacilityShowcase = () => {
           Spacious. Affordable. Unmatched
         </h4>
       </div>
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-md:hidden">
+      <Tabs
+        value={activeTab}
+        onValueChange={setActiveTab}
+        className="w-full max-md:hidden"
+      >
         <div className="w-full max-w-[1220px] mx-auto relative rounded-[10px] border">
           <TabsList className="flex w-full  bg-[#fff] h-[48px] p-[6px]">
             {locations.map((loc) => (
@@ -140,34 +148,40 @@ const FacilityShowcase = () => {
           <div className="relative w-full flex items-start px-[16px] pt-10">
             {/* Arrow buttons at top right */}
             <div className="absolute -top-4 right-4 flex gap-3 z-10">
-              <button onClick={scrollTabsLeft} className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full">
+              <button
+                onClick={scrollTabsLeft}
+                className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full"
+              >
                 <ArrowLeft className="w-4 h-4 text-[#1C1C1C]" />
               </button>
-              <button onClick={scrollTabsRight} className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full">
+              <button
+                onClick={scrollTabsRight}
+                className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full"
+              >
                 <ArrowRight className="w-4 h-4 text-[#1C1C1C]" />
               </button>
             </div>
             <div
               ref={tabBarRef}
               className="overflow-x-auto rounded-[10px] border !scrollbar-none w-full py-2 "
-              style={{ scrollSnapType: 'x mandatory' }}
+              style={{ scrollSnapType: "x mandatory" }}
             >
-             <div className="flex flex-row !scrollbar-none">
-             {locations.map((loc) => (
-                <button
-                  key={loc.key}
-                  onClick={() => setActiveTab(loc.key)}
-                  className={`min-w-[100px] w-[auto] max-w-[160px] px-2 py-2 rounded-[10px]  text-[14px] font-[500] transition-all duration-200 scroll-snap-align-start ${
-                    activeTab === loc.key
-                      ? 'bg-[#4AB04A] text-[#fff] text-[#4AB04A] '
-                      : 'bg-[#fff] text-[#1C1C1C]'
-                  }`}
-                  style={{ scrollSnapAlign: 'start' }}
-                >
-                  {loc.label}
-                </button>
-              ))}
-             </div>
+              <div className="flex flex-row !scrollbar-none">
+                {locations.map((loc) => (
+                  <button
+                    key={loc.key}
+                    onClick={() => setActiveTab(loc.key)}
+                    className={`min-w-[100px] w-[auto] max-w-[160px] px-2 py-2 rounded-[10px]  text-[14px] font-[500] transition-all duration-200 scroll-snap-align-start ${
+                      activeTab === loc.key
+                        ? "bg-[#4AB04A] text-[#fff] text-[#4AB04A] "
+                        : "bg-[#fff] text-[#1C1C1C]"
+                    }`}
+                    style={{ scrollSnapAlign: "start" }}
+                  >
+                    {loc.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
           <TabsContent value={activeTab} className="w-full mt-4 px-[8px]">
