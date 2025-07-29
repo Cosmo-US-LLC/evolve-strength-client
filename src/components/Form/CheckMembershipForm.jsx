@@ -42,7 +42,7 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
   };
 
   return (
-    <div className="flex gap-12 md:p-6 p-4 flex-row max-w-[1280px] mx-auto items-center justify-center7 md:min-h-screen">
+    <div className="flex gap-12 md:p-6 p-4 flex-row max-w-[1280px] mx-auto items-center justify-center7 min-h-screen">
       {/* Left Image */}
       <div className="w-full max-w-[40%] flex-shrink-0 flex max-md:hidden">
         <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white">
