@@ -123,7 +123,7 @@ export const faqMain = {
   ],
 };
 
-export const Locationfaq = {
+export const LocationFaq = {
   heading: "FREQUENTLY ASKED QUESTIONS",
   subtext:
     "Got questions? We’ve got answers. Whether you're curious about memberships, services, or what to expect on your first visit",

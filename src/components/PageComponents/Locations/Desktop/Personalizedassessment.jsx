@@ -1,8 +1,6 @@
 import React from "react";
-import Assessment from "@/assets/images/Locations/Assesment.webp"
-import PersonalizedAssesment from "./PersonalizedAssesment";
 
-function LoPersonalizedAssesment() {
+function PersonalizedAssessment() {
   return (
     <div className="relative w-full LoAssesment">
 
@@ -27,4 +25,4 @@ function LoPersonalizedAssesment() {
   );
 }
 
-export default LoPersonalizedAssesment;
+export default PersonalizedAssessment;

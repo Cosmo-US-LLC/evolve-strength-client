@@ -1,4 +1,4 @@
-import { useState } from "react";
+ 
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import "./assets/styles/styles.css";
@@ -18,7 +18,6 @@ import AboutUs from "./pages/AboutUs";
 import JoinAsTrainer from "./pages/JoinAsTrainer";
 import CorporateMembership from "./pages/CorporateMembership";
 import JoinTheMovement from "./pages/JoinTheMovement";
-import Locations from "./pages/Locations";
 import NotFoundPage from "./pages/PageNotFound";
 import Loader from "./pages/Loader";
 import EvolveSpacesForm from "./components/Form/EvolveSpacesForm";
@@ -28,13 +27,14 @@ import ApplyCorporateMembershipForm from "./components/Form/ApplyCorporateMember
 import CompanyAlreadyRegistered from "./components/Form/CompanyAlreadyRegistered";
 import CheckMembershipForm from "./components/Form/CheckMembershipForm";
 import ApplicationSubmitted from "./components/Form/ApplicationSubmitted";
-import South from "./pages/South";
-import North from "./pages/North";
-import RoyalOak from "./pages/RoyalOak";
-import Brentwood from "./pages/Brentwood";
-import Downtown from "./pages/Downtown";
-import Post from "./pages/Post";
-import Sunridge from "./pages/Sunridge";
+import CalgarySeton from "./pages/LocationsPage/CalgarySeton";
+import EdmontonSouth from "./pages/LocationsPage/EdmontonSouth";
+import EdmontonNorth from "./pages/LocationsPage/EdmontonNorth";
+import EdmontonDowntown from "./pages/LocationsPage/EdmontonDowntown";
+import CalgarySunridge from "./pages/LocationsPage/CalgarySunridge";
+import CalgaryRoyalOak from "./pages/LocationsPage/CalgaryRoyalOak";
+import BurnabyBrentwood from "./pages/LocationsPage/BurnabyBrentwood";
+import VancouverPost from "./pages/LocationsPage/VancouverPost";
 
 function App() {
   return (
@@ -56,14 +56,14 @@ function App() {
           <Route path="/join-the-Movement" element={<JoinTheMovement />} />
           <Route path="/join-as-trainer" element={<JoinAsTrainer />} />
 
-          <Route path="/locations/calgary-seton" element={<Locations />} />
-          <Route path="/locations/edmonton-south" element={<South />} />
-          <Route path="/locations/edmonton-north" element={<North />} />
-          <Route path="/locations/edmonton-downtown" element={<Downtown />} />
-          <Route path="/locations/calgary-sunridge" element={<Sunridge />} />
-          <Route path="/locations/calgary-royal-oak" element={<RoyalOak />} />
-          <Route path="/locations/burnaby-brentwood" element={<Brentwood />} />
-          <Route path="/locations/vancouver-post" element={<Post />} />
+          <Route path="/locations/calgary-seton" element={<CalgarySeton />} />
+          <Route path="/locations/edmonton-south" element={<EdmontonSouth />} />
+          <Route path="/locations/edmonton-north" element={<EdmontonNorth />} />
+          <Route path="/locations/edmonton-downtown" element={<EdmontonDowntown />} />
+          <Route path="/locations/calgary-sunridge" element={<CalgarySunridge />} />
+          <Route path="/locations/calgary-royal-oak" element={<CalgaryRoyalOak />} />
+          <Route path="/locations/burnaby-brentwood" element={<BurnabyBrentwood />} />
+          <Route path="/locations/vancouver-post" element={<VancouverPost />} />
 
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/contact-us" element={<ContactUs />} />
