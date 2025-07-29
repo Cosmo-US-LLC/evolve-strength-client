@@ -20,6 +20,15 @@ import LaserTherapyIcon from "@/assets/images/explore/locations/laser-therapy.sv
 import OsteopathyIcon from "@/assets/images/explore/locations/osteopathy.svg";
 import MentalHealthIcon from "@/assets/images/explore/locations/mental-health.svg";
 
+import southHero from "../assets/images/Locations/location-hero/south.png";
+import northHero from "../assets/images/Locations/location-hero/north.png";
+import royalOakHero from "../assets/images/Locations/location-hero/royal-oak.png";
+import downtownHero from "../assets/images/Locations/location-hero/downtown.png";
+import sunridgeHero from "../assets/images/Locations/location-hero/sunridge.png";
+import brentwoodHero from "../assets/images/Locations/location-hero/brentwood.png";
+import postHero from "../assets/images/Locations/location-hero/post.png";
+import setonHero from "../assets/images/Locations/location-hero/seton.webp";
+
 export const EXPLORE_DATA = [
   {
     id: "LOCATIONS",
@@ -33,6 +42,8 @@ export const EXPLORE_DATA = [
         id: "location-edmonton-south",
         city: "EDMONTON",
         branch: "SOUTH",
+        locationTitle: "EDMONTON SOUTH",
+        heroImage: southHero,
         details: "Details for EDMONTON SOUTH",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
@@ -97,6 +108,8 @@ export const EXPLORE_DATA = [
         id: "location-calgary-royal-oak",
         city: "CALGARY",
         branch: "ROYAL OAK",
+        locationTitle: "CALGARY ROYAL OAK",
+        heroImage: royalOakHero,
         details: "Details for CALGARY ROYAL OAK",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
@@ -130,6 +143,8 @@ export const EXPLORE_DATA = [
         id: "location-edmonton-north",
         city: "EDMONTON",
         branch: "NORTH",
+        locationTitle: "EDMONTON NORTH",
+        heroImage: northHero,
         details: "Details for EDMONTON NORTH",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
@@ -155,6 +170,8 @@ export const EXPLORE_DATA = [
         id: "location-edmonton-downtown",
         city: "EDMONTON",
         branch: "DOWNTOWN",
+        locationTitle: "EDMONTON DOWNTOWN",
+        heroImage: downtownHero,
         details: "Details for EDMONTON DOWNTOWN",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
@@ -176,6 +193,8 @@ export const EXPLORE_DATA = [
         id: "location-calgary-sunridge",
         city: "CALGARY",
         branch: "SUNRIDGE",
+        locationTitle: "CALGARY SUNRIDGE",
+        heroImage: sunridgeHero,
         details: "Details for CALGARY SUNRIDGE",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
@@ -201,10 +220,12 @@ export const EXPLORE_DATA = [
         ],
       },
       {
-        id: "location-burnaby-south",
+        id: "location-burnaby-brentwood",
         city: "BURNABY",
-        branch: "SOUTH",
-        details: "Details for BURNABY SOUTH",
+        branch: "BRENTWOOD",
+        locationTitle: "BURNABY BRENTWOOD",
+        heroImage: brentwoodHero,
+        details: "Details for BURNABY BRENTWOOD",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
           {
@@ -229,6 +250,8 @@ export const EXPLORE_DATA = [
         id: "location-vancouver-post",
         city: "VANCOUVER",
         branch: "THE POST",
+        locationTitle: "VANCOUVER THE POST",
+        heroImage: postHero,
         details: "Details for VANCOUVER THE POST",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
@@ -249,6 +272,72 @@ export const EXPLORE_DATA = [
           },
         ],
         trainerIds: [
+          TRAINER_IDS.STEVEN_FITZPATRICK,
+          TRAINER_IDS.DENISSE_PETERS,
+        ],
+      },
+      {
+        id: "location-calgary-seton",
+        city: "CALGARY",
+        branch: "SETON",
+        locationTitle: "CALGARY SETON",
+        heroImage: setonHero,
+        details: "Details for CALGARY SETON",
+        services: [
+          { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-chiropractic",
+            name: "Chiropractic Care",
+            icon: ChiropracticIcon,
+          },
+          {
+            id: "service-massage",
+            name: "Massage Therapy",
+            icon: MassageTherapyIcon,
+          },
+          { id: "service-pilates", name: "Pilates", icon: PilatesIcon },
+          {
+            id: "service-acupuncture",
+            name: "Acupuncture",
+            icon: AcupunctureIcon,
+          },
+          {
+            id: "service-dietitian",
+            name: "Dietitian Services",
+            icon: DietitianServicesIcon,
+          },
+          {
+            id: "service-esthetician",
+            name: "Esthetician",
+            icon: EstheticianIcon,
+          },
+          {
+            id: "service-laser",
+            name: "Laser Therapy",
+            icon: LaserTherapyIcon,
+          },
+          {
+            id: "service-osteopathy",
+            name: "Osteopathy",
+            icon: OsteopathyIcon,
+          },
+          {
+            id: "service-mental-health",
+            name: "Mental Health Support",
+            icon: MentalHealthIcon,
+          },
+        ],
+        trainerIds: [
+          TRAINER_IDS.JORDAN_BROWNE,
+          TRAINER_IDS.SHARINA_PALAYPAY,
+          TRAINER_IDS.MARYAM_NEAMAH,
+          TRAINER_IDS.ROBERT_TENHOVE,
+          TRAINER_IDS.LEAH_CHEUNG,
+          TRAINER_IDS.PAIGE_THOMSON,
+          TRAINER_IDS.MICHELLE_MOEN,
+          TRAINER_IDS.CHRISTOPHER_MERRELL,
+          TRAINER_IDS.NAOMI_SACHS,
+          TRAINER_IDS.KIERYN_MARCELLUS,
           TRAINER_IDS.STEVEN_FITZPATRICK,
           TRAINER_IDS.DENISSE_PETERS,
         ],
@@ -379,6 +468,11 @@ export const getAllWellnessServices = () => {
     id: service.id,
     name: service.name,
   }));
+};
+
+export const getLocationTitle = (locationId) => {
+  const location = getLocationById(locationId);
+  return location?.locationTitle || "CALGARY SETON"; // fallback
 };
 
 export default EXPLORE_DATA;
