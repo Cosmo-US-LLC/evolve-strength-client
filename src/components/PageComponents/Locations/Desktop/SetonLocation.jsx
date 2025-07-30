@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import building from "@/assets/images/Locations/Seton/Building.webp";
 import icon from "@/assets/images/Locations/Seton/icon.svg";
 import brentwood from "@/assets/images/Locations/Seton/brentwood.webp";
@@ -6,6 +6,17 @@ import sunridge from "@/assets/images/Locations/Seton/sunridge.webp";
 import seton from "@/assets/images/Locations/Seton/seton.webp";
 import royalOak from "@/assets/images/Locations/Seton/royal-oak.webp";
 import post from "@/assets/images/Locations/Seton/post.webp";
+
+// Facility timings data
+const FACILITY_TIMINGS = [
+  { day: "Monday", hours: "6:00 AM – 10:00 PM" },
+  { day: "Tuesday", hours: "6:00 AM – 10:00 PM" },
+  { day: "Wednesday", hours: "6:00 AM – 10:00 PM" },
+  { day: "Thursday", hours: "6:00 AM – 10:00 PM" },
+  { day: "Friday", hours: "6:00 AM – 10:00 PM" },
+  { day: "Saturday", hours: "8:00 AM – 8:00 PM" },
+  { day: "Sunday", hours: "8:00 AM – 8:00 PM" },
+];
 
 const LOCATIONS_DATA = {
   "calgary-seton": {
@@ -107,6 +118,8 @@ function SetonLocation() {
   const locationData =
     LOCATIONS_DATA[locationKey] || LOCATIONS_DATA["calgary-seton"];
 
+  const [isTimingsExpanded, setIsTimingsExpanded] = useState(false);
+
   return (
     <div className="w-full max-w-[1280px] mx-auto px-4 md:px-8 py-12 flex flex-col gap-4 ">
       <h1 className="!text-[40px] mb-2 !font-bold text-center">
@@ -133,7 +146,9 @@ function SetonLocation() {
           <div className="md:h-[100px]  bg-[#F9F9F9] p-4 border shadow rounded-b-md flex flex-col md:flex-row md:items-center md:justify-between ">
             <div>
               <h3 className="">{locationData.name}</h3>
-              <p className="text-sm text-gray-600">{locationData.address}</p>
+              <p className="text-[16px] font-[kanit] font-[300] text-[#000]">
+                {locationData.address}
+              </p>
             </div>
             <div className="flex flex-start pt-5 md:pt-0">
               <button className="btnPrimary ">BOOK A FREE TOUR</button>
@@ -143,10 +158,36 @@ function SetonLocation() {
       </div>
 
       <div className="  ">
-        <button className="w-full md:w-[1210px]  flex items-center justify-between px-4 py-3 bg-[#F9F9F9] !font-[600] text-black  border border-gray-200 rounded">
+        <button
+          onClick={() => setIsTimingsExpanded(!isTimingsExpanded)}
+          className="w-full md:w-[1210px] flex items-center justify-between px-4 py-3 bg-[#F9F9F9] !font-[600] text-black border border-gray-200 rounded hover:bg-[#F0F0F0] transition-colors"
+        >
           FACILITY TIMINGS
-          <img src={icon} alt="" />
+          <img
+            src={icon}
+            alt=""
+            className={`transition-transform duration-300 ${
+              isTimingsExpanded ? "rotate-180" : ""
+            }`}
+          />
         </button>
+
+        {/* Expandable timings content */}
+        {isTimingsExpanded && (
+          <div className="w-full md:w-[1210px] bg-white border border-gray-200 rounded-b-md mt-1 p-6 shadow-sm">
+            <div className="grid grid-cols-1  gap-4">
+              {FACILITY_TIMINGS.map((timing, index) => (
+                <div
+                  key={index}
+                  className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0"
+                >
+                  <span className="font-medium text-[#000]">{timing.day}</span>
+                  <span className="text-gray-600">{timing.hours}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
