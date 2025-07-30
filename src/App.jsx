@@ -23,6 +23,7 @@ import Loader from "./pages/Loader";
 import EvolveSpacesForm from "./components/Form/EvolveSpacesForm";
 import YourFitnessFutureForm from "./components/Form/YourFitnessFutureForm";
 import CorporateMembershipWizard from "./components/Form/CorporateMembershipWizard";
+import CompanyNotRegistered from "./components/Form/CompanyNotRegistered";
 import ApplyCorporateMembershipForm from "./components/Form/ApplyCorporateMembershipForm";
 import CompanyAlreadyRegistered from "./components/Form/CompanyAlreadyRegistered";
 import CheckMembershipForm from "./components/Form/CheckMembershipForm";
@@ -104,6 +105,10 @@ function App() {
         <Route
           path="/application-submitted"
           element={<ApplicationSubmitted />}
+        />
+        <Route
+          path="/company-not-registered"
+          element={<CompanyNotRegistered />}
         />
        
         <Route path="/loader" element={<Loader />} />

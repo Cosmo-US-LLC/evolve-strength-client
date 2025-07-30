@@ -156,12 +156,10 @@ const CanadianFitnessMarket = () => {
         </div>
 
         <div className="flex justify-center mt-8 max-sm:hidden">
-          <button className="btnPrimary">APPLY NOW</button>
         </div>
       </div>
 
       <div className="flex justify-center mt-8 md:hidden">
-          <button className="btnPrimary">APPLY NOW</button>
         </div>
     </div>
   );

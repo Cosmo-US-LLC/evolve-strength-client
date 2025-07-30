@@ -29,18 +29,6 @@ function LocationsHoverCard({ show, mousePosition, data }) {
             {data.address}
           </p>
         </div>
-        <div className="flex items-center gap-3">
-          <Phone className="w-5 h-5 text-[#4AB04A] flex-shrink-0" />
-          <p className="text-[14px] font-kanit font-[400] leading-normal capitalize">
-            {data.phone}
-          </p>
-        </div>
-        <div className="flex items-center gap-3">
-          <Mail className="w-5 h-5 text-[#4AB04A] flex-shrink-0" />
-          <p className="text-[14px] font-kanit font-[400] leading-normal capitalize">
-            {data.email}
-          </p>
-        </div>
       </div>
     </div>
   );

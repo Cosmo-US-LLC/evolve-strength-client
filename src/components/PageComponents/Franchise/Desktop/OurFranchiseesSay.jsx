@@ -38,7 +38,7 @@ function OurFranchiseesSay() {
       <div className="w-full max-w-[1280px] px-4 sm:px-8 mx-auto flex flex-col gap-12">
         <div className="text-left">
           <h2 className="!text-[#1C1C1C] uppercase text-3xl md:text-4xl leading-tight md:leading-[39px] font-[700]">
-            What Trainers Are Saying
+            What Our Franchisees Say
           </h2>
         </div>
         <div className="relative w-full">
