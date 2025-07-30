@@ -48,18 +48,41 @@ const locations = [
 ];
 
 const LocationSeeITYourself = () => {
-  const [activeTab, setActiveTab] = useState(locations[0].key);
+  // Get location from URL path and set default tab
+  const currentPath = window.location.pathname;
+  let defaultTab = "post"; // default
+
+  // Map URL locations to tab keys
+  if (currentPath.includes("vancouver-post")) {
+    defaultTab = "post";
+  } else if (currentPath.includes("burnaby-brentwood")) {
+    defaultTab = "brentwood";
+  } else if (currentPath.includes("calgary-seton")) {
+    defaultTab = "seton";
+  } else if (currentPath.includes("calgary-royal-oak")) {
+    defaultTab = "royaloak";
+  } else if (currentPath.includes("calgary-sunridge")) {
+    defaultTab = "sunridge";
+  } else if (currentPath.includes("edmonton-downtown")) {
+    defaultTab = "downtown";
+  } else if (currentPath.includes("edmonton-north")) {
+    defaultTab = "north";
+  } else if (currentPath.includes("edmonton-south")) {
+    defaultTab = "south";
+  }
+
+  const [activeTab, setActiveTab] = useState(defaultTab);
   const tabBarRef = useRef(null);
   const carouselRef = useRef(null);
 
   const scrollTabsLeft = () => {
     if (tabBarRef.current) {
-      tabBarRef.current.scrollBy({ left: -120, behavior: 'smooth' });
+      tabBarRef.current.scrollBy({ left: -120, behavior: "smooth" });
     }
   };
   const scrollTabsRight = () => {
     if (tabBarRef.current) {
-      tabBarRef.current.scrollBy({ left: 120, behavior: 'smooth' });
+      tabBarRef.current.scrollBy({ left: 120, behavior: "smooth" });
     }
   };
 
@@ -71,7 +94,45 @@ const LocationSeeITYourself = () => {
     }
   }, [activeTab]);
 
-  
+  // Update active tab when URL changes (user navigates to different location)
+  useEffect(() => {
+    const currentPath = window.location.pathname;
+    let newDefaultTab = "post";
+
+    if (currentPath.includes("vancouver-post")) {
+      newDefaultTab = "post";
+    } else if (currentPath.includes("burnaby-brentwood")) {
+      newDefaultTab = "brentwood";
+    } else if (currentPath.includes("calgary-seton")) {
+      newDefaultTab = "seton";
+    } else if (currentPath.includes("calgary-royal-oak")) {
+      newDefaultTab = "royaloak";
+    } else if (currentPath.includes("calgary-sunridge")) {
+      newDefaultTab = "sunridge";
+    } else if (currentPath.includes("edmonton-downtown")) {
+      newDefaultTab = "downtown";
+    } else if (currentPath.includes("edmonton-north")) {
+      newDefaultTab = "north";
+    } else if (currentPath.includes("edmonton-south")) {
+      newDefaultTab = "south";
+    }
+
+    setActiveTab(newDefaultTab);
+
+    // Scroll to the active tab in mobile view
+    setTimeout(() => {
+      const activeTabElement = tabBarRef.current?.querySelector(
+        `[data-tab="${newDefaultTab}"]`
+      );
+      if (activeTabElement && tabBarRef.current) {
+        activeTabElement.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      }
+    }, 100);
+  }, [currentPath]);
 
   return (
     <div className="w-full bg-white md:py-12">
@@ -84,13 +145,18 @@ const LocationSeeITYourself = () => {
           Spacious. Affordable. Unmatched
         </h4>
       </div>
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-md:hidden">
+      <Tabs
+        value={activeTab}
+        onValueChange={setActiveTab}
+        className="w-full max-md:hidden"
+      >
         <div className="w-full max-w-[1220px] mx-auto relative rounded-[10px] border">
           <TabsList className="flex w-full  bg-[#fff] h-[48px] p-[6px]">
             {locations.map((loc) => (
               <TabsTrigger
                 key={loc.key}
                 value={loc.key}
+                data-tab={loc.key}
                 className="text-[16px] font-[Kanit] font-[500] leading-[16px] rounded-[5px] text-[#000] cursor-pointer data-[state=active]:bg-[#4AB04A] data-[state=active]:text-[#FFF]"
               >
                 {loc.label}
@@ -140,34 +206,41 @@ const LocationSeeITYourself = () => {
           <div className="relative w-full flex items-start px-[16px] pt-10">
             {/* Arrow buttons at top right */}
             <div className="absolute -top-4 right-4 flex gap-3 z-10">
-              <button onClick={scrollTabsLeft} className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full">
+              <button
+                onClick={scrollTabsLeft}
+                className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full"
+              >
                 <ArrowLeft className="w-4 h-4 text-[#1C1C1C]" />
               </button>
-              <button onClick={scrollTabsRight} className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full">
+              <button
+                onClick={scrollTabsRight}
+                className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full"
+              >
                 <ArrowRight className="w-4 h-4 text-[#1C1C1C]" />
               </button>
             </div>
             <div
               ref={tabBarRef}
               className="overflow-x-auto rounded-[10px] border !scrollbar-none w-full py-2 "
-              style={{ scrollSnapType: 'x mandatory' }}
+              style={{ scrollSnapType: "x mandatory" }}
             >
-             <div className="flex flex-row !scrollbar-none">
-             {locations.map((loc) => (
-                <button
-                  key={loc.key}
-                  onClick={() => setActiveTab(loc.key)}
-                  className={`min-w-[100px] w-[auto] max-w-[160px] px-2 py-2 rounded-[10px]  text-[14px] font-[500] transition-all duration-200 scroll-snap-align-start ${
-                    activeTab === loc.key
-                      ? 'bg-[#4AB04A] text-[#fff] text-[#4AB04A] '
-                      : 'bg-[#fff] text-[#1C1C1C]'
-                  }`}
-                  style={{ scrollSnapAlign: 'start' }}
-                >
-                  {loc.label}
-                </button>
-              ))}
-             </div>
+              <div className="flex flex-row !scrollbar-none">
+                {locations.map((loc) => (
+                  <button
+                    key={loc.key}
+                    onClick={() => setActiveTab(loc.key)}
+                    className={`min-w-[100px] w-[auto] max-w-[160px] px-2 py-2 rounded-[10px]  text-[14px] font-[500] transition-all duration-200 scroll-snap-align-start ${
+                      activeTab === loc.key
+                        ? "bg-[#4AB04A] text-[#fff] text-[#4AB04A] "
+                        : "bg-[#fff] text-[#1C1C1C]"
+                    }`}
+                    style={{ scrollSnapAlign: "start" }}
+                    data-tab={loc.key}
+                  >
+                    {loc.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
           <TabsContent value={activeTab} className="w-full mt-4 px-[8px]">
