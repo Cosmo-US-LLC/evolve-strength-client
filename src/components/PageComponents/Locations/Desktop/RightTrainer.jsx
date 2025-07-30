@@ -7,6 +7,8 @@ import atmosphere from "../../../../assets/images/PersonalTraning/PersonalGymExp
 import turfWorkouts from "../../../../assets/images/PersonalTraning/PersonalGymExperience/turf_workouts.webp";
 import olympicLifting from "../../../../assets/images/PersonalTraning/PersonalGymExperience/olympic_lifting.webp";
 import yoga from "../../../../assets/images/PersonalTraning/PersonalGymExperience/yoga.webp";
+import TopShadow from "../../../../assets/images/Locations/shadow/top-shadow.svg";
+import BottomShadow from "../../../../assets/images/Locations/shadow/down-shadow.svg";
 
 const gymCards = [
   {
@@ -116,6 +118,16 @@ const RightTrainer = () => {
 
   return (
     <div className="relative w-full overflow-hidden ">
+      <img
+        src={TopShadow}
+        alt="Shadow"
+        className="absolute top-0 left-0 right-0 w-full h-auto z-20"
+      />
+      <img
+        src={BottomShadow}
+        alt="Shadow"
+        className="absolute bottom-0 left-0 right-0 w-full h-auto z-10"
+      />
       {/* Background Image - Desktop */}
       <div className="hidden md:block">
         <div

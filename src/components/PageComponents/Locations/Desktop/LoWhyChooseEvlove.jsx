@@ -31,7 +31,7 @@ const LoWhyChooseEvolve = () => {
       slidesToScroll: 1,
       align: "start",
     },
-    [Autoplay({ delay: 3000, stopOnInteraction: false })]
+    [Autoplay({ delay: 2000, stopOnInteraction: false })]
   );
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();

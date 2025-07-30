@@ -11,7 +11,7 @@ function LocationHero({ locationData }) {
   const heroStyle = {
     backgroundImage: `url('${heroImage}')`,
     backgroundSize: "cover",
-    backgroundPosition: "top",
+    backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     width: "100%",
     height: "700px",
@@ -19,7 +19,7 @@ function LocationHero({ locationData }) {
 
   return (
     <div className="relative" style={heroStyle}>
-      <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/20" />
+      <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/30" />
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 pb-[80px] relative z-2 flex flex-col items-start justify-end w-full h-full">
         <h1 className="text-[#FFFFFF] uppercase max-w-[844px] leading-[56px] mb-1.5 md:mb-5">
           {locationTitle}'s Premier Fitness and Wellness Club

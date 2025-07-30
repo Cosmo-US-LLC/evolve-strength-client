@@ -9,7 +9,7 @@ const SwitchToEvolve = () => {
           className="bg-cover bg-center min-h-[600px] flex flex-col justify-between px-2 md:px-[76px] py-16 items-start text-left rounded-xl overflow-hidden shadow-lg"
           style={{ backgroundImage: `url(${trainerBg})` }}
         >
-          {/* <div className="absolute inset-0 bg-black/40 z-0" /> */}
+          <div className="absolute inset-0 bg-black/40 z-0" />
 
           <div className="relative z-10 max-w-3xl space-y-4">
             <h2 className="uppercase text-[#FFF]">
