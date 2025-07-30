@@ -33,7 +33,7 @@ export const corporateMembershipFAQs = {
     },
     {
       question: "Is there a minimum team size?",
-      answer: "No. We work with teams as small as 5 people.",
+      answer: "No. We work with teams as small as 10 people.",
     },
     {
       question: "Can we add or remove employees easily?",
@@ -42,7 +42,7 @@ export const corporateMembershipFAQs = {
     {
       question: "What’s included in the monthly price?",
       answer:
-        "It covers gym access, wellness services, and premium amenities. Custom options are available.",
+        "It covers gym access and premium amenities. Custom options are available.",
     },
   ],
 };

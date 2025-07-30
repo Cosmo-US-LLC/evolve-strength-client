@@ -61,20 +61,20 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
         </div>
       </div>
       {/* Right Form */}
-      <div className="flex flex-col items-stretch  w-full max-w-[60%]">
+      <div className="flex flex-col items-stretch  w-full md:max-w-[60%]">
          <button
-                  className="flex items-center  pt-15 gap-2 text-[#222] text-[15px] mb-4 hover:underline"
+                  className="flex items-center  md:pt-5 gap-2 text-[#222] text-[15px]  hover:underline"
                    onClick={() => navigate(-1)}
                 >
                   <ArrowLeft size={20} /> Back
                 </button>
         <div className="w-full md:max-w-[420px] bg-white rounded-[10px]  p-3">
           <div className="md:w-[537px] w-full">
-          <h3 className="text-[20px] md:text-[22px] font-[700] text-center mb-2 ">
+          <h3 className="!text-[18px] md:text-[22px] font-[700] text-center mb-2 ">
             APPLY FOR A CORPORATE MEMBERSHIP
           </h3>
           </div>
-          <div className="w-[537px]">
+          <div className="md:w-[537px] w-full ">
           <h4 className="text-[15px] font-[400] text-center mb-5 text-[#222] ">
             Fill out the form below to start the process of bringing Evolve to
             your workplace! We'll be in touch shortly.
@@ -86,8 +86,8 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
             onSubmit={handleSubmit}
             noValidate
           >
-            <div className="flex flex-col md:flex-row gap-4">
-              <div className="flex-1 flex flex-col">
+            <div className="flex  flex-row gap-4">
+              <div className="flex-1 flex md:flex-col">
                 <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[15px] leading-[24px]">
                   First Name *
                   <input
@@ -140,7 +140,7 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
                 </span>
               )}
             </label>
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-row gap-4">
               <div className="flex-1 flex flex-col">
                 <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[15px] leading-[24px]">
                   Email Address *
@@ -159,7 +159,7 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
                   )}
                 </label>
               </div>
-              <div className="flex-1 flex flex-col">
+              <div className="flex-1 flex md:flex-col">
                 <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[15px] leading-[24px]">
                   Confirm Email *
                   <input
@@ -178,7 +178,7 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
                 </label>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-row gap-4">
               <div className="flex-1 flex flex-col">
                 <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[15px] leading-[24px]">
                   City *

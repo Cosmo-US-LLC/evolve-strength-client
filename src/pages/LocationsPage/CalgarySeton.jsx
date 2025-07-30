@@ -16,6 +16,7 @@ import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLo
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import PersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/PersonalizedAssessment";
 
+
 function CalgarySeton() {
   const locationData = getLocationById("location-calgary-seton");
 
@@ -33,7 +34,7 @@ function CalgarySeton() {
       <LocationsSeeItForYourSelf />
       <SetonLocation />
       <MeetTheTrainers />
-      <JoinUsToday />
+      <JoinUsToday  />
       <FrequentlyAskedQuestions {...LocationFaq} />
     </>
   );
