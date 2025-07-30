@@ -8,7 +8,7 @@ const pricingContent = {
     {
       title: "1 Year Contract",
       billing: "Bi-Weekly",
-      price: "$32.99",
+      price: "$28.50",
       featuresTitle: "Feature you’ll like:",
       features: [
         "$0 Enrolment Fee",
