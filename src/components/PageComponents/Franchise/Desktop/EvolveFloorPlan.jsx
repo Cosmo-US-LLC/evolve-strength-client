@@ -49,7 +49,7 @@ const EvolveFloorPlan = () => {
                     <img
                       src={slide.image}
                       alt={`Evolve Floor Plan Slide ${slide.id}`}
-                      className="w-full rounded bg-[#F5F5F5] p-2"
+                      className="w-full rounded  p-2"
                     />
                   </CarouselItem>
                 ))}
