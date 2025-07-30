@@ -14,7 +14,7 @@ import LocationPricing from "@/components/PageComponents/Locations/Desktop/Locat
 import MeetTheTrainers from "@/components/PageComponents/Locations/Desktop/MeetTheTrainers";
 import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLocation";
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
-import PersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/PersonalizedAssessment";
+import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
 
 function CalgarySeton() {
   const locationData = getLocationById("location-calgary-seton");
@@ -26,7 +26,7 @@ function CalgarySeton() {
       <LoWhyChooseEvolve />
       <LocationPricing />
       <FitnessCategory />
-      <PersonalizedAssessment />
+      <LocationsPersonalizedAssessment />
       <RightTrainer />
       <Services />
       <Spacious />
