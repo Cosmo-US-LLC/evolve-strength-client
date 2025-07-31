@@ -61,9 +61,9 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
         </div>
       </div>
       {/* Right Form */}
-      <div className="flex flex-col items-stretch  w-full md:max-w-[60%]">
+      <div className="flex flex-col md:items-end md:pl-20  md:h-[660px] justify-between w-full md:max-w-[10%]">
          <button
-                  className="flex items-center  md:pt-5 gap-2 text-[#222] text-[15px]  hover:underline"
+                  className="flex items-center   md:pt-5 gap-2 text-[#222] text-[15px]  hover:underline"
                    onClick={() => navigate(-1)}
                 >
                   <ArrowLeft size={20} /> Back

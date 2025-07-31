@@ -71,7 +71,7 @@ const AccessEvolveLocationWithEase = () => {
 
         <button
           onClick={handlePrevious}
-          className="absolute left-[36%] md:left-[87%] -bottom-[86px] md:-top-1/9 -translate-y-1/2 h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow"
+          className="absolute left-[36%] md:left-[87%] -bottom-[86px] md:-top-1/9 -translate-y-1/2 h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
         >
           <img
             src={LeftArrowIcon}
@@ -81,7 +81,7 @@ const AccessEvolveLocationWithEase = () => {
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-[36%] md:right-[80px]  -bottom-[86px] md:-top-1/9  -translate-y-1/2 h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow"
+          className="absolute right-[36%] md:right-[80px]  -bottom-[86px] md:-top-1/9  -translate-y-1/2 h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
         >
           <img
             src={RightArrowIcon}

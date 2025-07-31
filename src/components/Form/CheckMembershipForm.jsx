@@ -42,7 +42,7 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
   };
 
   return (
-    <div className="flex gap-12 md:p-6 p-4 flex-row max-w-[1280px] mx-auto items-center justify-center7 min-h-screen">
+    <div className="flex gap-12 md:p-6 p-4 flex-row max-w-[1280px] mx-auto items-center  min-h-screen">
       {/* Left Image */}
       <div className="w-full max-w-[40%] flex-shrink-0 flex max-md:hidden">
         <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white">
@@ -54,10 +54,10 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
         </div>
       </div>
       {/* Right Form */}
-      <div className="flex flex-col md:items-start   md:h-[660px] justify-between w-full md:max-w-[60%]">
+      <div className="flex flex-col md:items-end md:pl-20  md:h-[660px] justify-between w-full md:max-w-[0%]">
         
         <button
-          className="flex self-start gap-2 text-[#222] text-[15px] hover:underline"
+          className="flex self-start md:self- gap-2 text-[#222] text-[15px] hover:underline"
            onClick={() => navigate(-1)}
         >
           <ArrowLeft size={20} /> Back
@@ -69,7 +69,7 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
             CHECK YOUR COMPANY MEMBERSHIP
           </h3>
           </div>
-          <div className="md:pt-[16px] md:pb-[40px] text-center md:leading-[19px] md:w-[537px] md:h-[26px]">
+          <div className="md:pt-[16px] md:pb-[40px] text-center j md:leading-[19px] md:w-[537px] md:h-[26px]">
           <h4 >
             Enter your details to see if your organization is already enrolled 
             with Evolve.
