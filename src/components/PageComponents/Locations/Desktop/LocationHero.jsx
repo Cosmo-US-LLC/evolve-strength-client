@@ -35,13 +35,13 @@ const LOCATION_HERO_DATA = {
     heroImage: southHero,
     locationTitle: "SOUTH",
     city: "EDMONTON",
-    fullTitle: "SOUTH's Premier Fitness and Wellness Club",
+    fullTitle: "Edmonton South's Premier Fitness and Wellness Club",
   },
   "edmonton-north": {
     heroImage: northHero,
     locationTitle: "NORTH",
     city: "EDMONTON",
-    fullTitle: "NORTH's Premier Fitness and Wellness Club",
+    fullTitle: "Edmonton North's Premier Fitness and Wellness Club",
   },
   "edmonton-downtown": {
     heroImage: downtownHero,
@@ -59,7 +59,7 @@ const LOCATION_HERO_DATA = {
     heroImage: postHero,
     locationTitle: "THE POST",
     city: "VANCOUVER",
-    fullTitle: "THE POST's Premier Fitness and Wellness Club",
+    fullTitle: "Vancouver's Premier Fitness and Wellness Club",
   },
 };
 
