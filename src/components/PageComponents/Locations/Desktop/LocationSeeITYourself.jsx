@@ -7,44 +7,94 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import postImg1 from "/src/assets/images/home/facility/image_1.webp";
-import postImg2 from "/src/assets/images/home/facility/image_2.webp";
-import brentwoodImg1 from "/src/assets/images/home/facility/image_3.webp";
-import brentwoodImg2 from "/src/assets/images/home/facility/image_4.webp";
-import setonImg1 from "/src/assets/images/home/facility/image_5.webp";
-import setonImg2 from "/src/assets/images/home/facility/image_6.webp";
-import royalOakImg1 from "/src/assets/images/home/facility/image_7.webp";
-import royalOakImg2 from "/src/assets/images/home/facility/image_8.webp";
-import sunridgeImg from "/src/assets/images/home/facility/image_5.webp";
-import downtownImg from "/src/assets/images/home/facility/image_6.webp";
+
+import post1 from "/src/assets/images/home/facility/post1.webp";
+import post2 from "/src/assets/images/home/facility/post2.webp";
+import post3 from "/src/assets/images/home/facility/post3.webp";
+import post4 from "/src/assets/images/home/facility/post4.webp";
+import post5 from "/src/assets/images/home/facility/post5.webp";
+import post6 from "/src/assets/images/home/facility/post6.webp";
+import post7 from "/src/assets/images/home/facility/post7.webp";
+import post8 from "/src/assets/images/home/facility/post8.webp";
+
+import seton1 from "/src/assets/images/home/facility/seton1.webp";
+import seton2 from "/src/assets/images/home/facility/seton2.webp";
+import seton3 from "/src/assets/images/home/facility/seton3.webp";
+import seton4 from "/src/assets/images/home/facility/seton4.webp";
+import seton5 from "/src/assets/images/home/facility/seton5.webp";
+import seton6 from "/src/assets/images/home/facility/seton6.webp";
+import seton7 from "/src/assets/images/home/facility/seton7.webp";
+import seton8 from "/src/assets/images/home/facility/seton8.webp";
+
+import north1 from "/src/assets/images/home/facility/north1.webp";
+import north2 from "/src/assets/images/home/facility/north2.webp";
+import north3 from "/src/assets/images/home/facility/north3.webp";
+import north4 from "/src/assets/images/home/facility/north4.webp";
+import north5 from "/src/assets/images/home/facility/north5.webp";
+
+import downtown1 from "/src/assets/images/home/facility/downtown_1.webp";
+import downtown2 from "/src/assets/images/home/facility/downtown_2.webp";
+import downtown3 from "/src/assets/images/home/facility/downtown_3.webp";
+import downtown4 from "/src/assets/images/home/facility/downtown_4.webp";
+import downtown5 from "/src/assets/images/home/facility/downtown_5.webp";
+import downtown6 from "/src/assets/images/home/facility/downtown_6.webp";
+import downtown7 from "/src/assets/images/home/facility/downtown_7.webp";
+import downtown8 from "/src/assets/images/home/facility/downtown_8.webp";
+
+import royalOak1 from "/src/assets/images/home/facility/royal_oak_1.webp";
+import royalOak2 from "/src/assets/images/home/facility/royal_oak_2.webp";
+import royalOak3 from "/src/assets/images/home/facility/royal_oak_3.webp";
+import royalOak4 from "/src/assets/images/home/facility/royal_oak_4.webp";
+import royalOak5 from "/src/assets/images/home/facility/royal_oak_5.webp";
+import royalOak6 from "/src/assets/images/home/facility/royal_oak_6.webp";
+import royalOak7 from "/src/assets/images/home/facility/royal_oak_7.webp";
+import royalOak8 from "/src/assets/images/home/facility/royal_oak_8.webp";
+
+import south1 from "/src/assets/images/home/facility/south_1.webp";
+import south2 from "/src/assets/images/home/facility/south_2.webp";
+import south3 from "/src/assets/images/home/facility/south_3.webp";
+import south4 from "/src/assets/images/home/facility/south_4.webp";
+import south5 from "/src/assets/images/home/facility/south_5.webp";
+import south6 from "/src/assets/images/home/facility/south_6.webp";
+import south7 from "/src/assets/images/home/facility/south_7.webp";
+import south8 from "/src/assets/images/home/facility/south_8.webp";
+
+import sunridge1 from "/src/assets/images/home/facility/sunridge1.webp";
+import sunridge2 from "/src/assets/images/home/facility/sunridge2.webp";
+import sunridge3 from "/src/assets/images/home/facility/sunridge3.webp";
+import sunridge4 from "/src/assets/images/home/facility/sunridge4.webp";
+import sunridge5 from "/src/assets/images/home/facility/sunridge5.webp";
+import sunridge6 from "/src/assets/images/home/facility/sunridge6.webp";
+import sunridge7 from "/src/assets/images/home/facility/sunridge7.webp";
+
+import brentwood1 from "/src/assets/images/home/facility/brentwood1.webp";
+import brentwood2 from "/src/assets/images/home/facility/brentwood2.webp";
+import brentwood3 from "/src/assets/images/home/facility/brentwood3.webp";
+import brentwood4 from "/src/assets/images/home/facility/brentwood4.webp";
+import brentwood5 from "/src/assets/images/home/facility/brentwood5.webp";
+import brentwood6 from "/src/assets/images/home/facility/brentwood6.webp";
+import brentwood7 from "/src/assets/images/home/facility/brentwood7.webp";
+import brentwood8 from "/src/assets/images/home/facility/brentwood8.webp";
+
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const locations = [
   {
     key: "post",
     label: "Post",
-    images: [
-      postImg1,
-      postImg2,
-      brentwoodImg1,
-      brentwoodImg2,
-      setonImg1,
-      setonImg2,
-      royalOakImg1,
-      royalOakImg2,
-    ],
+    images: [post1,post2,post3,post4,post5,post6,post7,post8],
   },
   {
     key: "brentwood",
     label: "Brentwood",
-    images: [brentwoodImg1, brentwoodImg2],
+    images: [brentwood1, brentwood2, brentwood3, brentwood4, brentwood5, brentwood6, brentwood7, brentwood8],
   },
-  { key: "seton", label: "Seton", images: [setonImg1, setonImg2] },
-  { key: "royaloak", label: "Royal Oak", images: [royalOakImg1, royalOakImg2] },
-  { key: "sunridge", label: "Sunridge", images: [sunridgeImg] },
-  { key: "downtown", label: "Downtown", images: [downtownImg] },
-  { key: "north", label: "North", images: [sunridgeImg] },
-  { key: "south", label: "South", images: [sunridgeImg] },
+  { key: "seton", label: "Seton", images: [seton1, seton2, seton3, seton4, seton5, seton6, seton7, seton8] },
+  { key: "royaloak", label: "Royal Oak", images: [royalOak1, royalOak2, royalOak3, royalOak4, royalOak5, royalOak6, royalOak7, royalOak8] },
+  { key: "sunridge", label: "Sunridge", images: [sunridge1, sunridge2, sunridge3, sunridge4, sunridge5, sunridge6, sunridge7] },
+  { key: "downtown", label: "Downtown", images: [downtown1, downtown2, downtown3, downtown4, downtown5, downtown6, downtown7, downtown8] },
+  { key: "north", label: "North", images: [north1, north2, north3, north4, north5] },
+  { key: "south", label: "South", images: [south1, south2, south3, south4, south5, south6, south7, south8] },
 ];
 
 const LocationSeeITYourself = () => {
@@ -221,17 +271,17 @@ const LocationSeeITYourself = () => {
             </div>
             <div
               ref={tabBarRef}
-              className="overflow-x-auto rounded-[10px] border !scrollbar-none w-full py-2 "
+              className="overflow-x-auto rounded-[6px] border !scrollbar-none w-full py-2 "
               style={{ scrollSnapType: "x mandatory" }}
             >
-              <div className="flex flex-row !scrollbar-none">
+              <div className="flex flex-row scrollbar-none ">
                 {locations.map((loc) => (
                   <button
                     key={loc.key}
                     onClick={() => setActiveTab(loc.key)}
-                    className={`min-w-[100px] w-[auto] max-w-[160px] px-2 py-2 rounded-[10px]  text-[14px] font-[500] transition-all duration-200 scroll-snap-align-start ${
+                    className={`min-w-[100px] w-[auto] max-w-[160px] px-2 py-2 rounded-[8px]  text-[14px] font-[500] transition-all duration-200 scroll-snap-align-start ${
                       activeTab === loc.key
-                        ? "bg-[#4AB04A] text-[#fff] text-[#4AB04A] "
+                        ? "bg-[#4AB04A] text-[#fff] "
                         : "bg-[#fff] text-[#1C1C1C]"
                     }`}
                     style={{ scrollSnapAlign: "start" }}
@@ -243,7 +293,7 @@ const LocationSeeITYourself = () => {
               </div>
             </div>
           </div>
-          <TabsContent value={activeTab} className="w-full mt-4 px-[8px]">
+          <TabsContent value={activeTab} className="w-full mt-4 ">
             <Carousel
               opts={{ align: "start" }}
               setApi={(api) => (carouselRef.current = api)}
@@ -252,7 +302,7 @@ const LocationSeeITYourself = () => {
               <CarouselContent>
                 {activeLocation.images.map((img, idx) => (
                   <CarouselItem key={idx} className="w-full">
-                    <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[10px]">
+                    <div className="relative w-full aspect-[4/3] overflow-hidden">
                       <img
                         src={img}
                         alt={`${activeLocation.label} image ${idx + 1}`}
