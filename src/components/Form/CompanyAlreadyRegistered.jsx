@@ -21,7 +21,7 @@ function CompanyAlreadyRegistered({ onBack, onReturnHome }) {
         </div>
       </div>
       {/* Right Confirmation */}
-      <div className="flex flex-col items-center h-[650px]  w-full md:max-w-[60%]">
+      <div className="flex flex-col items-center h-[650px] md:pl-20 w-full md:max-w-[60%]">
         <button
                   className="flex self-start  !items-start gap-2   text-[#222] text-[15px] mb-4 hover:underline"
                    onClick={() => navigate(-1)}

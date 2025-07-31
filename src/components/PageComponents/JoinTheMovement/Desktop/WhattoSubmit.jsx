@@ -69,17 +69,17 @@ function WhattoSubmit() {
 
           <button
             onClick={scrollPrev}
-            className="absolute md:left-[85%] max-md:left-[80%] md:-top-[16%] max-md:-top-[10%] -translate-y-1/2 md:h-[46px] md:w-[46px] max-md:w-[30px] max-md:h-[30px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow"
+            className="absolute md:left-[85%] max-md:left-[80%] md:-top-[16%] max-md:-top-[10%] -translate-y-1/2 md:h-[46px] md:w-[46px] max-md:w-[30px] max-md:h-[30px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
           >
             <img
               src={LeftArrowIcon}
               alt="Previous"
-              className="h-5 w-5 text-[#00000060] cursor-pointer"
+              className="h-5 w-5 text-[#00000060] cursor-pointer "
             />
           </button>
           <button
             onClick={scrollNext}
-            className="absolute md:right-[80px] max-md:right-[0px] md:-top-[16%] max-md:-top-[10%] -translate-y-1/2 md:h-[46px] md:w-[46px] max-md:w-[30px] max-md:h-[30px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow"
+            className="absolute md:right-[80px] max-md:right-[0px] md:-top-[16%] max-md:-top-[10%] -translate-y-1/2 md:h-[46px] md:w-[46px] max-md:w-[30px] max-md:h-[30px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
           >
             <img
               src={RightArrowIcon}
