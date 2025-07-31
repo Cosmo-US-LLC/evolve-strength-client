@@ -20,13 +20,13 @@ import LaserTherapyIcon from "@/assets/images/explore/locations/laser-therapy.sv
 import OsteopathyIcon from "@/assets/images/explore/locations/osteopathy.svg";
 import MentalHealthIcon from "@/assets/images/explore/locations/mental-health.svg";
 
-import southHero from "../assets/images/Locations/location-hero/south.png";
-import northHero from "../assets/images/Locations/location-hero/north.png";
-import royalOakHero from "../assets/images/Locations/location-hero/royal-oak.png";
-import downtownHero from "../assets/images/Locations/location-hero/downtown.png";
-import sunridgeHero from "../assets/images/Locations/location-hero/sunridge.png";
-import brentwoodHero from "../assets/images/Locations/location-hero/brentwood.png";
-import postHero from "../assets/images/Locations/location-hero/post.png";
+import southHero from "../assets/images/Locations/location-hero/south.webp";
+import northHero from "../assets/images/Locations/location-hero/north.webp";
+import royalOakHero from "../assets/images/Locations/location-hero/royal-oak.webp";
+import downtownHero from "../assets/images/Locations/location-hero/downtown.webp";
+import sunridgeHero from "../assets/images/Locations/location-hero/sunridge.webp";
+import brentwoodHero from "../assets/images/Locations/location-hero/brentwood.webp";
+import postHero from "../assets/images/Locations/location-hero/post.webp";
 import setonHero from "../assets/images/Locations/location-hero/seton.webp";
 
 export const EXPLORE_DATA = [
