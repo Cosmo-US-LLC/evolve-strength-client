@@ -14,26 +14,24 @@ import EvolveFloorPlan from "@/components/PageComponents/Franchise/Desktop/Evolv
 import OurFranchiseesSay from "@/components/PageComponents/Franchise/Desktop/OurFranchiseesSay";
 import EvolveExpansionPlans from "@/components/PageComponents/Franchise/Desktop/EvolveExpansionPlans";
 
-
 function Franchise() {
   return (
     <div>
-      <div className="max-md:hidden">
+      <div className="">
         <FranchiseHero />
         <FranchiseJourneySteps />
         <CanadianFitnessMarket />
         <EvolveLookLike />
         <EvolveSmarterInvestment />
-        <WeHelpYouRightSpace />
         <TakesToLaunchEvolve />
-        <EvolveFloorPlan/>
+        <WeHelpYouRightSpace />
+        <EvolveFloorPlan />
         <GotYourBack />
-        <EvolveExpansionPlans  />
+        <EvolveExpansionPlans />
         <OurFranchiseesSay />
         <HowtoJoinEvolveJourney />
         <LetsBuildBigger />
       </div>
-      <div className="md:hidden">Home Mobile</div>
     </div>
   );
 }

@@ -4,14 +4,14 @@ import trainerBg from "/src/assets/images/home/TrainerCallout/trainer_callout.we
 const TrainerCallout = () => {
   return (
     <div className="w-full md:py-12 max-md:pt-0 max-md:pb-[48px] ">
-      <div className="w-full max-w-[1280px] md:px-8 max-md:px-0 mx-auto ">
+      <div className="w-full max-w-[1280px] md:px-8 px-4 max-md:px-0 mx-auto ">
         <div
           className="bg-cover bg-center md:min-h-[600px] max-md:min-h-[800px] flex flex-col justify-between md:py-14 max-md:py-[24px] items-center text-center md:rounded-xl max-md:rounded-0 overflow-hidden shadow-lg max-md:px-[16px]"
           style={{ backgroundImage: `url(${trainerBg})` }}
         >
           {/* <div className="absolute inset-0 bg-black/40 z-0" /> */}
 
-          <div className="relative z-10 max-w-3xl  max-md:px-[16px] space-y-4">
+          <div className="relative z-10 max-w-3xl  px-[0px] md:px-[16px] space-y-4">
             <h2 className="uppercase max-md:text-start text-[#FFF]">
               <span className="hidden md:inline">
                 NO MATTER YOUR GOAL, WE <br /> HAVE THE RIGHT TRAINER.

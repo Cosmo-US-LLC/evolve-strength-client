@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ArrowLine from "../../../../assets/images/JoinAsTrainer/Arrows/arrow.gif";
 
 function JoinAsTrainerHero() {
   const [valueHourly, setValueHourly] = useState(50);
@@ -11,24 +12,31 @@ function JoinAsTrainerHero() {
   };
 
   return (
-    <div className="w-full pb-12 pt-[120px]">
-      <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col gap-12">
-        <div className="flex flex-row items-center gap-10">
-          <div className="w-[70%] space-y-[24px]">
-            <h1 className="max-w-[707px] text-left leading-[56px] uppercase">
-              Looking to Evolve <br /> Your Career?
+    <div className="w-full pb-12 pt-24 md:pt-[120px]">
+      <div className="w-full max-w-[1280px] px-4 sm:px-8 mx-auto flex flex-col gap-12">
+        <div className="flex flex-col md:flex-row items-center gap-24 md:gap-10">
+          <div className="w-full md:w-[70%] md:space-y-[24px] space-y-[12px] text-left relative">
+            <h1 className="md:max-w-[707px] text-4xl md:text-5xl leading-[52px]  md:leading-[56px] uppercase">
+              Looking to Evolve Your Career?
             </h1>
-            <h3 className="text-[#000] leading-[26px] font-[400] w-[585px]">
+            <h3 className="text-[#000] leading-[26px] font-[400] w-full md:w-[585px]">
               Giving up a percentage sounds fair until you do the math. Use the
               calculator to see how much your current gym is costing you. <br />
               <br /> At Evolve, you pay a flat fee and keep the rest. Join us
               and feel the difference.
             </h3>
-           <h3 className="!text-[#1C1C1C] leading-[39px] uppercase !font-[700]">You’re Losing Money at Your Current Gym</h3>
+            <h3 className="!text-[#1C1C1C] md:leading-[39px]  !text-[16px] md:!text-[24px] uppercase !font-[700]">
+              You’re Losing Money at Your Current Gym
+            </h3>
+            <img
+              src={ArrowLine}
+              alt="Animated graphic"
+              className="absolute bottom-[-110px] md:bottom-[-4px] right-[100px] md:right-0 transform scale-y-[-1] md:scale-y-[1] md:scale-x-[-1] origin-center"
+            />
           </div>
-          <div className="max-w-[352px] w-[100%] rounded-[10px] border-[1px] bg-[#fff] border-[#D4D4D4]">
+          <div className="w-full md:max-w-[352px] rounded-[10px] border-[1px] bg-[#fff] border-[#D4D4D4]">
             <div className="py-[12px] rounded-t-[10px] bg-[#000]">
-              <h3 className="text-[#fff] text-center leading-[26px] !font-[500] uppercase">
+              <h3 className="text-[#fff] text-center leading-[26px]  !font-[500] uppercase">
                 Calculation
               </h3>
             </div>
@@ -95,11 +103,13 @@ function JoinAsTrainerHero() {
                   </button>
                 </div>
               </div>
-               <div className="pt-[8px]">
+              <div className="pt-[8px]">
                 <h5 className="!font-[300] text-center !text-[12px] text-[#000] leading-[26px]">
                   You’re losing
                 </h5>
-                <h3 className="!font-[700] leading-[26px] text-center">$1,060/month</h3>
+                <h3 className="!font-[700] leading-[26px] text-center">
+                  $1,060/month
+                </h3>
                 <h5 className="!font-[300] !text-[12px] text-[#000] text-center leading-[26px]">
                   by staying at your current gym.
                 </h5>
@@ -108,9 +118,9 @@ function JoinAsTrainerHero() {
                   going to your gym’s pocket, not yours.
                 </h5>
               </div>
-            <div className="flex justify-center pt-[8px]">
-             <button className="btnPrimary">Start saving</button>
-            </div>
+              <div className="flex justify-center pt-[8px]">
+                <button className="btnPrimary">Start saving</button>
+              </div>
             </div>
           </div>
         </div>

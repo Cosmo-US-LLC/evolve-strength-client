@@ -42,9 +42,9 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
   };
 
   return (
-    <div className="flex gap-12 p-6 flex-row max-w-[1280px] mx-auto items-center min-h-screen">
+    <div className="flex gap-12 md:p-6 p-4 flex-row max-w-[1280px] mx-auto items-center justify-center7 min-h-screen">
       {/* Left Image */}
-      <div className="w-full max-w-[40%] flex-shrink-0 flex">
+      <div className="w-full max-w-[40%] flex-shrink-0 flex max-md:hidden">
         <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white">
           <img
             src={locationImg}
@@ -54,7 +54,7 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
         </div>
       </div>
       {/* Right Form */}
-      <div className="flex flex-col items-start   h-[660px] justify-between w-full max-w-[60%]">
+      <div className="flex flex-col md:items-start   md:h-[660px] justify-between w-full md:max-w-[60%]">
         
         <button
           className="flex self-start gap-2 text-[#222] text-[15px] hover:underline"
@@ -63,25 +63,25 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
           <ArrowLeft size={20} /> Back
         </button>
         
-        <div className="w-full max-w-[420px] bg-white rounded-[10px]   mb-30">
-          <div className="pb-4  w-[537px] h-[26px]">
-          <h3 className="text-center  leading-[26px]  mb-2">
+        <div className="w-full md:max-w-[420px] bg-white rounded-[10px] mt-10  md:mb-30">
+          <div className="md:pb-4  md:w-[537px] md:h-[26px]">
+          <h3 className="md:text-center  leading-[26px]  md:mb-2">
             CHECK YOUR COMPANY MEMBERSHIP
           </h3>
           </div>
-          <div className="pt-[16px] pb-[32px] text-center leading-[19px] w-[537px] h-[26px]">
-          <h4 className="">
+          <div className="md:pt-[16px] md:pb-[40px] text-center md:leading-[19px] md:w-[537px] md:h-[26px]">
+          <h4 >
             Enter your details to see if your organization is already enrolled 
             with Evolve.
           </h4>
           </div>
-          <div className="w-[537px] h-[380px] rounded-[10px] bg-[#FCFCFC] border p-6">
+          <div className="md:w-[537px] w-full md:h-[380px] rounded-[10px] bg-[#FCFCFC] border p-6">
           <form
             className="flex flex-col  gap-3"
             onSubmit={handleSubmit}
             noValidate
           >
-            <div className="flex flex-col md:flex-row  gap-4">
+            <div className="flex flex-row gap-4">
               <div className="flex-1 flex flex-col ">
                 <label className="font-[500] text-[#000] flex flex-col gap-[10px] text-[15px] leading-[24px]">
                   First Name *

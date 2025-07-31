@@ -43,7 +43,7 @@ const EveryThinkYouNeed = () => {
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col items-start gap-8">
         <div className="flex flex-col   gap-4 pb-10 md:pb-0">
           <h2 className="text-[#000] uppercase ">
-            Everything You Need. All in One <br /> Place.
+            Everything You Need. All in One  Place.
           </h2>
           <h4 className="text-[#000] w-full md:w-[719px] leading-[26px] font-[400]">
             At most gyms, your fitness journey ends when you leave. Recovery

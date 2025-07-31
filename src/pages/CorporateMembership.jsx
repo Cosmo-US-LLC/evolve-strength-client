@@ -15,20 +15,17 @@ import PricingFitsYourBudget from "@/components/PageComponents/CorporateMembersh
 function CorporateMembership() {
   return (
     <div>
-      <div className="max-md:hidden">
-        <CorporateMembershipHero />
-        <OneMembershipFullAccess />
-        <BuildToTeamSupport />
-        <WhoItsFor />
-        <WhyCompaniesChoose />
-        <MembershipRecovery />
-        <MembershipPremiumAmenities />
-        <SeeItForYourSelf />
-        <PricingFitsYourBudget />
-        <EvolveEmployeePlan />
-        <FrequentlyAskedQuestions {...corporateMembershipFAQs} />
-      </div>
-      <div className="md:hidden">Home Mobile</div>
+      <CorporateMembershipHero />
+      <OneMembershipFullAccess />
+      <BuildToTeamSupport />
+      <WhoItsFor />
+      <WhyCompaniesChoose />
+      <MembershipRecovery />
+      <MembershipPremiumAmenities />
+      <SeeItForYourSelf />
+      <PricingFitsYourBudget />
+      <EvolveEmployeePlan />
+      <FrequentlyAskedQuestions {...corporateMembershipFAQs} />
     </div>
   );
 }

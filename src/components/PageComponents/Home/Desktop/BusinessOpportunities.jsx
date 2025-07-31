@@ -20,7 +20,7 @@ const opportunities = [
 const BusinessOpportunities = () => {
   return (
     <div className="w-full py-12 bg-[#F9F9F9]">
-      <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col justify-center items-center gap-12">
+      <div className="w-full max-w-[1280px] md:px-8 px-4 mx-auto flex flex-col justify-center items-center gap-12">
         <h2 className="">BUILD YOUR FUTURE WITH EVOLVE</h2>
         <div className="flex md:flex-row max-md:flex-col w-[100%] min-h-[370px] gap-8">
           {opportunities.map((item, index) => (

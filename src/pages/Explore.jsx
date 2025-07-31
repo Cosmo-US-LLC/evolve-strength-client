@@ -3,15 +3,17 @@ import ExploreHero from "@/components/PageComponents/Explore/Desktop/ExploreHero
 import DiscoverEvolve from "@/components/PageComponents/Explore/Desktop/DiscoverEvolve";
 
 function Explore() {
-  const [selected, setSelected] = useState("LOCATIONS");
+  const [selected, setSelected] = useState(null);
+
+  const handleCategorySelect = (categoryId) => {
+    // Handle both selection and deselection
+    setSelected(categoryId);
+  };
 
   return (
     <div>
-      <div className="max-md:hidden">
-        <ExploreHero />
-        <DiscoverEvolve selected={selected} onSelect={setSelected} />
-      </div>
-      <div className="md:hidden">Home Mobile</div>
+      <ExploreHero />
+      <DiscoverEvolve selected={selected} onSelect={handleCategorySelect} />
     </div>
   );
 }

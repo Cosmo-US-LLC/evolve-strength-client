@@ -68,17 +68,18 @@ function GrowYourBusinessSection() {
             </h4>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center">
-          <img src={GrowYourBusinessSectionImage} alt="Description" />
-          <h4 className="mt-4 text-[#000] leading-[26px]">
-            Health-focused environments designed to{" "}
-            <span className="text-[#4AB04A] font-[700] leading-[26px]">
-              {" "}
-              boost your business{" "}
-            </span>{" "}
+        <div className="flex flex-col md:items-center  md:justify-center SpacesHeroBG">
+          {/* <img src={GrowYourBusinessSectionImage} alt="Description" /> */}
+         
+        </div>
+         <h4 className=" text-[#000] md:flex md:items-center md:justify-center md:leading-[26px]">
+            Health-focused environments designed to
+            <span className="text-[#4AB04A] font-[700] px-1 md:leading-[26px]">
+             
+              boost your business
+            </span>
             from day one.
           </h4>
-        </div>
       </div>
     </div>
     <div className="md:hidden">

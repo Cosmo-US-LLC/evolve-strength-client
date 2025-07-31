@@ -1,9 +1,18 @@
 import React from "react";
+import Jointoday from "@/assets/images/Locations/JoinToday.webp";
 
-function JoinUsToday() {
+function JoinUsToday({
+  locationImage = Jointoday,
+
+}) {
   return (
-    <div className=" JoinToday">
-      <div className="max-w-[1280px] mx-auto w-full h-full px-8 pb-[130px] space-y-[18px] flex flex-col items-start justify-end">
+       <div className="relative h-[700px] ">
+      <img
+        src={locationImage}
+        alt="Join Evolve Today"
+        className="absolute inset-0 w-full h-full  object-cover"
+      />
+      <div className="relative z-10 max-w-[1280px] mx-auto w-full h-full px-4 md:px-8 md:pb-[130px] pb-[30px] space-y-[18px] flex flex-col items-start justify-end">
         <h2 className="!text-[#FFF] uppercase !leading-[50px] !text-[50px] font-[600] ">
           Join Evolve <br /> Strength Today
         </h2>

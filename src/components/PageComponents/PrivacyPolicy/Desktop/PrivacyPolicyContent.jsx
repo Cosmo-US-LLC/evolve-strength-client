@@ -16,7 +16,7 @@ const PrivacyPolicyContant = ({ privacyMain }) => {
   };
 
   return (
-    <div className="max-w-[1280px] px-8 pb-[140px] mt-32 mx-auto w-full flex ">
+    <div className="max-w-[1280px] md:px-8 px-4 pb-[140px] mt-32 mx-auto w-full flex ">
  
  
           <div className="flex flex-col  items-start w-[300px] p-[10px] gap-[10px] sticky top-[150px] max-md:hidden">

@@ -11,22 +11,19 @@ function EvolveExpansionPlans() {
       name: "Edmonton South",
       image: evolveLoctions,
       address: "4825 89 St NW, Edmonton, Alberta, T6E 5K1",
-      phone: "(780) 690-4252",
-      email: "evolvesouth@evolvestrength.ca",
+      
     },
     saskatchewan: {
       name: "Saskatchewan Club",
       image: evolveLoctions,
       address: "123 Main St, Regina, Saskatchewan, S4P 3X1",
-      phone: "(306) 123-4567",
-      email: "saskatchewan@evolvestrength.ca",
+      
     },
     ontario: {
       name: "Toronto Downtown",
       image: evolveLoctions,
       address: "456 King St W, Toronto, Ontario, M5V 1L7",
-      phone: "(416) 987-6543",
-      email: "toronto@evolvestrength.ca",
+     
     },
   };
 
@@ -42,13 +39,13 @@ function EvolveExpansionPlans() {
     setHoveredProvince(null);
   };
   return (
-    <div className="w-full max-w-[1280px] mx-auto px-8 py-20 flex flex-col gap-16">
+    <div className="w-full max-w-[1280px] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-8 md:gap-16">
       <h2 className="text-center text-[#000] uppercase ">
         EVOLVE LOCATIONS & EXPANSION PLANS
       </h2>
-      <div className="flex justify-center items-center">
-        <div className="w-[60%]">
-          <div className="w-[620px] relative  overflow-visible">
+      <div className="flex flex-col-reverse md:flex-row gap-12 md:gap-0 justify-center items-center">
+        <div className="w-[100%] md:w-[60%]">
+          <div className="w-full md:w-[620px] relative  overflow-visible">
             <>
               <div className="relative  overflow-visible">
                 <svg
@@ -248,7 +245,7 @@ function EvolveExpansionPlans() {
             />
           )}
         </div>
-        <div className="w-[40%]">
+        <div className="w-[100%] md:w-[40%]">
           <div className="flex flex-col gap-8 max-w-[493px] border border-[#CCCCCC] bg-[#F6F6F6] px-8 py-12 rounded-[10px]">
             <div className="flex flex-col gap-3">
               <h3 className=" text-[#000] leading-[25px] capitalize font-[400]">
