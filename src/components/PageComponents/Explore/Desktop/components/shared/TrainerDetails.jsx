@@ -1,13 +1,9 @@
 import React from "react";
 
 function TrainerDetails({ trainer }) {
-  // if (!trainer) {
-  //   return (
-  //     <div>
-
-  //     </div>
-  //   );
-  // }
+  if (!trainer) {
+    return <div>Our amazing team of trainers will be announced soon!</div>;
+  }
 
   return (
     <div className="flex flex-col gap-4 md:gap-6 bg-[#FFF] rounded-[10px] p-4 md:p-6 border-2 border-[#CCCCCC] h-full">

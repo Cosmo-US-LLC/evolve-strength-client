@@ -30,7 +30,7 @@ function BurnabyBrentwood() {
       <Spacious />
       <LocationsSeeItForYourSelf />
       <SetonLocation />
-      <MeetTheTrainers />
+      <MeetTheTrainers location="BURNABY BRENTWOOD" />
       <JoinUsToday />
       <FrequentlyAskedQuestions {...LocationFaq} />
     </>

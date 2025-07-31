@@ -30,7 +30,7 @@ function CalgarySeton() {
       <Spacious />
       <LocationsSeeItForYourSelf />
       <SetonLocation />
-      <MeetTheTrainers />
+      <MeetTheTrainers location="CALGARY SETON" />
       <JoinUsToday />
       <FrequentlyAskedQuestions {...LocationFaq} />
     </>

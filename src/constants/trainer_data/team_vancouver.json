@@ -1,0 +1,62 @@
+[
+  {
+    "id": "vancouver-post-sarah-johnson",
+    "location": "VANCOUVER POST",
+    "trainerName": "Sarah Johnson",
+    "trainerNumber": 1,
+    "name": "Sarah Johnson",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2023/08/Luisa-Garcia-1.jpg",
+    "bio": "Sarah is a certified personal trainer with over 5 years of experience helping clients achieve their fitness goals. She specializes in strength training and functional movement.",
+    "areas_of_focus": "Strength training, Functional movement, Weight loss, Injury prevention",
+    "certification": "Certified Personal Trainer, CPR First Aid",
+    "email": "sarah.johnson@evolvestrength.ca",
+    "phone": "604-555-0123",
+    "social_links": []
+  },
+  {
+    "id": "vancouver-post-mike-chen",
+    "location": "VANCOUVER POST",
+    "trainerName": "Mike Chen",
+    "trainerNumber": 2,
+    "name": "Mike Chen",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2021/12/Henrik-Kovacs.jpg",
+    "bio": "Mike is passionate about helping clients build strength and confidence through proper training techniques and nutrition guidance.",
+    "areas_of_focus": "Strength and conditioning, Nutrition coaching, Athletic performance",
+    "certification": "Certified Personal Trainer, Nutrition Coach",
+    "email": "mike.chen@evolvestrength.ca",
+    "phone": "604-555-0124",
+    "social_links": []
+  },
+  {
+    "id": "vancouver-post-emily-rodriguez",
+    "location": "VANCOUVER POST",
+    "trainerName": "Emily Rodriguez",
+    "trainerNumber": 3,
+    "name": "Emily Rodriguez",
+    "role": "Yoga Instructor",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/02/Julia-Shelley.jpg",
+    "bio": "Emily brings mindfulness and movement together through her yoga practice, helping clients find balance in their fitness journey.",
+    "areas_of_focus": "Yoga, Mindfulness, Flexibility, Stress management",
+    "certification": "Certified Yoga Instructor, Meditation Teacher",
+    "email": "emily.rodriguez@evolvestrength.ca",
+    "phone": "604-555-0125",
+    "social_links": []
+  },
+  {
+    "id": "vancouver-post-david-kim",
+    "location": "VANCOUVER POST",
+    "trainerName": "David Kim",
+    "trainerNumber": 4,
+    "name": "David Kim",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2022/09/Kelly-Newman.jpg",
+    "bio": "David specializes in high-intensity training and helps clients push their limits while maintaining proper form and safety.",
+    "areas_of_focus": "High-intensity training, Cardio fitness, Weight loss",
+    "certification": "Certified Personal Trainer, HIIT Specialist",
+    "email": "david.kim@evolvestrength.ca",
+    "phone": "604-555-0126",
+    "social_links": []
+  }
+]
