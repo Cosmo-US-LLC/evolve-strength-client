@@ -37,6 +37,7 @@ import CalgaryRoyalOak from "./pages/LocationsPage/CalgaryRoyalOak";
 import BurnabyBrentwood from "./pages/LocationsPage/BurnabyBrentwood";
 import VancouverPost from "./pages/LocationsPage/VancouverPost";
 
+
 function App() {
   return (
     <>
