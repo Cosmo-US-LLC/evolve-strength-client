@@ -1,6 +1,6 @@
 import React from "react";
 import CategoryCard from "./CategoryCard";
-import { EXPLORE_DATA } from "../../../../../../constants/UnUseExploreDataOld";
+import { EXPLORE_DATA } from "../../../../../../constants/exploreDataWithTrainer";
 import LocationsView from "../LocationsView/LocationsView";
 import WellnessView from "../WellnessView/WellnessView";
 import TrainersView from "../TrainersView/TrainersView";

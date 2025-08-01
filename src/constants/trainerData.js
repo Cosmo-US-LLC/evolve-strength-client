@@ -39,4 +39,33 @@ export const getTrainerById = (trainerId) => {
   return null;
 };
 
+// Get multiple trainers by IDs
+export const getTrainersByIds = (trainerIds) => {
+  if (!trainerIds || !Array.isArray(trainerIds)) return [];
+
+  const trainers = [];
+  for (const trainerId of trainerIds) {
+    const trainer = getTrainerById(trainerId);
+    if (trainer) {
+      trainers.push(trainer);
+    }
+  }
+  return trainers;
+};
+
+// Create TRAINER_IDS mapping for exploreDataWithTrainer.js
+export const TRAINER_IDS = {};
+for (const locationKey in LOCATION_TRAINERS) {
+  const trainers = LOCATION_TRAINERS[locationKey];
+  trainers.forEach((trainer) => {
+    // Create a simplified key from trainerName
+    const key = (trainer.trainerName || trainer.name)
+      .toUpperCase()
+      .replace(/[^A-Z0-9]/g, "_") // Replace non-alphanumeric with underscore
+      .replace(/__+/g, "_") // Replace multiple underscores with single
+      .replace(/_$/, ""); // Remove trailing underscore if any
+    TRAINER_IDS[key] = trainer.id;
+  });
+}
+
 export default LOCATION_TRAINERS;
