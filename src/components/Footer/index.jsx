@@ -157,7 +157,7 @@ function Footer() {
               </div>
             </div>
           </div>
-          <div className="flex flex-row items-center justify-between w-full max-w-[814px] h-[100px] gap-6">
+          <div className="flex flex-row items-center justify-between w-full max-w-[778px] h-[100px] gap-6">
             <div className="text-[#4AB04A] hover:text-[#ffffff] border-[2px] border-[#4AB04A] cursor-pointer hover:border-[#ffffff] rounded-full p-4">
               <Instagram className="w-7 h-7 " />
             </div>
