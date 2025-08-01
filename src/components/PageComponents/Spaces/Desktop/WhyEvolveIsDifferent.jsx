@@ -148,15 +148,15 @@ function WhyEvolveIsDifferent() {
       </div>
      <div className="relative block md:hidden  max-md:pb-[48px]">
       <h2 className="text-left text-[#000] font-bold uppercase  px-4 mb-6">
-        Why Evolve Is Different
+        Why Evolve Is Differentt
       </h2>
 
-      <div className="relative min-h-[400px] flex items-end pb-[24px] z-10">
+      <div className="relative min-h-[530px] flex items-end pb-[24px] z-10">
       <div
-        className="absolute inset-0 bg-cover bg-center transition-opacity duration-500"
+        className="absolute inset-0 bg-cover bg-center duration-500"
         style={{
           backgroundImage: `url(${cardData[activeIndex].image})`,
-          opacity: 0.8,
+         
           zIndex: 0,
         }}
       />

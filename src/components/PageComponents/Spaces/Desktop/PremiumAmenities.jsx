@@ -33,7 +33,7 @@ const PremiumAmenities = () => {
   return (
     <div>
       <div className="py-12 bg-[#EEEEEE] max-md:hidden">
-        <div className="max-w-[1280px] mx-auto md:px-8 max-md:px-[16px] flex ">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-8 max-md:px-[16px] flex ">
           <div className="flex md:flex-row max-md:flex-col gap-8 justify-between w-full">
             <div className="md:w-[50%] md:max-w-[562px] max-md:w-[100%] flex flex-col gap-6">
               <h2 className="font-[700] text-[#000] uppercase">
@@ -102,51 +102,56 @@ const PremiumAmenities = () => {
               </h4>
             </div>
 
-       <ul className="">
-  {amenities.map((item) => {
-    const isActive = activeAmenity.title === item.title;
-    return (
-      <li key={item.title} className="py-4 space-y-6 border-[#000] border-b">
-         {isActive && (
-        <div
-                className={`flex gap-4 mt-4 mb-6 text-xs text-gray-700 transition-opacity duration-300 ${
-                  fade ? "opacity-0" : "opacity-100"
-                }`}
-              >
-                <div className="flex items-center gap-1 text-[#000] text-[14px] font-[kanit] font-[500] uppercase leading-normal">
-                  <XCircle className="w-5 h-5 text-[#000] " />
-                  NO ADDITIONAL CONTRACTS
-                </div>
-                <div className="flex items-center gap-1 text-[#000] text-[14px] font-[kanit] font-[500] uppercase leading-normal">
-                  <XCircle className="w-5 h-5 text-[#000]" />
-                  NO EXTRA FEES
-                </div>
-              </div>
-        )}
-          
-        <div
-          onClick={() => handleImageChange(item)}
-          className={`cursor-pointer  text-[24px] font-[500] font-[kanit] leading-normal  transition-colors duration-300 ${
-            isActive ? "text-[#000]" : "text-[#000] opacity-50 hover:opacity-100"
-          }`}
-        >
-          {item.title}
-        </div>
+            <ul className="">
+              {amenities.map((item) => {
+                const isActive = activeAmenity.title === item.title;
+                return (
+                  <li
+                    key={item.title}
+                    className="py-4 space-y-6 border-[#000] border-b"
+                  >
+                    {isActive && (
+                      <div
+                        className={`flex gap-4 mt-4 mb-6 text-xs text-gray-700 transition-opacity duration-300 ${
+                          fade ? "opacity-0" : "opacity-100"
+                        }`}
+                      >
+                        <div className="flex items-center gap-1 text-[#000] text-[14px] font-[kanit] font-[500] uppercase leading-normal">
+                          <XCircle className="w-5 h-5 text-[#000] " />
+                          NO ADDITIONAL CONTRACTS
+                        </div>
+                        <div className="flex items-center gap-1 text-[#000] text-[14px] font-[kanit] font-[500] uppercase leading-normal">
+                          <XCircle className="w-5 h-5 text-[#000]" />
+                          NO EXTRA FEES
+                        </div>
+                      </div>
+                    )}
 
-        {isActive && (
-          <div className="w-full flex justify-center mt-4">
-            <img
-              key={item.image}
-              src={item.image}
-              alt={item.title}
-              className="rounded-[10px] object-cover w-full max-w-[340px] h-auto shadow"
-            />
-          </div>
-        )}
-      </li>
-    );
-  })}
-</ul>
+                    <div
+                      onClick={() => handleImageChange(item)}
+                      className={`cursor-pointer  text-[24px] font-[500] font-[kanit] leading-normal  transition-colors duration-300 ${
+                        isActive
+                          ? "text-[#000]"
+                          : "text-[#000] opacity-50 hover:opacity-100"
+                      }`}
+                    >
+                      {item.title}
+                    </div>
+
+                    {isActive && (
+                      <div className="w-full flex justify-center mt-4">
+                        <img
+                          key={item.image}
+                          src={item.image}
+                          alt={item.title}
+                          className="rounded-[10px] object-cover w-full  h-auto shadow"
+                        />
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
       </div>

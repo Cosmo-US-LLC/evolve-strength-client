@@ -3,7 +3,7 @@ import {
   getAllTrainers,
   getAllLocations,
   getToday,
-} from "../../../../../../constants/UnUseExploreDataOld";
+} from "../../../../../../constants/exploreDataWithTrainer";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
 import { ArrowUpCircle, Check, ChevronDown } from "lucide-react";
@@ -21,26 +21,44 @@ function TrainersView() {
     setSelectedTrainerIdx(null);
   }, [selectedTab, selectedLocation]);
 
+  // Helper function to transform trainer data for display
+  const transformTrainerData = (trainer) => {
+    return {
+      ...trainer,
+      name: trainer.trainerName || trainer.name,
+      title: trainer.role,
+      about: trainer.bio,
+      areasOfFocus: trainer.areas_of_focus
+        ? trainer.areas_of_focus.split(", ")
+        : [],
+    };
+  };
+
   let filteredTrainers = allTrainers;
   if (selectedTab === "Alphabetical") {
     filteredTrainers = [...allTrainers].sort((a, b) =>
-      a.name.localeCompare(b.name)
+      (a.trainerName || a.name).localeCompare(b.trainerName || b.name)
     );
   } else if (selectedTab === "Locations" && selectedLocation) {
     filteredTrainers = allTrainers.filter(
       (trainer) => trainer.location === selectedLocation
     );
   } else if (selectedTab === "New Trainers") {
+    // Note: The trainer data doesn't have a 'joined' field, so this will show no results
+    // You may need to add this field to your trainer data or remove this filter
     filteredTrainers = allTrainers.filter(
       (trainer) => trainer.joined === getToday()
     );
   }
 
+  // Transform trainer data for display
+  const transformedTrainers = filteredTrainers.map(transformTrainerData);
+
   // 4 columns per row
   const columns = 4;
   const rows = [];
-  for (let i = 0; i < filteredTrainers.length; i += columns) {
-    rows.push(filteredTrainers.slice(i, i + columns));
+  for (let i = 0; i < transformedTrainers.length; i += columns) {
+    rows.push(transformedTrainers.slice(i, i + columns));
   }
 
   return (
@@ -127,23 +145,23 @@ function TrainersView() {
                     key={idx}
                     className="flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
                     onClick={() => {
-                      setSelectedLocation(location);
+                      setSelectedLocation(location.name);
                       setShowLocationDropdown(false);
                     }}
                   >
                     <div
                       className={`w-3 h-3 border-2 rounded flex items-center justify-center ${
-                        selectedLocation === location
+                        selectedLocation === location.name
                           ? "bg-[#4AB04A] border-[#4AB04A]"
                           : "border-[#CCCCCC]"
                       }`}
                     >
-                      {selectedLocation === location && (
+                      {selectedLocation === location.name && (
                         <Check className="w-2 h-2 text-white" />
                       )}
                     </div>
                     <span className="text-[16px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                      {location}
+                      {location.name}
                     </span>
                   </div>
                 ))}
@@ -246,23 +264,23 @@ function TrainersView() {
                   key={idx}
                   className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
                   onClick={() => {
-                    setSelectedLocation(location);
+                    setSelectedLocation(location.name);
                     setShowLocationDropdown(false);
                   }}
                 >
                   <div
                     className={`w-4 h-4 border-2 rounded flex items-center justify-center ${
-                      selectedLocation === location
+                      selectedLocation === location.name
                         ? "bg-[#4AB04A] border-[#4AB04A]"
                         : "border-[#CCCCCC]"
                     }`}
                   >
-                    {selectedLocation === location && (
+                    {selectedLocation === location.name && (
                       <Check className="w-3 h-3 text-white" />
                     )}
                   </div>
                   <span className="text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                    {location}
+                    {location.name}
                   </span>
                 </div>
               ))}
@@ -286,13 +304,13 @@ function TrainersView() {
 
       {/* Trainer Display */}
       <div className="w-full mb-8 md:mb-12">
-        {filteredTrainers && filteredTrainers.length > 0 && (
+        {transformedTrainers && transformedTrainers.length > 0 && (
           <>
             {/* Mobile: Trainer Carousel */}
             <div className="md:hidden bg-[#F6F6F6] px-4 py-6 rounded-t-[5px]">
               <TrainerCard
                 isCarousel={true}
-                trainers={filteredTrainers}
+                trainers={transformedTrainers}
                 selectedTrainer={selectedTrainerIdx}
                 onTrainerSelect={(index) => {
                   if (selectedTrainerIdx === index) {
@@ -340,7 +358,7 @@ function TrainersView() {
                       Math.floor(selectedTrainerIdx / columns) === rowIdx && (
                         <div className="w-full bg-[#F6F6F6] px-12 py-6 transition-all duration-300 ease-in-out">
                           <TrainerDetails
-                            trainer={filteredTrainers[selectedTrainerIdx]}
+                            trainer={transformedTrainers[selectedTrainerIdx]}
                           />
                         </div>
                       )}
@@ -354,7 +372,7 @@ function TrainersView() {
               selectedTrainerIdx !== undefined && (
                 <div className="md:hidden w-full bg-[#F6F6F6] px-4 py-6 transition-all duration-300 ease-in-out">
                   <TrainerDetails
-                    trainer={filteredTrainers[selectedTrainerIdx]}
+                    trainer={transformedTrainers[selectedTrainerIdx]}
                   />
                 </div>
               )}
@@ -362,7 +380,7 @@ function TrainersView() {
         )}
 
         {/* No Trainers Found */}
-        {filteredTrainers && filteredTrainers.length === 0 && (
+        {transformedTrainers && transformedTrainers.length === 0 && (
           <div className="text-center text-gray-500 py-6 md:py-8 px-4 md:px-0 transition-all duration-300 ease-in-out">
             <p className="text-base md:text-lg font-medium mb-2">
               No trainers found for the selected criteria.
