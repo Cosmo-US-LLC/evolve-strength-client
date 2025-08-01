@@ -1,5 +1,5 @@
 import React from 'react'
-import Users from "@/assets/images/JoinTheMovement/SocialMedia/AllMedia/MediaUsers.svg"
+import Users from "../../../../../assets/images/JoinTheMovement/SocialMedia/Allmedia/MediaUsers.svg"
 
 
 function AllMedia() {
