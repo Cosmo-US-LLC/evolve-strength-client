@@ -30,7 +30,7 @@ function EdmontonSouth() {
       <Spacious />
       <LocationsSeeItForYourSelf />
       <SetonLocation />
-      <MeetTheTrainers />
+      <MeetTheTrainers location="EDMONTON SOUTH" />
       <JoinUsToday />
       <FrequentlyAskedQuestions {...LocationFaq} />
     </>

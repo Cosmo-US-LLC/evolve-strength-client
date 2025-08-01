@@ -30,7 +30,7 @@ function CalgarySunridge() {
       <Spacious />
       <LocationsSeeItForYourSelf />
       <SetonLocation />
-      <MeetTheTrainers />
+      <MeetTheTrainers location="CALGARY SUNRIDGE" />
       <JoinUsToday />
       <FrequentlyAskedQuestions {...LocationFaq} />
     </>
