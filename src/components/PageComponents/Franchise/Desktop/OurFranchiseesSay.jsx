@@ -77,7 +77,7 @@ function OurFranchiseesSay() {
                       <img
                         src={slide.imageUrl}
                         alt={slide.alt}
-                        className="w-full h-auto max-w-[300px] md:max-w-[470px] md:h-[277px] object-cover rounded-lg md:absolute md:right-[-1%] md:bottom-0"
+                        className="w-full h-auto max-w-[300px] md:max-w-[470px] md:h-[277px] object-cover rounded-lg md:absolute md:right-[-1%] md:bottom-0 "
                       />
                     </div>
                   </div>
@@ -86,10 +86,10 @@ function OurFranchiseesSay() {
             </CarouselContent>
           </Carousel>
 
-          <div className="flex justify-center md:justify-start gap-4 mt-6 md:absolute md:left-[85%] md:-top-[28%] md:-translate-y-1/2">
+          <div className="flex justify-center md:justify-start gap-4 mt-6 md:absolute md:left-[85%] md:-top-[28%] md:-translate-y-1/2 ">
             <button
               onClick={handlePrevious}
-              className="h-12 w-12 bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow"
+              className="h-12 w-12 bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
             >
               <img
                 src={LeftArrowIcon}
@@ -99,7 +99,7 @@ function OurFranchiseesSay() {
             </button>
             <button
               onClick={handleNext}
-              className="h-12 w-12 bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow"
+              className="h-12 w-12 bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
             >
               <img
                 src={RightArrowIcon}

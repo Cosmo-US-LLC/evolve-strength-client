@@ -63,10 +63,10 @@ const MembershipPremiumAmenities = () => {
             </div>
           </div>
 
-          <div className="absolute -top-1/9 left-[70%]  md:-top-1/6 md:left-[86%] -translate-y-1/2  z-10">
+          <div className="absolute -top-1/9 left-[70%]  md:-top-1/6 md:left-[86%] -translate-y-1/2  z-10 ">
             <button
               onClick={scrollPrev}
-              className="p-2 rounded-full border border-[#000000] text-[#000000]"
+              className="p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-300 cursor-pointer"
             >
               <ArrowLeft className="md:w-6 md:h-6 w-4 h-4" />
             </button>
@@ -74,7 +74,7 @@ const MembershipPremiumAmenities = () => {
           <div className="absolute -top-1/9  md:-top-1/6  -translate-y-1/2 left-[83%] md:left-auto md:right-[6%] z-10">
             <button
               onClick={scrollNext}
-              className="p-2 rounded-full border border-[#000000] text-[#000000]"
+              className="p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-300 cursor-pointer"
             >
               <ArrowRight className="md:w-6 md:h-6  w-4 h-4" />
             </button>

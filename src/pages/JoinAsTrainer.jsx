@@ -15,7 +15,7 @@ function JoinAsTrainer() {
         <WhyChooseEvolve />
         <WhatTrainersAre />
         <TourOurFitness />
-        {/* <TrainerForm/> */}
+       
     </div>
   );
 }

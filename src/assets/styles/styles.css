@@ -273,6 +273,15 @@
   width: 100%;
 }
 
+/* .socialmedia{
+  background-image: url("@/assets/images/JoinTheMovement/SocialMedia/Mobile.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 352px;
+  height:678px
+} */
+
 .socialMedia {
   background-image: url("@/assets/images/JoinTheMovement/SocialMedia/Instagram_Grid.png");
   background-size: cover;

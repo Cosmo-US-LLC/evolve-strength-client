@@ -145,12 +145,7 @@ const PersonalGymExperience = () => {
           <h2 className="text-[#FFFFFF] uppercase leading-[32px] md:leading-[42px] text-left">
             SPECIALISED PERSONAL <br /> TRAINING, CUSTOMISED TO YOU
           </h2>
-          <h4 className="text-[#fff] leading-[22px] md:leading-[26px] max-w-[600px] text-left text-sm md:text-base">
-            We offer expert coaches across every major training discipline.
-            Whether you're working toward performance goals, recovering from
-            injury, or starting your fitness journey, we'll match you with the
-            right trainer and approach, all under one roof at Evolve.
-          </h4>
+          
         </div>
       </div>
 
