@@ -36,6 +36,8 @@ import CalgarySunridge from "./pages/LocationsPage/CalgarySunridge";
 import CalgaryRoyalOak from "./pages/LocationsPage/CalgaryRoyalOak";
 import BurnabyBrentwood from "./pages/LocationsPage/BurnabyBrentwood";
 import VancouverPost from "./pages/LocationsPage/VancouverPost";
+import TrainerForm from "./components/Form/TrainersForm";
+
 
 function App() {
   return (
@@ -113,6 +115,10 @@ function App() {
        
         <Route path="/loader" element={<Loader />} />
         <Route path="*" element={<NotFoundPage />} />
+         <Route
+          path="/trainer-form"
+          element={<TrainerForm />}
+        />
       </Routes>
     </>
   );

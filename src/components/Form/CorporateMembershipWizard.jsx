@@ -5,9 +5,9 @@ import { Building2 } from "lucide-react";
 
 function CorporateMembershipWizard({ onSelectOption }) {
   return (
-    <div className="flex md:gap-12 md:p-6 p-4 md:flex-row flex-col md:max-w-[1280px] mx-auto justify-center items-center min-h-screen">
+    <div className="flex md:gap-12 md:p-6 p-4  md:flex-row flex-col md:max-w-[1280px] mx-auto justify-center items-center min-h-screen">
       {/* Left Image */}
-      <div className="w-full max-w-[40%] flex-shrink-0 flex">
+      <div className="w-[600px]  justify-center  flex-shrink-0 flex">
         <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white max-md:hidden">
           <img
             src={locationImg}
@@ -17,7 +17,7 @@ function CorporateMembershipWizard({ onSelectOption }) {
         </div>
       </div>
       {/* Right Options */}
-      <div className="flex flex-col items-center  w-full md:max-w-[60%]">
+      <div className="flex flex-col items-center  w-full ">
         <h2 className="!text-[20px] md:text-[28px] md:font-[700] !font-[500] text-center mb-2">
           LET'S GET YOU STARTED
         </h2>
@@ -25,7 +25,7 @@ function CorporateMembershipWizard({ onSelectOption }) {
           Whether you're signing up for yourself or on behalf of a company,
           choose the option that best fits your journey.
         </p>
-        <div className="flex flex-col md:flex-row gap-6 w-full justify-center">
+        <div className="flex flex-col md:flex-row gap-6 w-full justify-end">
           <Link to="/check-membership-form">
           {/* Option 1 */}
           <button

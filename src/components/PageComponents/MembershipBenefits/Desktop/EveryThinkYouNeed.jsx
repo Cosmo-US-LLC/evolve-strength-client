@@ -82,19 +82,19 @@ const EveryThinkYouNeed = () => {
           <div className="absolute -top-1/9 md:-top-1/7 -translate-y-1/2 left-[74%] md:left-[87%] z-10">
             <button
               onClick={scrollPrev}
-              className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000]"
+              className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-100 cursor-pointer"
             >
               <img
                 src={LeftArrowIcon}
                 alt="Previous"
-                className="h-4 w-4 text-[#00000060]"
+                className="h-4 w-4 text-[#00000060] "
               />
             </button>
           </div>
-          <div className="absolute -top-1/9 md:-top-1/7 -translate-y-1/2 right-[4%] md:right-[6%] z-10">
+          <div className="absolute -top-1/9 md:-top-1/7 -translate-y-1/2 right-[4%] md:right-[6%] z-10 ">
             <button
               onClick={scrollNext}
-              className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000]"
+              className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-100 cursor-pointer"
             >
               <img
                 src={RightArrowIcon}

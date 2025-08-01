@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import locationImg from "../../assets/images/form/future-form.webp";
 import arrowUp from "../../assets/images/form/arrow-down (2).svg";
 import arrowDown from "../../assets/images/form/arrow-down (1).svg";
+import { Link } from "react-router-dom";
 
 const initialState = {
   firstName: "",
@@ -35,7 +36,7 @@ const franchiseExperienceOptions = ["None", "Some", "Extensive"];
 const bankruptcyOptions = ["Yes", "No"];
 const isMemberOptions = ["Yes", "No"];
 
-function YourFitnessFutureForm() {
+function YourFitnessFutureForm({ onReturnHome }) {
   const [form, setForm] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -79,18 +80,18 @@ function YourFitnessFutureForm() {
   };
 
   return (
-    <div className="flex gap-12 p-6 flex-row max-w-[1280px] mx-auto justify-center  min-h-screen">
+    <div className="flex md:gap-12 md:p-6 p-4 py-12  flex-col md:flex-row max-w-[1280px] mx-auto justify-center  min-h-screen">
       {/* Left Image & Headline */}
-      <div className="w-full max-w-[40%] flex-shrink-0 flex flex-col">
-        <h2 className="font-[700] leading-[39px] mb-4">
+      <div className="w-full md:max-w-[40%] flex-shrink-0 flex flex-col">
+        <h2 className=" font-[700] leading-[39px] mb-4">
           LET'S BUILD YOUR FITNESS FUTURE TOGETHER
         </h2>
-        <p className="mb-6 text-[18px] font-[400] leading-[28px] text-[#222]">
+        <p className="mb-6 text-[16px] font-[300] !font-[Kanit] leading-[24px] ">
           Have questions or ready to take the first step? Reach out today and
           let's create a personalized path to your health, strength, and
           recovery goals—designed just for you.
         </p>
-        <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white">
+        <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white max-md:hidden">
           <img
             src={locationImg}
             alt="Fitness Facility"
@@ -99,7 +100,7 @@ function YourFitnessFutureForm() {
         </div>
       </div>
       {/* Right Form */}
-      <div className="bg-[#FCFCFC] rounded-[10px] border max-w-[40%] w-full p-0 overflow-hidden">
+      <div className="bg-[#FCFCFC] rounded-[10px] border md:max-w-[40%] w-full p-0 overflow-hidden">
         {/* <div className="bg-[#000] text-white text-center py-4 px-6">
           <h3 className="mt-[4px]">APPLY NOW</h3>
         </div> */}
@@ -113,7 +114,7 @@ function YourFitnessFutureForm() {
             onSubmit={handleSubmit}
             noValidate
           >
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-row gap-4">
               <div className="flex-1 flex flex-col">
                 <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
                   First Name *
@@ -151,7 +152,7 @@ function YourFitnessFutureForm() {
                 </label>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-row gap-4">
               <div className="flex-1 flex flex-col">
                 <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
                   Email Address *
@@ -208,7 +209,8 @@ function YourFitnessFutureForm() {
                   )}
                 </label>
               </div>
-              <div className="flex-1 flex flex-col">
+              
+              <div className="md:flex-1 flex  flex-col">
                 <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
                   City *
                   <input
@@ -570,9 +572,11 @@ function YourFitnessFutureForm() {
                 )}
               </label>
             </div>
-            <button type="submit" className="mt-2 btnPrimary">
-              SUBMIT NOW
-            </button>
+            <Link to = "/">
+          <button className="w-full btnPrimary  " onClick={onReturnHome}>
+            RETURN TO HOMEPAGE
+          </button>
+          </Link>
           </form>
         )}
       </div>
