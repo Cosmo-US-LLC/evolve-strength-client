@@ -14,7 +14,7 @@ function JoinTheMovement() {
         <JoinTheMovementHero />
         <WhyYouShould />
         <WhattoSubmit />
-        <SocialMedia />
+        <SocialMedia/>
         <TrainHere />
       </div>
     </div>

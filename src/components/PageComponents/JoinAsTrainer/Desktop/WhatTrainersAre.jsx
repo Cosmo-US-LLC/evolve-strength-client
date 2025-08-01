@@ -89,7 +89,7 @@ function WhatTrainersAre() {
           <div className="flex justify-center md:justify-start gap-4 mt-6 md:absolute md:left-[85%] md:-top-[28%] md:-translate-y-1/2">
             <button
               onClick={handlePrevious}
-              className="h-12 w-12 bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow"
+              className="h-12 w-12 bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
             >
               <img
                 src={LeftArrowIcon}
@@ -99,7 +99,7 @@ function WhatTrainersAre() {
             </button>
             <button
               onClick={handleNext}
-              className="h-12 w-12 bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow"
+              className="h-12 w-12 bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
             >
               <img
                 src={RightArrowIcon}

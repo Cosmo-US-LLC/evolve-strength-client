@@ -222,7 +222,7 @@ const AvailableOffices = () => {
               <div className="absolute -top-1/10 -translate-y-1/2 left-[87%] z-10">
                 <button
                   onClick={scrollPrev}
-                  className="h-[45px] w-[45px] rounded-full flex items-center justify-center text-[#000000] border border-[#000000] bg-white"
+                  className="h-[45px] w-[45px] rounded-full flex items-center justify-center text-[#000000] border border-[#000000] bg-white hover:bg-gray-100 cursor-pointer"
                 >
                   <ArrowLeft className="w-6 h-6" />
                 </button>
@@ -230,7 +230,7 @@ const AvailableOffices = () => {
               <div className="absolute -top-1/10 -translate-y-1/2 right-[4%] z-10">
                 <button
                   onClick={scrollNext}
-                  className="h-[45px] w-[45px] rounded-full flex items-center justify-center text-[#000000] border border-[#000000] bg-white"
+                  className="h-[45px] w-[45px] rounded-full flex items-center justify-center text-[#000000] border border-[#000000] bg-white hover:bg-gray-100 cursor-pointer"
                 >
                   <ArrowRight className="w-6 h-6" />
                 </button>

@@ -3,6 +3,7 @@ import locationImg from "../../assets/images/form/spaces-form.webp";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import arrowUp from "../../assets/images/form/arrow-down (2).svg";
 import arrowDown from "../../assets/images/form/arrow-down (1).svg";
+import { Link } from "react-router-dom";
 
 const initialState = {
   firstName: "",
@@ -17,7 +18,8 @@ const initialState = {
 const bestTimeOptions = ["Morning", "Afternoon", "Evening"];
 const locationOptions = ["Downtown", "North", "South", "East", "West"];
 
-export default function EvolveSpacesForm() {
+export default function EvolveSpacesForm({ onReturnHome }) {
+  
   const [form, setForm] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -53,9 +55,9 @@ export default function EvolveSpacesForm() {
   };
 
   return (
-    <div className="flex gap-12 p-6 flex-row max-w-[1280px] mx-auto justify-center items-center min-h-screen">
+    <div className="flex gap-12 md:p-6 p-4  flex-row max-w-[1280px] mx-auto justify-center items-center min-h-screen">
       {/* Left Image */}
-      <div className="w-full max-w-[40%] flex-shrink-0 flex  ">
+      <div className="w-full max-w-[40%] flex-shrink-0 flex max-md:hidden ">
         <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white">
           <img
             src={locationImg}
@@ -65,10 +67,10 @@ export default function EvolveSpacesForm() {
         </div>
       </div>
       {/* Right Form */}
-      <div className="bg-[#FCFCFC] rounded-[10px] border max-w-[40%] w-full p-0 overflow-hidden">
+      <div className="bg-[#FCFCFC] rounded-[10px] border md:max-w-[40%] w-full p-0 overflow-hidden">
         <div className="bg-[#000] text-white text-center py-4 px-6">
           <h3 className="mt-[4px] ">JOIN THE WAITLIST</h3>
-          <p className="text-[18px] leading-[19px] font-[300]">
+          <p className="text-[18px] leading-[19px] !font-[Kanit] font-[400]">
             <span className="text-[#2DDE28] text-[18px] leading-[19px] font-[400]">
               Over 120 professionals
             </span>{" "}
@@ -85,7 +87,7 @@ export default function EvolveSpacesForm() {
             onSubmit={handleSubmit}
             noValidate
           >
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-row gap-4">
               <div className="flex-1 flex flex-col">
                 <label className="font-[500] text-[#000] flex flex-col gap-[2px] test-[16px] leading-[24px]">
                   First Name *
@@ -123,7 +125,7 @@ export default function EvolveSpacesForm() {
                 </label>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-row gap-4">
               <div className="flex-1 flex flex-col">
                 <label className="font-[500] text-[#000] flex flex-col gap-[2px] test-[16px] leading-[24px]">
                   Email Address *
@@ -287,9 +289,11 @@ export default function EvolveSpacesForm() {
                 )}
               </label>
             </div>
-            <button type="submit" className="mt-2 btnPrimary">
-              SUBMIT NOW
-            </button>
+            <Link to = "/">
+                      <button className="w-full mt-2 btnPrimary  " onClick={onReturnHome}>
+                        SUBMIT NOW
+                      </button>
+                      </Link>
           </form>
         )}
       </div>
