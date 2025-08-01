@@ -118,7 +118,7 @@ const EvolveLookLike = () => {
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   return (
-    <section className="py-12">
+    <section className="md:py-12">
       <div className="relative flex flex-col gap-16">
         {/* Header */}
         <div className=" w-full max-w-[1280px] mx-auto md:px-8 px-4 md:flex md:items-end md:justify-between items-center justify-center mb-4">
