@@ -16,7 +16,7 @@ function WellnessPricingRoom() {
             your best self.
           </p>
           <div className="flex gap-6">
-            <button className="btnPrimary">Find a Wellness Expert</button>
+            <button className="btnPrimary">Begin free training consultation</button>
           </div>
         </div>
       </div>
