@@ -3,7 +3,7 @@ import trainerBg from "/src/assets/images/spaces/EvolveEcosystem/EvolveEcosystem
 
 function EvolveEcosystem() {
   return (
-    <div className="w-full md:py-12 max-md:pt-0 pb-[48px] bg-[#fff]">
+    <div className="w-full md:py-12 max-md:pt-0 pb-0 md:pb-[48px] bg-[#fff]">
       <div className="w-full max-w-[1280px] md:px-8  mx-auto ">
         <div
           className="bg-cover bg-center min-h-[600px] flex flex-col max-md:px-[16px] justify-between md:px-[76px]  md:py-16 max-md:py-[24px]  items-start text-left md:rounded-xl overflow-hidden shadow-lg"
@@ -11,7 +11,7 @@ function EvolveEcosystem() {
         >
           {/* <div className="absolute inset-0 bg-black/40 z-0" /> */}
 
-          <div className="relative z-10 max-md:px-[16px] max-w-3xl space-y-4">
+          <div className="relative z-10 max-md:px-[0px] max-w-3xl space-y-4">
             <h2 className="uppercase text-[#FFF]">
               Be Part of the Evolve <br /> Ecosystem
             </h2>
