@@ -12,16 +12,7 @@ import Influencers from './Influencers';
 
 function index() {
   return (
-    // <div className='w-full max-w-[1440px] md:px-8 mx-auto flex  justify-center py-12 '>
-    // <PhoneMockUp/>
-    // <Instagram/>
-    // <Facebook/>
-    // <AllMedia/>
-    // <FitnessStrip/>
-    // <GymCommunity/>
-    // <TrainWithEvolve/>
-    // <EvolveStrip/>
-    // <Influencers/>
+    //  
     
 
 
