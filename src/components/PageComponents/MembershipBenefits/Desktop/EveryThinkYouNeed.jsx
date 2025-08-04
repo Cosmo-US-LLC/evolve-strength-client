@@ -16,7 +16,6 @@ import slide9 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNe
 
 const professionals = [
   { title: "Physiotherapy", image: slide1 },
-  { title: "Pilates", image: slide2 },
   { title: "Massage Therapy", image: slide3 },
   { title: "Chiropractic Care", image: slide4 },
   { title: "Acupuncture", image: slide5 },
@@ -70,7 +69,7 @@ const EveryThinkYouNeed = () => {
                   <img
                     src={pro.image}
                     alt={pro.title}
-                    className="w-full h-[400px] object-cover"
+                    className="w-full h-auto md:h-[400px] object-cover"
                   />
                   <h3 className="absolute bottom-[40px] left-0 right-0  flex items-center justify-center text-[#FFF] leading-[24px] font-[500]">
                     {pro.title}
