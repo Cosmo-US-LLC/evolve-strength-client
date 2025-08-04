@@ -11,19 +11,16 @@ function EvolveExpansionPlans() {
       name: "Edmonton South",
       image: evolveLoctions,
       address: "4825 89 St NW, Edmonton, Alberta, T6E 5K1",
-      
     },
     saskatchewan: {
       name: "Saskatchewan Club",
       image: evolveLoctions,
       address: "123 Main St, Regina, Saskatchewan, S4P 3X1",
-      
     },
     ontario: {
       name: "Toronto Downtown",
       image: evolveLoctions,
       address: "456 King St W, Toronto, Ontario, M5V 1L7",
-     
     },
   };
 

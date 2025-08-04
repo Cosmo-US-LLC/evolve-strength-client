@@ -151,7 +151,8 @@ function WhyEvolveIsDifferent() {
         Why Evolve Is Differentt
       </h2>
 
-      <div className="relative min-h-[530px] flex items-end pb-[24px] z-10">
+      <div className="relative min-h-[540px] flex items-end pb-[24px] z-10">
+        <div className="absolute inset-0 bg-black/10 z-1"></div>
       <div
         className="absolute inset-0 bg-cover bg-center duration-500"
         style={{
@@ -162,13 +163,13 @@ function WhyEvolveIsDifferent() {
       />
         <Carousel
           setApi={setApi}
-          className="w-full"
+          className="w-full relative z-10"
         >
-          <CarouselContent className="px-5 gap-2">
+          <CarouselContent className="px-5 gap-2  ">
             {cardData.map((card, index) => (
               <CarouselItem
                 key={index}
-                className="flex-shrink-0 w-[85%] max-w-[320px] mx-auto"
+                className="flex-shrink-0 w-[85%] max-w-[320px] mx-auto "
               >
                 <div className="bg-white rounded-[10px] overflow-hidden h-full">
                   <div className="p-4 space-y-2">
