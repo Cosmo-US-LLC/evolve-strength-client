@@ -33,6 +33,8 @@ const gymCards = [
 
 const GymExperience = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [previousIndex, setPreviousIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const defaultIndex = 0;
   const activeIndex = hoveredIndex !== null ? hoveredIndex : defaultIndex;
 
@@ -40,12 +42,25 @@ const GymExperience = () => {
   const [mobileSelectedIndex, setMobileSelectedIndex] = useState(0);
   const mobileCarouselApi = useRef(null);
 
+  // Preload images
   useEffect(() => {
     gymCards.forEach((card) => {
       const img = new Image();
       img.src = card.bgImage;
     });
   }, []);
+
+  // Handle smooth transitions
+  useEffect(() => {
+    if (activeIndex !== previousIndex) {
+      setIsTransitioning(true);
+      const timer = setTimeout(() => {
+        setPreviousIndex(activeIndex);
+        setIsTransitioning(false);
+      }, 300); // Match the transition duration
+      return () => clearTimeout(timer);
+    }
+  }, [activeIndex, previousIndex]);
 
   // Simplified carousel API handling
   useEffect(() => {
@@ -71,13 +86,24 @@ const GymExperience = () => {
     <div>
       <div className="relative w-full overflow-hidden mb-12 max-md:hidden">
         <div className="absolute inset-0 z-0 overflow-hidden">
+          {/* Previous background image - stays visible during transition */}
           <div
-            key={activeIndex}
-            className="absolute inset-0 bg-cover bg-center transition-all  animate-fade will-change-transform will-change-opacity"
+            className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
             style={{
-              backgroundImage: `url(${gymCards[activeIndex].bgImage})`,
+              backgroundImage: `url(${gymCards[previousIndex].bgImage})`,
+              // opacity: isTransitioning ? 1 : 0,
             }}
           />
+
+          {/* Current background image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
+            style={{
+              backgroundImage: `url(${gymCards[activeIndex].bgImage})`,
+              // opacity: isTransitioning ? 0 : 1,
+            }}
+          />
+
           <div className="absolute inset-0 bg-black/20 pointer-events-none" />
         </div>
 
