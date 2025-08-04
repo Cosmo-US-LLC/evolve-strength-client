@@ -58,7 +58,7 @@ function Footer() {
               </div>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col w-full">
               <div className="max-w-[790px] text-white border-y border-y-[#2b2b2b] pt-6 pb-2">
                 <div className="footer_links flex flex-wrap items-center gap-6 mb-4">
                   <Link
@@ -73,9 +73,13 @@ function Footer() {
                     Become a Practitioner
                   </a>
                   <span className="text-[#B2B1AA]">/</span>
-                  <a href="#" className="text-[#B2B1AA] hover:text-[#ffffff]">
+                  <Link
+                    smooth
+                    to="/franchise"
+                    className="text-[#B2B1AA] hover:text-[#ffffff]"
+                  >
                     Franchise with Evolve
-                  </a>
+                  </Link>
                 </div>
 
                 <p className="footer_quick_links pt-3 text-[#6F6D66] uppercase ">
@@ -86,7 +90,7 @@ function Footer() {
               <div className=" flex flex-row gap-[70px] md:gap-[130px] py-8">
                 <div className="space-y-3 flex flex-col">
                   <Link
-                  smooth
+                    smooth
                     to="/about-us"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
@@ -113,7 +117,7 @@ function Footer() {
                     Membership Benefits
                   </Link>
                   <Link
-                  smooth
+                    smooth
                     to="/join-the-Movement"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
