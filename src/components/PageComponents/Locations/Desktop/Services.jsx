@@ -20,8 +20,6 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 
-import TopShadow from "../../../../assets/images/Locations/shadow/top-shadow.svg";
-import BottomShadow from "../../../../assets/images/Locations/shadow/down-shadow.svg";
 
 import estheticianBg from "/src/assets/images/home/wellness-services/esthetician.webp";
 import chiropracticBg from "/src/assets/images/home/wellness-services/chiropractic_care.webp";
@@ -83,16 +81,7 @@ const Services = () => {
   return (
     <div className="w-full relative max-md:pb-[48px] max-md:pt-0">
       {/* Desktop View */}
-      <img
-        src={TopShadow}
-        alt="Shadow"
-        className="absolute top-0 left-0 right-0 w-full h-auto z-20"
-      />
-      <img
-        src={BottomShadow}
-        alt="Shadow"
-        className="absolute bottom-0 left-0 right-0 w-full h-auto z-10"
-      />
+  
       <div
         className="relative flex flex-row items-center justify-center w-full min-h-[700px] bg-cover bg-center transition-all will-change-transform will-change-opacity max-md:hidden"
         style={{ backgroundImage: `url(${services[activeIndex].bgImage})` }}

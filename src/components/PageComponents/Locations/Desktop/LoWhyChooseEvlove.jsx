@@ -56,7 +56,7 @@ const LoWhyChooseEvolve = () => {
               {professionals.map((pro, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_100%] md:flex-[0_0_calc(50%-58px)] relative"
+                  className="flex-[0_0_100%] md:flex-[0_0_calc(50%-8px)] relative"
                 >
                   <img
                     src={pro.image}
