@@ -293,7 +293,7 @@
 .aboutUsReadyToEvolve {
   background-image: url("@/assets/images/JoinTheMovement/TrainHere/Trainherebg.webp");
   background-size: cover;
-  background-position: top;
+  background-position: center;
   background-repeat: no-repeat;
   width: 100%;
   height: 700px;
@@ -328,7 +328,7 @@
     background-image: url("@/assets/images/MembershipBenefits/FreeAssessmentForMembership/free-assessment-mob-BG.webp");
   }
   .ReadyToEvolveBG {
-    background-image: url("@/assets/images/MembershipBenefits/ReadyToEvolve/ReadyToEvolveMobBG.webp");
+    background-image: url("@/assets/images/MembershipBenefits/ReadyToEvolve/ReadyToEvolveBG.webp");
   }
   .employeePlanBG {
     background-image: url("@/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanMobBG.webp");
@@ -340,7 +340,7 @@
     background-image: url("@/assets/images/AboutUs/Abouthero_mob.webp");
   }
   .aboutUsReadyToEvolve {
-    background-image: url("@/assets/images/AboutUs/About_trainer.webp");
+    background-image: url("@/assets/images/JoinTheMovement/TrainHere/Trainherebg.webp");
   }
   .LocationsHero {
     background-image: url("@/assets/images/Locations/herosection_mob.webp");
