@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import {
@@ -70,6 +70,8 @@ const services = [
 
 const WellnessServices = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [previousIndex, setPreviousIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       containScroll: "keepSnaps",
@@ -79,6 +81,18 @@ const WellnessServices = () => {
     },
     [Autoplay({ delay: 6000, stopOnInteraction: false })]
   );
+
+  // Handle transitions for both desktop and mobile
+  useEffect(() => {
+    if (activeIndex !== previousIndex) {
+      setIsTransitioning(true);
+      const timer = setTimeout(() => {
+        setPreviousIndex(activeIndex);
+        setIsTransitioning(false);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [activeIndex, previousIndex]);
 
   // Sync activeIndex with carousel
   useEffect(() => {
@@ -102,10 +116,25 @@ const WellnessServices = () => {
   return (
     <div className="w-full md:py-12 max-md:pb-[48px] max-md:pt-0">
       {/* Desktop View */}
-      <div
-        className="relative flex flex-row items-center justify-center w-full min-h-[700px] bg-cover bg-center transition-all will-change-transform will-change-opacity max-md:hidden"
-        style={{ backgroundImage: `url(${services[activeIndex].bgImage})` }}
-      >
+      <div className="relative flex flex-row items-center justify-center w-full min-h-[700px] max-md:hidden">
+        {/* Previous background image - stays visible during transition */}
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
+          style={{
+            backgroundImage: `url(${services[previousIndex].bgImage})`,
+            // opacity: isTransitioning ? 1 : 0,
+          }}
+        />
+
+        {/* Current background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
+          style={{
+            backgroundImage: `url(${services[activeIndex].bgImage})`,
+            // opacity: isTransitioning ? 0 : 1,
+          }}
+        />
+
         <div className="absolute inset-0 bg-black/40 z-0" />
 
         <div className="relative z-10 max-w-[1280px] w-full mx-auto flex flex-row items-center justify-between px-8 gap-10">
@@ -153,12 +182,29 @@ const WellnessServices = () => {
           </div>
         </div>
       </div>
+
       {/* Mobile View */}
-      <div
-        className="md:hidden relative w-full min-h-[552px] bg-cover bg-center  flex flex-col px-[16px] py-[32px] justify-between items-center overflow-hidden"
-        style={{ backgroundImage: `url(${services[activeIndex].bgImage})` }}
-      >
+      <div className="md:hidden relative w-full min-h-[552px] flex flex-col px-[16px] py-[32px] justify-between items-center overflow-hidden">
+        {/* Previous background image for mobile */}
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
+          style={{
+            backgroundImage: `url(${services[previousIndex].bgImage})`,
+            // opacity: isTransitioning ? 1 : 0,
+          }}
+        />
+
+        {/* Current background image for mobile */}
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
+          style={{
+            backgroundImage: `url(${services[activeIndex].bgImage})`,
+            // opacity: isTransitioning ? 0 : 1,
+          }}
+        />
+
         <div className="absolute inset-0 bg-black/40 z-0" />
+
         <div className="relative z-10 flex flex-col items-center w-full  gap-6">
           <h2 className="uppercase text-[#ffffff] font-bold">
             WELLNESS SERVICES FOR EVERYONE.
@@ -195,7 +241,7 @@ const WellnessServices = () => {
                       <div className="relative z-10 transition-colors duration-500 w-full text-center flex flex-col items-center justify-center gap-2">
                         <div
                           className={`mb-1 text-[20px] transition-all duration-200 ${
-                            isActive ? "text-[#4AB04A]" : "text-[#fff]"
+                            isActive ? "text-[#fff]" : "text-[#fff]"
                           }`}
                         >
                           {service.icon}

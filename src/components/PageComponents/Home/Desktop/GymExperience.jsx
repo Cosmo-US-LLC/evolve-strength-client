@@ -1,14 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import fitness from "/src/assets/images/home/gymEep/fitness.webp";
 import wellness from "/src/assets/images/home/gymEep/wellness.webp";
 import atmosphere from "/src/assets/images/home/gymEep/atmosphere.webp";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import useEmblaCarousel from "embla-carousel-react";
 
 const gymCards = [
   {
@@ -36,10 +30,18 @@ const GymExperience = () => {
   const defaultIndex = 0;
   const activeIndex = hoveredIndex !== null ? hoveredIndex : defaultIndex;
 
-  // Simplified mobile state
-  const [mobileSelectedIndex, setMobileSelectedIndex] = useState(0);
-  const mobileCarouselApi = useRef(null);
+  // Mobile state - simplified like PersonalGymExperience
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [previousIndex, setPreviousIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "center",
+    loop: false,
+    skipSnaps: false,
+    dragFree: false,
+  });
 
+  // Preload images
   useEffect(() => {
     gymCards.forEach((card) => {
       const img = new Image();
@@ -47,33 +49,42 @@ const GymExperience = () => {
     });
   }, []);
 
-  // Simplified carousel API handling
+  // Handle mobile carousel selection with crossfade
   useEffect(() => {
-    if (!mobileCarouselApi.current) return;
+    if (!emblaApi) return;
 
     const onSelect = () => {
-      const idx = mobileCarouselApi.current.selectedScrollSnap();
-      setMobileSelectedIndex(idx);
+      const idx = emblaApi.selectedScrollSnap();
+      if (idx !== selectedIndex) {
+        setPreviousIndex(selectedIndex);
+        setIsTransitioning(true);
+        setSelectedIndex(idx);
+
+        // Complete transition after animation
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 300);
+      }
     };
 
-    mobileCarouselApi.current.on("select", onSelect);
+    emblaApi.on("select", onSelect);
 
     // Set initial index
-    const initialIdx = mobileCarouselApi.current.selectedScrollSnap();
-    setMobileSelectedIndex(initialIdx);
+    const initialIdx = emblaApi.selectedScrollSnap();
+    setSelectedIndex(initialIdx);
 
     return () => {
-      mobileCarouselApi.current?.off("select", onSelect);
+      emblaApi.off("select", onSelect);
     };
-  }, [mobileCarouselApi.current]);
+  }, [emblaApi, selectedIndex]);
 
   return (
     <div>
       <div className="relative w-full overflow-hidden mb-12 max-md:hidden">
         <div className="absolute inset-0 z-0 overflow-hidden">
+          {/* Background image for desktop */}
           <div
-            key={activeIndex}
-            className="absolute inset-0 bg-cover bg-center transition-all  animate-fade will-change-transform will-change-opacity"
+            className="absolute inset-0 bg-cover bg-center transition-all duration-300 ease-in-out"
             style={{
               backgroundImage: `url(${gymCards[activeIndex].bgImage})`,
             }}
@@ -125,79 +136,64 @@ const GymExperience = () => {
         </div>
       </div>
 
-      {/* Simplified Mobile Carousel */}
+      {/* Mobile Carousel - Simplified like PersonalGymExperience */}
       <div className="md:hidden">
         <div className="relative w-full overflow-hidden min-h-[512px] flex flex-col">
-          {/* Background Image with Smooth Transition */}
+          {/* Previous background image - stays visible during transition */}
           <div
-            className="absolute inset-0 z-0 bg-cover bg-center transition-all duration-700 ease-in-out"
+            className="absolute inset-0 z-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
             style={{
-              backgroundImage: `url(${gymCards[mobileSelectedIndex].bgImage})`,
+              backgroundImage: `url(${gymCards[previousIndex].bgImage})`,
             }}
           />
+
+          {/* Current background image */}
+          <div
+            className="absolute inset-0 z-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
+            style={{
+              backgroundImage: `url(${gymCards[selectedIndex].bgImage})`,
+            }}
+          />
+
           <div className="absolute inset-0 bg-black/20 pointer-events-none z-10" />
 
           {/* Spacer to push carousel to bottom */}
           <div className="flex-1" />
 
-          {/* Carousel at bottom */}
+          {/* Carousel at bottom - using Embla like PersonalGymExperience */}
           <div className="relative z-20 pb-4 pl-4">
-            <Carousel
-              opts={{
-                align: "center",
-                loop: false,
-                skipSnaps: false,
-                dragFree: false,
-              }}
-              className="w-full"
-              setApi={(api) => (mobileCarouselApi.current = api)}
-            >
-              <CarouselContent className="">
+            <div className="w-full" ref={emblaRef}>
+              <div className="flex">
                 {gymCards.map((card, index) => {
-                  const isActive = mobileSelectedIndex === index;
+                  const isSelected = selectedIndex === index;
                   return (
-                    <CarouselItem
+                    <div
                       key={index}
-                      className="flex-shrink-0 w-[75vw] max-w-[310px] rounded-[6px] p-6 ml-4 last:ml-0 mr-4 last:mr-0 relative cursor-pointer "
-                      style={{
-                        minWidth: "75vw",
-                      }}
+                      className="flex-[0_0_75vw] min-w-0 px-3 py-4"
                     >
-                      {/* Fixed White Overlay - Always visible */}
-                      <div className="absolute inset-0 z-0 bg-[#ffffff] rounded-[10px]" />
+                      <div
+                        className={`w-full min-h-[200px] px-6 py-6 rounded-[6px] flex flex-col justify-center gap-4 cursor-pointer relative group overflow-hidden transition-all duration-300 transform 
+                          ${isSelected ? "scale-105" : "scale-95"}
+                        `}
+                      >
+                        {/* White Overlay */}
+                        <div className="absolute inset-0 z-0 bg-[#ffffff] rounded-[10px]" />
 
-                      {/* Scrollable Content Container */}
-                      <div className="relative z-10 overflow-y-auto max-h-[200px] scrollbar-hide">
-                        <div
-                          className={`flex flex-col gap-4 ${
-                            isActive ? "text-[#1C1C1C]" : "text-[#ffffff]"
-                          }`}
-                        >
-                          <h2
-                            className={`uppercase ${
-                              isActive ? "text-[#1C1C1C]" : "text-[#ffffff]"
-                            }`}
-                          >
+                        {/* Content */}
+                        <div className="relative z-10 transition-colors duration-500 w-full">
+                          <h2 className="uppercase mb-4 text-[#1C1C1C] font-semibold">
                             {card.title}
                           </h2>
-                          <p
-                            className={`description leading-[26px] text-[16px] ${
-                              isActive ? "text-[#000]" : "text-[#ffffff]"
-                            }`}
-                          >
+                          <p className="description leading-[26px] text-[16px] text-[#000]">
                             {card.description}
                           </p>
                         </div>
                       </div>
-                    </CarouselItem>
+                    </div>
                   );
                 })}
-              </CarouselContent>
-
-              {/* Navigation Buttons - Commented out for mobile */}
-              {/* <CarouselPrevious className="left-2 top-1/2 -translate-y-1/2 bg-white/90 border border-gray-300 hover:bg-white transition-colors duration-200" />
-               <CarouselNext className="right-2 top-1/2 -translate-y-1/2 bg-white/90 border border-gray-300 hover:bg-white transition-colors duration-200" /> */}
-            </Carousel>
+              </div>
+            </div>
           </div>
         </div>
       </div>
