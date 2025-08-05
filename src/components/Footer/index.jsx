@@ -171,18 +171,18 @@ function Footer() {
                 <p className="footer_quick_links uppercase text-[#6F6D66]  ">
                   Selection Committee
                 </p>
-                <p className="footer_quick_links text-[#B2B1AA]">
-                  +1 891 989-11-92
-                </p>
+                <a href="tel:+17805897852" className="hover:cursor-pointer hover:text-[#ffffff] text-[#B2B1AA]">
+              +1 (780) 589-7852
+            </a>
               </div>
 
               <div>
                 <p className="footer_quick_links uppercase text-[#6F6D66]">
                   Email
                 </p>
-                <p className="footer_quick_links text-[#B2B1AA]">
-                  info@evolvestrength.com
-                </p>
+                <a href="mailto:info@evolvestrength.com" className="hover:cursor-pointer hover:text-[#ffffff] text-[#B2B1AA]">
+              info@evolvestrength.com
+            </a>
               </div>
             </div>
           </div>

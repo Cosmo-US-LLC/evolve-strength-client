@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import slide1 from "../../../../assets/images/home/facility/image_1.webp";
+import slide1 from "../../../../assets/images/franchise/Evolvelooklike/image_1.webp";
 import slide2 from "../../../../assets/images/home/facility/image_2.webp";
 import slide3 from "../../../../assets/images/home/facility/image_3.webp";
 import slide4 from "../../../../assets/images/home/facility/image_4.webp";
