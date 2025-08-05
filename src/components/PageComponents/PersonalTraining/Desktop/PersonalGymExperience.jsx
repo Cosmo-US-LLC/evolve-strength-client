@@ -115,7 +115,7 @@ const PersonalGymExperience = () => {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden mb-12">
+    <div className="relative w-full overflow-hidden md:mb-12">
       {/* Background Image - Desktop */}
       <div className="hidden md:block">
         <div

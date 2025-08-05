@@ -9,35 +9,38 @@ import esthetician from "../../../../assets/images/wellness/WellnessServicesForE
 import osteopathy from "../../../../assets/images/wellness/WellnessServicesForEveryone/osteopathy.webp";
 import osteopathyGlass from "../../../../assets/images/wellness/WellnessServicesForEveryone/osteopathy_glass.webp";
 import servicesImage from "../../../../assets/images/wellness/WellnessServicesForEveryone/services.webp";
+import osteopathy2 from "../../../../assets/images/wellness/WellnessServicesForEveryone/osteopathy_2.webp"
+import physiotherapy from "../../../../assets/images/wellness/WellnessServicesForEveryone/physiotherapy.webp"
+
 
 const services = [
   {
     title: "Massage Therapy",
-    image: chiropracticCare,
-  },
-  {
-    title: "Dietitian",
     image: chiropracticHead,
   },
   {
-    title: "Osteopathy",
-    image: acupuncture,
-  },
-  {
-    title: "Esthetician",
+    title: "Dietitian",
     image: acupunctureFood,
   },
   {
-    title: "Pilates",
+    title: "Osteopathy",
+    image: osteopathy2,
+  },
+  {
+    title: "Esthetician",
     image: esthetician,
   },
   {
+    title: "Physiotherapy",
+    image: physiotherapy,
+  },
+  {
     title: "Chiropractic",
-    image: osteopathy,
+    image: chiropracticCare,
   },
   {
     title: "Acupuncture",
-    image: osteopathyGlass,
+    image: acupuncture,
   },
   {
     title: "Reflexology",
@@ -119,7 +122,7 @@ function WellnessServicesForEveryone() {
                 {services.map((service, idx) => (
                   <div
                     key={idx}
-                    className={`w-[80px] h-[80px] sm:w-[90px] sm:h-[90px] md:w-[110px] md:h-[110px] rounded-[10px] overflow-hidden relative flex-shrink-0 transition-all duration-300 ${
+                    className={`w-[115px] h-[115px] sm:w-[90px] sm:h-[90px] md:w-[110px] md:h-[110px] rounded-[10px] overflow-hidden relative flex-shrink-0 transition-all duration-300 ${
                       idx === selectedIndex
                         ? "border-1 border-[#4AB04A] z-10"
                         : ""
@@ -143,7 +146,7 @@ function WellnessServicesForEveryone() {
               {services.map((_, i) => (
                 <div
                   key={i}
-                  className={`h-1 rounded transition-all duration-300 ${
+                  className={`h-1  rounded transition-all duration-300 ${
                     i === selectedIndex
                       ? "bg-white w-8 md:w-12"
                       : "bg-gray-400/60 w-6 md:w-8"
@@ -153,13 +156,13 @@ function WellnessServicesForEveryone() {
             </div>
             <button
               onClick={handlePrev}
-              className="z-10 absolute right-[13%] md:right-[9%] bottom-[140px] md:-bottom-[70px] -translate-y-1/2 h-[32px] w-[32px] md:h-[36px] md:w-[36px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
+              className="z-10 absolute right-[13%] md:right-[9%] bottom-[180px] md:-bottom-[70px] -translate-y-1/2 h-[32px] w-[32px] md:h-[36px] md:w-[36px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
             >
               <ArrowLeft className="w-3 h-3 md:w-5 md:h-5 text-white" />
             </button>
             <button
               onClick={handleNext}
-              className="absolute right-[2%] md:right-[1%] bottom-[140px] md:-bottom-[70px] -translate-y-1/2 h-[32px] w-[32px] md:h-[36px] md:w-[36px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
+              className="absolute right-[2%] md:right-[1%] bottom-[180px] md:-bottom-[70px] -translate-y-1/2 h-[32px] w-[32px] md:h-[36px] md:w-[36px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
             >
               <ArrowRight className="w-3 h-3 md:w-5 md:h-5 text-white" />
             </button>
