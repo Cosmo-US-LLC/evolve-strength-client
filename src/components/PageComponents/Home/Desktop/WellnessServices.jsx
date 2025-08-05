@@ -25,12 +25,12 @@ import {
 import estheticianBg from "/src/assets/images/home/wellness-services/esthetician.webp";
 import chiropracticBg from "/src/assets/images/home/wellness-services/chiropractic_care.webp";
 import massageBg from "/src/assets/images/home/wellness-services/chiropractic_head.webp";
-import pilatesBg from "/src/assets/images/home/wellness-services/acupuncture_food.webp";
+import physiotherapy from "/src/assets/images/home/wellness-services/physiotherapy.webp";
 import acupunctureBg from "/src/assets/images/home/wellness-services/acupuncture.webp";
 import dietitianBg from "/src/assets/images/home/wellness-services/acupuncture_food.webp";
 import osteopathyBg from "/src/assets/images/home/wellness-services/osteopathy.webp";
 import laserBg from "/src/assets/images/home/wellness-services/osteopathy_glass.webp";
-import mentalHealthBg from "/src/assets/images/home/wellness-services/acupuncture.webp";
+import mentalHealthBg from "/src/assets/images/home/wellness-services/mental_health.webp";
 
 const services = [
   { label: "Esthetician", icon: <Leaf />, bgImage: estheticianBg },
@@ -52,7 +52,7 @@ const services = [
     icon: <HandHeart />,
     bgImage: massageBg,
   },
-  { label: "physiotherapy", icon: <Dumbbell />, bgImage: pilatesBg },
+  { label: "physiotherapy", icon: <Dumbbell />, bgImage: physiotherapy },
   { label: "Acupuncture", icon: <Activity />, bgImage: acupunctureBg },
   {
     label: (
@@ -79,8 +79,19 @@ const WellnessServices = () => {
       slidesToScroll: 1,
       align: "center",
     },
-    [Autoplay({ delay: 6000, stopOnInteraction: false })]
+    [Autoplay({ delay: 4000, stopOnInteraction: false })]
   );
+
+  // Reset autoplay when manual click happens
+  const handleManualClick = (index) => {
+    setActiveIndex(index);
+    // Reset the autoplay timer to start from the clicked tab
+    if (emblaApi) {
+      emblaApi.scrollTo(index);
+      // Force restart autoplay from current position
+      emblaApi.plugins().autoplay?.play();
+    }
+  };
 
   // Handle transitions for both desktop and mobile
   useEffect(() => {
@@ -122,7 +133,6 @@ const WellnessServices = () => {
           className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
           style={{
             backgroundImage: `url(${services[previousIndex].bgImage})`,
-            // opacity: isTransitioning ? 1 : 0,
           }}
         />
 
@@ -131,7 +141,6 @@ const WellnessServices = () => {
           className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
           style={{
             backgroundImage: `url(${services[activeIndex].bgImage})`,
-            // opacity: isTransitioning ? 0 : 1,
           }}
         />
 
@@ -156,7 +165,7 @@ const WellnessServices = () => {
               return (
                 <div
                   key={index}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => handleManualClick(index)}
                   className={`group relative w-[155px] h-[155px] flex flex-col items-center justify-center text-[#fff] backdrop-blur-[12px] rounded-[10px] cursor-pointer transition-all duration-300
                   ${
                     isActive
@@ -190,7 +199,6 @@ const WellnessServices = () => {
           className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
           style={{
             backgroundImage: `url(${services[previousIndex].bgImage})`,
-            // opacity: isTransitioning ? 1 : 0,
           }}
         />
 
@@ -199,7 +207,6 @@ const WellnessServices = () => {
           className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
           style={{
             backgroundImage: `url(${services[activeIndex].bgImage})`,
-            // opacity: isTransitioning ? 0 : 1,
           }}
         />
 
@@ -228,7 +235,7 @@ const WellnessServices = () => {
                       className={`w-full min-h-[102px] px-3 rounded-[10px] flex flex-col items-center justify-center cursor-pointer relative group overflow-hidden transition-all duration-300 transform ${
                         isActive ? "scale-110" : "scale-95"
                       }`}
-                      onClick={() => emblaApi && emblaApi.scrollTo(index)}
+                      onClick={() => handleManualClick(index)}
                     >
                       <div
                         className={`absolute inset-0 z-0 rounded-[10px] transition-all duration-300 ${
