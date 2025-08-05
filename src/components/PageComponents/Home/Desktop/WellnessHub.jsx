@@ -1,121 +1,171 @@
-import React, { useRef, useEffect } from "react";
-import image1 from "../../../../assets/images/home/wellness-hub/Businesses.webp";
-import image2 from "../../../../assets/images/home/wellness-hub/Practitioners.webp";
-import image3 from "../../../../assets/images/home/wellness-hub/Trainers.webp";
+import React, { useState, useEffect } from "react";
 
 const cardItems = [
   {
     count: "136+",
     title: "BUSINESSES",
-    description: "working with us across our locations",
-    image: image1,
+    description: "Working with us across our locations",
+    background: "white",
+    textColor: "black",
+    hasIcon: false,
+    height: "350px",
   },
   {
     count: "195+",
     title: "PRACTITIONERS",
-    description: "offering a wide range of health and wellness services",
-    image: image2,
+    description: "Offering a wide range of health and wellness services",
+    background: "black",
+    textColor: "white",
+    height: "430px",
   },
   {
     count: "205+",
     title: "TRAINERS",
-    description: "helping members reach their fitness goals every day",
-    image: image3,
+    description: "Helping members reach their fitness goals every day",
+    background: "white",
+    textColor: "black",
+    hasIcon: false,
+    height: "500px",
   },
 ];
 
 function WellnessHub() {
-  const containerRef = useRef(null);
+  const [cardTransforms, setCardTransforms] = useState(
+    cardItems.map(() => ({ transform: "", opacity: 1 }))
+  );
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const cards = Array.from(container.querySelectorAll(".card-stack-item"));
-
     const handleScroll = () => {
-      const containerTop = container.getBoundingClientRect().top;
-
-      let topCardIndex = -1;
-       
-      for (let i = cards.length - 1; i >= 0; i--) {
-        const card = cards[i];
-        const cardTopCss = 40 + i * 40;
-        if (card.getBoundingClientRect().top <= containerTop + cardTopCss + 1) {
-          topCardIndex = i;
-          break;
-        }
+      // Only apply animations on mobile (screen width < 768px)
+      if (window.innerWidth >= 768) {
+        setCardTransforms(cardItems.map(() => ({ transform: "", opacity: 1 })));
+        return;
       }
 
-      cards.forEach((card, index) => {
-        const distance = index - topCardIndex;
-        if (distance >= 0) {
-          card.style.transform = `scale(${1 - distance * 0})`;
-          card.style.opacity = "1";
-          card.style.pointerEvents = "auto";
-        } else {
-          card.style.transform = "scale(0.9)";
-          card.style.opacity = "0";
-          card.style.pointerEvents = "none";
+      const newTransforms = cardItems.map((_, index) => {
+        const cardElement = document.getElementById(`wellness-card-${index}`);
+        if (!cardElement) return { transform: "", opacity: 1 };
+
+        // LAST CARD - NO ANIMATION
+        if (index === cardItems.length - 1) {
+          return { transform: "", opacity: 1 };
         }
+
+        const nextCardElement = document.getElementById(
+          `wellness-card-${index + 1}`
+        );
+        if (nextCardElement) {
+          const nextRect = nextCardElement.getBoundingClientRect();
+          const viewportHeight = window.innerHeight;
+          const nextCardTop = nextRect.top;
+          const nextCardHeight = nextRect.height;
+
+          const nextCardVisibleHeight = Math.max(
+            0,
+            viewportHeight - nextCardTop
+          );
+          const nextCardVisibilityPercent =
+            (nextCardVisibleHeight / nextCardHeight) * 100;
+
+          if (nextCardVisibilityPercent > 0) {
+            const progressValue = Math.min(1, nextCardVisibilityPercent / 100);
+
+            const translateY = -progressValue * 24.1352;
+            const scale = 1 - progressValue * 0.0483;
+            const opacity = Math.max(0, 1 - progressValue);
+
+            return {
+              transform: `
+                translate3d(0px, ${translateY}px, 0px) 
+                scale(${scale}, ${scale})
+              `,
+              opacity,
+            };
+          }
+        }
+        return { transform: "", opacity: 1 };
       });
+
+      setCardTransforms(newTransforms);
     };
 
-    container.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll);
     handleScroll();
 
-    return () => container.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, [cardItems.length]);
 
   return (
-    <div id="wellnessHub" className="bg-[#fff]">
-      <div className="w-[100%] max-w-[1280px] md:px-8 px-4 md:pt-[100px] max-md:pt-[48px] mx-auto md:flex justify-between">
-        <div className="md:w-[50%] md:max-w-[600px] max-md:w-full flex flex-col gap-4">
-          <h2 className="uppercase text-[#000] leading-[39px]">
-            CANADA'S BEST FITNESS <br /> AND WELLNESS HUB
+    <div id="wellnessHub" className="bg-white py-16">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
+        {/* Header Section */}
+        <div className="text-left md:text-center mb-12">
+          <h2 className="font-[700] w-full !text-[30px] md:!text-[40px] text-[#000] mb-4 uppercase leading-[39px]">
+            CANADA'S BEST FITNESS AND WELLNESS HUB
           </h2>
-          <h4 className="text-[#000] leading-[26px]">
+          <h4 className="max-w-[940px] mx-auto leading-[26px]">
             With state-of-the-art locations in Edmonton, Calgary, Burnaby, and
             Vancouver, Evolve brings together top-tier fitness and wellness
             under one roof.
           </h4>
         </div>
 
-        <div className="md:w-[50%] max-md:w-full flex items-center justify-end md:pl-10">
-          <div
-            ref={containerRef}
-            className="w-full md:w-[460px] md:h-[390px] max-md:h-[325px] max-md:w-[100%] overflow-y-auto scroll-smooth hide-scrollbar max-md:mt-[20px]"
-          >
-            <div className="relative md:h-[1500px] max-md:h-[920px] ">
-              {cardItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="card-stack-item sticky mb-6 transition-transform duration-300 ease-in-out"
-                  style={{
-                    top: `${0 + index * 0}px`,
-                    zIndex: index,
-                  }}
+        {/* Cards Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 items-end">
+          {cardItems.map((item, index) => (
+            <div
+              key={index}
+              id={`wellness-card-${index}`}
+              className={`relative rounded-lg p-5 flex flex-col ${
+                item.background === "black" ? "bg-black" : "bg-white"
+              } border border-gray-200 md:transition-none transition-all duration-500 ease-out ${
+                window.innerWidth < 768 ? "sticky top-0 h-[60vh]" : ""
+              }`}
+              style={{
+                height: window.innerWidth >= 768 ? item.height : undefined,
+                transform:
+                  window.innerWidth < 768
+                    ? cardTransforms[index].transform
+                    : "",
+                opacity:
+                  window.innerWidth < 768 ? cardTransforms[index].opacity : 1,
+                transformStyle:
+                  window.innerWidth < 768 && cardTransforms[index].transform
+                    ? "preserve-3d"
+                    : "flat",
+              }}
+            >
+              {/* Card Content */}
+              <div className="text-left flex flex-col flex-1">
+                {item.count && (
+                  <h2 className="font-bold text-green-600 mb-2">
+                    {item.count}
+                  </h2>
+                )}
+                <h3
+                  className={`font-bold mb-2 uppercase ${
+                    item.textColor === "white" ? "text-white" : "text-black"
+                  }`}
                 >
-                  <div className="bg-white w-full px-6 py-6 rounded-[10px] border border-[#DDDADA]">
-                    <h2 className="text-[#4AB04A] !text-[34px] !font-[700] uppercase">
-                      {item.count}
-                    </h2>
-                    <h2 className="text-[#000] !text-[34px] !font-[700] uppercase">
-                      {item.title}
-                    </h2>
-                    <h4 className="mb-2 text-[#000] -mt-[2px]  leading-normal">
-                      {item.description}
-                    </h4>
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-auto rounded-[5px]"
-                    />
-                  </div>
-                </div>
-              ))}
+                  {item.title}
+                </h3>
+                <h4
+                  className={`mb-8 leading-[24px] md:leading-[26px] flex-1 ${
+                    item.textColor === "white" ? "text-white" : "text-black"
+                  }`}
+                >
+                  {item.description}
+                </h4>
+
+                {/* BOOK NOW Button */}
+                <button className="btnPrimary mt-auto w-fit">Book Now</button>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
