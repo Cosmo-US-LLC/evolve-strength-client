@@ -70,7 +70,9 @@ const CareerWithEvolve = () => {
               <div
                 className="relative bg-cover bg-center no-repeat w-full min-h-[600px] flex flex-col justify-center"
                 style={{ backgroundImage: `url(${tab.image})` }}
+                
               >
+                <div className="absolute inset-y-0 left-0 w-[50%] z-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent " />
                 <div className="relative z-10 md:p-10 max-md:px-[16px] max-md:py-[48px] max-w-[500px]">
                   <h2 className=" mb-4 text-[#fff]">{tab.title}</h2>
                   <h4 className="mb-4 text-[#fff] leading-[26px]">
