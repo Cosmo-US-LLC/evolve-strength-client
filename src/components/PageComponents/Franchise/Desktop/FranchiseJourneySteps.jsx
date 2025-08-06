@@ -13,18 +13,18 @@ import step4 from "../../../../assets/images/franchise/FranchiseJourneySteps/ste
 
 const steps = [
   {
-    title: "3X",
+    title: "195+",
     description: (
       <p>
-        More Training Space Than <br /> the Average Gym
+        Wellness Providers
       </p>
     ),
     image: step1,
     icon: <GymIcon />,
   },
   {
-    title: "1200+",
-    description: <p>Currently Active Members in All Branches</p>,
+    title: "205+",
+    description: <p>Certified Trainers</p>,
     image: step2,
     icon: <ActiveMembersIcon />,
   },
@@ -32,17 +32,17 @@ const steps = [
     title: "95%",
     description: (
       <p>
-        Average Member Retention <br /> with Evolve
+       Member Retention Rate
       </p>
     ),
     image: step3,
     icon: <RetentionIcon />,
   },
   {
-    title: "100+",
+    title: "136+",
     description: (
       <p>
-        Expert Wellness & Fitness <br /> Providers
+        Partnered Businesses
       </p>
     ),
     image: step4,
