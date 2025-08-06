@@ -97,7 +97,7 @@ function Footer() {
                     About Us
                   </Link>
                   <Link
-                    to="/locations/calgary-seton"
+                    to="/locations"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Our Locations
