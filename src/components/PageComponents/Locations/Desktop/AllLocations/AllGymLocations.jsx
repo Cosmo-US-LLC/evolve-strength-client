@@ -1,21 +1,12 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
 
-import burnabyBrentwood from "../../../../../assets/images/Locations/all_locations/g_bun_brentwood.webp";
-import vancouverPost from "../../../../../assets/images/Locations/all_locations/g_van_p.webp";
-import calgarySeton from "../../../../../assets/images/locations/all_locations/g_cal_seton.webp";
-import calgaryRoyalOak from "../../../../../assets/images/locations/all_locations/g_cal_royal_oak.webp";
-import calgarySunridge from "../../../../../assets/images/locations/all_locations/g_cal_sun.webp";
-import edmontonDowntown from "../../../../../assets/images/locations/all_locations/g_ed_down.webp";
-import edmontonSouth from "../../../../../assets/images/locations/all_locations/g_ed_south.webp";
-import edmontonNorth from "../../../../../assets/images/locations/all_locations/g_ed_north.webp";
-
 function AllGymLocations() {
   const locations = [
     {
       id: 1,
       name: "Burnaby Brentwood",
-      image: burnabyBrentwood,
+      image: "/all_locations/g_bun_brentwood.webp",
       address: "1920 Willingdon Ave #3105 Burnaby, British Columbia, V5C 0K3",
       phone: "+1 (236) 455-6573",
       directionsUrl: "https://maps.app.goo.gl/uVyxXQ4VUFUyuQHv6",
@@ -24,7 +15,7 @@ function AllGymLocations() {
     {
       id: 2,
       name: "Vancouver The Post",
-      image: vancouverPost,
+      image: "/all_locations/g_van_p.webp",
       address: "658 Homer St Vancouver, British Columbia, V6B 2R4",
       phone: "+1 (604) 555-0124",
       directionsUrl:
@@ -34,7 +25,7 @@ function AllGymLocations() {
     {
       id: 3,
       name: "Calgary Seton",
-      image: calgarySeton,
+      image: "/all_locations/g_cal_seton.webp",
       address: "710-19587 Seton Crescent SE Calgary, Alberta, T3M 2T5",
       phone: "+1 (825) 407-9015",
       directionsUrl:
@@ -44,7 +35,7 @@ function AllGymLocations() {
     {
       id: 4,
       name: "Calgary Royal Oak",
-      image: calgaryRoyalOak,
+      image: "/all_locations/g_cal_royal_oak.webp",
       address: "456 Royal Oak Dr NW, Calgary, Alberta, T3G 5K3",
       phone: "+1 (403) 452-3169",
       directionsUrl:
@@ -54,7 +45,7 @@ function AllGymLocations() {
     {
       id: 5,
       name: "Calgary Sunridge",
-      image: calgarySunridge,
+      image: "/all_locations/g_cal_sun.webp",
       address: "321 32 St NE, Calgary, Alberta, T1Y 6J8",
       phone: "+1 (587) 393-9428",
       directionsUrl: "https://maps.app.goo.gl/XWSsS2qMqaRirD7q7",
@@ -63,7 +54,7 @@ function AllGymLocations() {
     {
       id: 6,
       name: "Edmonton Downtown",
-      image: edmontonDowntown,
+      image: "/all_locations/g_ed_down.webp",
       address: "12328 102 ave nw Edmonton, Alberta, T5N 0L9",
       phone: "+1 (780) 784-2675",
       directionsUrl:
@@ -73,7 +64,7 @@ function AllGymLocations() {
     {
       id: 7,
       name: "Edmonton South",
-      image: edmontonSouth,
+      image: "/all_locations/g_ed_south.webp",
       address: "4825 89 St NW Edmonton, Alberta, T6E 5K1",
       phone: "+1 (780) 690-4252",
       directionsUrl:
@@ -83,7 +74,7 @@ function AllGymLocations() {
     {
       id: 8,
       name: "Edmonton North",
-      image: edmontonNorth,
+      image: "/all_locations/g_ed_north.webp",
       address: "13457 149 St Edmonton, Alberta, T5L 2T3",
       phone: "+1 (780) 784-7870",
       directionsUrl:
