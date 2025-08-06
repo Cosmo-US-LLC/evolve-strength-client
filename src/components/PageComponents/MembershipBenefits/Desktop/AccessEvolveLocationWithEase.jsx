@@ -68,10 +68,11 @@ const AccessEvolveLocationWithEase = () => {
             ))}
           </CarouselContent>
         </Carousel>
+          <div className=" flex flex-row absolute md:-top-25 right-32 md:right-20 p-4 rounded-md z-10 gap-3 md:gap-5">
 
         <button
           onClick={handlePrevious}
-          className="absolute left-[36%] md:left-[87%] -bottom-[86px] md:-top-1/9 -translate-y-1/2 h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
+          className=" h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
         >
           <img
             src={LeftArrowIcon}
@@ -81,7 +82,7 @@ const AccessEvolveLocationWithEase = () => {
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-[36%] md:right-[90px] -bottom-[86px] md:-top-1/9  -translate-y-1/2 h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
+          className=" h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
         >
           <img
             src={RightArrowIcon}
@@ -89,6 +90,7 @@ const AccessEvolveLocationWithEase = () => {
             className="h-5 w-5 text-[#00000060]"
           />
         </button>
+      </div>
       </div>
 
       <button className="btnPrimary mt-12">BOOK A FREE TOUR</button>
