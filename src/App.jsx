@@ -1,4 +1,3 @@
- 
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import "./assets/styles/styles.css";
@@ -37,7 +36,7 @@ import CalgaryRoyalOak from "./pages/LocationsPage/CalgaryRoyalOak";
 import BurnabyBrentwood from "./pages/LocationsPage/BurnabyBrentwood";
 import VancouverPost from "./pages/LocationsPage/VancouverPost";
 import TrainerForm from "./components/Form/TrainersForm";
-
+import AllLocations from "./pages/LocationsPage/AllLocations";
 
 function App() {
   return (
@@ -59,13 +58,26 @@ function App() {
           <Route path="/join-the-Movement" element={<JoinTheMovement />} />
           <Route path="/join-as-trainer" element={<JoinAsTrainer />} />
 
+          <Route path="/locations" element={<AllLocations />} />
           <Route path="/locations/calgary-seton" element={<CalgarySeton />} />
           <Route path="/locations/edmonton-south" element={<EdmontonSouth />} />
           <Route path="/locations/edmonton-north" element={<EdmontonNorth />} />
-          <Route path="/locations/edmonton-downtown" element={<EdmontonDowntown />} />
-          <Route path="/locations/calgary-sunridge" element={<CalgarySunridge />} />
-          <Route path="/locations/calgary-royal-oak" element={<CalgaryRoyalOak />} />
-          <Route path="/locations/burnaby-brentwood" element={<BurnabyBrentwood />} />
+          <Route
+            path="/locations/edmonton-downtown"
+            element={<EdmontonDowntown />}
+          />
+          <Route
+            path="/locations/calgary-sunridge"
+            element={<CalgarySunridge />}
+          />
+          <Route
+            path="/locations/calgary-royal-oak"
+            element={<CalgaryRoyalOak />}
+          />
+          <Route
+            path="/locations/burnaby-brentwood"
+            element={<BurnabyBrentwood />}
+          />
           <Route path="/locations/vancouver-post" element={<VancouverPost />} />
 
           <Route path="/faqs" element={<FAQs />} />
@@ -75,11 +87,9 @@ function App() {
             path="/terms-and-conditions"
             element={<TermsAndConditions />}
           />
-          
 
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Route>
-
 
         <Route path="/join-the-wait-list" element={<EvolveSpacesForm />} />
         <Route
@@ -91,7 +101,7 @@ function App() {
           element={<CorporateMembershipWizard />}
         />
 
-         <Route
+        <Route
           path="/check-membership-form"
           element={<CheckMembershipForm />}
         />
@@ -112,13 +122,10 @@ function App() {
           path="/company-not-registered"
           element={<CompanyNotRegistered />}
         />
-       
+
         <Route path="/loader" element={<Loader />} />
         <Route path="*" element={<NotFoundPage />} />
-         <Route
-          path="/trainer-form"
-          element={<TrainerForm />}
-        />
+        <Route path="/trainer-form" element={<TrainerForm />} />
       </Routes>
     </>
   );
