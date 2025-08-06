@@ -1,13 +1,5 @@
 import React, { useState } from "react";
 import LocationsHoverCard from "./LocationsHoverCard";
-import evolveLoctions from "../../../../assets/images/franchise/EvolveLocationPlans/frame_1686559309.webp";
-import evolveLoctions1 from "../../../../assets/images/franchise/EvolveLocationPlans/frame_1686559309 (1).webp";
-import evolveLoctions2 from "../../../../assets/images/franchise/EvolveLocationPlans/frame_1686559309 (2).webp";
-import evolveLoctions3 from "../../../../assets/images/franchise/EvolveLocationPlans/frame_1686559309 (3).webp";
-import evolveLoctions4 from "../../../../assets/images/franchise/EvolveLocationPlans/frame_1686559309 (4).webp";
-import evolveLoctions5 from "../../../../assets/images/franchise/EvolveLocationPlans/frame_1686559309 (5).webp";
-import evolveLoctions6 from "../../../../assets/images/franchise/EvolveLocationPlans/frame_1686559309 (6).webp";
-import evolveLoctions7 from "../../../../assets/images/franchise/EvolveLocationPlans/frame_1686559309 (7).webp";
 
 import ES_1 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_1.webp";
 import ES_2 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_2.webp";
@@ -16,6 +8,20 @@ import ES_4 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_4.w
 import ES_5 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_5.webp";
 import ES_6 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_6.webp";
 
+import EN_1 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_1.webp";
+import EN_2 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_2.webp";
+import EN_3 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_3.webp";
+import EN_4 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_4.webp";
+import EN_5 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_5.webp";
+import EN_6 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_6.webp";
+
+import ED_1 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_1.webp";
+import ED_2 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_2.webp";
+import ED_3 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_3.webp";
+import ED_4 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_4.webp";
+import ED_5 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_5.webp";
+import ED_6 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_6.webp";
+
 import VP_1 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_1.webp";
 import VP_2 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_2.webp";
 import VP_3 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_3.webp";
@@ -23,51 +29,80 @@ import VP_4 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_4.w
 import VP_5 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_5.webp";
 import VP_6 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_6.webp";
 
+import BB_1 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_1.webp";
+import BB_2 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_2.webp";
+import BB_3 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_3.webp";
+import BB_4 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_4.webp";
+import BB_5 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_5.webp";
+import BB_6 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_6.webp";
+
+import CSe_1 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_1.webp";
+import CSe_2 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_2.webp";
+import CSe_3 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_3.webp";
+import CSe_4 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_4.webp";
+import CSe_5 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_5.webp";
+import CSe_6 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_6.webp";
+
+import CRO_1 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_1.webp";
+import CRO_2 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_2.webp";
+import CRO_3 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_3.webp";
+import CRO_4 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_4.webp";
+import CRO_5 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_5.webp";
+import CRO_6 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_6.webp";
+
+import CSun_1 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_1.webp";
+import CSun_2 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_2.webp";
+import CSun_3 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_3.webp";
+import CSun_4 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_4.webp";
+import CSun_5 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_5.webp";
+import CSun_6 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_6.webp";
+
 function EvolveExpansionPlans() {
   const [hoveredProvince, setHoveredProvince] = useState(null);
   const [clickedProvince, setClickedProvince] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const provinces = {
+    vancouverPost: {
+      name: "VANCOUVER POST",
+      images: [VP_1, VP_2, VP_3, VP_4, VP_5, VP_6],
+      address: "654 West Georgia St, Vancouver, BC, V6B 1N2",
+    },
     burnabyBrentwood: {
       name: "BURNABY BRENTWOOD",
-      images: [evolveLoctions, evolveLoctions1, evolveLoctions2],
+      images: [BB_1, BB_2, BB_3, BB_4, BB_5, BB_6],
       address: "4567 Lougheed Hwy, Burnaby, BC, V5C 3Z6",
+    },
+    edmontonSouth: {
+      name: "EDMONTON SOUTH",
+      images: [ES_1, ES_2, ES_3, ES_4, ES_5, ES_6],
+      address: "4825 89 St NW, Edmonton, Alberta, T6E 5K1",
     },
     edmontonDowntown: {
       name: "EDMONTON DOWNTOWN",
-      images: [evolveLoctions1, evolveLoctions2, evolveLoctions3],
+      images: [ED_1, ED_2, ED_3, ED_4, ED_5, ED_6],
       address: "123 Jasper Ave NW, Edmonton, Alberta, T5J 0R2",
     },
     edmontonNorth: {
       name: "EDMONTON NORTH",
-      images: [evolveLoctions2, evolveLoctions3, evolveLoctions4],
+      images: [EN_1, EN_2, EN_3, EN_4, EN_5, EN_6],
       address: "789 137 Ave NW, Edmonton, Alberta, T5E 6R8",
     },
     calgaryRoyalOak: {
       name: "CALGARY ROYAL OAK",
-      images: [evolveLoctions3, evolveLoctions4, evolveLoctions5],
+      images: [CRO_1, CRO_2, CRO_3, CRO_4, CRO_5, CRO_6],
       address: "456 Royal Oak Dr NW, Calgary, Alberta, T3G 5K3",
     },
     calgarySeton: {
       name: "CALGARY SETON",
-      images: [evolveLoctions4, evolveLoctions5, evolveLoctions6],
+      images: [CSe_1, CSe_2, CSe_3, CSe_4, CSe_5, CSe_6],
       address: "789 Seton Blvd SE, Calgary, Alberta, T3M 1M9",
     },
-    edmontonSouth: {
-      name: "EDMONTON SOUTH",
-      images: [evolveLoctions5, evolveLoctions6, evolveLoctions7],
-      address: "4825 89 St NW, Edmonton, Alberta, T6E 5K1",
-    },
+
     calgarySunridge: {
       name: "CALGARY SUNRIDGE",
-      images: [evolveLoctions6, evolveLoctions7, evolveLoctions],
+      images: [CSun_1, CSun_2, CSun_3, CSun_4, CSun_5, CSun_6],
       address: "321 32 St NE, Calgary, Alberta, T1Y 6J8",
-    },
-    vancouverPost: {
-      name: "VANCOUVER POST",
-      images: [evolveLoctions7, evolveLoctions, evolveLoctions1],
-      address: "654 West Georgia St, Vancouver, BC, V6B 1N2",
     },
   };
 
@@ -209,18 +244,18 @@ function EvolveExpansionPlans() {
                     </clipPath>
                   </defs>
                 </svg>
-                {/* British Columbia */}
+                {/* vancouverPost */}
                 <div
-                  className="absolute left-[6.5%] top-[50.3%] z-10 w-[19.39%] h-[39.3%] cursor-pointer transition-all duration-200 hover:scale-105"
-                  onMouseEnter={() => handleProvinceHover("burnabyBrentwood")}
+                  className="absolute left-[6.5%] top-[50.3%] z-10 w-[20px] md:w-[30px] h-[20px] md:h-[26px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  onMouseEnter={() => handleProvinceHover("vancouverPost")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
-                  onClick={() => handleProvinceClick("burnabyBrentwood")}
+                  onClick={() => handleProvinceClick("vancouverPost")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="30"
-                    height="26"
+                    // width="30"
+                    // height="26"
                     viewBox="0 0 30 26"
                     fill="none"
                   >
@@ -232,17 +267,18 @@ function EvolveExpansionPlans() {
                     />
                   </svg>
                 </div>
+                 {/* burnabyBrentwood */}
                 <div
-                  className="absolute left-[10%] top-[57.3%] z-10 w-[19.39%] h-[39.3%] cursor-pointer transition-all duration-200 hover:scale-105"
-                  onMouseEnter={() => handleProvinceHover("edmontonDowntown")}
+                  className="absolute left-[10%] top-[57.3%] z-10 w-[18px] md:w-[31px] h-[16px] md:h-[19px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  onMouseEnter={() => handleProvinceHover("burnabyBrentwood")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
-                  onClick={() => handleProvinceClick("edmontonDowntown")}
+                  onClick={() => handleProvinceClick("burnabyBrentwood")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="31"
-                    height="19"
+                    // width="31"
+                    // height="19"
                     viewBox="0 0 31 19"
                     fill="none"
                   >
@@ -257,18 +293,18 @@ function EvolveExpansionPlans() {
 
                 {/*  */}
 
-                {/* Saskatchewan */}
+                {/* edmontonSouth */}
                 <div
-                  className="absolute left-[28.6%] top-[58%] z-10 w-[13.24%] h-[28%] cursor-pointer transition-all duration-200 hover:scale-105"
-                  onMouseEnter={() => handleProvinceHover("edmontonNorth")}
+                  className="absolute left-[28.6%] top-[58%] z-10 w-[16px] md:w-[21px] h-[14px] md:h-[16px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  onMouseEnter={() => handleProvinceHover("edmontonSouth")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
-                  onClick={() => handleProvinceClick("edmontonNorth")}
+                  onClick={() => handleProvinceClick("edmontonSouth")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="21"
-                    height="16"
+                    // width="21"
+                    // height="16"
                     viewBox="0 0 21 16"
                     fill="none"
                   >
@@ -280,17 +316,18 @@ function EvolveExpansionPlans() {
                     />
                   </svg>
                 </div>
+                {/* edmontonDowntown */}
                 <div
-                  className="absolute left-[30%] top-[60.5%] z-10 w-[13.24%] h-[28%] cursor-pointer transition-all duration-200 hover:scale-105"
-                  onMouseEnter={() => handleProvinceHover("edmontonSouth")}
+                  className="absolute left-[30.7%] md:left-[30%] top-[61.8%] md:top-[60.5%] z-10 w-[19px] md:w-[33px] h-[18px] md:h-[23px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  onMouseEnter={() => handleProvinceHover("edmontonDowntown")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
-                  onClick={() => handleProvinceClick("edmontonSouth")}
+                  onClick={() => handleProvinceClick("edmontonDowntown")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="33"
-                    height="23"
+                    // width="33"
+                    // height="23"
                     viewBox="0 0 33 23"
                     fill="none"
                   >
@@ -302,17 +339,18 @@ function EvolveExpansionPlans() {
                     />
                   </svg>
                 </div>
+                {/* edmontonNorth */}
                 <div
-                  className="absolute left-[32.8%] top-[63.5%] z-10 w-[13.24%] h-[28%] cursor-pointer transition-all duration-200 hover:scale-105"
-                  onMouseEnter={() => handleProvinceHover("calgarySunridge")}
+                  className="absolute left-[32.8%] top-[65%] md:top-[63.5%] z-10 w-[10px] md:w-[14px] h-[16px] md:h-[19px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  onMouseEnter={() => handleProvinceHover("edmontonNorth")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
-                  onClick={() => handleProvinceClick("calgarySunridge")}
+                  onClick={() => handleProvinceClick("edmontonNorth")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="19"
+                    // width="14"
+                    // height="19"
                     viewBox="0 0 14 19"
                     fill="none"
                   >
@@ -326,7 +364,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/*  */}
 
-                {/* Ontario */}
+                {/* calgarySeton */}
                 <div
                   className="absolute left-[49.3%] top-[69.2%] z-10 w-[26px] h-[22px] md:w-[42px] md:h-[35px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("calgarySeton")}
@@ -347,12 +385,13 @@ function EvolveExpansionPlans() {
                     />
                   </svg>
                 </div>
+                {/* calgarySunridge */}
                 <div
                   className="absolute left-[55.5%] md:left-[55%] top-[74.8%] md:top-[74.4%] z-10 w-[11px] h-[11px] md:w-[17px] md:h-[24px] cursor-pointer transition-all duration-200 hover:scale-105"
-                  onMouseEnter={() => handleProvinceHover("calgaryRoyalOak")}
+                  onMouseEnter={() => handleProvinceHover("calgarySunridge")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
-                  onClick={() => handleProvinceClick("calgaryRoyalOak")}
+                  onClick={() => handleProvinceClick("calgarySunridge")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -367,12 +406,13 @@ function EvolveExpansionPlans() {
                     />
                   </svg>
                 </div>
+                {/* calgaryRoyalOak */}
                 <div
                   className="absolute left-[56.8%] md:left-[56.6%] top-[79.9%] md:top-[79.5%] z-10 w-[14px] h-[15px] md:w-[17px] md:h-[15px] cursor-pointer transition-all duration-200 hover:scale-105"
-                  onMouseEnter={() => handleProvinceHover("vancouverPost")}
+                  onMouseEnter={() => handleProvinceHover("calgaryRoyalOak")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
-                  onClick={() => handleProvinceClick("vancouverPost")}
+                  onClick={() => handleProvinceClick("calgaryRoyalOak")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

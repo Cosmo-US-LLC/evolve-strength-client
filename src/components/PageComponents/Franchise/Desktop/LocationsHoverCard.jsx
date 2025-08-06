@@ -38,7 +38,7 @@ function LocationsHoverCard({ show, mousePosition, data, onClose }) {
 
   return (
     <div
-      className="fixed z-50 bg-[#fff] rounded-[10px] shadow-[0_4px_24px_rgba(0,0,0,0.16)] max-w-[370px] pointer-events-auto border border-[#E5E7EB]"
+      className="fixed z-50 bg-[#fff] rounded-[10px] shadow-[0_4px_24px_rgba(0,0,0,0.16)] max-w-[300px] pointer-events-auto border border-[#E5E7EB]"
       style={{
         left: mousePosition.x + 20,
         top: mousePosition.y - 20,
@@ -55,7 +55,7 @@ function LocationsHoverCard({ show, mousePosition, data, onClose }) {
         </button>
       )}
 
-      <div className="w-full h-[220px] rounded-t-[16px] overflow-hidden relative">
+      <div className="w-full h-[183px] rounded-t-[10px] overflow-hidden relative">
         <div className="overflow-hidden w-full h-full" ref={emblaRef}>
           <div className="flex">
             {images.map((image, index) => (
@@ -95,7 +95,7 @@ function LocationsHoverCard({ show, mousePosition, data, onClose }) {
           </div>
         )}
       </div>
-      <div className="p-6 flex flex-col gap-4">
+      <div className="px-4 pb-4 flex flex-col gap-4">
         <p className="text-[16px] font-kanit font-[600] leading-normal capitalize">
           {data.name}
         </p>
