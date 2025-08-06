@@ -1,5 +1,5 @@
 import React from 'react'
-import Users from "../../../../../assets/images/JoinTheMovement/SocialMedia/Allmedia/MediaUsers.svg"
+import Users from "../../../../../assets/images/JoinTheMovement/SocialMedia/Allmedia/MediaUsers.webp"
 
 
 function AllMedia() {
