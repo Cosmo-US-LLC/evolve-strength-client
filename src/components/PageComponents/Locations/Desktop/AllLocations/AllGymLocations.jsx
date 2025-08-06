@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowUpRight } from "lucide-react";
 
 import burnabyBrentwood from "../../../../../assets/images/Locations/all_locations/GBB.webp";
-import vancouverPost from "../../../../../assets/images/locations/all_locations/GVP.webp";
+import vancouverPost from "@/assets/images/Locations/all_locations/GVP.webp";
 import calgarySeton from "../../../../../assets/images/locations/all_locations/GCSe.webp";
 import calgaryRoyalOak from "../../../../../assets/images/locations/all_locations/GCRO.webp";
 import calgarySunridge from "../../../../../assets/images/locations/all_locations/GCSun.webp";
