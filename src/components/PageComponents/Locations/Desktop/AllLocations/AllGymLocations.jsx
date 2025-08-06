@@ -1,14 +1,14 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
 
-import burnabyBrentwood from "../../../../../assets/images/Locations/all_locations/GBunBren.webp";
-import vancouverPost from "../../../../../assets/images/Locations/all_locations/GVanP.webp";
-import calgarySeton from "../../../../../assets/images/locations/all_locations/GCalSeton.webp";
-import calgaryRoyalOak from "../../../../../assets/images/locations/all_locations/GCalRoyalOak.webp";
-import calgarySunridge from "../../../../../assets/images/locations/all_locations/GCalSun.webp";
-import edmontonDowntown from "../../../../../assets/images/locations/all_locations/GEeDown.webp";
-import edmontonSouth from "../../../../../assets/images/locations/all_locations/GEdSouth.webp";
-import edmontonNorth from "../../../../../assets/images/locations/all_locations/GEdNorth.webp";
+import burnabyBrentwood from "../../../../../assets/images/Locations/all_locations/g_bun_bren.webp";
+import vancouverPost from "../../../../../assets/images/Locations/all_locations/g_van_p.webp";
+import calgarySeton from "../../../../../assets/images/locations/all_locations/g_cal_seton.webp";
+import calgaryRoyalOak from "../../../../../assets/images/locations/all_locations/g_cal_royal_oak.webp";
+import calgarySunridge from "../../../../../assets/images/locations/all_locations/g_cal_sun.webp";
+import edmontonDowntown from "../../../../../assets/images/locations/all_locations/g_ed_down.webp";
+import edmontonSouth from "../../../../../assets/images/locations/all_locations/g_ed_south.webp";
+import edmontonNorth from "../../../../../assets/images/locations/all_locations/g_ed_north.webp";
 
 function AllGymLocations() {
   const locations = [
