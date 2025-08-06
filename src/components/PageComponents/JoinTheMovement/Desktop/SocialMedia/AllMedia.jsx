@@ -5,7 +5,7 @@ import Users from "../../../../../assets/images/JoinTheMovement/SocialMedia/Allm
 function AllMedia() {
   return (
     <div className="w-full max-w-[228px] h-[192px] bg-white rounded-xl shadow-sm border border-[#000] p-6 flex flex-col ">
-             {/* Title and Instagram Icon */}
+          
              <div className="flex justify-between items-start relative">
                
                  <p className=" w-[131px] h-[44px] font-[Kanit] !font-[500] leading-[21px] !text-[21px]">Views across social media</p>
@@ -17,7 +17,7 @@ function AllMedia() {
              </div>
              
        
-             {/* Runner emoji and Reach Number */}
+       
              <div className="mt-3 flex  items-center justify-between">
                 
                <div className="w-10 h-10 rounded-full"></div>
