@@ -5,8 +5,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import slide1 from "../../../../assets/images/franchise/Evolvelooklike/image_1.webp";
 import slide2 from "../../../../assets/images/home/facility/image_2.webp";
 import slide3 from "../../../../assets/images/home/facility/image_3.webp";
-import slide4 from "../../../../assets/images/home/facility/image_4.webp";
-import slide5 from "../../../../assets/images/home/facility/image_5.webp";
+import slide4 from "../../../../assets/images/home/facility/royal_oak_9.webp";
+import slide5 from "../../../../assets/images/home/facility/sunridge8.webp";
 import slide6 from "../../../../assets/images/home/facility/image_6.webp";
 
 const professionals = [
