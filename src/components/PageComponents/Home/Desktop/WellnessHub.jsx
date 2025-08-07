@@ -123,7 +123,7 @@ function WellnessHub() {
               className={`relative rounded-lg p-5 flex flex-col ${
                 item.background === "black" ? "bg-black" : "bg-white"
               } border border-gray-200 md:transition-none transition-all duration-500 ease-out ${
-                window.innerWidth < 768 ? "sticky top-0 h-[60vh]" : ""
+                window.innerWidth < 768 ? "sticky top-0 h-[270px]" : ""
               }`}
               style={{
                 height: window.innerWidth >= 768 ? item.height : undefined,
