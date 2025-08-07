@@ -22,6 +22,7 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 
+// Desktop images
 import estheticianBg from "/src/assets/images/home/wellness-services/esthetician.webp";
 import chiropracticBg from "/src/assets/images/home/wellness-services/chiropractic_care.webp";
 import massageBg from "/src/assets/images/home/wellness-services/chiropractic_head.webp";
@@ -32,8 +33,26 @@ import osteopathyBg from "/src/assets/images/home/wellness-services/osteopathy.w
 import laserBg from "/src/assets/images/home/wellness-services/osteopathy_glass.webp";
 import mentalHealthBg from "/src/assets/images/home/wellness-services/mental_health.webp";
 
+// Mobile images (currently using same images, replace with mobile-specific ones when available)
+import estheticianBgMobile from "/src/assets/images/home/wellness-services/esthetician_mobile.webp";
+import chiropracticBgMobile from "/src/assets/images/home/wellness-services/chiropractic_care.webp";
+import massageBgMobile from "/src/assets/images/home/wellness-services/chiropractic_head.webp";
+import physiotherapyMobile from "/src/assets/images/home/wellness-services/physiotherapy.webp";
+import acupunctureBgMobile from "/src/assets/images/home/wellness-services/acupuncture.webp";
+import dietitianBgMobile from "/src/assets/images/home/wellness-services/acupuncture_food.webp";
+import osteopathyBgMobile from "/src/assets/images/home/wellness-services/osteopathy.webp";
+import laserBgMobile from "/src/assets/images/home/wellness-services/osteopathy_glass.webp";
+import mentalHealthBgMobile from "/src/assets/images/home/wellness-services/mental_health.webp";
+
 const services = [
-  { label: "Esthetician", icon: <Leaf />, bgImage: estheticianBg },
+  {
+    label: "Esthetician",
+    icon: <Leaf />,
+    bgImage: {
+      desktop: estheticianBg,
+      mobile: estheticianBgMobile,
+    },
+  },
   {
     label: (
       <p>
@@ -41,7 +60,10 @@ const services = [
       </p>
     ),
     icon: <Hand />,
-    bgImage: chiropracticBg,
+    bgImage: {
+      desktop: chiropracticBg,
+      mobile: chiropracticBgMobile,
+    },
   },
   {
     label: (
@@ -50,10 +72,27 @@ const services = [
       </p>
     ),
     icon: <HandHeart />,
-    bgImage: massageBg,
+    bgImage: {
+      desktop: massageBg,
+      mobile: massageBgMobile,
+    },
   },
-  { label: "physiotherapy", icon: <Dumbbell />, bgImage: physiotherapy },
-  { label: "Acupuncture", icon: <Activity />, bgImage: acupunctureBg },
+  {
+    label: "physiotherapy",
+    icon: <Dumbbell />,
+    bgImage: {
+      desktop: physiotherapy,
+      mobile: physiotherapyMobile,
+    },
+  },
+  {
+    label: "Acupuncture",
+    icon: <Activity />,
+    bgImage: {
+      desktop: acupunctureBg,
+      mobile: acupunctureBgMobile,
+    },
+  },
   {
     label: (
       <p>
@@ -61,17 +100,40 @@ const services = [
       </p>
     ),
     icon: <Salad />,
-    bgImage: dietitianBg,
+    bgImage: {
+      desktop: dietitianBg,
+      mobile: dietitianBgMobile,
+    },
   },
-  { label: "Osteopathy", icon: <HeartPulse />, bgImage: osteopathyBg },
-  { label: "Laser Therapy", icon: <Sparkles />, bgImage: laserBg },
-  { label: "Mental Health", icon: <Brain />, bgImage: mentalHealthBg },
+  {
+    label: "Osteopathy",
+    icon: <HeartPulse />,
+    bgImage: {
+      desktop: osteopathyBg,
+      mobile: osteopathyBgMobile,
+    },
+  },
+  {
+    label: "Laser Therapy",
+    icon: <Sparkles />,
+    bgImage: {
+      desktop: laserBg,
+      mobile: laserBgMobile,
+    },
+  },
+  {
+    label: "Mental Health",
+    icon: <Brain />,
+    bgImage: {
+      desktop: mentalHealthBg,
+      mobile: mentalHealthBgMobile,
+    },
+  },
 ];
 
 const WellnessServices = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       containScroll: "keepSnaps",
@@ -96,10 +158,8 @@ const WellnessServices = () => {
   // Handle transitions for both desktop and mobile
   useEffect(() => {
     if (activeIndex !== previousIndex) {
-      setIsTransitioning(true);
       const timer = setTimeout(() => {
         setPreviousIndex(activeIndex);
-        setIsTransitioning(false);
       }, 300);
       return () => clearTimeout(timer);
     }
@@ -120,7 +180,7 @@ const WellnessServices = () => {
   useEffect(() => {
     services.forEach((service) => {
       const img = new Image();
-      img.src = service.bgImage;
+      img.src = service.bgImage.desktop;
     });
   }, []);
 
@@ -130,17 +190,17 @@ const WellnessServices = () => {
       <div className="relative flex flex-row items-center justify-center w-full min-h-[700px] max-md:hidden">
         {/* Previous background image - stays visible during transition */}
         <div
-          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out hidden md:block"
           style={{
-            backgroundImage: `url(${services[previousIndex].bgImage})`,
+            backgroundImage: `url(${services[previousIndex].bgImage.desktop})`,
           }}
         />
 
         {/* Current background image */}
         <div
-          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out hidden md:block"
           style={{
-            backgroundImage: `url(${services[activeIndex].bgImage})`,
+            backgroundImage: `url(${services[activeIndex].bgImage.desktop})`,
           }}
         />
 
@@ -196,17 +256,17 @@ const WellnessServices = () => {
       <div className="md:hidden relative w-full min-h-[552px] flex flex-col px-[16px] py-[32px] justify-between items-center overflow-hidden">
         {/* Previous background image for mobile */}
         <div
-          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out md:hidden"
           style={{
-            backgroundImage: `url(${services[previousIndex].bgImage})`,
+            backgroundImage: `url(${services[previousIndex].bgImage.mobile})`,
           }}
         />
 
         {/* Current background image for mobile */}
         <div
-          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out md:hidden"
           style={{
-            backgroundImage: `url(${services[activeIndex].bgImage})`,
+            backgroundImage: `url(${services[activeIndex].bgImage.mobile})`,
           }}
         />
 
