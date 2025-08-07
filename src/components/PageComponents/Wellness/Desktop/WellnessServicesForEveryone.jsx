@@ -6,17 +6,32 @@ import chiropracticHead from "../../../../assets/images/wellness/WellnessService
 import acupuncture from "../../../../assets/images/wellness/WellnessServicesForEveryone/acupuncture.webp";
 import acupunctureFood from "../../../../assets/images/wellness/WellnessServicesForEveryone/acupuncture_food.webp";
 import esthetician from "../../../../assets/images/wellness/WellnessServicesForEveryone/esthetician.webp";
-import osteopathy from "../../../../assets/images/wellness/WellnessServicesForEveryone/osteopathy.webp";
-import osteopathyGlass from "../../../../assets/images/wellness/WellnessServicesForEveryone/osteopathy_glass.webp";
-import servicesImage from "../../../../assets/images/wellness/WellnessServicesForEveryone/services.webp";
-import osteopathy2 from "../../../../assets/images/wellness/WellnessServicesForEveryone/osteopathy_2.webp"
-import physiotherapy from "../../../../assets/images/wellness/WellnessServicesForEveryone/physiotherapy.webp"
 
+import mentalHealth from "../../../../assets/images/wellness/WellnessServicesForEveryone/mental_health.webp";
+import servicesImage from "../../../../assets/images/wellness/WellnessServicesForEveryone/services.webp";
+import osteopathy2 from "../../../../assets/images/wellness/WellnessServicesForEveryone/osteopathy_2.webp";
+import physiotherapy from "../../../../assets/images/wellness/WellnessServicesForEveryone/physiotherapy.webp";
 
 const services = [
   {
+    title: "Esthetician",
+    image: esthetician,
+  },
+  {
+    title: "Chiropractic",
+    image: chiropracticCare,
+  },
+  {
     title: "Massage Therapy",
     image: chiropracticHead,
+  },
+  {
+    title: "Physiotherapy",
+    image: physiotherapy,
+  },
+  {
+    title: "Acupuncture",
+    image: acupuncture,
   },
   {
     title: "Dietitian",
@@ -26,25 +41,14 @@ const services = [
     title: "Osteopathy",
     image: osteopathy2,
   },
+
   {
-    title: "Esthetician",
-    image: esthetician,
-  },
-  {
-    title: "Physiotherapy",
-    image: physiotherapy,
-  },
-  {
-    title: "Chiropractic",
-    image: chiropracticCare,
-  },
-  {
-    title: "Acupuncture",
-    image: acupuncture,
-  },
-  {
-    title: "Reflexology",
+    title: "Laser Therapy",
     image: servicesImage,
+  },
+  {
+    title: "Mental Health",
+    image: mentalHealth,
   },
 ];
 
@@ -58,6 +62,7 @@ function WellnessServicesForEveryone() {
     align: "start",
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -70,25 +75,45 @@ function WellnessServicesForEveryone() {
     onSelect();
   }, [emblaApi, onSelect]);
 
+  // Improved auto-scroll with user interaction handling
   useEffect(() => {
-    if (!emblaApi) return;
+    if (!emblaApi || isUserInteracting) return;
+
     const interval = setInterval(() => {
       emblaApi.scrollNext();
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [emblaApi]);
+    }, 4000); // Increased to 4 seconds for better UX
 
-  const handlePrev = () => emblaApi && emblaApi.scrollPrev();
-  const handleNext = () => emblaApi && emblaApi.scrollNext();
+    return () => clearInterval(interval);
+  }, [emblaApi, isUserInteracting]);
+
+  // Handle user interactions to pause auto-scroll
+  const handleUserInteraction = () => {
+    setIsUserInteracting(true);
+    setTimeout(() => setIsUserInteracting(false), 5000); // Resume after 5 seconds
+  };
+
+  const handlePrev = () => {
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+      handleUserInteraction();
+    }
+  };
+
+  const handleNext = () => {
+    if (emblaApi) {
+      emblaApi.scrollNext();
+      handleUserInteraction();
+    }
+  };
 
   return (
-    <section className="relative w-full h-[636px] md:h-[600px] flex items-center justify-center bg-black/80 overflow-hidden">
+    <div className="relative w-full h-[636px] md:h-[600px] flex items-center justify-center bg-black/80 overflow-hidden">
       <img
         src={services[selectedIndex]?.image || ""}
         alt="Wellness Hero"
         className="absolute inset-0 w-full h-full object-cover z-0 transition-all duration-500"
       />
-      <div className="absolute inset-0 bg-black/60 z-10 transition-all duration-500" />
+      <div className="absolute inset-0 bg-black/30 z-10 transition-all duration-200" />
 
       <div className="relative z-20 w-full h-full max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-8">
         <div className="flex flex-col items-start gap-4 md:gap-6 w-full md:max-w-[423px] text-left py-12 md:py-0 mb-6 md:mb-0">
@@ -118,25 +143,35 @@ function WellnessServicesForEveryone() {
 
           <div className="flex flex-col md:flex-row items-center md:w-[600px] gap-8 md:gap-4 relative w-full pt-[120px] md:pt-0">
             <div className="overflow-hidden w-full relative" ref={emblaRef}>
-              <div className="flex gap-2 md:gap-3">
+              <div className="flex">
                 {services.map((service, idx) => (
                   <div
                     key={idx}
-                    className={`w-[115px] h-[115px] sm:w-[90px] sm:h-[90px] md:w-[110px] md:h-[110px] rounded-[10px] overflow-hidden relative flex-shrink-0 transition-all duration-300 ${
-                      idx === selectedIndex
-                        ? "border-1 border-[#4AB04A] z-10"
-                        : ""
-                    }`}
+                    className=" pl-0.5 md:pl-2.5 w-fit basis-1/3 md:basis-1/5"
                   >
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute bottom-0 left-0 w-full h-2/5 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center p-1 md:p-2">
-                      <span className="text-white text-xs sm:text-sm font-bold text-center leading-tight">
-                        {service.title}
-                      </span>
+                    <div
+                      className={`w-[112px] h-[115px] sm:w-[90px] sm:h-[90px] md:w-[110px] md:h-[110px] rounded-[6px] overflow-hidden relative flex-shrink-0 transition-all duration-300 ${
+                        idx === selectedIndex
+                          ? "border-2 border-[#4AB04A] z-10"
+                          : ""
+                      }`}
+                      onClick={() => {
+                        if (emblaApi) {
+                          emblaApi.scrollTo(idx);
+                          handleUserInteraction();
+                        }
+                      }}
+                    >
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute bottom-0 left-0 w-full h-2/5 bg-gradient-to-t from-black/30 to-transparent flex items-end justify-center p-1 md:p-2">
+                        <span className="text-white text-xs sm:text-sm font-bold text-center leading-tight">
+                          {service.title}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -169,7 +204,7 @@ function WellnessServicesForEveryone() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
