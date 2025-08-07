@@ -6,8 +6,8 @@ const SwitchToEvolve = () => {
     <div className="w-full md:py-12">
       <div className="w-full max-w-[1280px]  md:px-8 mx-auto  ">
         <div
-          className=" relative bg-cover  bg-center min-h-[600px] flex flex-col justify-between px-4  md:px-[76px] py-16 items-start text-left md:rounded-xl overflow-hidden shadow-lg"
-          style={{ backgroundImage: `url(${trainerBg})` }}
+          className=" relative bg-cover switchToEvolve bg-center min-h-[600px] flex flex-col justify-between px-4  md:px-[76px] py-16 items-start text-left md:rounded-xl overflow-hidden shadow-lg"
+          // style={{ backgroundImage: `url(${trainerBg})` }}
         >
           <div className="absolute inset-y-0 left-0 w-[50%] z-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent " />
 
@@ -24,8 +24,8 @@ const SwitchToEvolve = () => {
           </div>
 
           <div className="w-full flex justify-center items-center">
-            <div className="relative z-10 w-full max-w-[750px] bg-[#0000006E] backdrop-blur-[25px] rounded-[10px] flex flex-col md:flex-row justify-center gap-4 md:gap-6 items-center px-2 md:px-6 py-4 text-[#fff]">
-              <span className="description text-[#fff]">
+            <div className="relative z-10 w-full max-w-[750px] bg-[#0000006E] backdrop-blur-[25px] rounded-[10px] flex flex-col md:flex-row justify-center gap-4 md:gap-2 items-center px-2 md:px-6 py-4 text-[#fff]">
+              <span className="description text-[#fff] w-[72%]">
                 Train with the Best. Or Become the Best.
               </span>
               <div className="flex flex-row w-full gap-2 md:gap-4">
