@@ -375,6 +375,8 @@
   }
   .employeePlanBG {
     background-image: url("@/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanMobBG.webp");
+    height: 480px;
+
   }
   .ContactHeroBG {
     background-image: url("@/assets/images/ContactUs/herosection.webp");
