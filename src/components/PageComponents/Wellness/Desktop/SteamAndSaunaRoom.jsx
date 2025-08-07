@@ -14,7 +14,7 @@ function SteamAndSaunaRoom() {
             at most Evolve locations.
           </p>
           <div className="flex gap-6">
-            <button className="btnPrimary">Book your Stream Room</button>
+            <button className="btnPrimary">Book your Steam Room</button>
           </div>
         </div>
       </div>
