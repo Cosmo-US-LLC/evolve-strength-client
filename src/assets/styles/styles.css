@@ -6,6 +6,30 @@
   width: 100%;
 }
 
+.trainerCallout {
+  background-image: url("/src/assets/images/home/TrainerCallout/trainer_callout.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 600px;
+}
+
+.CareerWithEvolveCareer1 {
+  background-image: url("/src/assets/images/home/CareerWithEvolve/career_1.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.CareerWithEvolveCareer2 {
+  background-image: url("/src/assets/images/home/CareerWithEvolve/career_2.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
 .personalTrainingHeroSection {
   background-image: url("/src/assets/images/PersonalTraning/hero/evolve-personal-traning-hero.webp");
   background-size: cover;
@@ -312,6 +336,15 @@
   .personalTrainingHeroSection {
     background-image: url("/src/assets/images/PersonalTraning/hero/evolve-personal-training-mob.webp");
   }
+  .trainerCallout {
+    background-image: url("/src/assets/images/home/TrainerCallout/trainer_callout_mob.webp");
+  }
+  .CareerWithEvolveCareer1 {
+    background-image: url("/src/assets/images/home/CareerWithEvolve/career_1_mob.webp");
+  }
+  .CareerWithEvolveCareer2 {
+    background-image: url("/src/assets/images/home/CareerWithEvolve/career_2_mob.webp");
+  }
   .ExploreHeroBG {
     background-image: url("@/assets/images/explore/exploreHero/evolve_mob_hero.webp");
   }
@@ -357,27 +390,23 @@
   .LoAssesment {
     background-image: url("@/assets/images/Locations/LoAssesment.webp");
   }
- 
-  .JoinToday{
-    background-image: url("@/assets/images/Locations/JoinToday_Mob.webp");
 
+  .JoinToday {
+    background-image: url("@/assets/images/Locations/JoinToday_Mob.webp");
   }
-  .franchiseLetsBuildBigger{
+  .franchiseLetsBuildBigger {
     background-image: url("@/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG-Mob.webp");
   }
- 
 
   .socialMedia {
-  background-image: url("@/assets/images/JoinTheMovement/SocialMedia/socialMediaMob.webp");
-}
- 
- 
+    background-image: url("@/assets/images/JoinTheMovement/SocialMedia/socialMediaMob.webp");
+  }
+
   .SpacesHeroBG {
-  background-image: url("@/assets/images/spaces/GrowYourBusinessSection/Spaces_mob_hero.webp");
-  height: 233px;
-}
- .spacesWhyChooseUs{
-  background-image: url("@/assets/images/spaces/WhyProfessionalsChooseUs/spacesWhyChooseUs_mob.webp");
- }
- 
+    background-image: url("@/assets/images/spaces/GrowYourBusinessSection/Spaces_mob_hero.webp");
+    height: 233px;
+  }
+  .spacesWhyChooseUs {
+    background-image: url("@/assets/images/spaces/WhyProfessionalsChooseUs/spacesWhyChooseUs_mob.webp");
+  }
 }
