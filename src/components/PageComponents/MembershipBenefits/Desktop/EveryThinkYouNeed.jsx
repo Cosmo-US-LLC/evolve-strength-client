@@ -19,7 +19,7 @@ const professionals = [
   { title: "Massage Therapy", image: slide3 },
   { title: "Chiropractic Care", image: slide4 },
   { title: "Acupuncture", image: slide5 },
-  { title: "Dietitian Services", image: slide6 },
+  { title: "Osteopathy", image: slide6 },
   { title: "Dietitian Services", image: slide7 },
   { title: "Laser Therapists", image: slide8 },
   { title: "Esthetician", image: slide9 },
