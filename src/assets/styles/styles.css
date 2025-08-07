@@ -368,6 +368,7 @@
   }
   .MembershipBenefitsFreeAssessment {
     background-image: url("@/assets/images/MembershipBenefits/FreeAssessmentForMembership/free-assessment-mob-BG.webp");
+    height: 582px;
   }
   .ReadyToEvolveBG {
     background-image: url("@/assets/images/MembershipBenefits/ReadyToEvolve/ReadyToEvolveBG.webp");
@@ -377,9 +378,11 @@
   }
   .ContactHeroBG {
     background-image: url("@/assets/images/ContactUs/herosection.webp");
+    height: 468px;
   }
   .AboutUsHero {
     background-image: url("@/assets/images/AboutUs/Abouthero_mob.webp");
+    height: 463px;
   }
   .aboutUsReadyToEvolve {
     background-image: url("@/assets/images/JoinTheMovement/TrainHere/Trainherebg.webp");
@@ -389,6 +392,10 @@
   }
   .LoAssesment {
     background-image: url("@/assets/images/Locations/LoAssesment.webp");
+  }
+  .TourOurFitness{
+    background-image: url("@/assets/images/JoinAsTrainer/TourOurFitness/TourOurFitnessMob.webp");
+    height: 478px;
   }
 
   .JoinToday {
