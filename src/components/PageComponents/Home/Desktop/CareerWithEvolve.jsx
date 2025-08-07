@@ -1,13 +1,21 @@
 import React from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
+// Desktop images
 import personalTrainerImg from "/src/assets/images/home/CareerWithEvolve/career_1.webp";
 import wellnessExpertImg from "/src/assets/images/home/CareerWithEvolve/career_2.webp";
+
+// Mobile images
+import personalTrainerImgMobile from "/src/assets/images/home/CareerWithEvolve/career_mob_1.webp";
+import wellnessExpertImgMobile from "/src/assets/images/home/CareerWithEvolve/career_mob_2.webp";
 
 const tabData = {
   trainer: {
     title: "PERSONAL TRAINER",
-    image: personalTrainerImg,
+    image: {
+      desktop: personalTrainerImg,
+      mobile: personalTrainerImgMobile,
+    },
     description:
       "Build your own personal training business inside Canada's most advanced fitness facility.",
     points: [
@@ -19,9 +27,12 @@ const tabData = {
   },
   expert: {
     title: "WELLNESS EXPERT",
-    image: wellnessExpertImg,
+    image: {
+      desktop: wellnessExpertImg,
+      mobile: wellnessExpertImgMobile,
+    },
     description:
-      "Flexible office spaces for wellness professionals inside Canada’s largest fitness facilities.",
+      "Flexible office spaces for wellness professionals inside Canada's largest fitness facilities.",
     points: [
       "Build Your Business in a Prime Location",
       "Premium Amenities for You & Your Clients",
@@ -67,11 +78,19 @@ const CareerWithEvolve = () => {
               value={key}
               className="rounded-[10px] overflow-hidden shadow-lg w-full"
             >
-              <div
-                className="relative bg-cover bg-center no-repeat w-full min-h-[600px] flex flex-col justify-center"
-                style={{ backgroundImage: `url(${tab.image})` }}
-                
-              >
+              <div className="relative w-full min-h-[600px] flex flex-col justify-center">
+                {/* Desktop background image */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block"
+                  style={{ backgroundImage: `url(${tab.image.desktop})` }}
+                />
+
+                {/* Mobile background image */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
+                  style={{ backgroundImage: `url(${tab.image.mobile})` }}
+                />
+
                 <div className="absolute inset-y-0 left-0 w-[50%] z-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent " />
                 <div className="relative z-10 md:p-10 max-md:px-[16px] max-md:py-[48px] max-w-[500px]">
                   <h2 className=" mb-4 text-[#fff]">{tab.title}</h2>
