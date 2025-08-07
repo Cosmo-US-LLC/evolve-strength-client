@@ -5,7 +5,7 @@ import LocationHero from "@/components/PageComponents/Locations/Desktop/Location
 import LocationPartners from "@/components/PageComponents/Locations/Desktop/LocationsPartners";
 import RightTrainer from "@/components/PageComponents/Locations/Desktop/RightTrainer";
 import FitnessCategory from "@/components/PageComponents/Locations/Desktop/FitnessCategory";
-import Services from "@/components/PageComponents/Locations/Desktop/Services";
+import Services from "@/components/PageComponents/Locations/Desktop/LocationWellnessServices.jsx";
 import Spacious from "@/components/PageComponents/Locations/Desktop/LocationsSpacious";
 import LocationsSeeItForYourSelf from "@/components/PageComponents/Locations/Desktop/LocationSeeITYourself";
 import JoinUsToday from "@/components/PageComponents/Locations/Desktop/JoinUsToday";

@@ -38,6 +38,13 @@
   width: 100%;
   height: 700px;
 }
+.switchToEvolve {
+  background-image: url("/src/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolve.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+}
 
 .personalTrainingFreeAssessment {
   background-image: url("@/assets/images/PersonalTraning/FreeAssessment/FreeAssessment.webp");
@@ -335,6 +342,7 @@
 @media (max-width: 768px) {
   .personalTrainingHeroSection {
     background-image: url("/src/assets/images/PersonalTraning/hero/evolve-personal-training-mob.webp");
+    height: 646px;
   }
   .trainerCallout {
     background-image: url("/src/assets/images/home/TrainerCallout/trainer_callout_mob.webp");
@@ -350,7 +358,12 @@
   }
   .personalTrainingFreeAssessment {
     background-image: url("@/assets/images/PersonalTraning/FreeAssessment/FreeAssessmentMob.webp");
+    height: 582px;
   }
+  .switchToEvolve {
+  background-image: url("/src/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolveMob.webp");
+ 
+}
   .wellnessHeroSection {
     background-image: url("/src/assets/images/wellness/wellnessHero/wellnessMobHero.webp");
   }
@@ -375,6 +388,8 @@
   }
   .employeePlanBG {
     background-image: url("@/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanMobBG.webp");
+    height: 480px;
+
   }
   .ContactHeroBG {
     background-image: url("@/assets/images/ContactUs/herosection.webp");

@@ -28,6 +28,7 @@ const professionals = [
 const EveryThinkYouNeed = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
+      align: "start",
       containScroll: "keepSnaps",
       loop: true,
     },
@@ -42,7 +43,7 @@ const EveryThinkYouNeed = () => {
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col items-start gap-8">
         <div className="flex flex-col   gap-4 pb-10 md:pb-0">
           <h2 className="text-[#000] uppercase ">
-            Everything You Need. All in One  Place.
+            Everything You Need. All in One Place.
           </h2>
           <h4 className="text-[#000] w-full md:w-[719px] leading-[26px] font-[400]">
             At most gyms, your fitness journey ends when you leave. Recovery
@@ -64,12 +65,12 @@ const EveryThinkYouNeed = () => {
               {professionals.map((pro, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_100%] md:flex-[0_0_28%] relative rounded-lg overflow-hidden"
+                  className="flex-[0_0_100%] md:flex-[0_0_30%] relative rounded-lg overflow-hidden"
                 >
                   <img
                     src={pro.image}
                     alt={pro.title}
-                    className="w-full h-auto md:h-[400px] object-cover"
+                    className="w-full h-[440px] md:h-[400px] object-cover"
                   />
                   <h3 className="absolute bottom-[40px] left-0 right-0  flex items-center justify-center text-[#FFF] leading-[24px] font-[500]">
                     {pro.title}
@@ -78,7 +79,7 @@ const EveryThinkYouNeed = () => {
               ))}
             </div>
           </div>
-          <div className="absolute -top-1/9 md:-top-1/7 -translate-y-1/2 left-[74%] md:left-[87%] z-10">
+          <div className="absolute -top-1/11 md:-top-1/7 -translate-y-1/2 left-[74%] md:left-[87%] z-10">
             <button
               onClick={scrollPrev}
               className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-100 cursor-pointer"
@@ -90,7 +91,7 @@ const EveryThinkYouNeed = () => {
               />
             </button>
           </div>
-          <div className="absolute -top-1/9 md:-top-1/7 -translate-y-1/2 right-[4%] md:right-[6%] z-10 ">
+          <div className="absolute -top-1/11 md:-top-1/7 -translate-y-1/2 right-[4%] md:right-[6%] z-10 ">
             <button
               onClick={scrollNext}
               className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-100 cursor-pointer"

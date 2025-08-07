@@ -5,7 +5,8 @@ import LocationHero from "@/components/PageComponents/Locations/Desktop/Location
 import LocationPartners from "@/components/PageComponents/Locations/Desktop/LocationsPartners";
 import RightTrainer from "@/components/PageComponents/Locations/Desktop/RightTrainer";
 import FitnessCategory from "@/components/PageComponents/Locations/Desktop/FitnessCategory";
-import Services from "@/components/PageComponents/Locations/Desktop/Services";
+// import LocationWellnessServices from "@/components/PageComponents/Locations/Desktop/LocationWellnessServices";
+import LocationWellnessServices from "@/components/PageComponents/Locations/Desktop/LocationWellnessServices.jsx";
 import Spacious from "@/components/PageComponents/Locations/Desktop/LocationsSpacious";
 import LocationsSeeItForYourSelf from "@/components/PageComponents/Locations/Desktop/LocationSeeITYourself";
 import JoinUsToday from "@/components/PageComponents/Locations/Desktop/JoinUsToday";
@@ -15,6 +16,7 @@ import MeetTheTrainers from "@/components/PageComponents/Locations/Desktop/MeetT
 import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLocation";
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
+import WellnessServices from "@/components/PageComponents/Home/Desktop/WellnessServices";
 
 function CalgaryRoyalOak() {
   return (
@@ -26,7 +28,8 @@ function CalgaryRoyalOak() {
       <FitnessCategory />
       <LocationsPersonalizedAssessment />
       <RightTrainer />
-      <Services />
+      {/* <WellnessServices/> */}
+      <LocationWellnessServices/>
       <Spacious />
       <LocationsSeeItForYourSelf />
       <SetonLocation />
