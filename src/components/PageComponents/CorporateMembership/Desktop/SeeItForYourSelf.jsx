@@ -10,12 +10,12 @@ import {
 import postImg1 from "/src/assets/images/home/facility/image_1.webp";
 import postImg2 from "/src/assets/images/home/facility/image_2.webp";
 import brentwoodImg1 from "/src/assets/images/home/facility/image_3.webp";
-import brentwoodImg2 from "/src/assets/images/home/facility/image_4.webp";
-import setonImg1 from "/src/assets/images/home/facility/image_5.webp";
+import brentwoodImg2 from "/src/assets/images/home/facility/royal_oak_9.webp";
+import setonImg1 from "/src/assets/images/home/facility/sunridge8.webp";
 import setonImg2 from "/src/assets/images/home/facility/image_6.webp";
-import royalOakImg1 from "/src/assets/images/home/facility/image_7.webp";
+import royalOakImg1 from "/src/assets/images/home/facility/north6.webp";
 import royalOakImg2 from "/src/assets/images/home/facility/image_8.webp";
-import sunridgeImg from "/src/assets/images/home/facility/image_5.webp";
+import sunridgeImg from "/src/assets/images/home/facility/sunridge8.webp";
 import downtownImg from "/src/assets/images/home/facility/image_6.webp";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
