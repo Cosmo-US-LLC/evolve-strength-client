@@ -3,7 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Physiotherapy from "../../../../assets/images/corporateMembership/MembershipRecovery/Physiotherapy.webp";
-import MassageTherapy from "../../../../assets/images/corporateMembership/MembershipRecovery/Massage_Therapy.webp";
+// import MassageTherapy from "../../../../assets/images/corporateMembership/MembershipRecovery/Massage_Therapy.webp";
 import Chiropractic from "../../../../assets/images/corporateMembership/MembershipRecovery/Chiropractic.webp";
 import Acupuncture from "../../../../assets/images/corporateMembership/MembershipRecovery/Acupuncture.webp";
 import DietitianServices from "../../../../assets/images/corporateMembership/MembershipRecovery/Dietitian_Services.webp";
@@ -20,7 +20,7 @@ const professionals = [
   { title: "Dietitian Services", image: DietitianServices },
   { title: "Laser Therapy", image: LaserTherapy },
   { title: "Esthetician", image: Esthetician },
-  { title: "Mental Health", image: mentalHealth },
+  { title: "Mental Health", image: "/all_locations/mental_health.webp" },
 ];
 
 const MembershipRecovery = () => {
