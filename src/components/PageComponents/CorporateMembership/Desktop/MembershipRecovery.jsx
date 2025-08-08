@@ -81,7 +81,6 @@ const MembershipRecovery = () => {
           </div>
         </div>
 
-        {/* <button className="btnPrimary">APPLY NOW</button> */}
       </div>
     </section>
   );
