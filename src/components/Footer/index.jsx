@@ -161,26 +161,26 @@ function Footer() {
               </div>
             </div>
           </div>
-          <div className="flex flex-row items-center justify-between w-full max-w-[778px] h-[100px] gap-6">
-            <div className="text-[#4AB04A] hover:text-[#ffffff] border-[2px] border-[#4AB04A] cursor-pointer hover:border-[#ffffff] rounded-full p-4">
-              <Instagram className="w-7 h-7 " />
+          <div className="flex flex-row items-center justify-between w-full max-w-[778px] h-auto md:h-[100px] gap-2 md:gap-6">
+            <div className="text-[#4AB04A] hover:text-[#ffffff] border-[2px] border-[#4AB04A] cursor-pointer hover:border-[#ffffff] rounded-full p-2 md:p-4">
+              <Instagram className="w-4 md:w-7 h-4 md:h-7 " />
             </div>
 
-            <div className="flex flex-row gap-6 md:gap-10 ">
+            <div className="flex flex-row gap-4 md:gap-10 ">
               <div>
-                <p className="footer_quick_links uppercase text-[#6F6D66]  ">
+                <p className="footer_quick_links text-[14px] leading-[19.6px]  uppercase text-[#6F6D66]  ">
                   Selection Committee
                 </p>
-                <a href="tel:+17805897852" className="hover:cursor-pointer hover:text-[#ffffff] text-[#B2B1AA]">
+                <a href="tel:+17805897852" className="text-[14px] leading-[19.6px] hover:cursor-pointer hover:text-[#ffffff] text-[#B2B1AA]">
               +1 (780) 589-7852
             </a>
               </div>
 
               <div>
-                <p className="footer_quick_links uppercase text-[#6F6D66]">
+                <p className="footer_quick_links uppercase text-[14px] leading-[19.6px]  text-[#6F6D66]">
                   Email
                 </p>
-                <a href="mailto:info@evolvestrength.com" className="hover:cursor-pointer hover:text-[#ffffff] text-[#B2B1AA]">
+                <a href="mailto:info@evolvestrength.com" className="text-[14px] leading-[19.6px] hover:cursor-pointer hover:text-[#ffffff] text-[#B2B1AA]">
               info@evolvestrength.com
             </a>
               </div>
