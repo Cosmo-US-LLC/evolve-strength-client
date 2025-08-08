@@ -68,10 +68,10 @@ function Footer() {
                   >
                     Become a Trainer
                   </Link>
-                  <span className="text-[#B2B1AA]">/</span>
+                  {/* <span className="text-[#B2B1AA]">/</span>
                   <a href="#" className="text-[#B2B1AA] hover:text-[#ffffff]">
                     Become a Practitioner
-                  </a>
+                  </a> */}
                   <span className="text-[#B2B1AA]">/</span>
                   <Link
                     smooth
@@ -130,12 +130,12 @@ function Footer() {
                 </div>
 
                 <div className="space-y-3 flex flex-col">
-                  <a
+                  {/* <a
                     href="#"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Careers
-                  </a>
+                  </a> */}
                   <Link
                     smooth
                     to="/faqs"
@@ -171,18 +171,24 @@ function Footer() {
                 <p className="footer_quick_links text-[14px] leading-[19.6px]  uppercase text-[#6F6D66]  ">
                   Selection Committee
                 </p>
-                <a href="tel:+17805897852" className="text-[14px] leading-[19.6px] hover:cursor-pointer hover:text-[#ffffff] text-[#B2B1AA]">
-              +1 (780) 589-7852
-            </a>
+                <a
+                  href="tel:+17805897852"
+                  className="text-[14px] leading-[19.6px] hover:cursor-pointer hover:text-[#ffffff] text-[#B2B1AA]"
+                >
+                  +1 (780) 589-7852
+                </a>
               </div>
 
               <div>
                 <p className="footer_quick_links uppercase text-[14px] leading-[19.6px]  text-[#6F6D66]">
                   Email
                 </p>
-                <a href="mailto:info@evolvestrength.com" className="text-[14px] leading-[19.6px] hover:cursor-pointer hover:text-[#ffffff] text-[#B2B1AA]">
-              info@evolvestrength.com
-            </a>
+                <a
+                  href="mailto:info@evolvestrength.com"
+                  className="text-[14px] leading-[19.6px] hover:cursor-pointer hover:text-[#ffffff] text-[#B2B1AA]"
+                >
+                  info@evolvestrength.com
+                </a>
               </div>
             </div>
           </div>

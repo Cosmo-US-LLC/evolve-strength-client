@@ -46,7 +46,7 @@ const MembershipPremiumAmenities = () => {
                   <img
                     src={pro.image}
                     alt={pro.title}
-                    className="w-full max-md:w-[350px] md:w-[400px] h-[273px] object-cover"
+                    className="w-full max-md:w-[350px] md:w-[400px] h-[233px] md:h-[263px] object-cover rounded-[8px]"
                   />
                   <h3 className="flex items-center mt-6 text-[#000] leading-[24px] font-[500]">
                     {pro.title}
