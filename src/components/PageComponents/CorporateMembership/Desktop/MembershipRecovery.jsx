@@ -14,7 +14,7 @@ import mentalHealth from "../../../../assets/images/corporateMembership/Membersh
 
 const professionals = [
   { title: "Physiotherapy", image: Physiotherapy },
-  { title: "Osteopathy", image: Osteopathy },
+  { title: "Osteopathy", image: "/all_locations/osteopathy.webp" },
   { title: "Massage Therapy", image: MassageTherapy },
   { title: "Chiropractic", image: Chiropractic },
   { title: "Acupuncture", image: Acupuncture },
