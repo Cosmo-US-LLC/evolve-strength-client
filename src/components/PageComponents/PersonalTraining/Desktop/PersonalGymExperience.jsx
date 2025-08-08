@@ -11,12 +11,12 @@ import olympicLifting from "../../../../assets/images/PersonalTraning/PersonalGy
 import yoga from "../../../../assets/images/PersonalTraning/PersonalGymExperience/yoga.webp";
 
 // Mobile images (currently using same images, replace with mobile-specific ones when available)
-import fitnessMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/fitness.webp";
-import wellnessMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/bodyweight_training.webp";
-import atmosphereMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/cardio.webp";
-import turfWorkoutsMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/turf_workouts.webp";
-import olympicLiftingMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/olympic_lifting.webp";
-import yogaMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/yoga.webp";
+import fitnessMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/fitnessMob.webp";
+import wellnessMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/bodyweight_trainingMob.webp";
+import atmosphereMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/cardioMob.webp";
+import turfWorkoutsMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/turf_workoutsMob.webp";
+import olympicLiftingMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/olympic_liftingMob.webp";
+import yogaMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp";
 
 const gymCards = [
   {
