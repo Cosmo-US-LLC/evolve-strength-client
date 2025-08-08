@@ -3,7 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Physiotherapy from "../../../../assets/images/corporateMembership/MembershipRecovery/Physiotherapy.webp";
-import Osteopathy from "../../../../assets/images/home/wellness-services/osteopathyMob.webp";
+import Osteopathy from "../../../../assets/images/corporateMembership/MembershipRecovery/Osteopathy.webp";
 import MassageTherapy from "../../../../assets/images/corporateMembership/MembershipRecovery/Massage_Therapy.webp";
 import Chiropractic from "../../../../assets/images/corporateMembership/MembershipRecovery/Chiropractic.webp";
 import Acupuncture from "../../../../assets/images/corporateMembership/MembershipRecovery/Acupuncture.webp";
@@ -14,7 +14,7 @@ import mentalHealth from "../../../../assets/images/corporateMembership/Membersh
 
 const professionals = [
   { title: "Physiotherapy", image: Physiotherapy },
-  { title: "Osteopathy", image: Osteopathy },
+  { title: "Osteopathy", image: "/all_locations/osteopathy.webp" },
   { title: "Massage Therapy", image: MassageTherapy },
   { title: "Chiropractic", image: Chiropractic },
   { title: "Acupuncture", image: Acupuncture },
@@ -81,6 +81,7 @@ const MembershipRecovery = () => {
           </div>
         </div>
 
+        {/* <button className="btnPrimary">APPLY NOW</button> */}
       </div>
     </section>
   );
