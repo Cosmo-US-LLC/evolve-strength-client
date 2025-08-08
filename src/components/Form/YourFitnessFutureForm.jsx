@@ -574,7 +574,7 @@ function YourFitnessFutureForm({ onReturnHome }) {
             </div>
             <Link to = "/">
           <button className="w-full btnPrimary  " onClick={onReturnHome}>
-            RETURN TO HOMEPAGE
+            Submit Now
           </button>
           </Link>
           </form>

@@ -10,10 +10,16 @@ import BusinessOpportunities from "@/components/PageComponents/Home/Desktop/Busi
 import CareerWithEvolve from "@/components/PageComponents/Home/Desktop/CareerWithEvolve";
 import MembershipBenefits from "@/components/PageComponents/Home/Desktop/MembershipBenefits";
 import FacilityShowcase from "@/components/PageComponents/Home/Desktop/FacilityShowcase";
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function Home() {
   return (
-    <div>
+    <>
+      <MetaTags
+        title="Evolve Strength | Canada’s Best Fitness & Wellness Hub"
+        description="Train, recover, and grow at Evolve, Canada’s largest gym with locations in Edmonton, Calgary, Burnaby, and Vancouver. One membership includes premium fitness and integrated wellness."
+      />
       <div className="overflow-hidden">
         <Hero />
         <WellnessHub />
@@ -26,7 +32,7 @@ function Home() {
         <CareerWithEvolve />
         <BusinessOpportunities />
       </div>
-    </div>
+    </>
   );
 }
 
