@@ -48,9 +48,15 @@ const gymCards = [
 const WhyCompaniesChoose = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [previousIndex, setPreviousIndex] = useState(0);
 
   // Desktop: use hover state, Mobile: use carousel state
   const activeIndex = hoveredIndex !== null ? hoveredIndex : carouselIndex;
+
+  // Update previous index when active index changes
+  useEffect(() => {
+    setPreviousIndex(activeIndex);
+  }, [activeIndex]);
 
   // Mobile Carousel with Scale Effect
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -58,8 +64,8 @@ const WhyCompaniesChoose = () => {
       containScroll: "keepSnaps",
       loop: true,
       align: "center",
-    },
-    [Autoplay({ delay: 4000, stopOnInteraction: false })]
+    }
+    // [Autoplay({ delay: 4000, stopOnInteraction: false })]
   );
 
   // Scale effect for mobile carousel
@@ -93,6 +99,7 @@ const WhyCompaniesChoose = () => {
     };
   }, [emblaApi]);
 
+  // Preload images
   useEffect(() => {
     gymCards.forEach((card) => {
       const img = new Image();
@@ -102,11 +109,19 @@ const WhyCompaniesChoose = () => {
 
   return (
     <div className="relative w-full overflow-hidden mb-12">
-      {/* Background Image - Desktop */}
+      {/* Background Images - Desktop */}
       <div className="hidden md:block">
+        {/* Previous background image */}
         <div
-          key={activeIndex}
-          className="absolute inset-0 bg-cover bg-center transition-all animate-fade will-change-transform will-change-opacity"
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
+          style={{
+            backgroundImage: `url(${gymCards[previousIndex].bgImage})`,
+          }}
+        />
+
+        {/* Current background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
           style={{
             backgroundImage: `url(${gymCards[activeIndex].bgImage})`,
           }}
@@ -114,11 +129,19 @@ const WhyCompaniesChoose = () => {
         <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       </div>
 
-      {/* Background Image - Mobile */}
+      {/* Background Images - Mobile */}
       <div className="md:hidden">
+        {/* Previous background image */}
         <div
-          key={carouselIndex}
-          className="absolute inset-0 bg-cover bg-center transition-all animate-fade will-change-transform will-change-opacity h-[600px]"
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out h-[600px]"
+          style={{
+            backgroundImage: `url(${gymCards[previousIndex].bgImage})`,
+          }}
+        />
+
+        {/* Current background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out h-[600px]"
           style={{
             backgroundImage: `url(${gymCards[carouselIndex].bgImage})`,
           }}
@@ -161,13 +184,23 @@ const WhyCompaniesChoose = () => {
                   isActive ? "text-[#1C1C1C]" : "text-[#ffffff]"
                 }`}
               >
-                <h4
-                  className={`uppercase !text-[24px] font-[kanit] leading-[24px] tracking-[-0.72px] !font-[600] mb-2 transition-all duration-200 group-hover:translate-y-[-4px] group-hover:opacity-90 ${
-                    isActive ? "text-[#1C1C1C]" : "text-[#ffffff]"
-                  }`}
-                >
-                  {card.title}
-                </h4>
+                <div className="flex flex-row items-center gap-3 mb-2">
+                  <div className="">
+                    <card.icon
+                      className="  transition-colors duration-200"
+                      style={{
+                        fill: isActive ? "#4AB04A" : "#ffffff",
+                      }}
+                    />
+                  </div>
+                  <h4
+                    className={`uppercase  !text-[24px] font-[kanit] leading-[24px] tracking-[-0.72px] !font-[600] transition-all duration-200 group-hover:translate-y-[-4px] group-hover:opacity-90 ${
+                      isActive ? "text-[#1C1C1C]" : "text-[#ffffff]"
+                    }`}
+                  >
+                    {card.title}
+                  </h4>
+                </div>
                 {isActive && (
                   <h4
                     className={`leading-[24px] description !font-[400] transition-all duration-200 group-hover:translate-y-[-2px] group-hover:opacity-90 text-[#000]`}
@@ -198,7 +231,14 @@ const WhyCompaniesChoose = () => {
 
                     <div className="relative z-10 transition-colors duration-500 w-full text-left text-[#1C1C1C]">
                       <div className="flex flex-row items-center gap-3 mb-2">
-                        {/* <card.icon className="w-8 h-8 text-[#4ab04a]" /> */}
+                        <div>
+                          <card.icon
+                            className=" transition-colors duration-200"
+                            style={{
+                              fill: isSelected ? "#4AB04A" : "#000",
+                            }}
+                          />
+                        </div>
                         <h4 className="uppercase !text-[18px] font-[kanit] leading-[22px] tracking-[-0.54px] !font-[600] transition-all duration-200 text-[#1C1C1C]">
                           {card.title}
                         </h4>

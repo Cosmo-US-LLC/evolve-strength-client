@@ -36,7 +36,7 @@ function Navbar() {
     { to: "/membership-benefits", label: "Membership" },
     { to: "/personal-training", label: "Training" },
     { to: "/wellness", label: "Wellness" },
-    { to: "#Careers", label: "Careers" },
+    { to: "/spaces", label: "Spaces" },
     { to: "/franchise", label: "Franchise" },
   ];
 

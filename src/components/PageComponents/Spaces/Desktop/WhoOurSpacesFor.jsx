@@ -10,16 +10,18 @@ import slide5 from "../../../../assets/images/spaces/WhoOurSpacesFor/slide5.webp
 import slide6 from "../../../../assets/images/spaces/WhoOurSpacesFor/slide6.webp";
 import slide7 from "../../../../assets/images/spaces/WhoOurSpacesFor/slide7.webp";
 import slide8 from "../../../../assets/images/spaces/WhoOurSpacesFor/slide8.webp";
+import slide9 from "../../../../assets/images/spaces/WhoOurSpacesFor/slide9.webp";
 
 const professionals = [
   { title: "Chiropractors", image: slide1 },
   { title: "Massage Therapists", image: slide2 },
   { title: "Acupuncturists", image: slide3 },
   { title: "Estheticians", image: slide4 },
-  { title: "Pilates Instructors", image: slide5 },
+  { title: "physiotherapy", image: slide5 },
   { title: "Dietitians", image: slide6 },
   { title: "Yoga", image: slide7 },
   { title: "Laser Therapists", image: slide8 },
+  { title: "Mental Health", image: slide9 },
 ];
 
 const WhoOurSpacesFor = () => {
@@ -55,20 +57,22 @@ const WhoOurSpacesFor = () => {
 
         <div className="relative w-full">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-4">
+            <div className="flex -ml-0.5 md:-ml-2.5">
               {professionals.map((pro, idx) => (
-                <div
-                  key={idx}
-                  className="flex-[0_0_88%] md:flex-[0_0_23%] relative rounded-lg overflow-hidden"
-                >
-                  <img
-                    src={pro.image}
-                    alt={pro.title}
-                    className="w-full h-[400px] object-cover"
-                  />
-                  <h3 className="absolute bottom-[40px] left-0 right-0 flex items-center justify-center text-[#FFF] leading-[24px] font-[500]">
-                    {pro.title}
-                  </h3>
+                <div className=" pl-0.5 md:pl-2.5 w-fit md:basis-1/4.1 flex-shrink-0">
+                  <div
+                    key={idx}
+                    className="flex relative rounded-lg overflow-hidden"
+                  >
+                    <img
+                      src={pro.image}
+                      alt={pro.title}
+                      className="w-full h-[400px] object-cover"
+                    />
+                    <h3 className="absolute bottom-[40px] left-0 right-0 flex items-center justify-center text-[#FFF] leading-[24px] font-[500]">
+                      {pro.title}
+                    </h3>
+                  </div>
                 </div>
               ))}
             </div>

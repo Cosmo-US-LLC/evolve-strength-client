@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const cardItems = [
   {
@@ -30,75 +30,6 @@ const cardItems = [
 ];
 
 function WellnessHub() {
-  const [cardTransforms, setCardTransforms] = useState(
-    cardItems.map(() => ({ transform: "", opacity: 1 }))
-  );
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Only apply animations on mobile (screen width < 768px)
-      if (window.innerWidth >= 768) {
-        setCardTransforms(cardItems.map(() => ({ transform: "", opacity: 1 })));
-        return;
-      }
-
-      const newTransforms = cardItems.map((_, index) => {
-        const cardElement = document.getElementById(`wellness-card-${index}`);
-        if (!cardElement) return { transform: "", opacity: 1 };
-
-        // LAST CARD - NO ANIMATION
-        if (index === cardItems.length - 1) {
-          return { transform: "", opacity: 1 };
-        }
-
-        const nextCardElement = document.getElementById(
-          `wellness-card-${index + 1}`
-        );
-        if (nextCardElement) {
-          const nextRect = nextCardElement.getBoundingClientRect();
-          const viewportHeight = window.innerHeight;
-          const nextCardTop = nextRect.top;
-          const nextCardHeight = nextRect.height;
-
-          const nextCardVisibleHeight = Math.max(
-            0,
-            viewportHeight - nextCardTop
-          );
-          const nextCardVisibilityPercent =
-            (nextCardVisibleHeight / nextCardHeight) * 100;
-
-          if (nextCardVisibilityPercent > 0) {
-            const progressValue = Math.min(1, nextCardVisibilityPercent / 100);
-
-            const translateY = -progressValue * 24.1352;
-            const scale = 1 - progressValue * 0.0483;
-            const opacity = Math.max(0, 1 - progressValue);
-
-            return {
-              transform: `
-                translate3d(0px, ${translateY}px, 0px) 
-                scale(${scale}, ${scale})
-              `,
-              opacity,
-            };
-          }
-        }
-        return { transform: "", opacity: 1 };
-      });
-
-      setCardTransforms(newTransforms);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleScroll);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, [cardItems.length]);
-
   return (
     <div id="wellnessHub" className="bg-white py-16">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
@@ -119,24 +50,11 @@ function WellnessHub() {
           {cardItems.map((item, index) => (
             <div
               key={index}
-              id={`wellness-card-${index}`}
               className={`relative rounded-lg p-5 flex flex-col ${
                 item.background === "black" ? "bg-black" : "bg-white"
-              } border border-gray-200 md:transition-none transition-all duration-500 ease-out ${
-                window.innerWidth < 768 ? "sticky top-0 h-[270px]" : ""
-              }`}
+              } border border-gray-200`}
               style={{
-                height: window.innerWidth >= 768 ? item.height : undefined,
-                transform:
-                  window.innerWidth < 768
-                    ? cardTransforms[index].transform
-                    : "",
-                opacity:
-                  window.innerWidth < 768 ? cardTransforms[index].opacity : 1,
-                transformStyle:
-                  window.innerWidth < 768 && cardTransforms[index].transform
-                    ? "preserve-3d"
-                    : "flat",
+                height: window.innerWidth >= 768 ? item.height : "270px",
               }}
             >
               {/* Card Content */}
