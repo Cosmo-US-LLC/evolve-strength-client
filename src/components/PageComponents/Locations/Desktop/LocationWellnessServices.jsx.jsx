@@ -35,14 +35,14 @@ import mentalHealthBg from "/src/assets/images/home/wellness-services/mental_hea
 
 // Mobile images (currently using same images, replace with mobile-specific ones when available)
 import estheticianBgMobile from "/src/assets/images/home/wellness-services/esthetician_mobile.webp";
-import chiropracticBgMobile from "/src/assets/images/home/wellness-services/chiropractic_care.webp";
-import massageBgMobile from "/src/assets/images/home/wellness-services/chiropractic_head.webp";
-import physiotherapyMobile from "/src/assets/images/home/wellness-services/physiotherapy.webp";
-import acupunctureBgMobile from "/src/assets/images/home/wellness-services/acupuncture.webp";
-import dietitianBgMobile from "/src/assets/images/home/wellness-services/acupuncture_food.webp";
-import osteopathyBgMobile from "/src/assets/images/home/wellness-services/osteopathy.webp";
-import laserBgMobile from "/src/assets/images/home/wellness-services/osteopathy_glass.webp";
-import mentalHealthBgMobile from "/src/assets/images/home/wellness-services/mental_health.webp";
+import chiropracticBgMobile from "/src/assets/images/home/wellness-services/chiropractic_careMob.webp";
+import massageBgMobile from "/src/assets/images/home/wellness-services/chiropractic_headMob.webp";
+import physiotherapyMobile from "/src/assets/images/home/wellness-services/physiotherapyMob.webp";
+import acupunctureBgMobile from "/src/assets/images/home/wellness-services/acpunctureMob.webp";
+import dietitianBgMobile from "/src/assets/images/home/wellness-services/dietitionMob.webp";
+import osteopathyBgMobile from "/src/assets/images/home/wellness-services/osteopathyMob.webp";
+import laserBgMobile from "/src/assets/images/home/wellness-services/osteoathy_glassMob.webp";
+import mentalHealthBgMobile from "/src/assets/images/home/wellness-services/mental_healthMob.webp";
 
 const services = [
   {
