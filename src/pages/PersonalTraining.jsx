@@ -6,10 +6,16 @@ import FitnessCategoryMarquee from "../components/PageComponents/PersonalTrainin
 import PersonalGymExperience from "../components/PageComponents/PersonalTraining/Desktop/PersonalGymExperience";
 import SwitchToEvolve from "../components/PageComponents/PersonalTraining/Desktop/SwitchToEvolve";
 import ConsultationWithPersonalTrainers from "@/components/PageComponents/PersonalTraining/Desktop/ConsultationWithPersonalTrainers";
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function PersonalTraining() {
   return (
-    <div>
+    <>
+    <MetaTags
+        title="Personal Training at Evolve Strength | 1-on-1 Coaching That Delivers Results"
+        description="Get expert personal training at Evolve Strength. With 200+ trainers and a low 1:5 ratio, we offer custom plans for strength, fat loss, rehab, and more."
+      />
       <div className="">
         <PersonalTrainingHero />
         <PerfectTrainer />
@@ -20,7 +26,7 @@ function PersonalTraining() {
         <SwitchToEvolve />
       </div>
       {/* <div className="md:hidden">Home Mobile</div> */}
-    </div>
+    </>
   );
 }
 

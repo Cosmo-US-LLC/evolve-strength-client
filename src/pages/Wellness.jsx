@@ -7,10 +7,16 @@ import WellnessPricingRoom from "@/components/PageComponents/Wellness/Desktop/We
 import WellnessJourneySteps from "@/components/PageComponents/Wellness/Desktop/WellnessJourneySteps";
 import WellnessServicesForEveryone from "@/components/PageComponents/Wellness/Desktop/WellnessServicesForEveryone";
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function Home() {
   return (
-    <div>
+    <>
+    <MetaTags
+        title="Evolve Strength Wellness Services | Affordable, Expert Care"
+        description="Discover expert-led wellness services at Evolve Strength, including massage, chiropractic care, acupuncture, and more, all under one roof, at prices that fit your budget."
+      />
       <WellnessHero />
       <WellnessJourneySteps />
       <WellnessPricingRoom />
@@ -18,7 +24,7 @@ function Home() {
       <SteamAndSaunaRoom />
       <YogaAndRecoveryRoom />
       <FrequentlyAskedQuestions {...faqContent} />
-    </div>
+    </>
   );
 }
 
