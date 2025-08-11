@@ -46,7 +46,7 @@ function WellnessHub() {
 
           {/* <button className="btnPrimary mt-auto w-fit">Book Now</button> */}
         </div>
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-start md:justify-center mb-10">
           <button className="btnPrimary mt-auto w-fit">Book Now</button>
         </div>
 

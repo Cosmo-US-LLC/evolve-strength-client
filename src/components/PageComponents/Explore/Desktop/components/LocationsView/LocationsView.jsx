@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   getDataByCategory,
   getTrainersForLocation,
+  getTrainersForLocationService,
 } from "../../../../../../constants/exploreDataWithTrainer";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
@@ -14,26 +15,6 @@ function LocationsView() {
   const [selectedTrainer, setSelectedTrainer] = useState({}); // { [locKey_service]: trainerIdx }
 
   const locationsData = getDataByCategory("LOCATIONS")?.data || [];
-
-  // Service to role mapping
-  const serviceToRoleMap = {
-    All: null,
-    "Chiropractic Care": "Chiropractor",
-    "Massage Therapy": "Massage Therapist",
-    Pilates: "Pilates Instructor",
-    Acupuncture: "Acupuncturist",
-    "Dietitian Services": "Dietitian",
-    Esthetician: "Esthetician",
-    "Laser Therapy": "Laser Therapist",
-    Osteopathy: "Osteopath",
-    "Mental Health Support": "Mental Health Professional",
-    "Personal Training": "Personal Trainer",
-    Physiotherapy: "Physiotherapist",
-    "Occupational Therapy": "Occupational Therapist",
-    "Speech Therapy": "Speech Therapist",
-    Yoga: "Yoga Instructor",
-    Nutrition: "Nutritionist",
-  };
 
   const handleToggle = (locKey) => {
     // Accordion behavior: if clicking the same location, close it; if clicking different location, close previous and open new one
@@ -72,23 +53,14 @@ function LocationsView() {
           const locKey = `${loc.city} ${loc.branch}`;
           const isOpen = expandedLocation === locKey;
           const selectedService = serviceTabs[locKey] || "All";
-          // Get trainers for this location
-          const locationTrainers = getTrainersForLocation(loc.id);
+          // Get trainers for this location and service
+          const serviceId =
+            loc.services.find((s) => s.name === selectedService)?.id || "";
 
-          // Filter trainers by selected service
           const filteredTrainers =
             selectedService === "All"
-              ? locationTrainers
-              : locationTrainers.filter((trainer) => {
-                  const expectedRole = serviceToRoleMap[selectedService];
-                  return (
-                    expectedRole &&
-                    trainer.role &&
-                    trainer.role
-                      .toLowerCase()
-                      .includes(expectedRole.toLowerCase())
-                  );
-                });
+              ? getTrainersForLocation(loc.id)
+              : getTrainersForLocationService(loc.id, serviceId);
 
           // Transform trainer data for display
           const transformedTrainers =
