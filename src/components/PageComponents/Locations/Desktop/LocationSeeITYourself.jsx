@@ -82,19 +82,78 @@ const locations = [
   {
     key: "post",
     label: "Post",
-    images: [post1,post2,post3,post4,post5,post6,post7,post8],
+    images: [post1, post2, post3, post4, post5, post6, post7, post8],
   },
   {
     key: "brentwood",
     label: "Brentwood",
-    images: [brentwood1, brentwood2, brentwood3, brentwood4, brentwood5, brentwood6, brentwood7, brentwood8],
+    images: [
+      brentwood1,
+      brentwood2,
+      brentwood3,
+      brentwood4,
+      brentwood5,
+      brentwood6,
+      brentwood7,
+      brentwood8,
+    ],
   },
-  { key: "seton", label: "Seton", images: [seton1, seton2, seton3, seton4, seton5, seton6, seton7, seton8] },
-  { key: "royaloak", label: "Royal Oak", images: [royalOak1, royalOak2, royalOak3, royalOak4, royalOak5, royalOak6, royalOak7, royalOak8] },
-  { key: "sunridge", label: "Sunridge", images: [sunridge1, sunridge2, sunridge3, sunridge4, sunridge5, sunridge6, sunridge7] },
-  { key: "downtown", label: "Downtown", images: [downtown1, downtown2, downtown3, downtown4, downtown5, downtown6, downtown7, downtown8] },
-  { key: "north", label: "North", images: [north1, north2, north3, north4, north5] },
-  { key: "south", label: "South", images: [south1, south2, south3, south4, south5, south6, south7, south8] },
+  {
+    key: "seton",
+    label: "Seton",
+    images: [seton1, seton2, seton3, seton4, seton5, seton6, seton7, seton8],
+  },
+  {
+    key: "royaloak",
+    label: "Royal Oak",
+    images: [
+      royalOak1,
+      royalOak2,
+      royalOak3,
+      royalOak4,
+      royalOak5,
+      royalOak6,
+      royalOak7,
+      royalOak8,
+    ],
+  },
+  {
+    key: "sunridge",
+    label: "Sunridge",
+    images: [
+      sunridge1,
+      sunridge2,
+      sunridge3,
+      sunridge4,
+      sunridge5,
+      sunridge6,
+      sunridge7,
+    ],
+  },
+  {
+    key: "downtown",
+    label: "Downtown",
+    images: [
+      downtown1,
+      downtown2,
+      downtown3,
+      downtown4,
+      downtown5,
+      downtown6,
+      downtown7,
+      downtown8,
+    ],
+  },
+  {
+    key: "north",
+    label: "North",
+    images: [north1, north2, north3, north4, north5],
+  },
+  {
+    key: "south",
+    label: "South",
+    images: [south1, south2, south3, south4, south5, south6, south7, south8],
+  },
 ];
 
 const LocationSeeITYourself = () => {
@@ -188,8 +247,8 @@ const LocationSeeITYourself = () => {
     <div className="w-full bg-white md:py-12">
       {/* Desktop Version */}
       <div className="max-w-[1280px] mx-auto px-8 flex flex-col gap-2 mb-5 max-md:hidden">
-        <h2 className="text-[#1C1C1C]">
-          TAKE A PEAK INSIDE CANADA'S BEST <br /> FITNESS FACILITY
+        <h2 className="text-[#1C1C1C] uppercase">
+          Access All Evolve Locations with <br /> Your Membership
         </h2>
         <h4 className="text-[#000] leading-[26px]">
           Spacious. Affordable. Unmatched
@@ -245,8 +304,8 @@ const LocationSeeITYourself = () => {
       {/* Mobile Version */}
       <div className="md:hidden w-full px-[0px]  pb-[48px] ">
         <div className=" flex flex-col gap-2 mb-5 px-[16px]">
-          <h2 className="text-[#1C1C1C] text-[22px] font-bold">
-            TAKE A PEAK INSIDE CANADA'S BEST FITNESS FACILITY
+          <h2 className="text-[#1C1C1C] text-[22px] font-bold uppercase">
+            Access All Evolve Locations with Your Membership
           </h2>
           <h4 className="text-[#000] leading-[26px] text-[15px]">
             Spacious. Affordable. Unmatched
