@@ -47,12 +47,12 @@ const MembershipPremiumAmenities = () => {
                       {professionals.map((pro, idx) => (
                         <div
                           key={idx}
-                          className="flex-[0_0_100%] md:flex-[0_0_32.5%] relative"
+                          className="flex-[0_0_100%] md:flex-[0_0_32.5%] relative overflow-hidden"
                         >
                           <img
                             src={pro.image}
                             alt={pro.title}
-                            className="md:w-[400px]  h-[244px] md:h-[273px] p-1 md:p-0 object-cover"
+                            className="w-full md:w-[400px]  h-[224px] md:h-[257px] object-cover rounded-[8px] overflow-hidden "
                           />
                           <h3 className="flex items-center mt-6 text-[#000] leading-[24px] font-[500]">
                             {pro.title}

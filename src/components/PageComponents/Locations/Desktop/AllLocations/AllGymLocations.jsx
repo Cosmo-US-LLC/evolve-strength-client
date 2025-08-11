@@ -18,8 +18,7 @@ function AllGymLocations() {
       image: "/all_locations/g_van_p.webp",
       address: "658 Homer St Vancouver, British Columbia, V6B 2R4",
       phone: "+1 (604) 555-0124",
-      directionsUrl:
-        "https://maps.app.goo.gl/FsKvnyHxsjbDahTp9",
+      directionsUrl: "https://maps.app.goo.gl/FsKvnyHxsjbDahTp9",
       locationUrl: "/locations/vancouver-post",
     },
     {
@@ -28,8 +27,7 @@ function AllGymLocations() {
       image: "/all_locations/g_cal_seton.webp",
       address: "710-19587 Seton Crescent SE Calgary, Alberta, T3M 2T5",
       phone: "+1 (825) 407-9015",
-      directionsUrl:
-        "https://maps.app.goo.gl/Cjg9PT5beuHev8p98",
+      directionsUrl: "https://maps.app.goo.gl/Cjg9PT5beuHev8p98",
       locationUrl: "/locations/calgary-seton",
     },
     {
@@ -38,8 +36,7 @@ function AllGymLocations() {
       image: "/all_locations/g_cal_royal_oak.webp",
       address: "456 Royal Oak Dr NW, Calgary, Alberta, T3G 5K3",
       phone: "+1 (403) 452-3169",
-      directionsUrl:
-        "https://maps.app.goo.gl/2kR6HTUgacmeR5Lv5",
+      directionsUrl: "https://maps.app.goo.gl/2kR6HTUgacmeR5Lv5",
       locationUrl: "/locations/calgary-royal-oak",
     },
     {
@@ -57,8 +54,7 @@ function AllGymLocations() {
       image: "/all_locations/g_ed_down.webp",
       address: "12328 102 ave nw Edmonton, Alberta, T5N 0L9",
       phone: "+1 (780) 784-2675",
-      directionsUrl:
-        "https://maps.app.goo.gl/myE9ShSPZSL9VgDy5",
+      directionsUrl: "https://maps.app.goo.gl/myE9ShSPZSL9VgDy5",
       locationUrl: "/locations/edmonton-downtown",
     },
     {
@@ -67,8 +63,7 @@ function AllGymLocations() {
       image: "/all_locations/g_ed_south.webp",
       address: "4825 89 St NW Edmonton, Alberta, T6E 5K1",
       phone: "+1 (780) 690-4252",
-      directionsUrl:
-        "https://maps.app.goo.gl/BgEi7NHqtePwbzHR8",
+      directionsUrl: "https://maps.app.goo.gl/BgEi7NHqtePwbzHR8",
       locationUrl: "/locations/edmonton-south",
     },
     {
@@ -77,8 +72,7 @@ function AllGymLocations() {
       image: "/all_locations/g_ed_north.webp",
       address: "13457 149 St Edmonton, Alberta, T5L 2T3",
       phone: "+1 (780) 784-7870",
-      directionsUrl:
-        "https://maps.app.goo.gl/CmMoacbKjrLrVqSi9",
+      directionsUrl: "https://maps.app.goo.gl/CmMoacbKjrLrVqSi9",
       locationUrl: "/locations/edmonton-north",
     },
   ];
@@ -115,10 +109,22 @@ function AllGymLocations() {
                 className="w-full h-full  object-cover group-hover:scale-105 transition-transform duration-300"
               />
 
-              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              {/* Desktop: Show on hover */}
+              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center max-md:hidden">
                 <a
                   href={location.locationUrl}
                   className="flex items-center gap-2 bg-white  underline px-3 py-3 rounded-[5px] transition-all duration-200 text-black font-semibold"
+                >
+                  <span>Visit this location now</span>
+                  <ArrowUpRight className="w-5 h-5" />
+                </a>
+              </div>
+
+              {/* Mobile: Always visible */}
+              <div className="absolute inset-0 bg-black/30 flex items-center justify-center md:hidden">
+                <a
+                  href={location.locationUrl}
+                  className="flex items-center gap-2 underline px-3 py-3 rounded-[5px] transition-all duration-200 text-[#fff] font-semibold"
                 >
                   <span>Visit this location now</span>
                   <ArrowUpRight className="w-5 h-5" />

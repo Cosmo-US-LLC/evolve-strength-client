@@ -157,8 +157,8 @@ export const LOCATIONS_DATA = {
       { day: "Wednesday", hours: "5:00 AM – 10:30 PM" },
       { day: "Thursday", hours: "5:00 AM – 10:30 PM" },
       { day: "Friday", hours: "5:00 AM – 10:30 PM" },
-      { day: "Saturday", hours: "7:30 AM – 08:00 PM" },
-      { day: "Sunday", hours: "7:30 AM – 08:00 PM" },
+      { day: "Saturday", hours: "7:00 AM – 08:00 PM" },
+      { day: "Sunday", hours: "7:00 AM – 08:00 PM" },
     ],
   },
 };
