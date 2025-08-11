@@ -173,7 +173,6 @@ const SeeItForYourSelf = () => {
         </TabsContent>
       </Tabs>
       <div className="flex justify-center mt-6 max-md:hidden">
-        <button className="btnPrimary">Book a Free Tour</button>
       </div>
 
       {/* Mobile Version */}
@@ -250,9 +249,7 @@ const SeeItForYourSelf = () => {
             </Carousel>
           </TabsContent>
         </Tabs>
-        <div className="flex justify-center mt-6 px-[16px] py-[17px]">
-          <button className="btnPrimary !py-[17px]">Book a Free Tour</button>
-        </div>
+        
       </div>
     </div>
   );

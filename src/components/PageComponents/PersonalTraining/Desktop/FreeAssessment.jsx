@@ -16,7 +16,7 @@ function FreeAssessment() {
             href="#"
             className="text-[#4AB04A] text-[16px] font-[700] leading-[26px] underline underline-offset-4 decoration-solid decoration-auto [text-underline-position:from-font]"
           >
-            Begin free training consultation
+            Join Now for a Free Assessment
           </a>
         </div>
       </div>
