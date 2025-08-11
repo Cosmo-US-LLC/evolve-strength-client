@@ -4,6 +4,8 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import arrowUp from "../../assets/images/form/arrow-down (2).svg";
 import arrowDown from "../../assets/images/form/arrow-down (1).svg";
 import { Link } from "react-router-dom";
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const initialState = {
   firstName: "",
@@ -55,6 +57,12 @@ export default function EvolveSpacesForm({ onReturnHome }) {
   };
 
   return (
+    <>
+      <MetaTags
+        title="Lease Space at Evolve Strength | Apply for Gym or Clinic Space"
+        description="Looking to lease space inside Evolve Strength? Fill out the form to apply for available space for your clinic, wellness service, or training business."
+      />
+
     <div className="flex gap-12 md:p-6 p-4  flex-row max-w-[1280px] mx-auto justify-center items-center min-h-screen">
       {/* Left Image */}
       <div className="w-full max-w-[40%] flex-shrink-0 flex max-md:hidden ">
@@ -298,5 +306,6 @@ export default function EvolveSpacesForm({ onReturnHome }) {
         )}
       </div>
     </div>
+    </>
   );
 }

@@ -3,6 +3,8 @@ import locationImg from "../../assets/images/form/future-form.webp";
 import arrowUp from "../../assets/images/form/arrow-down (2).svg";
 import arrowDown from "../../assets/images/form/arrow-down (1).svg";
 import { Link } from "react-router-dom";
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const initialState = {
   firstName: "",
@@ -80,6 +82,12 @@ function YourFitnessFutureForm({ onReturnHome }) {
   };
 
   return (
+    <>
+      <MetaTags
+        title="Franchise Inquiry | Start Your Evolve Strength Ownership Journey"
+        description="Ready to own an Evolve Strength franchise? Fill out the form to connect with our team. We’ll help you take the first step toward building your fitness business."
+      />
+
     <div className="flex md:gap-12 md:p-6 p-4 py-12  flex-col md:flex-row max-w-[1280px] mx-auto justify-center  min-h-screen">
       {/* Left Image & Headline */}
       <div className="w-full md:max-w-[40%] flex-shrink-0 flex flex-col">
@@ -581,6 +589,7 @@ function YourFitnessFutureForm({ onReturnHome }) {
         )}
       </div>
     </div>
+    </>
   );
 }
 

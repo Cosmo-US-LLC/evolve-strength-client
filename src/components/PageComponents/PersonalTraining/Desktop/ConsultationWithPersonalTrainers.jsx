@@ -50,7 +50,7 @@ const ConsultationWithPersonalTrainers = () => {
           </h4>
 
           <button className="btnPrimary mb-8 md:mb-10">
-            BEGIN FREE TRAINING CONSULTATION
+            Join Now for a Free Assessment
           </button>
 
           <div className="flex gap-8 md:gap-12 py-2 md:py-0">

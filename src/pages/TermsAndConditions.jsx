@@ -2,15 +2,21 @@ import React from 'react'
 import TermsAgreementContent from '@/components/PageComponents/TermsAndConditions/Desktop/TermsAndConditionsContent'
 
 import { termsMain } from '@/constants/TermsAndConditionsData'
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 function TermsAndConditions() {
   return (
-    <div>
+    <>
+    <MetaTags
+        title="Evolve Strength | Terms & Conditions"
+        description="Review the full terms and conditions of your Evolve Strength membership, including fees, cancellations, facility use, and liability policies."
+      />
       <div className="">
        <TermsAgreementContent termsMain={termsMain} />
 
       </div>
       
-    </div>
+    </>
   )
 }
 

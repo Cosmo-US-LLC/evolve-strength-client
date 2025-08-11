@@ -22,7 +22,7 @@ function CorporateMembershipHero() {
               Vancouver. 
             </h3>
             <Link to="/corporate-membership-wizard">
-              <button className="btnPrimary">Book a Free Consultation</button>
+              <button className="btnPrimary">Get Started</button>
             </Link>
           </div>
         </div>

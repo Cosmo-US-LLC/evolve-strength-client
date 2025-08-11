@@ -40,7 +40,7 @@ const AboutUsPractitioners = () => {
         <div className="flex items-start flex-col gap-10">
                     <h2 className="text-[#000] uppercase ">Practitioners</h2>
                     <h4 className=" !max-w-[800px]">Evolve brings together a team of licensed professionals so you can take care of your body and mind under one roof. We make it easy to access health services without having to leave your gym.  </h4>
-              
+              <button className="btnPrimary    uppercase">Find a Wellness Expert</button>
                 </div>
         <div className="relative w-full">
           <div className="overflow-hidden" ref={emblaRef}>
@@ -79,7 +79,7 @@ const AboutUsPractitioners = () => {
             </button>
           </div>
         </div>
-        <button className="btnPrimary md:mt-8   uppercase">Find a Wellness Expert</button>
+        
       </div>
     </section>
   );

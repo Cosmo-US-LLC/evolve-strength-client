@@ -15,10 +15,16 @@ import MeetTheTrainers from "@/components/PageComponents/Locations/Desktop/MeetT
 import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLocation";
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function CalgarySunridge() {
   return (
     <>
+       <MetaTags
+        title="Evolve Strength Sunridge | Premier Gym & Wellness in Calgary"
+        description="Join Evolve Strength Sunridge, Calgary’s premier fitness hub with top facilities, expert trainers, and a vibrant community."
+      />
       <LocationHero />
       <LocationPartners />
       <LoWhyChooseEvolve />

@@ -15,10 +15,16 @@ import MeetTheTrainers from "@/components/PageComponents/Locations/Desktop/MeetT
 import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLocation";
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function EdmontonSouth() {
   return (
     <>
+     <MetaTags
+        title="Evolve Strength South | Edmonton’s Best Fitness Gym"
+        description="Join the best fitness club in Edmonton South with top gym equipment, strength training, personal trainers, and affordable memberships."
+      />
       <LocationHero />
       <LocationPartners />
       <LoWhyChooseEvolve />

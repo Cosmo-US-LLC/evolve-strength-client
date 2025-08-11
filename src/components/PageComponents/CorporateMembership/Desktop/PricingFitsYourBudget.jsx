@@ -14,7 +14,7 @@ function PricingFitsYourBudget() {
           services <br /> like physio, massage, and more. No long-term contracts
           unless you <br /> want one. You choose what works best.
         </h4>
-        <button className="btnPrimary">Book a Free Consultation</button>
+        <button className="btnPrimary">get started</button>
       </div>
       <div className="w-[100%] md:w-[50%] rounded-[10px]">
         <img
