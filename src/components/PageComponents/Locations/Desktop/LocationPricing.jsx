@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import check from "@/assets/images/Locations/check_icon.svg";
 import {
   LOCATION_PRICING,
@@ -68,7 +69,9 @@ function LocationPricing() {
                   </li>
                 ))}
               </ul>
-              <button className="btnPrimary">{plan.buttonText}</button>
+              <Link to = "https://subscription.evolvestrength.ca/">
+              <button className="w-full btnPrimary">{plan.buttonText}</button>
+              </Link>
             </div>
           ))}
         </div>

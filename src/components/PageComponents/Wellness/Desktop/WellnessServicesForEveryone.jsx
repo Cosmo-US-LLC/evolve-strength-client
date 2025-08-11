@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 // Desktop Images
@@ -168,7 +169,12 @@ function WellnessServicesForEveryone() {
             Take full advantage of a wide range of wellness services at every
             Evolve location, available at an additional cost.
           </p>
-          <button className="btnPrimary">FIND A WELLNESS EXPERT</button>
+          
+            <Link to="/explore">
+            <button className="btnPrimary">FIND A wellness expert</button>
+            </Link> 
+
+
         </div>
 
         <div className="flex flex-col items-center md:items-end justify-between h-[300px] sm:h-[350px] md:h-[440px] gap-4 md:gap-8 flex-1 w-full md:min-w-[600px]">

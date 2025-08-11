@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Link } from "react-router-dom";
 import {
   Carousel,
   CarouselContent,
@@ -89,7 +90,9 @@ const FacilityShowcase = () => {
         </TabsContent>
       </Tabs>
       <div className="flex justify-center mt-6 max-md:hidden">
-        <button className="btnPrimary">Book a Free Tour</button>
+        <Link to="https://join.evolvestrength.ca/tour-form/">
+            <button className="btnPrimary">BOOK A FREE TOUR</button>
+            </Link>
       </div>
 
       {/* Mobile Version */}

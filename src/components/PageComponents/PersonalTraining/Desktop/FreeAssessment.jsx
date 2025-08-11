@@ -13,7 +13,7 @@ function FreeAssessment() {
             assessment with a certified trainer.
           </h4>
           <a
-            href="#"
+            href="https://subscription.evolvestrength.ca"
             className="text-[#4AB04A] text-[16px] font-[700] leading-[26px] underline underline-offset-4 decoration-solid decoration-auto [text-underline-position:from-font]"
           >
             Join Now for a Free Assessment

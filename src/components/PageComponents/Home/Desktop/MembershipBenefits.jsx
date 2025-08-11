@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import {
   Dumbbell,
   // Leaf,
@@ -156,7 +157,9 @@ const MembershipBenefits = () => {
                 </div>
               );
             })}
+            <Link to="https://join.evolvestrength.ca/tour-form/">
             <button className="btnPrimary">BOOK A FREE TOUR</button>
+            </Link>
           </div>
           <div className="w-[50%] max-w-[460px]  ">
             <img

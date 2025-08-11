@@ -13,7 +13,7 @@ function FreeAssessmentForMembership() {
             assessment with a certified trainer.
           </p>
           <a
-            href="#"
+            href="/explore"
             className="text-[#4AB04A] font-bold leading-[26px] underline underline-offset-4 decoration-solid decoration-auto [text-underline-position:from-font]"
           >
             Find a Trainer

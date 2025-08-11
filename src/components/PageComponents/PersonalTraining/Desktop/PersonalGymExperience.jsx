@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { Link } from "react-router-dom";
 
 // Desktop images
 import fitness from "../../../../assets/images/PersonalTraning/PersonalGymExperience/fitness.webp";

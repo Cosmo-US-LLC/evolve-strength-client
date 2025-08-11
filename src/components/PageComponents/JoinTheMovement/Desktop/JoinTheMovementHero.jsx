@@ -43,7 +43,8 @@ function JoinTheMovementHero() {
               We’ll tag you and share it with our growing community.
             </h3>
           </div>
-          <div className="max-w-[480px] w-[100%] rounded-[10px] border-[1px] bg-[#FCFCFC] border-[#D4D4D4]">
+          <div  id="join-the-movement-form"
+          className="max-w-[480px] w-[100%] rounded-[10px] border-[1px] bg-[#FCFCFC] border-[#D4D4D4]">
             <div className="p-[20px] space-y-[20px] ">
               <div className="space-y-[5px]">
                 <h5 className="text-[#000]">
@@ -142,7 +143,8 @@ function JoinTheMovementHero() {
               We’ll tag you and share it with our growing community.
             </h3>
           </div>
-          <div className="max-w-[480px] w-[100%] rounded-[10px] border-[1px] bg-[#FCFCFC] border-[#D4D4D4]">
+          <div  id="join-the-movement-form" 
+           className="max-w-[480px] w-[100%] rounded-[10px] border-[1px] bg-[#FCFCFC] border-[#D4D4D4]">
             <div className="p-[20px] space-y-[20px] ">
               <div className="space-y-[5px]">
                 <h5 className="text-[#000]">

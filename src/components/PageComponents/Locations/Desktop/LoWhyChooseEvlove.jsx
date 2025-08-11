@@ -2,6 +2,7 @@ import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Trainers from "@/assets/images/Locations/WhyChooseEvolve/personal_trainer.webp";
 import Equipments from "@/assets/images/Locations/WhyChooseEvolve/Equipments.webp";
 import Health from "@/assets/images/Locations/WhyChooseEvolve/Health.webp";
@@ -47,7 +48,9 @@ const LoWhyChooseEvolve = () => {
             coaching, integrated health services, and top-tier facilities at a
             price you can afford.
           </h4>
-          <button className="btnPrimary uppercase">Join Now</button>
+          <Link to="https://subscription.evolvestrength.ca/">
+ <button className="btnPrimary">Join Now</button>
+ </Link>
         </div>
 
         <div className="relative">

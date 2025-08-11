@@ -16,7 +16,7 @@ function PersonalTraining() {
         title="Personal Training at Evolve Strength | 1-on-1 Coaching That Delivers Results"
         description="Get expert personal training at Evolve Strength. With 200+ trainers and a low 1:5 ratio, we offer custom plans for strength, fat loss, rehab, and more."
       />
-      <div className="">
+      
         <PersonalTrainingHero />
         <PerfectTrainer />
         <FreeAssessment />
@@ -24,7 +24,7 @@ function PersonalTraining() {
         <FitnessCategoryMarquee />
         <PersonalGymExperience />
         <SwitchToEvolve />
-      </div>
+      
       {/* <div className="md:hidden">Home Mobile</div> */}
     </>
   );

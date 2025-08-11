@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function PersonalTrainingHero() {
   return (
@@ -12,10 +13,17 @@ function PersonalTrainingHero() {
           <h3 className="text-[#FFFFFF] !font-[400] leading-[24px] md:leading-[24px] mb-6 max-w-[350px] md:max-w-[606px]">
             One-on-one coaching for unparalleled focus and results.
           </h3>
+          <div className="flex gap-3 mb-5">
 
-          <button className="btnPrimary">
-           Join now
-          </button>
+           <Link to="https://subscription.evolvestrength.ca/">
+            <button className="btnPrimary">Join Now</button>
+            </Link>
+            <Link to="/explore">
+          <button className="btnSecondary"> Explore Trainer</button>
+          </Link>
+          </div>
+          <p className="description underline !font-[Kanit] text-[#FFFFFF]  font-bold ">Join now for a free assessment with a certified trainer. Personal training is available for an additional fee.</p>
+
         </div>
       </div>
     </div>

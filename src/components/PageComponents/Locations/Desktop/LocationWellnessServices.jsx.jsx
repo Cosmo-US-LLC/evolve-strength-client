@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import { Link } from "react-router-dom";
 import Autoplay from "embla-carousel-autoplay";
 import {
   Leaf,
@@ -215,7 +216,10 @@ const LocationWellnessServices = () => {
               Take full advantage of a wide range of wellness <br /> services at
               every Evolve location, available at an <br /> additional cost.
             </p>
-            <button className="btnPrimary">FIND A WELLNESS EXPERT</button>
+            
+<Link to="/explore">
+            <button className="btnPrimary">FIND A wellness expert</button>
+            </Link>
           </div>
 
           <div className="flex flex-wrap gap-4 max-w-[500px]">
@@ -281,7 +285,10 @@ const LocationWellnessServices = () => {
             Evolve location, available at an additional cost.
           </p>
           <div className="flex justify-start w-full">
-            <button className="btnPrimary ">FIND A WELLNESS EXPERT</button>
+            
+             <Link to="/explore">
+            <button className="btnPrimary">FIND A wellness expert</button>
+            </Link>
           </div>
         </div>
         <div className="relative w-full mt-6">

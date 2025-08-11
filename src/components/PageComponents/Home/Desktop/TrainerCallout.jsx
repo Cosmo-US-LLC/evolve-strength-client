@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TrainerCallout = () => {
   return (
@@ -39,7 +40,9 @@ const TrainerCallout = () => {
             <span className="description max-md:text-start text-[#fff]">
               Find the Right Personal Trainer for Your Goals.
             </span>
+            <Link to="/explore">
             <button className="btnPrimary">FIND A TRAINER</button>
+            </Link>
           </div>
         </div>
       </div>

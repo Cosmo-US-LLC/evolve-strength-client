@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as TerritoryIcon } from "@/assets/images/franchise/weHelpYouRightSpace/icon1.svg";
 import { ReactComponent as NegotiationIcon } from "@/assets/images/franchise/weHelpYouRightSpace/icon2.svg";
 import { ReactComponent as ArchitecturalIcon } from "@/assets/images/franchise/weHelpYouRightSpace/icon3.svg";
@@ -70,7 +71,9 @@ function WeHelpYouRightSpace() {
             team supports franchisees with:
           </h4>
         </div>
-        <button className="btnPrimary">APPLY NOW</button>
+        <Link to="/your-fitness-future">
+                      <button className="btnPrimary">Apply Now</button>
+                    </Link>
       </div>
 
       {/* Mobile Carousel */}

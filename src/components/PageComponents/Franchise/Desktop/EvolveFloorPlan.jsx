@@ -22,7 +22,7 @@ const EvolveFloorPlan = () => {
   ];
 
   return (
-    <div className="pb-16 pt-[130px]">
+    <div className="pb-16 md:pt-[130px]">
       <div className="w-full max-w-[1280px] mx-auto md:px-8 px-4 flex md:flex-row flex-col gap-8 items-start">
         
       

@@ -8,6 +8,8 @@ import showers from "../../../../assets/images/corporateMembership/MembershipPre
 import lockerRoom from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/locker-room.webp";
 import steamRoom from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/steam-room.webp";
 
+import { Link } from "react-router-dom";
+
 const professionals = [
   { title: "On-Site Parking", image: onSite },
   { title: "Waiting Area", image: waitingArea },
@@ -36,9 +38,10 @@ const MembershipPremiumAmenities = () => {
         <div className="flex items-start flex-col gap-4 pb-6 md:pb-0">
                     <h2 className="text-[#000] uppercase ">Spacious and Modern Facilities</h2>
                     <h4 className="mb-6 !max-w-[800px]">Our gyms are designed to give you room to move, train, and recover without feeling crowded. Each location offers more training space than a typical gym in Canada. We build with purpose, ensuring every area supports your fitness and wellness journey.  </h4>
-                <button className="btnPrimary ">
-                 BOOK A FREE TOUR
-                </button>
+                <Link to="https://join.evolvestrength.ca/tour-form/">
+            <button className="btnPrimary">BOOK A FREE TOUR</button>
+            </Link>
+
                 </div>
 
         <div className="relative">

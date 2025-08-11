@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Carousel,
@@ -377,7 +378,9 @@ const LocationSeeITYourself = () => {
           </TabsContent>
         </Tabs>
         <div className="flex justify-center mt-6 px-[16px] py-[17px]">
-          <button className="btnPrimary !py-[17px]">Book a Free Tour</button>
+           <Link to="https://join.evolvestrength.ca/tour-form/">
+                      <button className="btnPrimary">BOOK A FREE TOUR</button>
+                      </Link>
         </div>
       </div>
     </div>

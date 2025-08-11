@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ReadyToEvolve() {
   return (
@@ -16,8 +17,13 @@ function ReadyToEvolve() {
             queue.
           </p>
           <div className="flex gap-6">
+            <Link to="https://subscription.evolvestrength.ca/">
             <button className="btnPrimary">Join Now</button>
-            <button className="btnSecondary">Take a Tour</button>
+            </Link>
+            <Link to="https://join.evolvestrength.ca/tour-form/">
+            <button className="btnSecondary">take a tour</button>
+            </Link>
+
           </div>
         </div>
       </div>
