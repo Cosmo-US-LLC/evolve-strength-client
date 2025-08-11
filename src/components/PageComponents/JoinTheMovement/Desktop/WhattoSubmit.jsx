@@ -50,7 +50,17 @@ function WhattoSubmit() {
           <h5 className="description leading-[20px]">
             Send Us Content You’ve Shot at Evolve
           </h5>
-          <button className="btnPrimary">Submit your short</button>
+          <button  onClick={() => {
+    const formElement = document.getElementById("join-the-movement-form");
+    if (formElement) {
+      const yOffset = -150; // adjust this value for more/less space
+      const yPosition =
+        formElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: yPosition, behavior: "smooth" });
+    }
+  }}
+           className="btnPrimary">Submit your short</button>
         </div>
         <div className="relative w-full ">
           <div className="overflow-hidden" ref={emblaRef}>

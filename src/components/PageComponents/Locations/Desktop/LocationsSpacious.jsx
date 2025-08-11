@@ -2,6 +2,7 @@ import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import onSite from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/on-site.webp";
 import waitingArea from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/waiting-area.webp";
 import showers from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/showers.webp";
@@ -35,9 +36,9 @@ const MembershipPremiumAmenities = () => {
         <div className="flex items-start flex-col gap-4">
                     <h2 className="text-[#000] uppercase ">Spacious and Modern Facilities</h2>
                     <h4 className="mb-6 !max-w-[800px]">Our gyms give you space to move, train, and recover without the crowd. Each location has more training space than a typical gym in Canada. Every area is designed with purpose to support your fitness and wellness goals.   </h4>
-                <button className="btnPrimary ">
-                 BOOK A FREE TOUR
-                </button>
+                 <Link to="https://join.evolvestrength.ca/tour-form/">
+                            <button className="btnPrimary">BOOK A FREE TOUR</button>
+                            </Link>
                 </div>
 
         <div className="relative">

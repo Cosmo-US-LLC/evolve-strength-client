@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function YogaAndRecoveryRoom() {
   return (
@@ -14,7 +15,12 @@ function YogaAndRecoveryRoom() {
             support. Offered in quiet, dedicated spaces.
           </p>
           <div className="flex gap-6">
-            <button className="btnPrimary">Find a WELLNESS Expert</button>
+            
+            <Link to="/explore">
+            <button className="btnPrimary">FIND A wellness expert</button>
+            </Link> 
+
+
           </div>
         </div>
       </div>

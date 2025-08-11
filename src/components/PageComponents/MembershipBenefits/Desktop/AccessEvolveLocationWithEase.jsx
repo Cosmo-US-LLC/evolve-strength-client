@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Carousel,
   CarouselContent,
@@ -93,7 +94,10 @@ const AccessEvolveLocationWithEase = () => {
       </div>
       </div>
 
-      <button className="btnPrimary mt-12">BOOK A FREE TOUR</button>
+      <Link to="https://join.evolvestrength.ca/tour-form/">
+            <button className="btnPrimary">BOOK A FREE TOUR</button>
+            </Link>
+
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 function WhyChooseEvolve() {
   const cardData = [
@@ -121,7 +122,11 @@ function WhyChooseEvolve() {
         </div>
       </div>
       <div className="flex justify-center pt-[40px]">
-        <button className="btnPrimary">Start Today</button>
+        <Link to = "/trainer-form">
+                  <button className="btnPrimary " onClick={() => onSelectOption("apply")}>
+                    Start Saving
+                  </button>
+                  </Link>
       </div>
     </div>
   )

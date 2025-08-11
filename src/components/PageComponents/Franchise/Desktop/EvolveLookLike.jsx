@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import slide1 from "../../../../assets/images/franchise/Evolvelooklike/image_1.webp";
 import slide2 from "../../../../assets/images/home/facility/image_2.webp";
 import slide3 from "../../../../assets/images/home/facility/image_3.webp";
@@ -131,7 +132,9 @@ const EvolveLookLike = () => {
             </h4>
           </div>
           <div className="md:flex-1 flex items-start flex-col md:flex-row md:justify-end pt-3 md:pt-0 ">
-            <button className="btnPrimary">APPLY NOW</button>
+            <Link to="/your-fitness-future">
+                          <button className="btnPrimary">Apply Now</button>
+                        </Link>
           </div>
         </div>
 

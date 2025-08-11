@@ -2,6 +2,7 @@ import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Physiotherapy from "../../../../assets/images/corporateMembership/MembershipRecovery/Physiotherapy.webp";
 import Pilates from "../../../../assets/images/corporateMembership/MembershipRecovery/Pilates.webp";
 import MassageTherapy from "../../../../assets/images/corporateMembership/MembershipRecovery/Massage_Therapy.webp";
@@ -40,8 +41,9 @@ const AboutUsPractitioners = () => {
         <div className="flex items-start flex-col gap-10">
                     <h2 className="text-[#000] uppercase ">Practitioners</h2>
                     <h4 className=" !max-w-[800px]">Evolve brings together a team of licensed professionals so you can take care of your body and mind under one roof. We make it easy to access health services without having to leave your gym.  </h4>
-              <button className="btnPrimary    uppercase">Find a Wellness Expert</button>
-                </div>
+             <Link to="/explore">
+            <button className="btnPrimary">FIND A wellness expert</button>
+            </Link>                </div>
         <div className="relative w-full">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-4 pl-0 md:pl-4">

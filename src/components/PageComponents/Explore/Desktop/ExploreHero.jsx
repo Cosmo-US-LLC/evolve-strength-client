@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ExploreHero() {
   return (
@@ -33,8 +34,13 @@ function ExploreHero() {
             Choose an option below to get started.
           </h3>
           <div className="flex gap-6">
-            <button className="btnPrimary">Book a Free Tour</button>
+            <Link to="https://join.evolvestrength.ca/tour-form/">
+            <button className="btnPrimary">BOOK A FREE TOUR</button>
+            </Link>
+            
+ <Link to="https://subscription.evolvestrength.ca/">
             <button className="btnSecondary">Join Now</button>
+            </Link>
           </div>
         </div>
       </div>

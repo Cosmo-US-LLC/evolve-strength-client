@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function JoinUs() {
   return (
@@ -17,8 +18,13 @@ function JoinUs() {
             queue.
           </h4>
           <div className="flex gap-6">
-            <button className="btnPrimary">JOIN NOW</button>
+             <Link to="https://subscription.evolvestrength.ca/">
+                        <button className="btnPrimary">join now</button>
+                        </Link>
+           <Link to="https://join.evolvestrength.ca/tour-form/">
             <button className="btnSecondary">BOOK A FREE TOUR</button>
+            </Link>
+
           </div>
         </div>
       </div>

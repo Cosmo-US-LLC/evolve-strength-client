@@ -2,6 +2,7 @@ import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import strength from "@/assets/images/AboutUs/AboutUs_Trainers/Strenght_Training.webp"
 import Cardio from "@/assets/images/AboutUs/AboutUs_Trainers/Cardio.webp"
 import Body from "@/assets/images/AboutUs/AboutUs_Trainers/Weight_Training.webp"
@@ -36,9 +37,9 @@ const AboutUsTrainers = () => {
         <div className="flex items-start flex-col gap-4 pb-6 md:pb-0">
                     <h2 className="text-[#000] uppercase ">Trainers</h2>
                     <h4 className="mb-6 !max-w-[800px]">Our personal trainers are more than fitness professionals. They’re passionate partners in your growth. Each one is certified and experienced in helping people set clear goals, stay consistent, and see real results. </h4>
-                <button className="btnPrimary ">
-                 Find A TRAINER
-                </button>
+                 <Link to="/explore">
+                   <button className="btnPrimary">FIND A TRAINER</button>
+                  </Link>
                 </div>
         <div className="relative w-full">
           <div className="overflow-hidden" ref={emblaRef}>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function EvolveEmployeePlan() {
   return (
@@ -15,7 +16,9 @@ function EvolveEmployeePlan() {
             works for your <br /> team.
           </p>
           <div className="flex gap-6">
-            <button className="btnPrimary">Get Started</button>
+             <Link to="/corporate-membership-wizard">
+              <button className="btnPrimary">Get Started</button>
+            </Link>
           </div>
         </div>
       </div>
