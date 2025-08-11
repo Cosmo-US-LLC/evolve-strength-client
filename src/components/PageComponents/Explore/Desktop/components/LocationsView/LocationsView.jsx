@@ -153,7 +153,7 @@ function LocationsView() {
                               handleServiceSelect(locKey, service.name);
                             }}
                             className={`
-                              flex items-center justify-center gap-2 flex-shrink-0  px-4 h-[48px] rounded-[6px] text-[16px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105
+                              flex items-center justify-center gap-2 flex-shrink-0  px-4 h-[48px] rounded-[6px] text-[16px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform 
                               ${
                                 selectedService === service.name
                                   ? "bg-[#000] text-white shadow-lg"
@@ -184,7 +184,7 @@ function LocationsView() {
                               handleServiceSelect(locKey, service.name);
                             }}
                             className={`
-                              flex items-center justify-center gap-2 w-[294px] h-[52px] rounded-[6px] text-[18px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105
+                              flex items-center justify-center gap-2 w-[294px] h-[52px] rounded-[6px] text-[18px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform
                               ${
                                 selectedService === service.name
                                   ? "bg-[#000] text-white shadow-lg"
