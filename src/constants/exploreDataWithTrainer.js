@@ -59,6 +59,16 @@ const getTrainerIdsForRole = (role) => {
   return trainerIds;
 };
 
+// Helper function to get trainer IDs for a specific role in a specific location
+const getTrainerIdsForRoleInLocation = (role, locationName) => {
+  const trainers = getTrainersByLocation(locationName);
+  const roleTrainers = trainers.filter(
+    (trainer) =>
+      trainer.role && trainer.role.toLowerCase().includes(role.toLowerCase())
+  );
+  return roleTrainers.map((trainer) => trainer.id);
+};
+
 export const EXPLORE_DATA = [
   {
     id: "LOCATIONS",
@@ -77,6 +87,11 @@ export const EXPLORE_DATA = [
         details: "Details for VANCOUVER POST",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-personal-trainer",
+            name: "Personal Trainer",
+            icon: PersonalTrainerIcon,
+          },
           {
             id: "service-esthetician",
             name: "Esthetician",
@@ -124,6 +139,10 @@ export const EXPLORE_DATA = [
           },
         ],
         trainerIds: getTrainerIdsForLocation("VANCOUVER POST"),
+        personalTrainerIds: getTrainerIdsForRoleInLocation(
+          "Personal Trainer",
+          "VANCOUVER POST"
+        ),
       },
       {
         id: "location-burnaby-brentwood",
@@ -134,6 +153,11 @@ export const EXPLORE_DATA = [
         details: "Details for BURNABY BRENTWOOD",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-personal-trainer",
+            name: "Personal Trainer",
+            icon: PersonalTrainerIcon,
+          },
           {
             id: "service-esthetician",
             name: "Esthetician",
@@ -181,6 +205,10 @@ export const EXPLORE_DATA = [
           },
         ],
         trainerIds: getTrainerIdsForLocation("BURNABY BRENTWOOD"),
+        personalTrainerIds: getTrainerIdsForRoleInLocation(
+          "Personal Trainer",
+          "BURNABY BRENTWOOD"
+        ),
       },
       {
         id: "location-calgary-seton",
@@ -191,6 +219,11 @@ export const EXPLORE_DATA = [
         details: "Details for CALGARY SETON",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-personal-trainer",
+            name: "Personal Trainer",
+            icon: PersonalTrainerIcon,
+          },
           {
             id: "service-esthetician",
             name: "Esthetician",
@@ -238,6 +271,10 @@ export const EXPLORE_DATA = [
           },
         ],
         trainerIds: getTrainerIdsForLocation("CALGARY SETON"),
+        personalTrainerIds: getTrainerIdsForRoleInLocation(
+          "Personal Trainer",
+          "CALGARY SETON"
+        ),
       },
       {
         id: "location-calgary-royal-oak",
@@ -248,6 +285,11 @@ export const EXPLORE_DATA = [
         details: "Details for CALGARY ROYAL OAK",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-personal-trainer",
+            name: "Personal Trainer",
+            icon: PersonalTrainerIcon,
+          },
           {
             id: "service-esthetician",
             name: "Esthetician",
@@ -295,6 +337,10 @@ export const EXPLORE_DATA = [
           },
         ],
         trainerIds: getTrainerIdsForLocation("CALGARY ROYAL OAK"),
+        personalTrainerIds: getTrainerIdsForRoleInLocation(
+          "Personal Trainer",
+          "CALGARY ROYAL OAK"
+        ),
       },
       {
         id: "location-calgary-sunridge",
@@ -305,6 +351,11 @@ export const EXPLORE_DATA = [
         details: "Details for CALGARY SUNRIDGE",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-personal-trainer",
+            name: "Personal Trainer",
+            icon: PersonalTrainerIcon,
+          },
           {
             id: "service-esthetician",
             name: "Esthetician",
@@ -352,6 +403,10 @@ export const EXPLORE_DATA = [
           },
         ],
         trainerIds: getTrainerIdsForLocation("CALGARY SUNRIDGE"),
+        personalTrainerIds: getTrainerIdsForRoleInLocation(
+          "Personal Trainer",
+          "CALGARY SUNRIDGE"
+        ),
       },
       {
         id: "location-edmonton-south",
@@ -362,6 +417,11 @@ export const EXPLORE_DATA = [
         details: "Details for EDMONTON SOUTH",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-personal-trainer",
+            name: "Personal Trainer",
+            icon: PersonalTrainerIcon,
+          },
           {
             id: "service-esthetician",
             name: "Esthetician",
@@ -409,6 +469,10 @@ export const EXPLORE_DATA = [
           },
         ],
         trainerIds: getTrainerIdsForLocation("EDMONTON SOUTH"),
+        personalTrainerIds: getTrainerIdsForRoleInLocation(
+          "Personal Trainer",
+          "EDMONTON SOUTH"
+        ),
       },
       {
         id: "location-edmonton-downtown",
@@ -419,6 +483,11 @@ export const EXPLORE_DATA = [
         details: "Details for EDMONTON DOWNTOWN",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-personal-trainer",
+            name: "Personal Trainer",
+            icon: PersonalTrainerIcon,
+          },
           {
             id: "service-esthetician",
             name: "Esthetician",
@@ -466,6 +535,10 @@ export const EXPLORE_DATA = [
           },
         ],
         trainerIds: getTrainerIdsForLocation("EDMONTON DOWNTOWN"),
+        personalTrainerIds: getTrainerIdsForRoleInLocation(
+          "Personal Trainer",
+          "EDMONTON DOWNTOWN"
+        ),
       },
       {
         id: "location-edmonton-north",
@@ -476,6 +549,11 @@ export const EXPLORE_DATA = [
         details: "Details for EDMONTON NORTH",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-personal-trainer",
+            name: "Personal Trainer",
+            icon: PersonalTrainerIcon,
+          },
           {
             id: "service-esthetician",
             name: "Esthetician",
@@ -523,6 +601,10 @@ export const EXPLORE_DATA = [
           },
         ],
         trainerIds: getTrainerIdsForLocation("EDMONTON NORTH"),
+        personalTrainerIds: getTrainerIdsForRoleInLocation(
+          "Personal Trainer",
+          "EDMONTON NORTH"
+        ),
       },
     ],
   },
@@ -624,6 +706,38 @@ export const getTrainersForWellnessService = (serviceId) => {
   const service = getWellnessServiceById(serviceId);
   if (!service) return [];
   return getTrainersByIds(service.trainerIds);
+};
+
+// Get trainers for a specific service in a specific location
+export const getTrainersForLocationService = (locationId, serviceId) => {
+  const location = getLocationById(locationId);
+  if (!location) return [];
+
+  // Map ALL location service IDs to roles for filtering
+  const serviceToRoleMap = {
+    "service-personal-trainer": "Personal Trainer",
+    "service-esthetician": "Esthetician",
+    "service-chiropractic": "Chiropractor",
+    "service-massage": "Massage Therapist",
+    "service-physiotherapy": "Physiotherapist",
+    "service-acupuncture": "Acupuncturist",
+    "service-dietitian": "Dietitian",
+    "service-osteopathy": "Osteopath",
+    "service-laser": "Laser Therapist",
+    "service-mental-health": "Mental Health Professional",
+  };
+
+  // Get the role to filter by
+  const roleToFilter = serviceToRoleMap[serviceId];
+  if (!roleToFilter) return [];
+
+  // Filter trainers by role
+  const allLocationTrainers = getTrainersByIds(location.trainerIds);
+  return allLocationTrainers.filter(
+    (trainer) =>
+      trainer.role &&
+      trainer.role.toLowerCase().includes(roleToFilter.toLowerCase())
+  );
 };
 
 export const getAllLocations = () => {
