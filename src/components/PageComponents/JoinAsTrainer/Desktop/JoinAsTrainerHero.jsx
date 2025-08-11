@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ArrowLine from "../../../../assets/images/JoinAsTrainer/Arrows/arrow.gif";
+import ArrowLine from "../../../../assets/images/JoinAsTrainer/Arrows/arrow.svg";
 import { Link } from "react-router-dom";
 
 function JoinAsTrainerHero(onSelectOption) {
@@ -47,7 +47,7 @@ function JoinAsTrainerHero(onSelectOption) {
             <img
               src={ArrowLine}
               alt="Animated graphic"
-              className="absolute bottom-[-110px] md:bottom-[-4px] right-[100px] md:right-0 transform scale-y-[-1] md:scale-y-[1] md:scale-x-[-1] origin-center"
+              className="absolute bottom-[-80px] md:bottom-[-4px] right-[100px] md:right-0 transform scale-y-[-1] md:scale-y-[1] origin-center"
             />
           </div>
           <div className="w-full md:max-w-[352px] rounded-[10px] border-[1px] bg-[#fff] border-[#D4D4D4]">
