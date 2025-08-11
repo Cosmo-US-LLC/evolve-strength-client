@@ -7,7 +7,7 @@ const PrivacyPolicyContant = ({ privacyMain }) => {
   const handleScroll = (id) => {
     const el = document.getElementById(id);
     if (el) {
-      const yOffset = -150; 
+      const yOffset = -100; 
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
       window.scrollTo({ top: y, behavior: 'smooth' });
@@ -16,10 +16,10 @@ const PrivacyPolicyContant = ({ privacyMain }) => {
   };
 
   return (
-    <div className="max-w-[1280px] md:px-8 px-4 pb-[140px] mt-32 mx-auto w-full flex ">
+    <div className="max-w-[1280px] md:px-8 px-4 pb-[140px] mt-32 mx-auto w-full flex overflow-visible ">
  
  
-          <div className="flex flex-col  items-start w-[300px] p-[10px] gap-[10px] sticky top-[150px] max-md:hidden">
+          <div className="flex flex-col items-start w-[300px] p-[10px] gap-[10px] sticky top-[150px] self-start h-fit max-md:hidden">
 
             <ul>
               <li>
