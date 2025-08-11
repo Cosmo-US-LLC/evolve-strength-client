@@ -5,6 +5,7 @@ import {
   TRAINER_IDS,
   getTrainersByLocation,
   getTrainersByIds,
+  getAvailableLocations,
 } from "./trainerData.js";
 
 // category images
@@ -16,7 +17,7 @@ import exploreTrainers from "../assets/images/explore/discoverTWS/trainers.webp"
 import AllIcon from "@/assets/images/explore/locations/all-icon.svg";
 import ChiropracticIcon from "@/assets/images/explore/locations/chiropractic.svg";
 import MassageTherapyIcon from "@/assets/images/explore/locations/message-therapy.svg";
-import PilatesIcon from "@/assets/images/explore/locations/pilates.svg";
+import PhysiotherapyIcon from "@/assets/images/explore/locations/pilates.svg";
 import AcupunctureIcon from "@/assets/images/explore/locations/acupuncture.svg";
 import DietitianServicesIcon from "@/assets/images/explore/locations/dietitian-services.svg";
 import EstheticianIcon from "@/assets/images/explore/locations/esthetician.svg";
@@ -39,6 +40,23 @@ const getTrainerIdsForLocation = (locationName) => {
   return trainers.map((trainer) => trainer.id);
 };
 
+// Helper function to get trainer IDs for a specific role across all locations
+const getTrainerIdsForRole = (role) => {
+  const allLocations = getAvailableLocations();
+  const trainerIds = [];
+
+  allLocations.forEach((location) => {
+    const trainers = getTrainersByLocation(location);
+    const roleTrainers = trainers.filter(
+      (trainer) =>
+        trainer.role && trainer.role.toLowerCase().includes(role.toLowerCase())
+    );
+    trainerIds.push(...roleTrainers.map((trainer) => trainer.id));
+  });
+
+  return trainerIds;
+};
+
 export const EXPLORE_DATA = [
   {
     id: "LOCATIONS",
@@ -49,14 +67,19 @@ export const EXPLORE_DATA = [
     type: "locations",
     data: [
       {
-        id: "location-edmonton-south",
-        city: "EDMONTON",
-        branch: "SOUTH",
-        locationTitle: "EDMONTON SOUTH",
-        heroImage: southHero,
-        details: "Details for EDMONTON SOUTH",
+        id: "location-vancouver-post",
+        city: "VANCOUVER",
+        branch: "POST",
+        locationTitle: "VANCOUVER POST",
+        heroImage: postHero,
+        details: "Details for VANCOUVER POST",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-esthetician",
+            name: "Esthetician",
+            icon: EstheticianIcon,
+          },
           {
             id: "service-chiropractic",
             name: "Chiropractic Care",
@@ -67,53 +90,10 @@ export const EXPLORE_DATA = [
             name: "Massage Therapy",
             icon: MassageTherapyIcon,
           },
-          { id: "service-pilates", name: "Pilates", icon: PilatesIcon },
           {
-            id: "service-acupuncture",
-            name: "Acupuncture",
-            icon: AcupunctureIcon,
-          },
-          {
-            id: "service-dietitian",
-            name: "Dietitian Services",
-            icon: DietitianServicesIcon,
-          },
-          {
-            id: "service-esthetician",
-            name: "Esthetician",
-            icon: EstheticianIcon,
-          },
-          {
-            id: "service-laser",
-            name: "Laser Therapy",
-            icon: LaserTherapyIcon,
-          },
-          {
-            id: "service-osteopathy",
-            name: "Osteopathy",
-            icon: OsteopathyIcon,
-          },
-          {
-            id: "service-mental-health",
-            name: "Mental Health Support",
-            icon: MentalHealthIcon,
-          },
-        ],
-        trainerIds: getTrainerIdsForLocation("EDMONTON SOUTH"),
-      },
-      {
-        id: "location-calgary-royal-oak",
-        city: "CALGARY",
-        branch: "ROYAL OAK",
-        locationTitle: "CALGARY ROYAL OAK",
-        heroImage: royalOakHero,
-        details: "Details for CALGARY ROYAL OAK",
-        services: [
-          { id: "service-all", name: "All", icon: AllIcon },
-          {
-            id: "service-massage",
-            name: "Massage Therapy",
-            icon: MassageTherapyIcon,
+            id: "service-physiotherapy",
+            name: "Physiotherapy",
+            icon: PhysiotherapyIcon,
           },
           {
             id: "service-acupuncture",
@@ -126,9 +106,9 @@ export const EXPLORE_DATA = [
             icon: DietitianServicesIcon,
           },
           {
-            id: "service-esthetician",
-            name: "Esthetician",
-            icon: EstheticianIcon,
+            id: "service-osteopathy",
+            name: "Osteopathy",
+            icon: OsteopathyIcon,
           },
           {
             id: "service-laser",
@@ -136,176 +116,12 @@ export const EXPLORE_DATA = [
             icon: LaserTherapyIcon,
           },
           {
-            id: "service-osteopathy",
-            name: "Osteopathy",
-            icon: OsteopathyIcon,
-          },
-          {
             id: "service-mental-health",
             name: "Mental Health Support",
             icon: MentalHealthIcon,
           },
         ],
-        trainerIds: getTrainerIdsForLocation("CALGARY ROYAL OAK"),
-      },
-      {
-        id: "location-edmonton-downtown",
-        city: "EDMONTON",
-        branch: "DOWNTOWN",
-        locationTitle: "EDMONTON DOWNTOWN",
-        heroImage: downtownHero,
-        details: "Details for EDMONTON DOWNTOWN",
-        services: [
-          { id: "service-all", name: "All", icon: AllIcon },
-          {
-            id: "service-chiropractic",
-            name: "Chiropractic Care",
-            icon: ChiropracticIcon,
-          },
-          {
-            id: "service-massage",
-            name: "Massage Therapy",
-            icon: MassageTherapyIcon,
-          },
-          { id: "service-pilates", name: "Pilates", icon: PilatesIcon },
-          {
-            id: "service-acupuncture",
-            name: "Acupuncture",
-            icon: AcupunctureIcon,
-          },
-          {
-            id: "service-dietitian",
-            name: "Dietitian Services",
-            icon: DietitianServicesIcon,
-          },
-          {
-            id: "service-esthetician",
-            name: "Esthetician",
-            icon: EstheticianIcon,
-          },
-          {
-            id: "service-laser",
-            name: "Laser Therapy",
-            icon: LaserTherapyIcon,
-          },
-          {
-            id: "service-osteopathy",
-            name: "Osteopathy",
-            icon: OsteopathyIcon,
-          },
-          {
-            id: "service-mental-health",
-            name: "Mental Health Support",
-            icon: MentalHealthIcon,
-          },
-        ],
-        trainerIds: getTrainerIdsForLocation("EDMONTON DOWNTOWN"),
-      },
-      {
-        id: "location-calgary-seton",
-        city: "CALGARY",
-        branch: "SETON",
-        locationTitle: "CALGARY SETON",
-        heroImage: setonHero,
-        details: "Details for CALGARY SETON",
-        services: [
-          { id: "service-all", name: "All", icon: AllIcon },
-          {
-            id: "service-chiropractic",
-            name: "Chiropractic Care",
-            icon: ChiropracticIcon,
-          },
-          {
-            id: "service-massage",
-            name: "Massage Therapy",
-            icon: MassageTherapyIcon,
-          },
-          { id: "service-pilates", name: "Pilates", icon: PilatesIcon },
-          {
-            id: "service-acupuncture",
-            name: "Acupuncture",
-            icon: AcupunctureIcon,
-          },
-          {
-            id: "service-dietitian",
-            name: "Dietitian Services",
-            icon: DietitianServicesIcon,
-          },
-          {
-            id: "service-esthetician",
-            name: "Esthetician",
-            icon: EstheticianIcon,
-          },
-          {
-            id: "service-laser",
-            name: "Laser Therapy",
-            icon: LaserTherapyIcon,
-          },
-          {
-            id: "service-osteopathy",
-            name: "Osteopathy",
-            icon: OsteopathyIcon,
-          },
-          {
-            id: "service-mental-health",
-            name: "Mental Health Support",
-            icon: MentalHealthIcon,
-          },
-        ],
-        trainerIds: getTrainerIdsForLocation("CALGARY SETON"),
-      },
-      {
-        id: "location-calgary-sunridge",
-        city: "CALGARY",
-        branch: "SUNRIDGE",
-        locationTitle: "CALGARY SUNRIDGE",
-        heroImage: sunridgeHero,
-        details: "Details for CALGARY SUNRIDGE",
-        services: [
-          { id: "service-all", name: "All", icon: AllIcon },
-          {
-            id: "service-chiropractic",
-            name: "Chiropractic Care",
-            icon: ChiropracticIcon,
-          },
-          {
-            id: "service-massage",
-            name: "Massage Therapy",
-            icon: MassageTherapyIcon,
-          },
-          { id: "service-pilates", name: "Pilates", icon: PilatesIcon },
-          {
-            id: "service-acupuncture",
-            name: "Acupuncture",
-            icon: AcupunctureIcon,
-          },
-          {
-            id: "service-dietitian",
-            name: "Dietitian Services",
-            icon: DietitianServicesIcon,
-          },
-          {
-            id: "service-esthetician",
-            name: "Esthetician",
-            icon: EstheticianIcon,
-          },
-          {
-            id: "service-laser",
-            name: "Laser Therapy",
-            icon: LaserTherapyIcon,
-          },
-          {
-            id: "service-osteopathy",
-            name: "Osteopathy",
-            icon: OsteopathyIcon,
-          },
-          {
-            id: "service-mental-health",
-            name: "Mental Health Support",
-            icon: MentalHealthIcon,
-          },
-        ],
-        trainerIds: getTrainerIdsForLocation("CALGARY SUNRIDGE"),
+        trainerIds: getTrainerIdsForLocation("VANCOUVER POST"),
       },
       {
         id: "location-burnaby-brentwood",
@@ -317,6 +133,11 @@ export const EXPLORE_DATA = [
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
           {
+            id: "service-esthetician",
+            name: "Esthetician",
+            icon: EstheticianIcon,
+          },
+          {
             id: "service-chiropractic",
             name: "Chiropractic Care",
             icon: ChiropracticIcon,
@@ -326,7 +147,11 @@ export const EXPLORE_DATA = [
             name: "Massage Therapy",
             icon: MassageTherapyIcon,
           },
-          { id: "service-pilates", name: "Pilates", icon: PilatesIcon },
+          {
+            id: "service-physiotherapy",
+            name: "Physiotherapy",
+            icon: PhysiotherapyIcon,
+          },
           {
             id: "service-acupuncture",
             name: "Acupuncture",
@@ -338,19 +163,14 @@ export const EXPLORE_DATA = [
             icon: DietitianServicesIcon,
           },
           {
-            id: "service-esthetician",
-            name: "Esthetician",
-            icon: EstheticianIcon,
+            id: "service-osteopathy",
+            name: "Osteopathy",
+            icon: OsteopathyIcon,
           },
           {
             id: "service-laser",
             name: "Laser Therapy",
             icon: LaserTherapyIcon,
-          },
-          {
-            id: "service-osteopathy",
-            name: "Osteopathy",
-            icon: OsteopathyIcon,
           },
           {
             id: "service-mental-health",
@@ -361,14 +181,19 @@ export const EXPLORE_DATA = [
         trainerIds: getTrainerIdsForLocation("BURNABY BRENTWOOD"),
       },
       {
-        id: "location-vancouver-post",
-        city: "VANCOUVER",
-        branch: "POST",
-        locationTitle: "VANCOUVER POST",
-        heroImage: postHero,
-        details: "Details for VANCOUVER POST",
+        id: "location-calgary-seton",
+        city: "CALGARY",
+        branch: "SETON",
+        locationTitle: "CALGARY SETON",
+        heroImage: setonHero,
+        details: "Details for CALGARY SETON",
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-esthetician",
+            name: "Esthetician",
+            icon: EstheticianIcon,
+          },
           {
             id: "service-chiropractic",
             name: "Chiropractic Care",
@@ -379,7 +204,11 @@ export const EXPLORE_DATA = [
             name: "Massage Therapy",
             icon: MassageTherapyIcon,
           },
-          { id: "service-pilates", name: "Pilates", icon: PilatesIcon },
+          {
+            id: "service-physiotherapy",
+            name: "Physiotherapy",
+            icon: PhysiotherapyIcon,
+          },
           {
             id: "service-acupuncture",
             name: "Acupuncture",
@@ -391,9 +220,9 @@ export const EXPLORE_DATA = [
             icon: DietitianServicesIcon,
           },
           {
-            id: "service-esthetician",
-            name: "Esthetician",
-            icon: EstheticianIcon,
+            id: "service-osteopathy",
+            name: "Osteopathy",
+            icon: OsteopathyIcon,
           },
           {
             id: "service-laser",
@@ -401,9 +230,61 @@ export const EXPLORE_DATA = [
             icon: LaserTherapyIcon,
           },
           {
+            id: "service-mental-health",
+            name: "Mental Health Support",
+            icon: MentalHealthIcon,
+          },
+        ],
+        trainerIds: getTrainerIdsForLocation("CALGARY SETON"),
+      },
+      {
+        id: "location-calgary-royal-oak",
+        city: "CALGARY",
+        branch: "ROYAL OAK",
+        locationTitle: "CALGARY ROYAL OAK",
+        heroImage: royalOakHero,
+        details: "Details for CALGARY ROYAL OAK",
+        services: [
+          { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-esthetician",
+            name: "Esthetician",
+            icon: EstheticianIcon,
+          },
+          {
+            id: "service-chiropractic",
+            name: "Chiropractic Care",
+            icon: ChiropracticIcon,
+          },
+          {
+            id: "service-massage",
+            name: "Massage Therapy",
+            icon: MassageTherapyIcon,
+          },
+          {
+            id: "service-physiotherapy",
+            name: "Physiotherapy",
+            icon: PhysiotherapyIcon,
+          },
+          {
+            id: "service-acupuncture",
+            name: "Acupuncture",
+            icon: AcupunctureIcon,
+          },
+          {
+            id: "service-dietitian",
+            name: "Dietitian Services",
+            icon: DietitianServicesIcon,
+          },
+          {
             id: "service-osteopathy",
             name: "Osteopathy",
             icon: OsteopathyIcon,
+          },
+          {
+            id: "service-laser",
+            name: "Laser Therapy",
+            icon: LaserTherapyIcon,
           },
           {
             id: "service-mental-health",
@@ -411,7 +292,178 @@ export const EXPLORE_DATA = [
             icon: MentalHealthIcon,
           },
         ],
-        trainerIds: getTrainerIdsForLocation("VANCOUVER POST"),
+        trainerIds: getTrainerIdsForLocation("CALGARY ROYAL OAK"),
+      },
+      {
+        id: "location-calgary-sunridge",
+        city: "CALGARY",
+        branch: "SUNRIDGE",
+        locationTitle: "CALGARY SUNRIDGE",
+        heroImage: sunridgeHero,
+        details: "Details for CALGARY SUNRIDGE",
+        services: [
+          { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-esthetician",
+            name: "Esthetician",
+            icon: EstheticianIcon,
+          },
+          {
+            id: "service-chiropractic",
+            name: "Chiropractic Care",
+            icon: ChiropracticIcon,
+          },
+          {
+            id: "service-massage",
+            name: "Massage Therapy",
+            icon: MassageTherapyIcon,
+          },
+          {
+            id: "service-physiotherapy",
+            name: "Physiotherapy",
+            icon: PhysiotherapyIcon,
+          },
+          {
+            id: "service-acupuncture",
+            name: "Acupuncture",
+            icon: AcupunctureIcon,
+          },
+          {
+            id: "service-dietitian",
+            name: "Dietitian Services",
+            icon: DietitianServicesIcon,
+          },
+          {
+            id: "service-osteopathy",
+            name: "Osteopathy",
+            icon: OsteopathyIcon,
+          },
+          {
+            id: "service-laser",
+            name: "Laser Therapy",
+            icon: LaserTherapyIcon,
+          },
+          {
+            id: "service-mental-health",
+            name: "Mental Health Support",
+            icon: MentalHealthIcon,
+          },
+        ],
+        trainerIds: getTrainerIdsForLocation("CALGARY SUNRIDGE"),
+      },
+      {
+        id: "location-edmonton-south",
+        city: "EDMONTON",
+        branch: "SOUTH",
+        locationTitle: "EDMONTON SOUTH",
+        heroImage: southHero,
+        details: "Details for EDMONTON SOUTH",
+        services: [
+          { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-esthetician",
+            name: "Esthetician",
+            icon: EstheticianIcon,
+          },
+          {
+            id: "service-chiropractic",
+            name: "Chiropractic Care",
+            icon: ChiropracticIcon,
+          },
+          {
+            id: "service-massage",
+            name: "Massage Therapy",
+            icon: MassageTherapyIcon,
+          },
+          {
+            id: "service-physiotherapy",
+            name: "Physiotherapy",
+            icon: PhysiotherapyIcon,
+          },
+          {
+            id: "service-acupuncture",
+            name: "Acupuncture",
+            icon: AcupunctureIcon,
+          },
+          {
+            id: "service-dietitian",
+            name: "Dietitian Services",
+            icon: DietitianServicesIcon,
+          },
+          {
+            id: "service-osteopathy",
+            name: "Osteopathy",
+            icon: OsteopathyIcon,
+          },
+          {
+            id: "service-laser",
+            name: "Laser Therapy",
+            icon: LaserTherapyIcon,
+          },
+          {
+            id: "service-mental-health",
+            name: "Mental Health Support",
+            icon: MentalHealthIcon,
+          },
+        ],
+        trainerIds: getTrainerIdsForLocation("EDMONTON SOUTH"),
+      },
+      {
+        id: "location-edmonton-downtown",
+        city: "EDMONTON",
+        branch: "DOWNTOWN",
+        locationTitle: "EDMONTON DOWNTOWN",
+        heroImage: downtownHero,
+        details: "Details for EDMONTON DOWNTOWN",
+        services: [
+          { id: "service-all", name: "All", icon: AllIcon },
+          {
+            id: "service-esthetician",
+            name: "Esthetician",
+            icon: EstheticianIcon,
+          },
+          {
+            id: "service-chiropractic",
+            name: "Chiropractic Care",
+            icon: ChiropracticIcon,
+          },
+          {
+            id: "service-massage",
+            name: "Massage Therapy",
+            icon: MassageTherapyIcon,
+          },
+          {
+            id: "service-physiotherapy",
+            name: "Physiotherapy",
+            icon: PhysiotherapyIcon,
+          },
+          {
+            id: "service-acupuncture",
+            name: "Acupuncture",
+            icon: AcupunctureIcon,
+          },
+          {
+            id: "service-dietitian",
+            name: "Dietitian Services",
+            icon: DietitianServicesIcon,
+          },
+          {
+            id: "service-osteopathy",
+            name: "Osteopathy",
+            icon: OsteopathyIcon,
+          },
+          {
+            id: "service-laser",
+            name: "Laser Therapy",
+            icon: LaserTherapyIcon,
+          },
+          {
+            id: "service-mental-health",
+            name: "Mental Health Support",
+            icon: MentalHealthIcon,
+          },
+        ],
+        trainerIds: getTrainerIdsForLocation("EDMONTON DOWNTOWN"),
       },
       {
         id: "location-edmonton-north",
@@ -423,6 +475,11 @@ export const EXPLORE_DATA = [
         services: [
           { id: "service-all", name: "All", icon: AllIcon },
           {
+            id: "service-esthetician",
+            name: "Esthetician",
+            icon: EstheticianIcon,
+          },
+          {
             id: "service-chiropractic",
             name: "Chiropractic Care",
             icon: ChiropracticIcon,
@@ -432,7 +489,11 @@ export const EXPLORE_DATA = [
             name: "Massage Therapy",
             icon: MassageTherapyIcon,
           },
-          { id: "service-pilates", name: "Pilates", icon: PilatesIcon },
+          {
+            id: "service-physiotherapy",
+            name: "Physiotherapy",
+            icon: PhysiotherapyIcon,
+          },
           {
             id: "service-acupuncture",
             name: "Acupuncture",
@@ -444,19 +505,14 @@ export const EXPLORE_DATA = [
             icon: DietitianServicesIcon,
           },
           {
-            id: "service-esthetician",
-            name: "Esthetician",
-            icon: EstheticianIcon,
+            id: "service-osteopathy",
+            name: "Osteopathy",
+            icon: OsteopathyIcon,
           },
           {
             id: "service-laser",
             name: "Laser Therapy",
             icon: LaserTherapyIcon,
-          },
-          {
-            id: "service-osteopathy",
-            name: "Osteopathy",
-            icon: OsteopathyIcon,
           },
           {
             id: "service-mental-health",
@@ -477,95 +533,49 @@ export const EXPLORE_DATA = [
     type: "wellness",
     data: [
       {
-        id: "wellness-massage-therapy",
-        name: "MASSAGE THERAPY",
-        trainerIds: getTrainerIdsForLocation("EDMONTON SOUTH").concat(
-          getTrainerIdsForLocation("EDMONTON NORTH"),
-          getTrainerIdsForLocation("EDMONTON DOWNTOWN"),
-          getTrainerIdsForLocation("CALGARY SETON"),
-          getTrainerIdsForLocation("CALGARY ROYAL OAK"),
-          getTrainerIdsForLocation("CALGARY SUNRIDGE"),
-          getTrainerIdsForLocation("BURNABY BRENTWOOD"),
-          getTrainerIdsForLocation("VANCOUVER POST")
-        ),
+        id: "wellness-esthetician",
+        name: "ESTHETICIAN",
+        trainerIds: getTrainerIdsForRole("Esthetician"),
       },
       {
         id: "wellness-chiropractic-care",
         name: "CHIROPRACTIC CARE",
-        trainerIds: getTrainerIdsForLocation("EDMONTON SOUTH").concat(
-          getTrainerIdsForLocation("EDMONTON NORTH"),
-          getTrainerIdsForLocation("EDMONTON DOWNTOWN"),
-          getTrainerIdsForLocation("CALGARY SETON"),
-          getTrainerIdsForLocation("CALGARY ROYAL OAK"),
-          getTrainerIdsForLocation("CALGARY SUNRIDGE"),
-          getTrainerIdsForLocation("BURNABY BRENTWOOD"),
-          getTrainerIdsForLocation("VANCOUVER POST")
-        ),
+        trainerIds: getTrainerIdsForRole("Chiropractor"),
       },
       {
-        id: "wellness-personal-training",
-        name: "PERSONAL TRAINING",
-        trainerIds: getTrainerIdsForLocation("EDMONTON SOUTH").concat(
-          getTrainerIdsForLocation("EDMONTON NORTH"),
-          getTrainerIdsForLocation("EDMONTON DOWNTOWN"),
-          getTrainerIdsForLocation("CALGARY SETON"),
-          getTrainerIdsForLocation("CALGARY ROYAL OAK"),
-          getTrainerIdsForLocation("CALGARY SUNRIDGE"),
-          getTrainerIdsForLocation("BURNABY BRENTWOOD"),
-          getTrainerIdsForLocation("VANCOUVER POST")
-        ),
+        id: "wellness-physiotherapy",
+        name: "PHYSIOTHERAPY",
+        trainerIds: getTrainerIdsForRole("Physiotherapist"),
       },
       {
-        id: "wellness-dietitian-services",
-        name: "DIETITIAN SERVICES",
-        trainerIds: getTrainerIdsForLocation("EDMONTON SOUTH").concat(
-          getTrainerIdsForLocation("EDMONTON NORTH"),
-          getTrainerIdsForLocation("EDMONTON DOWNTOWN"),
-          getTrainerIdsForLocation("CALGARY SETON"),
-          getTrainerIdsForLocation("CALGARY ROYAL OAK"),
-          getTrainerIdsForLocation("CALGARY SUNRIDGE"),
-          getTrainerIdsForLocation("BURNABY BRENTWOOD"),
-          getTrainerIdsForLocation("VANCOUVER POST")
-        ),
+        id: "wellness-massage-therapy",
+        name: "MASSAGE THERAPY",
+        trainerIds: getTrainerIdsForRole("Massage Therapist"),
       },
       {
         id: "wellness-acupuncture",
         name: "ACUPUNCTURE",
-        trainerIds: getTrainerIdsForLocation("EDMONTON SOUTH").concat(
-          getTrainerIdsForLocation("EDMONTON NORTH"),
-          getTrainerIdsForLocation("EDMONTON DOWNTOWN"),
-          getTrainerIdsForLocation("CALGARY SETON"),
-          getTrainerIdsForLocation("CALGARY ROYAL OAK"),
-          getTrainerIdsForLocation("CALGARY SUNRIDGE"),
-          getTrainerIdsForLocation("BURNABY BRENTWOOD"),
-          getTrainerIdsForLocation("VANCOUVER POST")
-        ),
+        trainerIds: getTrainerIdsForRole("Acupuncturist"),
+      },
+      {
+        id: "wellness-dietitian-services",
+        name: "DIETITIAN SERVICES",
+        trainerIds: getTrainerIdsForRole("Dietitian"),
+      },
+      {
+        id: "wellness-osteopathy",
+        name: "OSTEOPATHY",
+        trainerIds: getTrainerIdsForRole("Osteopath"),
       },
       {
         id: "wellness-laser-therapy",
         name: "LASER THERAPY",
-        trainerIds: getTrainerIdsForLocation("EDMONTON SOUTH").concat(
-          getTrainerIdsForLocation("EDMONTON NORTH"),
-          getTrainerIdsForLocation("EDMONTON DOWNTOWN"),
-          getTrainerIdsForLocation("CALGARY SETON"),
-          getTrainerIdsForLocation("CALGARY ROYAL OAK"),
-          getTrainerIdsForLocation("CALGARY SUNRIDGE"),
-          getTrainerIdsForLocation("BURNABY BRENTWOOD"),
-          getTrainerIdsForLocation("VANCOUVER POST")
-        ),
+        trainerIds: getTrainerIdsForRole("Laser Therapist"),
       },
       {
         id: "wellness-mental-health",
         name: "MENTAL HEALTH SUPPORT",
-        trainerIds: getTrainerIdsForLocation("EDMONTON SOUTH").concat(
-          getTrainerIdsForLocation("EDMONTON NORTH"),
-          getTrainerIdsForLocation("EDMONTON DOWNTOWN"),
-          getTrainerIdsForLocation("CALGARY SETON"),
-          getTrainerIdsForLocation("CALGARY ROYAL OAK"),
-          getTrainerIdsForLocation("CALGARY SUNRIDGE"),
-          getTrainerIdsForLocation("BURNABY BRENTWOOD"),
-          getTrainerIdsForLocation("VANCOUVER POST")
-        ),
+        trainerIds: getTrainerIdsForRole("Mental Health Professional"),
       },
     ],
   },
