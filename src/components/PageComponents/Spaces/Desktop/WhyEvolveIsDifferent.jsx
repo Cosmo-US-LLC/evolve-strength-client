@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import img1 from "@/assets/images/spaces/WhyEvolveIsDifferent/slide1.webp";
 import img2 from "@/assets/images/spaces/WhyEvolveIsDifferent/slide2.webp";
 import img3 from "@/assets/images/spaces/WhyEvolveIsDifferent/slide3.webp";

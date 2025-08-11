@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   LOCATIONS_DATA,
   FACILITY_TIMINGS,
@@ -63,7 +64,9 @@ function SetonLocation() {
               </p>
             </div>
             <div className="flex flex-start pt-5 md:pt-0">
-              <button className="btnPrimary ">BOOK A FREE TOUR</button>
+               <Link to="https://join.evolvestrength.ca/tour-form/">
+                          <button className="btnPrimary">BOOK A FREE TOUR</button>
+                          </Link>
             </div>
           </div>
         </div>

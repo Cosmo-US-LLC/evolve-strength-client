@@ -9,6 +9,8 @@ import { ReactComponent as OnePlaceIcon } from "@/assets/images/corporateMembers
 import { ReactComponent as TopTierIcon } from "@/assets/images/corporateMembership/whyChoose/Top_Tier.svg";
 import { ReactComponent as WellnessSupportIcon } from "@/assets/images/corporateMembership/whyChoose/WellnessSupport.svg";
 import { ReactComponent as BetterOutcomesIcon } from "@/assets/images/corporateMembership/whyChoose/BetterOutcomes.svg";
+import { Link } from "react-router-dom";
+
 
 const gymCards = [
   {
@@ -153,9 +155,10 @@ const WhyCompaniesChoose = () => {
         <h2 className="text-[#FFFFFF] uppercase leading-[32px] md:leading-[39px] absolute top-[30px] md:top-[180px] text-left w-full md:w-auto">
           Why Companies <br /> Choose Evolve
         </h2>
-        <button className="btnPrimary absolute top-[110px] md:top-[280px]">
-          Get Started
-        </button>
+        
+         <Link to="/corporate-membership-wizard">
+              <button className="btnPrimary relative top-[110px] md:top-[280px] z-20">Get Started</button>
+            </Link>
       </div>
 
       {/* Desktop Layout */}

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import setonHero from "@/assets/images/Locations/join-evolve/seton.webp";
 import royalOakHero from "@/assets/images/Locations/join-evolve/royal-oak.webp";
 import sunridgeHero from "@/assets/images/Locations/join-evolve/sunridge.webp";
@@ -85,7 +85,9 @@ function JoinUsToday() {
           Experience the space. Meet our team. See the difference.
         </h4>
         <div className="flex justify-start items-start ">
-          <button className="btnPrimary">BOOK A FREE TOUR</button>
+           <Link to="https://join.evolvestrength.ca/tour-form/">
+                      <button className="btnPrimary">BOOK A FREE TOUR</button>
+                      </Link>
         </div>
       </div>
     </div>

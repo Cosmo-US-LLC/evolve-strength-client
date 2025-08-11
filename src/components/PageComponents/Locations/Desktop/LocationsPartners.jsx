@@ -5,11 +5,12 @@ import precorLogo from "/src/assets/images/home/EquipmentPartners/peocor.svg";
 import rogueLogo from "/src/assets/images/home/EquipmentPartners/rogue.svg";
 import technogymLogo from "/src/assets/images/home/EquipmentPartners/TechnoGym.svg";
 import atlantisLogo from "/src/assets/images/home/EquipmentPartners/Atlantic.svg";
+import newtechlogo from "/src/assets/images/home/EquipmentPartners/newtech.svg"
 
 const partnerLogos = [
   { src: eleikoLogo, alt: "Eleiko" },
   { src: precorLogo, alt: "Precor" },
-  { src: rogueLogo, alt: "Rogue" },
+  { src: newtechlogo, alt: "newtechlogo" },
   { src: technogymLogo, alt: "Technogym" },
   { src: atlantisLogo, alt: "Atlantis" },
 ];

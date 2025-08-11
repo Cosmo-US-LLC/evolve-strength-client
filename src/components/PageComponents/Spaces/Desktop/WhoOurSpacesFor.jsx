@@ -1,6 +1,7 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import slide1 from "../../../../assets/images/spaces/WhoOurSpacesFor/slide1.webp";
 import slide2 from "../../../../assets/images/spaces/WhoOurSpacesFor/slide2.webp";
@@ -96,7 +97,9 @@ const WhoOurSpacesFor = () => {
           </div>
         </div>
 
-        <button className="btnPrimary">APPLY NOW</button>
+        <Link to="/join-the-wait-list">
+              <button className="btnPrimary">Apply Now</button>
+            </Link>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function LetsBuildBigger() {
   return (
@@ -18,9 +19,9 @@ function LetsBuildBigger() {
           <br />
           Fill out the form and let's explore your path to ownership.
         </p>
-        <button className="btnPrimary">
-          APPLY NOW
-        </button>
+        <Link to="/your-fitness-future">
+              <button className="btnPrimary">Apply Now</button>
+            </Link>
       </div>
     </div>
   );

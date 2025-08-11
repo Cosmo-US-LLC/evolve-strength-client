@@ -1,5 +1,6 @@
 import React from "react";
 import Cancel from "@/assets/images/Locations/Cancel_Icon.svg";
+import { Link } from "react-router-dom";
 
 // Location-specific hero images
 import setonHero from "@/assets/images/Locations/location-hero/seton.webp";
@@ -115,7 +116,11 @@ function LocationHero() {
         </h3>
         <div className="flex flex-col md:flex-row gap-4">
           <div className="w-[300px]">
+            <Link to="https://join.evolvestrength.ca/tour-form/">
             <button className="btnPrimary">BOOK A FREE TOUR</button>
+            </Link>
+
+
           </div>
           <div className="flex gap-2 md:gap-8 w-full">
             <div className="flex justify-center items-center gap-1 md:gap-2">

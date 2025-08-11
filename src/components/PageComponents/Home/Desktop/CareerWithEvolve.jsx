@@ -1,5 +1,6 @@
 import React from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Link } from "react-router-dom";
 
 // Desktop images
 import personalTrainerImg from "/src/assets/images/home/CareerWithEvolve/career_1.webp";
@@ -111,8 +112,9 @@ const CareerWithEvolve = () => {
                       </p>
                     ))}
                   </div>
-                  <button className="btnPrimary">LEARN MORE</button>
-                </div>
+                   <Link to ="/spaces">
+            <button className="btnPrimary">learn more</button>
+            </Link>                </div>
               </div>
             </TabsContent>
           ))}

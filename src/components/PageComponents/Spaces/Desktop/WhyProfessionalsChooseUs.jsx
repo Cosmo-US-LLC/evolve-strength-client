@@ -1,5 +1,6 @@
 import React from "react";
 import FreeAssessmentBG from "../../../../assets/images/spaces/WhyProfessionalsChooseUs/why_professionals_choose_us.webp";
+import { Link } from "react-router-dom";
 
 function WhyProfessionalsChooseUs() {
   return (
@@ -16,9 +17,9 @@ function WhyProfessionalsChooseUs() {
             With Evolve, there’s no long list of to-dos. You move in, set up
             your space, and start seeing clients. We take care of the rest.
           </p>
-           <button className="btnPrimary">
-            Apply now
-          </button>
+           <Link to="/join-the-wait-list">
+              <button className="btnPrimary">Apply Now</button>
+            </Link>
         </div>
       </div>
       {/* <div className="absolute inset-0 bg-black/10 backdrop-blur-sm"></div> */}

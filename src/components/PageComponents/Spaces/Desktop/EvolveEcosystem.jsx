@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import trainerBg from "/src/assets/images/spaces/EvolveEcosystem/EvolveEcosystemBG.webp";
 //MobileImage//
 
@@ -40,7 +41,9 @@ function EvolveEcosystem() {
               <span className="description text-[#fff]">
                 Set up your practice in Canada’s best gym.
               </span>
-              <button className="btnPrimary">Apply now</button>
+              <Link to="/join-the-wait-list">
+              <button className="btnPrimary">Apply Now</button>
+            </Link>
             </div>
           </div>
         </div>

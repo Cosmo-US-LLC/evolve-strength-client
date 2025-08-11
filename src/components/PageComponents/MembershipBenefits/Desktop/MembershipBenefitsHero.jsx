@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function MembershipBenefitsHero() {
   return (
@@ -10,8 +11,13 @@ function MembershipBenefitsHero() {
             One Membership Endless Possibilities
           </h1>
           <div className="flex gap-6">
+            <Link to="https://subscription.evolvestrength.ca/">
             <button className="btnPrimary">Join Now</button>
-            <button className="btnSecondary">Book a tour</button>
+            </Link>
+            <Link to="https://join.evolvestrength.ca/tour-form/">
+            <button className="btnSecondary">BOOK A FREE TOUR</button>
+            </Link>
+
           </div>
         </div>
       </div>
