@@ -8,7 +8,7 @@ const cardItems = [
     background: "white",
     textColor: "black",
     hasIcon: false,
-    height: "350px",
+    height: "250px",
   },
   {
     count: "195+",
@@ -16,7 +16,7 @@ const cardItems = [
     description: "Offering a wide range of health and wellness services",
     background: "black",
     textColor: "white",
-    height: "430px",
+    height: "330px",
   },
   {
     count: "205+",
@@ -25,7 +25,7 @@ const cardItems = [
     background: "white",
     textColor: "black",
     hasIcon: false,
-    height: "500px",
+    height: "400px",
   },
 ];
 
@@ -34,7 +34,7 @@ function WellnessHub() {
     <div id="wellnessHub" className="bg-white py-16">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         {/* Header Section */}
-        <div className="text-left md:text-center mb-12">
+        <div className="text-left md:text-center mb-6">
           <h2 className="font-[700] w-full !text-[30px] md:!text-[40px] text-[#000] mb-4 uppercase leading-[39px]">
             CANADA'S BEST FITNESS AND WELLNESS HUB
           </h2>
@@ -43,6 +43,11 @@ function WellnessHub() {
             Vancouver, Evolve brings together top-tier fitness and wellness
             under one roof.
           </h4>
+
+          {/* <button className="btnPrimary mt-auto w-fit">Book Now</button> */}
+        </div>
+        <div className="flex justify-center mb-10">
+          <button className="btnPrimary mt-auto w-fit">Book Now</button>
         </div>
 
         {/* Cards Section */}
@@ -78,9 +83,6 @@ function WellnessHub() {
                 >
                   {item.description}
                 </h4>
-
-                {/* BOOK NOW Button */}
-                <button className="btnPrimary mt-auto w-fit">Book Now</button>
               </div>
             </div>
           ))}
