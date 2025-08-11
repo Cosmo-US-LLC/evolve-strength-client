@@ -24,6 +24,8 @@ import EstheticianIcon from "@/assets/images/explore/locations/esthetician.svg";
 import LaserTherapyIcon from "@/assets/images/explore/locations/laser-therapy.svg";
 import OsteopathyIcon from "@/assets/images/explore/locations/osteopathy.svg";
 import MentalHealthIcon from "@/assets/images/explore/locations/mental-health.svg";
+// Using AllIcon for Personal Trainer since no specific icon exists
+const PersonalTrainerIcon = AllIcon;
 
 import southHero from "../assets/images/Locations/location-hero/south.webp";
 import northHero from "../assets/images/Locations/location-hero/north.webp";
@@ -117,7 +119,7 @@ export const EXPLORE_DATA = [
           },
           {
             id: "service-mental-health",
-            name: "Mental Health Support",
+            name: "Mental Health",
             icon: MentalHealthIcon,
           },
         ],
@@ -574,8 +576,13 @@ export const EXPLORE_DATA = [
       },
       {
         id: "wellness-mental-health",
-        name: "MENTAL HEALTH SUPPORT",
+        name: "MENTAL HEALTH",
         trainerIds: getTrainerIdsForRole("Mental Health Professional"),
+      },
+      {
+        id: "wellness-personal-trainer",
+        name: "PERSONAL TRAINER",
+        trainerIds: getTrainerIdsForRole("Personal Trainer"),
       },
     ],
   },
