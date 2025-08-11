@@ -2,62 +2,78 @@ import React from "react";
 import Cancel from "@/assets/images/Locations/Cancel_Icon.svg";
 import { Link } from "react-router-dom";
 
-// Location-specific hero images
+// Location-specific hero images - Desktop
 import setonHero from "@/assets/images/Locations/location-hero/seton.webp";
+import setonHeroMobile from "@/assets/images/Locations/location-hero/seton.webp";
 import royalOakHero from "@/assets/images/Locations/location-hero/royal-oak.webp";
+import royalOakHeroMobile from "@/assets/images/Locations/location-hero/royal-oak.webp";
 import sunridgeHero from "@/assets/images/Locations/location-hero/sunridge.webp";
+import sunridgeHeroMobile from "@/assets/images/Locations/location-hero/sunridge.webp";
 import southHero from "@/assets/images/Locations/location-hero/south.webp";
+import southHeroMobile from "@/assets/images/Locations/location-hero/south.webp";
 import northHero from "@/assets/images/Locations/location-hero/north.webp";
+import northHeroMobile from "@/assets/images/Locations/location-hero/north.webp";
 import downtownHero from "@/assets/images/Locations/location-hero/downtown.webp";
+import downtownHeroMobile from "@/assets/images/Locations/location-hero/downtown.webp";
 import brentwoodHero from "@/assets/images/Locations/location-hero/brentwood.webp";
+import brentwoodHeroMobile from "@/assets/images/Locations/location-hero/brentwood.webp";
 import postHero from "@/assets/images/Locations/location-hero/post.webp";
+import postHeroMobile from "@/assets/images/Locations/location-hero/post.webp";
 
 // Location data with hero images and titles
 const LOCATION_HERO_DATA = {
   "calgary-seton": {
-    heroImage: setonHero,
+    desktop: setonHero,
+    mobile: setonHeroMobile,
     locationTitle: "SETON",
     city: "CALGARY",
     fullTitle: "SETON's Premier Fitness and Wellness Club",
   },
   "calgary-royal-oak": {
-    heroImage: royalOakHero,
+    desktop: royalOakHero,
+    mobile: royalOakHeroMobile,
     locationTitle: "ROYAL OAK",
     city: "CALGARY",
     fullTitle: "ROYAL OAK's Premier Fitness and Wellness Club",
   },
   "calgary-sunridge": {
-    heroImage: sunridgeHero,
+    desktop: sunridgeHero,
+    mobile: sunridgeHeroMobile,
     locationTitle: "SUNRIDGE",
     city: "CALGARY",
     fullTitle: "SUNRIDGE's Premier Fitness and Wellness Club",
   },
   "edmonton-south": {
-    heroImage: southHero,
+    desktop: southHero,
+    mobile: southHeroMobile,
     locationTitle: "SOUTH",
     city: "EDMONTON",
     fullTitle: "Edmonton South's Premier Fitness and Wellness Club",
   },
   "edmonton-north": {
-    heroImage: northHero,
+    desktop: northHero,
+    mobile: northHeroMobile,
     locationTitle: "NORTH",
     city: "EDMONTON",
     fullTitle: "Edmonton North's Premier Fitness and Wellness Club",
   },
   "edmonton-downtown": {
-    heroImage: downtownHero,
+    desktop: downtownHero,
+    mobile: downtownHeroMobile,
     locationTitle: "DOWNTOWN",
     city: "EDMONTON",
     fullTitle: "DOWNTOWN's Premier Fitness and Wellness Club",
   },
   "burnaby-brentwood": {
-    heroImage: brentwoodHero,
+    desktop: brentwoodHero,
+    mobile: brentwoodHeroMobile,
     locationTitle: "BRENTWOOD",
     city: "BURNABY",
     fullTitle: "BRENTWOOD's Premier Fitness and Wellness Club",
   },
   "vancouver-post": {
-    heroImage: postHero,
+    desktop: postHero,
+    mobile: postHeroMobile,
     locationTitle: "THE POST",
     city: "VANCOUVER",
     fullTitle: "Vancouver's Premier Fitness and Wellness Club",
@@ -91,21 +107,23 @@ function LocationHero() {
   // Get dynamic data for the detected location
   const dynamicData =
     LOCATION_HERO_DATA[locationKey] || LOCATION_HERO_DATA["calgary-seton"];
-  const heroImage = dynamicData.heroImage;
   const fullTitle = dynamicData.fullTitle;
 
-  // Dynamic background style
-  const heroStyle = {
-    backgroundImage: `url('${heroImage}')`,
-    backgroundSize: "cover",
-    backgroundPosition: "top",
-    backgroundRepeat: "no-repeat",
-    width: "100%",
-    height: "700px",
-  };
-
   return (
-    <div className="relative" style={heroStyle}>
+    <div className="relative h-[700px]">
+      {/* Desktop Image */}
+      <img
+        src={dynamicData.desktop}
+        alt={`${dynamicData.locationTitle} location hero`}
+        className="absolute inset-0 w-full h-full object-cover object-top hidden md:block"
+      />
+
+      {/* Mobile Image */}
+      <img
+        src={dynamicData.mobile}
+        alt={`${dynamicData.locationTitle} location hero`}
+        className="absolute inset-0 w-full h-full object-cover object-top block md:hidden"
+      />
       <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/30" />
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 pb-[80px] relative z-2 flex flex-col items-start justify-end w-full h-full">
         <h1 className="text-[#FFFFFF] uppercase max-w-[960px] leading-[56px] mb-1.5 md:mb-5">
@@ -117,10 +135,8 @@ function LocationHero() {
         <div className="flex flex-col md:flex-row gap-4">
           <div className="w-[300px]">
             <Link to="https://join.evolvestrength.ca/tour-form/">
-            <button className="btnPrimary">BOOK A FREE TOUR</button>
+              <button className="btnPrimary">BOOK A FREE TOUR</button>
             </Link>
-
-
           </div>
           <div className="flex gap-2 md:gap-8 w-full">
             <div className="flex justify-center items-center gap-1 md:gap-2">
