@@ -32,7 +32,7 @@ const LoWhyChooseEvolve = () => {
       slidesToScroll: 1,
       align: "start",
     },
-    [Autoplay({ delay: 2000, stopOnInteraction: false })]
+    // [Autoplay({ delay: 2000, stopOnInteraction: false })]
   );
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
@@ -79,7 +79,7 @@ const LoWhyChooseEvolve = () => {
           <div className="absolute -top-1/12 md:-top-1/6 -translate-y-1/2 left-[74%] md:left-[86%] z-10">
             <button
               onClick={scrollPrev}
-              className="p-2 rounded-full border border-[#000000] text-[#000000]"
+              className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4 md:w-6 md:h-6" />
             </button>
@@ -87,7 +87,7 @@ const LoWhyChooseEvolve = () => {
           <div className="absolute -top-1/12 md:-top-1/6 -translate-y-1/2 right-[4%] md:right-[6%] z-10">
             <button
               onClick={scrollNext}
-              className="p-2 rounded-full border border-[#000000] text-[#000000]"
+              className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer"
             >
               <ArrowRight className="w-4 h-4 md:w-6 md:h-6" />
             </button>

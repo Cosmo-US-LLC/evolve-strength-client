@@ -7,15 +7,17 @@ import post5 from "/src/assets/images/home/facility/post5.webp";
 import post6 from "/src/assets/images/home/facility/post6.webp";
 import post7 from "/src/assets/images/home/facility/post7.webp";
 import post8 from "/src/assets/images/home/facility/post8.webp";
+import post9 from "/src/assets/images/home/facility/post9.webp";
 
-import post1Mobile from "/src/assets/images/home/facility/post1.webp";
-import post2Mobile from "/src/assets/images/home/facility/post2.webp";
-import post3Mobile from "/src/assets/images/home/facility/post3.webp";
-import post4Mobile from "/src/assets/images/home/facility/post4.webp";
-import post5Mobile from "/src/assets/images/home/facility/post5.webp";
-import post6Mobile from "/src/assets/images/home/facility/post6.webp";
-import post7Mobile from "/src/assets/images/home/facility/post7.webp";
-import post8Mobile from "/src/assets/images/home/facility/post8.webp";
+import post1Mobile from "/src/assets/images/home/facility/post1Mob.webp";
+import post2Mobile from "/src/assets/images/home/facility/post2Mob.webp";
+import post3Mobile from "/src/assets/images/home/facility/post3Mob.webp";
+import post4Mobile from "/src/assets/images/home/facility/post4Mob.webp";
+import post5Mobile from "/src/assets/images/home/facility/post5Mob.webp";
+import post6Mobile from "/src/assets/images/home/facility/post6Mob.webp";
+import post7Mobile from "/src/assets/images/home/facility/post7Mob.webp";
+import post8Mobile from "/src/assets/images/home/facility/post8Mob.webp";
+import post9Mobile from "/src/assets/images/home/facility/post9Mob.webp";
 
 import seton1 from "/src/assets/images/home/facility/seton1.webp";
 import seton2 from "/src/assets/images/home/facility/seton2.webp";
@@ -146,7 +148,7 @@ export const facilityLocations = [
     key: "post",
     label: "Post",
     images: {
-      desktop: [post1, post2, post3, post4, post5, post6, post7, post8],
+      desktop: [post1, post2, post3, post4, post5, post6, post7, post8, post9],
       mobile: [
         post1Mobile,
         post2Mobile,
@@ -156,6 +158,7 @@ export const facilityLocations = [
         post6Mobile,
         post7Mobile,
         post8Mobile,
+        post9Mobile,
       ], // Currently same as desktop
     },
   },

@@ -36,7 +36,7 @@ function VancouverPost() {
       <Spacious />
       <LocationsSeeItForYourSelf />
       <SetonLocation />
-      <MeetTheTrainers />
+      <MeetTheTrainers location="VANCOUVER POST" />
       <JoinUsToday />
       <FrequentlyAskedQuestions {...LocationFaq} />
     </>

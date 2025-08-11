@@ -92,7 +92,7 @@ const MeetTheTrainers = ({ location = "" }) => {
               {trainers.map((trainer) => (
                 <div
                   key={trainer.id}
-                  className="md:flex-[0_0_24%] flex-[0_0_100%]  relative"
+                  className="md:flex-[0_0_24%] flex-[0_0_100%] gap-3 flex flex-col relative"
                 >
                   <div className="relative">
                     <img
@@ -102,26 +102,45 @@ const MeetTheTrainers = ({ location = "" }) => {
                     />
                     <div className="absolute inset-0 bg-black/10 bg-opacity-30 rounded-2xl"></div>
                   </div>
-                  <div className="w-full h-[95px] bg-[#F6F6F6] border-[10px] mt-2 justify-center rounded-2xl border-transparent">
-                    <div className="w-full h-[95px] bg-[#F6F6F6]  rounded-[10px] flex  justify-between">
-                      {/* Left: Name + Description */}
-                      <div className="flex flex-col w-[full]  ">
-                        <h3 className="text-[#000]  leading-tight">
-                          {trainer.name}
-                        </h3>
-                        <p className="text-[#767676]  ">{trainer.role}</p>
-                      </div>
 
-                      {/* Right: Down Button */}
-                      <button
-                        className={`w-6 h-6 flex justify-center mt-6 mr-1 rounded-full border border-black transition-transform duration-200 ${
-                          selectedTrainer?.id === trainer.id ? "rotate-180" : ""
+                  <div
+                    className={`w-full h-[95px] p-4 ${
+                      selectedTrainer?.id === trainer.id
+                        ? "bg-[#4AB04A] "
+                        : "bg-[#F6F6F6]"
+                    } rounded-[10px] flex  justify-between`}
+                  >
+                    {/* Left: Name + Description */}
+                    <div className="flex flex-col w-[full]  ">
+                      <h3
+                        className={`text-[#000] leading-tight ${
+                          selectedTrainer?.id === trainer.id
+                            ? "text-[#FFFFFF]"
+                            : "text-[#000]"
                         }`}
-                        onClick={() => handleTrainerDetails(trainer)}
                       >
-                        <img src={downicon} alt="More" />
-                      </button>
+                        {trainer.name}
+                      </h3>
+                      <p
+                        className={`text-[#767676]  ${
+                          selectedTrainer?.id === trainer.id
+                            ? "text-[#FFFFFF]"
+                            : "text-[#000]"
+                        }`}
+                      >
+                        {trainer.role}
+                      </p>
                     </div>
+
+                    {/* Right: Down Button */}
+                    <button
+                      className={`w-6 h-6 flex justify-center mt-6 mr-1 rounded-full border border-black transition-transform duration-200 ${
+                        selectedTrainer?.id === trainer.id ? "rotate-180" : ""
+                      }`}
+                      onClick={() => handleTrainerDetails(trainer)}
+                    >
+                      <img src={downicon} alt="More" />
+                    </button>
                   </div>
                 </div>
               ))}
