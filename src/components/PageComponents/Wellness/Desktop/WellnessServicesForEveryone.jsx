@@ -1,54 +1,91 @@
 import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import chiropracticCare from "../../../../assets/images/wellness/WellnessServicesForEveryone/chiropractic_care.webp";
-import chiropracticHead from "../../../../assets/images/wellness/WellnessServicesForEveryone/chiropractic_head.webp";
-import acupuncture from "../../../../assets/images/wellness/WellnessServicesForEveryone/acupuncture.webp";
-import acupunctureFood from "../../../../assets/images/wellness/WellnessServicesForEveryone/acupuncture_food.webp";
-import esthetician from "../../../../assets/images/wellness/WellnessServicesForEveryone/esthetician.webp";
 
+// Desktop Images
+import esthetician from "../../../../assets/images/wellness/WellnessServicesForEveryone/esthetician.webp";
+import estheticianMobile from "../../../../assets/images/wellness/WellnessServicesForEveryone/esthetician_mobile.webp";
+import chiropracticCare from "../../../../assets/images/wellness/WellnessServicesForEveryone/chiropractic_care.webp";
+import chiropracticCareMobile from "../../../../assets/images/wellness/WellnessServicesForEveryone/chiropractic_careMob.webp";
+import chiropracticHead from "../../../../assets/images/wellness/WellnessServicesForEveryone/chiropractic_head.webp";
+import chiropracticHeadMobile from "../../../../assets/images/wellness/WellnessServicesForEveryone/chiropractic_headMob.webp";
+import acupuncture from "../../../../assets/images/wellness/WellnessServicesForEveryone/acupuncture.webp";
+import acupunctureMobile from "../../../../assets/images/wellness/WellnessServicesForEveryone/acupunctureMob.webp";
+import acupunctureFood from "../../../../assets/images/wellness/WellnessServicesForEveryone/acupuncture_food.webp";
+import acupunctureFoodMobile from "../../../../assets/images/wellness/WellnessServicesForEveryone/acupuncture_foodMob.webp";
 import mentalHealth from "../../../../assets/images/wellness/WellnessServicesForEveryone/mental_health.webp";
-import servicesImage from "../../../../assets/images/wellness/WellnessServicesForEveryone/services.webp";
-import osteopathy2 from "../../../../assets/images/wellness/WellnessServicesForEveryone/osteopathy_2.webp";
+import mentalHealthMobile from "../../../../assets/images/wellness/WellnessServicesForEveryone/mental_healthMob.webp";
+import laser from "../../../../assets/images/wellness/WellnessServicesForEveryone/Laser.webp";
+import laserMob from "../../../../assets/images/wellness/WellnessServicesForEveryone/laserMob.webp";
 import physiotherapy from "../../../../assets/images/wellness/WellnessServicesForEveryone/physiotherapy.webp";
+import physiotherapyMobile from "../../../../assets/images/wellness/WellnessServicesForEveryone/physiotherapyMob.webp";
+import osteopathy from "../../../../assets/images/wellness/WellnessServicesForEveryone/osteopathy.webp";
+import osteopathyMob from "../../../../assets/images/wellness/WellnessServicesForEveryone/osteopathyMob.webp";
+
 
 const services = [
   {
     title: "Esthetician",
-    image: esthetician,
+    images: {
+      desktop: esthetician,
+      mobile: estheticianMobile, // Currently same as desktop
+    },
   },
   {
     title: "Chiropractic",
-    image: chiropracticCare,
+    images: {
+      desktop: chiropracticCare,
+      mobile: chiropracticCareMobile, // Currently same as desktop
+    },
   },
   {
     title: "Massage Therapy",
-    image: chiropracticHead,
+    images: {
+      desktop: chiropracticHead,
+      mobile: chiropracticHeadMobile, // Currently same as desktop
+    },
   },
   {
     title: "Physiotherapy",
-    image: physiotherapy,
+    images: {
+      desktop: physiotherapy,
+      mobile: physiotherapyMobile, // Currently same as desktop
+    },
   },
   {
     title: "Acupuncture",
-    image: acupuncture,
+    images: {
+      desktop: acupuncture,
+      mobile: acupunctureMobile, // Currently same as desktop
+    },
   },
   {
     title: "Dietitian",
-    image: acupunctureFood,
+    images: {
+      desktop: acupunctureFood,
+      mobile: acupunctureFoodMobile, // Currently same as desktop
+    },
   },
   {
     title: "Osteopathy",
-    image: osteopathy2,
+    images: {
+      desktop: osteopathy,
+      mobile: osteopathyMob, // Currently same as desktop
+    },
   },
-
   {
     title: "Laser Therapy",
-    image: servicesImage,
+    images: {
+      desktop: laser,
+      mobile: laserMob, // Currently same as desktop
+    },
   },
   {
     title: "Mental Health",
-    image: mentalHealth,
+    images: {
+      desktop: mentalHealth,
+      mobile: mentalHealthMobile, // Currently same as desktop
+    },
   },
 ];
 
@@ -108,10 +145,17 @@ function WellnessServicesForEveryone() {
 
   return (
     <div className="relative w-full h-[636px] md:h-[600px] flex items-center justify-center bg-black/80 overflow-hidden">
+      {/* Desktop Background Image */}
       <img
-        src={services[selectedIndex]?.image || ""}
-        alt="Wellness Hero"
-        className="absolute inset-0 w-full h-full object-cover z-0 transition-all duration-500"
+        src={services[selectedIndex]?.images.desktop || ""}
+        alt="Wellness Hero Desktop"
+        className="absolute inset-0 w-full h-full object-cover z-0 transition-all duration-500 max-md:hidden"
+      />
+      {/* Mobile Background Image */}
+      <img
+        src={services[selectedIndex]?.images.mobile || ""}
+        alt="Wellness Hero Mobile"
+        className="absolute inset-0 w-full h-full object-cover z-0 transition-all duration-500 md:hidden"
       />
       <div className="absolute inset-0 bg-black/30 z-10 transition-all duration-200" />
 
@@ -162,10 +206,17 @@ function WellnessServicesForEveryone() {
                         }
                       }}
                     >
+                      {/* Desktop Thumbnail Image */}
                       <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover"
+                        src={service.images.desktop}
+                        alt={`${service.title} Desktop`}
+                        className="w-full h-full object-cover max-md:hidden"
+                      />
+                      {/* Mobile Thumbnail Image */}
+                      <img
+                        src={service.images.mobile}
+                        alt={`${service.title} Mobile`}
+                        className="w-full h-full object-cover md:hidden"
                       />
                       <div className="absolute bottom-0 left-0 w-full h-2/5 bg-gradient-to-t from-black/30 to-transparent flex items-end justify-center p-1 md:p-2">
                         <span className="text-white text-xs sm:text-sm font-bold text-center leading-tight">
