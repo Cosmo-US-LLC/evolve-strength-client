@@ -13,10 +13,16 @@ import TakesToLaunchEvolve from "@/components/PageComponents/Franchise/Desktop/T
 import EvolveFloorPlan from "@/components/PageComponents/Franchise/Desktop/EvolveFloorPlan";
 import OurFranchiseesSay from "@/components/PageComponents/Franchise/Desktop/OurFranchiseesSay";
 import EvolveExpansionPlans from "@/components/PageComponents/Franchise/Desktop/EvolveExpansionPlans";
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function Franchise() {
   return (
-    <div>
+    <>
+     <MetaTags
+        title="Franchise with Evolve Strength"
+        description="Own an Evolve Strength franchise, Canada’s fastest-growing fitness and wellness brand. Leverage our proven model with multiple revenue streams, strong retention, and full support."
+      />
       <div className="">
         <FranchiseHero />
         <FranchiseJourneySteps />
@@ -32,7 +38,7 @@ function Franchise() {
         <HowtoJoinEvolveJourney />
         <LetsBuildBigger />
       </div>
-    </div>
+    </>
   );
 }
 

@@ -6,10 +6,16 @@ import WhoOurSpacesFor from "@/components/PageComponents/Spaces/Desktop/WhoOurSp
 import WhyEvolveIsDifferent from "@/components/PageComponents/Spaces/Desktop/WhyEvolveIsDifferent";
 import WhyProfessionalsChooseUs from "@/components/PageComponents/Spaces/Desktop/WhyProfessionalsChooseUs";
 import React from "react";
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function Spaces() {
   return (
-    <div>
+    <>
+      <MetaTags
+        title="Lease Wellness Office Space at Evolve Strength"
+        description="Lease flexible wellness office space inside one of Canada’s fastest-growing gyms. Join Evolve for built-in clients, premium amenities, and 40% lower overhead."
+      />
       <div className="">
         <GrowYourBusinessSection />
         <WhyEvolveIsDifferent />
@@ -20,7 +26,7 @@ function Spaces() {
         <EvolveEcosystem />
       </div>
       {/* <div className="md:hidden">Home Mobile</div> */}
-    </div>
+    </>
   );
 }
 

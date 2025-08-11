@@ -11,10 +11,17 @@ import WhyCompaniesChoose from "@/components/PageComponents/CorporateMembership/
 import WhoItsFor from "@/components/PageComponents/CorporateMembership/Desktop/WhoItsFor";
 import BuildToTeamSupport from "@/components/PageComponents/CorporateMembership/Desktop/BuildToTeamSupport";
 import PricingFitsYourBudget from "@/components/PageComponents/CorporateMembership/Desktop/PricingFitsYourBudget";
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function CorporateMembership() {
   return (
     <div>
+       <MetaTags
+        title="Corporate Wellness Plans | Evolve Strength for Employee Fitness & Health"
+        description="Support your team with gym and wellness access at Evolve Strength. Scalable corporate plans, 8 locations across Canada, 400+ experts, and full amenities, all in one place."
+      />
+      
       <CorporateMembershipHero />
       <OneMembershipFullAccess />
       <BuildToTeamSupport />

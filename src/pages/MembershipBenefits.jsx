@@ -7,10 +7,16 @@ import ReadyToEvolve from "@/components/PageComponents/MembershipBenefits/Deskto
 import EveryThinkYouNeed from "@/components/PageComponents/MembershipBenefits/Desktop/EveryThinkYouNeed";
 import PremiumAmenitiesForYou from "@/components/PageComponents/MembershipBenefits/Desktop/PremiumAmenitiesForYou";
 import AccessEvolveLocationWithEase from "@/components/PageComponents/MembershipBenefits/Desktop/AccessEvolveLocationWithEase";
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function MembershipBenefits() {
   return (
-    <div>
+    <>
+    <MetaTags
+        title="Evolve Strength Membership | One Membership, Endless Possibilities"
+        description="Join Evolve for full access to Canada’s fastest-growing gyms. Enjoy no-wait training, wellness services, and premium amenities, all included in one affordable membership."
+      />
       <MembershipBenefitsHero />
       <TrainWithOutWait />
       <FreeAssessmentForMembership />
@@ -19,7 +25,7 @@ function MembershipBenefits() {
       <EveryThinkYouNeed />
       <FitnessCategoryMarquee />
       <ReadyToEvolve />
-    </div>
+    </>
   );
 }
 

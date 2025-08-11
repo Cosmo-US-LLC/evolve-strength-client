@@ -154,7 +154,7 @@ const WhyCompaniesChoose = () => {
           Why Companies <br /> Choose Evolve
         </h2>
         <button className="btnPrimary absolute top-[110px] md:top-[280px]">
-          Book a Free Consultation
+          Get Started
         </button>
       </div>
 

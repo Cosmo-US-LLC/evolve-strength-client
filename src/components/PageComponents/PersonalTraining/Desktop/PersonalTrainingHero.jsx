@@ -14,7 +14,7 @@ function PersonalTrainingHero() {
           </h3>
 
           <button className="btnPrimary">
-            Begin free training consultation
+           Join now
           </button>
         </div>
       </div>

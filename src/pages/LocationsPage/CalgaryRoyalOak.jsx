@@ -17,10 +17,16 @@ import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLo
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
 import WellnessServices from "@/components/PageComponents/Home/Desktop/WellnessServices";
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function CalgaryRoyalOak() {
   return (
     <>
+     <MetaTags
+        title="Evolve Strength Royal Oak | Premier Fitness Gym in Calgary"
+        description="Join Evolve Strength, Calgary’s best fitness club, with top gym equipment for strength training and cardio, plus expert personal trainers."
+      />
       <LocationHero />
       <LocationPartners />
       <LoWhyChooseEvolve />
