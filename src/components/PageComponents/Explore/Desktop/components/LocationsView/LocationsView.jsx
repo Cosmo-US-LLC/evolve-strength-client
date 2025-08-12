@@ -104,7 +104,7 @@ function LocationsView() {
               <div
                 className={`
                   bg-[#fff] overflow-hidden transition-all duration-500 ease-in-out
-                  ${isOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}
+                  ${isOpen ? "max-h-auto opacity-100" : "max-h-0 opacity-0"}
                 `}
               >
                 <div
@@ -220,14 +220,14 @@ function LocationsView() {
 
                             return (
                               <div key={rowIdx} className="overflow-hidden">
-                                <div className="flex gap-6 flex-wrap bg-[#F6F6F6] px-12 pt-12">
+                                <div className="flex gap-6 bg-[#F6F6F6] px-12 pt-12 pb-6">
                                   {row.map((trainer, colIdx) => {
                                     const globalIdx = startIdx + colIdx;
 
                                     return (
                                       <div
                                         key={globalIdx}
-                                        className="mb-3 transition-all duration-300 ease-in-out transform hover:scale-105"
+                                        className="w-1/4 transition-all duration-300 ease-in-out transform hover:scale-105"
                                       >
                                         <TrainerCard
                                           trainer={trainer}
