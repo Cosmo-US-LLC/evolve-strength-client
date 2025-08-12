@@ -7,6 +7,7 @@ import MetaTags from "@/components/Metatags/Meta";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import SuccessFullScreen from "../ui/SuccessFullScreen";
 import { ArrowLeft } from "lucide-react";
+import FormsHeader from "../ui/FormsHeader";
 
 const initialState = {
   firstName: "",
@@ -135,8 +136,11 @@ function YourFitnessFutureForm() {
     <>
       <MetaTags
         title="Franchise Inquiry | Start Your Evolve Strength Ownership Journey"
-        description="Ready to own an Evolve Strength franchise? Fill out the form to connect with our team. We’ll help you take the first step toward building your fitness business."
+        description="Ready to own an Evolve Strength franchise? Fill out the form to connect with our team. We'll help you take the first step toward building your fitness business."
       />
+
+      {/* Form Header */}
+      <FormsHeader />
 
       {/* Success Screen Full Screen Overlay */}
       {submitted && (

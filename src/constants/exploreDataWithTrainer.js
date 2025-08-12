@@ -83,6 +83,7 @@ export const EXPLORE_DATA = [
         city: "VANCOUVER",
         branch: "POST",
         locationTitle: "VANCOUVER POST",
+        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=40327",
         heroImage: postHero,
         details: "Details for VANCOUVER POST",
         services: [
@@ -149,6 +150,7 @@ export const EXPLORE_DATA = [
         city: "BURNABY",
         branch: "BRENTWOOD",
         locationTitle: "BURNABY BRENTWOOD",
+        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=40248",
         heroImage: brentwoodHero,
         details: "Details for BURNABY BRENTWOOD",
         services: [
@@ -215,6 +217,7 @@ export const EXPLORE_DATA = [
         city: "CALGARY",
         branch: "SETON",
         locationTitle: "CALGARY SETON",
+        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=40097",
         heroImage: setonHero,
         details: "Details for CALGARY SETON",
         services: [
@@ -281,6 +284,7 @@ export const EXPLORE_DATA = [
         city: "CALGARY",
         branch: "ROYAL OAK",
         locationTitle: "CALGARY ROYAL OAK",
+        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=40142",
         heroImage: royalOakHero,
         details: "Details for CALGARY ROYAL OAK",
         services: [
@@ -347,6 +351,7 @@ export const EXPLORE_DATA = [
         city: "CALGARY",
         branch: "SUNRIDGE",
         locationTitle: "CALGARY SUNRIDGE",
+        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=06973",
         heroImage: sunridgeHero,
         details: "Details for CALGARY SUNRIDGE",
         services: [
@@ -413,6 +418,7 @@ export const EXPLORE_DATA = [
         city: "EDMONTON",
         branch: "SOUTH",
         locationTitle: "EDMONTON SOUTH",
+        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=06962",
         heroImage: southHero,
         details: "Details for EDMONTON SOUTH",
         services: [
@@ -479,6 +485,7 @@ export const EXPLORE_DATA = [
         city: "EDMONTON",
         branch: "DOWNTOWN",
         locationTitle: "EDMONTON DOWNTOWN",
+        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=06967",
         heroImage: downtownHero,
         details: "Details for EDMONTON DOWNTOWN",
         services: [
@@ -545,6 +552,7 @@ export const EXPLORE_DATA = [
         city: "EDMONTON",
         branch: "NORTH",
         locationTitle: "EDMONTON NORTH",
+        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=06964",
         heroImage: northHero,
         details: "Details for EDMONTON NORTH",
         services: [

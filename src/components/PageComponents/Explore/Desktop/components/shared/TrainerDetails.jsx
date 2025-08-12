@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function TrainerDetails({ trainer }) {
   if (!trainer) {
@@ -48,9 +49,11 @@ function TrainerDetails({ trainer }) {
           </div>
 
           <div className="w-[50%] md:w-[20%] flex justify-end">
+            <Link to = "https://subscription.evolvestrength.ca/">
             <button className="btnPrimary w-full md:w-auto text-sm md:text-base py-2 md:py-3">
-              Book Now
+              Join Now
             </button>
+            </Link>
           </div>
         </div>
       </div>
