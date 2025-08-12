@@ -81,46 +81,59 @@ function YourFitnessFutureForm() {
 
       try {
         setIsSubmitting(true);
+
+        // Prepare the data to send
+        const formData = {
+          fields: [
+            { name: "firstname", value: form.firstName },
+            { name: "lastname", value: form.lastName },
+            { name: "email", value: form.email },
+            { name: "phone", value: form.phone },
+            { name: "address", value: form.address },
+            { name: "city", value: form.city },
+            { name: "province", value: form.province },
+            { name: "business_experience", value: form.businessExperience },
+            { name: "liquid_capital", value: form.liquidCapital },
+            {
+              name: "franchise_experience",
+              value: form.franchiseExperience,
+            },
+            { name: "bankruptcy_litigation", value: form.bankruptcy },
+            { name: "current_member", value: form.isMember },
+            { name: "about_yourself", value: form.about },
+          ],
+          context: {
+            pageUri: window.location.href,
+            pageName: "Franchise Form",
+          },
+        };
+
+        console.log(
+          "Sending data to HubSpot:",
+          JSON.stringify(formData, null, 2)
+        );
+
         // HubSpot API submission
         const response = await fetch(
-          "https://api.hsforms.com/submissions/v3/integration/submit/342148198/franchise-inquiry-form",
+          "https://api.hsforms.com/submissions/v3/integration/submit/342148198/2df02615-f490-435e-abb4-a44270f455a5",
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-              fields: [
-                { name: "firstname", value: form.firstName },
-                { name: "lastname", value: form.lastName },
-                { name: "email", value: form.email },
-                { name: "phone", value: form.phone },
-                { name: "address", value: form.address },
-                { name: "city", value: form.city },
-                { name: "province", value: form.province },
-                { name: "business_experience", value: form.businessExperience },
-                { name: "liquid_capital", value: form.liquidCapital },
-                {
-                  name: "franchise_experience",
-                  value: form.franchiseExperience,
-                },
-                { name: "bankruptcy_litigation", value: form.bankruptcy },
-                { name: "current_member", value: form.isMember },
-                { name: "about_yourself", value: form.about },
-              ],
-              context: {
-                pageUri: window.location.href,
-                pageName: "Franchise Inquiry Form",
-              },
-            }),
+            body: JSON.stringify(formData),
           }
         );
 
         if (response.ok) {
           console.log("Form submitted successfully to HubSpot");
+          const responseData = await response.json();
+          console.log("HubSpot response:", responseData);
           setSubmitted(true);
         } else {
           console.error("Failed to submit to HubSpot:", response.status);
+          const errorText = await response.text();
+          console.error("Error details:", errorText);
           alert("There was an error submitting your form. Please try again.");
         }
       } catch (error) {
