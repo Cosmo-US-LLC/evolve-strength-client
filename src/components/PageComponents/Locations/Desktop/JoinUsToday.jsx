@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import setonHero from "@/assets/images/Locations/join-evolve/seton.webp";
-import setonHeroMobile from "@/assets/images/Locations/join-evolve/seton.webp";
+import setonHeroMobile from "@/assets/images/Locations/join-evolve/setonMob.webp";
 import royalOakHero from "@/assets/images/Locations/join-evolve/royal-oak.webp";
 import royalOakHeroMobile from "@/assets/images/Locations/join-evolve/royal-oakMob.webp";
 import sunridgeHero from "@/assets/images/Locations/join-evolve/sunridge.webp";

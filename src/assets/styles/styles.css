@@ -181,7 +181,7 @@
 .ContactHeroBG {
   background-image: url("@/assets/images/ContactUs/contact_us_hero.webp");
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
   width: 100%;
   height: 740px;
