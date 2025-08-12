@@ -27,9 +27,9 @@ function Hero() {
         <div className="max-w-[1280px] md:px-8 px-4 md:pb-[135px] max-md:pb-[24px] mx-auto w-full h-full relative z-2">
           <div className="relative z-2 flex flex-col items-start justify-end h-full">
             <h1 className="text-[#FFFFFF] uppercase leading-[79px]">Evolve</h1>
-            <h3 className="text-[#FFFFFF] !font-[400] leading-[24px] md:mb-7 max-md:mb-[16px]">
+            <h2 className="text-[#FFFFFF] !font-[400] leading-[24px] md:mb-7 max-md:mb-[16px]">
               More Space. More Possibilities.
-            </h3>
+            </h2>
             <Link to="https://join.evolvestrength.ca/tour-form/">
             <button className="btnPrimary">BOOK A FREE TOUR</button>
             </Link>
