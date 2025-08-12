@@ -151,13 +151,13 @@ const WhyCompaniesChoose = () => {
         <div className="absolute inset-0 bg-black/20 pointer-events-none h-[600px]" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto flex flex-col items-start justify-start gap-4 px-4 md:px-8">
+      <div className="relative z-50 w-full max-w-[1280px] mx-auto flex flex-col items-start justify-start gap-4 px-4 md:px-8">
         <h2 className="text-[#FFFFFF] uppercase leading-[32px] md:leading-[39px] absolute top-[30px] md:top-[180px] text-left w-full md:w-auto">
           Why Companies <br /> Choose Evolve
         </h2>
         
          <Link to="/corporate-membership-wizard">
-              <button className="btnPrimary relative top-[110px] md:top-[280px] z-20">Get Started</button>
+              <button className="btnPrimary relative top-[110px] md:top-[280px] z-50 cursor-pointer">Get Started</button>
             </Link>
       </div>
 
