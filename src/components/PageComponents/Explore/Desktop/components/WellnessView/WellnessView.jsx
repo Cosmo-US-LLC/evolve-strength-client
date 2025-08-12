@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   getDataByCategory,
   getAllLocations,
@@ -108,12 +109,14 @@ function WellnessView() {
                     }`}
                   />
                 </div>
+                <Link to ="https://subscription.evolvestrength.ca/">
                 <button
                   className="uppercase text-[16px] md:text-[20px] font-[400] leading-[20px] font-[kanit] text-[#4AB04A] hover:text-[#000] underline transition-colors duration-300"
                   onClick={(e) => e.stopPropagation()}
                 >
                   JOIN NOW
                 </button>
+                </Link>
               </div>
 
               {isOpen && (

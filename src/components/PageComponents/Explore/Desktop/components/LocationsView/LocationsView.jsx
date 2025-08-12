@@ -16,6 +16,8 @@ function LocationsView() {
 
   const locationsData = getDataByCategory("LOCATIONS")?.data || [];
 
+  console.log(locationsData)
+
   const handleToggle = (locKey) => {
     // Accordion behavior: if clicking the same location, close it; if clicking different location, close previous and open new one
     setExpandedLocation(expandedLocation === locKey ? null : locKey);
@@ -92,7 +94,7 @@ function LocationsView() {
                   />
                 </div>
                 <Link
-                  to="/locations"
+                  to={loc?.statelink}
                   className="uppercase text-[16px] md:text-[20px] font-[400] leading-[20px] font-[kanit] text-[#4AB04A] hover:text-[#000] underline transition-colors duration-300"
                   onClick={(e) => e.stopPropagation()}
                 >
