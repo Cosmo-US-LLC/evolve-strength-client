@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import CSSlides_1 from "@/assets/images/spaces/AvailableOffices/CSSlides_1.webp";
 import BSlides_1 from "@/assets/images/spaces/AvailableOffices/BSlides_1.webp";
 import royalE from "@/assets/images/spaces/AvailableOffices/royal_E.webp";
@@ -163,7 +164,9 @@ const AvailableOffices = () => {
                             <MapPin className="w-4 h-4 text-[#515151] inline-block mr-1" />
                             {office.location}
                           </p>
+                          <Link to="/join-the-wait-list">
                           <button className="btnPrimary">APPLY NOW</button>
+                          </Link>
                         </div>
                       </div>
                     ))}
@@ -256,7 +259,9 @@ const AvailableOffices = () => {
                           <p className="description !font-[kanit] font-[400] text-[#000] leading-[20px] mt-1">
                             {office.size}
                           </p>
+                          <Link to="/join-the-wait-list">
                           <button className="btnPrimary">APPLY NOW</button>
+                          </Link>
                         </div>
                       </div>
                     ))}

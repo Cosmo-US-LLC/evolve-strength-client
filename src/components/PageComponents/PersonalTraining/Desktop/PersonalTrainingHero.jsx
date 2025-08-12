@@ -22,8 +22,9 @@ function PersonalTrainingHero() {
           <button className="btnSecondary"> Explore Trainer</button>
           </Link>
           </div>
-          <p className="description underline !font-[Kanit] text-[#FFFFFF]  font-bold ">Join now for a free assessment with a certified trainer. Personal training is available for an additional fee.</p>
-
+                    <Link to = "https://subscription.evolvestrength.ca/">
+          <button className="description underline !font-[Kanit] text-[#FFFFFF]  font-bold hover:cursor-pointer ">Join now for a free assessment with a certified trainer. Personal training is available for an additional fee.</button>
+          </Link>
         </div>
       </div>
     </div>
