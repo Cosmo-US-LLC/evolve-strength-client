@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 
 // Location-specific hero images - Desktop
 import setonHero from "@/assets/images/Locations/location-hero/seton.webp";
-import setonHeroMobile from "@/assets/images/Locations/location-hero/seton.webp";
+import setonHeroMobile from "@/assets/images/Locations/location-hero/setonMob.webp";
 import royalOakHero from "@/assets/images/Locations/location-hero/royal-oak.webp";
-import royalOakHeroMobile from "@/assets/images/Locations/location-hero/royal-oak.webp";
+import royalOakHeroMobile from "@/assets/images/Locations/location-hero/royal-oakMob.webp";
 import sunridgeHero from "@/assets/images/Locations/location-hero/sunridge.webp";
-import sunridgeHeroMobile from "@/assets/images/Locations/location-hero/sunridge.webp";
+import sunridgeHeroMobile from "@/assets/images/Locations/location-hero/sunridgeMob.webp";
 import southHero from "@/assets/images/Locations/location-hero/south.webp";
-import southHeroMobile from "@/assets/images/Locations/location-hero/south.webp";
-import northHero from "@/assets/images/Locations/location-hero/north.webp";
-import northHeroMobile from "@/assets/images/Locations/location-hero/north.webp";
+import southHeroMobile from "@/assets/images/Locations/location-hero/southMob.webp";
+import northHero from "@/assets/images/Locations/location-hero/northMob.webp";
+import northHeroMobile from "@/assets/images/Locations/location-hero/northMob.webp";
 import downtownHero from "@/assets/images/Locations/location-hero/downtown.webp";
-import downtownHeroMobile from "@/assets/images/Locations/location-hero/downtown.webp";
+import downtownHeroMobile from "@/assets/images/Locations/location-hero/downtownMob.webp";
 import brentwoodHero from "@/assets/images/Locations/location-hero/brentwood.webp";
-import brentwoodHeroMobile from "@/assets/images/Locations/location-hero/brentwood.webp";
+import brentwoodHeroMobile from "@/assets/images/Locations/location-hero/brentwoodMob.webp";
 import postHero from "@/assets/images/Locations/location-hero/post.webp";
-import postHeroMobile from "@/assets/images/Locations/location-hero/post.webp";
+import postHeroMobile from "@/assets/images/Locations/location-hero/postMob.webp";
 
 // Location data with hero images and titles
 const LOCATION_HERO_DATA = {
@@ -110,7 +110,7 @@ function LocationHero() {
   const fullTitle = dynamicData.fullTitle;
 
   return (
-    <div className="relative h-[700px]">
+    <div className="relative h-[600px] md:h-[700px]">
       {/* Desktop Image */}
       <img
         src={dynamicData.desktop}
@@ -125,8 +125,8 @@ function LocationHero() {
         className="absolute inset-0 w-full h-full object-cover object-top block md:hidden"
       />
       <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/30" />
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8 pb-[80px] relative z-2 flex flex-col items-start justify-end w-full h-full">
-        <h1 className="text-[#FFFFFF] uppercase max-w-[960px] leading-[56px] mb-1.5 md:mb-5">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8 pb-[20px] md:pb-[80px] relative z-2 flex flex-col items-start justify-end w-full h-full">
+        <h1 className="text-[#FFFFFF] uppercase max-w-[960px] leading-[39px] md:leading-[56px] mb-1.5 md:mb-5">
           {fullTitle}
         </h1>
         <h3 className="text-[#FFFFFF] !font-[300] max-w-[707px] leading-[29px] mb-4 md:mb-6">

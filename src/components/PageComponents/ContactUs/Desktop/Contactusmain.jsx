@@ -41,7 +41,7 @@ const contactmain = {
     {
       cityname: "Vancouver Post",
       address: "658 Homer St Vancouver, British Columbia, V6B 2R4",
-      number: "-------------",
+      number: "(236) 757-5475",
     },
   ],
 };

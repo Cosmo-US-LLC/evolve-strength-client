@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 import setonHero from "@/assets/images/Locations/join-evolve/seton.webp";
 import setonHeroMobile from "@/assets/images/Locations/join-evolve/seton.webp";
 import royalOakHero from "@/assets/images/Locations/join-evolve/royal-oak.webp";
-import royalOakHeroMobile from "@/assets/images/Locations/join-evolve/royal-oak.webp";
+import royalOakHeroMobile from "@/assets/images/Locations/join-evolve/royal-oakMob.webp";
 import sunridgeHero from "@/assets/images/Locations/join-evolve/sunridge.webp";
-import sunridgeHeroMobile from "@/assets/images/Locations/join-evolve/sunridge.webp";
+import sunridgeHeroMobile from "@/assets/images/Locations/join-evolve/sunridgeMob.webp";
 import southHero from "@/assets/images/Locations/join-evolve/south.webp";
-import southHeroMobile from "@/assets/images/Locations/join-evolve/south.webp";
+import southHeroMobile from "@/assets/images/Locations/join-evolve/southMob.webp";
 import northHero from "@/assets/images/Locations/join-evolve/north.webp";
-import northHeroMobile from "@/assets/images/Locations/join-evolve/north.webp";
+import northHeroMobile from "@/assets/images/Locations/join-evolve/northMob.webp";
 import downtownHero from "@/assets/images/Locations/join-evolve/downtown.webp";
-import downtownHeroMobile from "@/assets/images/Locations/join-evolve/downtown.webp";
+import downtownHeroMobile from "@/assets/images/Locations/join-evolve/downtownMob.webp";
 import brentwoodHero from "@/assets/images/Locations/join-evolve/brentwood.webp";
-import brentwoodHeroMobile from "@/assets/images/Locations/join-evolve/brentwood.webp";
+import brentwoodHeroMobile from "@/assets/images/Locations/join-evolve/brentwoodMob.webp";
 import postHero from "@/assets/images/Locations/join-evolve/post.webp";
-import postHeroMobile from "@/assets/images/Locations/join-evolve/post.webp";
+import postHeroMobile from "@/assets/images/Locations/join-evolve/postMob.webp";
 
 const LOCATION_BACKGROUNDS = {
   "calgary-seton": {
@@ -86,12 +86,12 @@ function JoinUsToday() {
     LOCATION_BACKGROUNDS[locationKey] || LOCATION_BACKGROUNDS["calgary-seton"];
 
   return (
-    <div className="relative h-[700px] ">
+    <div className="relative h-[600px] md:h-[700px] ">
       {/* Desktop Image */}
       <img
         src={locationData.desktop}
         alt={`Join Evolve Strength ${locationData.locationName}`}
-        className="absolute inset-0 w-full h-full object-cover bg-center bg-no-repeat hidden md:block"
+        className="absolute inset-0 w-full h-full object-cover bg-top bg-no-repeat hidden md:block"
       />
 
       {/* Mobile Image */}
