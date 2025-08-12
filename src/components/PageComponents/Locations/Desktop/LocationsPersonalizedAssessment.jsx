@@ -13,7 +13,7 @@ function LocationsPersonalizedAssessment() {
             trainer after signing up.
           </p>
           <a
-            href="#"
+            href="https://join.evolvestrength.ca/tour-form/"
             className="text-[#4AB04A] font-bold leading-[26px] underline underline-offset-4 decoration-solid decoration-auto [text-underline-position:from-font]"
           >
             Book a Free Tour

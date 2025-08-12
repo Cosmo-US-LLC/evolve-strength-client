@@ -64,7 +64,12 @@ function Contactusmain() {
                       <span className="w-[358px] h-[21px]">
                         {location.address}
                       </span>
-                      <div className="h-[21px]">{location.number}</div>
+                      <a
+                       href={`tel:${location.number}`}
+                       className="h-[21px] block"
+                      >
+                      {location.number}
+                     </a>
                     </div>
                   </li>
                 ))}
