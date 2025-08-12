@@ -11,7 +11,7 @@ import sunridgeHero from "@/assets/images/Locations/location-hero/sunridge.webp"
 import sunridgeHeroMobile from "@/assets/images/Locations/location-hero/sunridgeMob.webp";
 import southHero from "@/assets/images/Locations/location-hero/south.webp";
 import southHeroMobile from "@/assets/images/Locations/location-hero/southMob.webp";
-import northHero from "@/assets/images/Locations/location-hero/northMob.webp";
+import northHero from "@/assets/images/Locations/location-hero/north.webp";
 import northHeroMobile from "@/assets/images/Locations/location-hero/northMob.webp";
 import downtownHero from "@/assets/images/Locations/location-hero/downtown.webp";
 import downtownHeroMobile from "@/assets/images/Locations/location-hero/downtownMob.webp";
