@@ -12,7 +12,7 @@ import Influencers from './Influencers';
 
 function index() {
   return (
-    //  
+ 
     
 
 
@@ -22,6 +22,15 @@ function index() {
     <div className="w-full bg-[#F9F9F9]">
  
       <div className="w-full max-w-[1440px] mx-auto h-[600px] md:h-[800px] socialMedia px-4 md:px-8">
+         {/* <PhoneMockUp/>
+         <Instagram/>
+        <Facebook/>
+        <AllMedia/>
+        <FitnessStrip/>
+        <GymCommunity/>
+        <TrainWithEvolve/>
+        <EvolveStrip/>
+        <Influencers/> */}
  
       </div>
     </div>
@@ -32,7 +41,7 @@ function index() {
 
     
 
-    // </div>
+  
 
     
   )

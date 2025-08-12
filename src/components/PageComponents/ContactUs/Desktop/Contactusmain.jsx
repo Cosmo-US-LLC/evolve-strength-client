@@ -101,11 +101,22 @@ function Contactusmain() {
                 className="bg-[#FFF] border p-2 rounded w-full"
               />
             </div>
-            <input
-              type="text"
-              placeholder="Location"
-              className="bg-[#FFF] border p-2 rounded w-full"
-            />
+           <select
+  className="bg-[#FFF] border p-2 rounded w-full text-gray-500"
+  defaultValue=""
+>
+  <option value="" disabled>
+    Select Location
+  </option>
+  <option>Edmonton Downtown</option>
+  <option>Edmonton South</option>
+  <option>Edmonton North</option>
+  <option>Calgary Royal Oak</option>
+  <option>Calgary Sunridge</option>
+  <option>Calgary Seton</option>
+  <option>Burnaby Brentwood</option>
+  <option>Vancouver Post</option>
+</select>
             <textarea
               placeholder="Type your message here.."
               className="bg-[#FFF] border p-2 rounded w-full h-[300px]"

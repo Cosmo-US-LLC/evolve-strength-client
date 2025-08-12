@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const cardItems = [
   {
@@ -47,7 +48,9 @@ function WellnessHub() {
           {/* <button className="btnPrimary mt-auto w-fit">Book Now</button> */}
         </div>
         <div className="flex justify-start md:justify-center mb-10">
+          <Link to = "https://join.evolvestrength.ca/tour-form/">
           <button className="btnPrimary mt-auto w-fit">Book Now</button>
+          </Link>
         </div>
 
         {/* Cards Section */}
