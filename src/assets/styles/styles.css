@@ -196,14 +196,14 @@
   height: 700px;
 }
 
-.LocationsHero {
+/* .LocationsHero {
   background-image: url("@/assets/images/Locations/LocationsHero.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
   width: 100%;
   height: 700px;
-}
+} */
 
 .JoinToday {
   background-image: url("@/assets/images/Locations/JoinToday.webp");
@@ -402,9 +402,9 @@
   .aboutUsReadyToEvolve {
     background-image: url("@/assets/images/JoinTheMovement/TrainHere/Trainherebg.webp");
   }
-  .LocationsHero {
+  /* .LocationsHero {
     background-image: url("@/assets/images/Locations/herosection_mob.webp");
-  }
+  } */
   .LoAssesment {
     background-image: url("@/assets/images/Locations/assesment/LoAssesment.webp");
   }
