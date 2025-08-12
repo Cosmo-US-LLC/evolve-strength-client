@@ -13,9 +13,11 @@ import wellnessExpertImgMobile from "/src/assets/images/home/CareerWithEvolve/ca
 const tabData = {
   trainer: {
     title: "PERSONAL TRAINER",
+    
     image: {
       desktop: personalTrainerImg,
       mobile: personalTrainerImgMobile,
+      
     },
     description:
       "Build your own personal training business inside Canada's most advanced fitness facility.",
@@ -25,9 +27,11 @@ const tabData = {
       "Keep Full Ownership of Your Clients",
       "Get Real Support From Real Trainers",
     ],
+    link: "/join-as-trainer",
   },
   expert: {
     title: "WELLNESS EXPERT",
+    
     image: {
       desktop: wellnessExpertImg,
       mobile: wellnessExpertImgMobile,
@@ -40,6 +44,7 @@ const tabData = {
       "All-Inclusive Office Setup",
       "Connect with a Like-Minded Community",
     ],
+    link:"/spaces",
   },
 };
 
@@ -112,7 +117,7 @@ const CareerWithEvolve = () => {
                       </p>
                     ))}
                   </div>
-                   <Link to ="/spaces">
+                   <Link to={tab.link}>
             <button className="btnPrimary">learn more</button>
             </Link>                </div>
               </div>
