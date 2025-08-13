@@ -669,11 +669,11 @@ export const EXPLORE_DATA = [
         name: "MENTAL HEALTH",
         trainerIds: getTrainerIdsForRole("Mental Health Professional"),
       },
-      {
-        id: "wellness-personal-trainer",
-        name: "PERSONAL TRAINER",
-        trainerIds: getTrainerIdsForRole("Personal Trainer"),
-      },
+      // {
+      //   id: "wellness-personal-trainer",
+      //   name: "PERSONAL TRAINER",
+      //   trainerIds: getTrainerIdsForRole("Personal Trainer"),
+      // },
     ],
   },
   {

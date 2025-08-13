@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import EvolveStrengthBlackLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo-black.svg";
+import EvolveStrengthBlackLogo from "../../assets/images/home/navbar/Evolve-logo-dark.svg";
 
 function FormsHeader() {
   return (
@@ -9,7 +9,7 @@ function FormsHeader() {
         <img
           src={EvolveStrengthBlackLogo}
           alt="Evolve Strength Logo"
-          className=""
+          className="w-[176px]"
         />
       </Link>
     </div>
