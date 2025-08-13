@@ -431,4 +431,9 @@
   .spacesWhyChooseUs {
     background-image: url("@/assets/images/spaces/WhyProfessionalsChooseUs/spacesWhyChooseUs_mob.webp");
   }
+  .allLocationsHero{
+    background-image: url("@/assets/images/Locations/all_locations/all_locations_heroMob.webp");
+    height:460px;
+
+  }
 }
