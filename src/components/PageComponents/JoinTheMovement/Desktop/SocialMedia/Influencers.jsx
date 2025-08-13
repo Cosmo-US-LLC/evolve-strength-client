@@ -16,16 +16,17 @@ const Influencers = () => {
         <img src={logo} alt="" />
       </div>
 
-      <div className="flex mt-4 relative w-full bg-amber-300">
-        {influencerImages.map((img, index) => (
-          <img
-            key={index}
-            src={img}
-            alt={`Influencer ${index + 1}`}
-            className={`w-20 h-20 rounded-full object-cover absolute left-[${index * 40}px]`}
-          />
-        ))}
-      </div>
+ <div className="flex md:mt-4 relative w-full bg-amber-300 h-20">
+  {influencerImages.map((img, index) => (
+    <img
+      key={index}
+      src={img}
+      alt={`Influencer ${index + 1}`}
+      className="w-20 h-20 rounded-full object-cover absolute"
+      style={{ left: `${index * 40}px` }}
+    />
+  ))}
+</div>
     </div>
   );
 };

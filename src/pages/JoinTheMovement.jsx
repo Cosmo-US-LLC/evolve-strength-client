@@ -20,7 +20,9 @@ function JoinTheMovement() {
         <JoinTheMovementHero />
         <WhyYouShould />
         <WhattoSubmit />
+        <div className="bg-[#F9F9F9]">
         <SocialMedia/>
+        </div>
         <TrainHere />
       </div>
     </>

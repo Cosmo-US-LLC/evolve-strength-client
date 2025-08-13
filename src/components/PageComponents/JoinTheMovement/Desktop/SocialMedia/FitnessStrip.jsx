@@ -4,7 +4,7 @@ import logo from "@/assets/images/JoinTheMovement/SocialMedia/fitnessstrip/Fitne
 
 function FitnessStrip() {
   return (
-     <div className="inline-flex w-[109px] h-[36px] items-center gap-[6px] px-[8px] py-[2px] bg-white rounded-[10px] shadow-[0_0_4px_0_rgba(0,0,0,0.08)]">
+     <div className="inline-flex md:w-[109px] md:h-[36px] w-[100px] h-[30px] items-center gap-[6px] px-[8px] py-[2px] bg-white rounded-[10px] shadow-[0_0_4px_0_rgba(0,0,0,0.08)]">
      
       <div className="w-7 h-7 rounded-full bg-[#4AB04A] flex items-center justify-center">
         
