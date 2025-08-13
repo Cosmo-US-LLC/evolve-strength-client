@@ -1,6 +1,6 @@
 import React from "react";
 import { Instagram, ArrowRight } from "lucide-react";
-import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo-w.webp";
+import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-logo-light.svg";
 import { HashLink as Link } from "react-router-hash-link";
 import ESFLogo from "../../assets/images/home/footer/Evolve-Strength-footer-Logo.svg";
 import "./styles.css";

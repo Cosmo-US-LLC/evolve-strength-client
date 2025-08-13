@@ -99,10 +99,8 @@ export default function EvolveSpacesForm() {
         description="Looking to lease space inside Evolve Strength? Fill out the form to apply for available space for your clinic, wellness service, or training business."
       />
 
-    
       <FormsHeader />
 
-   
       {submitted && (
         <SuccessFullScreen
           title="JOIN THE WAITLIST"
@@ -138,8 +136,6 @@ export default function EvolveSpacesForm() {
             </Link>
           </div>
           <div className="bg-[#FCFCFC] rounded-[10px] border w-full overflow-hidden">
-         
-
             <div className="bg-[#000] text-white text-center py-4 px-6">
               <h3 className="mt-[4px] ">JOIN THE WAITLIST</h3>
               <p className="text-[18px] leading-[19px] !font-[Kanit] font-[400]">
