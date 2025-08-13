@@ -3,7 +3,7 @@ import { HashLink as Link } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import "./styles.css";
-import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo-w.webp";
+import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-logo-light.svg";
 import ESFLogo from "../../assets/images/home/footer/Evolve-Strength-footer-Logo.svg";
 import {
   Sheet,

@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import "./assets/styles/styles.css";
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Layout from "./components/Layout";
 import PersonalTraining from "./pages/PersonalTraining";

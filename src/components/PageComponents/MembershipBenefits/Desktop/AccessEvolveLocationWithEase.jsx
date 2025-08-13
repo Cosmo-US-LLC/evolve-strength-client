@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback } from "react";
 import { Link } from "react-router-dom";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 import LeftArrowIcon from "@/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/left-arrow.svg";
 import RightArrowIcon from "@/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/right-arrow.svg";
@@ -32,49 +29,60 @@ import Slide20 from "/src/assets/images/home/facility/brentwood8.webp";
 
 const AccessEvolveLocationWithEase = () => {
   const slides = [
-   
-  { imageUrl: Slide1, alt: "Evolve gym location 1" },
-  { imageUrl: Slide2, alt: "Evolve gym location 2" },
-  { imageUrl: Slide3, alt: "Evolve gym location 3" },
-  { imageUrl: Slide4, alt: "Evolve gym location 4" },
-  { imageUrl: Slide5, alt: "Evolve gym location 5" },
-  { imageUrl: Slide6, alt: "Evolve gym location 6" },
-  { imageUrl: Slide7, alt: "Evolve gym location 7" },
-  { imageUrl: Slide8, alt: "Evolve gym location 8" },
-  { imageUrl: Slide9, alt: "Evolve gym location 9" },
-  { imageUrl: Slide10, alt: "Evolve gym location 10" },
-  { imageUrl: Slide11, alt: "Evolve gym location 11" },
-  { imageUrl: Slide12, alt: "Evolve gym location 12" },
-  { imageUrl: Slide13, alt: "Evolve gym location 13" },
-  { imageUrl: Slide14, alt: "Evolve gym location 14" },
-  { imageUrl: Slide15, alt: "Evolve gym location 15" },
-  { imageUrl: Slide16, alt: "Evolve gym location 16" },
-  { imageUrl: Slide17, alt: "Evolve gym location 17" },
-  { imageUrl: Slide18, alt: "Evolve gym location 18" },
-  { imageUrl: Slide19, alt: "Evolve gym location 19" },
-  { imageUrl: Slide20, alt: "Evolve gym location 20" }
-
-
+    { imageUrl: Slide1, alt: "Evolve gym location 1" },
+    { imageUrl: Slide2, alt: "Evolve gym location 2" },
+    { imageUrl: Slide3, alt: "Evolve gym location 3" },
+    { imageUrl: Slide4, alt: "Evolve gym location 4" },
+    { imageUrl: Slide5, alt: "Evolve gym location 5" },
+    { imageUrl: Slide6, alt: "Evolve gym location 6" },
+    { imageUrl: Slide7, alt: "Evolve gym location 7" },
+    { imageUrl: Slide8, alt: "Evolve gym location 8" },
+    { imageUrl: Slide9, alt: "Evolve gym location 9" },
+    { imageUrl: Slide10, alt: "Evolve gym location 10" },
+    { imageUrl: Slide11, alt: "Evolve gym location 11" },
+    { imageUrl: Slide12, alt: "Evolve gym location 12" },
+    { imageUrl: Slide13, alt: "Evolve gym location 13" },
+    { imageUrl: Slide14, alt: "Evolve gym location 14" },
+    { imageUrl: Slide15, alt: "Evolve gym location 15" },
+    { imageUrl: Slide16, alt: "Evolve gym location 16" },
+    { imageUrl: Slide17, alt: "Evolve gym location 17" },
+    { imageUrl: Slide18, alt: "Evolve gym location 18" },
+    { imageUrl: Slide19, alt: "Evolve gym location 19" },
+    { imageUrl: Slide20, alt: "Evolve gym location 20" },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "start",
+      containScroll: "trimSnaps",
+    },
+    [Autoplay({ delay: 4000, stopOnInteraction: true })]
+  );
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [slides.length]);
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+      // Reset autoplay after manual navigation
+      const autoplayPlugin = emblaApi.plugins().autoplay;
+      if (autoplayPlugin) {
+        autoplayPlugin.stop();
+        autoplayPlugin.play();
+      }
+    }
+  }, [emblaApi]);
 
-  const handlePrevious = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + slides.length) % slides.length
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  };
+  const scrollNext = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollNext();
+      // Reset autoplay after manual navigation
+      const autoplayPlugin = emblaApi.plugins().autoplay;
+      if (autoplayPlugin) {
+        autoplayPlugin.stop();
+        autoplayPlugin.play();
+      }
+    }
+  }, [emblaApi]);
 
   return (
     <div className="py-16 flex flex-col items-center gap-8">
@@ -90,54 +98,47 @@ const AccessEvolveLocationWithEase = () => {
       </div>
 
       <div className="relative w-full">
-        <Carousel>
-          <CarouselContent
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{
-              transform: `translateX(-${currentIndex * 100}%)`,
-            }}
-          >
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex">
             {slides.map((slide, index) => (
-              <CarouselItem key={index} className="flex-shrink-0 w-full">
+              <div key={index} className="flex-[0_0_100%] min-w-0">
                 <img
                   src={slide.imageUrl}
                   alt={slide.alt}
                   className="w-full aspect-[4/3] md:aspect-[16/9] xl:aspect-[21/9] 2xl:aspect-[24/9] object-cover"
                 />
-              </CarouselItem>
+              </div>
             ))}
-          </CarouselContent>
-        </Carousel>
-          <div className=" flex flex-row absolute md:-top-25 right-32 md:right-20 p-4 rounded-md z-10 gap-3 md:gap-5">
+          </div>
+        </div>
 
-        <button
-          onClick={handlePrevious}
-          className=" h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
-        >
-          <img
-            src={LeftArrowIcon}
-            alt="Previous"
-            className="h-5 w-5 text-[#00000060]"
-          />
-        </button>
-        <button
-          onClick={handleNext}
-          className=" h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
-        >
-          <img
-            src={RightArrowIcon}
-            alt="Next"
-            className="h-5 w-5 text-[#00000060]"
-          />
-        </button>
+        <div className="flex flex-row absolute md:-top-25 right-32 md:right-20 p-4 rounded-md z-10 gap-3 md:gap-5">
+          <button
+            onClick={scrollPrev}
+            className="h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
+          >
+            <img
+              src={LeftArrowIcon}
+              alt="Previous"
+              className="h-5 w-5 text-[#00000060]"
+            />
+          </button>
+          <button
+            onClick={scrollNext}
+            className="h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
+          >
+            <img
+              src={RightArrowIcon}
+              alt="Next"
+              className="h-5 w-5 text-[#00000060]"
+            />
+          </button>
+        </div>
       </div>
-      </div>
-
 
       <Link to="https://join.evolvestrength.ca/tour-form/">
-            <button className="btnPrimary mt-10 md:mt-0">BOOK A FREE TOUR</button>
-            </Link>
-
+        <button className="btnPrimary mt-10 md:mt-0">BOOK A FREE TOUR</button>
+      </Link>
     </div>
   );
 };

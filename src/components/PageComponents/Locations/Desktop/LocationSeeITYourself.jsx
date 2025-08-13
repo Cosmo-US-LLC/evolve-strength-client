@@ -44,12 +44,15 @@ const LocationSeeITYourself = () => {
 
   const scrollTabsLeft = () => {
     if (tabBarRef.current) {
-      tabBarRef.current.scrollBy({ left: -120, behavior: "smooth" });
+      const scrollAmount = tabBarRef.current.offsetWidth * 0.8; // 80% of container width
+      tabBarRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
     }
   };
+
   const scrollTabsRight = () => {
     if (tabBarRef.current) {
-      tabBarRef.current.scrollBy({ left: 120, behavior: "smooth" });
+      const scrollAmount = tabBarRef.current.offsetWidth * 0.8; // 80% of container width
+      tabBarRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
 
@@ -57,7 +60,10 @@ const LocationSeeITYourself = () => {
 
   useEffect(() => {
     if (carouselRef.current?.scrollTo) {
-      carouselRef.current.scrollTo(0);
+      carouselRef.current.scrollTo({
+        left: 0,
+        behavior: "smooth", // Smooth scroll instead of immediate
+      });
     }
   }, [activeTab]);
 
@@ -86,19 +92,17 @@ const LocationSeeITYourself = () => {
 
     setActiveTab(newDefaultTab);
 
-    // Scroll to the active tab in mobile view
-    setTimeout(() => {
-      const activeTabElement = tabBarRef.current?.querySelector(
-        `[data-tab="${newDefaultTab}"]`
-      );
-      if (activeTabElement && tabBarRef.current) {
-        activeTabElement.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center",
-        });
-      }
-    }, 100);
+    // Scroll to the active tab in mobile view - removed setTimeout
+    const activeTabElement = tabBarRef.current?.querySelector(
+      `[data-tab="${newDefaultTab}"]`
+    );
+    if (activeTabElement && tabBarRef.current) {
+      activeTabElement.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
   }, [currentPath]);
 
   return (
@@ -157,10 +161,8 @@ const LocationSeeITYourself = () => {
       </Tabs>
       <div className="flex justify-center mt-6 max-md:hidden">
         <Link to="https://join.evolvestrength.ca/tour-form/">
-            <button className="btnPrimary">BOOK A FREE TOUR</button>
-            </Link>
-
-
+          <button className="btnPrimary">BOOK A FREE TOUR</button>
+        </Link>
       </div>
 
       {/* Mobile Version */}
@@ -239,9 +241,9 @@ const LocationSeeITYourself = () => {
           </TabsContent>
         </Tabs>
         <div className="flex justify-center mt-6 px-[16px] py-[17px]">
-           <Link to="https://join.evolvestrength.ca/tour-form/">
-                      <button className="btnPrimary">BOOK A FREE TOUR</button>
-                      </Link>
+          <Link to="https://join.evolvestrength.ca/tour-form/">
+            <button className="btnPrimary">BOOK A FREE TOUR</button>
+          </Link>
         </div>
       </div>
     </div>
