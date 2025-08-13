@@ -37,7 +37,9 @@ function LocationsHoverCard({ show, mousePosition, data, onClose }) {
   const images = data.images || [data.image]; // Fallback to single image if images array doesn't exist
 
   // Check if we're on mobile (clicked state with onClose handler)
-  const isMobile = onClose && window.innerWidth < 768;
+  const isMobile =
+    onClose &&
+    (window.innerWidth < 768 || /iPhone|iPad|iPod/.test(navigator.userAgent));
 
   return (
     <div
