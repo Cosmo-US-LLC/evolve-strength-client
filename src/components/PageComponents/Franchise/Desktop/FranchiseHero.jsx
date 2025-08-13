@@ -5,15 +5,18 @@ function FranchiseHero() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [showControls, setShowControls] = useState(false);
+  const [showThumbnail, setShowThumbnail] = useState(true);
   const videoRef = useRef(null);
 
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
+        setShowThumbnail(true);
       } else {
         videoRef.current.play();
-        setIsMuted(false); // Enable sound when user clicks play
+        setIsMuted(false);
+        setShowThumbnail(false);
       }
       setIsPlaying(!isPlaying);
     }
@@ -56,13 +59,42 @@ function FranchiseHero() {
           <div className="w-full max-w-[1200px] relative group">
             {/* Video Container */}
             <div className="relative w-full h-auto md:h-[483px] rounded-lg shadow-lg overflow-hidden">
+              {/* Thumbnail */}
+              {showThumbnail && (
+                <div className="absolute inset-0 z-20">
+                  <img
+                    src="/videos/franchise_thumbnail.webp"
+                    alt="Franchise with Evolve - Thumbnail"
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Play Button Overlay on Thumbnail */}
+                  <div
+                    className="absolute inset-0 flex items-center justify-center bg-opacity-30 cursor-pointer transition-all duration-300 hover:bg-opacity-40"
+                    onClick={togglePlay}
+                  >
+                    <div className="w-18 h-18 md:w-18 md:h-18 bg-white bg-opacity-90 rounded-full flex items-center justify-center shadow-lg hover:bg-opacity-100 transition-all duration-300">
+                      <svg
+                        className="w-8 h-8 md:w-10 md:h-10 text-[#4AB04A] ml-1"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               <video
                 ref={videoRef}
                 className="w-full h-full object-cover cursor-pointer"
                 onClick={handleVideoClick}
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
-                onEnded={() => setIsPlaying(false)}
+                onEnded={() => {
+                  setIsPlaying(false);
+                  setShowThumbnail(true);
+                }}
                 loop
                 playsInline
               >
@@ -70,8 +102,8 @@ function FranchiseHero() {
                 Your browser does not support the video tag.
               </video>
 
-              {/* Play Button Overlay */}
-              {!isPlaying && (
+              {/* Play Button Overlay on Video (when paused) */}
+              {!isPlaying && !showThumbnail && (
                 <div
                   className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 cursor-pointer transition-all duration-300 hover:bg-opacity-40"
                   onClick={togglePlay}
@@ -91,7 +123,9 @@ function FranchiseHero() {
               {/* Custom Controls */}
               <div
                 className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 transition-opacity duration-300 ${
-                  showControls || !isPlaying ? "opacity-100" : "opacity-0"
+                  showControls || (!isPlaying && !showThumbnail)
+                    ? "opacity-100"
+                    : "opacity-0"
                 }`}
               >
                 <div className="flex items-center justify-between">
