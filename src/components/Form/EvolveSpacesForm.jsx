@@ -53,24 +53,31 @@ export default function EvolveSpacesForm() {
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length === 0) {
       try {
+        // include HubSpot tracking cookie
+        const hutk = document.cookie
+          .split("; ")
+          .find((c) => c.startsWith("hubspotutk="))
+          ?.split("=")[1];
+
         const formData = {
           fields: [
             { name: "firstname", value: form.firstName },
             { name: "lastname", value: form.lastName },
             { name: "email", value: form.email },
-            { name: "phone", value: form.phone },
-            { name: "best_time_to_call", value: form.bestTime },
-            { name: "location", value: form.location },
+            // HS fields per your list (phone/location not included in this HS form)
+            { name: "best_time_to_call_you__cloned_", value: form.bestTime }, // fixed name
             { name: "message", value: form.message },
           ],
           context: {
             pageUri: window.location.href,
             pageName: "Spaces Form",
+            ...(hutk ? { hutk } : {}),
           },
         };
 
         const response = await fetch(
-          "https://api.hsforms.com/submissions/v3/integration/submit/342148198/2df02615-f490-435e-abb4-a44270f455a5",
+          // fixed GUID
+          "https://api.hsforms.com/submissions/v3/integration/submit/342148198/1bb16ac9-687a-49b8-bdf2-5b7db19f2a55",
           {
             method: "POST",
             headers: {
@@ -80,11 +87,14 @@ export default function EvolveSpacesForm() {
           }
         );
 
-        if (response.ok) {
-          setSubmitted(true);
-        } else {
+        if (!response.ok) {
+          const text = await response.text().catch(() => "");
+          console.error("HubSpot submission failed", response.status, text);
           alert("There was an error submitting your form. Please try again.");
+          return;
         }
+
+        setSubmitted(true);
       } catch (error) {
         console.error("Form submission error:", error);
         alert("There was an error submitting your form. Please try again.");
@@ -355,7 +365,7 @@ export default function EvolveSpacesForm() {
                     )}
                   </label>
                 </div>
-                <button type="submit" className="w-full mt-2 btnPrimary">
+                <button type="submit" className="w-full mt-2 btnPrimary" disabled={false}>
                   SUBMIT NOW
                 </button>
               </form>

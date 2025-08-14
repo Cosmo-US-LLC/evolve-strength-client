@@ -11,6 +11,10 @@ function TrainerForm() {
   const [isLoaded, setIsLoaded] = useState(false);
   const navigate = useNavigate();
 
+  // HubSpot constants
+  const HUBSPOT_PORTAL_ID = "342148198";
+  const HUBSPOT_FORM_GUID = "07e658c9-d49c-45ad-a1e9-09ce9ef52dd6";
+
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -21,6 +25,7 @@ function TrainerForm() {
   });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false); // added
 
   useEffect(() => {
     const existingScript = document.querySelector(
@@ -66,45 +71,66 @@ function TrainerForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return; // prevent double submit
+
     const validationErrors = validate();
     setErrors(validationErrors);
-    if (Object.keys(validationErrors).length === 0) {
-      try {
-        const formData = {
-          fields: [
-            { name: "firstname", value: form.firstName },
-            { name: "lastname", value: form.lastName },
-            { name: "email", value: form.email },
-            { name: "phone", value: form.phone },
-            { name: "location", value: form.location },
-            { name: "about_yourself", value: form.about },
-          ],
-          context: {
-            pageUri: window.location.href,
-            pageName: "Trainer Form",
+
+    if (Object.keys(validationErrors).length > 0) {
+      const firstKey = Object.keys(validationErrors)[0];
+      requestAnimationFrame(() => {
+        document.querySelector(`[name="${firstKey}"]`)?.focus();
+      });
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+
+      const hutk = document.cookie
+        .split("; ")
+        .find((c) => c.startsWith("hubspotutk="))
+        ?.split("=")[1];
+
+      const formData = {
+        fields: [
+          { name: "firstname", value: form.firstName },
+          { name: "lastname", value: form.lastName },
+          { name: "email", value: form.email },
+          { name: "phone", value: form.phone },
+          { name: "location", value: form.location },
+          { name: "tell_us_about_yourself", value: form.about }, // fixed name
+        ],
+        context: {
+          pageUri: window.location.href,
+          pageName: "Join as Trainer",
+          ...(hutk ? { hutk } : {}),
+        },
+      };
+
+      const response = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
           },
-        };
-
-        const response = await fetch(
-          "https://api.hsforms.com/submissions/v3/integration/submit/342148198/2df02615-f490-435e-abb4-a44270f455a5",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-          }
-        );
-
-        if (response.ok) {
-          setSubmitted(true);
-        } else {
-          alert("There was an error submitting your form. Please try again.");
+          body: JSON.stringify(formData),
         }
-      } catch (error) {
-        console.error("Form submission error:", error);
+      );
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        const text = await response.text().catch(() => "");
+        console.error("HubSpot submission failed", response.status, text);
         alert("There was an error submitting your form. Please try again.");
       }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("There was an error submitting your form. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -120,13 +146,15 @@ function TrainerForm() {
 
       {/* Success Screen Full Screen Overlay */}
       {submitted && (
-        <SuccessFullScreen
-          title="JOIN OUR TEAM"
-          description="Thank you for your trainer application! We've received your information and our team will be in touch with you soon to discuss the next steps in your Evolve Strength journey."
-          buttonText="BACK TO HOME"
-          buttonLink="/"
-          icon="check"
-        />
+        <div className="fixed inset-0 z-[9999]">
+          <SuccessFullScreen
+            title="JOIN OUR TEAM"
+            description="Thank you for your trainer application! We've received your information and our team will be in touch with you soon to discuss the next steps in your Evolve Strength journey."
+            buttonText="BACK TO HOME"
+            buttonLink="/"
+            icon="check"
+          />
+        </div>
       )}
 
       <div className="flex gap-12 md:p-6 p-4 flex-row max-w-[1280px] mx-auto justify-center min-h-screen">
@@ -291,8 +319,8 @@ function TrainerForm() {
                 <div ref={turnstileRef} className="cf-turnstile"></div>
               </div>
 
-              <button type="submit" className="w-full mt-2 btnPrimary">
-                SUBMIT NOW
+              <button type="submit" className="w-full mt-2 btnPrimary" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "SUBMIT NOW"}
               </button>
             </form>
           </div>
