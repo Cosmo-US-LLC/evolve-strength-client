@@ -106,7 +106,7 @@ const MembershipBenefits = () => {
   return (
   <div>
       <div className="w-full py-12 max-md:hidden">
-      <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col items-center justify-center gap-12">
+      <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col items-center justify-center h-[700px] gap-12">
         <h2 className="text-[#000000] uppercase">
           ONE MEMBERSHIP, ENDLESS BENEFITS
         </h2>
@@ -166,7 +166,7 @@ const MembershipBenefits = () => {
               key={active.image}
               src={active.image}
               alt={active.label}
-              className={`rounded-[10px] object-cover w-full h-auto benefit-img-fade `}
+              className={`rounded-[10px] object-cover w-full h-[550px] benefit-img-fade `}
             />
           </div>
         </div>
