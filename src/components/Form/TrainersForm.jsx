@@ -15,6 +15,18 @@ function TrainerForm() {
   const HUBSPOT_PORTAL_ID = "342148198";
   const HUBSPOT_FORM_GUID = "07e658c9-d49c-45ad-a1e9-09ce9ef52dd6";
 
+  // Contact-Us style locations list (label = cityName, value = full address)
+  const LOCATIONS = [
+    { cityName: "Edmonton Downtown", location: "12328 102 ave nw Edmonton, Alberta, T5N 0L9" },
+    { cityName: "Edmonton South", location: "4825 89 St NW Edmonton, Alberta, T6E 5K1" },
+    { cityName: "Edmonton North", location: "13457 149 St Edmonton, Alberta, T5L 2T3" },
+    { cityName: "Calgary Royal Oak", location: "8888 Country Hills Blvd NW #600 Calgary, Alberta, T3G 5T4" },
+    { cityName: "Calgary Sunridge", location: "2985 23 Ave NE Unit#125 Calgary, Alberta, T1Y 7L3" },
+    { cityName: "Calgary Seton", location: "710-19587 Seton Crescent SE Calgary, Alberta, T3M 2T5" },
+    { cityName: "Burnaby Brentwood", location: "1920 Willingdon Ave #3105 Burnaby, British Columbia, V5C 0K3" },
+    { cityName: "Vancouver Post", location: "658 Homer St Vancouver, British Columbia, V6B 2R4" },
+  ];
+
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -277,17 +289,28 @@ function TrainerForm() {
                 </div>
               </div>
 
+              {/* Location dropdown (city label -> address value) */}
               <div className="w-full flex flex-col">
                 <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
                   Location *
-                  <input
-                    type="text"
+                  <select
                     name="location"
                     value={form.location}
                     onChange={handleChange}
-                    placeholder="Select your location"
-                    className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                  />
+                    className={
+                      "mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full " +
+                      (form.location === ""
+                        ? "text-[#6F6D66] text-[12px]"
+                        : "text-[#000] text-[16px]")
+                    }
+                  >
+                    <option value="">Select Location</option>
+                    {LOCATIONS.map((loc) => (
+                      <option key={loc.cityName} value={loc.location}>
+                        {loc.cityName}
+                      </option>
+                    ))}
+                  </select>
                   {errors.location && (
                     <span className="text-red-600 text-[12px]">
                       {errors.location}
