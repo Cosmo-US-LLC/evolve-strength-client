@@ -14,6 +14,7 @@ import waitingArea from "/src/assets/images/corporateMembership/MembershipPremiu
 import showers from "/src/assets/images/corporateMembership/MembershipPremiumAmenities/showers.webp";
 import lockerRoom from "/src/assets/images/corporateMembership/MembershipPremiumAmenities/locker-room.webp";
 import steamRoom from "/src/assets/images/corporateMembership/MembershipPremiumAmenities/steam-room.webp";
+import gym_area from "@/assets/images/corporateMembership/MembershipPremiumAmenities/gym-area.webp";
 
 export const professionalServices = [
   { title: "Esthetician", image: Esthetician },
@@ -33,4 +34,5 @@ export const professionalMembershipPremiumAmenities = [
   { title: "Showers", image: showers },
   { title: "Locker Rooms", image: lockerRoom },
   { title: "Steam Rooms and Saunas", image: steamRoom },
+  { title: "Full Commercial Gym Access", image: gym_area },
 ];

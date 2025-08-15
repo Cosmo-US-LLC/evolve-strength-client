@@ -61,11 +61,11 @@ const WhoOurSpacesFor = () => {
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex -ml-0.5 md:-ml-2.5">
               {professionalServices.map((pro, idx) => (
-                <div className=" pl-0.5 md:pl-2.5 w-fit md:basis-1/4 flex-shrink-0">
-                  <div
-                    key={idx}
-                    className="flex relative rounded-lg overflow-hidden"
-                  >
+                <div
+                  key={idx}
+                  className=" pl-0.5 md:pl-2.5 w-fit md:basis-1/4 flex-shrink-0"
+                >
+                  <div className="flex relative rounded-lg overflow-hidden">
                     <img
                       src={pro.image}
                       alt={pro.title}
@@ -83,7 +83,7 @@ const WhoOurSpacesFor = () => {
           <div className="absolute -top-1/7 -translate-y-1/2 left-[86%] z-10 max-md:hidden">
             <button
               onClick={scrollPrev}
-              className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-100 transition-colors"
+              className="bg-[#ffffff] p-2 cursor-pointer rounded-full border border-[#000000] text-[#000000] hover:bg-gray-100 transition-colors"
             >
               <ArrowLeft className="w-6 h-6" />
             </button>
@@ -91,7 +91,7 @@ const WhoOurSpacesFor = () => {
           <div className="absolute -top-1/7 -translate-y-1/2 right-[6%] z-10 max-md:hidden">
             <button
               onClick={scrollNext}
-              className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-100 transition-colors"
+              className="bg-[#ffffff] p-2 cursor-pointer rounded-full border border-[#000000] text-[#000000] hover:bg-gray-100 transition-colors"
             >
               <ArrowRight className="w-6 h-6" />
             </button>

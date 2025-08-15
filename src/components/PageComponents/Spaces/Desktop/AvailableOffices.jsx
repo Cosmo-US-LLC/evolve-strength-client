@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -83,7 +83,16 @@ const AvailableOffices = () => {
   const [activeTab, setActiveTab] = useState("All");
   const [activeTabmobile, setActiveTabmobile] = useState(tabs[0].id);
   const carouselRef = useRef(null);
+
+  // Desktop carousel
   const [emblaRef, emblaApi] = useEmblaCarousel({
+    containScroll: "trimSnaps",
+    align: "start",
+    loop: false,
+  });
+
+  // Mobile carousel
+  const [emblaRefMobile, emblaApiMobile] = useEmblaCarousel({
     containScroll: "trimSnaps",
     align: "start",
     loop: false,
@@ -91,6 +100,9 @@ const AvailableOffices = () => {
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
+
+  const scrollPrevMobile = () => emblaApiMobile && emblaApiMobile.scrollPrev();
+  const scrollNextMobile = () => emblaApiMobile && emblaApiMobile.scrollNext();
 
   // Define unavailable locations
   const unavailableLocations = [
@@ -114,6 +126,19 @@ const AvailableOffices = () => {
         )
       : allOffices.filter((o) => o.location === activeTabmobile);
 
+  // Re-initialize carousel when filtered content changes
+  useEffect(() => {
+    if (emblaApi) {
+      emblaApi.reInit();
+    }
+  }, [emblaApi, filteredOffices.length]);
+
+  useEffect(() => {
+    if (emblaApiMobile) {
+      emblaApiMobile.reInit();
+    }
+  }, [emblaApiMobile, mobileFilteredOffices.length]);
+
   return (
     <div>
       <div className="py-12 max-md:hidden">
@@ -123,7 +148,7 @@ const AvailableOffices = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-3 py-1 rounded-[5px] text-sm font-medium ${
+                className={`px-3 py-1 rounded-[5px] text-sm font-medium cursor-pointer ${
                   activeTab === tab.id
                     ? "bg-[#4AB04A] text-[#fff]"
                     : "bg-white text-[#000000]"
@@ -165,7 +190,7 @@ const AvailableOffices = () => {
                             {office.location}
                           </p>
                           <Link to="/join-the-wait-list">
-                          <button className="btnPrimary">APPLY NOW</button>
+                            <button className="btnPrimary">APPLY NOW</button>
                           </Link>
                         </div>
                       </div>
@@ -240,7 +265,7 @@ const AvailableOffices = () => {
               </div>
             ) : (
               <>
-                <div className="overflow-hidden" ref={emblaRef}>
+                <div className="overflow-hidden" ref={emblaRefMobile}>
                   <div className="flex gap-4 relative">
                     {mobileFilteredOffices.map((office, idx) => (
                       <div
@@ -260,7 +285,7 @@ const AvailableOffices = () => {
                             {office.size}
                           </p>
                           <Link to="/join-the-wait-list">
-                          <button className="btnPrimary">APPLY NOW</button>
+                            <button className="btnPrimary">APPLY NOW</button>
                           </Link>
                         </div>
                       </div>
@@ -270,7 +295,7 @@ const AvailableOffices = () => {
                     <>
                       <div className="absolute top-[50%] -translate-y-1/2 left-[4%] z-10">
                         <button
-                          onClick={scrollPrev}
+                          onClick={scrollPrevMobile}
                           className="h-[45px] w-[45px] rounded-full flex items-center justify-center text-[#000000] border border-[#000000] bg-white"
                         >
                           <ArrowLeft className="w-6 h-6" />
@@ -278,7 +303,7 @@ const AvailableOffices = () => {
                       </div>
                       <div className="absolute top-[50%] -translate-y-1/2 right-[4%] z-10">
                         <button
-                          onClick={scrollNext}
+                          onClick={scrollNextMobile}
                           className="h-[45px] w-[45px] rounded-full flex items-center justify-center text-[#000000] border border-[#000000] bg-white"
                         >
                           <ArrowRight className="w-6 h-6" />
