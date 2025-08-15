@@ -1,26 +1,8 @@
-import React from "react";
+import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import Physiotherapy from "../../../../assets/images/corporateMembership/MembershipRecovery/Physiotherapy.webp";
-import MassageTherapy from "../../../../assets/images/corporateMembership/MembershipRecovery/Massage_Therapy.webp";
-import Chiropractic from "../../../../assets/images/corporateMembership/MembershipRecovery/Chiropractic.webp";
-import Acupuncture from "../../../../assets/images/corporateMembership/MembershipRecovery/Acupuncture.webp";
-import DietitianServices from "../../../../assets/images/corporateMembership/MembershipRecovery/Dietitian_Services.webp";
-import LaserTherapy from "../../../../assets/images/corporateMembership/MembershipRecovery/Laser_Therapy.webp";
-import Esthetician from "../../../../assets/images/corporateMembership/MembershipRecovery/Esthetician.webp";
-
-const professionals = [
-  { title: "Physiotherapy", image: Physiotherapy },
-  { title: "Osteopathy", image: "/all_locations/osteopathy.webp" },
-  { title: "Massage Therapy", image: MassageTherapy },
-  { title: "Chiropractic", image: Chiropractic },
-  { title: "Acupuncture", image: Acupuncture },
-  { title: "Dietitian Services", image: DietitianServices },
-  { title: "Laser Therapy", image: LaserTherapy },
-  { title: "Esthetician", image: Esthetician },
-  { title: "Mental Health", image: "/all_locations/mental_health.webp" },
-];
+import { professionalServices } from "../../../../constants/professionalServicesImages.js";
 
 const MembershipRecovery = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -28,11 +10,32 @@ const MembershipRecovery = () => {
       containScroll: "keepSnaps",
       loop: true,
     },
-    [Autoplay({ delay: 4000, stopOnInteraction: false })]
+    [Autoplay({ delay: 4000, stopOnInteraction: true })]
   );
 
-  const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
-  const scrollNext = () => emblaApi && emblaApi.scrollNext();
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+      // Reset autoplay after manual navigation
+      const autoplayPlugin = emblaApi.plugins().autoplay;
+      if (autoplayPlugin) {
+        autoplayPlugin.stop();
+        autoplayPlugin.play();
+      }
+    }
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollNext();
+      // Reset autoplay after manual navigation
+      const autoplayPlugin = emblaApi.plugins().autoplay;
+      if (autoplayPlugin) {
+        autoplayPlugin.stop();
+        autoplayPlugin.play();
+      }
+    }
+  }, [emblaApi]);
 
   return (
     <section className="py-12 bg-[#EEEEEE]">
@@ -44,7 +47,7 @@ const MembershipRecovery = () => {
         <div className="relative w-full">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex -ml-0.5 md:-ml-2.5">
-              {professionals.map((pro, idx) => (
+              {professionalServices.map((pro, idx) => (
                 <div className="pl-0.5 md:pl-2.5 w-fit md:basis-1/3 flex-shrink-0">
                   <div key={idx} className="relative">
                     <img
