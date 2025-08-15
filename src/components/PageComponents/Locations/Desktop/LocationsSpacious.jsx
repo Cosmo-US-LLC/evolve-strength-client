@@ -1,33 +1,42 @@
-import React from "react";
+import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import onSite from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/on-site.webp";
-import waitingArea from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/waiting-area.webp";
-import showers from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/showers.webp";
-import lockerRoom from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/locker-room.webp";
-import steamRoom from "../../../../assets/images/corporateMembership/MembershipPremiumAmenities/steam-room.webp";
+import { professionalMembershipPremiumAmenities } from "../../../../constants/professionalServicesImages.js";
 
-const professionals = [
-  { title: "On-Site Parking", image: onSite },
-  { title: "Waiting Area", image: waitingArea },
-  { title: "Showers", image: showers },
-  { title: "Locker Rooms", image: lockerRoom },
-  { title: "Steam Rooms and Saunas", image: steamRoom },
-];
-
-const MembershipPremiumAmenities = () => {
+const LocationsSpacious = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       containScroll: "keepSnaps",
       loop: true,
     },
-    [Autoplay({ delay: 3000, stopOnInteraction: false })]
+    [Autoplay({ delay: 3000, stopOnInteraction: true })]
   );
 
-  const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
-  const scrollNext = () => emblaApi && emblaApi.scrollNext();
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+      // Reset autoplay after manual navigation
+      const autoplayPlugin = emblaApi.plugins().autoplay;
+      if (autoplayPlugin) {
+        autoplayPlugin.stop();
+        autoplayPlugin.play();
+      }
+    }
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollNext();
+      // Reset autoplay after manual navigation
+      const autoplayPlugin = emblaApi.plugins().autoplay;
+      if (autoplayPlugin) {
+        autoplayPlugin.stop();
+        autoplayPlugin.play();
+      }
+    }
+  }, [emblaApi]);
 
   return (
     <section className="py-12 ">
@@ -40,7 +49,7 @@ const MembershipPremiumAmenities = () => {
             Our gyms give you space to move, train, and recover without the
             crowd. Each location has more training space than a typical gym in
             Canada. Every area is designed with purpose to support your fitness
-            and wellness goals.   
+            and wellness goals.
           </h4>
           <Link to="https://join.evolvestrength.ca/tour-form/">
             <button className="btnPrimary">BOOK A FREE TOUR</button>
@@ -50,7 +59,7 @@ const MembershipPremiumAmenities = () => {
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex md:gap-4 md:pl-4 ">
-              {professionals.map((pro, idx) => (
+              {professionalMembershipPremiumAmenities.map((pro, idx) => (
                 <div
                   key={idx}
                   className="flex-[0_0_100%] md:flex-[0_0_32.5%] relative overflow-hidden"
@@ -92,4 +101,4 @@ const MembershipPremiumAmenities = () => {
   );
 };
 
-export default MembershipPremiumAmenities;
+export default LocationsSpacious;
