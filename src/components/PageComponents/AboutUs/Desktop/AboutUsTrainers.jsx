@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -11,7 +11,7 @@ import Olympic from "@/assets/images/AboutUs/AboutUs_Trainers/Olympic_Lifting.we
 import Yoga from "@/assets/images/AboutUs/AboutUs_Trainers/Yoga.webp";
 
 const professionals = [
-  { title: " Strength Training", image: strength },
+  { title: "Strength Training", image: strength },
   { title: "Body Weight Training", image: Body },
   { title: "Cardio", image: Cardio },
   { title: "Turf Workout", image: Turf },
@@ -25,20 +25,42 @@ const AboutUsTrainers = () => {
       containScroll: "keepSnaps",
       loop: true,
     },
-    [Autoplay({ delay: 4000, stopOnInteraction: false })]
+    [Autoplay({ delay: 4000, stopOnInteraction: true })]
   );
-  const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
-  const scrollNext = () => emblaApi && emblaApi.scrollNext();
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+      // Reset autoplay after manual navigation
+      const autoplayPlugin = emblaApi.plugins().autoplay;
+      if (autoplayPlugin) {
+        autoplayPlugin.stop();
+        autoplayPlugin.play();
+      }
+    }
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollNext();
+      // Reset autoplay after manual navigation
+      const autoplayPlugin = emblaApi.plugins().autoplay;
+      if (autoplayPlugin) {
+        autoplayPlugin.stop();
+        autoplayPlugin.play();
+      }
+    }
+  }, [emblaApi]);
   return (
     <section className=" md:py-0 bg-[#EEEEEE]">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col items-start gap-8">
         <div className="flex items-start flex-col gap-4 pb-6 md:pb-0">
           <h2 className="text-[#000] uppercase ">Trainers</h2>
           <h4 className="mb-6 !max-w-[800px]">
-            Our personal trainers are more than fitness professionals. They’re
+            Our personal trainers are more than fitness professionals. They're
             passionate partners in your growth. Each one is certified and
             experienced in helping people set clear goals, stay consistent, and
-            see real results. 
+            see real results.
           </h4>
           <Link to="/explore">
             <button className="btnPrimary">FIND A TRAINER</button>
@@ -55,7 +77,7 @@ const AboutUsTrainers = () => {
                   <img
                     src={pro.image}
                     alt={pro.title}
-                    className="w-full h-[200px] md:h-[273px] object-cover rounded-lg"
+                    className="w-full h-[220px] md:h-[253px] object-cover rounded-lg"
                   />
                   <h3 className="flex items-center mt-4 md:mt-6 text-[#000] leading-[20px] md:leading-[24px] font-[500] text-sm md:text-base">
                     {pro.title}

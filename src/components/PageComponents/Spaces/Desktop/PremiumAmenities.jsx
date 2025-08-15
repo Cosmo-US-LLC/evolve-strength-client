@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { XCircle } from "lucide-react";
 import onSite_parking from "@/assets/images/spaces/PremiumAmenities/onSite_parking.webp";
 import locker_rooms from "@/assets/images/spaces/PremiumAmenities/locker_rooms.webp";
@@ -18,15 +18,18 @@ const amenities = [
 
 const PremiumAmenities = () => {
   const [activeAmenity, setActiveAmenity] = useState(amenities[0]);
-  const [fade, setFade] = useState(false);
+
+  // Preload all images when component mounts
+  useEffect(() => {
+    amenities.forEach((amenity) => {
+      const img = new Image();
+      img.src = amenity.image;
+    });
+  }, []);
 
   const handleImageChange = (item) => {
     if (activeAmenity.title !== item.title) {
-      setFade(true);
-      setTimeout(() => {
-        setActiveAmenity(item);
-        setFade(false);
-      }, 200);
+      setActiveAmenity(item);
     }
   };
 
@@ -66,15 +69,9 @@ const PremiumAmenities = () => {
               <img
                 src={activeAmenity.image}
                 alt={activeAmenity.title}
-                className={`rounded-lg w-full  object-cover transition-opacity duration-500 ${
-                  fade ? "opacity-0" : "opacity-100"
-                }`}
+                className="rounded-lg w-full object-cover transition-all duration-300 ease-in-out"
               />
-              <div
-                className={`flex gap-4 mt-4 text-xs text-gray-700 transition-opacity duration-300 ${
-                  fade ? "opacity-0" : "opacity-100"
-                }`}
-              >
+              <div className="flex gap-4 mt-4 text-xs text-gray-700">
                 <div className="flex items-center gap-1 text-[#000] text-[16px] font-[kanit] font-[500] uppercase leading-normal">
                   <XCircle className="w-5 h-5 text-[#000] " />
                   NO ADDITIONAL CONTRACTS
@@ -111,11 +108,7 @@ const PremiumAmenities = () => {
                     className="py-4 space-y-6 border-[#000] border-b"
                   >
                     {isActive && (
-                      <div
-                        className={`flex gap-4 mt-4 mb-6 text-xs text-gray-700 transition-opacity duration-300 ${
-                          fade ? "opacity-0" : "opacity-100"
-                        }`}
-                      >
+                      <div className="flex gap-4 mt-4 mb-6 text-xs text-gray-700">
                         <div className="flex items-center gap-1 text-[#000] text-[14px] font-[kanit] font-[500] uppercase leading-normal">
                           <XCircle className="w-5 h-5 text-[#000] " />
                           NO ADDITIONAL CONTRACTS
@@ -144,7 +137,7 @@ const PremiumAmenities = () => {
                           key={item.image}
                           src={item.image}
                           alt={item.title}
-                          className="rounded-[10px] object-cover w-full  h-auto shadow"
+                          className="rounded-[10px] object-cover w-full h-auto shadow transition-all duration-300 ease-in-out"
                         />
                       </div>
                     )}
