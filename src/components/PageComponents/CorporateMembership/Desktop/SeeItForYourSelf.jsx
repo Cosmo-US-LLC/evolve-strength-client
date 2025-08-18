@@ -90,7 +90,7 @@ const SeeItForYourSelf = () => {
         </TabsContent>
       </Tabs>
       <div className="flex justify-center mt-6 max-md:hidden">
-        <Link to="https://join.evolvestrength.ca/tour-form/">
+        <Link to="https://tour.evolvestrength.ca/tour-form">
           <button className="btnPrimary">BOOK A FREE TOUR</button>
         </Link>
       </div>
@@ -170,7 +170,7 @@ const SeeItForYourSelf = () => {
           </TabsContent>
         </Tabs>
         <div className="flex justify-center mt-6 px-[16px] py-[17px]">
-          <Link to="https://join.evolvestrength.ca/tour-form/">
+          <Link to="https://tour.evolvestrength.ca/tour-form">
             <button className="btnPrimary">BOOK A FREE TOUR</button>
           </Link>
         </div>

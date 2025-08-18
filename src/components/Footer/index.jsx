@@ -123,7 +123,7 @@ function Footer() {
                   >
                     Join the Movement
                   </Link>
-                  <Link to = "https://join.evolvestrength.ca/tour-form/">
+                  <Link to = "https://tour.evolvestrength.ca/tour-form">
 
                   <button className="mt-4 btnPrimary transition">
                     TAKE A TOUR

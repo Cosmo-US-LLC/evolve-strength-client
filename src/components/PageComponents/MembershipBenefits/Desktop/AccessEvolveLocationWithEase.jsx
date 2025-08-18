@@ -136,7 +136,7 @@ const AccessEvolveLocationWithEase = () => {
         </div>
       </div>
 
-      <Link to="https://join.evolvestrength.ca/tour-form/">
+      <Link to="https://tour.evolvestrength.ca/tour-form">
         <button className="btnPrimary mt-10 md:mt-0">BOOK A FREE TOUR</button>
       </Link>
     </div>

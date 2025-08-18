@@ -20,7 +20,7 @@ function ReadyToEvolve() {
             <Link to="https://subscription.evolvestrength.ca/">
             <button className="btnPrimary">Join Now</button>
             </Link>
-            <Link to="https://join.evolvestrength.ca/tour-form/">
+            <Link to="https://tour.evolvestrength.ca/tour-form">
             <button className="btnSecondary">take a tour</button>
             </Link>
 
