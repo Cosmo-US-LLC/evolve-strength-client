@@ -18,7 +18,7 @@ function Hero() {
             objectPosition: "bottom",
           }}
         >
-          <source src="/videos/HomePage.webm" type="video/webm" />
+          <source src="/videos/ExplorePages.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
 
