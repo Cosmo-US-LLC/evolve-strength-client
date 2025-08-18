@@ -30,7 +30,7 @@ const FrequentlyAskedQuestions = ({ heading, subtext, faqs }) => {
                 <span className="no-underline font-kanit font-[500] text-[20px] leading-normal text-[#000]">
                   {item.question}
                 </span>
-                <div className="flex-shrink-0 rounded-full border border-[#000] w-[22px] h-[22px] flex items-center justify-center">
+                <div className="flex-shrink-0 rounded-full border border-[#000] w-[22px] h-[22px] flex items-center justify-center cursor-pointer">
                   <Plus className="w-4 h-4 text-[#000] group-data-[state=open]:hidden transition-all duration-500 ease-in-out" />
                   <Minus className="w-4 h-4 text-[#000] group-data-[state=closed]:hidden transition-all duration-500 ease-in-out" />
                 </div>
