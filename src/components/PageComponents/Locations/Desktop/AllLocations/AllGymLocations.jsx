@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function AllGymLocations() {
   const locations = [
@@ -111,24 +112,24 @@ function AllGymLocations() {
 
               {/* Desktop: Show on hover */}
               <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center max-md:hidden">
-                <a
-                  href={location.locationUrl}
+                <Link
+                  to={location.locationUrl}
                   className="flex items-center gap-2 bg-white  underline px-3 py-3 rounded-[5px] transition-all duration-200 text-black font-semibold"
                 >
                   <span>Visit this location now</span>
                   <ArrowUpRight className="w-5 h-5" />
-                </a>
+                </Link>
               </div>
 
               {/* Mobile: Always visible */}
               <div className="absolute inset-0 bg-black/30 flex items-center justify-center md:hidden">
-                <a
-                  href={location.locationUrl}
+                <Link
+                  to={location.locationUrl}
                   className="flex items-center gap-2 underline px-3 py-3 rounded-[5px] transition-all duration-200 text-[#fff] font-semibold"
                 >
                   <span>Visit this location now</span>
-                  <ArrowUpRight className="w-5 h-5" />
-                </a>
+                  {/* <ArrowUpRight className="w-5 h-5" /> */}
+                </Link>
               </div>
             </div>
 
