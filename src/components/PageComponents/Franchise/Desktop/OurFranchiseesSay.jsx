@@ -78,7 +78,7 @@ function OurFranchiseesSay() {
             <div className="flex">
               {testimonialData.map((testimonial, index) => (
                 <div key={index} className="flex-[0_0_100%] min-w-0">
-                  <div className="px-4 md:px-[50px] relative flex flex-col md:flex-row justify-between py-0 pt-4 md:py-[35px] bg-[#EEE] rounded-[10px] h-[400px] md:h-[350px]">
+                  <div className="px-4 md:px-[50px] relative flex flex-col md:flex-row justify-between py-0 pt-4 md:py-[35px] bg-[#EEE] rounded-[10px] h-auto md:h-[350px]">
                     <div className="w-full md:max-w-[642px] flex flex-col justify-center h-full">
                       <div className="pb-4 md:pb-[22px]">
                         <h3 className="font-[700] text-[#000] text-xl md:text-2xl leading-[20px]">
@@ -88,7 +88,7 @@ function OurFranchiseesSay() {
                           {testimonial.role}
                         </h5>
                       </div>
-                      <p className="h4 !font-[300] text-base md:text-lg leading-[26px] text-[#000] overflow-y-auto max-h-[200px] md:max-h-[180px] pr-2">
+                      <p className="h4 !font-[300] text-base md:text-lg leading-[26px] text-[#000] overflow-y-auto max-h-auto md:max-h-[180px] pr-2">
                         {testimonial.testimonial}
                       </p>
                     </div>
