@@ -23,6 +23,18 @@ const initialState = {
 const bestTimeOptions = ["Morning", "Afternoon", "Evening"];
 const locationOptions = ["Downtown", "North", "South", "East", "West"];
 
+// Contact-Us style locations list (label = cityName, value = full address)
+const LOCATIONS = [
+  { cityName: "Edmonton Downtown", location: "12328 102 ave nw Edmonton, Alberta, T5N 0L9" },
+  { cityName: "Edmonton South", location: "4825 89 St NW Edmonton, Alberta, T6E 5K1" },
+  { cityName: "Edmonton North", location: "13457 149 St Edmonton, Alberta, T5L 2T3" },
+  { cityName: "Calgary Royal Oak", location: "8888 Country Hills Blvd NW #600 Calgary, Alberta, T3G 5T4" },
+  { cityName: "Calgary Sunridge", location: "2985 23 Ave NE Unit#125 Calgary, Alberta, T1Y 7L3" },
+  { cityName: "Calgary Seton", location: "710-19587 Seton Crescent SE Calgary, Alberta, T3M 2T5" },
+  { cityName: "Burnaby Brentwood", location: "1920 Willingdon Ave #3105 Burnaby, British Columbia, V5C 0K3" },
+  { cityName: "Vancouver Post", location: "658 Homer St Vancouver, British Columbia, V6B 2R4" },
+];
+
 export default function EvolveSpacesForm() {
   const [form, setForm] = useState(initialState);
   const [errors, setErrors] = useState({});
@@ -53,24 +65,31 @@ export default function EvolveSpacesForm() {
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length === 0) {
       try {
+        // include HubSpot tracking cookie
+        const hutk = document.cookie
+          .split("; ")
+          .find((c) => c.startsWith("hubspotutk="))
+          ?.split("=")[1];
+
         const formData = {
           fields: [
             { name: "firstname", value: form.firstName },
             { name: "lastname", value: form.lastName },
             { name: "email", value: form.email },
-            { name: "phone", value: form.phone },
-            { name: "best_time_to_call", value: form.bestTime },
-            { name: "location", value: form.location },
+            // HS fields per your list (phone/location not included in this HS form)
+            { name: "best_time_to_call_you__cloned_", value: form.bestTime }, // fixed name
             { name: "message", value: form.message },
           ],
           context: {
             pageUri: window.location.href,
             pageName: "Spaces Form",
+            ...(hutk ? { hutk } : {}),
           },
         };
 
         const response = await fetch(
-          "https://api.hsforms.com/submissions/v3/integration/submit/342148198/2df02615-f490-435e-abb4-a44270f455a5",
+          // fixed GUID
+          "https://api.hsforms.com/submissions/v3/integration/submit/342148198/1bb16ac9-687a-49b8-bdf2-5b7db19f2a55",
           {
             method: "POST",
             headers: {
@@ -80,11 +99,14 @@ export default function EvolveSpacesForm() {
           }
         );
 
-        if (response.ok) {
-          setSubmitted(true);
-        } else {
+        if (!response.ok) {
+          const text = await response.text().catch(() => "");
+          console.error("HubSpot submission failed", response.status, text);
           alert("There was an error submitting your form. Please try again.");
+          return;
         }
+
+        setSubmitted(true);
       } catch (error) {
         console.error("Form submission error:", error);
         alert("There was an error submitting your form. Please try again.");
@@ -286,50 +308,29 @@ export default function EvolveSpacesForm() {
                     )}
                   </label>
                 </div>
+
+                {/* Location dropdown replaced with Contact-Us style (label: city, value: address) */}
                 <div className="w-full flex flex-col">
                   <label className="font-[500] text-[#000] flex flex-col gap-[2px] test-[16px] leading-[24px]">
                     Select a Location *
-                    <div className="relative w-full">
-                      <select
-                        name="location"
-                        value={form.location}
-                        onChange={handleChange}
-                        onFocus={() => setLocationFocused(true)}
-                        onBlur={() => setLocationFocused(false)}
-                        className={
-                          "appearance-none px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400] " +
-                          (form.location === ""
-                            ? "text-[#6F6D66] text-[12px]"
-                            : "text-[#000] text-[16px]")
-                        }
-                      >
-                        <option value="" disabled>
-                          Select a location
+                    <select
+                      name="location"
+                      value={form.location}
+                      onChange={handleChange}
+                      className={
+                        "mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full " +
+                        (form.location === ""
+                          ? "text-[#6F6D66] text-[12px]"
+                          : "text-[#000] text-[16px]")
+                      }
+                    >
+                      <option value="">Select Location</option>
+                      {LOCATIONS.map((loc) => (
+                        <option key={loc.cityName} value={loc.location}>
+                          {loc.cityName}
                         </option>
-                        {locationOptions.map((opt) => (
-                          <option key={opt} value={opt}>
-                            {opt}
-                          </option>
-                        ))}
-                      </select>
-                      <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
-                        {locationFocused ? (
-                          <img
-                            src={arrowUp}
-                            alt="Arrow Up"
-                            width={20}
-                            height={20}
-                          />
-                        ) : (
-                          <img
-                            src={arrowDown}
-                            alt="Arrow Down"
-                            width={20}
-                            height={20}
-                          />
-                        )}
-                      </span>
-                    </div>
+                      ))}
+                    </select>
                     {errors.location && (
                       <span className="text-red-600 text-[12px]">
                         {errors.location}
@@ -337,6 +338,7 @@ export default function EvolveSpacesForm() {
                     )}
                   </label>
                 </div>
+
                 <div className="w-full flex flex-col">
                   <label className="font-[500] text-[#000] flex flex-col gap-[2px] test-[16px] leading-[24px]">
                     Write Your Message *
@@ -355,7 +357,7 @@ export default function EvolveSpacesForm() {
                     )}
                   </label>
                 </div>
-                <button type="submit" className="w-full mt-2 btnPrimary">
+                <button type="submit" className="w-full mt-2 btnPrimary" disabled={false}>
                   SUBMIT NOW
                 </button>
               </form>
