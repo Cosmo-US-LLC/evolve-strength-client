@@ -84,7 +84,7 @@ function WhyEvolveIsDifferent() {
   const peekOffset = vh * peekPercent; // e.g., 10vh
 
   // Define custom top offsets for each card
-  const topOffsets = ["6rem", "8rem", "10rem"];
+  const topOffsets = ["14rem", "16rem", "18rem"];
 
   return (
     <div>
@@ -92,13 +92,7 @@ function WhyEvolveIsDifferent() {
         ref={containerRef}
         className="w-full md:py-[54px] max-md:pt-0 max-md:pb-[48px] max-md:hidden"
       >
-        <div className="w-full max-w-[1280px] md:px-8 max-md:px-[16px] mx-auto">
-          <div className="flex justify-center mb-[32px]">
-            <h2 className="max-w-[707px] text-center text-[#000000] font-[700] leading-[39px] uppercase">
-              Why Evolve Is Different
-            </h2>
-          </div>
-
+        <div className="w-full max-w-[1280px] md:px-8 md:pt-4 max-md:px-[16px] mx-auto">
           {/* Cards Container */}
           <div
             style={{ position: "relative" }}
@@ -122,6 +116,13 @@ function WhyEvolveIsDifferent() {
                     pointerEvents: "auto",
                   }}
                 >
+                  {i == 0 && (
+                    <div className="absolute -top-16 flex justify-center mb-[32px]">
+                      <h2 className="max-w-[707px] text-center text-[#000000] font-[700] leading-[39px] uppercase">
+                        Why Evolve Is Different
+                      </h2>
+                    </div>
+                  )}
                   <div className="rounded-[10px] flex justify-between w-full p-8 relative h-full border-[#CCCCCC] border bg-[#fff] shadow-md">
                     <div className="relative z-[9] max-w-[520px] flex flex-col gap-4 justify-center">
                       <h2 className="text-[#4AB04A] !font-[500] !font-[kanit] leading-[39px] tracking-[-1.2px]">
