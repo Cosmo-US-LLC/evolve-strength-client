@@ -2,13 +2,15 @@ import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import fitness from "../../../../assets/images/corporateMembership/whyChoose/everyThinkOnePlace.webp";
-import wellness from "../../../../assets/images/PersonalTraning/PersonalGymExperience/bodyweight_training.webp";
-import atmosphere from "../../../../assets/images/PersonalTraning/PersonalGymExperience/cardio.webp";
-import turfWorkouts from "../../../../assets/images/PersonalTraning/PersonalGymExperience/turf_workouts.webp";
+import wellness from "../../../../assets/images/corporateMembership/whyChoose/gym_equipment.webp";
+import atmosphere from "../../../../assets/images/corporateMembership/whyChoose/wellness_support.webp";
+import turfWorkouts from "../../../../assets/images/corporateMembership/whyChoose/better_outcomes.webp";
 import { ReactComponent as OnePlaceIcon } from "@/assets/images/corporateMembership/whyChoose/one_place.svg";
 import { ReactComponent as TopTierIcon } from "@/assets/images/corporateMembership/whyChoose/Top_Tier.svg";
 import { ReactComponent as WellnessSupportIcon } from "@/assets/images/corporateMembership/whyChoose/WellnessSupport.svg";
 import { ReactComponent as BetterOutcomesIcon } from "@/assets/images/corporateMembership/whyChoose/BetterOutcomes.svg";
+import { Link } from "react-router-dom";
+
 
 const gymCards = [
   {
@@ -48,9 +50,15 @@ const gymCards = [
 const WhyCompaniesChoose = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [previousIndex, setPreviousIndex] = useState(0);
 
   // Desktop: use hover state, Mobile: use carousel state
   const activeIndex = hoveredIndex !== null ? hoveredIndex : carouselIndex;
+
+  // Update previous index when active index changes
+  useEffect(() => {
+    setPreviousIndex(activeIndex);
+  }, [activeIndex]);
 
   // Mobile Carousel with Scale Effect
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -58,8 +66,8 @@ const WhyCompaniesChoose = () => {
       containScroll: "keepSnaps",
       loop: true,
       align: "center",
-    },
-    [Autoplay({ delay: 4000, stopOnInteraction: false })]
+    }
+    // [Autoplay({ delay: 4000, stopOnInteraction: false })]
   );
 
   // Scale effect for mobile carousel
@@ -93,6 +101,7 @@ const WhyCompaniesChoose = () => {
     };
   }, [emblaApi]);
 
+  // Preload images
   useEffect(() => {
     gymCards.forEach((card) => {
       const img = new Image();
@@ -102,11 +111,19 @@ const WhyCompaniesChoose = () => {
 
   return (
     <div className="relative w-full overflow-hidden mb-12">
-      {/* Background Image - Desktop */}
+      {/* Background Images - Desktop */}
       <div className="hidden md:block">
+        {/* Previous background image */}
         <div
-          key={activeIndex}
-          className="absolute inset-0 bg-cover bg-center transition-all animate-fade will-change-transform will-change-opacity"
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
+          style={{
+            backgroundImage: `url(${gymCards[previousIndex].bgImage})`,
+          }}
+        />
+
+        {/* Current background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out"
           style={{
             backgroundImage: `url(${gymCards[activeIndex].bgImage})`,
           }}
@@ -114,11 +131,19 @@ const WhyCompaniesChoose = () => {
         <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       </div>
 
-      {/* Background Image - Mobile */}
+      {/* Background Images - Mobile */}
       <div className="md:hidden">
+        {/* Previous background image */}
         <div
-          key={carouselIndex}
-          className="absolute inset-0 bg-cover bg-center transition-all animate-fade will-change-transform will-change-opacity h-[600px]"
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out h-[600px]"
+          style={{
+            backgroundImage: `url(${gymCards[previousIndex].bgImage})`,
+          }}
+        />
+
+        {/* Current background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out h-[600px]"
           style={{
             backgroundImage: `url(${gymCards[carouselIndex].bgImage})`,
           }}
@@ -126,13 +151,14 @@ const WhyCompaniesChoose = () => {
         <div className="absolute inset-0 bg-black/20 pointer-events-none h-[600px]" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto flex flex-col items-start justify-start gap-4 px-4 md:px-8">
+      <div className="relative z-50 w-full max-w-[1280px] mx-auto flex flex-col items-start justify-start gap-4 px-4 md:px-8">
         <h2 className="text-[#FFFFFF] uppercase leading-[32px] md:leading-[39px] absolute top-[30px] md:top-[180px] text-left w-full md:w-auto">
           Why Companies <br /> Choose Evolve
         </h2>
-        <button className="btnPrimary absolute top-[110px] md:top-[280px]">
-          Book a Free Consultation
-        </button>
+        
+         <Link to="/corporate-membership-wizard">
+              <button className="btnPrimary relative top-[110px] md:top-[280px] z-50 cursor-pointer">Get Started</button>
+            </Link>
       </div>
 
       {/* Desktop Layout */}
@@ -161,13 +187,23 @@ const WhyCompaniesChoose = () => {
                   isActive ? "text-[#1C1C1C]" : "text-[#ffffff]"
                 }`}
               >
-                <h4
-                  className={`uppercase !text-[24px] font-[kanit] leading-[24px] tracking-[-0.72px] !font-[600] mb-2 transition-all duration-200 group-hover:translate-y-[-4px] group-hover:opacity-90 ${
-                    isActive ? "text-[#1C1C1C]" : "text-[#ffffff]"
-                  }`}
-                >
-                  {card.title}
-                </h4>
+                <div className="flex flex-row items-center gap-3 mb-2">
+                  <div className="">
+                    <card.icon
+                      className="  transition-colors duration-200"
+                      style={{
+                        fill: isActive ? "#4AB04A" : "#ffffff",
+                      }}
+                    />
+                  </div>
+                  <h4
+                    className={`uppercase  !text-[24px] font-[kanit] leading-[24px] tracking-[-0.72px] !font-[600] transition-all duration-200 group-hover:translate-y-[-4px] group-hover:opacity-90 ${
+                      isActive ? "text-[#1C1C1C]" : "text-[#ffffff]"
+                    }`}
+                  >
+                    {card.title}
+                  </h4>
+                </div>
                 {isActive && (
                   <h4
                     className={`leading-[24px] description !font-[400] transition-all duration-200 group-hover:translate-y-[-2px] group-hover:opacity-90 text-[#000]`}
@@ -198,7 +234,14 @@ const WhyCompaniesChoose = () => {
 
                     <div className="relative z-10 transition-colors duration-500 w-full text-left text-[#1C1C1C]">
                       <div className="flex flex-row items-center gap-3 mb-2">
-                        {/* <card.icon className="w-8 h-8 text-[#4ab04a]" /> */}
+                        <div>
+                          <card.icon
+                            className=" transition-colors duration-200"
+                            style={{
+                              fill: isSelected ? "#4AB04A" : "#000",
+                            }}
+                          />
+                        </div>
                         <h4 className="uppercase !text-[18px] font-[kanit] leading-[22px] tracking-[-0.54px] !font-[600] transition-all duration-200 text-[#1C1C1C]">
                           {card.title}
                         </h4>

@@ -1,15 +1,31 @@
-import React, { useState } from "react";
-import ArrowLine from "../../../../assets/images/JoinAsTrainer/Arrows/arrow.gif";
+import React, { useState, useEffect } from "react";
+import ArrowLine from "../../../../assets/images/JoinAsTrainer/Arrows/arrow.svg";
+import { Link } from "react-router-dom";
 
-function JoinAsTrainerHero() {
+function JoinAsTrainerHero(onSelectOption) {
   const [valueHourly, setValueHourly] = useState(50);
   const [sessions, setSessions] = useState(20);
+  const [gymSplit, setGymSplit] = useState(30);
+
+  const [monthlyLoss, setMonthlyLoss] = useState(0);
+  const [yearlyLoss, setYearlyLoss] = useState(0);
+
   const handleChange = (e) => {
-    setValueHourly(e.target.value);
+    setValueHourly(Number(e.target.value));
   };
+
   const handleChangeSessions = (e) => {
-    setSessions(e.target.value);
+    setSessions(Number(e.target.value));
   };
+
+  useEffect(() => {
+    const monthly = valueHourly * sessions * (gymSplit / 100);
+    const yearly = monthly * 12;
+    setMonthlyLoss(monthly);
+    setYearlyLoss(yearly);
+  }, [valueHourly, sessions, gymSplit]);
+
+  const gymSplitOptions = [30, 40, 50, 60, 70];
 
   return (
     <div className="w-full pb-12 pt-24 md:pt-[120px]">
@@ -31,7 +47,7 @@ function JoinAsTrainerHero() {
             <img
               src={ArrowLine}
               alt="Animated graphic"
-              className="absolute bottom-[-110px] md:bottom-[-4px] right-[100px] md:right-0 transform scale-y-[-1] md:scale-y-[1] md:scale-x-[-1] origin-center"
+              className="absolute bottom-[-80px] md:bottom-[-4px] right-[100px] md:right-0 transform scale-y-[-1] md:scale-y-[1] origin-center"
             />
           </div>
           <div className="w-full md:max-w-[352px] rounded-[10px] border-[1px] bg-[#fff] border-[#D4D4D4]">
@@ -62,7 +78,7 @@ function JoinAsTrainerHero() {
                   <h5 className="text-[#000] !text-[10px]">200</h5>
                 </div>
               </div>
-              <div className="space-y-[5px]">
+              <div className="space-y-[5px] ">
                 <h5 className="text-[#000]">Number of sessions per month</h5>
                 <input
                   min="1"
@@ -85,22 +101,20 @@ function JoinAsTrainerHero() {
               </div>
               <div className="space-y-[5px]">
                 <h5 className="text-[#000]">Your current gym split %</h5>
-                <div className="flex justify-between space-x-[12px] items-center">
-                  <button className="btnPrimary !text-[14px] !rounded-[10px] !py-[8px] !px-[10px]">
-                    30%
-                  </button>
-                  <button className="!border-[1px] !py-[8px] !px-[10px] !rounded-[10px] !border-[#9D9D9D] !bg-[#F7F5F6] !text-[#9D9D9D] !text-[14px] font-[400] btnPrimary">
-                    40%
-                  </button>
-                  <button className="!border-[1px] !py-[8px] !px-[10px] !rounded-[10px] !border-[#9D9D9D] !bg-[#F7F5F6] !text-[#9D9D9D] !text-[14px] font-[400] btnPrimary">
-                    50%
-                  </button>
-                  <button className="!border-[1px] !py-[8px] !px-[10px] !rounded-[10px] !border-[#9D9D9D] !bg-[#F7F5F6] !text-[#9D9D9D] !text-[14px] font-[400] btnPrimary">
-                    60%
-                  </button>
-                  <button className="!border-[1px] !py-[8px] !px-[10px] !rounded-[10px] !border-[#9D9D9D] !bg-[#F7F5F6] !text-[#9D9D9D] !text-[14px] font-[400] btnPrimary">
-                    70%
-                  </button>
+                <div className="flex justify-between space-x-[1px] items-center">
+                  {gymSplitOptions.map((option) => (
+                    <button
+                      key={option}
+                      onClick={() => setGymSplit(option)}
+                      className={`!py-[8px] !px-[10px] !rounded-[10px] text-[14px] font-[400] btnPrimary ${
+                        gymSplit === option
+                          ? "!bg-[#4AB04A] !text-[#fff]"
+                          : "!border-[1px] !border-[#9D9D9D] !bg-[#F7F5F6] !text-[#9D9D9D]"
+                      }`}
+                    >
+                      {option}%
+                    </button>
+                  ))}
                 </div>
               </div>
               <div className="pt-[8px]">
@@ -108,18 +122,33 @@ function JoinAsTrainerHero() {
                   You’re losing
                 </h5>
                 <h3 className="!font-[700] leading-[26px] text-center">
-                  $1,060/month
+                  ${monthlyLoss.toLocaleString(undefined, {
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0,
+                  })}/month
                 </h3>
                 <h5 className="!font-[300] !text-[12px] text-[#000] text-center leading-[26px]">
                   by staying at your current gym.
                 </h5>
                 <h5 className="!font-[300] !text-[12px] text-[#000] text-center leading-[12px]">
-                  That’s <span className="!font-[600]">$12,720</span> a year
-                  going to your gym’s pocket, not yours.
+                  That’s{" "}
+                  <span className="!font-[600]">
+                    ${yearlyLoss.toLocaleString(undefined, {
+                      minimumFractionDigits: 0,
+                      maximumFractionDigits: 0,
+                    })}
+                  </span>{" "}
+                  a year going to your gym’s pocket, not yours.
                 </h5>
               </div>
               <div className="flex justify-center pt-[8px]">
-                <button className="btnPrimary">Start saving</button>
+
+
+                <Link to = "/trainer-form">
+          <button className="btnPrimary " onClick={() => onSelectOption("apply")}>
+            Start Saving
+          </button>
+          </Link>
               </div>
             </div>
           </div>

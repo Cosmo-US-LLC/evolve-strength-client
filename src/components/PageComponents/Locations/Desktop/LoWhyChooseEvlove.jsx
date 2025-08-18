@@ -2,6 +2,7 @@ import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Trainers from "@/assets/images/Locations/WhyChooseEvolve/personal_trainer.webp";
 import Equipments from "@/assets/images/Locations/WhyChooseEvolve/Equipments.webp";
 import Health from "@/assets/images/Locations/WhyChooseEvolve/Health.webp";
@@ -31,7 +32,7 @@ const LoWhyChooseEvolve = () => {
       slidesToScroll: 1,
       align: "start",
     },
-    [Autoplay({ delay: 2000, stopOnInteraction: false })]
+    // [Autoplay({ delay: 2000, stopOnInteraction: false })]
   );
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
@@ -47,7 +48,9 @@ const LoWhyChooseEvolve = () => {
             coaching, integrated health services, and top-tier facilities at a
             price you can afford.
           </h4>
-          <button className="btnPrimary uppercase">Join Now</button>
+          <Link to="https://subscription.evolvestrength.ca/">
+ <button className="btnPrimary">Join Now</button>
+ </Link>
         </div>
 
         <div className="relative">
@@ -56,7 +59,7 @@ const LoWhyChooseEvolve = () => {
               {professionals.map((pro, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_100%] md:flex-[0_0_calc(50%-58px)] relative"
+                  className="flex-[0_0_100%] md:flex-[0_0_calc(50%-8px)] relative"
                 >
                   <img
                     src={pro.image}
@@ -76,7 +79,7 @@ const LoWhyChooseEvolve = () => {
           <div className="absolute -top-1/12 md:-top-1/6 -translate-y-1/2 left-[74%] md:left-[86%] z-10">
             <button
               onClick={scrollPrev}
-              className="p-2 rounded-full border border-[#000000] text-[#000000]"
+              className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4 md:w-6 md:h-6" />
             </button>
@@ -84,7 +87,7 @@ const LoWhyChooseEvolve = () => {
           <div className="absolute -top-1/12 md:-top-1/6 -translate-y-1/2 right-[4%] md:right-[6%] z-10">
             <button
               onClick={scrollNext}
-              className="p-2 rounded-full border border-[#000000] text-[#000000]"
+              className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer"
             >
               <ArrowRight className="w-4 h-4 md:w-6 md:h-6" />
             </button>

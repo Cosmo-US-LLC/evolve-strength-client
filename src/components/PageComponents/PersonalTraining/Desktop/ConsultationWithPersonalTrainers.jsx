@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import trainer1 from "@/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide1.webp";
 import trainer2 from "@/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide2.webp";
 import trainer3 from "@/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide3.webp";
@@ -49,9 +50,11 @@ const ConsultationWithPersonalTrainers = () => {
             sport or event, Evolve has the right coach to guide you.
           </h4>
 
+          <Link to="https://subscription.evolvestrength.ca">
           <button className="btnPrimary mb-8 md:mb-10">
-            BEGIN FREE TRAINING CONSULTATION
+            Join Now for a Free Assessment
           </button>
+          </Link>
 
           <div className="flex gap-8 md:gap-12 py-2 md:py-0">
             <div>

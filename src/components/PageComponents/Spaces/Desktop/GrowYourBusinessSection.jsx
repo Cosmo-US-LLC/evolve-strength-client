@@ -68,7 +68,7 @@ function GrowYourBusinessSection() {
             </h4>
           </div>
         </div>
-        <div className="flex flex-col md:items-center  md:justify-center SpacesHeroBG">
+        <div className="flex flex-col rounded-[10px] md:items-center  md:justify-center SpacesHeroBG">
           {/* <img src={GrowYourBusinessSectionImage} alt="Description" /> */}
          
         </div>

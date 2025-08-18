@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Carousel,
@@ -7,45 +8,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import postImg1 from "/src/assets/images/home/facility/image_1.webp";
-import postImg2 from "/src/assets/images/home/facility/image_2.webp";
-import brentwoodImg1 from "/src/assets/images/home/facility/image_3.webp";
-import brentwoodImg2 from "/src/assets/images/home/facility/image_4.webp";
-import setonImg1 from "/src/assets/images/home/facility/image_5.webp";
-import setonImg2 from "/src/assets/images/home/facility/image_6.webp";
-import royalOakImg1 from "/src/assets/images/home/facility/image_7.webp";
-import royalOakImg2 from "/src/assets/images/home/facility/image_8.webp";
-import sunridgeImg from "/src/assets/images/home/facility/image_5.webp";
-import downtownImg from "/src/assets/images/home/facility/image_6.webp";
+import { facilityLocations, getLocationData } from "@/constants/facilityImages";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-const locations = [
-  {
-    key: "post",
-    label: "Post",
-    images: [
-      postImg1,
-      postImg2,
-      brentwoodImg1,
-      brentwoodImg2,
-      setonImg1,
-      setonImg2,
-      royalOakImg1,
-      royalOakImg2,
-    ],
-  },
-  {
-    key: "brentwood",
-    label: "Brentwood",
-    images: [brentwoodImg1, brentwoodImg2],
-  },
-  { key: "seton", label: "Seton", images: [setonImg1, setonImg2] },
-  { key: "royaloak", label: "Royal Oak", images: [royalOakImg1, royalOakImg2] },
-  { key: "sunridge", label: "Sunridge", images: [sunridgeImg] },
-  { key: "downtown", label: "Downtown", images: [downtownImg] },
-  { key: "north", label: "North", images: [sunridgeImg] },
-  { key: "south", label: "South", images: [sunridgeImg] },
-];
+// Use centralized location data from facilityImages.js
+const locations = facilityLocations;
 
 const LocationSeeITYourself = () => {
   // Get location from URL path and set default tab
@@ -77,20 +44,26 @@ const LocationSeeITYourself = () => {
 
   const scrollTabsLeft = () => {
     if (tabBarRef.current) {
-      tabBarRef.current.scrollBy({ left: -120, behavior: "smooth" });
-    }
-  };
-  const scrollTabsRight = () => {
-    if (tabBarRef.current) {
-      tabBarRef.current.scrollBy({ left: 120, behavior: "smooth" });
+      const scrollAmount = tabBarRef.current.offsetWidth * 0.8; // 80% of container width
+      tabBarRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
     }
   };
 
-  const activeLocation = locations.find((loc) => loc.key === activeTab);
+  const scrollTabsRight = () => {
+    if (tabBarRef.current) {
+      const scrollAmount = tabBarRef.current.offsetWidth * 0.8; // 80% of container width
+      tabBarRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
+
+  const activeLocation = getLocationData(activeTab);
 
   useEffect(() => {
     if (carouselRef.current?.scrollTo) {
-      carouselRef.current.scrollTo(0);
+      carouselRef.current.scrollTo({
+        left: 0,
+        behavior: "smooth", // Smooth scroll instead of immediate
+      });
     }
   }, [activeTab]);
 
@@ -119,27 +92,25 @@ const LocationSeeITYourself = () => {
 
     setActiveTab(newDefaultTab);
 
-    // Scroll to the active tab in mobile view
-    setTimeout(() => {
-      const activeTabElement = tabBarRef.current?.querySelector(
-        `[data-tab="${newDefaultTab}"]`
-      );
-      if (activeTabElement && tabBarRef.current) {
-        activeTabElement.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center",
-        });
-      }
-    }, 100);
+    // Scroll to the active tab in mobile view - removed setTimeout
+    const activeTabElement = tabBarRef.current?.querySelector(
+      `[data-tab="${newDefaultTab}"]`
+    );
+    if (activeTabElement && tabBarRef.current) {
+      activeTabElement.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
   }, [currentPath]);
 
   return (
     <div className="w-full bg-white md:py-12">
       {/* Desktop Version */}
       <div className="max-w-[1280px] mx-auto px-8 flex flex-col gap-2 mb-5 max-md:hidden">
-        <h2 className="text-[#1C1C1C]">
-          TAKE A PEAK INSIDE CANADA'S BEST <br /> FITNESS FACILITY
+        <h2 className="text-[#1C1C1C] uppercase">
+          Access All Evolve Locations with <br /> Your Membership
         </h2>
         <h4 className="text-[#000] leading-[26px]">
           Spacious. Affordable. Unmatched
@@ -171,7 +142,7 @@ const LocationSeeITYourself = () => {
             className="w-full"
           >
             <CarouselContent>
-              {activeLocation.images.map((img, idx) => (
+              {activeLocation.images.desktop.map((img, idx) => (
                 <CarouselItem key={idx} className="w-full">
                   <div className="relative w-full aspect-[4/3] md:aspect-[16/9] xl:aspect-[21/9] 2xl:aspect-[24/9] overflow-hidden">
                     <img
@@ -189,14 +160,16 @@ const LocationSeeITYourself = () => {
         </TabsContent>
       </Tabs>
       <div className="flex justify-center mt-6 max-md:hidden">
-        <button className="btnPrimary">Book a Free Tour</button>
+        <Link to="https://join.evolvestrength.ca/tour-form/">
+          <button className="btnPrimary">BOOK A FREE TOUR</button>
+        </Link>
       </div>
 
       {/* Mobile Version */}
       <div className="md:hidden w-full px-[0px]  pb-[48px] ">
         <div className=" flex flex-col gap-2 mb-5 px-[16px]">
-          <h2 className="text-[#1C1C1C] text-[22px] font-bold">
-            TAKE A PEAK INSIDE CANADA'S BEST FITNESS FACILITY
+          <h2 className="text-[#1C1C1C] text-[22px] font-bold uppercase">
+            Access All Evolve Locations with Your Membership
           </h2>
           <h4 className="text-[#000] leading-[26px] text-[15px]">
             Spacious. Affordable. Unmatched
@@ -221,17 +194,17 @@ const LocationSeeITYourself = () => {
             </div>
             <div
               ref={tabBarRef}
-              className="overflow-x-auto rounded-[10px] border !scrollbar-none w-full py-2 "
+              className="overflow-x-auto rounded-[6px] border !scrollbar-none w-full py-2 "
               style={{ scrollSnapType: "x mandatory" }}
             >
-              <div className="flex flex-row !scrollbar-none">
+              <div className="flex flex-row scrollbar-none ">
                 {locations.map((loc) => (
                   <button
                     key={loc.key}
                     onClick={() => setActiveTab(loc.key)}
-                    className={`min-w-[100px] w-[auto] max-w-[160px] px-2 py-2 rounded-[10px]  text-[14px] font-[500] transition-all duration-200 scroll-snap-align-start ${
+                    className={`min-w-[100px] w-[auto] max-w-[160px] px-2 py-2 rounded-[8px]  text-[14px] font-[500] transition-all duration-200 scroll-snap-align-start ${
                       activeTab === loc.key
-                        ? "bg-[#4AB04A] text-[#fff] text-[#4AB04A] "
+                        ? "bg-[#4AB04A] text-[#fff] "
                         : "bg-[#fff] text-[#1C1C1C]"
                     }`}
                     style={{ scrollSnapAlign: "start" }}
@@ -243,16 +216,16 @@ const LocationSeeITYourself = () => {
               </div>
             </div>
           </div>
-          <TabsContent value={activeTab} className="w-full mt-4 px-[8px]">
+          <TabsContent value={activeTab} className="w-full mt-4 ">
             <Carousel
               opts={{ align: "start" }}
               setApi={(api) => (carouselRef.current = api)}
               className="w-full"
             >
               <CarouselContent>
-                {activeLocation.images.map((img, idx) => (
+                {activeLocation.images.mobile.map((img, idx) => (
                   <CarouselItem key={idx} className="w-full">
-                    <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[10px]">
+                    <div className="relative w-full aspect-[4/3] overflow-hidden">
                       <img
                         src={img}
                         alt={`${activeLocation.label} image ${idx + 1}`}
@@ -268,7 +241,9 @@ const LocationSeeITYourself = () => {
           </TabsContent>
         </Tabs>
         <div className="flex justify-center mt-6 px-[16px] py-[17px]">
-          <button className="btnPrimary !py-[17px]">Book a Free Tour</button>
+          <Link to="https://join.evolvestrength.ca/tour-form/">
+            <button className="btnPrimary">BOOK A FREE TOUR</button>
+          </Link>
         </div>
       </div>
     </div>

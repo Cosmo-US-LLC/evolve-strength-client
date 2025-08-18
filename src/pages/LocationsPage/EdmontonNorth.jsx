@@ -5,7 +5,7 @@ import LocationHero from "@/components/PageComponents/Locations/Desktop/Location
 import LocationPartners from "@/components/PageComponents/Locations/Desktop/LocationsPartners";
 import RightTrainer from "@/components/PageComponents/Locations/Desktop/RightTrainer";
 import FitnessCategory from "@/components/PageComponents/Locations/Desktop/FitnessCategory";
-import Services from "@/components/PageComponents/Locations/Desktop/Services";
+import Services from "@/components/PageComponents/Locations/Desktop/LocationWellnessServices.jsx";
 import Spacious from "@/components/PageComponents/Locations/Desktop/LocationsSpacious";
 import LocationsSeeItForYourSelf from "@/components/PageComponents/Locations/Desktop/LocationSeeITYourself";
 import JoinUsToday from "@/components/PageComponents/Locations/Desktop/JoinUsToday";
@@ -15,10 +15,16 @@ import MeetTheTrainers from "@/components/PageComponents/Locations/Desktop/MeetT
 import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLocation";
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function EdmontonNorth() {
   return (
     <>
+    <MetaTags
+        title="Evolve Strength North | Edmonton’s Best Fitness Gym"
+        description="Join the best fitness club in Edmonton North with top gym equipment, strength training, personal trainers, and affordable memberships."
+      />
       <LocationHero />
       <LocationPartners />
       <LoWhyChooseEvolve />
@@ -30,7 +36,7 @@ function EdmontonNorth() {
       <Spacious />
       <LocationsSeeItForYourSelf />
       <SetonLocation />
-      <MeetTheTrainers />
+      <MeetTheTrainers location="EDMONTON NORTH" />
       <JoinUsToday />
       <FrequentlyAskedQuestions {...LocationFaq} />
     </>

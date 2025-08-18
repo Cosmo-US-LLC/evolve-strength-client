@@ -1,6 +1,6 @@
 import React from "react";
 import { Instagram, ArrowRight } from "lucide-react";
-import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo-w.webp";
+import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-logo-light.svg";
 import { HashLink as Link } from "react-router-hash-link";
 import ESFLogo from "../../assets/images/home/footer/Evolve-Strength-footer-Logo.svg";
 import "./styles.css";
@@ -58,7 +58,7 @@ function Footer() {
               </div>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col w-full">
               <div className="max-w-[790px] text-white border-y border-y-[#2b2b2b] pt-6 pb-2">
                 <div className="footer_links flex flex-wrap items-center gap-6 mb-4">
                   <Link
@@ -68,14 +68,18 @@ function Footer() {
                   >
                     Become a Trainer
                   </Link>
-                  <span className="text-[#B2B1AA]">/</span>
+                  {/* <span className="text-[#B2B1AA]">/</span>
                   <a href="#" className="text-[#B2B1AA] hover:text-[#ffffff]">
                     Become a Practitioner
-                  </a>
+                  </a> */}
                   <span className="text-[#B2B1AA]">/</span>
-                  <a href="#" className="text-[#B2B1AA] hover:text-[#ffffff]">
+                  <Link
+                    smooth
+                    to="/franchise"
+                    className="text-[#B2B1AA] hover:text-[#ffffff]"
+                  >
                     Franchise with Evolve
-                  </a>
+                  </Link>
                 </div>
 
                 <p className="footer_quick_links pt-3 text-[#6F6D66] uppercase ">
@@ -86,14 +90,14 @@ function Footer() {
               <div className=" flex flex-row gap-[70px] md:gap-[130px] py-8">
                 <div className="space-y-3 flex flex-col">
                   <Link
-                  smooth
+                    smooth
                     to="/about-us"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     About Us
                   </Link>
                   <Link
-                    to="/locations/calgary-seton"
+                    to="/locations"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Our Locations
@@ -113,25 +117,27 @@ function Footer() {
                     Membership Benefits
                   </Link>
                   <Link
-                  smooth
+                    smooth
                     to="/join-the-Movement"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Join the Movement
                   </Link>
+                  <Link to = "https://join.evolvestrength.ca/tour-form/">
 
                   <button className="mt-4 btnPrimary transition">
                     TAKE A TOUR
                   </button>
+                  </Link>
                 </div>
 
                 <div className="space-y-3 flex flex-col">
-                  <a
+                  {/* <a
                     href="#"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Careers
-                  </a>
+                  </a> */}
                   <Link
                     smooth
                     to="/faqs"
@@ -157,28 +163,34 @@ function Footer() {
               </div>
             </div>
           </div>
-          <div className="flex flex-row items-center justify-between w-full max-w-[814px] h-[100px] gap-6">
-            <div className="text-[#4AB04A] hover:text-[#ffffff] border-[2px] border-[#4AB04A] cursor-pointer hover:border-[#ffffff] rounded-full p-4">
-              <Instagram className="w-7 h-7 " />
+          <div className="flex flex-row items-center justify-between w-full max-w-[778px] h-auto md:h-[100px] gap-2 md:gap-6">
+            <div className="text-[#4AB04A] hover:text-[#ffffff] border-[2px] border-[#4AB04A] cursor-pointer hover:border-[#ffffff] rounded-full p-2 md:p-4">
+              <Instagram className="w-4 md:w-7 h-4 md:h-7 " />
             </div>
 
-            <div className="flex flex-row gap-6 md:gap-10 ">
+            <div className="flex flex-row gap-4 md:gap-10 ">
               <div>
-                <p className="footer_quick_links uppercase text-[#6F6D66]  ">
+                <p className="footer_quick_links text-[14px] leading-[19.6px]  uppercase text-[#6F6D66]  ">
                   Selection Committee
                 </p>
-                <p className="footer_quick_links text-[#B2B1AA]">
-                  +1 891 989-11-92
-                </p>
+                <a
+                  href="tel:+17805897852"
+                  className="text-[14px] leading-[19.6px] hover:cursor-pointer hover:text-[#ffffff] text-[#B2B1AA]"
+                >
+                  +1 (780) 589-7852
+                </a>
               </div>
 
               <div>
-                <p className="footer_quick_links uppercase text-[#6F6D66]">
+                <p className="footer_quick_links uppercase text-[14px] leading-[19.6px]  text-[#6F6D66]">
                   Email
                 </p>
-                <p className="footer_quick_links text-[#B2B1AA]">
+                <a
+                  href="mailto:info@evolvestrength.com"
+                  className="text-[14px] leading-[19.6px] hover:cursor-pointer hover:text-[#ffffff] text-[#B2B1AA]"
+                >
                   info@evolvestrength.com
-                </p>
+                </a>
               </div>
             </div>
           </div>

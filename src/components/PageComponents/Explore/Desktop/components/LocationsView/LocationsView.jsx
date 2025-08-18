@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { getDataByCategory } from "../../../../../../constants/UnUseExploreDataOld";
+import {
+  getDataByCategory,
+  getTrainersForLocation,
+  getTrainersForLocationService,
+} from "../../../../../../constants/exploreDataWithTrainer";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
 import { ArrowUpCircle, ChevronDown, CircleChevronDown } from "lucide-react";
@@ -11,6 +15,8 @@ function LocationsView() {
   const [selectedTrainer, setSelectedTrainer] = useState({}); // { [locKey_service]: trainerIdx }
 
   const locationsData = getDataByCategory("LOCATIONS")?.data || [];
+
+  console.log(locationsData)
 
   const handleToggle = (locKey) => {
     // Accordion behavior: if clicking the same location, close it; if clicking different location, close previous and open new one
@@ -28,6 +34,19 @@ function LocationsView() {
     })); // reset trainer selection on tab change
   };
 
+  // Helper function to transform trainer data for display
+  const transformTrainerData = (trainer) => {
+    return {
+      ...trainer,
+      name: trainer.trainerName || trainer.name,
+      title: trainer.role,
+      about: trainer.bio,
+      areasOfFocus: trainer.areas_of_focus
+        ? trainer.areas_of_focus.split(", ")
+        : [],
+    };
+  };
+
   return (
     <div className="w-full bg-white pt-4 md:pt-6 pb-8 md:pb-16">
       {/* Location List */}
@@ -36,15 +55,19 @@ function LocationsView() {
           const locKey = `${loc.city} ${loc.branch}`;
           const isOpen = expandedLocation === locKey;
           const selectedService = serviceTabs[locKey] || "All";
-          // Filter trainers by selected service
+          // Get trainers for this location and service
+          const serviceId =
+            loc.services.find((s) => s.name === selectedService)?.id || "";
+
           const filteredTrainers =
             selectedService === "All"
-              ? loc.trainers
-              : loc.trainers.filter(
-                  (trainer) =>
-                    trainer.services &&
-                    trainer.services.includes(selectedService)
-                );
+              ? getTrainersForLocation(loc.id)
+              : getTrainersForLocationService(loc.id, serviceId);
+
+          // Transform trainer data for display
+          const transformedTrainers =
+            filteredTrainers.map(transformTrainerData);
+
           const trainerKey = `${locKey}_${selectedService}`;
           const selectedIdx = selectedTrainer[trainerKey];
 
@@ -71,7 +94,7 @@ function LocationsView() {
                   />
                 </div>
                 <Link
-                  to="/locations"
+                  to={loc?.statelink}
                   className="uppercase text-[16px] md:text-[20px] font-[400] leading-[20px] font-[kanit] text-[#4AB04A] hover:text-[#000] underline transition-colors duration-300"
                   onClick={(e) => e.stopPropagation()}
                 >
@@ -83,7 +106,7 @@ function LocationsView() {
               <div
                 className={`
                   bg-[#fff] overflow-hidden transition-all duration-500 ease-in-out
-                  ${isOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}
+                  ${isOpen ? "max-h-auto opacity-100" : "max-h-0 opacity-0"}
                 `}
               >
                 <div
@@ -104,7 +127,7 @@ function LocationsView() {
                               handleServiceSelect(locKey, service.name);
                             }}
                             className={`
-                              flex items-center justify-center gap-2 flex-shrink-0  px-4 h-[48px] rounded-[6px] text-[16px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105
+                              flex items-center justify-center gap-2 flex-shrink-0  px-4 h-[48px] rounded-[6px] text-[16px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform 
                               ${
                                 selectedService === service.name
                                   ? "bg-[#000] text-white shadow-lg"
@@ -135,7 +158,7 @@ function LocationsView() {
                               handleServiceSelect(locKey, service.name);
                             }}
                             className={`
-                              flex items-center justify-center gap-2 w-[294px] h-[52px] rounded-[6px] text-[18px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105
+                              flex items-center justify-center gap-2 w-[294px] h-[52px] rounded-[6px] text-[18px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform
                               ${
                                 selectedService === service.name
                                   ? "bg-[#000] text-white shadow-lg"
@@ -154,13 +177,13 @@ function LocationsView() {
                     </div>
                   </div>
 
-                  {filteredTrainers && filteredTrainers.length > 0 && (
+                  {transformedTrainers && transformedTrainers.length > 0 && (
                     <>
                       {/* Mobile: Trainer Carousel */}
                       <div className="md:hidden bg-[#F6F6F6] px-4 py-6 rounded-t-[5px]">
                         <TrainerCard
                           isCarousel={true}
-                          trainers={filteredTrainers}
+                          trainers={transformedTrainers}
                           selectedTrainer={selectedIdx}
                           onTrainerSelect={(index) => {
                             if (selectedIdx === index) {
@@ -186,10 +209,12 @@ function LocationsView() {
                           const rows = [];
                           for (
                             let i = 0;
-                            i < filteredTrainers.length;
+                            i < transformedTrainers.length;
                             i += columns
                           ) {
-                            rows.push(filteredTrainers.slice(i, i + columns));
+                            rows.push(
+                              transformedTrainers.slice(i, i + columns)
+                            );
                           }
 
                           return rows.map((row, rowIdx) => {
@@ -197,14 +222,14 @@ function LocationsView() {
 
                             return (
                               <div key={rowIdx} className="overflow-hidden">
-                                <div className="flex gap-6 flex-wrap bg-[#F6F6F6] px-12 pt-12">
+                                <div className="flex gap-6 bg-[#F6F6F6] px-12 pt-12 pb-6">
                                   {row.map((trainer, colIdx) => {
                                     const globalIdx = startIdx + colIdx;
 
                                     return (
                                       <div
                                         key={globalIdx}
-                                        className="mb-3 transition-all duration-300 ease-in-out transform hover:scale-105"
+                                        className="w-1/4 transition-all duration-300 ease-in-out transform hover:scale-105"
                                       >
                                         <TrainerCard
                                           trainer={trainer}
@@ -235,7 +260,9 @@ function LocationsView() {
                                     rowIdx && (
                                     <div className="w-full bg-[#F6F6F6] px-12 py-6 transition-all duration-300 ease-in-out">
                                       <TrainerDetails
-                                        trainer={filteredTrainers[selectedIdx]}
+                                        trainer={
+                                          transformedTrainers[selectedIdx]
+                                        }
                                       />
                                     </div>
                                   )}
@@ -249,13 +276,13 @@ function LocationsView() {
                       {selectedIdx !== null && selectedIdx !== undefined && (
                         <div className="md:hidden w-full bg-[#F6F6F6] px-4 py-6 transition-all duration-300 ease-in-out">
                           <TrainerDetails
-                            trainer={filteredTrainers[selectedIdx]}
+                            trainer={transformedTrainers[selectedIdx]}
                           />
                         </div>
                       )}
                     </>
                   )}
-                  {filteredTrainers && filteredTrainers.length === 0 && (
+                  {transformedTrainers && transformedTrainers.length === 0 && (
                     <div className="text-center text-gray-500 py-6 md:py-8 px-4 md:px-0 transition-all duration-300 ease-in-out">
                       <p className="text-base md:text-lg font-medium mb-2">
                         No trainers available for this service.

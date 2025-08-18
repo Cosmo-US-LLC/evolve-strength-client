@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function TourOurFitness() {
   return (
@@ -14,7 +15,11 @@ function TourOurFitness() {
             largest in Canada, built to support serious trainers like you.
           </p>
           <div className="flex gap-6">
-            <button className="btnPrimary">START TODAY</button>
+            <Link to = "/trainer-form">
+          <button className="btnPrimary " onClick={() => onSelectOption("apply")}>
+            Start Saving
+          </button>
+          </Link>
           </div>
         </div>
       </div>

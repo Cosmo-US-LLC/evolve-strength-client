@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Link } from "react-router-dom";
 import {
   Carousel,
   CarouselContent,
@@ -7,54 +8,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import postImg1 from "/src/assets/images/home/facility/post_1.png";
-import postImg2 from "/src/assets/images/home/facility/post_2.png";
-import postImg3 from "/src/assets/images/home/facility/post_3.png";
-import postImg4 from "/src/assets/images/home/facility/post_4.png";
-import postImg5 from "/src/assets/images/home/facility/post_5.png";
-import postImg6 from "/src/assets/images/home/facility/post_6.png";
-import postImg7 from "/src/assets/images/home/facility/post_7.png";
-import postImg8 from "/src/assets/images/home/facility/image_8.webp";
-import brentwoodImg1 from "/src/assets/images/home/facility/image_3.webp";
-import brentwoodImg2 from "/src/assets/images/home/facility/image_4.webp";
-import setonImg1 from "/src/assets/images/home/facility/image_5.webp";
-import setonImg2 from "/src/assets/images/home/facility/image_6.webp";
-import royalOakImg1 from "/src/assets/images/home/facility/image_7.webp";
-import royalOakImg2 from "/src/assets/images/home/facility/image_8.webp";
-import sunridgeImg from "/src/assets/images/home/facility/image_5.webp";
-import downtownImg from "/src/assets/images/home/facility/image_6.webp";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-
-const locations = [
-  {
-    key: "post",
-    label: "Post",
-    images: [
-      postImg1,
-      postImg2,
-      postImg3,
-      postImg4,
-      postImg5,
-      postImg6,
-      postImg7,
-      postImg8,
-    ],
-  },
-  {
-    key: "brentwood",
-    label: "Brentwood",
-    images: [brentwoodImg1, brentwoodImg2],
-  },
-  { key: "seton", label: "Seton", images: [setonImg1, setonImg2] },
-  { key: "royaloak", label: "Royal Oak", images: [royalOakImg1, royalOakImg2] },
-  { key: "sunridge", label: "Sunridge", images: [sunridgeImg] },
-  { key: "downtown", label: "Downtown", images: [downtownImg] },
-  { key: "north", label: "North", images: [sunridgeImg] },
-  { key: "south", label: "South", images: [sunridgeImg] },
-];
+import { facilityLocations } from "@/constants/facilityImages";
 
 const FacilityShowcase = () => {
-  const [activeTab, setActiveTab] = useState(locations[0].key);
+  const [activeTab, setActiveTab] = useState(facilityLocations[0].key);
   const tabBarRef = useRef(null);
   const carouselRef = useRef(null);
 
@@ -63,13 +21,14 @@ const FacilityShowcase = () => {
       tabBarRef.current.scrollBy({ left: -120, behavior: "smooth" });
     }
   };
+
   const scrollTabsRight = () => {
     if (tabBarRef.current) {
       tabBarRef.current.scrollBy({ left: 120, behavior: "smooth" });
     }
   };
 
-  const activeLocation = locations.find((loc) => loc.key === activeTab);
+  const activeLocation = facilityLocations.find((loc) => loc.key === activeTab);
 
   useEffect(() => {
     if (carouselRef.current?.scrollTo) {
@@ -95,7 +54,7 @@ const FacilityShowcase = () => {
       >
         <div className="w-full max-w-[1220px] mx-auto relative rounded-[10px] border">
           <TabsList className="flex w-full  bg-[#fff] h-[48px] p-[6px]">
-            {locations.map((loc) => (
+            {facilityLocations.map((loc) => (
               <TabsTrigger
                 key={loc.key}
                 value={loc.key}
@@ -113,12 +72,12 @@ const FacilityShowcase = () => {
             className="w-full"
           >
             <CarouselContent>
-              {activeLocation.images.map((img, idx) => (
+              {activeLocation.images.desktop.map((img, idx) => (
                 <CarouselItem key={idx} className="w-full">
                   <div className="relative w-full aspect-[4/3] md:aspect-[16/9] xl:aspect-[21/9] 2xl:aspect-[24/9] overflow-hidden">
                     <img
                       src={img}
-                      alt={`${activeLocation.label} image ${idx + 1}`}
+                      alt={`${activeLocation.label} desktop image ${idx + 1}`}
                       className="w-full h-full object-cover transition-all duration-500"
                     />
                   </div>
@@ -131,7 +90,9 @@ const FacilityShowcase = () => {
         </TabsContent>
       </Tabs>
       <div className="flex justify-center mt-6 max-md:hidden">
-        <button className="btnPrimary">Book a Free Tour</button>
+        <Link to="https://join.evolvestrength.ca/tour-form/">
+          <button className="btnPrimary">BOOK A FREE TOUR</button>
+        </Link>
       </div>
 
       {/* Mobile Version */}
@@ -163,17 +124,17 @@ const FacilityShowcase = () => {
             </div>
             <div
               ref={tabBarRef}
-              className="overflow-x-auto rounded-[10px] border !scrollbar-none w-full py-2 "
+              className="overflow-x-auto rounded-[6px] border !scrollbar-none w-full py-2 "
               style={{ scrollSnapType: "x mandatory" }}
             >
               <div className="flex flex-row !scrollbar-none">
-                {locations.map((loc) => (
+                {facilityLocations.map((loc) => (
                   <button
                     key={loc.key}
                     onClick={() => setActiveTab(loc.key)}
-                    className={`min-w-[100px] w-[auto] max-w-[160px] px-2 py-2 rounded-[10px]  text-[14px] font-[500] transition-all duration-200 scroll-snap-align-start ${
+                    className={`min-w-[100px] w-[auto] max-w-[160px] px-2 py-2 rounded-[6px]  text-[14px] font-[500] transition-all duration-200 scroll-snap-align-start ${
                       activeTab === loc.key
-                        ? "bg-[#4AB04A] text-[#fff] text-[#4AB04A] "
+                        ? "bg-[#4AB04A] text-[#fff] "
                         : "bg-[#fff] text-[#1C1C1C]"
                     }`}
                     style={{ scrollSnapAlign: "start" }}
@@ -184,19 +145,19 @@ const FacilityShowcase = () => {
               </div>
             </div>
           </div>
-          <TabsContent value={activeTab} className="w-full mt-4 px-[8px]">
+          <TabsContent value={activeTab} className="w-full mt-4">
             <Carousel
               opts={{ align: "start" }}
               setApi={(api) => (carouselRef.current = api)}
               className="w-full"
             >
               <CarouselContent>
-                {activeLocation.images.map((img, idx) => (
+                {activeLocation.images.mobile.map((img, idx) => (
                   <CarouselItem key={idx} className="w-full">
-                    <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[10px]">
+                    <div className="relative w-full aspect-[4/3] overflow-hidden  ">
                       <img
                         src={img}
-                        alt={`${activeLocation.label} image ${idx + 1}`}
+                        alt={`${activeLocation.label} mobile image ${idx + 1}`}
                         className="w-full h-full object-cover transition-all duration-500"
                       />
                     </div>
@@ -209,7 +170,9 @@ const FacilityShowcase = () => {
           </TabsContent>
         </Tabs>
         <div className="flex justify-center mt-6 px-[16px] py-[17px]">
-          <button className="btnPrimary !py-[17px]">Book a Free Tour</button>
+          <Link to="https://join.evolvestrength.ca/tour-form/">
+            <button className="btnPrimary !py-[17px]">BOOK A FREE TOUR</button>
+          </Link>
         </div>
       </div>
     </div>

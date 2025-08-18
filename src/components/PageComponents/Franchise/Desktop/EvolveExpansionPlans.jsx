@@ -1,29 +1,108 @@
 import React, { useState } from "react";
 import LocationsHoverCard from "./LocationsHoverCard";
-import evolveLoctions from "../../../../assets/images/franchise/EvolveLocationPlans/evolve-locations.webp";
+
+import ES_1 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_1.webp";
+import ES_2 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_2.webp";
+import ES_3 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_3.webp";
+import ES_4 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_4.webp";
+import ES_5 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_5.webp";
+import ES_6 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_6.webp";
+
+import EN_1 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_1.webp";
+import EN_2 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_2.webp";
+import EN_3 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_3.webp";
+import EN_4 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_4.webp";
+import EN_5 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_5.webp";
+import EN_6 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_6.webp";
+
+import ED_1 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_1.webp";
+import ED_2 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_2.webp";
+import ED_3 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_3.webp";
+import ED_4 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_4.webp";
+import ED_5 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_5.webp";
+import ED_6 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_6.webp";
+
+import VP_1 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_1.webp";
+import VP_2 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_2.webp";
+import VP_3 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_3.webp";
+import VP_4 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_4.webp";
+import VP_5 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_5.webp";
+import VP_6 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_6.webp";
+
+import BB_1 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_1.webp";
+import BB_2 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_2.webp";
+import BB_3 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_3.webp";
+import BB_4 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_4.webp";
+import BB_5 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_5.webp";
+import BB_6 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_6.webp";
+
+import CSe_1 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_1.webp";
+import CSe_2 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_2.webp";
+import CSe_3 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_3.webp";
+import CSe_4 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_4.webp";
+import CSe_5 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_5.webp";
+import CSe_6 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_6.webp";
+
+import CRO_1 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_1.webp";
+import CRO_2 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_2.webp";
+import CRO_3 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_3.webp";
+import CRO_4 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_4.webp";
+import CRO_5 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_5.webp";
+import CRO_6 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_6.webp";
+
+import CSun_1 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_1.webp";
+import CSun_2 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_2.webp";
+import CSun_3 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_3.webp";
+import CSun_4 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_4.webp";
+import CSun_5 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_5.webp";
+import CSun_6 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_6.webp";
 
 function EvolveExpansionPlans() {
   const [hoveredProvince, setHoveredProvince] = useState(null);
+  const [clickedProvince, setClickedProvince] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const provinces = {
-    britishColumbia: {
-      name: "Edmonton South",
-      image: evolveLoctions,
+    vancouverPost: {
+      name: "VANCOUVER POST",
+      images: [VP_1, VP_2, VP_3, VP_4, VP_5, VP_6],
+      address: "654 West Georgia St, Vancouver, BC, V6B 1N2",
+    },
+    burnabyBrentwood: {
+      name: "BURNABY BRENTWOOD",
+      images: [BB_1, BB_2, BB_3, BB_4, BB_5, BB_6],
+      address: "4567 Lougheed Hwy, Burnaby, BC, V5C 3Z6",
+    },
+    edmontonSouth: {
+      name: "EDMONTON SOUTH",
+      images: [ES_1, ES_2, ES_3, ES_4, ES_5, ES_6],
       address: "4825 89 St NW, Edmonton, Alberta, T6E 5K1",
-      
     },
-    saskatchewan: {
-      name: "Saskatchewan Club",
-      image: evolveLoctions,
-      address: "123 Main St, Regina, Saskatchewan, S4P 3X1",
-      
+    edmontonDowntown: {
+      name: "EDMONTON DOWNTOWN",
+      images: [ED_1, ED_2, ED_3, ED_4, ED_5, ED_6],
+      address: "123 Jasper Ave NW, Edmonton, Alberta, T5J 0R2",
     },
-    ontario: {
-      name: "Toronto Downtown",
-      image: evolveLoctions,
-      address: "456 King St W, Toronto, Ontario, M5V 1L7",
-     
+    edmontonNorth: {
+      name: "EDMONTON NORTH",
+      images: [EN_1, EN_2, EN_3, EN_4, EN_5, EN_6],
+      address: "789 137 Ave NW, Edmonton, Alberta, T5E 6R8",
+    },
+    calgaryRoyalOak: {
+      name: "CALGARY ROYAL OAK",
+      images: [CRO_1, CRO_2, CRO_3, CRO_4, CRO_5, CRO_6],
+      address: "456 Royal Oak Dr NW, Calgary, Alberta, T3G 5K3",
+    },
+    calgarySeton: {
+      name: "CALGARY SETON",
+      images: [CSe_1, CSe_2, CSe_3, CSe_4, CSe_5, CSe_6],
+      address: "789 Seton Blvd SE, Calgary, Alberta, T3M 1M9",
+    },
+
+    calgarySunridge: {
+      name: "CALGARY SUNRIDGE",
+      images: [CSun_1, CSun_2, CSun_3, CSun_4, CSun_5, CSun_6],
+      address: "321 32 St NE, Calgary, Alberta, T1Y 6J8",
     },
   };
 
@@ -38,6 +117,11 @@ function EvolveExpansionPlans() {
   const handleProvinceLeave = () => {
     setHoveredProvince(null);
   };
+
+  const handleProvinceClick = (provinceKey) => {
+    setClickedProvince(clickedProvince === provinceKey ? null : provinceKey);
+  };
+
   return (
     <div className="w-full max-w-[1280px] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-8 md:gap-16">
       <h2 className="text-center text-[#000] uppercase ">
@@ -160,76 +244,186 @@ function EvolveExpansionPlans() {
                     </clipPath>
                   </defs>
                 </svg>
-                {/* British Columbia */}
+                {/* vancouverPost */}
                 <div
-                  className="absolute left-[0.0%] top-[40.7%] z-10 w-[19.39%] h-[39.3%] cursor-pointer transition-all duration-200 hover:scale-105"
-                  onMouseEnter={() => handleProvinceHover("britishColumbia")}
+                  className="absolute left-[6.5%] top-[50.3%] z-10 w-[20px] md:w-[30px] h-[20px] md:h-[26px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  onMouseEnter={() => handleProvinceHover("vancouverPost")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
+                  onClick={() => handleProvinceClick("vancouverPost")}
                 >
                   <svg
-                    viewBox="0 0 121 209"
-                    fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-full h-full"
+                    // width="30"
+                    // height="26"
+                    viewBox="0 0 30 26"
+                    fill="none"
                   >
                     <path
-                      d="M117.865 61.5081L88.1826 133.99L88.5399 133.77L90.1998 135.433L91.5715 136.334L89.0471 137.763L91.9635 141.243L91.4228 142.127L94.3623 143.588L93.2447 145.922L96.4735 149.982L96.2199 154.906L98.2901 156.367L98.3656 159.416L99.8584 160.138L101.951 163.185L102.02 166.506L104.682 167.246L104.469 172.299L106.538 176.215L107.962 178.6L107.351 180.985L109.927 185.386L112.486 188.343L111.87 193.905L110.123 200.622L112.394 205.023L112.682 208.488L94.5225 202.428L77.52 196.075L56.1948 187.412L43.2959 181.204L43.3806 180.984L43.421 180.268L42.0723 180.77L38.6142 179.615L39.7669 177.594L39.4787 174.417L37.4615 173.262L36.8851 169.797L38.0378 169.508L37.7496 167.198L34.8679 166.621L33.427 161.712L34.8679 161.134V158.824L31.4097 154.492H30.257L25.358 151.316L27.9516 148.428L23.3407 143.519L21.6117 144.674L19.018 138.61L23.6289 134.278L21.6117 133.701L22.7644 129.658L31.4097 127.637V124.749L24.7816 125.326L23.3407 121.284L24.7816 120.417L26.5107 118.396L25.6461 117.241L25.9343 113.487L25.358 109.155L30.8351 104.824L25.3597 103.957L23.6306 106.556L22.7661 106.268L21.9016 97.3157L22.7661 95.8718L21.3252 92.4066L29.6824 86.6312V84.8985L31.4114 83.4547L33.7169 77.968L36.0223 76.8129L36.5986 74.214L34.5814 72.7702L34.005 69.8824L30.5469 63.5295L29.106 62.6632L29.6824 60.6418L29.106 58.6204L30.8351 56.8878L29.6824 55.4439L31.6996 54.0001L32.5641 38.1177L33.1405 37.2514L31.6996 28.0107L32.8523 26.5669L31.6996 23.3904L31.1233 20.7915H32.276L31.9878 16.1711L26.8006 14.7273L24.7833 15.5936L23.3424 17.9038L21.6134 17.615L20.4607 17.0374L15.8498 16.7487L17.5789 12.9947L16.4262 0L16.7143 0.254101V0.288744L30.9792 11.9839L51.8721 26.5669L71.4682 38.4065L96.8279 51.4012L120.232 61.8489L120.209 61.9089L118.441 61.2193L118.297 61.6698L117.865 61.5081ZM32.5642 167.776L35.4459 172.107L36.3105 169.797L33.1405 165.177L32.5642 167.776ZM29.9706 168.353L29.6824 156.225L25.0081 151.674L19.5961 146.407L18.1552 142.941L14.1207 139.476L12.1035 139.765L11.2389 142.075L12.968 144.963H16.4262L16.138 146.407L13.5444 146.695L11.8153 149.294L15.8498 152.76L14.9853 153.337L16.138 155.647L18.4434 156.225L18.7316 160.556H17.5789L17.2907 161.712L18.1552 163.733H20.1725L21.037 168.353L20.1725 169.508L22.1897 172.685L24.7833 172.107L25.0715 173.551L23.9188 175.284L28.8178 181.925L32.8523 184.236L34.5814 181.059L35.1578 174.417L34.1434 173.228L29.9706 168.353ZM23.0543 126.77V128.214L29.9706 127.348L29.6824 125.904L23.0543 126.77ZM25.9361 105.112L25.0715 106.845L28.2415 105.401L25.9361 105.112ZM20.1725 113.776L20.4607 115.797L22.4779 119.551L25.3597 114.642L23.9188 109.733L20.1725 113.776ZM19.5961 98.7595L20.7488 107.711L21.6134 105.69L20.4607 98.182L19.5961 98.7595ZM19.0198 95.583H16.7143L18.7316 98.182L20.4607 97.0269L19.0198 95.583ZM18.1552 114.642L17.2907 117.818H19.5961L19.8843 114.931L18.1552 114.642ZM17.2907 100.203L15.5616 101.936L17.5789 107.134L19.0198 105.69L17.8671 101.647L17.2907 100.203ZM14.9853 158.535L17.5789 160.268L17.0025 156.514L14.9853 158.535ZM4.32268 91.829L4.61085 91.2515L7.7808 90.9627L8.93353 89.2301L8.06899 87.2087L6.6281 86.6312L6.33993 84.6098L5.1872 83.4547L2.30543 87.2087L1.44089 89.5189L0 90.9627L1.44089 92.4066L0.864538 97.3157L4.89904 97.6044L7.49264 94.1392L13.2562 89.8076L9.79807 88.9413L7.49264 92.6953L4.32268 91.829ZM3.16995 107.134L2.30543 104.246L3.74631 100.492L6.91628 100.203L5.47539 98.182L0.288184 98.4707L0.576352 99.3371V103.091L2.01725 113.198L4.03449 113.487V112.043L3.16995 111.465V107.134Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M117.865 61.5081L88.1826 133.99L88.5399 133.77L90.1998 135.433L91.5715 136.334L89.0471 137.763L91.9635 141.243L91.4228 142.127L94.3623 143.588L93.2447 145.922L96.4735 149.982L96.2199 154.906L98.2901 156.367L98.3656 159.416L99.8584 160.138L101.951 163.185L102.02 166.506L104.682 167.246L104.469 172.299L106.538 176.215L107.962 178.6L107.351 180.985L109.927 185.386L112.486 188.343L111.87 193.905L110.123 200.622L112.394 205.023L112.682 208.488L94.5225 202.428L77.52 196.075L56.1948 187.412L43.2959 181.204L43.3806 180.984L43.421 180.268L42.0723 180.77L38.6142 179.615L39.7669 177.594L39.4787 174.417L37.4615 173.262L36.8851 169.797L38.0378 169.508L37.7496 167.198L34.8679 166.621L33.427 161.712L34.8679 161.134V158.824L31.4097 154.492H30.257L25.358 151.316L27.9516 148.428L23.3407 143.519L21.6117 144.674L19.018 138.61L23.6289 134.278L21.6117 133.701L22.7644 129.658L31.4097 127.637V124.749L24.7816 125.326L23.3407 121.284L24.7816 120.417L26.5107 118.396L25.6461 117.241L25.9343 113.487L25.358 109.155L30.8351 104.824L25.3597 103.957L23.6306 106.556L22.7661 106.268L21.9016 97.3157L22.7661 95.8718L21.3252 92.4066L29.6824 86.6312V84.8985L31.4114 83.4547L33.7169 77.968L36.0223 76.8129L36.5986 74.214L34.5814 72.7702L34.005 69.8824L30.5469 63.5295L29.106 62.6632L29.6824 60.6418L29.106 58.6204L30.8351 56.8878L29.6824 55.4439L31.6996 54.0001L32.5641 38.1177L33.1405 37.2514L31.6996 28.0107L32.8523 26.5669L31.6996 23.3904L31.1233 20.7915H32.276L31.9878 16.1711L26.8006 14.7273L24.7833 15.5936L23.3424 17.9038L21.6134 17.615L20.4607 17.0374L15.8498 16.7487L17.5789 12.9947L16.4262 0L16.7143 0.254101V0.288744L30.9792 11.9839L51.8721 26.5669L71.4682 38.4065L96.8279 51.4012L120.232 61.8489L120.209 61.9089L118.441 61.2193L118.297 61.6698L117.865 61.5081ZM32.5642 167.776L35.4459 172.107L36.3105 169.797L33.1405 165.177L32.5642 167.776ZM29.9706 168.353L29.6824 156.225L25.0081 151.674L19.5961 146.407L18.1552 142.941L14.1207 139.476L12.1035 139.765L11.2389 142.075L12.968 144.963H16.4262L16.138 146.407L13.5444 146.695L11.8153 149.294L15.8498 152.76L14.9853 153.337L16.138 155.647L18.4434 156.225L18.7316 160.556H17.5789L17.2907 161.712L18.1552 163.733H20.1725L21.037 168.353L20.1725 169.508L22.1897 172.685L24.7833 172.107L25.0715 173.551L23.9188 175.284L28.8178 181.925L32.8523 184.236L34.5814 181.059L35.1578 174.417L34.1434 173.228L29.9706 168.353ZM23.0543 126.77V128.214L29.9706 127.348L29.6824 125.904L23.0543 126.77ZM25.9361 105.112L25.0715 106.845L28.2415 105.401L25.9361 105.112ZM20.1725 113.776L20.4607 115.797L22.4779 119.551L25.3597 114.642L23.9188 109.733L20.1725 113.776ZM19.5961 98.7595L20.7488 107.711L21.6134 105.69L20.4607 98.182L19.5961 98.7595ZM19.0198 95.583H16.7143L18.7316 98.182L20.4607 97.0269L19.0198 95.583ZM18.1552 114.642L17.2907 117.818H19.5961L19.8843 114.931L18.1552 114.642ZM17.2907 100.203L15.5616 101.936L17.5789 107.134L19.0198 105.69L17.8671 101.647L17.2907 100.203ZM14.9853 158.535L17.5789 160.268L17.0025 156.514L14.9853 158.535ZM4.32268 91.829L4.61085 91.2515L7.7808 90.9627L8.93353 89.2301L8.06899 87.2087L6.6281 86.6312L6.33993 84.6098L5.1872 83.4547L2.30543 87.2087L1.44089 89.5189L0 90.9627L1.44089 92.4066L0.864538 97.3157L4.89904 97.6044L7.49264 94.1392L13.2562 89.8076L9.79807 88.9413L7.49264 92.6953L4.32268 91.829ZM3.16995 107.134L2.30543 104.246L3.74631 100.492L6.91628 100.203L5.47539 98.182L0.288184 98.4707L0.576352 99.3371V103.091L2.01725 113.198L4.03449 113.487V112.043L3.16995 111.465V107.134Z"
+                      d="M1 18.6106L17.665 1L26.0566 3.12745L29.2478 2.06373L27.5931 5.96405V10.6917L26.884 16.4831V22.8655L27.5931 24.7565L1 24.1656V18.6106Z"
                       fill="#4AB04A"
+                      stroke="white"
+                      stroke-width="0.5"
+                    />
+                  </svg>
+                </div>
+                 {/* burnabyBrentwood */}
+                <div
+                  className="absolute left-[10%] top-[57.3%] z-10 w-[18px] md:w-[31px] h-[16px] md:h-[19px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  onMouseEnter={() => handleProvinceHover("burnabyBrentwood")}
+                  onMouseLeave={handleProvinceLeave}
+                  onMouseMove={handleMouseMove}
+                  onClick={() => handleProvinceClick("burnabyBrentwood")}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    // width="31"
+                    // height="19"
+                    viewBox="0 0 31 19"
+                    fill="none"
+                  >
+                    <path
+                      d="M1 17.9014V1L30.1934 2.06373V18.4924H22.9837L18.3742 16.8377H9.5098L1 17.9014Z"
+                      fill="#4AB04A"
+                      stroke="white"
+                      stroke-width="0.5"
+                    />
+                  </svg>
+                </div>
+
+                {/*  */}
+
+                {/* edmontonSouth */}
+                <div
+                  className="absolute left-[28.6%] top-[58%] z-10 w-[16px] md:w-[21px] h-[14px] md:h-[16px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  onMouseEnter={() => handleProvinceHover("edmontonSouth")}
+                  onMouseLeave={handleProvinceLeave}
+                  onMouseMove={handleMouseMove}
+                  onClick={() => handleProvinceClick("edmontonSouth")}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    // width="21"
+                    // height="16"
+                    viewBox="0 0 21 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M15.5584 4.13901L12.1656 1L2.78896 9.287L1 13.4933L1.74026 13.87L6.7987 15L15.5584 11.6726L20 11.9865L19.6299 11.2332L16.1136 5.52018L15.5584 4.13901Z"
+                      fill="#4AB04A"
+                      stroke="white"
+                      stroke-width="0.5"
+                    />
+                  </svg>
+                </div>
+                {/* edmontonDowntown */}
+                <div
+                  className="absolute left-[30.7%] md:left-[30%] top-[61.8%] md:top-[60.5%] z-10 w-[19px] md:w-[33px] h-[18px] md:h-[23px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  onMouseEnter={() => handleProvinceHover("edmontonDowntown")}
+                  onMouseLeave={handleProvinceLeave}
+                  onMouseMove={handleMouseMove}
+                  onClick={() => handleProvinceClick("edmontonDowntown")}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    // width="33"
+                    // height="23"
+                    viewBox="0 0 33 23"
+                    fill="none"
+                  >
+                    <path
+                      d="M1 12.2861V4.48128V3.63904L7.11605 1.5615L11.1335 2.06684L11.6731 1L17.9091 1.5615L18.5087 1H22.1663H25.764H26.9033H28.942L29.4816 4.48128L32 8.29947H31.1006H27.8627C27.1032 8.54278 25.848 9.16417 26.9033 9.70321C28.2224 10.377 28.4023 14.2513 27.383 12.9599C26.5675 11.9267 24.325 12.5294 23.3056 12.9599C23.1857 14.1765 22.7899 16.5198 22.1663 16.1604C21.3868 15.7112 18.5087 14.5321 16.7099 14.869C14.911 15.2059 14.8511 12.6791 13.0522 12.9599C11.2534 13.2406 10.7737 14.5882 11.1335 15.5428C11.4932 16.4973 12.9923 17.6765 13.8917 18.2941C14.6112 18.7882 13.5919 20.3717 12.9923 21.1016L9.51451 22L8.49516 20.4278L6.69632 19.9225H1V13.2968V12.2861Z"
+                      fill="#4AB04A"
+                      stroke="white"
+                      stroke-width="0.5"
+                    />
+                  </svg>
+                </div>
+                {/* edmontonNorth */}
+                <div
+                  className="absolute left-[32.8%] top-[65%] md:top-[63.5%] z-10 w-[10px] md:w-[14px] h-[16px] md:h-[19px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  onMouseEnter={() => handleProvinceHover("edmontonNorth")}
+                  onMouseLeave={handleProvinceLeave}
+                  onMouseMove={handleMouseMove}
+                  onClick={() => handleProvinceClick("edmontonNorth")}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    // width="14"
+                    // height="19"
+                    viewBox="0 0 14 19"
+                    fill="none"
+                  >
+                    <path
+                      d="M13 16.4657V1H11.1495L10.3645 3.02527V7.01444H4.14019H1.78505V11.3105L1 12.8448V17.3863L4.14019 18H6.49533L10.3645 16.8953L13 16.4657Z"
+                      fill="#4AB04A"
+                      stroke="white"
+                      stroke-width="0.5"
                     />
                   </svg>
                 </div>
                 {/*  */}
 
-                {/* Saskatchewan */}
+                {/* calgarySeton */}
                 <div
-                  className="absolute left-[23.6%] top-[56.2%] z-10 w-[13.24%] h-[28%] cursor-pointer transition-all duration-200 hover:scale-105"
-                  onMouseEnter={() => handleProvinceHover("saskatchewan")}
+                  className="absolute left-[49.3%] top-[69.2%] z-10 w-[26px] h-[22px] md:w-[42px] md:h-[35px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  onMouseEnter={() => handleProvinceHover("calgarySeton")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
+                  onClick={() => handleProvinceClick("calgarySeton")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 83 149"
+                    viewBox="0 0 42 35"
                     fill="none"
-                    className="w-full h-full"
                   >
                     <path
-                      d="M32.8866 0.648438L55.6527 5.26877L74.9606 8.15647L82.1651 8.73402L79.4793 31.98L79.8596 32.1244L78.5456 40.1759L76.4015 58.6913L72.367 148.788L57.0936 147.055L44.7019 145.322L29.1403 142.724L12.7141 139.547L0.0976562 136.677L30.0048 12.488L30.3276 8.98871L30.8693 8.73402L32.7425 1.19189L32.8866 0.937225V0.648438Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M32.8866 0.648438L55.6527 5.26877L74.9606 8.15647L82.1651 8.73402L79.4793 31.98L79.8596 32.1244L78.5456 40.1759L76.4015 58.6913L72.367 148.788L57.0936 147.055L44.7019 145.322L29.1403 142.724L12.7141 139.547L0.0976562 136.677L30.0048 12.488L30.3276 8.98871L30.8693 8.73402L32.7425 1.19189L32.8866 0.937225V0.648438Z"
+                      d="M4.79678 27.3244L1 25.6369V6.65299H7.74984L8.67794 7.91858L9.77479 6.65299H21.0808V1H41.3303V25.6369H29.3493L26.7338 30.3618H17.6215L15.934 32.0493L13.0653 34.0742L7.74984 30.3618L4.79678 27.3244Z"
                       fill="#4AB04A"
+                      stroke="white"
+                      stroke-width="0.5"
                     />
                   </svg>
                 </div>
-                {/*  */}
-
-                {/* Ontario */}
+                {/* calgarySunridge */}
                 <div
-                  className="absolute left-[43.5%] top-[65.2%] z-10 w-[30.5%] h-[34.5%] cursor-pointer transition-all duration-200 hover:scale-105"
-                  onMouseEnter={() => handleProvinceHover("ontario")}
+                  className="absolute left-[55.5%] md:left-[55%] top-[74.8%] md:top-[74.4%] z-10 w-[11px] h-[11px] md:w-[17px] md:h-[24px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  onMouseEnter={() => handleProvinceHover("calgarySunridge")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
+                  onClick={() => handleProvinceClick("calgarySunridge")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 190 184"
+                    viewBox="0 0 17 24"
                     fill="none"
-                    className="w-full h-full"
                   >
                     <path
-                      d="M43.6262 0.507812L43.4472 0.779657L43.3876 0.611591L43.3223 0.559702L43.1185 0.831546L43.3223 0.848467L43.0859 1.1722L13.6399 40.1213L0.96007 53.4047L0.671875 98.5624H0.687617L0.671875 98.7067V98.7417L0.739421 98.7293L3.77318 99.6542L4.70639 105.961L6.43545 107.116L10.7581 107.405L12.199 108.56L13.9281 108.849L16.8099 107.405L21.1326 107.982L24.8789 111.736L24.5907 112.603L27.4725 110.87L31.507 114.047L34.3887 114.335L37.8469 111.448H38.7114L39.8641 113.18H45.3395L46.4922 114.047L48.8877 113.862L49.9335 113.978L49.8964 113.78V113.775L50.2386 113.758L51.1031 112.025L51.3913 110.004L53.4085 107.982L54.5612 109.426L55.7139 108.56L57.1548 103.651L58.3075 103.94L57.1548 107.694L60.0366 103.362L59.1721 101.629L59.7484 100.763L64.3593 102.785L72.4283 102.207L75.8864 103.94L76.1746 105.672L81.3618 111.448H85.6845L89.4308 110.581V114.047L93.4653 118.378L92.3126 121.843L95.4826 122.998L95.1944 125.886L94.618 127.619L98.3643 127.33L103.552 129.929L106.145 129.063H112.773L121.707 128.485L122.859 129.64H126.894L129.199 127.619L135.251 133.972L137.845 135.416L138.133 136.571L142.456 141.48L141.015 145.811L138.133 146.1L134.963 144.079H132.369L130.64 141.48L127.47 138.592L124.3 139.458L128.623 144.367L129.199 148.121L126.606 151.298L128.335 164.581L123.724 168.913L123.436 173.533L123.724 177.865L118.537 180.464L119.978 183.64H125.165L125.453 181.619L129.488 178.442L130.64 178.154L132.658 174.111L134.675 171.512L144.185 170.934L146.202 169.779L143.897 169.202V168.047L146.49 167.18L153.983 164.004H156.288L156.369 163.756L156.576 164.293L156.805 162.445L156.865 162.271L156.829 162.236L156.865 161.982L156 161.405L154.271 158.228L154.499 158.835L152.254 159.961L148.219 160.827L146.49 159.672L149.372 155.052L152.254 151.587L162.34 146.389L164.934 145.811L165.222 146.389L169.256 145.523L171.273 144.079L168.68 142.924L169.256 142.057H170.697L172.714 140.036L173.919 139.06L175.18 138.933L175.577 138.759L175.503 138.748L175.577 138.756L177.899 137.728L179.628 134.552L179.917 132.819L181.357 131.086L184.527 126.177L186.9 125.201L189.102 124.753L189.14 124.731L189.077 124.472L187.988 120.111L187.411 117.512L183.089 117.223L175.02 122.998L172.948 124.137L171.306 124.622L167.815 123.865L166.086 120.688L162.34 121.266L158.017 118.378L148.507 118.667L143.032 115.49L138.133 110.581L136.116 105.672L123.851 60.0758L120.554 60.624L115.943 57.7363L110.756 52.5384L109.603 52.8272L106.145 48.7844L100.382 43.009H98.6525L98.9407 37.5224L97.2116 32.0357L94.618 25.394V20.7736L95.7707 20.1961L93.7535 15.287L92.6008 16.4421H90.0072L86.549 15.5758L86.2608 15.8646L72.4283 17.0196L65.8002 13.2656L64.3593 13.5544L59.4603 11.2442H56.0021L53.1203 10.3779L52.8322 9.22282L49.0858 4.31372L43.8525 1.03348L43.8446 0.7966L43.6262 0.507812ZM119.978 130.506L118.537 131.373L115.367 131.662L114.214 132.817H109.315L109.603 134.26H114.502L121.419 135.993L122.859 134.549L122.571 131.084L121.13 131.662L119.978 130.506Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M43.6262 0.507812L43.4472 0.779657L43.3876 0.611591L43.3223 0.559702L43.1185 0.831546L43.3223 0.848467L43.0859 1.1722L13.6399 40.1213L0.96007 53.4047L0.671875 98.5624H0.687617L0.671875 98.7067V98.7417L0.739421 98.7293L3.77318 99.6542L4.70639 105.961L6.43545 107.116L10.7581 107.405L12.199 108.56L13.9281 108.849L16.8099 107.405L21.1326 107.982L24.8789 111.736L24.5907 112.603L27.4725 110.87L31.507 114.047L34.3887 114.335L37.8469 111.448H38.7114L39.8641 113.18H45.3395L46.4922 114.047L48.8877 113.862L49.9335 113.978L49.8964 113.78V113.775L50.2386 113.758L51.1031 112.025L51.3913 110.004L53.4085 107.982L54.5612 109.426L55.7139 108.56L57.1548 103.651L58.3075 103.94L57.1548 107.694L60.0366 103.362L59.1721 101.629L59.7484 100.763L64.3593 102.785L72.4283 102.207L75.8864 103.94L76.1746 105.672L81.3618 111.448H85.6845L89.4308 110.581V114.047L93.4653 118.378L92.3126 121.843L95.4826 122.998L95.1944 125.886L94.618 127.619L98.3643 127.33L103.552 129.929L106.145 129.063H112.773L121.707 128.485L122.859 129.64H126.894L129.199 127.619L135.251 133.972L137.845 135.416L138.133 136.571L142.456 141.48L141.015 145.811L138.133 146.1L134.963 144.079H132.369L130.64 141.48L127.47 138.592L124.3 139.458L128.623 144.367L129.199 148.121L126.606 151.298L128.335 164.581L123.724 168.913L123.436 173.533L123.724 177.865L118.537 180.464L119.978 183.64H125.165L125.453 181.619L129.488 178.442L130.64 178.154L132.658 174.111L134.675 171.512L144.185 170.934L146.202 169.779L143.897 169.202V168.047L146.49 167.18L153.983 164.004H156.288L156.369 163.756L156.576 164.293L156.805 162.445L156.865 162.271L156.829 162.236L156.865 161.982L156 161.405L154.271 158.228L154.499 158.835L152.254 159.961L148.219 160.827L146.49 159.672L149.372 155.052L152.254 151.587L162.34 146.389L164.934 145.811L165.222 146.389L169.256 145.523L171.273 144.079L168.68 142.924L169.256 142.057H170.697L172.714 140.036L173.919 139.06L175.18 138.933L175.577 138.759L175.503 138.748L175.577 138.756L177.899 137.728L179.628 134.552L179.917 132.819L181.357 131.086L184.527 126.177L186.9 125.201L189.102 124.753L189.14 124.731L189.077 124.472L187.988 120.111L187.411 117.512L183.089 117.223L175.02 122.998L172.948 124.137L171.306 124.622L167.815 123.865L166.086 120.688L162.34 121.266L158.017 118.378L148.507 118.667L143.032 115.49L138.133 110.581L136.116 105.672L123.851 60.0758L120.554 60.624L115.943 57.7363L110.756 52.5384L109.603 52.8272L106.145 48.7844L100.382 43.009H98.6525L98.9407 37.5224L97.2116 32.0357L94.618 25.394V20.7736L95.7707 20.1961L93.7535 15.287L92.6008 16.4421H90.0072L86.549 15.5758L86.2608 15.8646L72.4283 17.0196L65.8002 13.2656L64.3593 13.5544L59.4603 11.2442H56.0021L53.1203 10.3779L52.8322 9.22282L49.0858 4.31372L43.8525 1.03348L43.8446 0.7966L43.6262 0.507812ZM119.978 130.506L118.537 131.373L115.367 131.662L114.214 132.817H109.315L109.603 134.26H114.502L121.419 135.993L122.859 134.549L122.571 131.084L121.13 131.662L119.978 130.506Z"
+                      d="M16.2715 4.20617V22.7682H2.68746V20.7433L1.75936 18.7183L1 15.0059V9.85916L6.14675 3.27807L6.90611 1.42186H14.584L16.2715 1C16.2715 1 17.0027 3.22182 16.2715 4.20617Z"
                       fill="#4AB04A"
+                      stroke="white"
+                      stroke-width="0.5"
+                    />
+                  </svg>
+                </div>
+                {/* calgaryRoyalOak */}
+                <div
+                  className="absolute left-[56.8%] md:left-[56.6%] top-[79.9%] md:top-[79.5%] z-10 w-[14px] h-[15px] md:w-[17px] md:h-[15px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  onMouseEnter={() => handleProvinceHover("calgaryRoyalOak")}
+                  onMouseLeave={handleProvinceLeave}
+                  onMouseMove={handleMouseMove}
+                  onClick={() => handleProvinceClick("calgaryRoyalOak")}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 17 15"
+                    fill="none"
+                  >
+                    <path
+                      d="M5.83856 1.33749L1.0293 2.60309L3.13862 7.2436V9.18418L2.04177 11.4622L4.23547 13.7403L5.66981 12.2216L9.46659 11.8841L11.2384 10.3654L15.8789 11.2091V1H9.80409L8.53849 1.33749H5.83856Z"
+                      fill="#4AB04A"
+                      stroke="white"
+                      stroke-width="0.5"
                     />
                   </svg>
                 </div>
@@ -237,13 +431,17 @@ function EvolveExpansionPlans() {
             </>
           </div>
 
-          {hoveredProvince && provinces[hoveredProvince] && (
-            <LocationsHoverCard
-              show={!!hoveredProvince}
-              mousePosition={mousePosition}
-              data={provinces[hoveredProvince]}
-            />
-          )}
+          {(hoveredProvince || clickedProvince) &&
+            provinces[hoveredProvince || clickedProvince] && (
+              <LocationsHoverCard
+                show={!!(hoveredProvince || clickedProvince)}
+                mousePosition={mousePosition}
+                data={provinces[hoveredProvince || clickedProvince]}
+                onClose={
+                  clickedProvince ? () => setClickedProvince(null) : undefined
+                }
+              />
+            )}
         </div>
         <div className="w-[100%] md:w-[40%]">
           <div className="flex flex-col gap-8 max-w-[493px] border border-[#CCCCCC] bg-[#F6F6F6] px-8 py-12 rounded-[10px]">

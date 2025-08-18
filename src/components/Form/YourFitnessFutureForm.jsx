@@ -3,6 +3,11 @@ import locationImg from "../../assets/images/form/future-form.webp";
 import arrowUp from "../../assets/images/form/arrow-down (2).svg";
 import arrowDown from "../../assets/images/form/arrow-down (1).svg";
 import { Link } from "react-router-dom";
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import SuccessFullScreen from "../ui/SuccessFullScreen";
+import { ArrowLeft } from "lucide-react";
+import FormsHeader from "../ui/FormsHeader";
 
 const initialState = {
   firstName: "",
@@ -36,10 +41,11 @@ const franchiseExperienceOptions = ["None", "Some", "Extensive"];
 const bankruptcyOptions = ["Yes", "No"];
 const isMemberOptions = ["Yes", "No"];
 
-function YourFitnessFutureForm({ onReturnHome }) {
+function YourFitnessFutureForm() {
   const [form, setForm] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [businessFocused, setBusinessFocused] = useState(false);
   const [liquidFocused, setLiquidFocused] = useState(false);
   const [franchiseFocused, setFranchiseFocused] = useState(false);
@@ -69,46 +75,116 @@ function YourFitnessFutureForm({ onReturnHome }) {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length === 0) {
-      setSubmitted(true);
-      // Submit logic here
+      try {
+        setIsSubmitting(true);
+        const formData = {
+          fields: [
+            { name: "firstname", value: form.firstName },
+            { name: "lastname", value: form.lastName },
+            { name: "email", value: form.email },
+            { name: "phone", value: form.phone },
+            { name: "address", value: form.address },
+            { name: "city", value: form.city },
+            { name: "state", value: form.province },
+            { name: "business_experience", value: form.businessExperience },
+            { name: "available_liquid_capital", value: form.liquidCapital },
+            {
+              name: "previous_franchise_experience",
+              value: form.franchiseExperience,
+            },
+            {
+              name: "have_you_ever_declared_bankruptcy_or_been_involved_in_litigation_",
+              value: form.bankruptcy,
+            },
+            { name: "are_you_a_current_evolve_member_", value: form.isMember },
+            { name: "tell_us_about_yourself", value: form.about },
+          ],
+          context: {
+            pageUri: window.location.href,
+            pageName: "Franchise Form",
+          },
+        };
+
+        const response = await fetch(
+          "https://api.hsforms.com/submissions/v3/integration/submit/342148198/2df02615-f490-435e-abb4-a44270f455a5",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+          }
+        );
+
+        if (response.ok) {
+          setSubmitted(true);
+        } else {
+          alert("There was an error submitting your form. Please try again.");
+        }
+      } catch {
+        alert("There was an error submitting your form. Please try again.");
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
   return (
-    <div className="flex md:gap-12 md:p-6 p-4 py-12  flex-col md:flex-row max-w-[1280px] mx-auto justify-center  min-h-screen">
-      {/* Left Image & Headline */}
-      <div className="w-full md:max-w-[40%] flex-shrink-0 flex flex-col">
-        <h2 className=" font-[700] leading-[39px] mb-4">
-          LET'S BUILD YOUR FITNESS FUTURE TOGETHER
-        </h2>
-        <p className="mb-6 text-[16px] font-[300] !font-[Kanit] leading-[24px] ">
-          Have questions or ready to take the first step? Reach out today and
-          let's create a personalized path to your health, strength, and
-          recovery goals—designed just for you.
-        </p>
-        <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white max-md:hidden">
-          <img
-            src={locationImg}
-            alt="Fitness Facility"
-            className="object-cover w-full h-auto"
-          />
-        </div>
-      </div>
-      {/* Right Form */}
-      <div className="bg-[#FCFCFC] rounded-[10px] border md:max-w-[40%] w-full p-0 overflow-hidden">
-        {/* <div className="bg-[#000] text-white text-center py-4 px-6">
-          <h3 className="mt-[4px]">APPLY NOW</h3>
-        </div> */}
-        {submitted ? (
-          <div className="text-[#4AB04A] text-lg text-center py-12">
-            Thank you for your application!
+    <>
+      <MetaTags
+        title="Franchise Inquiry | Start Your Evolve Strength Ownership Journey"
+        description="Ready to own an Evolve Strength franchise? Fill out the form to connect with our team. We'll help you take the first step toward building your fitness business."
+      />
+
+      {/* Form Header */}
+      <FormsHeader />
+
+      {/* Success Screen Full Screen Overlay */}
+      {submitted && (
+        <SuccessFullScreen
+          title="LET'S OWN A PIECE OF STRENGTH"
+          description="Thank you for your franchise application! We've received your information and our team will be in touch with you soon to discuss the next steps in your Evolve Strength ownership journey."
+          buttonText="BACK TO HOME"
+          buttonLink="/"
+          icon="trophy"
+        />
+      )}
+
+      <div className="flex md:gap-12 md:p-6 p-4 py-12 flex-col md:flex-row max-w-[1280px] mx-auto justify-center min-h-screen">
+        {/* Left Image & Headline */}
+        <div className="w-full md:max-w-[40%] flex-shrink-0 flex flex-col">
+          {/* Back Button */}
+          <Link
+            to="/franchise"
+            className="flex items-center gap-2 mb-6 text-black hover:text-gray-700 transition-colors"
+          >
+            <div className="w-8 h-8 rounded-full border border-black flex items-center justify-center">
+              <ArrowLeft className="w-4 h-4" />
+            </div>
+            <span className="font-medium">Back</span>
+          </Link>
+
+          <h2 className="font-[700] leading-[39px] mb-4">
+            LET'S BUILD YOUR FITNESS FUTURE TOGETHER
+          </h2>
+          <p className="mb-6 text-[16px] font-[300] !font-[Kanit] leading-[24px]">
+            Have questions or ready to take the first step? Reach out today and
+            let's create a personalized path to your health, strength, and
+            recovery goals—designed just for you.
+          </p>
+          <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white max-md:hidden">
+            <img
+              src={locationImg}
+              alt="Fitness Facility"
+              className="object-cover w-full h-auto"
+            />
           </div>
-        ) : (
+        </div>
+        {/* Right Form */}
+        <div className="bg-[#FCFCFC] rounded-[10px] border md:max-w-[40%] w-full p-0 overflow-hidden">
           <form
             className="p-5 flex flex-col gap-3"
             onSubmit={handleSubmit}
@@ -190,26 +266,25 @@ function YourFitnessFutureForm({ onReturnHome }) {
                 </label>
               </div>
             </div>
+            <div className="flex-1 flex flex-col">
+              <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                Your Address *
+                <input
+                  type="text"
+                  name="address"
+                  value={form.address}
+                  onChange={handleChange}
+                  placeholder="Street Address"
+                  className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
+                />
+                {errors.address && (
+                  <span className="text-red-600 text-[12px]">
+                    {errors.address}
+                  </span>
+                )}
+              </label>
+            </div>
             <div className="flex flex-col md:flex-row gap-4">
-              <div className="flex-1 flex flex-col">
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
-                  Your Address *
-                  <input
-                    type="text"
-                    name="address"
-                    value={form.address}
-                    onChange={handleChange}
-                    placeholder="Street Address"
-                    className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                  />
-                  {errors.address && (
-                    <span className="text-red-600 text-[12px]">
-                      {errors.address}
-                    </span>
-                  )}
-                </label>
-              </div>
-              
               <div className="md:flex-1 flex  flex-col">
                 <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
                   City *
@@ -572,15 +647,17 @@ function YourFitnessFutureForm({ onReturnHome }) {
                 )}
               </label>
             </div>
-            <Link to = "/">
-          <button className="w-full btnPrimary  " onClick={onReturnHome}>
-            RETURN TO HOMEPAGE
-          </button>
-          </Link>
+            <button
+              type="submit"
+              className="w-full btnPrimary"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Submitting..." : "Submit Now"}
+            </button>
           </form>
-        )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

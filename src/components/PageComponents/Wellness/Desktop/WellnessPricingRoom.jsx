@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function WellnessPricingRoom() {
   return (
@@ -16,7 +17,9 @@ function WellnessPricingRoom() {
             your best self.
           </p>
           <div className="flex gap-6">
-            <button className="btnPrimary">Find a Wellness Expert</button>
+            <Link to= "/explore">
+            <button className="btnPrimary">Find a wellness expert</button>
+            </Link>
           </div>
         </div>
       </div>

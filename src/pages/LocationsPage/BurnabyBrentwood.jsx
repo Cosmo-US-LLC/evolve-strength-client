@@ -5,7 +5,7 @@ import LocationHero from "@/components/PageComponents/Locations/Desktop/Location
 import LocationPartners from "@/components/PageComponents/Locations/Desktop/LocationsPartners";
 import RightTrainer from "@/components/PageComponents/Locations/Desktop/RightTrainer";
 import FitnessCategory from "@/components/PageComponents/Locations/Desktop/FitnessCategory";
-import Services from "@/components/PageComponents/Locations/Desktop/Services";
+import Services from "@/components/PageComponents/Locations/Desktop/LocationWellnessServices.jsx";
 import Spacious from "@/components/PageComponents/Locations/Desktop/LocationsSpacious";
 import LocationsSeeItForYourSelf from "@/components/PageComponents/Locations/Desktop/LocationSeeITYourself";
 import JoinUsToday from "@/components/PageComponents/Locations/Desktop/JoinUsToday";
@@ -15,10 +15,17 @@ import MeetTheTrainers from "@/components/PageComponents/Locations/Desktop/MeetT
 import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLocation";
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
+import MetaTags from "@/components/Metatags/Meta";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function BurnabyBrentwood() {
   return (
     <>
+      
+      <MetaTags
+        title="Evolve Strength Brentwood | The Best Fitness Gym in Burnaby"
+        description="Join the best fitness gym in Burnaby with affordable memberships, expert personal trainers, and top-of-the-line equipment."
+      />
       <LocationHero />
       <LocationPartners />
       <LoWhyChooseEvolve />
@@ -30,7 +37,7 @@ function BurnabyBrentwood() {
       <Spacious />
       <LocationsSeeItForYourSelf />
       <SetonLocation />
-      <MeetTheTrainers />
+      <MeetTheTrainers location="BURNABY BRENTWOOD" />
       <JoinUsToday />
       <FrequentlyAskedQuestions {...LocationFaq} />
     </>

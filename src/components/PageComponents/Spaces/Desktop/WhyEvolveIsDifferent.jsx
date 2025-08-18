@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import img1 from "@/assets/images/spaces/WhyEvolveIsDifferent/slide1.webp";
 import img2 from "@/assets/images/spaces/WhyEvolveIsDifferent/slide2.webp";
 import img3 from "@/assets/images/spaces/WhyEvolveIsDifferent/slide3.webp";
@@ -14,21 +15,21 @@ const cardData = [
     number: "01",
     title: "Worry-Free Entrepreneurship",
     description:
-      "We can grow your business without the usual drain. You don’t need to hire front desk staff or cleaners. We handle operations, you serve customers, and all the facility details. You just show up and work with your clients.",
+      "We can grow your business without the usual drain. You don't need to hire front desk staff or cleaners. We handle operations, you serve customers, and all the facility details. You just show up and work with your clients.",
     image: img1,
   },
   {
     number: "02",
     title: "All-Inclusive Rent",
     description:
-      "No surprise bills: one flat monthly payment covers utilities, gym access, shared amenities, and more. You won’t have to manage multiple service vendors.",
+      "No surprise bills: one flat monthly payment covers utilities, gym access, shared amenities, and more. You won't have to manage multiple service vendors.",
     image: img2,
   },
   {
     number: "03",
     title: "Built-In Community",
     description:
-      "Be part of a trusted network of wellness professionals. That makes it easy to connect, refer clients, and grow together. We don’t charge finder’s fees or take a cut of your earnings.",
+      "Be part of a trusted network of wellness professionals. That makes it easy to connect, refer clients, and grow together. We don't charge finder's fees or take a cut of your earnings.",
     image: img3,
   },
 ];
@@ -64,7 +65,6 @@ function WhyEvolveIsDifferent() {
     }
   }, [activeIndex]);
 
-
   useEffect(() => {
     const handleScroll = () => {
       if (containerRef.current) {
@@ -93,11 +93,13 @@ function WhyEvolveIsDifferent() {
         className="w-full md:py-[54px] max-md:pt-0 max-md:pb-[48px] max-md:hidden"
       >
         <div className="w-full max-w-[1280px] md:px-8 max-md:px-[16px] mx-auto">
-          <div className=" flex justify-center mb-[32px]">
+          <div className="flex justify-center mb-[32px]">
             <h2 className="max-w-[707px] text-center text-[#000000] font-[700] leading-[39px] uppercase">
               Why Evolve Is Different
             </h2>
           </div>
+
+          {/* Cards Container */}
           <div
             style={{ position: "relative" }}
             className="w-full space-y-[20px]"
@@ -146,52 +148,50 @@ function WhyEvolveIsDifferent() {
           </div>
         </div>
       </div>
-     <div className="relative block md:hidden  max-md:pb-[48px]">
-      <h2 className="text-left text-[#000] font-bold uppercase  px-4 mb-6">
-        Why Evolve Is Different
-      </h2>
+      <div className="relative block md:hidden  max-md:pb-[48px]">
+        <h2 className="text-left text-[#000] font-bold uppercase  px-4 mb-6">
+          Why Evolve Is Differentt
+        </h2>
 
-      <div className="relative min-h-[400px] flex items-end pb-[24px] z-10">
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-opacity duration-500"
-        style={{
-          backgroundImage: `url(${cardData[activeIndex].image})`,
-          opacity: 0.8,
-          zIndex: 0,
-        }}
-      />
-        <Carousel
-          setApi={setApi}
-          className="w-full"
-        >
-          <CarouselContent className="px-5 gap-2">
-            {cardData.map((card, index) => (
-              <CarouselItem
-                key={index}
-                className="flex-shrink-0 w-[85%] max-w-[320px] mx-auto"
-              >
-                <div className="bg-white rounded-[10px] overflow-hidden h-full">
-                  <div className="p-4 space-y-2">
-                    <h3 className="text-[#4AB04A] font-medium text-[16px]">
-                      {card.number}
-                    </h3>
-                    <h3 className="text-black font-bold text-[18px]">
-                      {card.title}
-                    </h3>
-                    <h4 className="text-black text-[14px] leading-[20px]">
-                      {card.description}
-                    </h4>
+        <div className="relative min-h-[540px] flex items-end pb-[24px] z-10">
+          <div className="absolute inset-0 bg-black/10 z-1"></div>
+          <div
+            className="absolute inset-0 bg-cover bg-center duration-500"
+            style={{
+              backgroundImage: `url(${cardData[activeIndex].image})`,
+
+              zIndex: 0,
+            }}
+          />
+          <Carousel setApi={setApi} className="w-full relative z-10">
+            <CarouselContent className="px-5 gap-2  ">
+              {cardData.map((card, index) => (
+                <CarouselItem
+                  key={index}
+                  className="flex-shrink-0 w-[85%] max-w-[320px] mx-auto "
+                >
+                  <div className="bg-white rounded-[10px] overflow-hidden h-full">
+                    <div className="p-4 space-y-2">
+                      <h3 className="text-[#4AB04A] font-medium text-[16px]">
+                        {card.number}
+                      </h3>
+                      <h3 className="text-black font-bold text-[18px]">
+                        {card.title}
+                      </h3>
+                      <h4 className="text-black text-[14px] leading-[20px]">
+                        {card.description}
+                      </h4>
+                    </div>
                   </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          {/* <CarouselPrevious /> */}
-          {/* <CarouselNext /> */}
-        </Carousel>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            {/* <CarouselPrevious /> */}
+            {/* <CarouselNext /> */}
+          </Carousel>
 
-        {/* Dots */}
-      </div>
+          {/* Dots */}
+        </div>
         <div className="flex justify-center mt-4 space-x-2">
           {cardData.map((_, index) => (
             <button
@@ -203,7 +203,7 @@ function WhyEvolveIsDifferent() {
             />
           ))}
         </div>
-    </div>
+      </div>
     </div>
   );
 }

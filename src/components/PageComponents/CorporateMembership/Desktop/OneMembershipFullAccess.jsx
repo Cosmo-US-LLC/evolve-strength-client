@@ -9,6 +9,13 @@ import atmosphere from "../../../../assets/images/corporateMembership/OneMembers
 import turfWorkouts from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/slide9.webp";
 import olympicLifting from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/slide10.webp";
 
+// Import mobile images (you'll need to add these to your assets)
+import fitnessMobile from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/mobSlide6.webp";
+import wellnessMobile from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/mobSlide7.webp";
+import atmosphereMobile from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/mobSlide8.webp";
+import turfWorkoutsMobile from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/mobSlide9.webp";
+import olympicLiftingMobile from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/mobSlide10.webp";
+
 const gymCards = [
   {
     count: "",
@@ -19,6 +26,7 @@ const gymCards = [
     ),
     description: "",
     bgImage: fitness,
+    bgImageMobile: fitnessMobile,
   },
   {
     count: "",
@@ -29,6 +37,7 @@ const gymCards = [
     ),
     description: "",
     bgImage: wellness,
+    bgImageMobile: wellnessMobile,
   },
   {
     count: "",
@@ -39,6 +48,7 @@ const gymCards = [
     ),
     description: "",
     bgImage: atmosphere,
+    bgImageMobile: atmosphereMobile,
   },
   {
     count: "",
@@ -49,6 +59,7 @@ const gymCards = [
     ),
     description: "",
     bgImage: turfWorkouts,
+    bgImageMobile: turfWorkoutsMobile,
   },
   {
     count: "",
@@ -59,15 +70,22 @@ const gymCards = [
     ),
     description: "",
     bgImage: olympicLifting,
+    bgImageMobile: olympicLiftingMobile,
   },
 ];
 
 const OneMembershipFullAccess = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [previousIndex, setPreviousIndex] = useState(0);
 
   // Desktop: use hover state, Mobile: use carousel state
   const activeIndex = hoveredIndex !== null ? hoveredIndex : carouselIndex;
+
+  // Update previous index when active index changes
+  useEffect(() => {
+    setPreviousIndex(activeIndex);
+  }, [activeIndex]);
 
   // Mobile Carousel with Scale Effect
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -75,8 +93,8 @@ const OneMembershipFullAccess = () => {
       containScroll: "keepSnaps",
       loop: true,
       align: "center",
-    },
-    [Autoplay({ delay: 4000, stopOnInteraction: false })]
+    }
+    // [Autoplay({ delay: 4000, stopOnInteraction: false })]
   );
 
   // Scale effect for mobile carousel
@@ -110,20 +128,49 @@ const OneMembershipFullAccess = () => {
     };
   }, [emblaApi]);
 
+  // Preload images
   useEffect(() => {
     gymCards.forEach((card) => {
       const img = new Image();
       img.src = card.bgImage;
+      const imgMobile = new Image();
+      imgMobile.src = card.bgImageMobile;
     });
   }, []);
 
   return (
     <div className="relative w-full overflow-hidden">
+      {/* Desktop Background Images */}
+      {/* Previous background image */}
       <div
-        key={activeIndex}
-        className="absolute inset-0 bg-cover bg-center transition-all animate-fade will-change-transform will-change-opacity"
+        className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out hidden md:block"
+        style={{
+          backgroundImage: `url(${gymCards[previousIndex].bgImage})`,
+        }}
+      />
+
+      {/* Current background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out hidden md:block"
         style={{
           backgroundImage: `url(${gymCards[activeIndex].bgImage})`,
+        }}
+      />
+
+      {/* Mobile Background Images */}
+      {/* Previous background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out md:hidden"
+        style={{
+          backgroundImage: `url(${gymCards[previousIndex].bgImageMobile})`,
+        }}
+      />
+
+      {/* Current background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out md:hidden"
+        style={{
+          backgroundImage: `url(${gymCards[carouselIndex].bgImageMobile})`,
         }}
       />
       {/* <div className="absolute inset-0 bg-black/20 pointer-events-none" /> */}

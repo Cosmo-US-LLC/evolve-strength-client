@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function WellnessHero() {
   return (
@@ -14,13 +15,18 @@ function WellnessHero() {
             help you recover, reduce pain, and improve how you move without
             leaving the building.
           </h3>
-          <div className="flex flex-col md:flex-row gap-6">
-            <button className="btnPrimary">
-              Find a Wellness Expert
-            </button>
+          <div className="flex flex-col md:flex-row gap-3">
+
+            
+             <Link to="/explore">
+            <button className="btnPrimary">FIND A wellness expert</button>
+            </Link> 
+            <Link to="/join-the-wait-list">
             <button className="btnSecondary">
+             
               Become a Wellness Expert
             </button>
+            </Link>
           </div>
         </div>
       </div>

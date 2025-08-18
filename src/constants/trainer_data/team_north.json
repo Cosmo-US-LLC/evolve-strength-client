@@ -1,0 +1,201 @@
+[
+  {
+    "id": "edmonton-north-christopher-merrell",
+    "location": "EDMONTON NORTH",
+    "trainerName": "Christopher Merrell",
+    "trainerNumber": 1,
+    "name": "Christopher Merrell",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2021/09/Christopher-Merrell.jpg",
+    "bio": "Christopher Merrell is a certified Personal Trainer and Conditioning Coach who believes in building athletes and individuals from the ground up and inside out. His love for health and fitness stems from helping others level up their physical and mental health and become someone they never thought they could be. Christopher is an extremely dedicated Coach committed to his client’s success. “My clients win.”",
+    "areas_of_focus": "Muscle Growth, Athletic Performance, Strength, Conditioning, Technique",
+    "certification": "CanFitPro Personal Training Specialist, DTS Body Transformation Specialist, DTS Hypertrophy Fundamentals, DTS Conditioning Coach",
+    "email": "CWSAPT@hotmail.com",
+    "phone": "780-909-0757",
+    "social_links": [
+      "https://www.instagram.com/cwilliamtraining/"
+    ]
+  },
+  {
+    "id": "edmonton-north-leah-cheung",
+    "location": "EDMONTON NORTH",
+    "trainerName": "Leah Cheung",
+    "trainerNumber": 2,
+    "name": "Leah Cheung",
+    "role": "Dietitian",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2018/10/Leah-Cheung-1.jpg",
+    "bio": "Leah Cheung is a Registered Dietitian with the College of Dietitians of Alberta. She holds Bachelor of Science degrees with Distinction in both Nutrition and Psychology from the University of Alberta.\nWith a background in disordered eating, Leah has a passion for intuitive eating and helping people create healthier relationships with food. Eating should be a source of pleasure and not a source of guilt, shame, or punishment. If you are struggling with preoccupation with food, food fears, weight fluctuations, binge eating, or diet burnout, it’s time to try a new approach. Leah can help you make peace with food and eating and gain freedom from restrictive food rules.\nLeah also works extensively with athletes and the general active population to help achieve lifestyle and fitness goals. Gain insight regarding macronutrient distributions, caloric goals, meal timing, and supplement use to maximize your potential in and out of the gym.\nThrough one-on-one sessions, Leah will break down the complicated world of nutrition and make food one of your greatest allies!",
+    "areas_of_focus": null,
+    "certification": null,
+    "email": "intoitnutrition@gmail.com",
+    "phone": "780-660-6271",
+    "social_links": []
+  },
+  {
+    "id": "edmonton-north-sharina-palaypay",
+    "location": "EDMONTON NORTH",
+    "trainerName": "Sharina Palaypay",
+    "trainerNumber": 3,
+    "name": "Sharina Palaypay",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2020/08/Sharina-Palaypay.jpg",
+    "bio": "I’ve always enjoyed playing sports and working out because I love to compete and test my own limits. I enjoy Spartan Races and got into Powerlifting last year. I’m currently dipping my toes into Crossfit as I enjoy learning and doing different types of training.\nI worked in the restaurant industry for 8 years but never felt like I was living my life purpose until I hired a personal trainer two years ago. I initially had a goal of losing weight but as I continued training, I gained much more than just reaching my goal weight. I had more confidence, I started to take more risks, and became strong and resilient to whatever came my way. That’s when I realized I wanted to become a Personal Trainer; My mission is to turn one’s inner pain into power and help them unleash the inner athlete they didn’t know existed.",
+    "areas_of_focus": null,
+    "certification": "I am currently working on obtaining my Precision Nutrition Level 1 Certificate and going to work towards getting my certifications to coach for Powerlifting and Crossfit after., , ACE Certified",
+    "email": "shari.palaypay@gmail.com",
+    "phone": "780-604-6905",
+    "social_links": []
+  },
+  {
+    "id": "edmonton-north-robert-tenhove",
+    "location": "EDMONTON NORTH",
+    "trainerName": "Robert Tenhove",
+    "trainerNumber": 4,
+    "name": "Robert Tenhove",
+    "role": "Chiropractor",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2019/06/Rob.jpg",
+    "bio": "Dr. Rob Tenhove is a Chiropractor that has been in practice for over 20 years and whose focus is helping each individual reach their goals by developing a customized approach designed for that person.",
+    "areas_of_focus": null,
+    "certification": "He has an extensive athletic background and has enjoyed working with non-athletes and athletes of all levels. This has included amateur, Olympic, Iron Man, and Professional athletes. He has received training in various approaches such as Functional Range Assessment (FRA),  Functional Range Release (FR), Functional Range Conditioning (FRC), Active Release Techniques (including Full Body, Nerve Entrapments, and Biomechanics certifications) , Instrument Assisted Soft Tissue Mobilization (FAKTR) and Osteoarticular Joint Pumping (lower extremity)., Dr. Tenhove also has been recognized and certified by the Titleist Performance Institute as a golf fitness and golf biomechanics professional. He also utilizes the Impulse IQ computer-assisted adjusting instrument, Deep Tissue Laser Therapy, and 3D Motion analysis.",
+    "email": "info@customcarechiro.com",
+    "phone": "1-780-250-2273",
+    "social_links": [
+      "https://www.customcarechiro.com/"
+    ]
+  },
+  {
+    "id": "edmonton-north-paige-thomson",
+    "location": "EDMONTON NORTH",
+    "trainerName": "Paige Thomson",
+    "trainerNumber": 5,
+    "name": "Paige Thomson",
+    "role": "Manual Osteopathic Practitioner",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/08/Paige-Shedden.jpg",
+    "bio": "Paige is one of the first OSTCAN certified Osteopathic Practitioners in the Edmonton area and she is so excited to offer Classical Osteopathy to her patients. She is dedicated to providing effective treatments, education and empowering her patients in their health management. She treats the patient as a dynamic unit of function and uses principles founded in anatomy, physiology and biomechanics to identify the root cause of dysfunction and uses structural adjustments to facilitate restored function and health.",
+    "areas_of_focus": "Classical Osteopathy",
+    "certification": "Master in Practice of Osteopathic Manipulative Sciences (M.OMSc) from the Canadian Academy of Osteopathy – 4 year program. OSTCAN Certified., Bachelor of Kinesiology (BKin) from the University of Alberta.",
+    "email": null,
+    "phone": "587-594-9909",
+    "social_links": [
+      "https://www.instagram.com/edmontonosteo/"
+    ]
+  },
+  {
+    "id": "edmonton-north-denisse-peters",
+    "location": "EDMONTON NORTH",
+    "trainerName": "Denisse Peters",
+    "trainerNumber": 6,
+    "name": "Denisse Peters",
+    "role": "Registered Massage Therapist, Traditional Healer, Tattoo Artist",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/08/Denisse-Peters.jpg",
+    "bio": "With over a decade in the massage industry and over two decades providing energy work, I have a strong passion for helping people in all areas of their life. Whether you’re an athlete needing to keep injuries at bay, a desk worker looking to resolve back pain or neck stiffness, or someone simply just wanting to explore the soul, I’m here to help you on your journey!",
+    "areas_of_focus": "Athletes, Injuries, Chronic pain, Trauma",
+    "certification": "CMMOTA Massage Therapy Diploma, Reiki Master, Mentored under my Elders, Certificate of Tattoo Training, CPR & First Aid",
+    "email": "mexicamedicine@gmail.com",
+    "phone": "780-233-2244",
+    "social_links": [
+      "https://www.instagram.com/mexicamedicine/"
+    ]
+  },
+  {
+    "id": "edmonton-north-michelle-moen",
+    "location": "EDMONTON NORTH",
+    "trainerName": "Michelle Moen",
+    "trainerNumber": 7,
+    "name": "Michelle Moen",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2021/09/Michelle-Moen.jpg",
+    "bio": "Working in the health industry since 2016, I’ve developed a passion for helping others find their balance in the confusing world of fitness and nutrition. Everyone is unique! Your training plan and nutrition should reflect that, to best set you up for success.",
+    "areas_of_focus": "Weight Loss, Female Hormone Disorders & Hypertrophy",
+    "certification": "– Bachelor of Science – CSNN Holistic Nutrition – Precision Nutrition – Kilo Strength Society                                                                                                                                                                                  – Program Design & Periodization",
+    "email": "info@michellemoen.com",
+    "phone": "780-298-8630",
+    "social_links": [
+      "https://www.instagram.com/michelle.moooen/"
+    ]
+  },
+  {
+    "id": "edmonton-north-jordan-browne",
+    "location": "EDMONTON NORTH",
+    "trainerName": "Jordan Browne",
+    "trainerNumber": 8,
+    "name": "Jordan Browne",
+    "role": "Olympic Weightlifting and Strength Coach",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2021/09/Jordan-Browne.jpg",
+    "bio": "Graduate of NAIT and the CSEP-CPT program in 2021, Our team has coached everyone from grassroots beginners to multiple national-level weightlifters, including a National Champion. My goal for my clients is to create a space for growth as both a person and as an athlete.",
+    "areas_of_focus": "Olympic Weightlifting, Strength Training, Strength and Conditioning for Sport",
+    "certification": "NCCP Trained Olympic Weightlifting Coach, CSEP-CPT Certified Personal Trainer, Nait Personal Fitness Trainer Graduate",
+    "email": "jordan@methodbarbell.com",
+    "phone": null,
+    "social_links": [
+      "https://www.instagram.com/methodbarbell/"
+    ]
+  },
+  {
+    "id": "edmonton-north-steven-fitzpatrick",
+    "location": "EDMONTON NORTH",
+    "trainerName": "Steven Fitzpatrick",
+    "trainerNumber": 9,
+    "name": "Steven Fitzpatrick",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2019/06/Steven-Firtzpatick.jpg",
+    "bio": "Steven began his passion for fitness at the age of 13 and has been training vigorously since that time, he has been in the health industry since 2011 and has a very strong appeal towards Strength and Conditioning. Steven strongly believes that the foundation of an individual will ultimately take them to any goal that they desire; whether it be overall strength, body composition, fixing spinal deviation, rehabilitating a recurring injury and ultimately living a pain free life day to day while still improving and becoming a person’s best version. He takes a strong interest in biomechanics and studies nutrition very consistently. Everyone is different and Steven believes that with time, repetition, consistency and with the utmost dedication that everyone can become unstoppable in whatever direction they choose to take their level of fitness, he has a very strong interest in psychology and neuroscience and how they correlate to exercise. Steven believes that exercise can lead to better work performance, positivity and a very positive outlook on life; which will ultimately make you happy every day! He began personal training because to him there is no better payoff than seeing the long-term improvement of each individual and how with proper guidance, it can change your life drastically. Steven ALWAYS brings a positive attitude; will make you laugh at least once every time you see him and will have you always leaving with a smile. He specializes in coaching nutrition and powerlifting, group training, boot camps, youth training, training bodybuilders and physique competitors and has experience in correcting spinal deviations. He is a strong believer in education and is always looking to increase his skill set, his credentials are as follows:\n-CCSC Hypertrophy\n-CCSC Manipulation of Energy system\n-DTS Powerlifting Certified Coach\n-DTS Fat loss nutrition coach\n-ISSA + nutrition\n-Canfit Pro\n-CPR/AED\n-MM Advanced Anatomy\n-MM Advanced biomechanics",
+    "areas_of_focus": null,
+    "certification": null,
+    "email": "onyxstrength.conditioning@gmail.com",
+    "phone": "1-780-807-5848",
+    "social_links": []
+  },
+  {
+    "id": "edmonton-north-naomi-sachs",
+    "location": "EDMONTON NORTH",
+    "trainerName": "Naomi Sachs",
+    "trainerNumber": 10,
+    "name": "Naomi Sachs",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2020/08/Naomi-Sachs.jpg",
+    "bio": "Fully-certified since 2015, I’ve been successfully coaching clients throughout North America and facilitating their self-growth in the nutrition and fitness realm. If you feel overwhelmed by the myriad of health strategies available, my services aim to introduce clarity and self-motivation.\nCSNN Advanced Certified Holistic Nutrition Consultant\nStrength Sensei Metabolic Analytics Module 1\nStrength Sensei Neurotransmitter Based Program Design\nStrength Sensei Sports Specific Program Design\nStrength Sensei Structural Assessment\nKilo Strength Society Advanced Strategies to Program Design I\nKilo Strength Society Advanced Strategies to Program Design II",
+    "areas_of_focus": null,
+    "certification": "IFPA Personal Fitness Trainer",
+    "email": "naomisachs@naomisachs.com",
+    "phone": "780-265-0940",
+    "social_links": [
+      "http://www.naomisachs.com",
+      "https://www.instagram.com/naomi_sachs/?hl=en"
+    ]
+  },
+  {
+    "id": "edmonton-north-maryam-neamah",
+    "location": "EDMONTON NORTH",
+    "trainerName": "Maryam Neamah",
+    "trainerNumber": 11,
+    "name": "Maryam Neamah",
+    "role": "Medical Esthetician",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/08/Maryam-Neamah.jpg",
+    "bio": "Certified since 2020, I specialize in skincare and laser treatments aimed at enhancing skin health and beauty. From reducing wrinkles to fading scars, my goal is to boost confidence through personalized services and expert advice on skincare routines and products. Make an appointment with me and let us achieve your skin goals and feel your best!",
+    "areas_of_focus": "Obtaining and preserving healthy, radiant skin, Guiding skincare regimens, Lifestyle adjustments to enhance overall skin wellness.",
+    "certification": "VascuLyse,, RMD Structural Remodeling, Microdermabrasion, Laser Tattoo Removal, Laser Hair Removal, Intense Pulsed Light, Facials, Dermaplaning, Chemical Peel, Body Contouring with MPR",
+    "email": "newageskincareclinic@gmail.com",
+    "phone": "780-884-9365",
+    "social_links": [
+      "https://www.instagram.com/newage_beauty_hub/"
+    ]
+  },
+  {
+    "id": "edmonton-north-kieryn-marcellus",
+    "location": "EDMONTON NORTH",
+    "trainerName": "Kieryn Marcellus",
+    "trainerNumber": 12,
+    "name": "Kieryn Marcellus",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2019/09/Kieryn-Marcellus.jpg",
+    "bio": "BSc. Kin, CSEP-CPT, FRCms, EXOS XPS 1\nWhat matters most is what I can do for\nyou. I want to help you lose weight, get jacked, decrease pain, improve\nperformance and/or help with your return-to-play program.\nMy training philosophy can be boiled down\nto:\nSerious Training\nSilly Human\nIn other words, I don’t take myself too\nseriously, but I firmly believe that serious strength training fixes a lot of\nproblems. You have to lift stuff in order to fix stuff.\nWhen taking on new clients, the most\nimportant thing for me to understand is where you’re at and where you want to\ngo.\nThis is about you, after all.\nFrom there, I’ll create a fully\nindividualized program aimed at helping you achieve the more supple, swole, resilient\nbadass version of you that you deserve to be.\nDid I miss anything? Oh yeah. O+ blood, perfect kidney function.",
+    "areas_of_focus": null,
+    "certification": "Behind my name is a small taste of alphabet\nsoup. These certifications serve to dictate institutions I’ve been to, what\ntests I’ve passed and how I spend my weekends. It’s not indicative of what services\nI can provide for you., (Seriously, it’s like grabbing a fist full of scrabble tiles.)",
+    "email": "kieryn@marcellusfitness.ca",
+    "phone": null,
+    "social_links": [
+      "http://www.marcellusfitness.ca"
+    ]
+  }
+]

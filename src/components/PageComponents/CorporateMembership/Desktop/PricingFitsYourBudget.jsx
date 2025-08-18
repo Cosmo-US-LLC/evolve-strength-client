@@ -1,5 +1,6 @@
 import React from "react";
 import pricingFits from "@/assets/images/corporateMembership/PricingFitsYourBudget/pricingFits.webp";
+import { Link } from "react-router-dom";
 
 function PricingFitsYourBudget() {
   return (
@@ -14,8 +15,10 @@ function PricingFitsYourBudget() {
           services <br /> like physio, massage, and more. No long-term contracts
           unless you <br /> want one. You choose what works best.
         </h4>
-        <button className="btnPrimary">Book a Free Consultation</button>
-      </div>
+ <Link to="/corporate-membership-wizard">
+              <button className="btnPrimary">Get Started</button>
+            </Link> 
+                 </div>
       <div className="w-[100%] md:w-[50%] rounded-[10px]">
         <img
           src= {pricingFits}

@@ -11,10 +11,13 @@ function Explore() {
   };
 
   return (
-    <div>
-      <ExploreHero />
-      <DiscoverEvolve selected={selected} onSelect={handleCategorySelect} />
-    </div>
+    <>
+      
+      <div>
+        <ExploreHero />
+        <DiscoverEvolve selected={selected} onSelect={handleCategorySelect} />
+      </div>
+    </>
   );
 }
 

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   getDataByCategory,
   getAllLocations,
-} from "../../../../../../constants/UnUseExploreDataOld";
+  getTrainersForWellnessService,
+} from "../../../../../../constants/exploreDataWithTrainer";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
 import {
@@ -38,15 +40,34 @@ function WellnessView() {
     });
   };
 
+  // Helper function to transform trainer data for display
+  const transformTrainerData = (trainer) => {
+    return {
+      ...trainer,
+      name: trainer.trainerName || trainer.name,
+      title: trainer.role,
+      about: trainer.bio,
+      areasOfFocus: trainer.areas_of_focus
+        ? trainer.areas_of_focus.split(", ")
+        : [],
+    };
+  };
+
   const getFilteredTrainers = (service) => {
-    if (!service.trainers) return [];
+    const trainers = getTrainersForWellnessService(service.id);
+    if (!trainers || trainers.length === 0) return [];
 
-    if (selectedLocations.length === 0) return service.trainers;
+    let filteredTrainers = trainers;
 
-    return service.trainers.filter(
-      (trainer) =>
-        trainer.location && selectedLocations.includes(trainer.location)
-    );
+    if (selectedLocations.length > 0) {
+      filteredTrainers = trainers.filter(
+        (trainer) =>
+          trainer.location && selectedLocations.includes(trainer.location)
+      );
+    }
+
+    // Transform trainer data for display
+    return filteredTrainers.map(transformTrainerData);
   };
 
   return (
@@ -88,12 +109,14 @@ function WellnessView() {
                     }`}
                   />
                 </div>
+                <Link to ="https://subscription.evolvestrength.ca/">
                 <button
                   className="uppercase text-[16px] md:text-[20px] font-[400] leading-[20px] font-[kanit] text-[#4AB04A] hover:text-[#000] underline transition-colors duration-300"
                   onClick={(e) => e.stopPropagation()}
                 >
                   JOIN NOW
                 </button>
+                </Link>
               </div>
 
               {isOpen && (
@@ -154,21 +177,21 @@ function WellnessView() {
                           <div
                             key={idx}
                             className="flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
-                            onClick={() => handleLocationToggle(location)}
+                            onClick={() => handleLocationToggle(location.name)}
                           >
                             <div
                               className={`w-3 h-3 md:w-4 md:h-4 border-2 rounded flex items-center justify-center ${
-                                selectedLocations.includes(location)
+                                selectedLocations.includes(location.name)
                                   ? "bg-green-600 border-green-600"
                                   : "border-gray-300"
                               }`}
                             >
-                              {selectedLocations.includes(location) && (
+                              {selectedLocations.includes(location.name) && (
                                 <Check className="w-2 h-2 md:w-3 md:h-3 text-white" />
                               )}
                             </div>
                             <span className="text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                              {location}
+                              {location.name}
                             </span>
                           </div>
                         ))}

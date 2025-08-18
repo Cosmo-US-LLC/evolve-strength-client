@@ -1,0 +1,514 @@
+[
+  {
+    "id": "burnaby-brentwood-yelena-yermolenko",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Yelena Yermolenko",
+    "trainerNumber": 1,
+    "name": "Yelena Yermolenko",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2025/07/Yelena-Yermolenko.jpg",
+    "bio": "WBFF Pro, certified trainer, sports nutritionist, and author of “From Beginner to Pro: Behind the Glamour.” I came to bodybuilding at 40 to fight aging and rebuild my body. Now for over 10 years I help others do the same. Through my Alpha Club Fitness program I help my clients to restore lost muscle, build lasting strength, and reverse the effects of aging. It’s never too late to take control of your body—and feel strong again.",
+    "areas_of_focus": "Body building, Transformation, Competition preparation",
+    "certification": "American College of Sports Medicine ACSM, Cory Holly Institute of Sports Nutrition CHISN, John Maxwell leadership Coaching JMT",
+    "email": "yelena@alphaclubfitness.com",
+    "phone": null,
+    "social_links": [
+      "https://www.instagram.com/yelena_yermolenko_wbffpro/",
+      "http://www.alphaclubfitness.com"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-ashley-wong",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Ashley Wong",
+    "trainerNumber": 2,
+    "name": "Ashley Wong",
+    "role": "Registered Kinesiologist/Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Ashley-Wong.jpg",
+    "bio": "t’s my vision to be a one-stop shop for health by providing a collective of health services: personal training, kinesiology, fascial stretch therapy, nutrition coaching, group classes, and fitness events.\nWith over 10 years of health science education and working through my own sciatica injury, it’s been my passion to help people with their health and fitness goals using fun, personal and science-proven strategies.\nIn my experience as a strength & conditioning student coach for UBC Varsity, personal trainer, and physiotherapy assistant at Eagle Ridge Hospital care home, I’ve been able to work with patients of all ages and backgrounds. I truly believe exercise is one of the best medicines!",
+    "areas_of_focus": "Strength & Conditioning, Injury Rehabilitation, Posture Correction, Exercise Correction, Circuit Training (HIIT), Nutrition Coaching",
+    "certification": "Bachelor of Kinesiology, UBC, Sport Science Diploma, Douglas College, Fascial Stretch Therapy 1, Stretch to Win, Certified Personal Trainer, NASM, Precision Nutrition 1, Pn1, Queenax Training, Precor, Fundamental Movement Skills, NCCP",
+    "email": "contact@ashleisurefit.ca",
+    "phone": null,
+    "social_links": [
+      "https://www.instagram.com/ashleisure_fit/",
+      "https://www.ashleisurefit.ca/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-michael-tengco",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Michael Tengco",
+    "trainerNumber": 3,
+    "name": "Michael Tengco",
+    "role": "Physiotherapist & Kinesiologist",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Michael-Tengco.jpg",
+    "bio": "Michael completed his Doctor of Physiotherapy at the University of Melbourne, Australia, following the completion of his Bachelor of Science – Kinesiology at Dalhousie University.\nBeing heavily involved in sports as a player, coach, and a sports trainer, Michael always has an enthusiastic attitude to the body’s movement and repair process which led him to pursue his studies in Physiotherapy.\nWhile working in Melbourne, New Brunswick, and Vancouver, Michael has continued his professional development with various seminars from world renowned physiotherapists. He is also certified in Clinical Pilates and Strength and Conditioning, as well as specializes in hip and knee Osteoarthritis management (GLA:D certified). He utilizes a hands-on approach, supplemented with a progressive active rehabilitation program to help aid his clients’ recovery.\nHe is looking forward to providing his clients with an evidence-based approach that is “client centered and practitioner driven.”\nOutside physiotherapy, Michael is a sports enthusiast, in particular an avid basketball fan. He is also a coffee enthusiast and you will see him throughout the city looking for the best pour overs and espresso!",
+    "areas_of_focus": "Clinical Pilates, Strength and Conditioning, Hip and Knee Osteoarthritis Management (GLA:D certified)",
+    "certification": "Doctor of Physiotherapy at the University of Melbourne, Australia, Bachelor of Science – Kinesiology at Dalhousie University",
+    "email": "info@numvmt.ca",
+    "phone": null,
+    "social_links": [
+      "http://numvmt.ca",
+      "https://www.instagram.com/nu.mvmt/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-jacky-fong",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Jacky Fong",
+    "trainerNumber": 4,
+    "name": "Jacky Fong",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Jacky-Fong.jpg",
+    "bio": "I hold a Bachelor’s degree in Kinesiology and excel as a volleyball athlete. Specializing in alleviating knee pain and enhancing vertical jump performance, I collaborate with various professionals to rehabilitate clients suffering from shoulder, hip, and back pain. My focus extends to injury prevention strategies, ensuring clients achieve their fitness goals safely. I am committed to bringing my expertise and enthusiasm to every personalized training session. Let’s embark on a journey towards optimal health and athletic success together.",
+    "areas_of_focus": "Strength and Power, Fixing and preventing acute pain",
+    "certification": "Bachelor of Kinesiology from UBC,, MaStrength Level 1 (Olympic Lifting),, Triggerpoint Therapy,, Kettlebell Strength and Conditioning",
+    "email": "jackyfong822@gmail.com",
+    "phone": "(604) 339-9512",
+    "social_links": [
+      "https://www.instagram.com/jfong_fitness/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-chuck-park",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Chuck Park",
+    "trainerNumber": 5,
+    "name": "Chuck Park",
+    "role": "Registered Acupuncturist",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/chuck-park.jpg",
+    "bio": "Chuck is a registered acupuncturist in BC and is an active and good standing member of College of Traditional Chinese Medicine Practitioners and Acupuncturist of BC. With over 10 years of experience managing various health care programs including Acupuncture, Traditional Chinese medicine and Registered Massage Therapy programs, his passion is to educate and to promote a healthier lifestyle by making informed choices with an emphasis on prevention and self-cultivation.\nHe welcomes patients seeking an effective and collaborative treatment plan for acute pain management, a speedy recovery from motor vehicle accidents, and the restoration of optimal body function.\nWhen Chuck isn’t busy treating patients, he enjoys coaching tri-city soccer and basketball teams for his two boys as well as participating in outdoor activities with his family that our beautiful tri-city community offers.",
+    "areas_of_focus": "Acute pain management – Sport or ICBC, Restoration and Relaxation, Fire Cupping Therapy",
+    "certification": "Active member of college of traditional Chinese Medicine and Acupuncturist of BC",
+    "email": "info@bodymindrmt.com",
+    "phone": "604-936-3177",
+    "social_links": [
+      "http://www.bodymindrmt.com"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-dr-katrina-hombrebueno",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Dr Katrina Hombrebueno",
+    "trainerNumber": 6,
+    "name": "Dr Katrina Hombrebueno",
+    "role": "Musculoskeletal Specialist / Chiropractor",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Dr-Katrina-Hombrebueno.jpg",
+    "bio": "Dr. Katrina is dedicated to helping people achieve their health goals by integrating her knowledge and experience with evidence-based practices. By integrating manual therapy, soft tissue techniques, joint mobilization, biomechanical analysis, movement pattern retraining and rehabilitative exercises, she provides a comprehensive approach to care that addresses the root cause of her patient’s musculoskeletal complaints.\nJoin her as she leads weekly runs with Evolve Run Club!",
+    "areas_of_focus": "Running and Endurance Sports, Sports Injuries, Athletic Performance",
+    "certification": "Doctor of Chiropractic, BSc Human Biology, BSc Kinesiology, Active Release Techniques ® (ART), Functional Range Conditioning ® (FRC)",
+    "email": "info@optimal.ca",
+    "phone": "604-558-1250",
+    "social_links": [
+      "https://www.instagram.com/optimalclinic/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-naoya-inoue",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Naoya Inoue",
+    "trainerNumber": 7,
+    "name": "Naoya Inoue",
+    "role": null,
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Naoya-Inoue.jpg",
+    "bio": "Embark on a transforma-ve fitness experience with Naoya Inoue, a dedicated personal trainer and seasoned soccer coach committed to cultivating excellence both on and off the field.",
+    "areas_of_focus": "Soccer Mastery, All-Inclusive Training, Injury Prevention, Holistic Approach",
+    "certification": "BCRPA – Certified Personal Trainer, dotFIT – Certified Trainer, HIGH FIVE® – HIGH FIVE Sport, NASM – Youth Exercise Specialization, NASM – Virtual Coaching, Japan Sports Injury Prevention Association – Certified Trainer",
+    "email": "naoya@nya-sc.com",
+    "phone": null,
+    "social_links": [
+      "https://www.instagram.com/nyastrengthconditioning/",
+      "https://www.nya-sc.com"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-david-zhong",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "David Zhong",
+    "trainerNumber": 8,
+    "name": "David Zhong",
+    "role": "Personal Trainer & Kinesiologist",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/David-Zhong.jpg",
+    "bio": "David is a personal trainer and Kinesiologist passionate about improving health and wellness. Holding a Bachelor of Kinesiology degree from the University of British Columbia and a proud member of the British Columbia Association of Kinesiologists (BCAK), he has an in-depth knowledge of human movement. With 7-years of experience as a personal trainer, he focuses on optimizing client’s nutrition and athletic performance. Fluent in English, Cantonese and Mandarin. When he’s not at the gym, you can catch David playing basketball, snowboarding, and mountain biking.",
+    "areas_of_focus": "Hypertrophy & Weight Loss, Strength & Conditioning, Sport Specific Training, Injury Rehabilitation",
+    "certification": "BCAK Kinesiologist, BCRPA Certified Personal Trainer, Precision Nutrition Level 1 Certified, Soft Tissue Release Level 1, Certified Pain Free Performance Specialist, KSAC Kettlebell",
+    "email": null,
+    "phone": "778-927-0233",
+    "social_links": []
+  },
+  {
+    "id": "burnaby-brentwood-nicole-chan",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Nicole Chan",
+    "trainerNumber": 9,
+    "name": "Nicole Chan",
+    "role": "Registered Dietitian",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Nicole-Chan.jpg",
+    "bio": "Nicole is a Registered Dietitian who is passionate about helping her clients improve their overall health and well-being through nutrition and fitness. Nicole has also been a Certified Personal Trainer for 4 years. She believes in the importance of building a healthy relationship with food, balance, and fostering life long, sustainable nutrition habits through supportive counselling. Nicole has provided nutrition support to many different populations throughout her practice, and currently specializes in sports nutrition.",
+    "areas_of_focus": "Sports Nutrition, Healthy Weight Management, Chronic Disease Management, General Healthy Eating",
+    "certification": "BSc Nutrition and Dietetics Specialization, IOC Sports Nutrition Diploma – in progress, Canfitpro Personal Training Certificate",
+    "email": "info@nutritionwell.ca",
+    "phone": null,
+    "social_links": [
+      "http://www.nutritionwell.ca%20",
+      "https://www.instagram.com/nutritionwell/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-tora-goldman",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Tora Goldman",
+    "trainerNumber": 10,
+    "name": "Tora Goldman",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2025/07/Tora-Goldman.jpg",
+    "bio": "I’m Tora Goldman, a personal trainer specializing in strength & conditioning, body recomposition, and pre- and menopause training for women. I can help you to improve your technique, prepare for strength competitions, and integrate fitness into your lifestyle, without compromising your other habits. With a focus on active recovery and nutrition support, I’ll guide you toward sustainable results. Let’s work together to reach your goals!",
+    "areas_of_focus": "Strength & conditioning training, Body recomposition, Pre- and menopause training for women, Training technique for all levels, Preparation for strength competitions",
+    "certification": "ACE Certified Personal Trainer, ISSA Certified Glute Specialist, ISSA Certified Recovery Specialist, Australian Clean Health “Strength System level 1-3” by Sebastian Oreb, Australian Clean Health “Training The Female Athlete” by Sebastian Oreb and Hattie Boydle, GGS-1 “Women’s Coaching Specialist” in menopause and other related states of female organism., Yoga Renew 200hours training",
+    "email": null,
+    "phone": null,
+    "social_links": [
+      "http://www.goldmanpersonaltraining.ca"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-elliott-marsh",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Elliott Marsh",
+    "trainerNumber": 11,
+    "name": "Elliott Marsh",
+    "role": "Physiotherapist",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Elliott-Marsh.jpg",
+    "bio": "Elliott pursued sport at the highest level competing for the Canadian Men’s National Field Hockey team from 2009-2013. It was during this time that he realized the value in physiotherapy to aid in injury prevention and competing at the highest level. Elliott’s experience with pro sports allows him to create a unique individualized approach for each patient combining myofascial release techniques including IMS dry-needling with an extensive exercise background to aid people in their recovery and continuing to pursue and enjoy the activities that are meaningful to them.",
+    "areas_of_focus": "Return to Sport, Running Mechanics, Strength and Conditioning, Vestibular and Concussion Management",
+    "certification": "Masters in Kinesiology, Masters of Science in Physiotherapy, Functional Dry Needling, Reconciling Biomechanics and Pain, Concussion and Vestibular Rehabilitation",
+    "email": "info@optimal.ca",
+    "phone": "604-558-1250",
+    "social_links": [
+      "https://www.instagram.com/optimalclinic/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-justin-angeles",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Justin Angeles",
+    "trainerNumber": 12,
+    "name": "Justin Angeles",
+    "role": "Personal Trainer & Fascial Stretch Therapist",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Justin-Angeles.jpg",
+    "bio": "With over a decade in the health and fitness industry, Justin, an Exercise Science graduate, is a sought-after trainer and therapist. His expertise spans from elite athletes to clients recovering from injuries or surgery.\nAs a personal trainer, Justin takes a holistic approach to fitness, focusing not just on physical training but also on nutrition, lifestyle, and mental wellness. He creates customized programs tailored to each client’s unique needs and goals, incorporating a variety of training modalities, from strength and conditioning to functional movement and mobility.\nAs a certified Fascial Stretch Therapist, Justin uses a specialized technique that focuses on the body’s fascia, the connective tissue that surrounds muscles, bones, and organs. By stretching and releasing this tissue, Justin helps his clients improve their range of motion, flexibility, and overall mobility.\nJustin’s expertise in personal training and Fascial Stretch Therapy has earned him a reputation as a top trainer and therapist in his community. He has helped numerous clients achieve their goals, from weight loss and improved fitness to enhanced athletic performance and injury prevention.\nOutside of work, Justin enjoys watching sports, boxing, cooking, trying new restaurants & travelling to different cities!",
+    "areas_of_focus": "Strength Training, Injury Rehabilitation, General Fitness, Weight Loss, Sports Specific, Mobility/Flexibility (FST)",
+    "certification": "NASM – Certified Personal Trainer, Stretch To Win – Fascial Stretch Therapy, PPSC – Pain Free Performance Specialist, NASM – FNS Fitness Nutrition Specialist, NASM – PES Performance Enhancement Specialist, Trigger Point – SMR Self-Myofascial Release / Vibration Therapy Certification, Agatsu – Kettlebell Certification, Manual Muscle Testing Certification",
+    "email": "info@numvmt.ca",
+    "phone": null,
+    "social_links": [
+      "http://numvmt.ca",
+      "https://www.instagram.com/nu.mvmt/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-hanan-amani",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Hanan Amani",
+    "trainerNumber": 13,
+    "name": "Hanan Amani",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Hanan-Amani.jpg",
+    "bio": "A fitness trainer who has wrestling strength trained 500+ clients in Fitness enthusiast spreading positive vibes and healthy habits. and Empowering others to reach their fitness goals one rep at a time.",
+    "areas_of_focus": "Weight loss/muscle building, strength/conditioning, General fitness/ sports, Nutrition",
+    "certification": "K11 academy NSDC personal training, American sports & fitness Association",
+    "email": "khan15.ka51@gmail.com",
+    "phone": "778-960-8090",
+    "social_links": [
+      "https://www.instagram.com/hanan__amani/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-alexandra-villemair",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Alexandra Villemair",
+    "trainerNumber": 14,
+    "name": "Alexandra Villemair",
+    "role": "Reiki Master Teacher and BSc. (Ost) Osteopath",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Alexandra-Villemaire.jpg",
+    "bio": "Always ready to lend a helping hand, Alexandra displays a passion for the wellbeing of others and holds an endless curiosity for the intricate inner workings of the human body. Throughout the healing journey of her clients as well as her own, it is apparent that the human body is capable of yielding incredible results in self-healing and self-regulation when given the right space, tools & knowledge.\nShe received her Osteopathic education (BSc. (Ost)) in 2017 (CEO-Montreal) and furthered her skill set with the ” Osteopathic Mechanical Link ” and “Concussions & Whiplash ” (Spasme 1) techniques. The Reiki Master Teacher curriculum (Clairvida Learning) was completed in 2020. 6 years, and counting, of practice in the Montreal region has earned her the nickname\nDoigts de\nFée\n.\nAlexandra offers a unique holistic approach combining energy healing & osteopathy for an in-depth and powerful healing experience. A number of clients have consulted for a wide range of ailments, from chronic back pains, recuperation after major accidents & interventions, to maintenance for peak performance.\nIn daily life, she dabbles in different arts & crafts such as detailed pencil artwork, watercolors & cute digital images. For future holistic endeavors, the continuous effort in diverse social media projects (AVwellness) has yielded a growing community and has created accessible healing for anyone looking to further their well-being & spirituality in a space of empowerment & compassion.",
+    "areas_of_focus": "Reik, Energy Healing & Osteopathy, Chronic Back Pains, Recuperation after Major Accidents & Interventions",
+    "certification": "Osteopathic education (BSc. (Ost)) in 2017 (CEO-Montreal), Osteopathic Mechanical Link and Concussions & Whiplash (Spasme 1) Technique, Reiki Master Teacher curriculum (Clairvida Learning)",
+    "email": "info@bestosteopathy.ca",
+    "phone": null,
+    "social_links": [
+      "http://bestosteopathy.ca"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-chris-jackman",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Chris Jackman",
+    "trainerNumber": 15,
+    "name": "Chris Jackman",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Chris-Jackman.jpg",
+    "bio": "NASM Certified Personal trainer with over 15 years of experience. As a biomechanics major with a strong athletic background in soccer and athletics, I work on getting the best version of every single client I train. I have the ability to take a client, regardless of the current state their health and fitness to a level they never thought possible. Having worked with clients such as athletic rehab to be able to play sports again, to helping a novice become comfortable in the gym to achieve their fitness goals, I am here to help you.",
+    "areas_of_focus": "Strength and Conditioning, Olympic Lifting, Soccer",
+    "certification": "NASM Certified Personal Trainer, Strength and Conditioning Specialist, Strong AF Strength Coach, Ma Strength Olympic Lifting Coach, Corrective Exercise Specialist, Therapeutic Fascial Mobility Practitioner, Kettlebell Certified",
+    "email": "Chris@pwrperformance.net",
+    "phone": null,
+    "social_links": []
+  },
+  {
+    "id": "burnaby-brentwood-annie-tsang",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Annie Tsang",
+    "trainerNumber": 16,
+    "name": "Annie Tsang",
+    "role": "Dietitian",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2021/09/Annie-Tsang-1.jpg",
+    "bio": "Annie Tsang is a Registered Dietitian who believes strongly in motivational interviewing as an effective counseling strategy to support her clients in making realistic changes. Annie has extensive experiences in the area of mental health, emotional and disorder eating, gut health, prenatal health, and hormonal health. She is currently working at the Eating Disorder  Program in Richmond and BC Cancer Agency. She is passionate about her work and is always looking for ways to provide quality services to her clients. Stay tuned as she creates upcoming group programs and classes that might benefit you.   Annie can help you discover how to eat with awareness, manage cravings, love your body and build a peaceful relationship with food. Or if you are just looking to improve your nutrition and feel healthier but are not sure where to start,  she can review your diet for missing or lacking nutrients, vitamins and minerals.\nAnnie provides services in English, Cantonese, and Mandarin. She believes food is the nourishment that drives our emotions, energy, and self-esteem. She can assist and support your nutrition goals based on your specific needs and readiness to change. As a Registered Dietitian, she can provide you with information and feedback that are evidence-based.",
+    "areas_of_focus": "– Emotional eating and disordered eating behaviours – Mood Disorders – Hormonal health – PCOS, hormone imbalance, endometriosis, fertility, pregnancy nutrition – Digestive disorders (irritable bowel syndrome, Crohn’s and Ulcerative Colitis, constipation, acid reflux, diverticulitis) – Family and kid nutrition",
+    "certification": "Registered member of the College of Dietitians of British Columbia and Dietitians of Canada, ",
+    "email": "info@nutritionwell.ca",
+    "phone": "604-773-3372",
+    "social_links": [
+      "https://www.instagram.com/nutritionwell/",
+      "https://nutritionwell.ca/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-mathew-do-hoon-lee",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Mathew (Do hoon) Lee",
+    "trainerNumber": 17,
+    "name": "Mathew (Do hoon) Lee",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Mathew-Do-hoon-Lee.jpg",
+    "bio": "With over six years of experience teaching powerlifting, beginner, and functional training, I brought knowledge and expertise to each session. My fitness background extends beyond traditional fitness training to include wrestling, jiujitsu, and other combat sports, providing a diverse and comprehensive approach to fitness. I understand that each client is unique. That’s why we offer tailored training plans that cater to your specific needs, whether you’re looking to lose weight, build muscle, improve athletic performance, or simply enhance your overall well-being. Having been involved in various sports throughout my life, I know how crucial strength training is for preventing injuries and enhancing performance in daily life. My training programs focus on foundational strength and controlled, progressive loading, offering vast benefits for a healthier life. Join my training sessions today and take the first step towards a healthier, stronger, and more confident you!",
+    "areas_of_focus": "Strength training, Injury rehabilitation, Weight loss",
+    "certification": "BCRPA Fitness leader & Personal Trainer, ISSA Powerlifting instructor and Coach",
+    "email": "matleefitness@gmail.com",
+    "phone": "778-714-1605",
+    "social_links": [
+      "https://www.instagram.com/matlee_fitness/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-andy-vo",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Andy Vo",
+    "trainerNumber": 18,
+    "name": "Andy Vo",
+    "role": "Kinesiologist",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Andy-Vo.jpg",
+    "bio": "Andy is passionate about helping people on the path to better health. Andy competed in the NCAA as a Track and Field long jumper, he uses this experience to provide in-depth knowledge on sprinting mechanics, Olympic lifting, and speed development. Since 2015, he has been working with individuals involved in motor vehicle incidents by creating and implementing 1-on-1 exercise therapy programs. Andy strives to provide quality education and guidance to help clients achieve functional pain-free movements.",
+    "areas_of_focus": "ICBC Active Rehab, Strength and Conditioning",
+    "certification": "Bachelor of Science in Kinesiology",
+    "email": "andy@kinlab.ca",
+    "phone": "604-260-152",
+    "social_links": [
+      "https://www.instagram.com/kinlab.ca/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-kitae-kim",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Kitae Kim",
+    "trainerNumber": 19,
+    "name": "Kitae Kim",
+    "role": "Osteopathic Manual Practitioner",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Kitae-Kim.jpg",
+    "bio": "Kitae obtained his Bachelor of Science in Physiotherapy from Korea in 2014. He has completed his Diploma in Osteopathy from the National Academy of Osteopathy as well as his Acupuncture degree at Central College in New Westminster. During training in Osteopathy, Kitae has had the privilege of receiving additional training by Mehrbod who is the founder of Best Osteopathy and he decided to join the team. Kitae has developed his skills in structure concept of osteopathy along with human anatomy basis through this training. As a Physiotherapist in South Korea, he worked at the neuro-rehabilitation hospital, Bobath Memorial Hospital. He treated patients who suffered from Brain injuries such as Stroke, Parkinson, Dementia as well as Spinal Cord Injury. He is passionate and uses hands on treatment that have an affect on the recovery of the body cycle and boost the homeostasis of the human body.",
+    "areas_of_focus": "Osteopathy, Bioflex cold laser therapy",
+    "certification": "Osteopathic Manual Practitioner (DOMP), Physiotherapy Bsc. South Korea, Acupuncture (Central college), certification of Bobath Basic Course by IBITA (Korean Bobath Association)",
+    "email": "Info@bestosteopathy.ca",
+    "phone": "(604) 835-9789",
+    "social_links": []
+  },
+  {
+    "id": "burnaby-brentwood-justin-yang",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Justin Yang",
+    "trainerNumber": 20,
+    "name": "Justin Yang",
+    "role": "Massage Therapist",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2021/09/Justin-Yang.jpg",
+    "bio": "When it comes to the importance of well being, Justin is a strong believer in longevity. Justin’s treatment style heavily focuses on the nervous system, ridding all the unwanted compensation patterns that may develop after getting injured. Justin pairs manual techniques along with proper home care to help prevent injury, while maximizing efficiency for his patients. Whether you are looking for corrective therapeutic work or simply looking for maintenance, Justin has the knowledge and strength to help achieve your treatment goals.",
+    "areas_of_focus": "Preventative Maintenance, Neurological Compensations, Performance Optimization, Patient Education",
+    "certification": "NKT Level 3, Functional Range Conditioning, Anatomy Trains",
+    "email": "info@pretherapy.ca",
+    "phone": "604-428-7737",
+    "social_links": [
+      "https://www.instagram.com/pretherapy/?hl=en"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-ian-chan",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Ian Chan",
+    "trainerNumber": 21,
+    "name": "Ian Chan",
+    "role": "Registered Massage Therapist",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Ian-Chan.jpg",
+    "bio": "Ian has always enjoyed sports and the outdoors, so of course, injuries occurred. Ian found the most relief from Massage Therapy. This inspired him to become a massage therapist, and in 2019, Ian successfully completed the Registered Massage Therapy Program at Langara College.\nIan has experience treating athletes, seniors, pregnant people, and those who have been affected by motor vehicle accidents. He utilizes a wide range of techniques from myofascial release, trigger point therapy, instrument assisted soft tissue manipulation (IASTM), and proprioceptive neuromuscular facilitation (PNF) techniques to help attain optimal health and recovery. Ian is continuously learning new massage therapy techniques and treatments to better educate and treat his patients.\nOutside of work, Ian loves to explore the city to find new restaurants so he can try exciting new foods! He is also an avid gamer.",
+    "areas_of_focus": "Myofascial Release, Trigger Point Therapy, Instrument Assisted Soft Tissue Manipulation (IASTM), Proprioceptive Neuromuscular Facilitation (PNF)",
+    "certification": "Registered Massage Therapy Program at Langara College (2019)",
+    "email": "info@numvmt.ca",
+    "phone": null,
+    "social_links": [
+      "http://numvmt.ca",
+      "https://www.instagram.com/nu.mvmt/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-dahlia-song",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Dahlia Song",
+    "trainerNumber": 22,
+    "name": "Dahlia Song",
+    "role": "Registered Acupuncturist & Registered Traditional Chinese Medicine Practitioner",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Dahlia-Song.jpg",
+    "bio": "Dahlia first found her interest in acupuncture and oriental medicine when she was young. After slipping, she went in for acupuncture and first realized how a tiny filament needle could effectively decrease her ankle pain. Her interest and curiosity further grew over the years, and she decided to pursue her study in Acupuncture and Traditional Chinese Medicine at Beijing University in China. After completing her four years of study and training, she began practicing at China-Japan Friendship Hospital. There she treated a wide range of injuries and assisted in rehabilitating her patients.\nDahlia’s treatment philosophy is to support patients, by educating them on pain prevention and effective pain management in order to achieve and maintain a better and balanced lifestyle.",
+    "areas_of_focus": "Pain Management, Sport and ICBC injuries",
+    "certification": "Active member of college of traditional Chinese Medicine and Acupuncturist of BC",
+    "email": "info@bodymindrmt.com",
+    "phone": "604-936-3177",
+    "social_links": [
+      "http://www.bodymindrmt.com"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-jess-hu",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Jess Hu",
+    "trainerNumber": 23,
+    "name": "Jess Hu",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Jess-Hu.jpg",
+    "bio": "My name is Jess, I’m a certified personal trainer and nutrition coach who is passionate about helping you reach your fitness/wellness goals! My coaching approach is to help you live well holistically by creating a custom training program along with nutrition, habit, and mindset coaching so that you can look and feel your best from the inside out. I am here to empower you with knowledge, motivation, and accountability, to make the transformation I know you are capable of!\nIn my free time, you can find me playing sports (basketball, volleyball, golf, skiing, running), spending time in nature doing outdoor activities, cooking up a new recipe, or running a wellness community I co-founded called shift (@shift.community on instagram)!\nLanguages: English, Mandarin Chinese",
+    "areas_of_focus": "Women’s Health & Fitness, Strength & Conditioning, Athletic Training, Nutrition Coaching, Holistic Wellness – Mindset & Habit Coaching",
+    "certification": "NASM Certified Personal Trainer, NASM Certified Nutrition Coach, CPR & First Aid",
+    "email": "jesshufitness@gmail.com",
+    "phone": "778-320-7789",
+    "social_links": [
+      "https://www.instagram.com/shiftwithjess/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-mike-yang",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Mike Yang",
+    "trainerNumber": 24,
+    "name": "Mike Yang",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Mike-Yang.jpg",
+    "bio": "I am a certified strength conditioning/performance coach and a well-educated strength & conditioning coach. With over 5 years of coaching experience, I have worked with a wide range of clients ranging from competitive athletes, U-Sport athletes, and professional basketball athletes.\nAs a competitive basketball player, myself, I understand how rehabilitation and strength conditioning & performance training must be properly integrated into a training program to stay healthy while improving performance. My training philosophy is about mixing strength training, mobility, and plyometric training as well as tailoring regressions and progressions to the individual so my athletes perform at their best.",
+    "areas_of_focus": "Sports Performance & Strength Conditioning",
+    "certification": "CSCS, SFU S&C Performance Internship (NCAA Div II)",
+    "email": "Mikeyangathletics@gmail.com",
+    "phone": null,
+    "social_links": [
+      "https://www.instagram.com/mya_athletics/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-tania-sehra",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Tania Sehra",
+    "trainerNumber": 25,
+    "name": "Tania Sehra",
+    "role": "Massage Therapist",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2025/07/Tania-Sehra-.jpg",
+    "bio": "Tania is dedicated to collaborating with clients in achieving their goals while educating them about their bodies. She emphasizes the importance of stretching and strengthening to help her clients continue their daily activities without feeling limited. By sharing her expertise, she aims to empower her clients to take an active role in maintaining their overall well-being.\nIn her spare time, Tania enjoys weightlifting, hiking, and travelling. These activities not only enrich her personal life but also inspire her professional growth as she continues to explore new ways to promote health and wellness.",
+    "areas_of_focus": "Sports Massage, Pre/Post Natal Massage, Neuromuscular Techniques, Myofascial Release",
+    "certification": "Candidate: Clinical Pilates",
+    "email": "info@metropointeclinics.com",
+    "phone": "778-751-2299",
+    "social_links": [
+      "http://www.metropointeclinics.com"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-natasha-agabob",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Natasha Agabob",
+    "trainerNumber": 26,
+    "name": "Natasha Agabob",
+    "role": "Registered Massage Therapist",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Natasha-Agabob.jpg",
+    "bio": "Natasha was born and raised in the north Burnaby area and she has a great appreciation for the community that has to offer. Natasha became interested in massage therapy in 2014 after receiving treatment from a co-worker.",
+    "areas_of_focus": null,
+    "certification": "Active member of College of Massage therapists of BC",
+    "email": "info@bodymindrmt.com",
+    "phone": "604-936-3177",
+    "social_links": [
+      "http://www.bodymindrmt.com"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-mehrbod-atshani",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Mehrbod Atshani",
+    "trainerNumber": 27,
+    "name": "Mehrbod Atshani",
+    "role": "Osteopathic Manual Practitioner",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2021/09/Mehrbod-Atshani.jpg",
+    "bio": "Mehrbod practiced medicine for 8 years back in his country trying to help people with their pain. Soon he realized that holistic approach is more aligned with his philosophy. So he studied to become an osteopathic manual practitioner. Traveling half of the world and switching from medicine to osteopathy taught him valuable lessons. He is always open to changes and believes that everyone is able to do so.",
+    "areas_of_focus": "Osteopathy is holistic approach to address acute and chronic pain and bring body to normal alignment using its natural healing powers. Osteopathy uses verity of structural realignment techniques, craniosacral and visceral manipulations to address different problems. In the absence of pain, Osteopathic techniques could be used to promote wellness through wellness sessions.",
+    "certification": "Diploma in Osteopathic Manual Practice, National Academy of Osteopathy Osteopathic Bridge Program Clinical Internship, 1000 hours, National Academy of Osteopathy Medical Doctor Degree, Guilan University of Medical Sciences, Iran",
+    "email": "info@bestosteopathy.ca",
+    "phone": "604-445-1456",
+    "social_links": [
+      "https://www.instagram.com/vancitybestosteopathy/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-dr-elna-johnson",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Dr Elna Johnson",
+    "trainerNumber": 28,
+    "name": "Dr Elna Johnson",
+    "role": "Musculoskeletal Specialist / Chiropractor",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Dr-Elna-Johnson.jpg",
+    "bio": "Leveraging 20+ years in Pro Sports, Dr Elna excels in sports injury diagnosis, treatment and rehabilitation.\nHer expertise is sought after by countless Olympians, Professional Athletes, and sports enthusiasts alike, spanning a wide range of disciplines. Her proven track record includes working with esteemed teams like the Pittsburgh Steelers (NFL), BC Lions (CFL), Vancouver Canucks (NHL), and she currently works with Athletics Canada.”",
+    "areas_of_focus": "Sports Injuries, Performance Therapy, Running Specialist",
+    "certification": "Bachelors of Human Kinetics (B.Kin), Doctorate of Chiropractic (D.C.), Dip. Med Acup. (Contemporary Medical Acupuncture), Active Release Techniques ® (ART) Provider and Instructor, Certified Functional Range Conditioning ® (FRC) Mobility Specialist",
+    "email": "info@optimalclinic.ca",
+    "phone": "604-558-1250",
+    "social_links": [
+      "https://www.instagram.com/optimalclinic/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-brian-cheng",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Brian Cheng",
+    "trainerNumber": 29,
+    "name": "Brian Cheng",
+    "role": "Personal Trainer",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/Brian-Cheng.jpg",
+    "bio": "Passionate personal trainer dedicated to transforming lives through weight loss and weightlifting. I am committed to empowering individuals with knowledge and motivation. Let’s embark on a journey to a healthier, stronger you!",
+    "areas_of_focus": "Weight Loss, Olympic Weightlifting",
+    "certification": "CanFit Pro, Ma Strength (Olympic weightlifting), Shoulder rehab",
+    "email": "bcheng0414@gmail.com",
+    "phone": "604-715-4348",
+    "social_links": [
+      "https://www.instagram.com/beastcheng88/"
+    ]
+  },
+  {
+    "id": "burnaby-brentwood-brandon-yoon",
+    "location": "BURNABY BRENTWOOD",
+    "trainerName": "Brandon Yoon",
+    "trainerNumber": 30,
+    "name": "Brandon Yoon",
+    "role": "Kinesiologist",
+    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/07/BRANDON-YOON.jpg",
+    "bio": "Hello there! My name is Brandon and I am currently providing active rehabilitation and personal training at Evergreen Rehab and Wellness. As a kinesiologist, I am committed to uphold my field’s standards of professional service and client-centered care. I decided to pursue a career in active therapy back in high school after being inspired by the difference it\nmade on my father’s recovery. Since then I have directed my efforts on injury rehabilitation, activities of daily living, and return-to-work. Feel free to reach out, I am eager to be a part of your health and wellness journey!",
+    "areas_of_focus": "Active health and fitness, Chronic pain, Injury rehabilitation and exercise therapy",
+    "certification": "Bachelor of Science in Kinesiology, Simon Fraser University, BCAK Certified, Stott Pilates – Spinal, Pelvis, & Scapular Stabilization: Reformer",
+    "email": "brentwood@evergreenclinic.ca",
+    "phone": null,
+    "social_links": [
+      "https://www.instagram.com/brandonyoonkin/"
+    ]
+  }
+]

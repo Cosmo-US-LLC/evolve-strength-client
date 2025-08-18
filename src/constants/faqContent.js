@@ -94,7 +94,7 @@ export const faqMain = {
     {
       question: "Do you offer a free trial or day pass?",
       answer:
-        "We do not offer day passes, but you can book a free tour to visit the facility, meet our team, and see the space before joining. Click here to book your tour.",
+        "We do offer day passes though they need to be purchased. You can also book a free tour to visit the facility, meet our team, and see the space before joining. Click here to book your tour.",
     },
     {
       question: "How old do I need to be to sign up?",

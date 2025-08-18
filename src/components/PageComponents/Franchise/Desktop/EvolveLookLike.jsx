@@ -2,12 +2,13 @@ import React, { useCallback, useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import slide1 from "../../../../assets/images/home/facility/image_1.webp";
-import slide2 from "../../../../assets/images/home/facility/image_2.webp";
-import slide3 from "../../../../assets/images/home/facility/image_3.webp";
-import slide4 from "../../../../assets/images/home/facility/image_4.webp";
-import slide5 from "../../../../assets/images/home/facility/image_5.webp";
-import slide6 from "../../../../assets/images/home/facility/image_6.webp";
+import { Link } from "react-router-dom";
+import slide1 from "../../../../assets/images/franchise/Evolvelooklike/image_1.webp";
+import slide2 from "../../../../assets/images/franchise/Evolvelooklike/image_2.webp";
+import slide3 from "../../../../assets/images/franchise/Evolvelooklike/image_3.webp";
+import slide4 from "../../../../assets/images/franchise/Evolvelooklike/image_4.webp";
+import slide5 from "../../../../assets/images/franchise/Evolvelooklike/image_5.webp";
+import slide6 from "../../../../assets/images/franchise/Evolvelooklike/image_6.webp";
 
 const professionals = [
   { title: "Physiotherapy", image: slide1 },
@@ -118,7 +119,7 @@ const EvolveLookLike = () => {
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   return (
-    <section className="py-12">
+    <section className="md:py-12">
       <div className="relative flex flex-col gap-16">
         {/* Header */}
         <div className=" w-full max-w-[1280px] mx-auto md:px-8 px-4 md:flex md:items-end md:justify-between items-center justify-center mb-4">
@@ -131,7 +132,9 @@ const EvolveLookLike = () => {
             </h4>
           </div>
           <div className="md:flex-1 flex items-start flex-col md:flex-row md:justify-end pt-3 md:pt-0 ">
-            <button className="btnPrimary">APPLY NOW</button>
+            <Link to="/your-fitness-future">
+                          <button className="btnPrimary">Apply Now</button>
+                        </Link>
           </div>
         </div>
 

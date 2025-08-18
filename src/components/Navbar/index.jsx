@@ -3,7 +3,7 @@ import { HashLink as Link } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import "./styles.css";
-import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-Strength-Logo-w.webp";
+import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-logo-light.svg";
 import ESFLogo from "../../assets/images/home/footer/Evolve-Strength-footer-Logo.svg";
 import {
   Sheet,
@@ -36,7 +36,7 @@ function Navbar() {
     { to: "/membership-benefits", label: "Membership" },
     { to: "/personal-training", label: "Training" },
     { to: "/wellness", label: "Wellness" },
-    { to: "#Careers", label: "Careers" },
+    { to: "/spaces", label: "Spaces" },
     { to: "/franchise", label: "Franchise" },
   ];
 
@@ -93,7 +93,10 @@ function Navbar() {
 
               {/* Desktop CTA Button */}
               <div className="hidden md:flex items-center">
+                          <Link to = "https://join.evolvestrength.ca/tour-form/">
+
                 <button className="btnSecondary">Book a Free Tour</button>
+                </Link>
               </div>
 
               {/* Mobile Hamburger Menu */}

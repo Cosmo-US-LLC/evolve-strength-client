@@ -1,49 +1,51 @@
-import React from "react";
+import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import LeftArrowIcon from "@/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/left-arrow.svg";
 import RightArrowIcon from "@/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/right-arrow.svg";
-import slide1 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide1.webp";
-import slide2 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide2.webp";
-import slide3 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide3.webp";
-import slide4 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide4.webp";
-import slide5 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide5.webp";
-import slide6 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide6.webp";
-import slide7 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide7.webp";
-import slide8 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide8.webp";
-import slide9 from "../../../../assets/images/MembershipBenefits/EveryThinkYouNeed/slide9.webp";
-
-const professionals = [
-  { title: "Physiotherapy", image: slide1 },
-  { title: "Pilates", image: slide2 },
-  { title: "Massage Therapy", image: slide3 },
-  { title: "Chiropractic Care", image: slide4 },
-  { title: "Acupuncture", image: slide5 },
-  { title: "Dietitian Services", image: slide6 },
-  { title: "Dietitian Services", image: slide7 },
-  { title: "Laser Therapists", image: slide8 },
-  { title: "Esthetician", image: slide9 },
-];
+import { professionalServices } from "../../../../constants/professionalServicesImages.js";
 
 const EveryThinkYouNeed = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
+      align: "start",
       containScroll: "keepSnaps",
       loop: true,
     },
-    [Autoplay({ delay: 3000, stopOnInteraction: false })]
+    [Autoplay({ delay: 3000, stopOnInteraction: true })]
   );
 
-  const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
-  const scrollNext = () => emblaApi && emblaApi.scrollNext();
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+      // Reset autoplay after manual navigation
+      const autoplayPlugin = emblaApi.plugins().autoplay;
+      if (autoplayPlugin) {
+        autoplayPlugin.stop();
+        autoplayPlugin.play();
+      }
+    }
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollNext();
+      // Reset autoplay after manual navigation
+      const autoplayPlugin = emblaApi.plugins().autoplay;
+      if (autoplayPlugin) {
+        autoplayPlugin.stop();
+        autoplayPlugin.play();
+      }
+    }
+  }, [emblaApi]);
 
   return (
     <section className="py-12 bg-[#F9F9F9]">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col items-start gap-8">
         <div className="flex flex-col   gap-4 pb-10 md:pb-0">
           <h2 className="text-[#000] uppercase ">
-            Everything You Need. All in One  Place.
+            Everything You Need. All in One Place.
           </h2>
           <h4 className="text-[#000] w-full md:w-[719px] leading-[26px] font-[400]">
             At most gyms, your fitness journey ends when you leave. Recovery
@@ -62,15 +64,15 @@ const EveryThinkYouNeed = () => {
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-4 pl-0 md:pl-4">
-              {professionals.map((pro, idx) => (
+              {professionalServices.map((pro, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_100%] md:flex-[0_0_28%] relative rounded-lg overflow-hidden"
+                  className="flex-[0_0_100%] md:flex-[0_0_32%] relative rounded-lg overflow-hidden"
                 >
                   <img
                     src={pro.image}
                     alt={pro.title}
-                    className="w-full h-[400px] object-cover"
+                    className="w-full h-[320px] md:h-[380px] object-cover"
                   />
                   <h3 className="absolute bottom-[40px] left-0 right-0  flex items-center justify-center text-[#FFF] leading-[24px] font-[500]">
                     {pro.title}
@@ -79,7 +81,7 @@ const EveryThinkYouNeed = () => {
               ))}
             </div>
           </div>
-          <div className="absolute -top-1/9 md:-top-1/7 -translate-y-1/2 left-[74%] md:left-[87%] z-10">
+          <div className="absolute -top-1/11 md:-top-1/7 -translate-y-1/2 left-[74%] md:left-[87%] z-10">
             <button
               onClick={scrollPrev}
               className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-100 cursor-pointer"
@@ -91,7 +93,7 @@ const EveryThinkYouNeed = () => {
               />
             </button>
           </div>
-          <div className="absolute -top-1/9 md:-top-1/7 -translate-y-1/2 right-[4%] md:right-[6%] z-10 ">
+          <div className="absolute -top-1/11 md:-top-1/7 -translate-y-1/2 right-[4%] md:right-[6%] z-10 ">
             <button
               onClick={scrollNext}
               className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-100 cursor-pointer"

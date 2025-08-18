@@ -41,7 +41,7 @@ function WhattoSubmit() {
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   return (
-    <div className="w-full pb-[70px] pt-[82px]">
+    <div className="w-full pb-[50px] md:pb-[70px] pt-[82px]">
       <div className="w-full max-w-[1280px] md:px-8 px-4 mx-auto flex flex-col gap-12">
         <div className="space-y-[16px] max-md:pb-[30px]">
           <h2 className="uppercase leading-[39px] font-[700]">
@@ -50,7 +50,17 @@ function WhattoSubmit() {
           <h5 className="description leading-[20px]">
             Send Us Content You’ve Shot at Evolve
           </h5>
-          <button className="btnPrimary">Submit your short</button>
+          <button  onClick={() => {
+    const formElement = document.getElementById("join-the-movement-form");
+    if (formElement) {
+      const yOffset = -150; // adjust this value for more/less space
+      const yPosition =
+        formElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: yPosition, behavior: "smooth" });
+    }
+  }}
+           className="btnPrimary">Submit your short</button>
         </div>
         <div className="relative w-full ">
           <div className="overflow-hidden" ref={emblaRef}>

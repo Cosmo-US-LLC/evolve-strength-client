@@ -13,20 +13,13 @@ function ContactIntro() {
         <p className="description mb-3">Contact us through this form!</p>
 
         <div className="flex justify-center items-center gap-4 description">
-          <div className="flex items-center gap-1">
-            <span>
-              <img src={phoneicon} alt="Phone" />
-            </span>
-            <a href="tel:+17805897852" className="hover:underline text-[#1C1C1C]">
-              +1 (780) 589-7852
-            </a>
-          </div>
+          
           <div className="flex items-center gap-1">
             <span>
               <img src={buildingicon} alt="Email" />
             </span>
             <a href="mailto:info@evolvestrength.com" className="hover:underline text-[#1C1C1C]">
-              info@evolvestrength.com
+              info@evolvestrength.ca
             </a>
           </div>
         </div>
