@@ -63,7 +63,7 @@ function FranchiseHero() {
               {showThumbnail && (
                 <div className="absolute inset-0 z-20">
                   <img
-                    src="/videos/franchise_thumbnail.webp"
+                    src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/franchise_thumbnail.webp"
                     alt="Franchise with Evolve - Thumbnail"
                     className="w-full h-full object-cover"
                   />
@@ -98,7 +98,7 @@ function FranchiseHero() {
                 loop
                 playsInline
               >
-                <source src="/videos/FranchiseHero.webm" type="video/webm" />
+                <source src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/FranchiseHero.webm" type="video/webm" />
                 Your browser does not support the video tag.
               </video>
 

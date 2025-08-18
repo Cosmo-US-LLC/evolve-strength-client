@@ -63,7 +63,7 @@ const WhoOurSpacesFor = () => {
               {professionalServices.map((pro, idx) => (
                 <div
                   key={idx}
-                  className=" pl-0.5 md:pl-2.5 w-fit md:basis-1/4 flex-shrink-0"
+                  className="pl-0.5 md:pl-2.5 w-fit md:basis-1/4 flex-shrink-0"
                 >
                   <div className="flex relative rounded-lg overflow-hidden">
                     <img

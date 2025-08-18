@@ -88,11 +88,11 @@ const MeetTheTrainers = ({ location = "" }) => {
 
         <div className="relative w-full">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex md:gap-4">
+            <div className="flex -ml-0.5 md:-ml-2.5">
               {trainers.map((trainer) => (
                 <div
                   key={trainer.id}
-                  className="md:flex-[0_0_24%] flex-[0_0_100%] gap-3 flex flex-col relative"
+                  className="pl-0.5 md:pl-2.5 w-fit md:basis-1/4 flex-shrink-0 gap-3 flex flex-col"
                 >
                   <div className="relative">
                     <img
@@ -104,14 +104,14 @@ const MeetTheTrainers = ({ location = "" }) => {
                   </div>
 
                   <div
-                    className={`w-full h-[95px] p-4 ${
+                    className={`w-full h-auto p-4 ${
                       selectedTrainer?.id === trainer.id
                         ? "bg-[#4AB04A] "
                         : "bg-[#F6F6F6]"
-                    } rounded-[10px] flex  justify-between`}
+                    } rounded-[10px] flex w-full justify-between`}
                   >
                     {/* Left: Name + Description */}
-                    <div className="flex flex-col w-[full]  ">
+                    <div className="flex flex-col w-[88%] ">
                       <h3
                         className={`text-[#000] leading-tight ${
                           selectedTrainer?.id === trainer.id
@@ -146,8 +146,8 @@ const MeetTheTrainers = ({ location = "" }) => {
               ))}
             </div>
           </div>
-          <div className="pt-5">
-            <div className="absolute  md:top-[30%] left-[37%] md:left-[-60px] -translate-y-1/4 md:translate-y-1/2 ">
+          <div className="">
+            <div className="absolute md:top-[30%] left-[37%] md:left-[-60px] -translate-y-1/2 md:translate-y-1/2 ">
               <button
                 onClick={scrollPrev}
                 className="p-2 rounded-full border border-[#000000] text-[#000000]"
@@ -155,7 +155,7 @@ const MeetTheTrainers = ({ location = "" }) => {
                 <ArrowLeft className="w-6 h-6" />
               </button>
             </div>
-            <div className="absolute  md:top-[30%] -translate-y-1/4 md:translate-y-1/2 md:-right-[60px] right-[37%] z-10">
+            <div className="absolute md:top-[30%] -translate-y-1/2 md:translate-y-1/2 md:-right-[60px] right-[37%] z-10">
               <button
                 onClick={scrollNext}
                 className="p-2 rounded-full border border-[#000000] text-[#000000]"
