@@ -7,7 +7,7 @@
 }
 
 .trainerCallout {
-  background-image: url("/src/assets/images/home/TrainerCallout/trainer_callout.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/TrainerCallout/trainer_callout.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -345,7 +345,7 @@
     height: 646px;
   }
   .trainerCallout {
-    background-image: url("/src/assets/images/home/TrainerCallout/trainer_callout_mob.webp");
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/TrainerCallout/trainer_callout_mob.webp");
   }
   .CareerWithEvolveCareer1 {
     background-image: url("/src/assets/images/home/CareerWithEvolve/career_1_mob.webp");

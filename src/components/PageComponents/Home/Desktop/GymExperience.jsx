@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import fitness from "/src/assets/images/home/gymEep/fitness.webp";
-import wellness from "/src/assets/images/home/gymEep/wellness.webp";
-import atmosphere from "/src/assets/images/home/gymEep/atmosphere.webp";
 import useEmblaCarousel from "embla-carousel-react";
 
 const gymCards = [
@@ -9,19 +6,19 @@ const gymCards = [
     title: "Fitness",
     description:
       "Achieve your fitness goals with premium strength and cardio equipment, designed for every workout style.",
-    bgImage: fitness,
+    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/gymEep/fitness.webp",
   },
   {
     title: "Wellness",
     description:
       "Recover and rejuvenate with steam rooms, saunas, physiotherapy, and massage therapy.",
-    bgImage: wellness,
+    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/gymEep/wellness.webp",
   },
   {
     title: "Atmosphere",
     description:
       "Stay motivated in a vibrant, inspiring atmosphere with stunning aesthetics designed to elevate your experience.",
-    bgImage: atmosphere,
+    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/gymEep/atmosphere.webp",
   },
 ];
 
