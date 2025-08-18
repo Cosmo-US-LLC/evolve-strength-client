@@ -51,7 +51,7 @@ const LocationsSpacious = () => {
             Canada. Every area is designed with purpose to support your fitness
             and wellness goals.
           </h4>
-          <Link to="https://join.evolvestrength.ca/tour-form/">
+          <Link to="https://tour.evolvestrength.ca/tour-form">
             <button className="btnPrimary">BOOK A FREE TOUR</button>
           </Link>
         </div>
