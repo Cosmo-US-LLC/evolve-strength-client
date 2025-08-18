@@ -59,7 +59,7 @@ const AboutUsOffer = () => {
           </Link>
         </div>
 
-        <div className="relative">
+        <div className="relative w-full">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex md:gap-4 md:pl-4 ">
               {professionalMembershipPremiumAmenities.map((pro, idx) => (
