@@ -226,11 +226,11 @@ const PersonalGymExperience = () => {
               key={index}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className="flex-1 p-8 rounded-t-[5px] flex flex-col gap-8 cursor-pointer relative group overflow-hidden transition-transform duration-300 ease-out hover:scale-[1.02]"
+              className="flex-1 p-8 rounded-t-[5px] flex flex-col gap-8 cursor-pointer relative group overflow-hidden transition-transform duration-150 ease-out hover:scale-[1.02]"
             >
               {/* White Overlay - Smooth slide up animation */}
               <div
-                className={`absolute inset-0 z-0 bg-[#ffffff] transition-transform duration-300 ease-out ${
+                className={`absolute inset-0 z-0 bg-[#ffffff] transition-transform duration-150 ease-out ${
                   isActive ? "translate-y-0" : "translate-y-full"
                 }`}
               />
@@ -238,7 +238,7 @@ const PersonalGymExperience = () => {
               {/* Content Container */}
               <div className="relative z-10 w-[246px] h-[100px] flex flex-col justify-center">
                 <p
-                  className={`description leading-[25px] !font-[600] transition-all duration-300 ease-out ${
+                  className={`description leading-[25px] !font-[600] transition-all duration-150 ease-out ${
                     isActive
                       ? "text-[#000] translate-y-0"
                       : "text-[#ffffff] translate-y-1"
@@ -247,7 +247,7 @@ const PersonalGymExperience = () => {
                   {card.count}
                 </p>
                 <h3
-                  className={`uppercase !text-[24px] font-Vazirmatn leading-[30px] !font-[600] mb-4 transition-all duration-300 ease-out ${
+                  className={`uppercase !text-[24px] font-Vazirmatn leading-[30px] !font-[600] mb-4 transition-all duration-150 ease-out ${
                     isActive
                       ? "text-[#1C1C1C] translate-y-0"
                       : "text-[#ffffff] translate-y-1"
@@ -270,17 +270,17 @@ const PersonalGymExperience = () => {
               return (
                 <div key={index} className="flex-[0_0_70%] min-w-0 px-3 py-4">
                   <div
-                    className={`w-full min-h-[100px] px-3 rounded-[5px] flex flex-col justify-center gap-4 cursor-pointer relative group overflow-hidden transition-all duration-200 transform ${
+                    className={`w-full min-h-[100px] px-3 rounded-[5px] flex flex-col justify-center gap-4 cursor-pointer relative group overflow-hidden transition-all duration-150 transform ${
                       isSelected ? "scale-110" : "scale-95"
                     }`}
                   >
                     <div className="absolute inset-0 z-0 bg-[#ffffff] h-[100%] flex flex-col items-center justify-center" />
 
-                    <div className="relative z-10 transition-colors duration-300 w-full text-center text-[#1C1C1C]">
-                      <p className="description leading-[20px] !font-[600] transition-all duration-200 text-[#000]">
+                    <div className="relative z-10 transition-colors duration-150 w-full text-center text-[#1C1C1C]">
+                      <p className="description leading-[20px] !font-[600] transition-all duration-150 text-[#000]">
                         {card.count}
                       </p>
-                      <h3 className="uppercase !text-[20px] font-Vazirmatn leading-[26px] !font-[600] transition-all duration-200 text-[#1C1C1C]">
+                      <h3 className="uppercase !text-[20px] font-Vazirmatn leading-[26px] !font-[600] transition-all duration-150 text-[#1C1C1C]">
                         {card.title}
                       </h3>
                     </div>
