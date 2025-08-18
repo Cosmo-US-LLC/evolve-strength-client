@@ -12,46 +12,18 @@ import {
   Sparkles,
   Brain,
   Hand,
-  ArrowLeft,
-  ArrowRight,
 } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-} from "@/components/ui/carousel";
 
-// Desktop images
-import estheticianBg from "/src/assets/images/home/wellness-services/esthetician.webp";
-import chiropracticBg from "/src/assets/images/home/wellness-services/chiropractic_care.webp";
-import massageBg from "/src/assets/images/home/wellness-services/chiropractic_head.webp";
-import physiotherapy from "/src/assets/images/home/wellness-services/physiotherapy.webp";
-import acupunctureBg from "/src/assets/images/home/wellness-services/acupuncture.webp";
-import dietitianBg from "/src/assets/images/home/wellness-services/acupuncture_food.webp";
-import osteopathyBg from "/src/assets/images/home/wellness-services/osteopathy.webp";
-import laserBg from "/src/assets/images/home/wellness-services/osteopathy_glass.webp";
-import mentalHealthBg from "/src/assets/images/home/wellness-services/mental_health.webp";
-
-// Mobile images (currently using same images, replace with mobile-specific ones when available)
-import estheticianBgMobile from "/src/assets/images/home/wellness-services/esthetician_mobile.webp";
-import chiropracticBgMobile from "/src/assets/images/home/wellness-services/chiropractic_careMob.webp";
-import massageBgMobile from "/src/assets/images/home/wellness-services/chiropractic_headMob.webp";
-import physiotherapyMobile from "/src/assets/images/home/wellness-services/physiotherapyMob.webp";
-import acupunctureBgMobile from "/src/assets/images/home/wellness-services/acpunctureMob.webp";
-import dietitianBgMobile from "/src/assets/images/home/wellness-services/dietitionMob.webp";
-import osteopathyBgMobile from "/src/assets/images/home/wellness-services/osteopathyMob.webp";
-import laserBgMobile from "/src/assets/images/home/wellness-services/osteoathy_glassMob.webp";
-import mentalHealthBgMobile from "/src/assets/images/home/wellness-services/mental_healthMob.webp";
 
 const services = [
   {
     label: "Esthetician",
     icon: <Leaf />,
     bgImage: {
-      desktop: estheticianBg,
-      mobile: estheticianBgMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/esthetician.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/esthetician_mobile.webp",
     },
   },
   {
@@ -62,8 +34,10 @@ const services = [
     ),
     icon: <Hand />,
     bgImage: {
-      desktop: chiropracticBg,
-      mobile: chiropracticBgMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/chiropractic_care.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/chiropractic_careMob.webp",
     },
   },
   {
@@ -74,24 +48,30 @@ const services = [
     ),
     icon: <HandHeart />,
     bgImage: {
-      desktop: massageBg,
-      mobile: massageBgMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/chiropractic_head.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/chiropractic_headMob.webp",
     },
   },
   {
     label: "physiotherapy",
     icon: <Dumbbell />,
     bgImage: {
-      desktop: physiotherapy,
-      mobile: physiotherapyMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/physiotherapy.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/physiotherapyMob.webp",
     },
   },
   {
     label: "Acupuncture",
     icon: <Activity />,
     bgImage: {
-      desktop: acupunctureBg,
-      mobile: acupunctureBgMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/acupuncture.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/acpunctureMob.webp",
     },
   },
   {
@@ -102,32 +82,40 @@ const services = [
     ),
     icon: <Salad />,
     bgImage: {
-      desktop: dietitianBg,
-      mobile: dietitianBgMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/acupuncture_food.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/dietitionMob.webp",
     },
   },
   {
     label: "Osteopathy",
     icon: <HeartPulse />,
     bgImage: {
-      desktop: osteopathyBg,
-      mobile: osteopathyBgMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/osteopathy.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/osteopathyMob.webp",
     },
   },
   {
     label: "Laser Therapy",
     icon: <Sparkles />,
     bgImage: {
-      desktop: laserBg,
-      mobile: laserBgMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/osteopathy_glass.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/osteoathy_glassMob.webp",
     },
   },
   {
     label: "Mental Health",
     icon: <Brain />,
     bgImage: {
-      desktop: mentalHealthBg,
-      mobile: mentalHealthBgMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/mental_health.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/wellness-services/mental_healthMob.webp",
     },
   },
 ];
@@ -216,8 +204,8 @@ const WellnessServices = () => {
               Take full advantage of a wide range of wellness <br /> services at
               every Evolve location, available at an <br /> additional cost.
             </p>
-            <Link to ="/explore">
-            <button className="btnPrimary">FIND A WELLNESS EXPERT</button>
+            <Link to="/explore">
+              <button className="btnPrimary">FIND A WELLNESS EXPERT</button>
             </Link>
           </div>
 
@@ -284,8 +272,8 @@ const WellnessServices = () => {
             Evolve location, available at an additional cost.
           </p>
           <div className="flex justify-start w-full">
-            <Link to ="/explore">
-            <button className="btnPrimary">FIND A WELLNESS EXPERT</button>
+            <Link to="/explore">
+              <button className="btnPrimary">FIND A WELLNESS EXPERT</button>
             </Link>
           </div>
         </div>
