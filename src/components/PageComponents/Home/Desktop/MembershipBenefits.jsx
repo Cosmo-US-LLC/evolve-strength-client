@@ -151,7 +151,7 @@ const MembershipBenefits = () => {
                   </div>
                 );
               })}
-              <Link to="https://join.evolvestrength.ca/tour-form/">
+              <Link to="https://tour.evolvestrength.ca/tour-form/">
                 <button className="btnPrimary">BOOK A FREE TOUR</button>
               </Link>
             </div>

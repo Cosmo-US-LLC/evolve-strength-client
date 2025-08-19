@@ -60,10 +60,17 @@ const AboutUsPractitioners = () => {
                   key={idx}
                   className="flex-[0_0_100%] md:flex-[0_0_32.5%] relative"
                 >
+                  {/* Desktop Image */}
                   <img
-                    src={pro.image}
+                    src={pro.images.desktopImage}
                     alt={pro.title}
-                    className="w-full h-[220px] md:h-[273px] object-cover rounded-lg"
+                    className="w-full h-[220px] md:h-[273px] object-cover rounded-lg hidden md:block"
+                  />
+                  {/* Mobile Image */}
+                  <img
+                    src={pro.images.mobileImage}
+                    alt={pro.title}
+                    className="w-full h-[290px] object-cover rounded-lg block md:hidden"
                   />
                   <h3 className="flex items-center mt-4 md:mt-6 text-[#000] leading-[20px] md:leading-[24px] font-[500] text-sm md:text-base">
                     {pro.title}

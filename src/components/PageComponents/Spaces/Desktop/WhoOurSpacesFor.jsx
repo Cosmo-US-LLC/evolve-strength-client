@@ -63,13 +63,20 @@ const WhoOurSpacesFor = () => {
               {professionalServices.map((pro, idx) => (
                 <div
                   key={idx}
-                  className="pl-0.5 md:pl-2.5 w-fit md:basis-1/4 flex-shrink-0"
+                  className="pl-0.5 md:pl-2.5 w-fit basis-full md:basis-1/4 flex-shrink-0"
                 >
                   <div className="flex relative rounded-lg overflow-hidden">
+                    {/* Desktop Image */}
                     <img
-                      src={pro.image}
+                      src={pro.images.desktopImage}
                       alt={pro.title}
-                      className="w-full h-[380px] object-cover"
+                      className="w-full h-[380px] object-cover hidden md:block"
+                    />
+                    {/* Mobile Image */}
+                    <img
+                      src={pro.images.mobileImage}
+                      alt={pro.title}
+                      className="w-full h-[380px] object-cover block md:hidden"
                     />
                     <h3 className="absolute bottom-[40px] left-0 right-0 flex items-center justify-center text-[#FFF] leading-[24px] font-[500]">
                       {pro.title}

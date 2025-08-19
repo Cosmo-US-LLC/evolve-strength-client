@@ -19,7 +19,7 @@ function JoinAsTrainer() {
         <JoinAsTrainerHero />
         <BuildYourCareer />
         <WhyChooseEvolve />
-        <WhatTrainersAre />
+        {/* <WhatTrainersAre /> */}
         <TourOurFitness />
        
     </>

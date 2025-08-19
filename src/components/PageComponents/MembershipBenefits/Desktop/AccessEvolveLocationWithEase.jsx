@@ -112,7 +112,7 @@ const AccessEvolveLocationWithEase = () => {
           </div>
         </div>
 
-        <div className="flex flex-row absolute md:-top-25 right-32 md:right-20 p-4 rounded-md z-10 gap-3 md:gap-5">
+        <div className="flex flex-row absolute md:-top-25 right-32 md:right-15  p-4 rounded-md z-10 gap-3 md:gap-5">
           <button
             onClick={scrollPrev}
             className="h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"

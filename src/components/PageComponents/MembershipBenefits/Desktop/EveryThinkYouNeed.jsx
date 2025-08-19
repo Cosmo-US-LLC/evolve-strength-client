@@ -69,10 +69,17 @@ const EveryThinkYouNeed = () => {
                   key={idx}
                   className="flex-[0_0_100%] md:flex-[0_0_32%] relative rounded-lg overflow-hidden"
                 >
+                  {/* Desktop Image */}
                   <img
-                    src={pro.image}
+                    src={pro.images.desktopImage}
                     alt={pro.title}
-                    className="w-full h-[320px] md:h-[380px] object-cover"
+                    className="w-full h-[320px] md:h-[380px] object-cover hidden md:block"
+                  />
+                  {/* Mobile Image */}
+                  <img
+                    src={pro.images.mobileImage}
+                    alt={pro.title}
+                    className="w-full h-[400px] object-cover block md:hidden"
                   />
                   <h3 className="absolute bottom-[40px] left-0 right-0  flex items-center justify-center text-[#FFF] leading-[24px] font-[500]">
                     {pro.title}
