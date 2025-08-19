@@ -15,7 +15,7 @@ function ExploreHero() {
             Choose an option below to get started.
           </h3>
           <div className="flex gap-6">
-            <Link to="https://join.evolvestrength.ca/tour-form/">
+            <Link to="https://tour.evolvestrength.ca/tour-form/">
               <button className="btnPrimary">BOOK A FREE TOUR</button>
             </Link>
 

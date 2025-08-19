@@ -117,7 +117,10 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
       <FormsHeader />
 
       {/* Success Screen Full Screen Overlay */}
-      {submitted && (
+      
+
+      <div className="flex gap-12 md:p-6 p-4 flex-row max-w-[1280px] mx-auto items-center min-h-screen">
+        {submitted && (
   <div className="fixed inset-0 z-[9999]">
     <SuccessFullScreen
       title="APPLICATION SUBMITTED"
@@ -128,8 +131,6 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
     />
   </div>
 )}
-
-      <div className="flex gap-12 md:p-6 p-4 flex-row max-w-[1280px] mx-auto items-center min-h-screen">
         {/* Left Image */}
         <div className="w-full max-w-[40%] flex-shrink-0 flex max-md:hidden">
           <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white">
