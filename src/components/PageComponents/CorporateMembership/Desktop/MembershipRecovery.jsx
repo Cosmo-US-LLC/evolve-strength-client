@@ -50,10 +50,17 @@ const MembershipRecovery = () => {
               {professionalServices.map((pro, idx) => (
                 <div className="pl-0.5 md:pl-2.5 w-fit md:basis-1/3 flex-shrink-0">
                   <div key={idx} className="relative">
+                    {/* Desktop Image */}
                     <img
-                      src={pro.image}
+                      src={pro.images.desktopImage}
                       alt={pro.title}
-                      className="w-full max-md:w-[350px] md:w-[400px] h-[230px] md:h-[260px] object-cover rounded-[8px]"
+                      className="w-full max-md:w-[350px] md:w-[400px] h-[230px] md:h-[260px] object-cover rounded-[8px] hidden md:block"
+                    />
+                    {/* Mobile Image */}
+                    <img
+                      src={pro.images.mobileImage}
+                      alt={pro.title}
+                      className="w-full max-md:w-[350px] h-[290px] object-cover rounded-[8px] block md:hidden"
                     />
                     <h3 className="flex items-center mt-6 text-[#000] leading-[24px] font-[500]">
                       {pro.title}
