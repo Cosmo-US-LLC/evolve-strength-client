@@ -109,7 +109,7 @@ function JoinUsToday() {
           Experience the space. Meet our team. See the difference.
         </h4>
         <div className="flex justify-start items-start ">
-          <Link to="https://join.evolvestrength.ca/tour-form/">
+          <Link to="https://tour.evolvestrength.ca/tour-form ">
             <button className="btnPrimary">BOOK A FREE TOUR</button>
           </Link>
         </div>
