@@ -64,7 +64,7 @@ function SetonLocation() {
               </p>
             </div>
             <div className="flex flex-start pt-5 md:pt-0">
-               <Link to="https://join.evolvestrength.ca/tour-form/">
+               <Link to="https://tour.evolvestrength.ca/tour-form ">
                           <button className="btnPrimary">BOOK A FREE TOUR</button>
                           </Link>
             </div>

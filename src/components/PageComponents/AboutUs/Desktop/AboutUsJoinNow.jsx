@@ -21,7 +21,7 @@ function JoinUs() {
              <Link to="https://subscription.evolvestrength.ca/">
                         <button className="btnPrimary">join now</button>
                         </Link>
-           <Link to="https://join.evolvestrength.ca/tour-form/">
+           <Link to="https://tour.evolvestrength.ca/tour-form">
             <button className="btnSecondary">BOOK A FREE TOUR</button>
             </Link>
 

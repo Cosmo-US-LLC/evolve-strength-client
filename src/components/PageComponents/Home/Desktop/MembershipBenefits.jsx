@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Dumbbell, Flame } from "lucide-react";
-
 const benefitItems = [
   {
     key: "wellness",
@@ -67,30 +66,24 @@ const benefitItems = [
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/MembershipBenefits/image_5.webp",
   },
 ];
-
 const MembershipBenefits = () => {
   const [activeKey, setActiveKey] = useState("wellness");
   const timerRef = useRef(null);
   const [animationProgress, setAnimationProgress] = useState(0);
-
   const activeIndex = benefitItems.findIndex((item) => item.key === activeKey);
-
   useEffect(() => {
     benefitItems.forEach((item) => {
       const img = new Image();
       img.src = item.image;
     });
   }, []);
-
   useEffect(() => {
     timerRef.current = setTimeout(() => {
       const nextIndex = (activeIndex + 1) % benefitItems.length;
       setActiveKey(benefitItems[nextIndex].key);
     }, 6000);
-
     return () => clearTimeout(timerRef.current);
   }, [activeKey]);
-
   useEffect(() => {
     setAnimationProgress(0);
     let start;
@@ -105,9 +98,7 @@ const MembershipBenefits = () => {
     const raf = requestAnimationFrame(animateBorder);
     return () => cancelAnimationFrame(raf);
   }, [activeKey]);
-
   const active = benefitItems.find((item) => item.key === activeKey);
-
   return (
     <div>
       <div className="w-full py-12 max-md:hidden">
@@ -127,7 +118,6 @@ const MembershipBenefits = () => {
                     style={{ zIndex: 0 }}
                   >
                     <div className="absolute left-0 top-0 h-full w-[2px] bg-[#E8EBEF]" />
-
                     <div
                       className="absolute left-0 top-0 h-full w-[2px] bg-[#4AB04A]"
                       style={{
@@ -254,5 +244,4 @@ const MembershipBenefits = () => {
     </div>
   );
 };
-
 export default MembershipBenefits;
