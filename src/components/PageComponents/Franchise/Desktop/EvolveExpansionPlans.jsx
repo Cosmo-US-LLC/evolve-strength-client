@@ -267,7 +267,7 @@ function EvolveExpansionPlans() {
                     />
                   </svg>
                 </div>
-                 {/* burnabyBrentwood */}
+                {/* burnabyBrentwood */}
                 <div
                   className="absolute left-[10%] top-[57.3%] z-10 w-[18px] md:w-[31px] h-[16px] md:h-[19px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("burnabyBrentwood")}
