@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LocationsHoverCard from "./LocationsHoverCard";
 
 import ES_1 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_1.webp";
@@ -61,6 +61,22 @@ function EvolveExpansionPlans() {
   const [hoveredProvince, setHoveredProvince] = useState(null);
   const [clickedProvince, setClickedProvince] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isMobileDevice =
+        /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
+      const isSmallScreen = window.innerWidth < 768;
+      setIsMobile(isMobileDevice || isSmallScreen);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const provinces = {
     vancouverPost: {
@@ -111,16 +127,32 @@ function EvolveExpansionPlans() {
   };
 
   const handleProvinceHover = (provinceKey) => {
-    setHoveredProvince(provinceKey);
+    // Only handle hover on desktop
+    if (!isMobile) {
+      setHoveredProvince(provinceKey);
+    }
   };
 
   const handleProvinceLeave = () => {
-    setHoveredProvince(null);
+    // Only handle leave on desktop
+    if (!isMobile) {
+      setHoveredProvince(null);
+    }
   };
 
   const handleProvinceClick = (provinceKey) => {
-    setClickedProvince(clickedProvince === provinceKey ? null : provinceKey);
+    if (isMobile) {
+      // On mobile, always open modal
+      setClickedProvince(clickedProvince === provinceKey ? null : provinceKey);
+      setHoveredProvince(null); // Clear hover state on mobile
+    } else {
+      // On desktop, toggle clicked state
+      setClickedProvince(clickedProvince === provinceKey ? null : provinceKey);
+    }
   };
+
+  // Determine which province to show
+  const activeProvince = clickedProvince || hoveredProvince;
 
   return (
     <div className="w-full max-w-[1280px] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-8 md:gap-16">
@@ -251,6 +283,7 @@ function EvolveExpansionPlans() {
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
                   onClick={() => handleProvinceClick("vancouverPost")}
+                  onTouchStart={() => handleProvinceClick("vancouverPost")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -274,6 +307,7 @@ function EvolveExpansionPlans() {
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
                   onClick={() => handleProvinceClick("burnabyBrentwood")}
+                  onTouchStart={() => handleProvinceClick("burnabyBrentwood")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -300,6 +334,7 @@ function EvolveExpansionPlans() {
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
                   onClick={() => handleProvinceClick("edmontonSouth")}
+                  onTouchStart={() => handleProvinceClick("edmontonSouth")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -323,6 +358,7 @@ function EvolveExpansionPlans() {
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
                   onClick={() => handleProvinceClick("edmontonDowntown")}
+                  onTouchStart={() => handleProvinceClick("edmontonDowntown")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -346,6 +382,7 @@ function EvolveExpansionPlans() {
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
                   onClick={() => handleProvinceClick("edmontonNorth")}
+                  onTouchStart={() => handleProvinceClick("edmontonNorth")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -371,6 +408,7 @@ function EvolveExpansionPlans() {
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
                   onClick={() => handleProvinceClick("calgarySeton")}
+                  onTouchStart={() => handleProvinceClick("calgarySeton")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -392,6 +430,7 @@ function EvolveExpansionPlans() {
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
                   onClick={() => handleProvinceClick("calgarySunridge")}
+                  onTouchStart={() => handleProvinceClick("calgarySunridge")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -413,6 +452,7 @@ function EvolveExpansionPlans() {
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
                   onClick={() => handleProvinceClick("calgaryRoyalOak")}
+                  onTouchStart={() => handleProvinceClick("calgaryRoyalOak")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -431,17 +471,16 @@ function EvolveExpansionPlans() {
             </>
           </div>
 
-          {(hoveredProvince || clickedProvince) &&
-            provinces[hoveredProvince || clickedProvince] && (
-              <LocationsHoverCard
-                show={!!(hoveredProvince || clickedProvince)}
-                mousePosition={mousePosition}
-                data={provinces[hoveredProvince || clickedProvince]}
-                onClose={
-                  clickedProvince ? () => setClickedProvince(null) : undefined
-                }
-              />
-            )}
+          {activeProvince && provinces[activeProvince] && (
+            <LocationsHoverCard
+              show={!!activeProvince}
+              mousePosition={mousePosition}
+              data={provinces[activeProvince]}
+              onClose={
+                clickedProvince ? () => setClickedProvince(null) : undefined
+              }
+            />
+          )}
         </div>
         <div className="w-[100%] md:w-[40%]">
           <div className="flex flex-col gap-8 max-w-[493px] border border-[#CCCCCC] bg-[#F6F6F6] px-8 py-12 rounded-[10px]">
