@@ -1,8 +1,5 @@
 import React from "react";
-import mission from "@/assets/images/AboutUs/about_mission.svg";
-import whoarewe from "@/assets/images/AboutUs/about_whoarewe.svg";
-import origin from "@/assets/images/AboutUs/about_origin.svg";
-import ourOriginStoryLogo from "@/assets/images/AboutUs/AboutUs_Trainers/our_origin_story_logo.svg";
+
 const cardsData = [
   {
     title: (
@@ -53,7 +50,7 @@ function AboutUsMission() {
        
         <div className="w-[100%] flex flex-col items-start bg-[#F7F5F5] p-4 md:p-8 rounded-[10px]">
           <div className=" mb-4 h-[40px] w-[45px] md:h-auto md:w-auto">
-            <img src={mission} alt="Mission Icon" className="w-full h-auto" />
+            <img src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/about_mission.svg" alt="Mission Icon" className="w-full h-auto" />
           </div>
 
           <h1 className="!text-[40px] !font-[700] !leading-[39px]  text-black mb-3">
@@ -68,7 +65,7 @@ function AboutUsMission() {
          
           <div className="flex flex-col items-start  bg-[#F7F5F5] p-6 md:p-8 rounded-[10px]">
             <div className="text-green-600 text-3xl mb-3 h-[40px] w-[45px] md:h-auto md:w-auto">
-              <img src={whoarewe} />
+              <img src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/about_whoarewe.svg" />
             </div>
             <h2 className=" text-[#1C1C1C] mb-3">
               {cardsData[1].title}
@@ -79,13 +76,13 @@ function AboutUsMission() {
           <div className="flex flex-col items-start p-6 md:p-8 bg-[#1C1C1C] rounded-[10px] relative">
             <div className="absolute right-[20px] md:top-[10px] top-[8px] flex-shrink-0 ">
               <img
-                src={ourOriginStoryLogo}
+                src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/our_origin_story_logo.svg"
                 alt="Logo"
                 className="md:w-[180px] w-[111px]  h-full object-contain"
               />
             </div>
             <div className="text-green-600 text-3xl mb-3 h-[40px] w-[45px] md:h-auto md:w-auto ">
-              <img src={origin} alt="Origin" />
+              <img src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/about_origin.svg" alt="Origin" />
             </div>
             <h2 className="w-[300px] md:w-auto  text-white ">
               {cardsData[2].title}
