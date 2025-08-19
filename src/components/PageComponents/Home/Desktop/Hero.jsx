@@ -30,7 +30,7 @@ function Hero() {
             <h2 className="text-[#FFFFFF] !font-[400] leading-[24px] md:mb-7 max-md:mb-[16px]">
               More Space. More Possibilities.
             </h2>
-            <Link to="https://join.evolvestrength.ca/tour-form/">
+            <Link to="https://tour.evolvestrength.ca/tour-form ">
             <button className="btnPrimary">BOOK A FREE TOUR</button>
             </Link>
           </div>

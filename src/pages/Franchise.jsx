@@ -34,7 +34,7 @@ function Franchise() {
         <EvolveFloorPlan />
         <GotYourBack />
         <EvolveExpansionPlans />
-        <OurFranchiseesSay />
+        {/* <OurFranchiseesSay /> */}
         <HowtoJoinEvolveJourney />
         <LetsBuildBigger />
       </div>

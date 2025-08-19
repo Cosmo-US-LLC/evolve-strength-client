@@ -93,7 +93,7 @@ function Navbar() {
 
               {/* Desktop CTA Button */}
               <div className="hidden md:flex items-center">
-                          <Link to = "https://join.evolvestrength.ca/tour-form/">
+                          <Link to = "https://tour.evolvestrength.ca/tour-form/">
 
                 <button className="btnSecondary">Book a Free Tour</button>
                 </Link>
