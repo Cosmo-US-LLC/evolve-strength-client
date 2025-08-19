@@ -38,7 +38,6 @@ const FacilityShowcase = () => {
 
   return (
     <div className="w-full bg-white md:py-12">
-      {/* Desktop Version */}
       <div className="max-w-[1280px] mx-auto px-8 flex flex-col gap-2 mb-5 max-md:hidden">
         <h2 className="text-[#1C1C1C]">
           TAKE A PEAK INSIDE CANADA'S BEST <br /> FITNESS FACILITY
@@ -107,7 +106,6 @@ const FacilityShowcase = () => {
         </div>
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <div className="relative w-full flex items-start px-[16px] pt-10">
-            {/* Arrow buttons at top right */}
             <div className="absolute -top-4 right-4 flex gap-3 z-10">
               <button
                 onClick={scrollTabsLeft}

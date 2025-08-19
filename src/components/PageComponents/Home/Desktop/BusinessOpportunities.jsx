@@ -1,6 +1,4 @@
 import React from "react";
-import leasingImage from "/src/assets/images/home/BusinessOpportunities/leasing_opportunities.webp";
-import franchiseImage from "/src/assets/images/home/BusinessOpportunities/franchise_opportunities.webp";
 import { Link } from "react-router-dom";
 
 const opportunities = [
@@ -8,16 +6,17 @@ const opportunities = [
     title: "Leasing Opportunities",
     description:
       "Set up your practice in our vibrant wellness hubs, with flexible, spacious spaces for professionals.",
-    image: leasingImage,
-    link:"/spaces",
-    
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/BusinessOpportunities/leasing_opportunities.webp",
+    link: "/spaces",
   },
   {
     title: "Franchise Opportunities",
     description:
       "Own an Evolve Strength gym with a proven model, trusted brand, and nationwide support.",
-    image: franchiseImage,
-    link:"/franchise",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/BusinessOpportunities/franchise_opportunities.webp",
+    link: "/franchise",
   },
 ];
 
@@ -46,9 +45,9 @@ const BusinessOpportunities = () => {
                   {item.description}
                 </p>
                 <Link to={item.link}>
-                <button className="self-start btnPrimary transition">
-                  READ MORE
-                </button>
+                  <button className="self-start btnPrimary transition">
+                    READ MORE
+                  </button>
                 </Link>
               </div>
             </div>
