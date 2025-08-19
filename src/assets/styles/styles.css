@@ -141,7 +141,7 @@
 }
 
 .franchiseGotYourBack {
-  background-image: url("@/assets/images/franchise/GotYourBack/gotYourBackBG.webp");
+  background-image: url("@/assets/images/franchise/GotYourBack/gotYourBackBusiness.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -299,7 +299,7 @@
   width: 100%;
 }
 .GrouporPartner {
-  background-image: url("@/assets/images/JoinTheMovement/WhattoSubmit/service_4.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/WhattoSubmit/service_4.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -356,14 +356,16 @@
   .ExploreHeroBG {
     background-image: url("@/assets/images/explore/exploreHero/evolve_mob_hero.webp");
   }
+  .franchiseGotYourBack {
+    background-image: url("@/assets/images/franchise/GotYourBack/gotYourBackBusinessMob.webp");
+  }
   .personalTrainingFreeAssessment {
     background-image: url("@/assets/images/PersonalTraning/FreeAssessment/FreeAssessmentMob.webp");
     height: 582px;
   }
   .switchToEvolve {
-  background-image: url("/src/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolveMob.webp");
- 
-}
+    background-image: url("/src/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolveMob.webp");
+  }
   .wellnessHeroSection {
     background-image: url("/src/assets/images/wellness/wellnessHero/wellnessMobHero.webp");
   }
@@ -389,7 +391,6 @@
   .employeePlanBG {
     background-image: url("@/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanMobBG.webp");
     height: 480px;
-
   }
   .ContactHeroBG {
     background-image: url("@/assets/images/ContactUs/herosection.webp");
@@ -408,7 +409,7 @@
   .LoAssesment {
     background-image: url("@/assets/images/Locations/assesment/LoAssesment.webp");
   }
-  .TourOurFitness{
+  .TourOurFitness {
     background-image: url("@/assets/images/JoinAsTrainer/TourOurFitness/TourOurFitnessMob.webp");
     height: 478px;
   }
@@ -431,9 +432,8 @@
   .spacesWhyChooseUs {
     background-image: url("@/assets/images/spaces/WhyProfessionalsChooseUs/spacesWhyChooseUs_mob.webp");
   }
-  .allLocationsHero{
+  .allLocationsHero {
     background-image: url("@/assets/images/Locations/all_locations/all_locations_heroMob.webp");
-    height:460px;
-
+    height: 460px;
   }
 }
