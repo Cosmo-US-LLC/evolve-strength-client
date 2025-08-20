@@ -3,21 +3,39 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import slide1 from "../../../../assets/images/franchise/Evolvelooklike/image_1.webp";
-import slide2 from "../../../../assets/images/franchise/Evolvelooklike/image_2.webp";
-import slide3 from "../../../../assets/images/franchise/Evolvelooklike/image_3.webp";
-import slide4 from "../../../../assets/images/franchise/Evolvelooklike/image_4.webp";
-import slide5 from "../../../../assets/images/franchise/Evolvelooklike/image_5.webp";
-import slide6 from "../../../../assets/images/franchise/Evolvelooklike/image_6.webp";
-const professionals = [
-  { title: "Physiotherapy", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_1.webp" },
-  { title: "Pilates", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_2.webp" },
-  { title: "Massage Therapy", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_3.webp" },
-  { title: "Chiropractic Care", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_4.webp" },
-  { title: "Acupuncture", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_5.webp" },
-  { title: "Dietitian Services", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_6.webp" },
-];
 
+const professionals = [
+  {
+    title: "Physiotherapy",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_1.webp",
+  },
+  {
+    title: "Pilates",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_2.webp",
+  },
+  {
+    title: "Massage Therapy",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_3.webp",
+  },
+  {
+    title: "Chiropractic Care",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_4.webp",
+  },
+  {
+    title: "Acupuncture",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_5.webp",
+  },
+  {
+    title: "Dietitian Services",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_6.webp",
+  },
+];
 
 const TWEEN_FACTOR_BASE = 0.52;
 
@@ -34,6 +52,10 @@ const EvolveLookLike = () => {
       dragFree: false,
       startIndex: 0,
       inViewThreshold: 0.7,
+      slidesToScroll: 1,
+      breakpoints: {
+        "(min-width: 768px)": { slidesToScroll: 1 },
+      },
     },
     [Autoplay({ delay: 3000, stopOnInteraction: false })]
   );
@@ -115,11 +137,20 @@ const EvolveLookLike = () => {
     };
   }, [emblaApi, setTweenNodes, setTweenFactor, tweenScale]);
 
-  const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
-  const scrollNext = () => emblaApi && emblaApi.scrollNext();
+  const scrollPrev = () => {
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+    }
+  };
+
+  const scrollNext = () => {
+    if (emblaApi) {
+      emblaApi.scrollNext();
+    }
+  };
 
   return (
-    <section className="md:py-12">
+    <section className="md:py-12 py-8">
       <div className="relative flex flex-col gap-16">
         {/* Header */}
         <div className=" w-full max-w-[1280px] mx-auto md:px-8 px-4 md:flex md:items-end md:justify-between items-center justify-center mb-4">
@@ -133,30 +164,29 @@ const EvolveLookLike = () => {
           </div>
           <div className="md:flex-1 flex items-start flex-col md:flex-row md:justify-end pt-3 md:pt-0 ">
             <Link to="/your-fitness-future">
-                          <button className="btnPrimary">Apply Now</button>
-                        </Link>
+              <button className="btnPrimary">Apply Now</button>
+            </Link>
           </div>
         </div>
 
         {/* Slider */}
         <div className="relative flex flex-col items-center">
-          <div className="overflow-x-hidden w-full" ref={emblaRef}>
-            <div className="flex gap-1">
+          <div className="overflow-hidden w-full max-w-full" ref={emblaRef}>
+            <div className="flex">
               {professionals.map((pro, idx) => (
                 <div
                   key={idx}
-                  className="embla__slide flex-shrink-0 transition-transform duration-300"
-                  style={{
-                    flex: "0 0 70%",
-                    maxWidth: "70%",
-                  }}
+                  className="flex-[0_0_70%] min-w-0 pl-2 md:pl-4 first:pl-0"
                 >
-                  <div className="embla__slide__content bg-white rounded-[10px] shadow-md md:h-[450px] h-[200px] flex items-center justify-center">
-                    <img
-                      src={pro.image}
-                      alt={pro.title}
-                      className="w-full h-full object-cover rounded-[10px]"
-                    />
+                  <div className="embla__slide w-full">
+                    <div className="embla__slide__content bg-white rounded-[10px] shadow-md md:h-[450px] h-[220px] flex items-center justify-center overflow-hidden mx-1 md:mx-2">
+                      <img
+                        src={pro.image}
+                        alt={pro.title}
+                        className="w-full h-full object-cover rounded-[10px]"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                 </div>
               ))}
@@ -164,18 +194,18 @@ const EvolveLookLike = () => {
           </div>
 
           {/* Navigation Arrows */}
-          <div className="flex items-center justify-center gap-6 mt-8">
+          <div className="flex items-center justify-center gap-4 md:gap-6 mt-6 md:mt-8">
             <button
               onClick={scrollPrev}
-              className="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 transition-all"
+              className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 transition-all"
             >
-              <ChevronLeft className="w-6 h-6 text-gray-700" />
+              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-gray-700" />
             </button>
             <button
               onClick={scrollNext}
-              className="w-12 h-12 flex items-center justify-center bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 transition-all"
+              className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 transition-all"
             >
-              <ChevronRight className="w-6 h-6 text-gray-700" />
+              <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-gray-700" />
             </button>
           </div>
         </div>
