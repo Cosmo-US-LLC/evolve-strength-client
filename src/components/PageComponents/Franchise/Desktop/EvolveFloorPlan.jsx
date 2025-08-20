@@ -1,6 +1,5 @@
 import React from "react";
-import Slide1 from "@/assets/images/franchise/EvolveFloorPlan/slide1.webp";
-import Slide2 from "@/assets/images/franchise/EvolveFloorPlan/slide2.webp";
+
 import {
   Carousel,
   CarouselContent,
@@ -10,16 +9,17 @@ import {
 } from "@/components/ui/carousel";
 
 const EvolveFloorPlan = () => {
-  const slides = [
-    {
-      id: 1,
-      image: Slide1,
-    },
-    {
-      id: 2,
-      image: Slide2,
-    },
-  ];
+ const slides = [
+  {
+    id: 1,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveFloorPlan/slide1.webp",
+  },
+  {
+    id: 2,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveFloorPlan/slide2.webp",
+  },
+];
+
 
   return (
     <div className="pb-16 md:pt-[130px]">
