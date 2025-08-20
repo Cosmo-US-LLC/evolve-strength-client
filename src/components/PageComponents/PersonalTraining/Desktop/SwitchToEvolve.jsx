@@ -1,5 +1,4 @@
 import React from "react";
-import trainerBg from "/src/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolve.webp";
 import { Link } from "react-router-dom";
 
 const SwitchToEvolve = () => {

@@ -1,61 +1,45 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import setonHero from "@/assets/images/Locations/join-evolve/seton.webp";
-import setonHeroMobile from "@/assets/images/Locations/join-evolve/setonMob.webp";
-import royalOakHero from "@/assets/images/Locations/join-evolve/royal-oak.webp";
-import royalOakHeroMobile from "@/assets/images/Locations/join-evolve/royal-oakMob.webp";
-import sunridgeHero from "@/assets/images/Locations/join-evolve/sunridge.webp";
-import sunridgeHeroMobile from "@/assets/images/Locations/join-evolve/sunridgeMob.webp";
-import southHero from "@/assets/images/Locations/join-evolve/south.webp";
-import southHeroMobile from "@/assets/images/Locations/join-evolve/southMob.webp";
-import northHero from "@/assets/images/Locations/join-evolve/north.webp";
-import northHeroMobile from "@/assets/images/Locations/join-evolve/northMob.webp";
-import downtownHero from "@/assets/images/Locations/join-evolve/downtown.webp";
-import downtownHeroMobile from "@/assets/images/Locations/join-evolve/downtownMob.webp";
-import brentwoodHero from "@/assets/images/Locations/join-evolve/brentwood.webp";
-import brentwoodHeroMobile from "@/assets/images/Locations/join-evolve/brentwoodMob.webp";
-import postHero from "@/assets/images/Locations/join-evolve/post.webp";
-import postHeroMobile from "@/assets/images/Locations/join-evolve/postMob.webp";
 
 const LOCATION_BACKGROUNDS = {
   "calgary-seton": {
-    desktop: setonHero,
-    mobile: setonHeroMobile,
+    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/seton.webp",
+    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/setonMob.webp",
     locationName: "Calgary Seton",
   },
   "calgary-royal-oak": {
-    desktop: royalOakHero,
-    mobile: royalOakHeroMobile,
+    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/royal-oak.webp",
+    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/royal-oakMob.webp",
     locationName: "Calgary Royal Oak",
   },
   "calgary-sunridge": {
-    desktop: sunridgeHero,
-    mobile: sunridgeHeroMobile,
+    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/sunridge.webp",
+    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/sunridgeMob.webp",
     locationName: "Calgary Sunridge",
   },
   "edmonton-south": {
-    desktop: southHero,
-    mobile: southHeroMobile,
+    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/south.webp",
+    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/southMob.webp",
     locationName: "Edmonton South",
   },
   "edmonton-north": {
-    desktop: northHero,
-    mobile: northHeroMobile,
+    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/north.webp",
+    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/northMob.webp",
     locationName: "Edmonton North",
   },
   "edmonton-downtown": {
-    desktop: downtownHero,
-    mobile: downtownHeroMobile,
+    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/downtown.webp",
+    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/downtownMob.webp",
     locationName: "Edmonton Downtown",
   },
   "burnaby-brentwood": {
-    desktop: brentwoodHero,
-    mobile: brentwoodHeroMobile,
+    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/brentwood.webp",
+    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/brentwoodMob.webp",
     locationName: "Burnaby Brentwood",
   },
   "vancouver-post": {
-    desktop: postHero,
-    mobile: postHeroMobile,
+    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/post.webp",
+    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/postMob.webp",
     locationName: "Vancouver The Post",
   },
 };

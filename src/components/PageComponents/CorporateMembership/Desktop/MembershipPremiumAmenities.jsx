@@ -16,7 +16,6 @@ const MembershipPremiumAmenities = () => {
   const scrollPrev = useCallback(() => {
     if (emblaApi) {
       emblaApi.scrollPrev();
-      // Reset autoplay after manual navigation
       const autoplayPlugin = emblaApi.plugins().autoplay;
       if (autoplayPlugin) {
         autoplayPlugin.stop();
@@ -28,7 +27,6 @@ const MembershipPremiumAmenities = () => {
   const scrollNext = useCallback(() => {
     if (emblaApi) {
       emblaApi.scrollNext();
-      // Reset autoplay after manual navigation
       const autoplayPlugin = emblaApi.plugins().autoplay;
       if (autoplayPlugin) {
         autoplayPlugin.stop();

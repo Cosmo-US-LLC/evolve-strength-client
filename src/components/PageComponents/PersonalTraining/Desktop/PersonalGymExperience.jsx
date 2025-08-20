@@ -1,23 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { Link } from "react-router-dom";
-
-// Desktop images
-import fitness from "../../../../assets/images/PersonalTraning/PersonalGymExperience/fitness.webp";
-import wellness from "../../../../assets/images/PersonalTraning/PersonalGymExperience/bodyweight_training.webp";
-import atmosphere from "../../../../assets/images/PersonalTraning/PersonalGymExperience/cardio.webp";
-import turfWorkouts from "../../../../assets/images/PersonalTraning/PersonalGymExperience/turf_workouts.webp";
-import olympicLifting from "../../../../assets/images/PersonalTraning/PersonalGymExperience/olympic_lifting.webp";
-import yoga from "../../../../assets/images/PersonalTraning/PersonalGymExperience/yoga.webp";
-
-// Mobile images (currently using same images, replace with mobile-specific ones when available)
-import fitnessMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/fitnessMob.webp";
-import wellnessMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/bodyweight_trainingMob.webp";
-import atmosphereMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/cardioMob.webp";
-import turfWorkoutsMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/turf_workoutsMob.webp";
-import olympicLiftingMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/olympic_liftingMob.webp";
-import yogaMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp";
 
 const gymCards = [
   {
@@ -29,8 +12,10 @@ const gymCards = [
     ),
     description: "",
     bgImage: {
-      desktop: fitness,
-      mobile: fitnessMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/fitness.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/fitnessMob.webp",
     },
   },
   {
@@ -38,8 +23,10 @@ const gymCards = [
     title: "Calisthenics",
     description: "",
     bgImage: {
-      desktop: wellness,
-      mobile: wellnessMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_training.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_trainingMob.webp",
     },
   },
   {
@@ -47,8 +34,10 @@ const gymCards = [
     title: "Cardio",
     description: "",
     bgImage: {
-      desktop: atmosphere,
-      mobile: atmosphereMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/cardio.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/cardioMob.webp",
     },
   },
   {
@@ -60,8 +49,10 @@ const gymCards = [
     ),
     description: "",
     bgImage: {
-      desktop: turfWorkouts,
-      mobile: turfWorkoutsMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/turf_workouts.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/turf_workoutsMob.webp",
     },
   },
   {
@@ -73,8 +64,10 @@ const gymCards = [
     ),
     description: "",
     bgImage: {
-      desktop: olympicLifting,
-      mobile: olympicLiftingMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/olympic_lifting.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/olympic_liftingMob.webp",
     },
   },
   {
@@ -82,8 +75,10 @@ const gymCards = [
     title: "Mobility",
     description: "",
     bgImage: {
-      desktop: yoga,
-      mobile: yogaMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp",
     },
   },
 ];
@@ -93,17 +88,14 @@ const PersonalGymExperience = () => {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState(0);
 
-  // Desktop: use hover state, Mobile: use carousel state
   const activeIndex = hoveredIndex !== null ? hoveredIndex : carouselIndex;
 
-  // Update previous index when active index changes
   useEffect(() => {
     if (activeIndex !== previousIndex) {
       setPreviousIndex(activeIndex);
     }
   }, [activeIndex, previousIndex]);
 
-  // Mobile Carousel with Scale Effect
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       containScroll: "keepSnaps",
@@ -113,7 +105,6 @@ const PersonalGymExperience = () => {
     // [Autoplay({ delay: 4000, stopOnInteraction: false })]
   );
 
-  // Scale effect for mobile carousel
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const onSelect = useCallback(() => {
@@ -128,7 +119,6 @@ const PersonalGymExperience = () => {
     return () => emblaApi.off("select", onSelect);
   }, [emblaApi, onSelect]);
 
-  // Sync carousel index with background image
   useEffect(() => {
     if (!emblaApi) return;
 
@@ -137,21 +127,18 @@ const PersonalGymExperience = () => {
     };
 
     emblaApi.on("select", onCarouselSelect);
-    onCarouselSelect(); // Set initial index
+    onCarouselSelect();
 
     return () => {
       emblaApi.off("select", onCarouselSelect);
     };
   }, [emblaApi]);
 
-  // Preload images for both desktop and mobile
   useEffect(() => {
     gymCards.forEach((card) => {
-      // Preload desktop image
       const desktopImg = new Image();
       desktopImg.src = card.bgImage.desktop;
 
-      // Preload mobile image
       const mobileImg = new Image();
       mobileImg.src = card.bgImage.mobile;
     });
