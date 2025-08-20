@@ -9,15 +9,15 @@ import slide3 from "../../../../assets/images/franchise/Evolvelooklike/image_3.w
 import slide4 from "../../../../assets/images/franchise/Evolvelooklike/image_4.webp";
 import slide5 from "../../../../assets/images/franchise/Evolvelooklike/image_5.webp";
 import slide6 from "../../../../assets/images/franchise/Evolvelooklike/image_6.webp";
-
 const professionals = [
-  { title: "Physiotherapy", image: slide1 },
-  { title: "Pilates", image: slide2 },
-  { title: "Massage Therapy", image: slide3 },
-  { title: "Chiropractic Care", image: slide4 },
-  { title: "Acupuncture", image: slide5 },
-  { title: "Dietitian Services", image: slide6 },
+  { title: "Physiotherapy", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_1.webp" },
+  { title: "Pilates", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_2.webp" },
+  { title: "Massage Therapy", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_3.webp" },
+  { title: "Chiropractic Care", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_4.webp" },
+  { title: "Acupuncture", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_5.webp" },
+  { title: "Dietitian Services", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_6.webp" },
 ];
+
 
 const TWEEN_FACTOR_BASE = 0.52;
 

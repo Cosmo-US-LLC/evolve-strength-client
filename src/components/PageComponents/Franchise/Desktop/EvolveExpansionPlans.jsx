@@ -1,62 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LocationsHoverCard from "./LocationsHoverCard";
 
-import ES_1 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_1.webp";
-import ES_2 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_2.webp";
-import ES_3 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_3.webp";
-import ES_4 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_4.webp";
-import ES_5 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_5.webp";
-import ES_6 from "../../../../assets/images/franchise/EvolveLocationPlans/ES_6.webp";
-
-import EN_1 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_1.webp";
-import EN_2 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_2.webp";
-import EN_3 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_3.webp";
-import EN_4 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_4.webp";
-import EN_5 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_5.webp";
-import EN_6 from "../../../../assets/images/franchise/EvolveLocationPlans/EN_6.webp";
-
-import ED_1 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_1.webp";
-import ED_2 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_2.webp";
-import ED_3 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_3.webp";
-import ED_4 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_4.webp";
-import ED_5 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_5.webp";
-import ED_6 from "../../../../assets/images/franchise/EvolveLocationPlans/ED_6.webp";
-
-import VP_1 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_1.webp";
-import VP_2 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_2.webp";
-import VP_3 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_3.webp";
-import VP_4 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_4.webp";
-import VP_5 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_5.webp";
-import VP_6 from "../../../../assets/images/franchise/EvolveLocationPlans/VP_6.webp";
-
-import BB_1 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_1.webp";
-import BB_2 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_2.webp";
-import BB_3 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_3.webp";
-import BB_4 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_4.webp";
-import BB_5 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_5.webp";
-import BB_6 from "../../../../assets/images/franchise/EvolveLocationPlans/BB_6.webp";
-
-import CSe_1 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_1.webp";
-import CSe_2 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_2.webp";
-import CSe_3 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_3.webp";
-import CSe_4 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_4.webp";
-import CSe_5 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_5.webp";
-import CSe_6 from "../../../../assets/images/franchise/EvolveLocationPlans/CSe_6.webp";
-
-import CRO_1 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_1.webp";
-import CRO_2 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_2.webp";
-import CRO_3 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_3.webp";
-import CRO_4 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_4.webp";
-import CRO_5 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_5.webp";
-import CRO_6 from "../../../../assets/images/franchise/EvolveLocationPlans/CRO_6.webp";
-
-import CSun_1 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_1.webp";
-import CSun_2 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_2.webp";
-import CSun_3 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_3.webp";
-import CSun_4 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_4.webp";
-import CSun_5 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_5.webp";
-import CSun_6 from "../../../../assets/images/franchise/EvolveLocationPlans/CSun_6.webp";
-
 function EvolveExpansionPlans() {
   const [hoveredProvince, setHoveredProvince] = useState(null);
   const [clickedProvince, setClickedProvince] = useState(null);
@@ -79,48 +23,104 @@ function EvolveExpansionPlans() {
   }, []);
 
   const provinces = {
-    vancouverPost: {
-      name: "VANCOUVER POST",
-      images: [VP_1, VP_2, VP_3, VP_4, VP_5, VP_6],
-      address: "654 West Georgia St, Vancouver, BC, V6B 1N2",
-    },
-    burnabyBrentwood: {
-      name: "BURNABY BRENTWOOD",
-      images: [BB_1, BB_2, BB_3, BB_4, BB_5, BB_6],
-      address: "4567 Lougheed Hwy, Burnaby, BC, V5C 3Z6",
-    },
-    edmontonSouth: {
-      name: "EDMONTON SOUTH",
-      images: [ES_1, ES_2, ES_3, ES_4, ES_5, ES_6],
-      address: "4825 89 St NW, Edmonton, Alberta, T6E 5K1",
-    },
-    edmontonDowntown: {
-      name: "EDMONTON DOWNTOWN",
-      images: [ED_1, ED_2, ED_3, ED_4, ED_5, ED_6],
-      address: "123 Jasper Ave NW, Edmonton, Alberta, T5J 0R2",
-    },
-    edmontonNorth: {
-      name: "EDMONTON NORTH",
-      images: [EN_1, EN_2, EN_3, EN_4, EN_5, EN_6],
-      address: "789 137 Ave NW, Edmonton, Alberta, T5E 6R8",
-    },
-    calgaryRoyalOak: {
-      name: "CALGARY ROYAL OAK",
-      images: [CRO_1, CRO_2, CRO_3, CRO_4, CRO_5, CRO_6],
-      address: "456 Royal Oak Dr NW, Calgary, Alberta, T3G 5K3",
-    },
-    calgarySeton: {
-      name: "CALGARY SETON",
-      images: [CSe_1, CSe_2, CSe_3, CSe_4, CSe_5, CSe_6],
-      address: "789 Seton Blvd SE, Calgary, Alberta, T3M 1M9",
-    },
+  vancouverPost: {
+    name: "VANCOUVER POST",
+    images: [
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_1.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_2.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_3.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_4.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_5.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_6.webp",
+    ],
+    address: "654 West Georgia St, Vancouver, BC, V6B 1N2",
+  },
+  burnabyBrentwood: {
+    name: "BURNABY BRENTWOOD",
+    images: [
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_1.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_2.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_3.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_4.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_5.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_6.webp",
+    ],
+    address: "4567 Lougheed Hwy, Burnaby, BC, V5C 3Z6",
+  },
+  edmontonSouth: {
+    name: "EDMONTON SOUTH",
+    images: [
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_1.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_2.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_3.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_4.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_5.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_6.webp",
+    ],
+    address: "4825 89 St NW, Edmonton, Alberta, T6E 5K1",
+  },
+  edmontonDowntown: {
+    name: "EDMONTON DOWNTOWN",
+    images: [
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_1.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_2.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_3.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_4.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_5.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_6.webp",
+    ],
+    address: "123 Jasper Ave NW, Edmonton, Alberta, T5J 0R2",
+  },
+  edmontonNorth: {
+    name: "EDMONTON NORTH",
+    images: [
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_1.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_2.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_3.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_4.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_5.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_6.webp",
+    ],
+    address: "789 137 Ave NW, Edmonton, Alberta, T5E 6R8",
+  },
+  calgaryRoyalOak: {
+    name: "CALGARY ROYAL OAK",
+    images: [
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_1.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_2.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_3.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_4.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_5.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_6.webp",
+    ],
+    address: "456 Royal Oak Dr NW, Calgary, Alberta, T3G 5K3",
+  },
+  calgarySeton: {
+    name: "CALGARY SETON",
+    images: [
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_1.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_2.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_3.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_4.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_5.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_6.webp",
+    ],
+    address: "789 Seton Blvd SE, Calgary, Alberta, T3M 1M9",
+  },
+  calgarySunridge: {
+    name: "CALGARY SUNRIDGE",
+    images: [
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_1.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_2.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_3.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_4.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_5.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_6.webp",
+    ],
+    address: "321 32 St NE, Calgary, Alberta, T1Y 6J8",
+  },
+};
 
-    calgarySunridge: {
-      name: "CALGARY SUNRIDGE",
-      images: [CSun_1, CSun_2, CSun_3, CSun_4, CSun_5, CSun_6],
-      address: "321 32 St NE, Calgary, Alberta, T1Y 6J8",
-    },
-  };
 
   const handleMouseMove = (e) => {
     setMousePosition({ x: e.clientX, y: e.clientY });

@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from "@/assets/images/JoinTheMovement/SocialMedia/facebook/facebook_logo.svg"
 
 function Facebook() {
   return (
@@ -11,7 +10,7 @@ function Facebook() {
         </p>
 
         <div className="rounded-full">
-          <img src={logo} alt="" />
+          <img src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/SocialMedia/facebook/facebook_logo.svg" alt="Facebook logo" />
         </div>
       </div>
 

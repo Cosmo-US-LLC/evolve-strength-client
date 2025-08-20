@@ -22,130 +22,130 @@ function BuildYourCareer() {
           <section className="relative w-full py-[0px] md:py-[60px]">
             <div className="relative w-full max-w-7xl mx-auto">
               <div className="hidden md:grid grid-cols-9 gap-[12px] items-start">
-                <div className="flex flex-col gap-[12px] mt-[60px]">
-                  <img
-                    src={build_img1}
-                    alt="Bearded man"
-                    className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
-                             hover:brightness-110 cursor-pointer"
-                  />
-                  <img
-                    src={build_img2}
-                    alt="Woman with trophy"
-                    className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
-                             hover:brightness-110 cursor-pointer"
-                  />
-                </div>
-                <div className="flex flex-col justify-center gap-[12px] ">
-                  <img
-                    src={build_img3}
-                    alt="Woman in green polka dot"
-                    className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
-                             hover:brightness-110 cursor-pointer"
-                  />
-                  <img
-                     src={build_img4}
-                    alt="Gym scene"
-                    className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
-                             hover:brightness-110 cursor-pointer"
-                  />
-                </div>
-                <div className="mt-[100px]">
-                  <img
-                     src={build_img5}
-                    alt="Gym equipment"
-                    className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
-                             hover:brightness-110 cursor-pointer"
-                  />
-                </div>
-                <div>
-                  <img
-                     src={build_img6}
-                    alt="Blonde woman"
-                    className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
-                             hover:brightness-110 cursor-pointer"
-                  />
-                </div>
-                <div className="mt-[60px]">
-                  <img
-                     src={build_img7}
-                    alt="Man with equipment"
-                    className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
-                             hover:brightness-110 cursor-pointer"
-                  />
-                </div>
-                <div>
-                  <img
-                     src={build_img8}
-                    alt="Woman in green workout"
-                    className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
-                             hover:brightness-110 cursor-pointer"
-                  />
-                </div>
-                <div className="mt-[90px]">
-                  <img
-                     src={build_img9}
-                    alt="Man working out"
-                    className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
-                             hover:brightness-110 cursor-pointer"
-                  />
-                </div>
+  <div className="flex flex-col gap-[12px] mt-[60px]">
+    <img
+      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(2).webp"
+      alt="Bearded man"
+      className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
+                 transform transition-all duration-500 ease-in-out 
+                 hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
+                 hover:brightness-110 cursor-pointer"
+    />
+    <img
+      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(1).webp"
+      alt="Woman with trophy"
+      className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
+                 transform transition-all duration-500 ease-in-out 
+                 hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
+                 hover:brightness-110 cursor-pointer"
+    />
+  </div>
+  <div className="flex flex-col justify-center gap-[12px] ">
+    <img
+      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(3).webp"
+      alt="Woman in green polka dot"
+      className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
+                 transform transition-all duration-500 ease-in-out 
+                 hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
+                 hover:brightness-110 cursor-pointer"
+    />
+    <img
+      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(4).webp"
+      alt="Gym scene"
+      className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
+                 transform transition-all duration-500 ease-in-out 
+                 hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
+                 hover:brightness-110 cursor-pointer"
+    />
+  </div>
+  <div className="mt-[100px]">
+    <img
+      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(5).webp"
+      alt="Gym equipment"
+      className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
+                 transform transition-all duration-500 ease-in-out 
+                 hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
+                 hover:brightness-110 cursor-pointer"
+    />
+  </div>
+  <div>
+    <img
+      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(6).webp"
+      alt="Blonde woman"
+      className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
+                 transform transition-all duration-500 ease-in-out 
+                 hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
+                 hover:brightness-110 cursor-pointer"
+    />
+  </div>
+  <div className="mt-[60px]">
+    <img
+      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(7).webp"
+      alt="Man with equipment"
+      className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
+                 transform transition-all duration-500 ease-in-out 
+                 hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
+                 hover:brightness-110 cursor-pointer"
+    />
+  </div>
+  <div>
+    <img
+      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(8).webp"
+      alt="Woman in green workout"
+      className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
+                 transform transition-all duration-500 ease-in-out 
+                 hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
+                 hover:brightness-110 cursor-pointer"
+    />
+  </div>
+  <div className="mt-[90px]">
+    <img
+      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(9).webp"
+      alt="Man working out"
+      className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
+                 transform transition-all duration-500 ease-in-out 
+                 hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
+                 hover:brightness-110 cursor-pointer"
+    />
+  </div>
+  <div className="flex flex-col gap-[12px]">
+    <img
+      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(10).webp"
+      alt="Woman in workout clothes"
+      className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
+                 transform transition-all duration-500 ease-in-out 
+                 hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
+                 hover:brightness-110 cursor-pointer"
+    />
+    <img
+      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(11).webp"
+      alt="Brunette woman"
+      className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
+                 transform transition-all duration-500 ease-in-out 
+                 hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
+                 hover:brightness-110 cursor-pointer"
+    />
+  </div>
+  <div className="flex flex-col gap-[12px] mt-[60px]">
+    <img
+      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(12).webp"
+      alt="Man exercising"
+      className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
+                 transform transition-all duration-500 ease-in-out 
+                 hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
+                 hover:brightness-110 cursor-pointer"
+    />
+    <img
+      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(13).webp"
+      alt="Woman close-up"
+      className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
+                 transform transition-all duration-500 ease-in-out 
+                 hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
+                 hover:brightness-110 cursor-pointer"
+    />
+  </div>
+</div>
 
-                <div className="flex flex-col gap-[12px]">
-                  <img
-                     src={build_img10}
-                    alt="Woman in workout clothes"
-                    className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
-                             hover:brightness-110 cursor-pointer"
-                  />
-                  <img
-                     src={build_img11}
-                    alt="Brunette woman"
-                    className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
-                             hover:brightness-110 cursor-pointer"
-                  />
-                </div>
-                <div className="flex flex-col gap-[12px] mt-[60px]">
-                  <img
-                   src={build_img12}
-                    alt="Man exercising"
-                    className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
-                             hover:brightness-110 cursor-pointer"
-                  />
-                  <img
-                      src={build_img13}
-                    alt="Woman close-up"
-                    className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-110 hover:shadow-2xl hover:rotate-2 hover:z-10 
-                             hover:brightness-110 cursor-pointer"
-                  />
-                </div>
-              </div>
               <div className="md:hidden">
                 <div className="grid grid-cols-9 gap-x-1 gap-y-2 items-start">
                   <div className="flex flex-col gap-[4px] mt-[60px]">

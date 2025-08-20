@@ -10,30 +10,31 @@ const benefitItems = [
     label: "MULTIPLE REVENUE STREAMS",
     description:
       "Memberships, rentals, personal training, and healthcare subleasing",
-    image: slide0,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/evolveSmarterInvestment/step-0.webp",
   },
   {
     key: "experience",
     label: "PREMIUM MEMBER EXPERIENCE",
     description:
       "High retention and low churn through results-driven programming and community.",
-    image: slide1,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/evolveSmarterInvestment/step-1.webp",
   },
   {
     key: "scalable",
     label: "SCALABLE MODEL",
     description:
       "Standardized systems, national partnerships, and streamlined operations.",
-    image: slide2,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/evolveSmarterInvestment/step-2.webp",
   },
   {
     key: "ebitda",
     label: "STRONG EBITDA PERFORMANCE",
     description:
       "Our business model delivers healthy margins, with EBITDA reaching 22% to 28% by year three.",
-    image: slide3,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/evolveSmarterInvestment/step-3.webp",
   },
 ];
+
 
 const EvolveSmarterInvestment = () => {
   const [activeKey, setActiveKey] = useState("revenue");
