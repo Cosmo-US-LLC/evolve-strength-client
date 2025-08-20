@@ -3,21 +3,18 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import strength from "@/assets/images/AboutUs/AboutUs_Trainers/Strenght_Training.webp";
-import Cardio from "@/assets/images/AboutUs/AboutUs_Trainers/Cardio.webp";
-import Body from "@/assets/images/AboutUs/AboutUs_Trainers/Weight_Training.webp";
-import Turf from "@/assets/images/AboutUs/AboutUs_Trainers/Turf_Workout.webp";
-import Olympic from "@/assets/images/AboutUs/AboutUs_Trainers/Olympic_Lifting.webp";
-import Yoga from "@/assets/images/AboutUs/AboutUs_Trainers/Yoga.webp";
+
+
 
 const professionals = [
-  { title: "Strength Training", image: strength },
-  { title: "Body Weight Training", image: Body },
-  { title: "Cardio", image: Cardio },
-  { title: "Turf Workout", image: Turf },
-  { title: "Olympic Lifting", image: Olympic },
-  { title: "Yoga", image: Yoga },
+  { title: "Strength Training", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Strenght_Training.webp" },
+  { title: "Body Weight Training", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Weight_Training.webp" },
+  { title: "Cardio", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Cardio.webp" },
+  { title: "Turf Workout", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Turf_Workout.webp" },
+  { title: "Olympic Lifting", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Olympic_Lifting.webp" },
+  { title: "Yoga", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Yoga.webp" },
 ];
+
 
 const AboutUsTrainers = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(

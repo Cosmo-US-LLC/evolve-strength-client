@@ -121,7 +121,7 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
 
       <div className="flex gap-12 md:p-6 p-4 flex-row max-w-[1280px] mx-auto items-center min-h-screen">
         {submitted && (
-  <div className="fixed inset-0 z-[9999]">
+  <div className=" !z-[9999]">
     <SuccessFullScreen
       title="APPLICATION SUBMITTED"
       description="Thanks! We've received your corporate membership application. Our team will contact you shortly to discuss the next steps."
