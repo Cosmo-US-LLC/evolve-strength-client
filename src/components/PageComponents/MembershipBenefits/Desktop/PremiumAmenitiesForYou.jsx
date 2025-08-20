@@ -6,47 +6,42 @@ import {
 } from "@/components/ui/carousel";
 import LeftArrowIcon from "@/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/left-arrow.svg";
 import RightArrowIcon from "@/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/right-arrow.svg";
-import card1 from "@/assets/images/MembershipBenefits/PremiumAmenitiesForYou/card1.webp";
-import card2 from "@/assets/images/MembershipBenefits/PremiumAmenitiesForYou/card2.webp";
-import card3 from "@/assets/images/MembershipBenefits/PremiumAmenitiesForYou/card3.webp";
-import card4 from "@/assets/images/MembershipBenefits/PremiumAmenitiesForYou/card4.webp";
-import card5 from "@/assets/images/MembershipBenefits/PremiumAmenitiesForYou/card5.webp";
-import card6 from "@/assets/images/MembershipBenefits/PremiumAmenitiesForYou/card6.webp";
+
 
 const PremiumAmenitiesForYou = () => {
   const carouselRef = useRef(null);
 
   const cardData = [
     {
-      imageUrl: card1,
+      imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/MembershipBenefits/PremiumAmenitiesForYou/card1.webp",
       title: "On-Site Parking",
       description: "Always find a convenient spot close to the main entrance.",
     },
     {
-      imageUrl: card2,
+      imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/MembershipBenefits/PremiumAmenitiesForYou/card2.webp",
       title: "Locker Rooms",
       description:
         "Secure, spacious locker rooms to store your personal items.",
     },
     {
-      imageUrl: card3,
+      imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/MembershipBenefits/PremiumAmenitiesForYou/card3.webp",
       title: "Showers",
       description: "Clean, private showers to refresh after every workout.",
     },
     {
-      imageUrl: card4,
+      imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/MembershipBenefits/PremiumAmenitiesForYou/card4.webp",
       title: "Steam Rooms and Saunas",
       description:
         "Relax and recover in our premium in-house steam rooms and saunas.",
     },
     {
-      imageUrl: card5,
+      imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/MembershipBenefits/PremiumAmenitiesForYou/card5.webp",
       title: "Premium Waiting Area",
       description:
         "A quiet, comfortable space to relax before or after your session.",
     },
     {
-      imageUrl: card6,
+      imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/MembershipBenefits/PremiumAmenitiesForYou/card6.webp",
       title: "Full Commercial Gym Access",
       description: "Train freely with top-tier equipment and expansive space.",
     },
@@ -136,7 +131,7 @@ const PremiumAmenitiesForYou = () => {
               className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000]"
             >
               <img
-                src={LeftArrowIcon}
+                src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/left-arrow.svg"
                 alt="Previous"
                 className="h-4 w-4 text-[#00000060]"
               />
@@ -148,7 +143,7 @@ const PremiumAmenitiesForYou = () => {
               className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000]"
             >
               <img
-                src={RightArrowIcon}
+                src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/right-arrow.svg"
                 alt="Next"
                 className="h-4 w-4 text-[#00000060]"
               />
