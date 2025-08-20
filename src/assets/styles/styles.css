@@ -179,7 +179,7 @@
 /* MembershipBenefitsHero start */
 
 .ContactHeroBG {
-  background-image: url("@/assets/images/ContactUs/contact_us_hero.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/ContactUs/contact_us_hero.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -188,7 +188,7 @@
 }
 
 .AboutUsHero {
-  background-image: url("@/assets/images/AboutUs/about_us_hero.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/about_us_hero.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -331,7 +331,7 @@
 }
 
 .aboutUsReadyToEvolve {
-  background-image: url("@/assets/images/JoinTheMovement/TrainHere/Trainherebg.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/TrainHere/Trainherebg.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -393,7 +393,7 @@
     height: 480px;
   }
   .ContactHeroBG {
-    background-image: url("@/assets/images/ContactUs/herosection.webp");
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/ContactUs/contact_us_hero.webp");
     height: 468px;
   }
   .AboutUsHero {
@@ -401,7 +401,7 @@
     height: 463px;
   }
   .aboutUsReadyToEvolve {
-    background-image: url("@/assets/images/JoinTheMovement/TrainHere/Trainherebg.webp");
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/TrainHere/Trainherebg.webp");
   }
   /* .LocationsHero {
     background-image: url("@/assets/images/Locations/herosection_mob.webp");
