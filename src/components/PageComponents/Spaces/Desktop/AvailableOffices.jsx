@@ -2,11 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
-import CSSlides_1 from "@/assets/images/spaces/AvailableOffices/CSSlides_1.webp";
-import BSlides_1 from "@/assets/images/spaces/AvailableOffices/BSlides_1.webp";
-import royalE from "@/assets/images/spaces/AvailableOffices/royal_E.webp";
-import royalP from "@/assets/images/spaces/AvailableOffices/royal_P.webp";
-import royalA from "@/assets/images/spaces/AvailableOffices/royal_A.webp";
 import {
   Carousel,
   CarouselContent,
@@ -32,49 +27,49 @@ const allOffices = [
   {
     title: "Executive Office",
     location: "Calgary Royal Oak",
-    image: royalE,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
     size: "Starting at 112 sq/ft",
   },
   {
     title: "Premium Office Suite",
     location: "Calgary Royal Oak",
-    image: royalP,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_P.webp",
     size: "Starting at 170 sq/ft",
   },
   {
     title: "Anchor",
     location: "Calgary Royal Oak",
-    image: royalA,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_A.webp",
     size: "Starting at 1170 sq/ft",
   },
   {
     title: "Executive Office",
     location: "Edmonton North",
-    image: royalE,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
     size: "Starting at 140 sq/ft",
   },
   {
     title: "Executive Office",
     location: "Edmonton Downtown",
-    image: royalE,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
     size: "Starting at 120 sq/ft",
   },
   {
     title: "Premium Office Suite",
     location: "Edmonton Downtown",
-    image: royalP,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_P.webp",
     size: "Starting at 170 sq/ft",
   },
   {
     title: "Executive Office",
     location: "Calgary Sunridge",
-    image: royalE,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/CSSlides_1.webp",
     size: "Starting at 112 sq/ft",
   },
   {
     title: "Premium Office Suite",
     location: "Calgary Sunridge",
-    image: royalP,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/BSlides_1.webp",
     size: "Starting at 220 sq/ft",
   },
 ];

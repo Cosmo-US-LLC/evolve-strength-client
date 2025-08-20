@@ -4,7 +4,6 @@ import {
   LOCATIONS_DATA,
   FACILITY_TIMINGS,
 } from "@/constants/locations_data/LocationsData";
-import icon from "@/assets/images/Locations/Seton/icon.svg";
 
 function SetonLocation() {
   const currentPath = window.location.pathname;
@@ -79,7 +78,7 @@ function SetonLocation() {
         >
           FACILITY TIMINGS
           <img
-            src={icon}
+            src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/Seton/icon.svg"
             alt=""
             className={`transition-transform duration-300 ${
               isTimingsExpanded ? "rotate-180" : ""

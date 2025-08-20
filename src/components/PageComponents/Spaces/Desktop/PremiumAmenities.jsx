@@ -1,19 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { XCircle } from "lucide-react";
-import onSite_parking from "@/assets/images/spaces/PremiumAmenities/onSite_parking.webp";
-import locker_rooms from "@/assets/images/spaces/PremiumAmenities/locker_rooms.webp";
-import showers_room from "@/assets/images/spaces/PremiumAmenities/showers_room.webp";
-import steam_area from "@/assets/images/spaces/PremiumAmenities/steam_area.webp";
-import waiting_area from "@/assets/images/spaces/PremiumAmenities/waiting_area.webp";
-import gym_area from "@/assets/images/spaces/PremiumAmenities/gym_area.webp";
 
 const amenities = [
-  { title: "On-Site Parking", image: onSite_parking },
-  { title: "Locker Rooms", image: locker_rooms },
-  { title: "Showers", image: showers_room },
-  { title: "Steam Rooms and Saunas", image: steam_area },
-  { title: "Premium Waiting Area", image: waiting_area },
-  { title: "Full Commercial Gym Access", image: gym_area },
+  {
+    title: "On-Site Parking",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/PremiumAmenities/onSite_parking.webp",
+  },
+  {
+    title: "Locker Rooms",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/PremiumAmenities/locker_rooms.webp",
+  },
+  {
+    title: "Showers",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/PremiumAmenities/showers_room.webp",
+  },
+  {
+    title: "Steam Rooms and Saunas",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/PremiumAmenities/steam_area.webp",
+  },
+  {
+    title: "Premium Waiting Area",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/PremiumAmenities/waiting_area.webp",
+  },
+  {
+    title: "Full Commercial Gym Access",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/PremiumAmenities/gym_area.webp",
+  },
 ];
 
 const PremiumAmenities = () => {

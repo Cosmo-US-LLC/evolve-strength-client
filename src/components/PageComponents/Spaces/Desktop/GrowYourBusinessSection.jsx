@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import GrowYourBusinessSectionImage from "@/assets/images/spaces/GrowYourBusinessSection/GrowYourBusinessSectionImage.webp";
-import GrowYourBusinessSectionImageMobile from "@/assets/images/spaces/GrowYourBusinessSection/GrowYourBusinessSectionImage.webp";
 
 function GrowYourBusinessSection() {
   return (
@@ -69,7 +67,6 @@ function GrowYourBusinessSection() {
           </div>
         </div>
         <div className="flex flex-col rounded-[10px] md:items-center  md:justify-center SpacesHeroBG">
-          {/* <img src={GrowYourBusinessSectionImage} alt="Description" /> */}
          
         </div>
          <h4 className=" text-[#000] md:flex md:items-center md:justify-center md:leading-[26px]">

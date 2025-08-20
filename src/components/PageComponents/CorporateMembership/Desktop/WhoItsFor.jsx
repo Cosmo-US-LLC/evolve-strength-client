@@ -1,17 +1,12 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
-import AirCanadaLogo from "/src/assets/images/corporateMembership/WhoItsFor/AirCanada.svg";
-import AmazonLogo from "/src/assets/images/corporateMembership/WhoItsFor/Amazon.svg";
-import sonyLogo from "/src/assets/images/corporateMembership/WhoItsFor/sony.svg";
-import WCBLogo from "/src/assets/images/corporateMembership/WhoItsFor/WCB.svg";
-import albertaLogo from "/src/assets/images/corporateMembership/WhoItsFor/alberta.svg";
 
 const partnerLogos = [
-  { src: AirCanadaLogo, alt: "AirCanadaLogo" },
-  { src: AmazonLogo, alt: "AmazonLogo" },
-  { src: sonyLogo, alt: "sonyLogo" },
-  { src: WCBLogo, alt: "WCBLogo" },
-  { src: albertaLogo, alt: "albertaLogo" },
+  { src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/AirCanada.svg", alt: "AirCanadaLogo" },
+  { src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/Amazon.svg", alt: "AmazonLogo" },
+  { src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/sony.svg", alt: "sonyLogo" },
+  { src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/WCB.svg", alt: "WCBLogo" },
+  { src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/alberta.svg", alt: "albertaLogo" },
 ];
 
 function WhoItsFor() {
@@ -27,7 +22,7 @@ function WhoItsFor() {
           </h4>
         </div>
 
-        {/* Desktop Layout */}
+        
         <div className="w-full flex items-center justify-center gap-16 px-8 max-md:hidden">
           {partnerLogos.map((logo, index) => (
             <img
@@ -40,7 +35,7 @@ function WhoItsFor() {
           ))}
         </div>
 
-        {/* Mobile Layout with Marquee */}
+      
         <div className="w-full md:hidden">
           <Marquee
             speed={30}

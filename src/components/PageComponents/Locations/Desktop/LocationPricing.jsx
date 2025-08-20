@@ -1,17 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import check from "@/assets/images/Locations/check_icon.svg";
 import {
   LOCATION_PRICING,
   DEFAULT_PRICING,
 } from "@/constants/locations_data/LocationPricingData";
 
 function LocationPricing() {
-  // Get location from URL path
   const currentPath = window.location.pathname;
-  let locationKey = "calgary-seton"; // default
+  let locationKey = "calgary-seton";
 
-  // Extract location from URL path
   if (currentPath.includes("calgary-seton")) {
     locationKey = "calgary-seton";
   } else if (currentPath.includes("calgary-royal-oak")) {
@@ -35,7 +32,6 @@ function LocationPricing() {
   return (
     <div className="w-full py-12 max-w-[1280px] md:px-8 px-4 mx-auto flex flex-col gap-12">
       <div className="flex flex-col md:flex-row w-full  ">
-        {/* Left Text Section */}
         <div className="flex flex-col w-full justify-center">
           <h1 className="!text-[40px] md:max-w-[300px] leading-[39px] uppercase">
             {pricingData.sectionTitle}
@@ -45,7 +41,6 @@ function LocationPricing() {
           </p>
         </div>
 
-        {/* Pricing Cards */}
         <div className="flex flex-col md:flex-row gap-4 w-full">
           {pricingData.plans.map((plan, index) => (
             <div
@@ -63,14 +58,17 @@ function LocationPricing() {
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex ">
                     <span className="text-black mr-2 ">
-                      <img src={check} alt="" />
+                      <img
+                        src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/check_icon.svg"
+                        alt=""
+                      />
                     </span>
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
-              <Link to = "https://subscription.evolvestrength.ca/">
-              <button className="w-full btnPrimary">{plan.buttonText}</button>
+              <Link to="https://subscription.evolvestrength.ca/">
+                <button className="w-full btnPrimary">{plan.buttonText}</button>
               </Link>
             </div>
           ))}

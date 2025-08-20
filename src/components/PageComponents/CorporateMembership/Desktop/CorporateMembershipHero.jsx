@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import corporateHero from "@/assets/images/corporateMembership/corporateMemberHero/corporateHero.webp";
-import corporateMobHero from "@/assets/images/corporateMembership/corporateMemberHero/corporateMobHero.webp";
 
 function CorporateMembershipHero() {
   return (
@@ -28,8 +26,8 @@ function CorporateMembershipHero() {
         </div>
         <div className="flex flex-col items-center justify-center">
           <picture>
-            <source srcSet={corporateHero} media="(min-width: 768px)" />
-            <img src={corporateMobHero} alt="Corporate Membership Hero" />
+            <source srcSet="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/corporateMemberHero/corporateHero.webp" media="(min-width: 768px)" />
+            <img src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/corporateMemberHero/corporateMobHero.webp" alt="Corporate Membership Hero" />
           </picture>
         </div>
       </div>

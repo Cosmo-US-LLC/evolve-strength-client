@@ -1,5 +1,4 @@
 import React from "react";
-import FreeAssessmentBG from "../../../../assets/images/spaces/WhyProfessionalsChooseUs/why_professionals_choose_us.webp";
 import { Link } from "react-router-dom";
 
 function WhyProfessionalsChooseUs() {

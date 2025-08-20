@@ -1,10 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import trainerBg from "/src/assets/images/spaces/EvolveEcosystem/EvolveEcosystemBG.webp";
-//MobileImage//
-
-import trainerBgMob from "/src/assets/images/spaces/EvolveEcosystem/EvolveEcosystemMob.webp"
-
 function EvolveEcosystem() {
   return (
     <div className="w-full md:py-12 max-md:pt-0 pb-0 md:pb-[48px] bg-[#fff]">
@@ -12,13 +7,16 @@ function EvolveEcosystem() {
         {/* Desktop Image */}
         <div
           className=" relative bg-cover bg-center min-h-[600px] flex flex-col max-md:px-[16px] justify-between md:px-[76px]  md:py-16 max-md:py-[24px]  items-start text-left md:rounded-xl overflow-hidden shadow-lg"
-          style={{ backgroundImage: `url(${trainerBg})` }}
+          style={{
+            backgroundImage: `url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/EvolveEcosystem/EvolveEcosystemBG.webp")`,
+          }}
         >
-          {/* Mobile Image */}
           <div
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
-                  style={{ backgroundImage: `url(${trainerBgMob})` }}
-                />
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
+            style={{
+              backgroundImage: `url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/EvolveEcosystem/EvolveEcosystemMob.webp")`,
+            }}
+          />
           {/* <div className="absolute inset-0 bg-black/40 z-0" /> */}
           <div className="absolute inset-y-0 left-0 w-[50%] z-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent " />
 
@@ -33,7 +31,9 @@ function EvolveEcosystem() {
               gatekeeping.You grow. We support you.
             </h4>
 
-            <h4 className="leading-[26px] font-[700] text-[#fff] relative z-20 ">You grow. We support you.</h4>
+            <h4 className="leading-[26px] font-[700] text-[#fff] relative z-20 ">
+              You grow. We support you.
+            </h4>
           </div>
 
           <div className="w-full flex justify-center items-center">
@@ -42,8 +42,8 @@ function EvolveEcosystem() {
                 Set up your practice in Canada’s best gym.
               </span>
               <Link to="/join-the-wait-list">
-              <button className="btnPrimary">Apply Now</button>
-            </Link>
+                <button className="btnPrimary">Apply Now</button>
+              </Link>
             </div>
           </div>
         </div>

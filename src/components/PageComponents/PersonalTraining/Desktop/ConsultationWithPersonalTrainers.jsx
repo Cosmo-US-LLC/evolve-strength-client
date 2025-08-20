@@ -1,13 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import trainer1 from "@/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide1.webp";
-import trainer2 from "@/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide2.webp";
-import trainer3 from "@/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide3.webp";
-import trainer4 from "@/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide4.webp";
-import trainer5 from "@/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide5.webp";
-import trainer6 from "@/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide6.webp";
-import trainer7 from "@/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide7.webp";
-import trainer8 from "@/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide8.webp";
 import useCounter from "@/hooks/useCounter";
 import useSyncedCounter from "@/hooks/useSyncedCounter";
 
@@ -23,15 +15,23 @@ const scrollAnimation = `
 `;
 
 const ConsultationWithPersonalTrainers = () => {
-  const { elementRef, hasStarted } = useCounter(1, 2000); // dummy count for trigger
+  const { elementRef, hasStarted } = useCounter(1, 2000);
 
-  // Use useSyncedCounter for all counters, triggered by hasStarted
   const worldClassTrainers = useSyncedCounter(205, 3000, hasStarted);
   const specialisedOfferings = useSyncedCounter(150, 3000, hasStarted);
-  // const facilitiesCount = useSyncedCounter(8, 3000, hasStarted);
 
-  const firstColumn = [trainer1, trainer2, trainer3, trainer4];
-  const secondColumn = [trainer5, trainer6, trainer7, trainer8];
+  const firstColumn = [
+    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide1.webp",
+    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide2.webp",
+    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide3.webp",
+    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide4.webp",
+  ];
+  const secondColumn = [
+    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide5.webp",
+    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide6.webp",
+    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide7.webp",
+    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide8.webp",
+  ];
 
   return (
     <div className="bg-white relative overflow-hidden" ref={elementRef}>
@@ -51,9 +51,9 @@ const ConsultationWithPersonalTrainers = () => {
           </h4>
 
           <Link to="https://subscription.evolvestrength.ca">
-          <button className="btnPrimary mb-8 md:mb-10">
-            Join Now for a Free Assessment
-          </button>
+            <button className="btnPrimary mb-8 md:mb-10">
+              Join Now for a Free Assessment
+            </button>
           </Link>
 
           <div className="flex gap-8 md:gap-12 py-2 md:py-0">
