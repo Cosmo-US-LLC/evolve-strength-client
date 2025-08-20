@@ -1,10 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import fitness from "../../../../assets/images/corporateMembership/whyChoose/everyThinkOnePlace.webp";
-import wellness from "../../../../assets/images/corporateMembership/whyChoose/gym_equipment.webp";
-import atmosphere from "../../../../assets/images/corporateMembership/whyChoose/wellness_support.webp";
-import turfWorkouts from "../../../../assets/images/corporateMembership/whyChoose/better_outcomes.webp";
 import { ReactComponent as OnePlaceIcon } from "@/assets/images/corporateMembership/whyChoose/one_place.svg";
 import { ReactComponent as TopTierIcon } from "@/assets/images/corporateMembership/whyChoose/Top_Tier.svg";
 import { ReactComponent as WellnessSupportIcon } from "@/assets/images/corporateMembership/whyChoose/WellnessSupport.svg";
@@ -17,7 +12,7 @@ const gymCards = [
     title: <p>Everything in One Place</p>,
     description:
       "Employees can train, recover, and get healthcare support without leaving the facility. No need to travel between appointments.",
-    bgImage: fitness,
+    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/everyThinkOnePlace.webp",
     icon: OnePlaceIcon,
   },
   {
@@ -25,7 +20,7 @@ const gymCards = [
     title: <p>Top-tier Gym Equipment</p>,
     description:
       "Each location offers physiotherapy, massage, chiropractic, acupuncture, and more. Plus steam rooms, saunas and showers.",
-    bgImage: wellness,
+    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/gym_equipment.webp",
     icon: TopTierIcon,
   },
   {
@@ -33,7 +28,7 @@ const gymCards = [
     title: "Full Wellness Support",
     description:
       "Our spaces feature Precor, Rogue, Eleiko, and Atlantis gear. That includes strength platforms, cardio machines, and turf zones.",
-    bgImage: atmosphere,
+    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/wellness_support.webp",
     icon: WellnessSupportIcon,
   },
   {
@@ -41,7 +36,7 @@ const gymCards = [
     title: <p>Better Outcomes</p>,
     description:
       "When employees use their benefits, they feel better, get injured less, and take fewer sick days. That improves productivity and morale.",
-    bgImage: turfWorkouts,
+    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/better_outcomes.webp",
     icon: BetterOutcomesIcon,
   },
 ];
@@ -51,25 +46,20 @@ const WhyCompaniesChoose = () => {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState(0);
 
-  // Desktop: use hover state, Mobile: use carousel state
   const activeIndex = hoveredIndex !== null ? hoveredIndex : carouselIndex;
 
-  // Update previous index when active index changes
   useEffect(() => {
     setPreviousIndex(activeIndex);
   }, [activeIndex]);
 
-  // Mobile Carousel with Scale Effect
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       containScroll: "keepSnaps",
       loop: true,
       align: "center",
     }
-    // [Autoplay({ delay: 4000, stopOnInteraction: false })]
   );
 
-  // Scale effect for mobile carousel
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const onSelect = useCallback(() => {
@@ -84,7 +74,7 @@ const WhyCompaniesChoose = () => {
     return () => emblaApi.off("select", onSelect);
   }, [emblaApi, onSelect]);
 
-  // Sync carousel index with background image
+
   useEffect(() => {
     if (!emblaApi) return;
 
@@ -93,14 +83,13 @@ const WhyCompaniesChoose = () => {
     };
 
     emblaApi.on("select", onCarouselSelect);
-    onCarouselSelect(); // Set initial index
+    onCarouselSelect();  
 
     return () => {
       emblaApi.off("select", onCarouselSelect);
     };
   }, [emblaApi]);
 
-  // Preload images
   useEffect(() => {
     gymCards.forEach((card) => {
       const img = new Image();

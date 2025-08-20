@@ -4,7 +4,7 @@ import EvolveStrengthBlackLogo from "../../assets/images/home/navbar/Evolve-logo
 
 function FormsHeader() {
   return (
-    <div className="w-full bg-white justify-center items-center mb-8 border-b border-gray-500 py-3 px-4 flex">
+    <div className="w-full z-10 bg-white justify-center items-center mb-8 border-b border-[#D4D4D4] py-3 px-4 flex">
       <Link to="/" className="flex items-center">
         <img
           src={EvolveStrengthBlackLogo}

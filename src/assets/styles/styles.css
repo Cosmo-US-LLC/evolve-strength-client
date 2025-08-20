@@ -31,7 +31,7 @@
 }
 
 .personalTrainingHeroSection {
-  background-image: url("/src/assets/images/PersonalTraning/hero/evolve-personal-traning-hero.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/hero/evolve-personal-traning-hero.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -39,7 +39,7 @@
   height: 700px;
 }
 .switchToEvolve {
-  background-image: url("/src/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolve.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolve.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -47,7 +47,7 @@
 }
 
 .personalTrainingFreeAssessment {
-  background-image: url("@/assets/images/PersonalTraning/FreeAssessment/FreeAssessment.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/FreeAssessment/FreeAssessment.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -57,7 +57,7 @@
 
 /* wellness transition start */
 .wellnessHeroSection {
-  background-image: url("/src/assets/images/wellness/wellnessHero/wellnessHero.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/wellnessHero/wellnessHero.webp");
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -66,7 +66,7 @@
 }
 
 .YogaAndRecoveryRoomBG {
-  background-image: url("/src/assets/images/wellness/YogaAndRecoveryRoom/YogaAndRecoveryRoomBG.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/YogaAndRecoveryRoom/YogaAndRecoveryRoomBG.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -75,7 +75,7 @@
 }
 
 .SteamAndSaunaRoomBG {
-  background-image: url("/src/assets/images/wellness/SteamAndSaunaRoom/SteamAndSaunaRoomBG.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/SteamAndSaunaRoom/SteamAndSaunaRoomBG.webp");
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -84,7 +84,7 @@
 }
 
 .WellnessPricingRoomBG {
-  background-image: url("/src/assets/images/wellness/WellnessPricingRoom/WellnessPricingRoom.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessPricingRoom/WellnessPricingRoom.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -105,7 +105,7 @@
 }
 
 .allLocationsHero {
-  background-image: url("@/assets/images/Locations/all_locations/all_locations_hero.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/all_locations/all_locations_hero.webp");
   background-size: cover;
   background-position: 100% 100%;
   background-repeat: no-repeat;
@@ -132,7 +132,7 @@
 }
 
 .franchiseLetsBuildBigger {
-  background-image: url("@/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -141,7 +141,7 @@
 }
 
 .franchiseGotYourBack {
-  background-image: url("@/assets/images/franchise/GotYourBack/gotYourBackBusiness.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/GotYourBack/gotYourBackBusiness.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -150,7 +150,7 @@
 }
 
 .spacesWhyChooseUs {
-  background-image: url("@/assets/images/spaces/WhyProfessionalsChooseUs/why_professionals_choose_us.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/WhyProfessionalsChooseUs/why_professionals_choose_us.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -168,7 +168,7 @@
 }
 
 .SpacesHeroBG {
-  background-image: url("@/assets/images/spaces/GrowYourBusinessSection/GrowYourBusinessSectionImage.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/GrowYourBusinessSection/GrowYourBusinessSectionImage.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -214,7 +214,7 @@
   height: 700px;
 }
 .LoAssesment {
-  background-image: url("@/assets/images/Locations/assesment/Assesment.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/Assesment.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -223,36 +223,40 @@
 }
 
 .Whatyouearn {
-  background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (3).webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/WhyChoose/why_choose%20(3).webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
   height: 700px;
 }
+
 .Youkeepfull {
-  background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (4).webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/WhyChoose/why_choose%20(4).webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
 }
+
 .Workonyour {
-  background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (1).webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/WhyChoose/why_choose%20(1).webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
 }
+
 .Getrealsupport {
-  background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (2).webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/WhyChoose/why_choose%20(2).webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
 }
+
 .BuildYourOwn {
-  background-image: url("@/assets/images/JoinAsTrainer/WhyChoose/why_choose (5).webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/WhyChoose/why_choose%20(5).webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -260,7 +264,7 @@
 }
 
 .TourOurFitness {
-  background-image: url("@/assets/images/JoinAsTrainer/TourOurFitness/TourOurFitness_bg.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/TourOurFitness/TourOurFitness_bg.webp");
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -268,8 +272,9 @@
   height: 666px;
 }
 
+
 .employeePlanBG {
-  background-image: url("@/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanBG.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanBG.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -278,21 +283,21 @@
 }
 
 .ReelsorWorkout {
-  background-image: url("@/assets/images/JoinTheMovement/WhattoSubmit/service_1.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/WhattoSubmit/service_1.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
 }
 .ProgressPhotos {
-  background-image: url("@/assets/images/JoinTheMovement/WhattoSubmit/service_2.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/WhattoSubmit/service_2.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
 }
 .TrainingStories {
-  background-image: url("@/assets/images/JoinTheMovement/WhattoSubmit/service_3.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/WhattoSubmit/service_3.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -306,12 +311,13 @@
   width: 100%;
 }
 .BehindtheScenes {
-  background-image: url("@/assets/images/JoinTheMovement/WhattoSubmit/service_5.webp");
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/WhattoSubmit/service_5.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
 }
+
 
 /* .socialmedia{
   background-image: url("@/assets/images/JoinTheMovement/SocialMedia/Mobile.webp");
@@ -341,7 +347,7 @@
 
 @media (max-width: 768px) {
   .personalTrainingHeroSection {
-    background-image: url("/src/assets/images/PersonalTraning/hero/evolve-personal-training-mob.webp");
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/hero/evolve-personal-training-mob.webp");
     height: 646px;
   }
   .trainerCallout {
@@ -357,14 +363,14 @@
     background-image: url("@/assets/images/explore/exploreHero/evolve_mob_hero.webp");
   }
   .franchiseGotYourBack {
-    background-image: url("@/assets/images/franchise/GotYourBack/gotYourBackBusinessMob.webp");
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/GotYourBack/gotYourBackBusinessMob.webp");
   }
   .personalTrainingFreeAssessment {
-    background-image: url("@/assets/images/PersonalTraning/FreeAssessment/FreeAssessmentMob.webp");
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/FreeAssessment/FreeAssessmentMob.webp");
     height: 582px;
   }
   .switchToEvolve {
-    background-image: url("/src/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolveMob.webp");
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolveMob.webp");
   }
   .wellnessHeroSection {
     background-image: url("/src/assets/images/wellness/wellnessHero/wellnessMobHero.webp");
@@ -389,7 +395,7 @@
     background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/MembershipBenefits/ReadyToEvolve/ReadyToEvolveBG.webp");
   }
   .employeePlanBG {
-    background-image: url("@/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanMobBG.webp");
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanMobBG.webp");
     height: 480px;
   }
   .ContactHeroBG {
@@ -407,7 +413,7 @@
     background-image: url("@/assets/images/Locations/herosection_mob.webp");
   } */
   .LoAssesment {
-    background-image: url("@/assets/images/Locations/assesment/LoAssesment.webp");
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/LoAssesment.webp");
   }
   .TourOurFitness {
     background-image: url("@/assets/images/JoinAsTrainer/TourOurFitness/TourOurFitnessMob.webp");
@@ -418,7 +424,7 @@
     background-image: url("@/assets/images/Locations/JoinToday_Mob.webp");
   }
   .franchiseLetsBuildBigger {
-    background-image: url("@/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG-Mob.webp");
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG-Mob.webp");
   }
 
   .socialMedia {
@@ -426,14 +432,14 @@
   }
 
   .SpacesHeroBG {
-    background-image: url("@/assets/images/spaces/GrowYourBusinessSection/Spaces_mob_hero.webp");
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/GrowYourBusinessSection/Spaces_mob_hero.webp");
     height: 233px;
   }
   .spacesWhyChooseUs {
-    background-image: url("@/assets/images/spaces/WhyProfessionalsChooseUs/spacesWhyChooseUs_mob.webp");
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/WhyProfessionalsChooseUs/spacesWhyChooseUs_mob.webp");
   }
   .allLocationsHero {
-    background-image: url("@/assets/images/Locations/all_locations/all_locations_heroMob.webp");
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/all_locations/all_locations_heroMob.webp");
     height: 460px;
   }
 }

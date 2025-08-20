@@ -16,7 +16,6 @@ function PersonalTraining() {
         title="Personal Training at Evolve Strength | 1-on-1 Coaching That Delivers Results"
         description="Get expert personal training at Evolve Strength. With 200+ trainers and a low 1:5 ratio, we offer custom plans for strength, fat loss, rehab, and more."
       />
-      
         <PersonalTrainingHero />
         <PerfectTrainer />
         <FreeAssessment />

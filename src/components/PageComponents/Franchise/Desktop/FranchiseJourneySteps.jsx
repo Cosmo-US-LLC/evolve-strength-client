@@ -6,10 +6,7 @@ import { ReactComponent as ActiveMembersIcon } from "@/assets/images/franchise/F
 import { ReactComponent as GymIcon } from "@/assets/images/franchise/FranchiseJourneySteps/gym_icon.svg";
 import { ReactComponent as ExpertIcon } from "@/assets/images/franchise/FranchiseJourneySteps/expert_icon.svg";
 
-import step1 from "../../../../assets/images/franchise/FranchiseJourneySteps/step_1.webp";
-import step2 from "../../../../assets/images/franchise/FranchiseJourneySteps/step_2.webp";
-import step3 from "../../../../assets/images/franchise/FranchiseJourneySteps/step_3.webp";
-import step4 from "../../../../assets/images/franchise/FranchiseJourneySteps/step_4.webp";
+
 
 const steps = [
   {
@@ -19,13 +16,13 @@ const steps = [
         Wellness Providers
       </p>
     ),
-    image: step1,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/FranchiseJourneySteps/step_1.webp",
     icon: <GymIcon />,
   },
   {
     title: "205+",
     description: <p>Certified Trainers</p>,
-    image: step2,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/FranchiseJourneySteps/step_2.webp",
     icon: <ActiveMembersIcon />,
   },
   {
@@ -35,7 +32,7 @@ const steps = [
        Member Retention Rate
       </p>
     ),
-    image: step3,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/FranchiseJourneySteps/step_3.webp",
     icon: <RetentionIcon />,
   },
   {
@@ -45,10 +42,11 @@ const steps = [
         Partnered Businesses
       </p>
     ),
-    image: step4,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/FranchiseJourneySteps/step_4.webp",
     icon: <ExpertIcon />,
   },
 ];
+
 
 function FranchiseJourneySteps() {
   return (

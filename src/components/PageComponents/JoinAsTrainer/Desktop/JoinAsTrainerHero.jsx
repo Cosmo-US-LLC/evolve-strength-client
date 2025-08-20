@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ArrowLine from "../../../../assets/images/JoinAsTrainer/Arrows/arrow.svg";
 import { Link } from "react-router-dom";
 
 function JoinAsTrainerHero(onSelectOption) {
@@ -45,7 +44,7 @@ function JoinAsTrainerHero(onSelectOption) {
               You’re Losing Money at Your Current Gym
             </h3>
             <img
-              src={ArrowLine}
+              src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/Arrows/arrow.svg"
               alt="Animated graphic"
               className="absolute bottom-[-80px] md:bottom-[-4px] right-[100px] md:right-0 transform scale-y-[-1] md:scale-y-[1] origin-center"
             />

@@ -1,20 +1,8 @@
 import React, { useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useCallback } from "react";
-import fitness from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/slide6.webp";
-import wellness from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/slide7.webp";
-import atmosphere from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp";
-import turfWorkouts from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/slide9.webp";
-import olympicLifting from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/slide10.webp";
-
-// Import mobile images (you'll need to add these to your assets)
-import fitnessMobile from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/mobSlide6.webp";
-import wellnessMobile from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/mobSlide7.webp";
-import atmosphereMobile from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/mobSlide8.webp";
-import turfWorkoutsMobile from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/mobSlide9.webp";
-import olympicLiftingMobile from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/mobSlide10.webp";
+ 
 
 const gymCards = [
   {
@@ -25,8 +13,8 @@ const gymCards = [
       </p>
     ),
     description: "",
-    bgImage: fitness,
-    bgImageMobile: fitnessMobile,
+    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide6.webp",
+    bgImageMobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide6.webp",
   },
   {
     count: "",
@@ -36,8 +24,8 @@ const gymCards = [
       </p>
     ),
     description: "",
-    bgImage: wellness,
-    bgImageMobile: wellnessMobile,
+    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide7.webp",
+    bgImageMobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide7.webp",
   },
   {
     count: "",
@@ -47,8 +35,8 @@ const gymCards = [
       </p>
     ),
     description: "",
-    bgImage: atmosphere,
-    bgImageMobile: atmosphereMobile,
+    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp",
+    bgImageMobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide8.webp",
   },
   {
     count: "",
@@ -58,8 +46,8 @@ const gymCards = [
       </p>
     ),
     description: "",
-    bgImage: turfWorkouts,
-    bgImageMobile: turfWorkoutsMobile,
+    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide9.webp",
+    bgImageMobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide9.webp",
   },
   {
     count: "",
@@ -69,8 +57,8 @@ const gymCards = [
       </p>
     ),
     description: "",
-    bgImage: olympicLifting,
-    bgImageMobile: olympicLiftingMobile,
+    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide10.webp",
+    bgImageMobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide10.webp",
   },
 ];
 

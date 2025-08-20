@@ -3,23 +3,23 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import Trainers from "@/assets/images/Locations/WhyChooseEvolve/personal_trainer.webp";
-import Equipments from "@/assets/images/Locations/WhyChooseEvolve/Equipments.webp";
-import Health from "@/assets/images/Locations/WhyChooseEvolve/Health.webp";
 const professionals = [
   {
     title: "Top Personal Trainers",
-    image: Trainers,
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/WhyChooseEvolve/personal_trainer.webp",
     dec: "Train with certified personal trainers ranked in the top 1% locally. Programs are tailored to your goals, pace, and ability.",
   },
   {
     title: "Top of the Line Equipment",
-    image: Equipments,
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/WhyChooseEvolve/Equipments.webp",
     dec: "Each gym is fully stocked with high-end machines, free weights, and tools built for strength, cardio, and recovery.",
   },
   {
     title: "Health and Wellness",
-    image: Health,
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/WhyChooseEvolve/Health.webp",
     dec: "Access licensed physiotherapists, massage therapists, nutritionists, and other wellness professionals all in one place.",
   },
 ];
@@ -31,7 +31,7 @@ const LoWhyChooseEvolve = () => {
       loop: true,
       slidesToScroll: 1,
       align: "start",
-    },
+    }
     // [Autoplay({ delay: 2000, stopOnInteraction: false })]
   );
 
@@ -49,8 +49,8 @@ const LoWhyChooseEvolve = () => {
             price you can afford.
           </h4>
           <Link to="https://subscription.evolvestrength.ca/">
- <button className="btnPrimary">Join Now</button>
- </Link>
+            <button className="btnPrimary">Join Now</button>
+          </Link>
         </div>
 
         <div className="relative">

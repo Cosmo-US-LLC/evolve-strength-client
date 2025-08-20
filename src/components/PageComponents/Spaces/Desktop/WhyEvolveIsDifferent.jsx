@@ -16,21 +16,21 @@ const cardData = [
     title: "Worry-Free Entrepreneurship",
     description:
       "We can grow your business without the usual drain. You don't need to hire front desk staff or cleaners. We handle operations, you serve customers, and all the facility details. You just show up and work with your clients.",
-    image: img1,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/WhyEvolveIsDifferent/slide1.webp",
   },
   {
     number: "02",
     title: "All-Inclusive Rent",
     description:
       "No surprise bills: one flat monthly payment covers utilities, gym access, shared amenities, and more. You won't have to manage multiple service vendors.",
-    image: img2,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/WhyEvolveIsDifferent/slide2.webp",
   },
   {
     number: "03",
     title: "Built-In Community",
     description:
       "Be part of a trusted network of wellness professionals. That makes it easy to connect, refer clients, and grow together. We don't charge finder's fees or take a cut of your earnings.",
-    image: img3,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/WhyEvolveIsDifferent/slide3.webp",
   },
 ];
 

@@ -1,38 +1,35 @@
 import React from "react";
 import { Search, CalendarDays, Dumbbell, Smile } from "lucide-react";
-import step1 from "../../../../assets/images/wellness/WellnessJourneySteps/step_1.webp";
-import step2 from "../../../../assets/images/wellness/WellnessJourneySteps/step_2.webp";
-import step3 from "../../../../assets/images/wellness/WellnessJourneySteps/step_3.webp";
-import step4 from "../../../../assets/images/wellness/WellnessJourneySteps/step_4.webp";
 
 const steps = [
   {
     title: "Step 1: Find Your Practitioner",
     description:
       "Choose from our expert team—physio, chiro, massage, nutrition, and more.",
-    image: step1,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessJourneySteps/step_1.webp",
     icon: <Search className="w-5 h-5 text-white" />,
   },
   {
     title: "Step 2: Book Consultation",
     description: "Schedule a meeting with our experts to create a custom plan.",
-    image: step2,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessJourneySteps/step_2.webp",
     icon: <CalendarDays className="w-5 h-5 text-white" />,
   },
   {
     title: "Step 3: Put in the Work",
     description: "Follow your personalised plan with guidance from our team.",
-    image: step3,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessJourneySteps/step_3.webp",
     icon: <Dumbbell className="w-5 h-5 text-white" />,
   },
   {
     title: "Step 4: Be a Better You",
     description:
       "See results and enjoy your improved well-being.Be a Better You",
-    image: step4,
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessJourneySteps/step_4.webp",
     icon: <Smile className="w-5 h-5 text-white" />,
   },
 ];
+
 
 const WellnessJourneySteps = () => {
   return (
