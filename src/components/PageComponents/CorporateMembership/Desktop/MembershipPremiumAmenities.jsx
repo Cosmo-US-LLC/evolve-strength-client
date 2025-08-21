@@ -46,8 +46,11 @@ const MembershipPremiumAmenities = () => {
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex -ml-0.5 md:-ml-2.5">
               {professionalMembershipPremiumAmenities.map((pro, idx) => (
-                <div key={idx} className="pl-0.5 md:pl-2.5 w-fit md:basis-1/3 flex-shrink-0">
-                  <div  className="relative">
+                <div
+                  key={idx}
+                  className="pl-0.5 md:pl-2.5 w-fit basis-full md:basis-1/3 flex-shrink-0"
+                >
+                  <div className="relative">
                     <img
                       src={pro.image}
                       alt={pro.title}
