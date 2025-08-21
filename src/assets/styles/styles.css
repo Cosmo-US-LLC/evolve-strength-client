@@ -272,7 +272,6 @@
   height: 666px;
 }
 
-
 .employeePlanBG {
   background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanBG.webp");
   background-size: cover;
@@ -317,7 +316,6 @@
   background-repeat: no-repeat;
   width: 100%;
 }
-
 
 /* .socialmedia{
   background-image: url("@/assets/images/JoinTheMovement/SocialMedia/Mobile.webp");
@@ -385,7 +383,7 @@
     background-image: url("/src/assets/images/wellness/YogaAndRecoveryRoom/YogaAndRecoveryRoomMobBG.webp");
   }
   .MembershipBenefitsHeroBG {
-    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/MembershipBenefits/membership_benefits_hero/membership_benefits_mob_BG.web");
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/MembershipBenefits/membership_benefits_hero/membership_benefits_mob_BG.webp");
   }
   .MembershipBenefitsFreeAssessment {
     background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/MembershipBenefits/FreeAssessmentForMembership/free-assessment-mob-BG.webp");

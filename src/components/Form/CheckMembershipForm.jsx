@@ -112,11 +112,11 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
       {submitted && (
         <div className="fixed inset-0 z-[9999]">
           <SuccessFullScreen
-            title="REQUEST RECEIVED"
-            description="Thanks! We’ve got your details. We’ll check your company’s membership status and get back to you shortly."
+            title="Thank You for Reaching Out"
+            description="We’re excited to help your organization take the next step toward better health and performance. A member of our team will contact you soon to discuss corporate membership options tailored to your needs."
             buttonText="BACK TO HOME"
             buttonLink="/"
-            icon="trophy"
+            icon="check"
           />
         </div>
       )}
@@ -149,8 +149,8 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
             </div>
             <div className="md:pt-[16px] md:pb-[40px] text-center j md:leading-[19px] md:w-[537px] md:h-[26px]">
               <h4>
-                Enter your details to see if your organization is already enrolled 
-                with Evolve.
+                Enter your details to see if your organization is already
+                enrolled with Evolve.
               </h4>
             </div>
             <div className="md:w-[537px] w-full md:h-[380px] rounded-[10px] bg-[#FCFCFC] border p-6">
@@ -232,7 +232,11 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
                   </label>
                 </div>
 
-                <button type="submit" className="mt-2 btnPrimary w-full" disabled={isSubmitting}>
+                <button
+                  type="submit"
+                  className="mt-2 btnPrimary w-full"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? "Submitting..." : "CHECK MEMBERSHIP"}
                 </button>
               </form>

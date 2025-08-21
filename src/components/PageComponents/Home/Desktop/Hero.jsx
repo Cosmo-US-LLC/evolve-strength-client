@@ -18,7 +18,10 @@ function Hero() {
             objectPosition: "bottom",
           }}
         >
-          <source src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/ExplorePages.webm" type="video/webm" />
+          <source
+            src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/ExplorePages.webm"
+            type="video/webm"
+          />
           Your browser does not support the video tag.
         </video>
 
@@ -26,12 +29,12 @@ function Hero() {
 
         <div className="max-w-[1280px] md:px-8 px-4 md:pb-[135px] max-md:pb-[24px] mx-auto w-full h-full relative z-2">
           <div className="relative z-2 flex flex-col items-start justify-end h-full">
-            <h1 className="text-[#FFFFFF] uppercase leading-[79px]">Evolve</h1>
-            <h2 className="text-[#FFFFFF] !font-[400] leading-[24px] md:mb-7 max-md:mb-[16px]">
-              More Space. More Possibilities.
-            </h2>
+            {/* <h1 className="text-[#FFFFFF] uppercase leading-[79px]">Evolve</h1> */}
+            <h1 className="text-[#FFFFFF] !text-[36px] md:!text-[70px] leading-[32px] md:leading-[59px] max-w-[740px] uppercase mb-4 md:mb-6 ">
+              More Space. <br /> More Possibilities.
+            </h1>
             <Link to="https://tour.evolvestrength.ca/tour-form ">
-            <button className="btnPrimary">BOOK A FREE TOUR</button>
+              <button className="btnPrimary">BOOK A FREE TOUR</button>
             </Link>
           </div>
         </div>
