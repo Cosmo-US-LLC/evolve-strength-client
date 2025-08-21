@@ -48,7 +48,7 @@ const MembershipRecovery = () => {
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex -ml-0.5 md:-ml-2.5">
               {professionalServices.map((pro, idx) => (
-                <div className="pl-0.5 md:pl-2.5 w-fit md:basis-1/3 flex-shrink-0">
+                <div className="pl-0.5 md:pl-2.5 w-fit basis-full md:basis-1/3 flex-shrink-0">
                   <div key={idx} className="relative">
                     {/* Desktop Image */}
                     <img

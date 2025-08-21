@@ -12,7 +12,8 @@ const gymCards = [
     title: <p>Everything in One Place</p>,
     description:
       "Employees can train, recover, and get healthcare support without leaving the facility. No need to travel between appointments.",
-    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/everyThinkOnePlace.webp",
+    bgImage:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/everyThinkOnePlace.webp",
     icon: OnePlaceIcon,
   },
   {
@@ -20,7 +21,8 @@ const gymCards = [
     title: <p>Top-tier Gym Equipment</p>,
     description:
       "Each location offers physiotherapy, massage, chiropractic, acupuncture, and more. Plus steam rooms, saunas and showers.",
-    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/gym_equipment.webp",
+    bgImage:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/gym_equipment.webp",
     icon: TopTierIcon,
   },
   {
@@ -28,7 +30,8 @@ const gymCards = [
     title: "Full Wellness Support",
     description:
       "Our spaces feature Precor, Rogue, Eleiko, and Atlantis gear. That includes strength platforms, cardio machines, and turf zones.",
-    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/wellness_support.webp",
+    bgImage:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/wellness_support.webp",
     icon: WellnessSupportIcon,
   },
   {
@@ -36,7 +39,8 @@ const gymCards = [
     title: <p>Better Outcomes</p>,
     description:
       "When employees use their benefits, they feel better, get injured less, and take fewer sick days. That improves productivity and morale.",
-    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/better_outcomes.webp",
+    bgImage:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/better_outcomes.webp",
     icon: BetterOutcomesIcon,
   },
 ];
@@ -52,13 +56,11 @@ const WhyCompaniesChoose = () => {
     setPreviousIndex(activeIndex);
   }, [activeIndex]);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      containScroll: "keepSnaps",
-      loop: true,
-      align: "center",
-    }
-  );
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    containScroll: "keepSnaps",
+    loop: true,
+    align: "center",
+  });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -74,7 +76,6 @@ const WhyCompaniesChoose = () => {
     return () => emblaApi.off("select", onSelect);
   }, [emblaApi, onSelect]);
 
-
   useEffect(() => {
     if (!emblaApi) return;
 
@@ -83,7 +84,7 @@ const WhyCompaniesChoose = () => {
     };
 
     emblaApi.on("select", onCarouselSelect);
-    onCarouselSelect();  
+    onCarouselSelect();
 
     return () => {
       emblaApi.off("select", onCarouselSelect);
@@ -208,7 +209,7 @@ const WhyCompaniesChoose = () => {
       </div>
 
       {/* Mobile Carousel */}
-      <div className="md:hidden relative z-10 max-w-[1280px] mx-auto flex flex-col justify-end items-end px-4 pt-[400px]">
+      <div className="md:hidden relative z-10 max-w-[1280px] mx-auto flex flex-col justify-end items-end px-4 pt-[380px]">
         <div className="w-full" ref={emblaRef}>
           <div className="flex">
             {gymCards.map((card, index) => {
