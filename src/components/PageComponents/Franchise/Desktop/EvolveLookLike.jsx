@@ -188,10 +188,10 @@ const EvolveLookLike = () => {
               {professionals.map((pro, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_76%] md:flex-[0_0_70%] min-w-0 pl-0 md:pl-4 first:pl-0"
+                  className="flex-[0_0_73%] md:flex-[0_0_70%] min-w-0 pl-0 md:pl-4 first:pl-0"
                 >
                   <div className="embla__slide w-full">
-                    <div className="embla__slide__content bg-white rounded-[10px] shadow-md md:h-[450px] h-[180px] flex items-center justify-center overflow-hidden   md:mx-2">
+                    <div className="embla__slide__content bg-white rounded-[10px] shadow-md md:h-[450px] h-[180px] flex items-center justify-center overflow-hidden mx-1 md:mx-2">
                       <img
                         src={pro.image}
                         alt={pro.title}
