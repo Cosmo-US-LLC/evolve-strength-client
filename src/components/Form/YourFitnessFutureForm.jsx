@@ -153,7 +153,7 @@ function YourFitnessFutureForm() {
         />
       )}
 
-      <div className="flex md:gap-12 md:p-6 p-4 py-12 flex-col md:flex-row max-w-[1280px] mx-auto justify-center min-h-screen">
+      <div className="flex md:gap-12 px-4 pt-24 pb-12 flex-col md:flex-row max-w-[1280px] mx-auto justify-center">
         {/* Left Image & Headline */}
         <div className="w-full md:max-w-[40%] flex-shrink-0 flex flex-col">
           {/* Back Button */}

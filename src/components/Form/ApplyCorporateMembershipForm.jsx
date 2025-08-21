@@ -148,19 +148,19 @@ function ApplyCorporateMembershipForm({ onSubmit }) {
         </div>
       )}
 
-      <div className="flex gap-12 md:p-6 p-4 flex-row max-w-[1280px] mx-auto items-center min-h-screen">
+      <div className="flex gap-10 pt-24 pb-12 px-4 md:px-6 flex-row max-w-[1280px] mx-auto items-center w-full">
         {/* Left Image */}
-        <div className="w-full max-w-[40%] flex-shrink-0 flex max-md:hidden">
-          <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white">
+        <div className="w-full max-w-[50%] flex-shrink-0 flex max-md:hidden">
+          <div className="rounded-[8px] overflow-hidden bg-white">
             <img
               src={locationImg}
               alt="Evolve Strength Facility"
-              className="object-cover w-full h-auto"
+              className="object-cover w-full h-[700px]"
             />
           </div>
         </div>
         {/* Right Form */}
-        <div className="flex flex-col md:items-start md:pl-20 md:h-[660px] justify-between w-full md:max-w-[60%]">
+        <div className="flex flex-col md:items-start  justify-between w-full md:max-w-[50%]">
           <button
             className="flex items-center md:pt-5 gap-2 text-[#222] text-[15px] hover:underline"
             onClick={() => navigate(-1)}
