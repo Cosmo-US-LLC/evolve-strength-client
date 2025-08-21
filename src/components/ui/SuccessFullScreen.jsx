@@ -20,7 +20,7 @@ function SuccessFullScreen({
 
   return (
     <div className="fixed inset-0 bg-black/80 bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-[8px] px-8 py-10 max-w-md w-full text-center relative">
+      <div className="bg-white rounded-[8px] px-4 py-10 max-w-md w-full text-center relative">
         <div className="flex justify-center mb-6">
           <div className="w-16 h-16 bg-[#4AB04A] rounded-full flex items-center justify-center">
             <IconComponent className="w-12 h-12 text-white" />
