@@ -137,17 +137,29 @@ const EvolveLookLike = () => {
     };
   }, [emblaApi, setTweenNodes, setTweenFactor, tweenScale]);
 
-  const scrollPrev = () => {
+  const scrollPrev = useCallback(() => {
     if (emblaApi) {
       emblaApi.scrollPrev();
+      // Reset autoplay after manual navigation
+      const autoplayPlugin = emblaApi.plugins().autoplay;
+      if (autoplayPlugin) {
+        autoplayPlugin.stop();
+        autoplayPlugin.play();
+      }
     }
-  };
+  }, [emblaApi]);
 
-  const scrollNext = () => {
+  const scrollNext = useCallback(() => {
     if (emblaApi) {
       emblaApi.scrollNext();
+      // Reset autoplay after manual navigation
+      const autoplayPlugin = emblaApi.plugins().autoplay;
+      if (autoplayPlugin) {
+        autoplayPlugin.stop();
+        autoplayPlugin.play();
+      }
     }
-  };
+  }, [emblaApi]);
 
   return (
     <section className="md:py-12 py-8">
@@ -176,7 +188,7 @@ const EvolveLookLike = () => {
               {professionals.map((pro, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_70%] min-w-0 pl-2 md:pl-4 first:pl-0"
+                  className="flex-[0_0_70%] md:flex-[0_0_70%] min-w-0 pl-2 md:pl-4 first:pl-0"
                 >
                   <div className="embla__slide w-full">
                     <div className="embla__slide__content bg-white rounded-[10px] shadow-md md:h-[450px] h-[220px] flex items-center justify-center overflow-hidden mx-1 md:mx-2">
