@@ -21,7 +21,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 function CalgarySunridge() {
   return (
     <>
-       <MetaTags
+      <MetaTags
         title="Evolve Strength Sunridge | Premier Gym & Wellness in Calgary"
         description="Join Evolve Strength Sunridge, Calgary’s premier fitness hub with top facilities, expert trainers, and a vibrant community."
       />

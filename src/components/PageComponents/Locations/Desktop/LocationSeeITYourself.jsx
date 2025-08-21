@@ -108,6 +108,17 @@ const LocationSeeITYourself = () => {
     resetCarousels();
   }, [activeTab]);
 
+  // Scroll to top on mobile when component mounts
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+  }, []);
+
   // Update active tab when URL changes (user navigates to different location)
   useEffect(() => {
     const currentPath = window.location.pathname;
@@ -133,16 +144,18 @@ const LocationSeeITYourself = () => {
 
     setActiveTab(newDefaultTab);
 
-    // Scroll to the active tab in mobile view - removed setTimeout
-    const activeTabElement = tabBarRef.current?.querySelector(
-      `[data-tab="${newDefaultTab}"]`
-    );
-    if (activeTabElement && tabBarRef.current) {
-      activeTabElement.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center",
-      });
+    // Only scroll to active tab on desktop, not mobile
+    if (window.innerWidth >= 768) {
+      const activeTabElement = tabBarRef.current?.querySelector(
+        `[data-tab="${newDefaultTab}"]`
+      );
+      if (activeTabElement && tabBarRef.current) {
+        activeTabElement.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      }
     }
   }, [currentPath]);
 
