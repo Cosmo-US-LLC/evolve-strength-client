@@ -288,8 +288,8 @@ export const facilityLocations = [
     images: {
       desktop: [
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_1.webp",
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_2.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_3.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_2.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_4.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_5.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_6.webp",
