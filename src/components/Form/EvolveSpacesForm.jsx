@@ -197,7 +197,7 @@ export default function EvolveSpacesForm() {
         />
       )}
 
-      <div className="flex gap-12 md:p-6 p-4 flex-row max-w-[1280px] mx-auto justify-center min-h-screen">
+      <div className="flex gap-12 px-4 pt-24 pb-12 flex-row max-w-[1280px] mx-auto justify-center ">
         {/* Left Image */}
         <div className="w-full max-w-[40%] flex-shrink-0 flex flex-col max-md:hidden">
           <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white">
