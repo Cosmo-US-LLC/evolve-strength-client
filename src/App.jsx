@@ -42,6 +42,7 @@ import AllLocations from "./pages/LocationsPage/AllLocations";
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
