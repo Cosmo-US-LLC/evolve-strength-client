@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function NoOfficeAvailable() {
   return (
@@ -10,7 +11,9 @@ function NoOfficeAvailable() {
         <h3 className="text-[#000] mb-4">
           But you can join the waitlist for an office space
         </h3>
-        <button className="btnPrimary">JOIN THE WAITLIST</button>
+        <Link to="/join-the-wait-list">
+          <button className="btnPrimary">JOIN THE WAITLIST</button>
+        </Link>
       </div>
     </div>
   );
