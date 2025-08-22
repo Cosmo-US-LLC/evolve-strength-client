@@ -5,7 +5,7 @@ function TakesToLaunchEvolve() {
     <section className="w-full bg-[#000] py-16 flex items-center justify-center">
       <div className="w-full max-w-[1280px] mx-auto flex flex-col items-center px-8">
         <h2 className="text-[#fff] uppercase text-center mb-4">
-          WHAT IT TAKES TO LAUNCH EVOLVE
+          WHAT IT TAKES TO LAUNCH AN EVOLVE
         </h2>
         <h4 className="text-[#fff] leading-[26px] font-[300] text-center mb-6">
           Startup Investment:
