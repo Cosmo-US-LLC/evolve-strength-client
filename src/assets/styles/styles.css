@@ -39,7 +39,7 @@
   height: 700px;
 }
 .switchToEvolve {
-  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolve.webp");
+  background-image: url("@/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolve.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -368,7 +368,7 @@
     height: 582px;
   }
   .switchToEvolve {
-    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolveMob.webp");
+    background-image: url("@/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolveMob.webp");
   }
   .wellnessHeroSection {
     background-image: url("/src/assets/images/wellness/wellnessHero/wellnessMobHero.webp");
