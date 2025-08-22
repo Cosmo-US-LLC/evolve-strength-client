@@ -18,7 +18,7 @@ function PersonalTrainingHero() {
               <button className="btnPrimary">Join Now</button>
             </Link>
             <Link to="/explore?category=trainers">
-              <button className="btnSecondary"> Explore Trainer</button>
+              <button className="btnSecondary"> Explore Trainers</button>
             </Link>
           </div>
           <Link to="https://subscription.evolvestrength.ca/">
