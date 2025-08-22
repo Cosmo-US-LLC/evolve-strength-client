@@ -17,8 +17,8 @@ function WellnessPricingRoom() {
             your best self.
           </p>
           <div className="flex gap-6">
-            <Link to= "/explore">
-            <button className="btnPrimary">Find a wellness expert</button>
+            <Link to="/explore?category=wellness">
+              <button className="btnPrimary">Find a wellness expert</button>
             </Link>
           </div>
         </div>

@@ -84,7 +84,7 @@ function WellnessServicesForEveryone() {
             Evolve location, available at an additional cost.
           </p>
 
-          <Link to="/explore">
+          <Link to="/explore?category=wellness">
             <button className="btnPrimary">FIND A wellness expert</button>
           </Link>
         </div>

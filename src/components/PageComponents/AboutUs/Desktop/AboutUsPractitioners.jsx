@@ -48,7 +48,7 @@ const AboutUsPractitioners = () => {
             take care of your body and mind under one roof. We make it easy to
             access health services without having to leave your gym.
           </h4>
-          <Link to="/explore">
+          <Link to="/explore?category=wellness">
             <button className="btnPrimary">FIND A wellness expert</button>
           </Link>{" "}
         </div>

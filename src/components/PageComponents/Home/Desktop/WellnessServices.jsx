@@ -84,7 +84,7 @@ const WellnessServices = () => {
               Take full advantage of a wide range of wellness <br /> services at
               every Evolve location, available at an <br /> additional cost.
             </p>
-            <Link to="/explore">
+            <Link to="/explore?category=wellness">
               <button className="btnPrimary">FIND A WELLNESS EXPERT</button>
             </Link>
           </div>
@@ -149,7 +149,7 @@ const WellnessServices = () => {
             Evolve location, available at an additional cost.
           </p>
           <div className="flex justify-start w-full">
-            <Link to="/explore">
+            <Link to="/explore?category=wellness">
               <button className="btnPrimary">FIND A WELLNESS EXPERT</button>
             </Link>
           </div>
