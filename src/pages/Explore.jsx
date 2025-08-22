@@ -1,18 +1,58 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import ExploreHero from "@/components/PageComponents/Explore/Desktop/ExploreHero";
 import DiscoverEvolve from "@/components/PageComponents/Explore/Desktop/DiscoverEvolve";
 
 function Explore() {
   const [selected, setSelected] = useState(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Handle URL parameters on component mount
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const categoryParam = urlParams.get("category");
+
+    if (categoryParam) {
+      // Map URL parameter to category ID
+      const categoryMap = {
+        trainers: "TRAINERS",
+        locations: "LOCATIONS",
+        wellness: "WELLNESS",
+      };
+
+      const categoryId = categoryMap[categoryParam.toLowerCase()];
+      if (categoryId) {
+        setSelected(categoryId);
+      }
+    }
+  }, [location.search]);
 
   const handleCategorySelect = (categoryId) => {
     // Handle both selection and deselection
     setSelected(categoryId);
+
+    // Update URL based on selection
+    if (categoryId) {
+      // Map category ID to URL parameter
+      const categoryMap = {
+        TRAINERS: "trainers",
+        LOCATIONS: "locations",
+        WELLNESS: "wellness",
+      };
+
+      const categoryParam = categoryMap[categoryId];
+      if (categoryParam) {
+        navigate(`/explore?category=${categoryParam}`, { replace: true });
+      }
+    } else {
+      // Remove category parameter when deselecting
+      navigate("/explore", { replace: true });
+    }
   };
 
   return (
     <>
-      
       <div>
         <ExploreHero />
         <DiscoverEvolve selected={selected} onSelect={handleCategorySelect} />

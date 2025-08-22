@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function FreeAssessmentForMembership() {
   return (
@@ -12,12 +13,13 @@ function FreeAssessmentForMembership() {
             Every new member at Evolve gets a complimentary one-on-one
             assessment with a certified trainer.
           </p>
-          <a
-            href="/explore"
+          <Link
+            smooth
+            to="/explore?category=trainers"
             className="text-[#4AB04A] font-bold leading-[26px] underline underline-offset-4 decoration-solid decoration-auto [text-underline-position:from-font]"
           >
             Find a Trainer
-          </a>
+          </Link>
         </div>
       </div>
       {/* <div className="absolute inset-0 bg-black/10 backdrop-blur-sm"></div> */}

@@ -16,16 +16,11 @@ function WellnessHero() {
             leaving the building.
           </h3>
           <div className="flex flex-col md:flex-row gap-3">
-
-            
-             <Link to="/explore">
-            <button className="btnPrimary">FIND A wellness expert</button>
-            </Link> 
+            <Link to="/explore?category=wellness">
+              <button className="btnPrimary">FIND A wellness expert</button>
+            </Link>
             <Link to="/join-the-wait-list">
-            <button className="btnSecondary">
-             
-              Become a Wellness Expert
-            </button>
+              <button className="btnSecondary">Become a Wellness Expert</button>
             </Link>
           </div>
         </div>
