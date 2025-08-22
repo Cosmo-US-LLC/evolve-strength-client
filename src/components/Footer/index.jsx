@@ -78,7 +78,7 @@ function Footer() {
                     to="/spaces"
                     className="text-[#B2B1AA] hover:text-[#ffffff]"
                   >
-                    Spaces
+                    Lease an office
                   </Link>
                   <span className="text-[#B2B1AA]">/</span>
                   <Link
@@ -165,7 +165,7 @@ function Footer() {
                     to="/spaces"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
-                    Lease an Office
+                    Spaces
                   </Link>
                 </div>
               </div>
