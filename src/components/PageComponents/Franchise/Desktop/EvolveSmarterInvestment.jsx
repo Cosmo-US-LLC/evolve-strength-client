@@ -17,7 +17,7 @@ const benefitItems = [
     label: "PREMIUM MEMBER EXPERIENCE",
     description:
       "High retention and low churn through results-driven programming and community.",
-    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/evolveSmarterInvestment/step-1.webp",
+    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/evolveSmarterInvestment/step-4.webp",
   },
   {
     key: "scalable",

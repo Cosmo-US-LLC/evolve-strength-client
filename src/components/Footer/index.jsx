@@ -131,7 +131,7 @@ function Footer() {
                   >
                     Join the Movement
                   </Link>
-                  <Link to = "https://tour.evolvestrength.ca/tour-form /">
+                  <Link to = "https://tour.evolvestrength.ca/tour-form/">
 
                   <button className="mt-4 btnPrimary transition">
                     TAKE A TOUR
@@ -165,7 +165,7 @@ function Footer() {
                     to="/spaces"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
-                    Spaces
+                    Lease an Office
                   </Link>
                 </div>
               </div>
@@ -182,7 +182,7 @@ function Footer() {
                   Email
                 </p>
                 <a
-                  href="mailto:info@evolvestrength.com"
+                  href="mailto:info@evolvestrength.ca"
                   className="text-[14px] leading-[19.6px] hover:cursor-pointer hover:text-[#ffffff] text-[#B2B1AA]"
                 >
                   info@evolvestrength.ca
