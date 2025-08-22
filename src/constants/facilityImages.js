@@ -150,7 +150,7 @@ export const facilityLocations = [
     images: {
       desktop: [
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/post5.webp",
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/post8.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/post10.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/post7.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/post2.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/post1.webp",
