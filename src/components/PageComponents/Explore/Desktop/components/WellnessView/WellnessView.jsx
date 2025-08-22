@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   getDataByCategory,
@@ -22,8 +22,27 @@ function WellnessView() {
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
   const [selectedLocations, setSelectedLocations] = useState([]); // Start with no locations selected to show all trainers
 
+  const dropdownRef = useRef(null);
+
   const wellnessData = getDataByCategory("WELLNESS")?.data || [];
   const allLocations = getAllLocations();
+
+  // Handle click outside dropdown to close it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowLocationDropdown(false);
+      }
+    };
+
+    if (showLocationDropdown) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showLocationDropdown]);
 
   const handleToggle = (serviceName) => {
     setExpanded(expanded === serviceName ? null : serviceName);
@@ -109,19 +128,19 @@ function WellnessView() {
                     }`}
                   />
                 </div>
-                <Link to ="https://subscription.evolvestrength.ca/">
-                <button
-                  className="uppercase text-[16px] md:text-[20px] font-[400] leading-[20px] font-[kanit] text-[#4AB04A] hover:text-[#000] underline transition-colors duration-300"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  JOIN NOW
-                </button>
+                <Link to="https://subscription.evolvestrength.ca/">
+                  <button
+                    className="uppercase text-[16px] md:text-[20px] font-[400] leading-[20px] font-[kanit] text-[#4AB04A] hover:text-[#000] underline transition-colors duration-300"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    JOIN NOW
+                  </button>
                 </Link>
               </div>
 
               {isOpen && (
                 <div className="py-4 md:py-6 bg-white">
-                  <div className="relative mb-4 md:mb-6">
+                  <div className="relative mb-4 md:mb-6" ref={dropdownRef}>
                     <button
                       className="bg-[#fff] rounded-[8px] px-3 md:px-4 py-2 md:py-3 border border-[#CCCCCC] flex items-center justify-between min-w-[180px] md:min-w-[200px]"
                       onClick={() =>

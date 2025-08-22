@@ -27,16 +27,18 @@ const allOffices = [
   {
     title: "Executive Office",
     location: "Calgary Royal Oak",
-    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
-    size: "Starting at 112 sq/ft",
-    roomStatus:"Unfurnished | With or Without a Sink"
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
+    size: "Starting at 130 sq/ft",
+    roomStatus: "Unfurnished | With or Without a Sink",
   },
   {
     title: "Premium Office Suite",
     location: "Calgary Royal Oak",
-    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_P.webp",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_P.webp",
     size: "Starting at 170 sq/ft",
-    roomStatus:"Unfurnished | With a Sink"
+    roomStatus: "Unfurnished | With a Sink",
   },
   // {
   //   title: "Anchor",
@@ -44,28 +46,31 @@ const allOffices = [
   //   image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_A.webp",
   //   size: "Starting at 1170 sq/ft",
   //   roomStatus:"Unfurnished | With or Without a Sink"
-    
+
   // },
   {
     title: "Executive Office",
     location: "Edmonton North",
-    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
     size: "Starting at 112 sq/ft",
-    roomStatus:"Unfurnished | Without a Sink"
+    roomStatus: "Unfurnished | Without a Sink",
   },
   {
     title: "Executive Office",
     location: "Edmonton North",
-    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_P.webp",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_P.webp",
     size: "Starting at 114 sq/ft",
-    roomStatus:"Unfurnished | Without a Sink"
+    roomStatus: "Unfurnished | Without a Sink",
   },
   {
     title: "Executive Office",
     location: "Edmonton Downtown",
-    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
     size: "Starting at 120 sq/ft",
-    roomStatus:"Unfurnished | Without a Sink"
+    roomStatus: "Unfurnished | Without a Sink",
   },
   // {
   //   title: "Premium Office Suite",
@@ -77,16 +82,18 @@ const allOffices = [
   {
     title: "Executive Office",
     location: "Calgary Sunridge",
-    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/CSSlides_1.webp",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/CSSlides_1.webp",
     size: "Starting at 121 sq/ft",
-    roomStatus:"Unfurnished | Without a Sink"
+    roomStatus: "Unfurnished | Without a Sink",
   },
   {
     title: "Executive Office",
     location: "Calgary Sunridge",
-    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/CSSlides_1.webp",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/CSSlides_1.webp",
     size: "Starting at 121 sq/ft",
-    roomStatus:"Unfurnished | Without a Sink"
+    roomStatus: "Unfurnished | Without a Sink",
   },
 ];
 
@@ -196,7 +203,7 @@ const AvailableOffices = () => {
                           <p className="description !font-[kanit] font-[400] text-[#000] leading-[20px] mt-1">
                             {office.size}
                           </p>
-                           <p className="description !font-[kanit] font-[400] text-[#000] leading-[20px] mt-1">
+                          <p className="description !font-[kanit] font-[400] text-[#000] leading-[20px] mt-1">
                             {office.roomStatus}
                           </p>
                           <p className="description !font-[kanit] !text-[14px] text-[#515151] mb-1 flex items-center">
@@ -298,17 +305,17 @@ const AvailableOffices = () => {
                           <p className="description !font-[kanit] font-[400] text-[#000] leading-[20px] mt-1">
                             {office.size}
                           </p>
-                           <p className="description !font-[kanit] font-[400] text-[#000] leading-[20px] mt-1">
+                          <p className="description !font-[kanit] font-[400] text-[#000] leading-[20px] mt-1">
                             {office.roomStatus}
                           </p>
-                           
 
                           <Link to="/join-the-wait-list">
                             <button className="btnPrimary">APPLY NOW</button>
                           </Link>
                         </div>
                       </div>
-                    ))}``
+                    ))}
+                    ``
                   </div>
                   {mobileFilteredOffices.length > 2 && (
                     <>
