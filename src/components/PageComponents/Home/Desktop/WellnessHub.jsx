@@ -62,7 +62,7 @@ function WellnessHub() {
                 item.background === "black" ? "bg-black" : "bg-white"
               } border border-gray-200`}
               style={{
-                height: window.innerWidth >= 768 ? item.height : "270px",
+                height: window.innerWidth >= 768 ? item.height : "",
               }}
             >
               {/* Card Content */}
