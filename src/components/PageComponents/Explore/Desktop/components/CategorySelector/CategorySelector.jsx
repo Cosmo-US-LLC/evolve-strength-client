@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import CategoryCard from "./CategoryCard";
 import { EXPLORE_DATA } from "../../../../../../constants/exploreDataWithTrainer";
 import LocationsView from "../LocationsView/LocationsView";
@@ -6,6 +6,42 @@ import WellnessView from "../WellnessView/WellnessView";
 import TrainersView from "../TrainersView/TrainersView";
 
 function CategorySelector({ selected, onSelect }) {
+  const mobileCategoryCardsRef = useRef(null);
+  const desktopCategoryCardsRef = useRef(null);
+
+  // Scroll to category cards when a category is selected
+  useEffect(() => {
+    if (selected) {
+      // Small delay to ensure the component is fully rendered and content is expanded
+      const timer = setTimeout(() => {
+        // Determine which ref to use based on screen size
+        const isMobile = window.innerWidth <= 768;
+        const targetRef = isMobile
+          ? mobileCategoryCardsRef
+          : desktopCategoryCardsRef;
+
+        if (targetRef.current) {
+          // Calculate offset to account for fixed header/navbar
+          // Desktop: 84px, Mobile: 70px
+          // Adding extra offset to scroll higher above the cards
+          const baseOffset = isMobile ? 70 : 84;
+          const extraOffset = 120; // Additional space above the cards
+          const offset = baseOffset + extraOffset;
+
+          const elementTop = targetRef.current.offsetTop;
+          const elementPosition = elementTop - offset;
+
+          window.scrollTo({
+            top: elementPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 300); // Increased delay to allow content to expand
+
+      return () => clearTimeout(timer);
+    }
+  }, [selected]);
+
   const renderViewContent = (categoryId) => {
     switch (categoryId) {
       case "LOCATIONS":
@@ -30,7 +66,10 @@ function CategorySelector({ selected, onSelect }) {
       </div>
 
       {/* Mobile: Accordion Cards with Content Below Each */}
-      <div className="md:hidden flex flex-col gap-4  ">
+      <div
+        className="md:hidden flex flex-col gap-4"
+        ref={mobileCategoryCardsRef}
+      >
         {EXPLORE_DATA.map((card) => (
           <div key={card.id} className="flex flex-col">
             <CategoryCard
@@ -49,7 +88,10 @@ function CategorySelector({ selected, onSelect }) {
       {/* Desktop: Cards Horizontal + Full Width Content Below */}
       <div className="hidden md:block">
         {/* Desktop Category Cards */}
-        <div className="flex justify-center gap-8 px-0">
+        <div
+          className="flex justify-center gap-8 px-0"
+          ref={desktopCategoryCardsRef}
+        >
           {EXPLORE_DATA.map((card) => (
             <CategoryCard
               key={card.id}

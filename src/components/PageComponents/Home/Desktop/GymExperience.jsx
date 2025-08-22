@@ -6,19 +6,22 @@ const gymCards = [
     title: "Fitness",
     description:
       "Achieve your fitness goals with premium strength and cardio equipment, designed for every workout style.",
-    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/gymEep/fitness.webp",
+    bgImage:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/gymEep/fitness.webp",
   },
   {
     title: "Wellness",
     description:
       "Recover and rejuvenate with steam rooms, saunas, physiotherapy, and massage therapy.",
-    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/gymEep/wellness.webp",
+    bgImage:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/gymEep/wellness.webp",
   },
   {
     title: "Atmosphere",
     description:
       "Stay motivated in a vibrant, inspiring atmosphere with stunning aesthetics designed to elevate your experience.",
-    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/gymEep/atmosphere.webp",
+    bgImage:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/gymEep/atmosphere.webp",
   },
 ];
 
