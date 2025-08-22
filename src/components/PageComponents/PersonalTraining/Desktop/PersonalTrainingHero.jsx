@@ -14,16 +14,18 @@ function PersonalTrainingHero() {
             One-on-one coaching for unparalleled focus and results.
           </h3>
           <div className="flex gap-3 mb-5">
-
-           <Link to="https://subscription.evolvestrength.ca/">
-            <button className="btnPrimary">Join Now</button>
+            <Link to="https://subscription.evolvestrength.ca/">
+              <button className="btnPrimary">Join Now</button>
             </Link>
-            <Link to="/explore">
-          <button className="btnSecondary"> Explore Trainer</button>
-          </Link>
+            <Link to="/explore?category=trainers">
+              <button className="btnSecondary"> Explore Trainer</button>
+            </Link>
           </div>
-                    <Link to = "https://subscription.evolvestrength.ca/">
-          <button className="description underline !font-[Kanit] text-[#FFFFFF]  font-bold hover:cursor-pointer ">Join now for a free assessment with a certified trainer. Personal training is available for an additional fee.</button>
+          <Link to="https://subscription.evolvestrength.ca/">
+            <button className="description underline !font-[Kanit] text-[#FFFFFF]  font-bold hover:cursor-pointer ">
+              Join now for a free assessment with a certified trainer. Personal
+              training is available for an additional fee.
+            </button>
           </Link>
         </div>
       </div>

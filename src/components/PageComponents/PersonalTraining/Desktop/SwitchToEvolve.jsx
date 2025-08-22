@@ -29,11 +29,11 @@ const SwitchToEvolve = () => {
                 Train with the Best. Or Become the Best.
               </span>
               <div className="flex flex-row w-full gap-2 md:gap-4">
-                <Link to="/explore">
-                <button className="btnPrimary ml-3 ">Find a Trainer</button>
+                <Link to="/explore?category=trainers">
+                  <button className="btnPrimary ml-3 ">Find a Trainer</button>
                 </Link>
                 <Link to="/join-as-trainer">
-                <button className="btnSecondary">Become a Trainer</button>
+                  <button className="btnSecondary">Become a Trainer</button>
                 </Link>
               </div>
             </div>

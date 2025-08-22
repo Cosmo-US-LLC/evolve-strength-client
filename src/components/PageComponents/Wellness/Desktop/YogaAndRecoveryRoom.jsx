@@ -15,12 +15,9 @@ function YogaAndRecoveryRoom() {
             support. Offered in quiet, dedicated spaces.
           </p>
           <div className="flex gap-6">
-            
-            <Link to="/explore">
-            <button className="btnPrimary">FIND A wellness expert</button>
-            </Link> 
-
-
+            <Link to="/explore?category=wellness">
+              <button className="btnPrimary">FIND A wellness expert</button>
+            </Link>
           </div>
         </div>
       </div>

@@ -4,17 +4,38 @@ import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-
-
 const professionals = [
-  { title: "Strength Training", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Strenght_Training.webp" },
-  { title: "Body Weight Training", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Weight_Training.webp" },
-  { title: "Cardio", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Cardio.webp" },
-  { title: "Turf Workout", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Turf_Workout.webp" },
-  { title: "Olympic Lifting", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Olympic_Lifting.webp" },
-  { title: "Yoga", image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Yoga.webp" },
+  {
+    title: "Strength Training",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Strenght_Training.webp",
+  },
+  {
+    title: "Body Weight Training",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Weight_Training.webp",
+  },
+  {
+    title: "Cardio",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Cardio.webp",
+  },
+  {
+    title: "Turf Workout",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Turf_Workout.webp",
+  },
+  {
+    title: "Olympic Lifting",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Olympic_Lifting.webp",
+  },
+  {
+    title: "Yoga",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Yoga.webp",
+  },
 ];
-
 
 const AboutUsTrainers = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -59,7 +80,7 @@ const AboutUsTrainers = () => {
             experienced in helping people set clear goals, stay consistent, and
             see real results.
           </h4>
-          <Link to="/explore">
+          <Link to="/explore?category=trainers">
             <button className="btnPrimary">FIND A TRAINER</button>
           </Link>
         </div>
