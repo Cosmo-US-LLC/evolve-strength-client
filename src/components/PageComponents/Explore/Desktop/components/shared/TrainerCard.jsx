@@ -5,6 +5,7 @@ import {
   CircleChevronDown,
   ChevronLeft,
   ChevronRight,
+  MapPin,
 } from "lucide-react";
 
 function TrainerCard({
@@ -83,8 +84,8 @@ function TrainerCard({
                   />
                 </div>
 
-                <div className="overflow-hidden w-full h-[100px] flex flex-row items-center pt-5 px-3">
-                  <div className="flex flex-col gap-2 w-[90%] h-full">
+                <div className="overflow-hidden w-full  flex flex-row items-center py-5 px-3">
+                  <div className="flex flex-col gap-1 w-[90%] h-full">
                     <div
                       className={`
                         font-kanit font-[500] text-[20px] leading-[18px]
@@ -109,6 +110,20 @@ function TrainerCard({
                       `}
                     >
                       {trainer.title}
+                    </div>
+
+                    <div
+                      className={`
+                        flex items-center gap-1 pt-[6px] font-[kanit] font-[500] text-[16px] leading-[16px]
+                        ${
+                          selectedTrainer === index
+                            ? "text-[#fff]"
+                            : "text-[#4AB04A]"
+                        }
+                      `}
+                    >
+                      <MapPin className="" size={18} />
+                      {trainer.location}
                     </div>
                   </div>
 
@@ -157,7 +172,7 @@ function TrainerCard({
     <div
       onClick={onClick}
       className={`
-        relative cursor-pointer transition-all duration-200 rounded-[10px] overflow-hidden max-w-[260px]
+        relative cursor-pointer transition-all duration-200 rounded-[8px] overflow-hidden max-w-[260px]
         ${selected ? "bg-[#4AB04A]" : ""}
       `}
     >
@@ -169,11 +184,11 @@ function TrainerCard({
         />
       </div>
 
-      <div className="overflow-hidden w-full h-[100px] flex flex-row items-center pt-5 px-3">
-        <div className="flex flex-col gap-2 w-[90%] h-full  ">
+      <div className="overflow-hidden w-full h-auto flex flex-row  py-5 px-2">
+        <div className="flex flex-col gap-1 w-[90%] h-full  ">
           <div
             className={`
-              font-kanit font-[500] text-[20px] leading-[18px]
+              font-kanit font-[500] text-[20px] leading-[18px] h-auto
               ${selected ? "text-[#fff]" : "text-[#000]"}
             `}
           >
@@ -182,15 +197,25 @@ function TrainerCard({
 
           <div
             className={`
-              font-kanit font-[400] text-[16px] leading-[18px]
+              font-kanit font-[400] text-[16px] leading-[18px] h-auto py-1
               ${selected ? "text-[#fff]" : "text-[#767676]"}
             `}
           >
             {trainer.title}
           </div>
+
+          <div
+            className={`
+              flex items-center gap-1 font-[kanit] h-auto pt-[6px] font-[400] text-[16px] leading-[16px]
+              ${selected ? "text-[#fff]" : "text-[#4AB04A]"}
+            `}
+          >
+            <MapPin className="" size={18} />
+            {trainer.location}
+          </div>
         </div>
 
-        <div className="ml-3 flex-row items-start w-[10%] h-full ">
+        <div className="ml-3 flex-row items-start w-[10%] h-full">
           <CircleChevronDown
             className={`transition-transform duration-200 ${
               selected ? "rotate-0  text-[#fff]" : "rotate-180 text-[#000]"

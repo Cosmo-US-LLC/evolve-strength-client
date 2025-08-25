@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
 import { getTrainersByLocation } from "@/constants/trainerData";
 import TrainerDetails from "@/components/PageComponents/Explore/Desktop/components/shared/TrainerDetails";
 import downicon from "@/assets/images/Locations/icon_down.svg";
@@ -130,11 +130,22 @@ const MeetTheTrainers = ({ location = "" }) => {
                       >
                         {trainer.role}
                       </p>
+                      <div
+                        className={`flex gap-1 items-center text-sm mt-2 font-[500] leading-[16px] text-[16px] ${
+                          selectedTrainer?.id === trainer.id
+                            ? "text-[#FFFFFF]"
+                            : "text-[#4AB04A]"
+                        }`}
+                      >
+                        <MapPin className="" size={16} />
+                        {trainer.location}
+                      </div>
                     </div>
 
                     {/* Right: Down Button */}
+
                     <button
-                      className={`w-6 h-6 flex justify-center mt-6 mr-1 rounded-full border border-black transition-transform duration-200 ${
+                      className={`w-6 h-6 flex justify-center mr-1 rounded-full border border-black transition-transform duration-200 ${
                         selectedTrainer?.id === trainer.id ? "rotate-180" : ""
                       }`}
                       onClick={() => handleTrainerDetails(trainer)}
