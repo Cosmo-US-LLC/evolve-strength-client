@@ -16,8 +16,6 @@ function LocationsView() {
 
   const locationsData = getDataByCategory("LOCATIONS")?.data || [];
 
-  console.log(locationsData)
-
   const handleToggle = (locKey) => {
     // Accordion behavior: if clicking the same location, close it; if clicking different location, close previous and open new one
     setExpandedLocation(expandedLocation === locKey ? null : locKey);
@@ -47,6 +45,22 @@ function LocationsView() {
     };
   };
 
+  // Helper function to get available services (services with trainers)
+  const getAvailableServices = (location) => {
+    if (!location.services) return [];
+
+    return location.services.filter((service) => {
+      if (service.name === "All") return true; // Always show "All" service
+
+      const serviceId = service.id;
+      const trainersForService = getTrainersForLocationService(
+        location.id,
+        serviceId
+      );
+      return trainersForService.length > 0;
+    });
+  };
+
   return (
     <div className="w-full bg-white pt-4 md:pt-6 pb-8 md:pb-16">
       {/* Location List */}
@@ -54,7 +68,22 @@ function LocationsView() {
         {locationsData.map((loc, index) => {
           const locKey = `${loc.city} ${loc.branch}`;
           const isOpen = expandedLocation === locKey;
-          const selectedService = serviceTabs[locKey] || "All";
+          const availableServices = getAvailableServices(loc);
+
+          // Ensure selected service is available, default to "All" if not
+          let selectedService = serviceTabs[locKey] || "All";
+          if (
+            !availableServices.find(
+              (service) => service.name === selectedService
+            )
+          ) {
+            selectedService = "All";
+            // Update the service tabs state to reflect this change
+            if (serviceTabs[locKey] !== "All") {
+              setServiceTabs((prev) => ({ ...prev, [locKey]: "All" }));
+            }
+          }
+
           // Get trainers for this location and service
           const serviceId =
             loc.services.find((s) => s.name === selectedService)?.id || "";
@@ -118,62 +147,60 @@ function LocationsView() {
                   {/* Mobile: Horizontal Scrollable Services */}
                   <div className="md:hidden py-6">
                     <div className="flex gap-3 overflow-x-auto scrollbar-hide py-2">
-                      {loc.services &&
-                        loc.services.map((service) => (
-                          <button
-                            key={service.name}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleServiceSelect(locKey, service.name);
-                            }}
-                            className={`
-                              flex items-center justify-center gap-2 flex-shrink-0  px-4 h-[48px] rounded-[6px] text-[16px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform 
-                              ${
-                                selectedService === service.name
-                                  ? "bg-[#000] text-white shadow-lg"
-                                  : "bg-[#fff] border border-[#CCCCCC] hover:bg-green-50 hover:border-green-300"
-                              }
-                            `}
-                          >
-                            <img
-                              src={service.icon}
-                              alt={service.name}
-                              className="w-5 h-5 transition-transform duration-300"
-                            />
-                            {service.name}
-                          </button>
-                        ))}
+                      {getAvailableServices(loc).map((service) => (
+                        <button
+                          key={service.name}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleServiceSelect(locKey, service.name);
+                          }}
+                          className={`
+                            flex items-center justify-center gap-2 flex-shrink-0  px-4 h-[48px] rounded-[6px] text-[16px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform 
+                            ${
+                              selectedService === service.name
+                                ? "bg-[#000] text-white shadow-lg"
+                                : "bg-[#fff] border border-[#CCCCCC] hover:bg-green-50 hover:border-green-300"
+                            }
+                          `}
+                        >
+                          <img
+                            src={service.icon}
+                            alt={service.name}
+                            className="w-5 h-5 transition-transform duration-300"
+                          />
+                          {service.name}
+                        </button>
+                      ))}
                     </div>
                   </div>
 
                   {/* Desktop: Flex Wrap Services */}
                   <div className="hidden md:block">
-                    <div className="flex flex-wrap justify-center gap-3 py-10">
-                      {loc.services &&
-                        loc.services.map((service) => (
-                          <button
-                            key={service.name}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleServiceSelect(locKey, service.name);
-                            }}
-                            className={`
-                              flex items-center justify-center gap-2 w-[294px] h-[52px] rounded-[6px] text-[18px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform
-                              ${
-                                selectedService === service.name
-                                  ? "bg-[#000] text-white shadow-lg"
-                                  : "bg-[#fff] border border-[#CCCCCC] hover:bg-green-50 hover:border-green-300"
-                              }
-                            `}
-                          >
-                            <img
-                              src={service.icon}
-                              alt={service.name}
-                              className="w-6 h-6 transition-transform duration-300"
-                            />
-                            {service.name}
-                          </button>
-                        ))}
+                    <div className="flex flex-wrap   gap-3 py-10">
+                      {getAvailableServices(loc).map((service) => (
+                        <button
+                          key={service.name}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleServiceSelect(locKey, service.name);
+                          }}
+                          className={`
+                            flex items-center justify-center gap-2 w-[294px] h-[52px] rounded-[6px] text-[18px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform
+                            ${
+                              selectedService === service.name
+                                ? "bg-[#000] text-white shadow-lg"
+                                : "bg-[#fff] border border-[#CCCCCC] hover:bg-green-50 hover:border-green-300"
+                            }
+                          `}
+                        >
+                          <img
+                            src={service.icon}
+                            alt={service.name}
+                            className="w-6 h-6 transition-transform duration-300"
+                          />
+                          {service.name}
+                        </button>
+                      ))}
                     </div>
                   </div>
 

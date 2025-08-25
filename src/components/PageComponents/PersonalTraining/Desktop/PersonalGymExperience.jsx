@@ -31,7 +31,11 @@ const gymCards = [
   },
   {
     count: "03",
-    title: "Build Muscle",
+    title: (
+      <p>
+        Build <br /> Muscle
+      </p>
+    ),
     description: "",
     bgImage: {
       desktop:
