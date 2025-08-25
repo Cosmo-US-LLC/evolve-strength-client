@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback } from "react";
- 
 
 const gymCards = [
   {
@@ -13,19 +12,23 @@ const gymCards = [
       </p>
     ),
     description: "",
-    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide6.webp",
-    bgImageMobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide6.webp",
+    bgImage:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide6.webp",
+    bgImageMobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide6.webp",
   },
   {
     count: "",
     title: (
       <p>
-        Cardio <br /> Equipment
+        Build <br /> Muscle
       </p>
     ),
     description: "",
-    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide7.webp",
-    bgImageMobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide7.webp",
+    bgImage:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide7.webp",
+    bgImageMobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide7.webp",
   },
   {
     count: "",
@@ -35,8 +38,10 @@ const gymCards = [
       </p>
     ),
     description: "",
-    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp",
-    bgImageMobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide8.webp",
+    bgImage:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp",
+    bgImageMobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide8.webp",
   },
   {
     count: "",
@@ -46,8 +51,10 @@ const gymCards = [
       </p>
     ),
     description: "",
-    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide9.webp",
-    bgImageMobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide9.webp",
+    bgImage:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide9.webp",
+    bgImageMobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide9.webp",
   },
   {
     count: "",
@@ -57,8 +64,10 @@ const gymCards = [
       </p>
     ),
     description: "",
-    bgImage: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide10.webp",
-    bgImageMobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide10.webp",
+    bgImage:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide10.webp",
+    bgImageMobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide10.webp",
   },
 ];
 

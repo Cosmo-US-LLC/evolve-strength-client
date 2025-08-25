@@ -29,8 +29,10 @@ const gymCards = [
     ),
     description: "",
     bgImage: {
-      desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/fitness.webp",
-      mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/fitnessMob.webp",
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/fitness.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/fitnessMob.webp",
     },
   },
   {
@@ -38,17 +40,25 @@ const gymCards = [
     title: "Calisthenics",
     description: "",
     bgImage: {
-      desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_training.webp",
-      mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_trainingMob.webp",
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_training.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_trainingMob.webp",
     },
   },
   {
     count: "03",
-    title: "Cardio",
+    title: (
+      <p>
+        Build <br /> Muscle
+      </p>
+    ),
     description: "",
     bgImage: {
-      desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/cardio.webp",
-      mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/cardioMob.webp",
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/cardio.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/cardioMob.webp",
     },
   },
   {
@@ -60,8 +70,10 @@ const gymCards = [
     ),
     description: "",
     bgImage: {
-      desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/turf_workouts.webp",
-      mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/turf_workoutsMob.webp",
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/turf_workouts.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/turf_workoutsMob.webp",
     },
   },
   {
@@ -73,8 +85,10 @@ const gymCards = [
     ),
     description: "",
     bgImage: {
-      desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/olympic_lifting.webp",
-      mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/olympic_liftingMob.webp",
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/olympic_lifting.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/olympic_liftingMob.webp",
     },
   },
   {
@@ -82,8 +96,10 @@ const gymCards = [
     title: "Mobility",
     description: "",
     bgImage: {
-      desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp",
-      mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp",
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp",
     },
   },
 ];
@@ -93,17 +109,14 @@ const RightTrainer = () => {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState(0);
 
-   
   const activeIndex = hoveredIndex !== null ? hoveredIndex : carouselIndex;
 
- 
   useEffect(() => {
     if (activeIndex !== previousIndex) {
       setPreviousIndex(activeIndex);
     }
   }, [activeIndex, previousIndex]);
 
- 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       containScroll: "keepSnaps",
@@ -113,7 +126,6 @@ const RightTrainer = () => {
     // [Autoplay({ delay: 4000, stopOnInteraction: false })]
   );
 
- 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const onSelect = useCallback(() => {
@@ -128,7 +140,6 @@ const RightTrainer = () => {
     return () => emblaApi.off("select", onSelect);
   }, [emblaApi, onSelect]);
 
- 
   useEffect(() => {
     if (!emblaApi) return;
 
@@ -137,21 +148,18 @@ const RightTrainer = () => {
     };
 
     emblaApi.on("select", onCarouselSelect);
-    onCarouselSelect();  
+    onCarouselSelect();
 
     return () => {
       emblaApi.off("select", onCarouselSelect);
     };
   }, [emblaApi]);
 
- 
   useEffect(() => {
     gymCards.forEach((card) => {
-  
       const desktopImg = new Image();
       desktopImg.src = card.bgImage.desktop;
 
-   
       const mobileImg = new Image();
       mobileImg.src = card.bgImage.mobile;
     });
@@ -159,7 +167,6 @@ const RightTrainer = () => {
 
   return (
     <div className="relative w-full overflow-hidden ">
-     
       <div className="hidden md:block">
         {/* Previous background (fading out) */}
         <div
@@ -187,7 +194,7 @@ const RightTrainer = () => {
             backgroundImage: `url(${gymCards[previousIndex].bgImage.mobile})`,
           }}
         />
-    
+
         <div
           className="absolute inset-0 bg-cover bg-center transition-opacity duration-150 ease-in-out"
           style={{
