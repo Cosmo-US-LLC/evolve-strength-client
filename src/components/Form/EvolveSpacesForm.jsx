@@ -15,10 +15,25 @@ const initialState = {
   phone: "",
   bestTime: "",
   location: "",
+  purposeOfUse: "",
+  otherPurpose: "",
   message: "",
 };
 
 const bestTimeOptions = ["Morning", "Afternoon", "Evening"];
+
+const purposeOfUseOptions = [
+  "Esthetician",
+  "Chiropractic Care",
+  "Massage Therapy",
+  "Physiotherapy",
+  "Acupuncture",
+  "Dietitian Services",
+  "Osteopathy",
+  "Laser Therapy",
+  "Mental Health",
+  "Other",
+];
 
 // Contact-Us style locations list (label = cityName, value = full address)
 const LOCATIONS = [
@@ -110,6 +125,14 @@ export default function EvolveSpacesForm() {
       newErrors.location = "Please select a location";
     }
 
+    if (!form.purposeOfUse) {
+      newErrors.purposeOfUse = "Please select a purpose of office use";
+    }
+
+    if (form.purposeOfUse === "Other" && !form.otherPurpose.trim()) {
+      newErrors.otherPurpose = "Please specify the purpose of office use";
+    }
+
     if (!form.message.trim()) {
       newErrors.message = "Message is required";
     } else if (form.message.length > 1000) {
@@ -141,6 +164,13 @@ export default function EvolveSpacesForm() {
             { name: "mobilephone", value: form.phone },
             { name: "best_time_to_call_you__cloned_", value: form.bestTime },
             { name: "location", value: form.location },
+            {
+              name: "could_you_share_the_purpose_of_using_the_office_",
+              value:
+                form.purposeOfUse === "Other"
+                  ? form.otherPurpose
+                  : form.purposeOfUse,
+            },
             { name: "message", value: form.message },
           ],
           context: {
@@ -204,7 +234,7 @@ export default function EvolveSpacesForm() {
             <img
               src={locationImg}
               alt="Evolve Strength Location"
-              className="object-cover w-full h-[680px]"
+              className="object-cover w-full h-[850px]"
             />
           </div>
         </div>
@@ -404,6 +434,58 @@ export default function EvolveSpacesForm() {
                     )}
                   </label>
                 </div>
+
+                {/* Purpose of Office Use dropdown */}
+                <div className="w-full flex flex-col">
+                  <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                    Could you share the purpose of using the office? *
+                    <select
+                      name="purposeOfUse"
+                      value={form.purposeOfUse}
+                      onChange={handleChange}
+                      className={
+                        "mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full " +
+                        (form.purposeOfUse === ""
+                          ? "text-[#6F6D66] text-[12px]"
+                          : "text-[#000] text-[16px]")
+                      }
+                    >
+                      <option value="">Select Purpose</option>
+                      {purposeOfUseOptions.map((purpose) => (
+                        <option key={purpose} value={purpose}>
+                          {purpose}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.purposeOfUse && (
+                      <span className="text-red-600 text-[12px]">
+                        {errors.purposeOfUse}
+                      </span>
+                    )}
+                  </label>
+                </div>
+
+                {/* Other Purpose field - shows only when "Other" is selected */}
+                {form.purposeOfUse === "Other" && (
+                  <div className="w-full flex flex-col">
+                    <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                      Other: *
+                      <input
+                        type="text"
+                        name="otherPurpose"
+                        value={form.otherPurpose}
+                        onChange={handleChange}
+                        placeholder="Please specify your purpose"
+                        className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
+                      />
+                      {errors.otherPurpose && (
+                        <span className="text-red-600 text-[12px]">
+                          {errors.otherPurpose}
+                        </span>
+                      )}
+                    </label>
+                  </div>
+                )}
 
                 <div className="w-full flex flex-col">
                   <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">

@@ -12,6 +12,7 @@ import MembershipBenefits from "@/components/PageComponents/Home/Desktop/Members
 import FacilityShowcase from "@/components/PageComponents/Home/Desktop/FacilityShowcase";
 import MetaTags from "@/components/Metatags/Meta";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import SomeThinkNew from "@/components/PageComponents/Home/Desktop/SomeThinkNew";
 
 function Home() {
   return (
@@ -28,6 +29,7 @@ function Home() {
         <TrainerCallout />
         <EquipmentPartners />
         <WellnessServices />
+        <SomeThinkNew />
         <FacilityShowcase />
         <CareerWithEvolve />
         <BusinessOpportunities />
