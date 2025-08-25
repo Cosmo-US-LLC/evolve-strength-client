@@ -31,9 +31,14 @@ function Hero() {
             <h1 className="text-[#FFFFFF] !text-[36px] md:!text-[70px] leading-[32px] md:leading-[59px] max-w-[740px] uppercase mb-4 md:mb-6 ">
               More Space. <br /> More Possibilities.
             </h1>
-            <Link to="https://tour.evolvestrength.ca/tour-form ">
-              <button className="btnPrimary">BOOK A FREE TOUR</button>
-            </Link>
+            <div className="flex gap-4">
+              <Link to="https://tour.evolvestrength.ca/tour-form ">
+                <button className="btnPrimary">BOOK A FREE TOUR</button>
+              </Link>
+              <Link to="https://subscription.evolvestrength.ca/">
+                <button className="btnSecondary">JOIN NOW</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

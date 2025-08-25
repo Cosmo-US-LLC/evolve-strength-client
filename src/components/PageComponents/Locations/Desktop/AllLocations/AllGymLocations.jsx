@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import southcommon from "../../../../../../public/all_locations/g_south_com.webp"
+import southcommon from "../../../../../../public/all_locations/g_south_com.webp";
 
 function AllGymLocations() {
   const locations = [
@@ -74,7 +74,8 @@ function AllGymLocations() {
     {
       id: 7,
       name: "Edmonton South",
-      image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/all_locations/g_ed_south.webp",
+      image:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/all_locations/g_ed_south.webp",
       address: "4825 89 St NW Edmonton, Alberta, T6E 5K1",
       phone: "+1 (780) 690-4252",
       directionsUrl: "https://maps.app.goo.gl/BgEi7NHqtePwbzHR8",
@@ -95,7 +96,7 @@ function AllGymLocations() {
     {
       id: 9,
       name: "Edmonton South Common",
-      image:"/all_locations/g_south_com.webp",
+      image: "/all_locations/g_south_com.webp",
       address: "",
       phone: "",
       directionsUrl: "",
@@ -143,39 +144,46 @@ function AllGymLocations() {
               />
 
               {/* Desktop: Show on hover */}
-             <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center max-md:hidden">
-  {location.commonbtn ? (
-    
-    <Link
-      to="https://join.evolvestrength.ca/edmonton-south-common-waitlist/" 
-      className="flex items-center gap-2 bg-white underline px-3 py-3 rounded-[5px] transition-all duration-200 text-black font-semibold"
-    >
-      <span>Join the Waitlist</span>
-      <ArrowUpRight className="w-5 h-5" />
-    </Link>
-  ) : (
-   
-    <Link
-      to={location.locationUrl}
-      className="flex items-center gap-2 bg-white underline px-3 py-3 rounded-[5px] transition-all duration-200 text-black font-semibold"
-    >
-      <span>Visit this location now</span>
-      <ArrowUpRight className="w-5 h-5" />
-    </Link>
-  )}
-</div>
-
+              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center max-md:hidden">
+                {location.commonbtn ? (
+                  <Link
+                    to="https://join.evolvestrength.ca/edmonton-south-common-waitlist/"
+                    className="flex items-center gap-2 bg-white underline px-3 py-3 rounded-[5px] transition-all duration-200 text-black font-semibold"
+                  >
+                    <span>Join the Waitlist</span>
+                    <ArrowUpRight className="w-5 h-5" />
+                  </Link>
+                ) : (
+                  <Link
+                    to={location.locationUrl}
+                    className="flex items-center gap-2 bg-white underline px-3 py-3 rounded-[5px] transition-all duration-200 text-black font-semibold"
+                  >
+                    <span>Visit this location now</span>
+                    <ArrowUpRight className="w-5 h-5" />
+                  </Link>
+                )}
+              </div>
 
               {/* Mobile: Always visible */}
-              <div className="absolute inset-0 bg-black/30 flex items-center justify-center md:hidden">
-                <Link
-                  to={location.locationUrl}
-                  className="flex items-center gap-2 underline px-3 py-3 rounded-[5px] transition-all duration-200 text-[#fff] font-semibold"
-                >
-                  <span>Visit this location now</span>
-                  {/* <ArrowUpRight className="w-5 h-5" /> */}
-                </Link>
-              </div>
+              {location.commonbtn ? (
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center md:hidden">
+                  <Link
+                    to="https://join.evolvestrength.ca/edmonton-south-common-waitlist/"
+                    className="flex items-center gap-2 underline px-3 py-3 rounded-[5px] transition-all duration-200 text-[#fff] font-semibold"
+                  >
+                    <span>Join the Waitlist</span>
+                  </Link>
+                </div>
+              ) : (
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center md:hidden">
+                  <Link
+                    to={location.locationUrl}
+                    className="flex items-center gap-2 underline px-3 py-3 rounded-[5px] transition-all duration-200 text-[#fff] font-semibold"
+                  >
+                    <span>Visit this location now</span>
+                  </Link>
+                </div>
+              )}
             </div>
 
             <div className="py-4 flex flex-col gap-3">
@@ -183,13 +191,15 @@ function AllGymLocations() {
 
               {location.commonbtn ? (
                 <div className="flex gap-3">
-                  <Link to = "https://join.evolvestrength.ca/edmonton-south-common-waitlist/" >
-                  <button
-                    onClick={() => handleGetDirections(location.directionsUrl)}
-                    className="btnPrimary"
-                  >
-                    Join the waitlist
-                  </button>
+                  <Link to="https://join.evolvestrength.ca/edmonton-south-common-waitlist/">
+                    <button
+                      onClick={() =>
+                        handleGetDirections(location.directionsUrl)
+                      }
+                      className="btnPrimary"
+                    >
+                      Join the waitlist
+                    </button>
                   </Link>
                 </div>
               ) : (
