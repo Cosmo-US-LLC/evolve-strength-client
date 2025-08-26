@@ -33,12 +33,10 @@ function Navbar() {
 
   const navigationLinks = [
     { to: "/explore", label: "Explore" },
-    { to: "/membership-benefits", label: "Membership" },
-    { to: "/personal-training", label: "Training" },
-    { to: "/wellness", label: "Wellness" },
-    { to: "/locations", label: "Locations" },
+    { to: "/personal-training", label: "Personal Training" },
+    { to: "/wellness", label: "Wellness Services" },
+    { to: "/locations", label: "Our Locations" },
     { to: "/spaces", label: "Spaces" },
-    { to: "/franchise", label: "Franchise" },
   ];
 
   const handleMobileLinkClick = () => {
@@ -85,7 +83,7 @@ function Navbar() {
                     >
                       {link.label}
                     </Link>
-                    {index === 3 && (
+                    {index === 2 && (
                       <div className="w-[1.5px] font-[vazirmatn] h-4 bg-[#F8F8F8]" />
                     )}
                   </React.Fragment>

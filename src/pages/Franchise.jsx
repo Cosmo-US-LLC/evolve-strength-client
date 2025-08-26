@@ -14,12 +14,11 @@ import EvolveFloorPlan from "@/components/PageComponents/Franchise/Desktop/Evolv
 import OurFranchiseesSay from "@/components/PageComponents/Franchise/Desktop/OurFranchiseesSay";
 import EvolveExpansionPlans from "@/components/PageComponents/Franchise/Desktop/EvolveExpansionPlans";
 import MetaTags from "@/components/Metatags/Meta";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function Franchise() {
   return (
     <>
-     <MetaTags
+      <MetaTags
         title="Franchise with Evolve Strength"
         description="Own an Evolve Strength franchise, Canada’s fastest-growing fitness and wellness brand. Leverage our proven model with multiple revenue streams, strong retention, and full support."
       />

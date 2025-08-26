@@ -6,7 +6,7 @@
     "trainerNumber": 1,
     "name": "Justin Lalonde",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/03/Justin.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/explore/trainers/sunridge_trainers/Justin.jpg",
     "bio": "Formerly a fine dining chef in the heart of Ottawa, I transitioned into the fitness industry almost 3 years ago. This transition occurred due to my simple love of sport. Before beginning my career as a strength and conditioning coach, I played lacrosse at the Junior B level and competed nationally in track & field as a 400m sprinter. Fast forward a few years to when I discovered the sport of OCR (obstacle course racing). Dedicating the last few years OCR I am now competing at the elite level and have competed in the 2019 Spartan Race World Championships & 2022 OCR World Championships.\nThrough my own journey, I have discovered we are truly all capable of greatness. I have a mission to help others discover their true potential and an understanding behind the process and benefits of intentional training.\nMy philosophy therefore is to train every aspect of the human body; from strength to the metabolic energy systems, all while placing a huge emphasis on mobility, stability and recovery.",
     "areas_of_focus": "Strength & Conditioning, Pain free Performance/Movement, Hypertrophy, Mobility",
     "certification": "Can-Fit Pro, PPSC: Pain Free Performance Specialist",
@@ -21,7 +21,7 @@
     "trainerNumber": 2,
     "name": "Mark Austin",
     "role": "Physiotherapist",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2020/06/Mark-Austin-1.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/explore/trainers/sunridge_trainers/Mark-Austin-1.jpg",
     "bio": "Prior\nto his clinical work, he worked in a research lab dedicated to\nneurorehabilitation, which has given him a strong passion for science-informed\ncare. He has contributed to numerous scientific publications that have been\ncited hundreds of times in various peer-reviewed journals.\n– Canadian Yoga Alliance 200-hour\nCertified Yoga Teacher\n– SMART Seminars\nBioMedical\nDry Needling Level 1 and 2\n– Advanced Certified Manual Therapist –\nSwodeam\nInstitute Spinal Series 1 and 2\n– SHIFT Concussion Management Program Level 1\n– Selective Functional Movement Assessment Level 1\n– Robin McKenzie Institute of Canada – Parts A and B\n– Orthopaedic Division of the CPA – Level 1\n– Acupuncture Canada Foundations of Anatomical Acupuncture – Level 1",
     "areas_of_focus": "His\nclinical experience has included managing major traumatic and complex injuries\nfrom the Alberta oilsands; high-level athletes and sports teams; people with\nconcussion, brain injury, stroke, multiple sclerosis and Parkinson’s disease;\npre- and post-operative patients; motor vehicle accident injuries; older adults\nlooking to maintain their independence; and everyday people from all walks of\nlife including CEOs, blue- and white-collar employees, weekend warriors and\nstay-at-home moms.",
     "certification": "Certifications, – ACE-certified Behaviour Change\nSpecialist",
@@ -57,9 +57,7 @@
     "certification": "ASFA Personal Trainer Certification, Movement & Performance Therapy Specialist, Pain-Free Performance Specialist, Mobility Fundamentals for Prehab and Performance, TFC (The Foot Collective) Seminars, Registered Massage Therapist, Dynamic Cupping Massage, Manual Lymphatic Drainage",
     "email": "strateupfitness@gmail.com",
     "phone": "403-999-3976",
-    "social_links": [
-      "https://www.instagram.com/strateupfitness/"
-    ]
+    "social_links": ["https://www.instagram.com/strateupfitness/"]
   },
   {
     "id": "calgary-sunridge-jessica-leemans",
@@ -89,9 +87,7 @@
     "certification": "ACMT Massage Therapy 2200 Hour Diploma, Certified SFH Dynamic Cupping Therapist, Movement & Performance Therapy Specialist, Pain-Free Performance Specialist, Mobility Fundamentals for Prehab and Performance",
     "email": "strateupfitness@gmail.com",
     "phone": "403-999-3976",
-    "social_links": [
-      "https://www.instagram.com/strateupfitness/"
-    ]
+    "social_links": ["https://www.instagram.com/strateupfitness/"]
   },
   {
     "id": "calgary-sunridge-myles-stetch",
@@ -151,9 +147,7 @@
     "certification": "Mohawk College – Advanced Diploma in Massage Therapy",
     "email": "thrivemassagetherapyyc@gmail.com",
     "phone": null,
-    "social_links": [
-      "https://www.instagram.com/thrivemassagetherapyyc/"
-    ]
+    "social_links": ["https://www.instagram.com/thrivemassagetherapyyc/"]
   },
   {
     "id": "calgary-sunridge-brett-hansen",
@@ -201,8 +195,6 @@
     "certification": null,
     "email": "trainer.jm@gmail.com",
     "phone": "403-966-7380",
-    "social_links": [
-      "https://www.instagram.com/coachjoshdiesel/?hl=en"
-    ]
+    "social_links": ["https://www.instagram.com/coachjoshdiesel/?hl=en"]
   }
 ]

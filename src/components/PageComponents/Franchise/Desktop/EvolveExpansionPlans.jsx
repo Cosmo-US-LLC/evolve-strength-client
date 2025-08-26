@@ -23,104 +23,103 @@ function EvolveExpansionPlans() {
   }, []);
 
   const provinces = {
-  vancouverPost: {
-    name: "VANCOUVER POST",
-    images: [
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_1.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_2.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_3.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_4.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_5.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_6.webp",
-    ],
-    address: "654 West Georgia St, Vancouver, BC, V6B 1N2",
-  },
-  burnabyBrentwood: {
-    name: "BURNABY BRENTWOOD",
-    images: [
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_1.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_2.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_3.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_4.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_5.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_6.webp",
-    ],
-    address: "4567 Lougheed Hwy, Burnaby, BC, V5C 3Z6",
-  },
-  edmontonSouth: {
-    name: "EDMONTON SOUTH",
-    images: [
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_1.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_2.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_3.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_4.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_5.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_6.webp",
-    ],
-    address: "4825 89 St NW, Edmonton, Alberta, T6E 5K1",
-  },
-  edmontonDowntown: {
-    name: "EDMONTON DOWNTOWN",
-    images: [
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_1.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_2.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_3.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_4.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_5.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_6.webp",
-    ],
-    address: "123 Jasper Ave NW, Edmonton, Alberta, T5J 0R2",
-  },
-  edmontonNorth: {
-    name: "EDMONTON NORTH",
-    images: [
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_1.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_2.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_3.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_4.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_5.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_6.webp",
-    ],
-    address: "789 137 Ave NW, Edmonton, Alberta, T5E 6R8",
-  },
-  calgaryRoyalOak: {
-    name: "CALGARY ROYAL OAK",
-    images: [
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_1.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_2.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_3.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_4.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_5.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_6.webp",
-    ],
-    address: "456 Royal Oak Dr NW, Calgary, Alberta, T3G 5K3",
-  },
-  calgarySeton: {
-    name: "CALGARY SETON",
-    images: [
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_1.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_2.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_3.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_4.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_5.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_6.webp",
-    ],
-    address: "789 Seton Blvd SE, Calgary, Alberta, T3M 1M9",
-  },
-  calgarySunridge: {
-    name: "CALGARY SUNRIDGE",
-    images: [
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_1.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_2.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_3.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_4.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_5.webp",
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_6.webp",
-    ],
-    address: "321 32 St NE, Calgary, Alberta, T1Y 6J8",
-  },
-};
-
+    vancouverPost: {
+      name: "VANCOUVER POST",
+      images: [
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_1.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_2.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_3.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_4.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_5.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/VP_6.webp",
+      ],
+      address: "654 West Georgia St, Vancouver, BC, V6B 1N2",
+    },
+    burnabyBrentwood: {
+      name: "BURNABY BRENTWOOD",
+      images: [
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_1.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_2.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_3.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_4.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_5.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/BB_6.webp",
+      ],
+      address: "4567 Lougheed Hwy, Burnaby, BC, V5C 3Z6",
+    },
+    edmontonSouth: {
+      name: "EDMONTON SOUTH",
+      images: [
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_1.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_2.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_3.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_4.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_5.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ES_6.webp",
+      ],
+      address: "4825 89 St NW, Edmonton, Alberta, T6E 5K1",
+    },
+    edmontonDowntown: {
+      name: "EDMONTON DOWNTOWN",
+      images: [
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_1.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_2.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_3.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_4.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_5.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/ED_6.webp",
+      ],
+      address: "123 Jasper Ave NW, Edmonton, Alberta, T5J 0R2",
+    },
+    edmontonNorth: {
+      name: "EDMONTON NORTH",
+      images: [
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_1.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_2.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_3.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_4.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_5.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/EN_6.webp",
+      ],
+      address: "789 137 Ave NW, Edmonton, Alberta, T5E 6R8",
+    },
+    calgaryRoyalOak: {
+      name: "CALGARY ROYAL OAK",
+      images: [
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_1.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_2.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_3.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_4.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_5.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CRO_6.webp",
+      ],
+      address: "456 Royal Oak Dr NW, Calgary, Alberta, T3G 5K3",
+    },
+    calgarySeton: {
+      name: "CALGARY SETON",
+      images: [
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_1.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_2.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_3.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_4.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_5.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSe_6.webp",
+      ],
+      address: "789 Seton Blvd SE, Calgary, Alberta, T3M 1M9",
+    },
+    calgarySunridge: {
+      name: "CALGARY SUNRIDGE",
+      images: [
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_1.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_2.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_3.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_4.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_5.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveLocationPlans/CSun_6.webp",
+      ],
+      address: "321 32 St NE, Calgary, Alberta, T1Y 6J8",
+    },
+  };
 
   const handleMouseMove = (e) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
@@ -156,9 +155,16 @@ function EvolveExpansionPlans() {
 
   return (
     <div className="w-full max-w-[1280px] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-8 md:gap-16">
-      <h2 className="text-center text-[#000] uppercase ">
-        EVOLVE LOCATIONS & EXPANSION PLANS
-      </h2>
+      <div className="flex flex-col justify-center items-center w-full gap-4">
+        <h2 className="text-center text-[#000] uppercase ">
+          EVOLVE LOCATIONS & EXPANSION PLANS
+        </h2>
+        <h4 className="max-w-[738px] text-center">
+          Evolve has successfully launched 8 franchise locations across Canada.
+          With strong brand recognition and rising demand, we’re targeting
+          additional 5 markets over the next 3 years.
+        </h4>
+      </div>
       <div className="flex flex-col-reverse md:flex-row gap-12 md:gap-0 justify-center items-center">
         <div className="w-[100%] md:w-[60%]">
           <div className="w-full md:w-[620px] relative  overflow-visible">
@@ -278,7 +284,7 @@ function EvolveExpansionPlans() {
                 </svg>
                 {/* vancouverPost */}
                 <div
-                  className="absolute left-[6.5%] top-[50.3%] z-10 w-[20px] md:w-[30px] h-[20px] md:h-[26px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[6.6%] md:left-[6.4%] top-[69.7%] md:top-[70.3%] z-10 w-[14px] md:w-[21px] h-[14px] md:h-[17px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("vancouverPost")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -287,13 +293,13 @@ function EvolveExpansionPlans() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    // width="30"
-                    // height="26"
-                    viewBox="0 0 30 26"
+                    // width="21"
+                    // height="17"
+                    viewBox="0 0 21 17"
                     fill="none"
                   >
                     <path
-                      d="M1 18.6106L17.665 1L26.0566 3.12745L29.2478 2.06373L27.5931 5.96405V10.6917L26.884 16.4831V22.8655L27.5931 24.7565L1 24.1656V18.6106Z"
+                      d="M1.17833 11.575L12.3206 0.471149L17.6109 2.10672L19.6773 1.49778L18.5083 4.0146L18.3706 7.12199L17.7495 10.9085L17.5636 15.1035L17.9608 16.3665L1.01649 15.2262L1.17833 11.575Z"
                       fill="#4AB04A"
                       stroke="white"
                       stroke-width="0.5"
@@ -302,7 +308,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* burnabyBrentwood */}
                 <div
-                  className="absolute left-[10%] top-[57.3%] z-10 w-[18px] md:w-[31px] h-[16px] md:h-[19px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[10%] md:left-[9.7%] top-[72.5%] z-10 w-[16px] md:w-[22px] h-[14px] md:h-[16px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("burnabyBrentwood")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -311,13 +317,13 @@ function EvolveExpansionPlans() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    // width="31"
-                    // height="19"
-                    viewBox="0 0 31 19"
+                    // width="22"
+                    // height="16"
+                    viewBox="0 0 18 12"
                     fill="none"
                   >
                     <path
-                      d="M1 17.9014V1L30.1934 2.06373V18.4924H22.9837L18.3742 16.8377H9.5098L1 17.9014Z"
+                      d="M1.11385 10.4016L1.52539 1.11719L17.1141 2.39365L16.7141 11.4183L12.8579 11.2474L10.4327 10.2292L5.69139 10.019L1.11385 10.4016Z"
                       fill="#4AB04A"
                       stroke="white"
                       stroke-width="0.5"
@@ -329,7 +335,7 @@ function EvolveExpansionPlans() {
 
                 {/* edmontonSouth */}
                 <div
-                  className="absolute left-[28.6%] top-[58%] z-10 w-[16px] md:w-[21px] h-[14px] md:h-[16px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[25.8%] md:left-[26.2%] top-[74%] z-10 w-[16px] md:w-[20px] h-[12px] md:h-[14px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("edmontonSouth")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -338,13 +344,13 @@ function EvolveExpansionPlans() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    // width="21"
-                    // height="16"
-                    viewBox="0 0 21 16"
+                    // width="20"
+                    // height="14"
+                    viewBox="0 0 20 14"
                     fill="none"
                   >
                     <path
-                      d="M15.5584 4.13901L12.1656 1L2.78896 9.287L1 13.4933L1.74026 13.87L6.7987 15L15.5584 11.6726L20 11.9865L19.6299 11.2332L16.1136 5.52018L15.5584 4.13901Z"
+                      d="M14.7922 3.69058L11.5779 1L2.69481 8.10314L1 11.7085L1.7013 12.0314L6.49351 13L14.7922 10.148L19 10.417L18.6494 9.7713L15.3182 4.87444L14.7922 3.69058Z"
                       fill="#4AB04A"
                       stroke="white"
                       stroke-width="0.5"
@@ -353,7 +359,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* edmontonDowntown */}
                 <div
-                  className="absolute left-[30.7%] md:left-[30%] top-[61.8%] md:top-[60.5%] z-10 w-[19px] md:w-[33px] h-[18px] md:h-[23px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[28.7%] md:left-[28.3%] top-[76.9%] md:top-[76.2%] z-10 w-[16px] md:w-[19px] h-[12px] md:h-[15px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("edmontonDowntown")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -362,13 +368,13 @@ function EvolveExpansionPlans() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    // width="33"
-                    // height="23"
-                    viewBox="0 0 33 23"
+                    // width="19"
+                    // height="15"
+                    viewBox="0 0 19 15"
                     fill="none"
                   >
                     <path
-                      d="M1 12.2861V4.48128V3.63904L7.11605 1.5615L11.1335 2.06684L11.6731 1L17.9091 1.5615L18.5087 1H22.1663H25.764H26.9033H28.942L29.4816 4.48128L32 8.29947H31.1006H27.8627C27.1032 8.54278 25.848 9.16417 26.9033 9.70321C28.2224 10.377 28.4023 14.2513 27.383 12.9599C26.5675 11.9267 24.325 12.5294 23.3056 12.9599C23.1857 14.1765 22.7899 16.5198 22.1663 16.1604C21.3868 15.7112 18.5087 14.5321 16.7099 14.869C14.911 15.2059 14.8511 12.6791 13.0522 12.9599C11.2534 13.2406 10.7737 14.5882 11.1335 15.5428C11.4932 16.4973 12.9923 17.6765 13.8917 18.2941C14.6112 18.7882 13.5919 20.3717 12.9923 21.1016L9.51451 22L8.49516 20.4278L6.69632 19.9225H1V13.2968V12.2861Z"
+                      d="M1 7.98663V3.15508V2.63369L4.35397 1.34759L6.55706 1.66043L6.853 1L10.2727 1.34759L10.6015 1H12.6074H14.5803H15.205H16.323L16.619 3.15508L18 5.51872H17.5068H15.7311C15.3146 5.66934 14.6263 6.05401 15.205 6.3877C15.9284 6.80481 16.0271 9.20321 15.4681 8.40374C15.0209 7.76417 13.7911 8.13726 13.2321 8.40374C13.1663 9.15686 12.9493 10.6075 12.6074 10.385C12.1799 10.107 10.6015 9.37701 9.61509 9.58556C8.62863 9.79412 8.59574 8.22995 7.60928 8.40374C6.62282 8.57754 6.35977 9.41177 6.55706 10.0027C6.75435 10.5936 7.5764 11.3235 8.06963 11.7059C8.46422 12.0118 7.90522 12.992 7.5764 13.4439L5.66925 14L5.11025 13.0267L4.12379 12.7139H1V8.6123V7.98663Z"
                       fill="#4AB04A"
                       stroke="white"
                       stroke-width="0.5"
@@ -377,7 +383,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* edmontonNorth */}
                 <div
-                  className="absolute left-[32.8%] top-[65%] md:top-[63.5%] z-10 w-[10px] md:w-[14px] h-[16px] md:h-[19px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[31.5%] md:left-[29%] top-[78.9%] md:top-[78.5%] z-10 w-[8px] md:w-[14px] h-[14px] md:h-[22px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("edmontonNorth")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -387,12 +393,12 @@ function EvolveExpansionPlans() {
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     // width="14"
-                    // height="19"
-                    viewBox="0 0 14 19"
+                    // height="22"
+                    viewBox="0 0 14 22"
                     fill="none"
                   >
                     <path
-                      d="M13 16.4657V1H11.1495L10.3645 3.02527V7.01444H4.14019H1.78505V11.3105L1 12.8448V17.3863L4.14019 18H6.49533L10.3645 16.8953L13 16.4657Z"
+                      d="M13 19.1949V1H11.1495L10.3645 3.38267V8.07581H4.14019H1.78505V13.13L1 14.935V20.278L4.14019 21H6.49533L10.3645 19.7004L13 19.1949Z"
                       fill="#4AB04A"
                       stroke="white"
                       stroke-width="0.5"
@@ -403,7 +409,7 @@ function EvolveExpansionPlans() {
 
                 {/* calgarySeton */}
                 <div
-                  className="absolute left-[49.3%] top-[69.2%] z-10 w-[26px] h-[22px] md:w-[42px] md:h-[35px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[28%] top-[62.8%] z-10 w-[12px] h-[15px] md:w-[17px] md:h-[21px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("calgarySeton")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -412,11 +418,13 @@ function EvolveExpansionPlans() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 42 35"
+                    // width="17"
+                    // height="21"
+                    viewBox="0 0 17 21"
                     fill="none"
                   >
                     <path
-                      d="M4.79678 27.3244L1 25.6369V6.65299H7.74984L8.67794 7.91858L9.77479 6.65299H21.0808V1H41.3303V25.6369H29.3493L26.7338 30.3618H17.6215L15.934 32.0493L13.0653 34.0742L7.74984 30.3618L4.79678 27.3244Z"
+                      d="M8.72071 2.04176L16.3191 13.9968L13.8529 18.3307L13.9868 20.266L12.0009 18.749L9.29541 18.0241L6.08665 16.7422L2.43417 15.7635L1.24644 15.8673L5.5417 1.18995L8.72071 2.04176Z"
                       fill="#4AB04A"
                       stroke="white"
                       stroke-width="0.5"
@@ -425,7 +433,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* calgarySunridge */}
                 <div
-                  className="absolute left-[55.5%] md:left-[55%] top-[74.8%] md:top-[74.4%] z-10 w-[11px] h-[11px] md:w-[17px] md:h-[24px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[30.9%] md:left-[30.5%] top-[67%] md:top-[66.2%] z-10 w-[9px] h-[11px] md:w-[15px] md:h-[14px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("calgarySunridge")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -434,11 +442,13 @@ function EvolveExpansionPlans() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 17 24"
+                    // width="15"
+                    // height="14"
+                    viewBox="0 0 15 14"
                     fill="none"
                   >
                     <path
-                      d="M16.2715 4.20617V22.7682H2.68746V20.7433L1.75936 18.7183L1 15.0059V9.85916L6.14675 3.27807L6.90611 1.42186H14.584L16.2715 1C16.2715 1 17.0027 3.22182 16.2715 4.20617Z"
+                      d="M13.5608 12.9141L1 12.9141L1.79054 0.914063L14 0.914063L14 3.87762L12.7703 5.77236L12.7703 9.41609L13.5608 12.9141Z"
                       fill="#4AB04A"
                       stroke="white"
                       stroke-width="0.5"
@@ -447,7 +457,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* calgaryRoyalOak */}
                 <div
-                  className="absolute left-[56.8%] md:left-[56.6%] top-[79.9%] md:top-[79.5%] z-10 w-[14px] h-[15px] md:w-[17px] md:h-[15px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[33.2%] md:left-[32.9%] top-[69%] md:top-[68%] z-10 w-[8px] h-[9px] md:w-[11px] md:h-[12px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("calgaryRoyalOak")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -456,11 +466,13 @@ function EvolveExpansionPlans() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 17 15"
+                    // width="11"
+                    // height="12"
+                    viewBox="0 0 11 12"
                     fill="none"
                   >
                     <path
-                      d="M5.83856 1.33749L1.0293 2.60309L3.13862 7.2436V9.18418L2.04177 11.4622L4.23547 13.7403L5.66981 12.2216L9.46659 11.8841L11.2384 10.3654L15.8789 11.2091V1H9.80409L8.53849 1.33749H5.83856Z"
+                      d="M10 9.55896V2.1556L8.875 0.914062L7.75 3.41648L5.5 0.914062L3.35514 1.21155H1.58879V5.00583L1 6.36093V10.372L3.35514 10.9141H5.1215L8.02337 9.93839L10 9.55896Z"
                       fill="#4AB04A"
                       stroke="white"
                       stroke-width="0.5"
@@ -488,7 +500,7 @@ function EvolveExpansionPlans() {
               <h3 className=" text-[#000] leading-[25px] capitalize font-[400]">
                 Total Gym Locations
               </h3>
-              <h2 className="font-[700] leading-[39px] text-[#000]">12+</h2>
+              <h2 className="font-[700] leading-[39px] text-[#000]">8</h2>
             </div>
             <div className="flex flex-col gap-3">
               <h3 className=" text-[#000] leading-[25px] capitalize font-[400]">
@@ -501,6 +513,17 @@ function EvolveExpansionPlans() {
                 Active Members
               </h3>
               <h2 className="font-[700] leading-[39px] text-[#000]">12,000+</h2>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-[#4AB04A]"></div>
+                <h4 className="text-[#000] ">Available</h4>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-gray-300"></div>
+                <h4 className="text-[#000] ">Unavailable</h4>
+              </div>
             </div>
           </div>
         </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import southcommon from "../../../../../../public/all_locations/g_south_com.webp";
 
 function AllGymLocations() {
   const locations = [
@@ -96,7 +95,8 @@ function AllGymLocations() {
     {
       id: 9,
       name: "Edmonton South Common",
-      image: "/all_locations/g_south_com.webp",
+      image:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/all_locations/g_south_com.webp",
       address: "",
       phone: "",
       directionsUrl: "",

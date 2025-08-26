@@ -11,7 +11,6 @@ import CareerWithEvolve from "@/components/PageComponents/Home/Desktop/CareerWit
 import MembershipBenefits from "@/components/PageComponents/Home/Desktop/MembershipBenefits";
 import FacilityShowcase from "@/components/PageComponents/Home/Desktop/FacilityShowcase";
 import MetaTags from "@/components/Metatags/Meta";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 import SomeThinkNew from "@/components/PageComponents/Home/Desktop/SomeThinkNew";
 
 function Home() {
@@ -29,8 +28,8 @@ function Home() {
         <TrainerCallout />
         <EquipmentPartners />
         <WellnessServices />
-        <SomeThinkNew />
         <FacilityShowcase />
+        <SomeThinkNew />
         <CareerWithEvolve />
         <BusinessOpportunities />
       </div>
