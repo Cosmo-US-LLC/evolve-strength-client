@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import ExploreHero from "@/components/PageComponents/Explore/Desktop/ExploreHero";
 import DiscoverEvolve from "@/components/PageComponents/Explore/Desktop/DiscoverEvolve";
+import MetaTags from "@/components/Metatags/Meta";
 
 function Explore() {
   const [selected, setSelected] = useState(null);
@@ -53,6 +54,10 @@ function Explore() {
 
   return (
     <>
+      <MetaTags
+        title="Explore Trainers, Wellness Services & Amenities | Evolve Strength"
+        description="Browse Evolve Strength locations, wellness services, and trainers by area of focus. Discover the right amenities and support to reach your health and fitness goals."
+      />
       <div>
         <ExploreHero />
         <DiscoverEvolve selected={selected} onSelect={handleCategorySelect} />

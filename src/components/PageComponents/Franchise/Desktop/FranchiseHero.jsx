@@ -98,7 +98,10 @@ function FranchiseHero() {
                 loop
                 playsInline
               >
-                <source src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/FranchiseHero.webm" type="video/webm" />
+                <source
+                  src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/FranchiseHero.webm"
+                  type="video/webm"
+                />
                 Your browser does not support the video tag.
               </video>
 
