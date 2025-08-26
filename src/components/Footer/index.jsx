@@ -73,7 +73,7 @@ function Footer() {
                     Become a Practitioner
                   </a> */}
                   <span className="text-[#B2B1AA]">/</span>
-                   <Link
+                  <Link
                     smooth
                     to="/spaces"
                     className="text-[#B2B1AA] hover:text-[#ffffff]"
@@ -131,11 +131,10 @@ function Footer() {
                   >
                     Join the Movement
                   </Link>
-                  <Link to = "https://tour.evolvestrength.ca/tour-form/">
-
-                  <button className="mt-4 btnPrimary transition">
-                    TAKE A TOUR
-                  </button>
+                  <Link to="https://tour.evolvestrength.ca/tour-form/">
+                    <button className="mt-4 btnPrimary transition">
+                      TAKE A TOUR
+                    </button>
                   </Link>
                 </div>
 
@@ -172,12 +171,17 @@ function Footer() {
             </div>
           </div>
           <div className="flex flex-row items-center justify-between w-full max-w-[578px] h-auto md:h-[100px] gap-2 md:gap-6">
-            <div className="text-[#4AB04A] hover:text-[#ffffff] border-[2px] border-[#4AB04A] cursor-pointer hover:border-[#ffffff] rounded-full p-2 md:p-4">
+            <a
+              href="https://www.instagram.com/evolvestrength/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#4AB04A] hover:text-[#ffffff] border-[2px] border-[#4AB04A] cursor-pointer hover:border-[#ffffff] rounded-full p-2 md:p-4 transition-colors duration-200"
+            >
               <Instagram className="w-4 md:w-7 h-4 md:h-7 " />
-            </div>
+            </a>
 
             <div className="flex flex-row    ">
-               <div>
+              <div>
                 <p className="footer_quick_links uppercase text-[14px] leading-[19.6px]  text-[#6F6D66]">
                   Email
                 </p>
@@ -188,8 +192,6 @@ function Footer() {
                   info@evolvestrength.ca
                 </a>
               </div>
-
-            
             </div>
           </div>
           <img
