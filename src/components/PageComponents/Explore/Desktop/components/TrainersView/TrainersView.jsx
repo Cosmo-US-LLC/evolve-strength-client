@@ -157,7 +157,7 @@ function TrainersView() {
               </div>
             </button>
             {showLocationDropdown && (
-              <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-50 min-w-[220px] max-h-[300px] overflow-y-auto">
+              <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-[9999] min-w-[220px] max-h-[300px]  ">
                 <div
                   className="flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
                   onClick={() => {
@@ -233,7 +233,7 @@ function TrainersView() {
               </div>
             </button>
             {showAreasDropdown && (
-              <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-100 min-w-[220px] h-[300px] overflow-y-auto">
+              <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-[9999] min-w-[220px] max-h-[300px] overflow-y-auto">
                 <div
                   className="flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
                   onClick={() => {

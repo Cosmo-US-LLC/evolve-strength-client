@@ -47,10 +47,6 @@ function WellnessView() {
     setSelectedService(serviceName);
   };
 
-  const handleLocationToggle = (location) => {
-    setSelectedLocation(location);
-  };
-
   // Helper function to transform trainer data for display
   const transformTrainerData = (trainer) => {
     return {
@@ -157,10 +153,13 @@ function WellnessView() {
                       </button>
 
                       {showLocationDropdown && (
-                        <div className="absolute top-full left-0 mt-2 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[220px] md:min-w-[250px]">
+                        <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-50 min-w-[220px] md:min-w-[250px] max-h-[300px] overflow-y-auto">
                           <div
                             className="flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
-                            onClick={() => setSelectedLocation("")}
+                            onClick={() => {
+                              setSelectedLocation("");
+                              setShowLocationDropdown(false);
+                            }}
                           >
                             <div
                               className={`w-3 h-3 md:w-4 md:h-4 border-2 rounded flex items-center justify-center ${
@@ -182,9 +181,10 @@ function WellnessView() {
                             <div
                               key={idx}
                               className="flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
-                              onClick={() =>
-                                handleLocationToggle(location.name)
-                              }
+                              onClick={() => {
+                                setSelectedLocation(location.name);
+                                setShowLocationDropdown(false);
+                              }}
                             >
                               <div
                                 className={`w-3 h-3 md:w-4 md:h-4 border-2 rounded flex items-center justify-center ${
