@@ -172,7 +172,7 @@ function Footer() {
           </div>
           <div className="flex flex-row items-center justify-between w-full max-w-[578px] h-auto md:h-[100px] gap-2 md:gap-6">
             <a
-              href="https://www.instagram.com/evolvestrength/"
+              href="https://www.instagram.com/evolve_strength/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#4AB04A] hover:text-[#ffffff] border-[2px] border-[#4AB04A] cursor-pointer hover:border-[#ffffff] rounded-full p-2 md:p-4 transition-colors duration-200"

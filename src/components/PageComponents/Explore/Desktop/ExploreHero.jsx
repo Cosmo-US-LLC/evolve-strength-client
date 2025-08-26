@@ -11,9 +11,9 @@ function ExploreHero() {
           <h1 className="text-[#FFFFFF] uppercase !text-[70px] max-md:!text-[50px] md:max-w-[827px] leading-[40px] md:leading-[70px] mb-5">
             Discover Trainers, Wellness Services and Amenities at Evolve
           </h1>
-          <h3 className="text-[#FFFFFF] !font-[300] max-w-[707px] leading-[29px] mb-6">
+          {/* <h3 className="text-[#FFFFFF] !font-[300] max-w-[707px] leading-[29px] mb-6">
             Choose an option below to get started.
-          </h3>
+          </h3> */}
           <div className="flex gap-6">
             <Link to="https://tour.evolvestrength.ca/tour-form/">
               <button className="btnPrimary">BOOK A FREE TOUR</button>

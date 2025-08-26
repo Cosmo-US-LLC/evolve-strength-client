@@ -30,7 +30,7 @@ function CategoryCard({ card, selected, onClick }) {
         <div
           className={`
             flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full transition-transform duration-200 
-            ${selected ? "rotate-180" : "rotate-0"}
+            ${selected ? "rotate-0" : "rotate-180"}
           `}
         >
           <ArrowUpCircle className="w-5 h-5 md:w-6 md:h-6 text-white transition-all duration-300" />
