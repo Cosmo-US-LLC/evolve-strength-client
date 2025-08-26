@@ -13,6 +13,7 @@ import {
   ArrowLeft,
   ChevronDown,
   CircleChevronDown,
+  X,
 } from "lucide-react";
 
 function WellnessView() {
@@ -20,7 +21,7 @@ function WellnessView() {
   const [selectedService, setSelectedService] = useState(null);
   const [selectedTrainer, setSelectedTrainer] = useState({}); // { [serviceName]: trainerIdx }
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
-  const [selectedLocations, setSelectedLocations] = useState([]); // Start with no locations selected to show all trainers
+  const [selectedLocation, setSelectedLocation] = useState(""); // Start with no location selected to show all trainers
 
   const dropdownRef = useRef(null);
 
@@ -35,28 +36,15 @@ function WellnessView() {
       }
     };
 
-    if (showLocationDropdown) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [showLocationDropdown]);
+  }, []);
 
   const handleToggle = (serviceName) => {
     setExpanded(expanded === serviceName ? null : serviceName);
     setSelectedService(serviceName);
-  };
-
-  const handleLocationToggle = (location) => {
-    setSelectedLocations((prev) => {
-      if (prev.includes(location)) {
-        return prev.filter((loc) => loc !== location);
-      } else {
-        return [...prev, location];
-      }
-    });
   };
 
   // Helper function to transform trainer data for display
@@ -78,10 +66,9 @@ function WellnessView() {
 
     let filteredTrainers = trainers;
 
-    if (selectedLocations.length > 0) {
+    if (selectedLocation) {
       filteredTrainers = trainers.filter(
-        (trainer) =>
-          trainer.location && selectedLocations.includes(trainer.location)
+        (trainer) => trainer.location && trainer.location === selectedLocation
       );
     }
 
@@ -140,80 +127,101 @@ function WellnessView() {
 
               {isOpen && (
                 <div className="py-4 md:py-6 bg-white">
-                  <div className="relative mb-4 md:mb-6" ref={dropdownRef}>
-                    <button
-                      className="bg-[#fff] rounded-[8px] px-3 md:px-4 py-2 md:py-3 border border-[#CCCCCC] flex items-center justify-between min-w-[180px] md:min-w-[200px]"
-                      onClick={() =>
-                        setShowLocationDropdown(!showLocationDropdown)
-                      }
-                    >
-                      <div className="flex items-center gap-2">
-                        <span className="text-black font-medium text-sm md:text-base">
-                          {selectedLocations.length === 0
-                            ? "All Locations"
-                            : "Locations"}
-                        </span>
-                        <span className="text-green-600 font-medium text-sm md:text-base">
-                          (
-                          {selectedLocations.length === 0
-                            ? "ALL"
-                            : selectedLocations.length
-                                .toString()
-                                .padStart(2, "0")}
-                          )
-                        </span>
-                      </div>
-                      <ChevronDown
-                        className={`pt-1 text-gray-400 transition-transform duration-200 w-4 h-4 md:w-5 md:h-5 ${
-                          showLocationDropdown ? "rotate-180" : "rotate-0"
-                        }`}
-                      />
-                    </button>
-
-                    {showLocationDropdown && (
-                      <div className="absolute top-full left-0 mt-2 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[220px] md:min-w-[250px]">
-                        <div
-                          className="flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
-                          onClick={() => setSelectedLocations([])}
-                        >
-                          <div
-                            className={`w-3 h-3 md:w-4 md:h-4 border-2 rounded flex items-center justify-center ${
-                              selectedLocations.length === 0
-                                ? "bg-[#4AB04A] border-[#4AB04A]"
-                                : "border-[#CCCCCC]"
-                            }`}
-                          >
-                            {selectedLocations.length === 0 && (
-                              <Check className="w-2 h-2 md:w-3 md:h-3 text-white" />
-                            )}
-                          </div>
-                          <span className="text-[#000] text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                            All Locations
+                  <div className="mb-4 md:mb-6">
+                    <div className="relative" ref={dropdownRef}>
+                      <button
+                        className="bg-[#fff] rounded-[8px] px-3 md:px-4 py-2 md:py-3 border border-[#CCCCCC] flex items-center justify-between min-w-[180px] md:min-w-[200px]"
+                        onClick={() =>
+                          setShowLocationDropdown(!showLocationDropdown)
+                        }
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className="text-black font-medium text-sm md:text-base">
+                            {selectedLocation === ""
+                              ? "All Locations"
+                              : "Locations"}
+                          </span>
+                          <span className="text-green-600 font-medium text-sm md:text-base">
+                            ({selectedLocation === "" ? "ALL" : "01"})
                           </span>
                         </div>
+                        <ChevronDown
+                          className={`pt-1 text-gray-400 transition-transform duration-200 w-4 h-4 md:w-5 md:h-5 ${
+                            showLocationDropdown ? "rotate-180" : "rotate-0"
+                          }`}
+                        />
+                      </button>
 
-                        {allLocations.map((location, idx) => (
+                      {showLocationDropdown && (
+                        <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-50 min-w-[220px] md:min-w-[250px] max-h-[300px] overflow-y-auto">
                           <div
-                            key={idx}
-                            className="flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
-                            onClick={() => handleLocationToggle(location.name)}
+                            className="flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
+                            onClick={() => {
+                              setSelectedLocation("");
+                              setShowLocationDropdown(false);
+                            }}
                           >
                             <div
                               className={`w-3 h-3 md:w-4 md:h-4 border-2 rounded flex items-center justify-center ${
-                                selectedLocations.includes(location.name)
-                                  ? "bg-green-600 border-green-600"
-                                  : "border-gray-300"
+                                selectedLocation === ""
+                                  ? "bg-[#4AB04A] border-[#4AB04A]"
+                                  : "border-[#CCCCCC]"
                               }`}
                             >
-                              {selectedLocations.includes(location.name) && (
+                              {selectedLocation === "" && (
                                 <Check className="w-2 h-2 md:w-3 md:h-3 text-white" />
                               )}
                             </div>
-                            <span className="text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                              {location.name}
+                            <span className="text-[#000] text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
+                              All Locations
                             </span>
                           </div>
-                        ))}
+
+                          {allLocations.map((location, idx) => (
+                            <div
+                              key={idx}
+                              className="flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
+                              onClick={() => {
+                                setSelectedLocation(location.name);
+                                setShowLocationDropdown(false);
+                              }}
+                            >
+                              <div
+                                className={`w-3 h-3 md:w-4 md:h-4 border-2 rounded flex items-center justify-center ${
+                                  selectedLocation === location.name
+                                    ? "bg-green-600 border-green-600"
+                                    : "border-gray-300"
+                                }`}
+                              >
+                                {selectedLocation === location.name && (
+                                  <Check className="w-2 h-2 md:w-3 md:h-3 text-white" />
+                                )}
+                              </div>
+                              <span className="text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
+                                {location.name}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Selected Location Display */}
+                    {selectedLocation && (
+                      <div className="mt-3 md:mt-4">
+                        <div className="flex flex-wrap gap-2 md:gap-3">
+                          <div className="flex items-center gap-2 bg-[#4AB04A] text-white px-3 md:px-4 py-1 md:py-2 rounded-full text-sm md:text-base">
+                            <span className="font-[kanit]">
+                              {selectedLocation}
+                            </span>
+                            <button
+                              onClick={() => setSelectedLocation("")}
+                              className="cursor-pointer rounded-full p-1"
+                            >
+                              <X className="w-3 h-3 md:w-4 md:h-4" />
+                            </button>
+                          </div>
+                        </div>
                       </div>
                     )}
                   </div>
