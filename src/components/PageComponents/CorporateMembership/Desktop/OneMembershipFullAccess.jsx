@@ -21,7 +21,7 @@ const gymCards = [
     count: "",
     title: (
       <p>
-        Build <br /> Muscle
+        Cardio <br /> Equipment
       </p>
     ),
     description: "",

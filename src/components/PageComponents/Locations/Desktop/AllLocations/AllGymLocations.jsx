@@ -192,14 +192,7 @@ function AllGymLocations() {
               {location.commonbtn ? (
                 <div className="flex gap-3">
                   <Link to="https://join.evolvestrength.ca/edmonton-south-common-waitlist/">
-                    <button
-                      onClick={() =>
-                        handleGetDirections(location.directionsUrl)
-                      }
-                      className="btnPrimary"
-                    >
-                      Join the waitlist
-                    </button>
+                    <button className="btnPrimary">Join the waitlist</button>
                   </Link>
                 </div>
               ) : (
