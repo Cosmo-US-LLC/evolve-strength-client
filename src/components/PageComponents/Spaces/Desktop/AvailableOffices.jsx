@@ -221,18 +221,18 @@ const AvailableOffices = () => {
 
                 {filteredOffices.length > 2 && (
                   <>
-                    <div className="absolute -top-1/10 -translate-y-1/2 left-[87%] z-10">
+                    <div className="absolute -top-1/12 -translate-y-1/2 left-[91%] z-10">
                       <button
                         onClick={scrollPrev}
-                        className="h-[45px] w-[45px] rounded-full flex items-center justify-center text-[#000000] border border-[#000000] bg-white hover:bg-gray-100 cursor-pointer"
+                        className="h-[45px] w-[45px] rounded-full flex items-center justify-center text-[#000000] border border-[#000000] bg-white cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
                       >
                         <ArrowLeft className="w-6 h-6" />
                       </button>
                     </div>
-                    <div className="absolute -top-1/10 -translate-y-1/2 right-[4%] z-10">
+                    <div className="absolute -top-1/12 -translate-y-1/2 right-[0.5%] z-10">
                       <button
                         onClick={scrollNext}
-                        className="h-[45px] w-[45px] rounded-full flex items-center justify-center text-[#000000] border border-[#000000] bg-white hover:bg-gray-100 cursor-pointer"
+                        className="h-[45px] w-[45px] rounded-full flex items-center justify-center text-[#000000] border border-[#000000] bg-white cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
                       >
                         <ArrowRight className="w-6 h-6" />
                       </button>
@@ -273,8 +273,8 @@ const AvailableOffices = () => {
                 ))}
               </CarouselContent>
               <div>
-                <CarouselPrevious className="absolute left-[75%] -top-16 w-9 h-9 bg-white text-[#1C1C1C] border border-[#E8EBEF]" />
-                <CarouselNext className="absolute right-2 -top-16 w-9 h-9 bg-white text-[#1C1C1C] border border-[#E8EBEF]" />
+                <CarouselPrevious className="absolute left-[75%] -top-16 w-9 h-9 bg-white text-[#1C1C1C] border border-[#E8EBEF] cursor-pointer hover:bg-[#000000] hover:text-[#fff]" />
+                <CarouselNext className="absolute right-2 -top-16 w-9 h-9 bg-white text-[#1C1C1C] border border-[#E8EBEF] cursor-pointer hover:bg-[#000000] hover:text-[#fff]" />
               </div>
             </Carousel>
           </div>

@@ -22,17 +22,35 @@ const professionals = [
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/WhyChooseEvolve/Health.webp",
     dec: "Access licensed physiotherapists, massage therapists, nutritionists, and other wellness professionals all in one place.",
   },
+  {
+    title: "Top Personal Trainers",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/WhyChooseEvolve/personal_trainer.webp",
+    dec: "Train with certified personal trainers ranked in the top 1% locally. Programs are tailored to your goals, pace, and ability.",
+  },
+  {
+    title: "Top of the Line Equipment",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/WhyChooseEvolve/Equipments.webp",
+    dec: "Each gym is fully stocked with high-end machines, free weights, and tools built for strength, cardio, and recovery.",
+  },
+  {
+    title: "Health and Wellness",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/WhyChooseEvolve/Health.webp",
+    dec: "Access licensed physiotherapists, massage therapists, nutritionists, and other wellness professionals all in one place.",
+  },
 ];
 
 const LoWhyChooseEvolve = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
-      containScroll: "keepSnaps",
       loop: true,
       slidesToScroll: 1,
       align: "start",
-    }
-    // [Autoplay({ delay: 2000, stopOnInteraction: false })]
+      skipSnaps: false,
+    },
+    [Autoplay({ delay: 3000, stopOnInteraction: false })]
   );
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
@@ -44,22 +62,22 @@ const LoWhyChooseEvolve = () => {
           <h2 className="text-[#000] uppercase ">Why Choose Evolve?</h2>
           <h4 className="mb-6 !max-w-[800px]">
             At Evolve, we help people across Canada reach their full potential
-            through fitness, health, and wellness. We <br /> offer expert
-            coaching, integrated health services, and top-tier facilities at a
-            price you can afford.
+            through fitness, health, and wellness. We offer expert coaching,
+            integrated health services, and top-tier facilities at a price you
+            can afford.
           </h4>
           <Link to="https://subscription.evolvestrength.ca/">
             <button className="btnPrimary">Join Now</button>
           </Link>
         </div>
 
-        <div className="relative">
+        <div className="relative w-full">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-4 pl-2 md:pl-0">
+            <div className="flex gap-4 pl-0 md:pl-4">
               {professionals.map((pro, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_100%] md:flex-[0_0_calc(50%-8px)] relative"
+                  className="flex-[0_0_100%] md:flex-[0_0_calc(50%-6px)] relative"
                 >
                   <img
                     src={pro.image}
@@ -76,18 +94,18 @@ const LoWhyChooseEvolve = () => {
             </div>
           </div>
 
-          <div className="absolute -top-1/12 md:-top-1/6 -translate-y-1/2 left-[74%] md:left-[86%] z-10">
+          <div className="absolute -top-1/12 md:-top-1/12 -translate-y-1/2 left-[74%] md:left-[91.5%] z-10">
             <button
               onClick={scrollPrev}
-              className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer"
+              className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
             >
               <ArrowLeft className="w-4 h-4 md:w-6 md:h-6" />
             </button>
           </div>
-          <div className="absolute -top-1/12 md:-top-1/6 -translate-y-1/2 right-[4%] md:right-[6%] z-10">
+          <div className="absolute -top-1/12 md:-top-1/12 -translate-y-1/2 right-[4%] md:right-[1%] z-10">
             <button
               onClick={scrollNext}
-              className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer"
+              className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
             >
               <ArrowRight className="w-4 h-4 md:w-6 md:h-6" />
             </button>

@@ -10,7 +10,7 @@ function AllLocations() {
         title="Evolve Strength Gym Locations Across Canada | Find a Gym Near You"
         description="Explore all Evolve Strength gyms in Burnaby, Vancouver, Calgary, and Edmonton. Get directions, call directly, or join the waitlist for new locations like Edmonton South Common"
       />
-      <AllLocationsHero />
+      {/* <AllLocationsHero /> */}
       <AllGymLocations />
     </>
   );

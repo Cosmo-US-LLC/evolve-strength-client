@@ -87,18 +87,18 @@ const WhoOurSpacesFor = () => {
             </div>
           </div>
 
-          <div className="absolute -top-1/7 -translate-y-1/2 left-[86%] z-10 max-md:hidden">
+          <div className="absolute -top-1/7 -translate-y-1/2 left-[92%] z-10 max-md:hidden">
             <button
               onClick={scrollPrev}
-              className="bg-[#ffffff] p-2 cursor-pointer rounded-full border border-[#000000] text-[#000000] hover:bg-gray-100 transition-colors"
+              className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
             >
               <ArrowLeft className="w-6 h-6" />
             </button>
           </div>
-          <div className="absolute -top-1/7 -translate-y-1/2 right-[6%] z-10 max-md:hidden">
+          <div className="absolute -top-1/7 -translate-y-1/2 right-[0.5%] z-10 max-md:hidden">
             <button
               onClick={scrollNext}
-              className="bg-[#ffffff] p-2 cursor-pointer rounded-full border border-[#000000] text-[#000000] hover:bg-gray-100 transition-colors"
+              className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
             >
               <ArrowRight className="w-6 h-6" />
             </button>
