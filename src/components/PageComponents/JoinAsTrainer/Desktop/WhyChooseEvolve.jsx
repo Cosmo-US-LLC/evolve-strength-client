@@ -99,7 +99,7 @@ function WhyChooseEvolve() {
   return (
     <div className="w-full py-[54px] bg-[#F9F9F9]">
       <div className="w-full max-w-[1280px] px-4 md:px-8 mx-auto flex flex-col gap-12">
-        <div className="space-y-[24px]">
+        <div className="space-y-[24px] sticky top-24 pt-4">
           <h2 className="max-w-[707px] text-left leading-[56px] uppercase">
             Why Choose Evolve
           </h2>
@@ -110,7 +110,7 @@ function WhyChooseEvolve() {
             <div
               key={index}
               id={`card-${index}`}
-              className="h-[60vh] md:h-[500px] flex flex-col gap-4 md:gap-0 sticky top-0 backface-hidden md:w-full transition-all duration-500 ease-out"
+              className="h-[60vh] md:h-[500px] flex flex-col gap-4 md:gap-0 sticky top-48 backface-hidden md:w-full transition-all duration-500 ease-out"
               style={{
                 transform: cardTransforms[index].transform,
                 opacity: cardTransforms[index].opacity,
@@ -144,12 +144,7 @@ function WhyChooseEvolve() {
       </div>
       <div className="flex justify-center pt-[40px]">
         <Link to="/trainer-form">
-          <button
-            className="btnPrimary "
-            onClick={() => onSelectOption("apply")}
-          >
-            Start Saving
-          </button>
+          <button className="btnPrimary">Start Saving</button>
         </Link>
       </div>
     </div>

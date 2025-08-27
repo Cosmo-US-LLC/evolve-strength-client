@@ -164,7 +164,7 @@ const LocationSeeITYourself = () => {
       {/* Desktop Version */}
       <div className="max-w-[1280px] mx-auto px-8 flex flex-col gap-2 mb-5 max-md:hidden">
         <h2 className="text-[#1C1C1C] uppercase">
-          Access All Evolve Locations with <br /> Your Membership
+          Access All Evolve Locations with <br /> One Membership
         </h2>
         <h4 className="text-[#000] leading-[26px]">
           Spacious. Affordable. Unmatched
@@ -208,8 +208,8 @@ const LocationSeeITYourself = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-4 md:left-[100px] w-12 h-12 md:w-14 md:h-14 bg-transparent text-white border border-white" />
-            <CarouselNext className="right-4 md:right-[100px] w-12 h-12 md:w-14 md:h-14 bg-transparent text-white border border-white" />
+            <CarouselPrevious className="left-4 md:left-[100px] w-12 h-12 md:w-14 md:h-14 bg-transparent text-white border border-white cursor-pointer hover:bg-[#000000] hover:text-[#fff]" />
+            <CarouselNext className="right-4 md:right-[100px] w-12 h-12 md:w-14 md:h-14 bg-transparent text-white border border-white cursor-pointer hover:bg-[#000000] hover:text-[#fff]" />
           </Carousel>
         </TabsContent>
       </Tabs>
@@ -239,13 +239,13 @@ const LocationSeeITYourself = () => {
             <div className="absolute -top-4 right-4 flex gap-3 z-10">
               <button
                 onClick={scrollTabsLeft}
-                className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full"
+                className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
               >
                 <ArrowLeft className="w-4 h-4 text-[#1C1C1C]" />
               </button>
               <button
                 onClick={scrollTabsRight}
-                className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full"
+                className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
               >
                 <ArrowRight className="w-4 h-4 text-[#1C1C1C]" />
               </button>

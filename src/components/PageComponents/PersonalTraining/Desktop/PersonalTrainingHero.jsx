@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 function PersonalTrainingHero() {
   return (
     <div className="relative personalTrainingHeroSection">
-      {/* <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/40" /> */}
+      {/* <div className="absolute inset-y-0 left-0 w-[100%] md:w-[70%] z-0 bg-gradient-to-r md:bg-gradient-to-r from-black/60 via-black/60 to-transparent " /> */}
+      <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/50" />
       <div className="max-w-[1280px] px-4 md:px-8 pb-[60px] md:pb-[80px] mx-auto w-full h-full">
         <div className="relative z-2 flex flex-col items-start justify-end h-full pt-16 md:pt-0">
           <h1 className="text-[#FFFFFF] uppercase max-w-[707px] leading-[50px] md:leading-[56px] mb-5 font-bold">

@@ -160,13 +160,13 @@ function WellnessServicesForEveryone() {
             </div>
             <button
               onClick={handlePrev}
-              className="z-10 absolute right-[13%] md:right-[9%] bottom-[180px] md:-bottom-[70px] -translate-y-1/2 h-[32px] w-[32px] md:h-[36px] md:w-[36px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
+              className="z-10 absolute right-[13%] md:right-[8%] bottom-[180px] md:-bottom-[70px] -translate-y-1/2 h-[32px] w-[32px] md:h-[36px] md:w-[36px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
             >
               <ArrowLeft className="w-3 h-3 md:w-5 md:h-5 text-white" />
             </button>
             <button
               onClick={handleNext}
-              className="absolute right-[2%] md:right-[1%] bottom-[180px] md:-bottom-[70px] -translate-y-1/2 h-[32px] w-[32px] md:h-[36px] md:w-[36px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
+              className="absolute right-[2%] md:right-[0%] bottom-[180px] md:-bottom-[70px] -translate-y-1/2 h-[32px] w-[32px] md:h-[36px] md:w-[36px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
             >
               <ArrowRight className="w-3 h-3 md:w-5 md:h-5 text-white" />
             </button>

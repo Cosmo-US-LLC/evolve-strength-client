@@ -58,11 +58,11 @@ function CategorySelector({ selected, onSelect }) {
   return (
     <div className="w-full py-8 md:py-12 flex flex-col gap-8 md:gap-12">
       {/* Main Heading */}
-      <div className="text-left md:text-center">
-        <h3 className="leading-[20px] md:leading-[24px] !text-[19px] md:!text-[24px] w-full font-[400] text-[#000]  ">
+      <div className="text-left md:text-left">
+        <h1 className="leading-[34px] md:leading-[62px] !text-[34px] md:!text-[55px] uppercase w-full text-[#000]  ">
           Discover trainers, wellness services, and amenities that fit your
           goals at Evolve.
-        </h3>
+        </h1>
       </div>
 
       {/* Mobile: Accordion Cards with Content Below Each */}

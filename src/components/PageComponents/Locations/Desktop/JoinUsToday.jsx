@@ -3,43 +3,59 @@ import { Link } from "react-router-dom";
 
 const LOCATION_BACKGROUNDS = {
   "calgary-seton": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/seton.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/setonMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/seton.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/setonMob.webp",
     locationName: "Calgary Seton",
   },
   "calgary-royal-oak": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/royal-oak.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/royal-oakMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/royal-oak.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/royal-oakMob.webp",
     locationName: "Calgary Royal Oak",
   },
   "calgary-sunridge": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/sunridge.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/sunridgeMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/sunridge.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/sunridgeMob.webp",
     locationName: "Calgary Sunridge",
   },
   "edmonton-south": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/south.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/southMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/south.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/southMob.webp",
     locationName: "Edmonton South",
   },
   "edmonton-north": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/north.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/northMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/north.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/northMob.webp",
     locationName: "Edmonton North",
   },
   "edmonton-downtown": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/downtown.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/downtownMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/downtown.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/downtownMob.webp",
     locationName: "Edmonton Downtown",
   },
   "burnaby-brentwood": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/brentwood.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/brentwoodMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/brentwood.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/brentwoodMob.webp",
     locationName: "Burnaby Brentwood",
   },
   "vancouver-post": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/post.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/postMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/post.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/postMob.webp",
     locationName: "Vancouver The Post",
   },
 };
@@ -71,6 +87,7 @@ function JoinUsToday() {
 
   return (
     <div className="relative h-[600px] md:h-[700px] ">
+      <div className="absolute inset-y-0 left-0 top-0 border-0 w-[60%] h-full z-1 md:bg-gradient-to-r  from-black/90 via-black/40 to-transparent " />
       {/* Desktop Image */}
       <img
         src={locationData.desktop}
