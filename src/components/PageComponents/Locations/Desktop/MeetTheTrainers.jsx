@@ -161,7 +161,7 @@ const MeetTheTrainers = ({ location = "" }) => {
             <div className="absolute md:top-[30%] left-[37%] md:left-[-60px] -translate-y-1/2 md:translate-y-1/2 ">
               <button
                 onClick={scrollPrev}
-                className="p-2 rounded-full border border-[#000000] text-[#000000]"
+                className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
               >
                 <ArrowLeft className="w-6 h-6" />
               </button>
@@ -169,7 +169,7 @@ const MeetTheTrainers = ({ location = "" }) => {
             <div className="absolute md:top-[30%] -translate-y-1/2 md:translate-y-1/2 md:-right-[60px] right-[37%] z-10">
               <button
                 onClick={scrollNext}
-                className="p-2 rounded-full border border-[#000000] text-[#000000]"
+                className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
               >
                 <ArrowRight className="w-6 h-6" />
               </button>

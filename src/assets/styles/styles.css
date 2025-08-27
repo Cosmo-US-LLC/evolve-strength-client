@@ -152,7 +152,7 @@
 .franchiseGotYourBack {
   background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/GotYourBack/gotYourBackBusiness.webp");
   background-size: cover;
-  background-position: top;
+  background-position: top right;
   background-repeat: no-repeat;
   width: 100%;
   height: 700px;
@@ -350,6 +350,15 @@
   background-repeat: no-repeat;
   width: 100%;
   height: 700px;
+}
+.contact_us_map_bg {
+  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/ContactUs/contact_us_map.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 700px;
+  margin-top: 160px;
 }
 
 @media (max-width: 768px) {

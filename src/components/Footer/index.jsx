@@ -124,13 +124,13 @@ function Footer() {
                   >
                     Membership Benefits
                   </Link>
-                  <Link
+                  {/* <Link
                     smooth
                     to="/join-the-Movement"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Join the Movement
-                  </Link>
+                  </Link> */}
                   <Link to="https://tour.evolvestrength.ca/tour-form/">
                     <button className="mt-4 btnPrimary transition">
                       TAKE A TOUR

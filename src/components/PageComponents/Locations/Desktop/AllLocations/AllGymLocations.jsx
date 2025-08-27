@@ -114,9 +114,11 @@ function AllGymLocations() {
   };
 
   return (
-    <div className="w-full flex flex-col max-w-[1280px] mx-auto px-4 md:px-8 py-12 md:py-14 gap-6 md:gap-10">
+    <div className="w-full flex flex-col max-w-[1280px] mx-auto px-4 md:px-8 py-24 md:py-30 gap-6 md:gap-10">
       <div className="text-left md:text-center flex flex-col items-center gap-4">
-        <h2 className="font-bold text-[#000] uppercase">ALL GYM LOCATIONS</h2>
+        <h1 className="font-bold text-[#000] uppercase leading-[46px] md:leading-[56px]">
+          ALL GYM LOCATIONS
+        </h1>
         <h4 className="text-[#000] w-full md:max-w-[895px] mx-auto leading-[26px]">
           Discover all Evolve Strength gym locations across Canada. Find your
           nearest branch and take the first step toward a stronger, healthier

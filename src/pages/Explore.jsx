@@ -59,7 +59,7 @@ function Explore() {
         description="Browse Evolve Strength locations, wellness services, and trainers by area of focus. Discover the right amenities and support to reach your health and fitness goals."
       />
       <div>
-        <ExploreHero />
+        {/* <ExploreHero /> */}
         <DiscoverEvolve selected={selected} onSelect={handleCategorySelect} />
       </div>
     </>

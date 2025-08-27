@@ -45,7 +45,7 @@ const tabData = {
 
 const CareerWithEvolve = () => {
   return (
-    <div className="w-full md:py-12 max-md:pb-[48px] max-md:pt-0">
+    <div className="w-full py-16 ">
       <div className="w-full max-w-[1280px] md:px-8 max-md:px-[16px] mx-auto flex flex-col items-start gap-6">
         <div className="flex flex-col items-start gap-3">
           <h2 className="uppercase">BUILD YOUR CAREER WITH EVOLVE</h2>
@@ -60,14 +60,14 @@ const CareerWithEvolve = () => {
           <TabsList className="flex gap-0 bg-[#2E2E2E] h-[50px] rounded-[5px] p-1 mb-4">
             <TabsTrigger
               value="trainer"
-              className="data-[state=active]:bg-white data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all duration-700 ease-in-out"
+              className="data-[state=active]:bg-white cursor-pointer data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all duration-700 ease-in-out"
             >
               Personal Trainer
             </TabsTrigger>
 
             <TabsTrigger
               value="expert"
-              className="data-[state=active]:bg-white data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all duration-700 ease-in-out"
+              className="data-[state=active]:bg-white cursor-pointer data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all duration-700 ease-in-out"
             >
               Wellness Expert
             </TabsTrigger>
