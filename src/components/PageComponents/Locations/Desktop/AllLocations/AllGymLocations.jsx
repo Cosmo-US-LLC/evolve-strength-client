@@ -149,7 +149,7 @@ function AllGymLocations() {
               <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center max-md:hidden">
                 {location.commonbtn ? (
                   <Link
-                    to="https://join.evolvestrength.ca/edmonton-south-common-waitlist/"
+                    to="/locations/edmonton-south-common-waitlist"
                     className="flex items-center gap-2 bg-white underline px-3 py-3 rounded-[5px] transition-all duration-200 text-black font-semibold"
                   >
                     <span>Join the Waitlist</span>
@@ -170,7 +170,7 @@ function AllGymLocations() {
               {location.commonbtn ? (
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center md:hidden">
                   <Link
-                    to="https://join.evolvestrength.ca/edmonton-south-common-waitlist/"
+                    to="/locations/edmonton-south-common-waitlist"
                     className="flex items-center gap-2 underline px-3 py-3 rounded-[5px] transition-all duration-200 text-[#fff] font-semibold"
                   >
                     <span>Join the Waitlist</span>
@@ -193,7 +193,7 @@ function AllGymLocations() {
 
               {location.commonbtn ? (
                 <div className="flex gap-3">
-                  <Link to="https://join.evolvestrength.ca/edmonton-south-common-waitlist/">
+                  <Link to="/locations/edmonton-south-common-waitlist">
                     <button className="btnPrimary">Join the waitlist</button>
                   </Link>
                 </div>

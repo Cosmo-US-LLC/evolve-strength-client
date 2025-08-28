@@ -38,6 +38,7 @@ import BurnabyBrentwood from "./pages/LocationsPage/BurnabyBrentwood";
 import VancouverPost from "./pages/LocationsPage/VancouverPost";
 import TrainerForm from "./components/Form/TrainersForm";
 import AllLocations from "./pages/LocationsPage/AllLocations";
+import EdmontonSouthCommon from "./pages/LocationsPage/EdmontonSouthCommon";
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
           <Route path="/locations" element={<AllLocations />} />
           <Route path="/locations/calgary-seton" element={<CalgarySeton />} />
           <Route path="/locations/edmonton-south" element={<EdmontonSouth />} />
+
           <Route path="/locations/edmonton-north" element={<EdmontonNorth />} />
           <Route
             path="/locations/edmonton-downtown"
@@ -101,6 +103,11 @@ function App() {
         <Route
           path="/corporate-membership-wizard"
           element={<CorporateMembershipWizard />}
+        />
+
+        <Route
+          path="/locations/edmonton-south-common-waitlist"
+          element={<EdmontonSouthCommon />}
         />
 
         <Route
