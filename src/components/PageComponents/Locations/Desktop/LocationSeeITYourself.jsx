@@ -223,7 +223,7 @@ const LocationSeeITYourself = () => {
       <div className="md:hidden w-full px-[0px]  pb-[48px] ">
         <div className=" flex flex-col gap-2 mb-5 px-[16px]">
           <h2 className="text-[#1C1C1C] text-[22px] font-bold uppercase">
-            Access All Evolve Locations with Your Membership
+            Access All Evolve Locations with One Membership
           </h2>
           <h4 className="text-[#000] leading-[26px] text-[15px]">
             Spacious. Affordable. Unmatched
