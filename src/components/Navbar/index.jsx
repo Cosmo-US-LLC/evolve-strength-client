@@ -68,11 +68,12 @@ function Navbar() {
             }`}
           >
             <div className="max-w-[1280px] w-full h-full mx-auto px-4 md:px-8 flex items-center justify-between">
-              <Link to="/" className="flex items-center">
+              <Link to="/" className="flex items-center select-none [-webkit-user-select:none] [-webkit-touch-callout:none]">
                 <img
                   src={EvolveStrengthLogo}
-                  alt="Attune Logo"
-                  className="md:w-[196px] w-[140px] cursor-pointer z-20"
+                  alt="Evolve Logo"
+                  className="md:w-[196px] w-[140px] cursor-pointer z-20 select-none [-webkit-user-select:none] [-webkit-user-drag:none]"
+                  draggable="false"
                 />
               </Link>
 
