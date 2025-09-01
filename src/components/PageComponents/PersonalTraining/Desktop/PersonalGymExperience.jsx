@@ -150,43 +150,35 @@ const PersonalGymExperience = () => {
 
   return (
     <div className="relative w-full overflow-hidden md:mb-12">
-      {/* Background Image - Desktop with Crossfade */}
       <div className="hidden md:block">
-        {/* Previous background (fading out) */}
         <div
           className="absolute inset-0 bg-cover bg-center    "
           style={{
             backgroundImage: `url(${gymCards[previousIndex].bgImage.desktop})`,
-            // opacity: activeIndex === previousIndex ? 1 : 0,
           }}
         />
-        {/* Current background (fading in) */}
+
         <div
           className="absolute inset-0 bg-cover bg-center     "
           style={{
             backgroundImage: `url(${gymCards[activeIndex].bgImage.desktop})`,
-            // opacity: activeIndex === previousIndex ? 0 : 1,
           }}
         />
         <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       </div>
 
-      {/* Background Image - Mobile with Crossfade */}
       <div className="md:hidden">
-        {/* Previous background (fading out) */}
         <div
           className="absolute inset-0 bg-cover bg-center  "
           style={{
             backgroundImage: `url(${gymCards[previousIndex].bgImage.mobile})`,
-            // opacity: carouselIndex === previousIndex ? 1 : 0,
           }}
         />
-        {/* Current background (fading in) */}
+
         <div
           className="absolute inset-0 bg-cover bg-center  "
           style={{
             backgroundImage: `url(${gymCards[carouselIndex].bgImage.mobile})`,
-            // opacity: carouselIndex === previousIndex ? 0 : 1,
           }}
         />
         <div className="absolute inset-0 bg-black/20 pointer-events-none  " />
@@ -194,14 +186,13 @@ const PersonalGymExperience = () => {
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-4 md:px-8">
         <div className="absolute top-[30px] md:top-[100px] flex flex-col gap-4">
-          <h2 className="text-[#FFFFFF] uppercase leading-[32px] md:leading-[42px] text-left">
-            SPECIALISED PERSONAL <br /> TRAINING, CUSTOMISED TO YOU
+          <h2 className="text-[#FFFFFF] w-full md:max-w-[637px] uppercase leading-[32px] md:leading-[42px] text-left">
+            From Strength to Mobility, and Everything Between
           </h2>
           <h4 className="text-[#FFFFFF] leading-[24px] md:leading-[26px] max-w-[638px] max-md:hidden">
-            We offer expert coaches across every major training discipline.
-            Whether you’re working toward performance goals, recovering from
-            injury, or starting your fitness journey, we’ll match you with the
-            right trainer and approach, all under one roof at Evolve.
+            With over 150 training specialties available, Evolve makes it easy
+            to find the right fit. Many members start with these six popular
+            focus areas.
           </h4>
         </div>
       </div>

@@ -1,7 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ArrowDown } from "lucide-react";
 
 function GrowYourBusinessSection() {
+  const scrollToAvailableOffices = () => {
+    const availableOfficesSection =
+      document.getElementById("available-offices");
+    if (availableOfficesSection) {
+      const elementPosition = availableOfficesSection.offsetTop;
+      const offset = 70; // 100px above the section
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <div>
       <div className="w-full pb-12 pt-[120px]">
@@ -17,11 +30,15 @@ function GrowYourBusinessSection() {
                 All-inclusive office spaces for wellness professionals inside
                 Canada’s top fitness facilities.
               </h3>
-              <Link to="/join-the-wait-list">
-                <button className="btnPrimary mt-4">
-                  View Available Spaces
-                </button>
-              </Link>
+              {/* <Link to="/join-the-wait-list"> */}
+              <button
+                className="btnPrimary mt-4 flex items-center gap-2"
+                onClick={scrollToAvailableOffices}
+              >
+                See available spaces below
+                <ArrowDown className="" size={20} />
+              </button>
+              {/* </Link> */}
               <h4 className="text-[#000] !text-[16px] mt-[2px] leading-[26px] max-md:hidden">
                 Limited spots available.{" "}
               </h4>

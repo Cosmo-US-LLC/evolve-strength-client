@@ -77,11 +77,12 @@ function WellnessServicesForEveryone() {
       <div className="relative z-20 w-full h-full max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-8">
         <div className="flex flex-col items-start gap-4 md:gap-6 w-full md:max-w-[423px] text-left py-12 md:py-0 mb-6 md:mb-0">
           <h2 className="text-[#fff] font-[700] leading-[39px] uppercase">
-            Wellness Services For Everyone.
+            Comprehensive Care Under One Roof
           </h2>
           <p className="description text-[#fff] font-[400]">
-            Take full advantage of a wide range of wellness services at every
-            Evolve location, available at an additional cost.
+            Skip the hassle of driving to different clinics. At every Evolve
+            location, you will find trusted specialists for massage to
+            osteopathy and everything in between.
           </p>
 
           <Link to="/explore?category=wellness">

@@ -35,7 +35,7 @@ function SomeThinkNew() {
 
           {/* Call-to-Action Button */}
           <a
-            href="https://join.evolvestrength.ca/edmonton-south-common-waitlist/"
+            href="/locations/edmonton-south-common-waitlist"
             target="_blank"
             rel="noopener noreferrer"
             className="btnPrimary"

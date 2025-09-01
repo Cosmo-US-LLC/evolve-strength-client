@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const faqContent = {
   heading: "FREQUENTLY ASKED QUESTIONS",
   subtext:
@@ -55,22 +57,22 @@ export const faqMain = {
     {
       question: "Where is the nearest Evolve Strength location?",
       answer:
-        "We have multiple locations across Western Canada. Click here to find the one closest to you.",
+        "We have multiple locations across Western Canada. <a href='/locations' class='text-[#4AB04A] cursor-pointer underline'>Click here</a> to find the one closest to you.",
     },
     {
       question: "How much are memberships?",
       answer:
-        "We offer a range of membership options to suit your lifestyle and goals. Prices vary depending on the location and membership type. Click here to explore your options.",
+        "We offer a range of membership options to suit your lifestyle and goals. Prices vary depending on the location and membership type. <a href='/locations' class='text-[#4AB04A] cursor-pointer underline'>Click here</a> to explore your options.",
     },
     {
       question: "Is personal training included in my membership?",
       answer:
-        "Personal training is available for an additional cost. We offer a free consultation to help match you with the right trainer. Click here to book your consultation.",
+        "Personal training is available for an additional cost. We offer a free consultation to help match you with the right trainer. <a href='/locations' class='text-[#4AB04A] cursor-pointer underline'>Click here</a> to book your consultation.",
     },
     {
       question: "Are recovery services included in my membership?",
       answer:
-        "Recovery services like massage therapy, chiropractic care, and physiotherapy are offered through our in-house providers and are billed separately. Learn more about recovery services here.",
+        "Recovery services like massage therapy, chiropractic care, and physiotherapy are offered through our in-house providers and are billed separately. Learn more about recovery services <a href='/locations' class='text-[#4AB04A] cursor-pointer underline'>here</a>.",
     },
     {
       question: "Can I use my membership at other Evolve locations?",
@@ -94,7 +96,7 @@ export const faqMain = {
     {
       question: "Do you offer a free trial or day pass?",
       answer:
-        "We do offer day passes though they need to be purchased. You can also book a free tour to visit the facility, meet our team, and see the space before joining. Click here to book your tour.",
+        "We do offer day passes though they need to be purchased. You can also book a free tour to visit the facility, meet our team, and see the space before joining. <a href='https://tour.evolvestrength.ca/tour-form ' class='text-[#4AB04A] cursor-pointer underline'>Click here</a> to book your tour.",
     },
     {
       question: "How old do I need to be to sign up?",
@@ -104,12 +106,12 @@ export const faqMain = {
     {
       question: "I have a question about my membership. Who can I contact?",
       answer:
-        "You can speak with a staff member at your local club or reach out through our Contact Us page.",
+        "You can speak with a staff member at your local club or reach out through our <a href='/contact-us' class='text-[#4AB04A] cursor-pointer underline'>Contact Us</a> page.",
     },
     {
       question: "Can I get towels at the gym?",
       answer:
-        "Yes, you can add towel service as an optional add-on when you sign up for your membership.",
+        "Yes, you can add towel service as an optional add-on when you <a href='https://subscription.evolvestrength.ca/ ' class='text-[#4AB04A] cursor-pointer underline'>sign up</a> for your membership.",
     },
     {
       question: "Do your health care providers direct bill?",
@@ -128,37 +130,45 @@ export const LocationFaq = {
   subtext:
     "Got questions? We’ve got answers. Whether you're curious about memberships, services, or what to expect on your first visit",
   faqs: [
-  {
-    "question": "What happens on my first visit to the gym?",
-    "answer": "From the moment you walk in, our friendly staff will guide you through the gym, answer any questions, and help you feel comfortable. Whether you're here for a free tour or ready to start working out, we’re here to support you!"
-  },
-  {
-    "question": "Do I need experience to work with a personal trainer?",
-    "answer": "No. You don't need any experience. Our certified trainers work with all fitness levels. They will build a plan based on your goals, like losing weight, getting stronger, or just feeling healthier. You can start at your own pace."
-  },
-  {
-    "question": "Is personal training included in my membership?",
-    "answer": "No. Personal training and health services are not included in the regular membership. But when you join, you get a free fitness assessment with a certified trainer. This helps you understand where to start and what to focus on."
-  },
-  {
-    "question": "Does Evolve Strength have lockers and showers?",
-    "answer": "Yes. All Evolve Strength locations have clean change rooms, secure lockers, and well-kept showers."
-  },
-  {
-    "question": "Do you offer towel service?",
-    "answer": "Yes. Towel service is available as an add-on when you sign up. It’s a convenient option if you don’t want to bring your own."
-  },
-  {
-    "question": "Can I use any Evolve Strength location with my membership?",
-    "answer": "Yes. Your membership gives you access to every Evolve Strength location. You can train wherever it works best for your schedule."
-  },
-  {
-    "question": "Is parking available?",
-    "answer": "Yes. Every location has on-site parking, so you don't have to worry about finding a spot before your workout."
-  },
-  {
-    "question": "Do you have Wi-Fi?",
-    "answer": "Yes. Free Wi-Fi is available throughout the gym, so you can stream music, follow workouts, or stay connected during your visit."
-  }
-]
+    {
+      question: "What happens on my first visit to the gym?",
+      answer:
+        "From the moment you walk in, our friendly staff will guide you through the gym, answer any questions, and help you feel comfortable. Whether you're here for a free tour or ready to start working out, we’re here to support you!",
+    },
+    {
+      question: "Do I need experience to work with a personal trainer?",
+      answer:
+        "No. You don't need any experience. Our certified trainers work with all fitness levels. They will build a plan based on your goals, like losing weight, getting stronger, or just feeling healthier. You can start at your own pace.",
+    },
+    {
+      question: "Is personal training included in my membership?",
+      answer:
+        "No. Personal training and health services are not included in the regular membership. But when you join, you get a free fitness assessment with a certified trainer. This helps you understand where to start and what to focus on.",
+    },
+    {
+      question: "Does Evolve Strength have lockers and showers?",
+      answer:
+        "Yes. All Evolve Strength locations have clean change rooms, secure lockers, and well-kept showers.",
+    },
+    {
+      question: "Do you offer towel service?",
+      answer:
+        "Yes. Towel service is available as an add-on when you sign up. It’s a convenient option if you don’t want to bring your own.",
+    },
+    {
+      question: "Can I use any Evolve Strength location with my membership?",
+      answer:
+        "Yes. Your membership gives you access to every Evolve Strength location. You can train wherever it works best for your schedule.",
+    },
+    {
+      question: "Is parking available?",
+      answer:
+        "Yes. Every location has on-site parking, so you don't have to worry about finding a spot before your workout.",
+    },
+    {
+      question: "Do you have Wi-Fi?",
+      answer:
+        "Yes. Free Wi-Fi is available throughout the gym, so you can stream music, follow workouts, or stay connected during your visit.",
+    },
+  ],
 };

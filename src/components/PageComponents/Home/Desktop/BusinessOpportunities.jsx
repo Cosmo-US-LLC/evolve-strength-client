@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const opportunities = [
   {
-    title: "Leasing Opportunities",
+    title: "Work Spaces",
     description:
-      "Set up your practice in our vibrant wellness hubs, with flexible, spacious spaces for professionals.",
+      "Set up your practice in our vibrant wellness hubs, with flexible, spacious spaces for health professionals.",
     image:
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/BusinessOpportunities/leasing_opportunities.webp",
     link: "/spaces",

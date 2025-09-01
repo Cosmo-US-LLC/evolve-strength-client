@@ -1,9 +1,22 @@
 import EdmontonSouthCommonForm from "@/components/Form/EdmontonSouthCommonForm";
+import EvolveStrengthBlackLogo from "@/assets/images/home/navbar/Evolve-logo-dark.svg";
+import { Link } from "react-router-dom";
 import React from "react";
 
 function EdmontonSouthCommonWaitlist() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
+      <div className="relative pb-[60px] overflow-hidden">
+        <div className="fixed top-0 left-0 w-full z-30 bg-transparent backdrop-blur-2xl justify-center items-center mb-8 border-b border-[#D4D4D4] py-3 px-4 flex">
+          <Link to="/" className="flex items-center">
+            <img
+              src={EvolveStrengthBlackLogo}
+              alt="Evolve Strength Logo"
+              className="w-[176px]"
+            />
+          </Link>
+        </div>
+      </div>
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">
         {/* Desktop Video */}
