@@ -37,9 +37,10 @@ const FrequentlyAskedQuestions = ({ heading, subtext, faqs }) => {
               </AccordionTrigger>
 
               <AccordionContent className="px-6 pb-5 text-left">
-                <h4 className="text-[#000] font-kanit leading-normal">
-                  {item.answer}
-                </h4>
+                <h4
+                  className="text-[#000] font-kanit leading-normal"
+                  dangerouslySetInnerHTML={{ __html: item.answer }}
+                />
               </AccordionContent>
             </AccordionItem>
           ))}

@@ -36,7 +36,7 @@ function Navbar() {
     { to: "/personal-training", label: "Personal Training" },
     { to: "/wellness", label: "Wellness Services" },
     { to: "/locations", label: "Our Locations" },
-    { to: "/spaces", label: "Spaces" },
+    { to: "/spaces", label: "Work Spaces" },
   ];
 
   const handleMobileLinkClick = () => {

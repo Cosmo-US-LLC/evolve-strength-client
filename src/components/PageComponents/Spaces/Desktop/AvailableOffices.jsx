@@ -158,7 +158,7 @@ const AvailableOffices = () => {
   }, [emblaApiMobile, mobileFilteredOffices.length]);
 
   return (
-    <div>
+    <div id="available-offices">
       <div className="py-12 max-md:hidden">
         <div className="w-[100%] max-w-[1280px] px-8 mx-auto flex flex-col gap-10">
           <div className="flex flex-wrap justify-around gap-2 rounded-[6px] border p-2">

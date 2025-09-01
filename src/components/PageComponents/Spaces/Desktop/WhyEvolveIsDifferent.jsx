@@ -14,7 +14,7 @@ const cardData = [
     description:
       "Start or grow your business without the usual stress. You don’t need to hire front desk staff or cleaners. We handle shared areas, gym maintenance, and all the facility details. You just show up and work with your clients.",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/WhyEvolveIsDifferent/slide1.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/WhyEvolveIsDifferent/Worry-Free.webp",
   },
   {
     number: "02",
@@ -22,7 +22,7 @@ const cardData = [
     description:
       "No surprise bills: one flat monthly payment covers utilities, gym access, shared amenities, and more. You won't have to manage multiple service vendors.",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/WhyEvolveIsDifferent/slide2.webp",
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/WhyEvolveIsDifferent/All-Inclusive.webp",
   },
   {
     number: "03",

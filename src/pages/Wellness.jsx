@@ -9,18 +9,20 @@ import WellnessServicesForEveryone from "@/components/PageComponents/Wellness/De
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import MetaTags from "@/components/Metatags/Meta";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import MoreWaysToRecover from "@/components/PageComponents/Wellness/Desktop/MoreWaysToRecover";
 
 function Home() {
   return (
     <>
-    <MetaTags
+      <MetaTags
         title="Evolve Strength Wellness Services | Affordable, Expert Care"
         description="Discover expert-led wellness services at Evolve Strength, including massage, chiropractic care, acupuncture, and more, all under one roof, at prices that fit your budget."
       />
       <WellnessHero />
       <WellnessJourneySteps />
-      <WellnessPricingRoom />
       <WellnessServicesForEveryone />
+      <WellnessPricingRoom />
+      <MoreWaysToRecover />
       <SteamAndSaunaRoom />
       <YogaAndRecoveryRoom />
       <FrequentlyAskedQuestions {...faqContent} />

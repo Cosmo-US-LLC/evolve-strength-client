@@ -39,6 +39,7 @@ import VancouverPost from "./pages/LocationsPage/VancouverPost";
 import TrainerForm from "./components/Form/TrainersForm";
 import AllLocations from "./pages/LocationsPage/AllLocations";
 import EdmontonSouthCommon from "./pages/LocationsPage/EdmontonSouthCommon";
+import WellnessInquiryForm from "./components/Form/WellnessInquiryForm";
 
 function App() {
   return (
@@ -100,6 +101,7 @@ function App() {
           path="/your-fitness-future"
           element={<YourFitnessFutureForm />}
         />
+        <Route path="/join-wellness" element={<WellnessInquiryForm />} />
         <Route
           path="/corporate-membership-wizard"
           element={<CorporateMembershipWizard />}
