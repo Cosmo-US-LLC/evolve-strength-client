@@ -117,13 +117,13 @@ function Footer() {
                   >
                     Corporate Membership
                   </Link>
-                  <Link
+                  {/* <Link
                     smooth
                     to="/membership-benefits"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Membership Benefits
-                  </Link>
+                  </Link> */}
                   {/* <Link
                     smooth
                     to="/join-the-Movement"

@@ -40,21 +40,27 @@ const ConsultationWithPersonalTrainers = () => {
 
         <div className="w-full md:w-[50%]">
           <h2 className="text-[#1C1C1C] uppercase mb-4 md:mb-6">
-            PERSONAL TRAINERS FOR EVERYTHING
+            Personal Trainers for Everything
           </h2>
           <h4 className="des text-[#000] mb-8 max-w-xl leading-[26px]">
-            Wherever you’re starting and whatever your goal, there’s someone at
-            Evolve who understands your journey and knows how to get results.
-            Whether you’re aiming to lose weight, build strength, recover from
-            an injury, reduce stress, improve mobility or train for a specific
-            sport or event, Evolve has the right coach to guide you.
+            At most gyms, your options are limited. At Evolve, you’ll find over
+            200 independent coaches with unique specialties, styles, and
+            approaches. Whether your goal is weight loss, strength, recovery,
+            stress management, mobility, or sport-specific training, there’s
+            someone here who knows how to help.
           </h4>
 
-          <Link to="https://subscription.evolvestrength.ca">
-            <button className="btnPrimary mb-8 md:mb-10">
-              Join Now for a Free Assessment
-            </button>
-          </Link>
+          <div className="flex gap-4 md:gap-6 mb-8 md:mb-8">
+            <Link to="https://subscription.evolvestrength.ca">
+              <button className="btnPrimary">Join Evolve</button>
+            </Link>
+
+            <Link to="/explore?category=trainers">
+              <button className="btnSecondary !text-[#000000] !bg-[#fff] !border !border-[#000000] hover:!bg-[#000000] hover:!text-white">
+                Explore trainers
+              </button>
+            </Link>
+          </div>
 
           <div className="flex gap-8 md:gap-12 py-2 md:py-0">
             <div>

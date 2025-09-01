@@ -12,7 +12,7 @@ function YogaAndRecoveryRoom() {
           </h2>
           <p className="text-[#FFFFFF] description !font-[400] max-w-[542px] leading-[24px] mb-6">
             Improve flexibility, posture, and stress relief with guided yoga
-            support. Offered in quiet, dedicated spaces.
+            sessions in calm, dedicated spaces.
           </p>
           <div className="flex gap-6">
             <Link to="/explore?category=wellness">

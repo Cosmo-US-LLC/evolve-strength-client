@@ -18,11 +18,12 @@ function Spaces() {
       />
       <div className="">
         <GrowYourBusinessSection />
-        <WhyEvolveIsDifferent />
-        <WhoOurSpacesFor />
-        <PremiumAmenities /> 
-        <WhyProfessionalsChooseUs />
         <AvailableOffices />
+
+        <WhoOurSpacesFor />
+        <WhyEvolveIsDifferent />
+        <PremiumAmenities />
+        <WhyProfessionalsChooseUs />
         <EvolveEcosystem />
       </div>
       {/* <div className="md:hidden">Home Mobile</div> */}

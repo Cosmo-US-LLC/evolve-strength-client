@@ -16,16 +16,15 @@ function PersonalTrainingHero() {
           </h3>
           <div className="flex gap-3 mb-5">
             <Link to="https://subscription.evolvestrength.ca/">
-              <button className="btnPrimary">Join Now</button>
+              <button className="btnPrimary">Join Evolve</button>
             </Link>
             <Link to="/explore?category=trainers">
-              <button className="btnSecondary"> Explore Trainers</button>
+              <button className="btnSecondary">Explore trainers</button>
             </Link>
           </div>
           <Link to="https://subscription.evolvestrength.ca/">
-            <button className="description underline !font-[Kanit] text-[#FFFFFF]  font-bold hover:cursor-pointer ">
-              Join now for a free assessment with a certified trainer. Personal
-              training is available for an additional fee.
+            <button className="description underline leading-[18px] !font-[Kanit] text-[#FFFFFF]  font-bold hover:cursor-pointer ">
+              Personal training is available for an additional fee.
             </button>
           </Link>
         </div>

@@ -234,7 +234,7 @@ export default function EvolveSpacesForm() {
             <img
               src={locationImg}
               alt="Evolve Strength Location"
-              className="object-cover w-full h-[850px]"
+              className="object-cover w-full h-[730px]"
             />
           </div>
         </div>
@@ -254,12 +254,12 @@ export default function EvolveSpacesForm() {
           <div className="bg-[#FCFCFC] rounded-[10px] border w-full overflow-hidden">
             <div className="bg-[#000] text-white text-center py-4 px-6">
               <h3 className="mt-[4px] ">JOIN THE WAITLIST</h3>
-              <p className="text-[18px] leading-[19px] !font-[Kanit] font-[400]">
+              {/* <p className="text-[18px] leading-[19px] !font-[Kanit] font-[400]">
                 <span className="text-[#2DDE28] text-[18px] leading-[19px] font-[400]">
                   Over 120 professionals
                 </span>{" "}
                 have applied. Only a few spots left this month
-              </p>
+              </p> */}
             </div>
             {
               <form

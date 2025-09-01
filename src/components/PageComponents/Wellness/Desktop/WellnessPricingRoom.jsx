@@ -11,10 +11,10 @@ function WellnessPricingRoom() {
             Premium Wellness, Affordable Pricing
           </h2>
           <p className="text-[#FFFFFF] description !font-[400] max-w-[542px] leading-[24px] mb-6">
-            At Evolve Strength, we provide premium wellness services at prices
-            that fit your budget. Our personalized approach supports your body,
-            mind, and spirit, helping you achieve lasting results and become
-            your best self.
+            Our wellness services are open to everyone. You do not need to join
+            the gym to book a session. Independent specialists set fair and
+            transparent rates, so you get expert care at a price that makes
+            sense.
           </p>
           <div className="flex gap-6">
             <Link to="/explore?category=wellness">

@@ -90,7 +90,7 @@ function EdmontonSouthCommonForm() {
   };
 
   return (
-    <div className="bg-black/40 border-2 border-[#fff] rounded-lg p-8 w-full">
+    <div className="bg-black/40 border-2 border-[#fff]  rounded-lg p-8 w-full">
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* First Row - Two Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
