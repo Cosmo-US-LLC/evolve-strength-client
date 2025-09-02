@@ -6,6 +6,54 @@ import { Link } from "react-router-dom";
 import { professionalMembershipPremiumAmenities } from "../../../../constants/professionalServicesImages.js";
 
 const LocationsSpacious = () => {
+  // Get location from URL path
+  const currentPath = window.location.pathname;
+  let locationKey = "calgary-seton"; // default
+
+  if (currentPath.includes("vancouver-post")) {
+    locationKey = "vancouver-post";
+  } else if (currentPath.includes("burnaby-brentwood")) {
+    locationKey = "burnaby-brentwood";
+  } else if (currentPath.includes("calgary-seton")) {
+    locationKey = "calgary-seton";
+  } else if (currentPath.includes("calgary-royal-oak")) {
+    locationKey = "calgary-royal-oak";
+  } else if (currentPath.includes("calgary-sunridge")) {
+    locationKey = "calgary-sunridge";
+  } else if (currentPath.includes("edmonton-south")) {
+    locationKey = "edmonton-south";
+  } else if (currentPath.includes("edmonton-downtown")) {
+    locationKey = "edmonton-downtown";
+  } else if (currentPath.includes("edmonton-north")) {
+    locationKey = "edmonton-north";
+  }
+
+  // Location-specific tour URLs
+  const getTourUrl = (locationKey) => {
+    const tourUrls = {
+      "vancouver-post":
+        "https://tour.evolvestrength.ca/tour-form/?location=40327",
+      "burnaby-brentwood":
+        "https://tour.evolvestrength.ca/tour-form/?location=40248",
+      "calgary-seton":
+        "https://tour.evolvestrength.ca/tour-form/?location=40097",
+      "calgary-royal-oak":
+        "https://tour.evolvestrength.ca/tour-form/?location=40142",
+      "calgary-sunridge":
+        "https://tour.evolvestrength.ca/tour-form/?location=06973",
+      "edmonton-south":
+        "https://tour.evolvestrength.ca/tour-form/?location=06962",
+      "edmonton-downtown":
+        "https://tour.evolvestrength.ca/tour-form/?location=06967",
+      "edmonton-north":
+        "https://tour.evolvestrength.ca/tour-form/?location=06964",
+    };
+
+    return tourUrls[locationKey] || "https://tour.evolvestrength.ca/tour-form";
+  };
+
+  const tourUrl = getTourUrl(locationKey);
+
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       containScroll: "keepSnaps",
@@ -51,7 +99,7 @@ const LocationsSpacious = () => {
             Canada. Every area is designed with purpose to support your fitness
             and wellness goals.
           </h4>
-          <Link to="https://tour.evolvestrength.ca/tour-form ">
+          <Link to={tourUrl}>
             <button className="btnPrimary">BOOK A FREE TOUR</button>
           </Link>
         </div>

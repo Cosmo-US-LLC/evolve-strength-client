@@ -43,6 +43,24 @@ const LocationSeeITYourself = () => {
   const desktopCarouselRef = useRef(null);
   const mobileCarouselRef = useRef(null);
 
+  // Location-specific tour URLs
+  const getTourUrl = (tabKey) => {
+    const tourUrls = {
+      post: "https://tour.evolvestrength.ca/tour-form/?location=40327", // Vancouver Post
+      brentwood: "https://tour.evolvestrength.ca/tour-form/?location=40248", // Burnaby Brentwood
+      seton: "https://tour.evolvestrength.ca/tour-form/?location=40097", // Calgary Seton
+      royaloak: "https://tour.evolvestrength.ca/tour-form/?location=40142", // Calgary Royal Oak
+      sunridge: "https://tour.evolvestrength.ca/tour-form/?location=06973", // Calgary Sunridge
+      south: "https://tour.evolvestrength.ca/tour-form/?location=06962", // Edmonton South
+      downtown: "https://tour.evolvestrength.ca/tour-form/?location=06967", // Edmonton Downtown
+      north: "https://tour.evolvestrength.ca/tour-form/?location=06964", // Edmonton North
+    };
+
+    return tourUrls[tabKey] || "https://tour.evolvestrength.ca/tour-form";
+  };
+
+  const currentTourUrl = getTourUrl(activeTab);
+
   const scrollTabsLeft = () => {
     if (tabBarRef.current) {
       const scrollAmount = tabBarRef.current.offsetWidth * 0.8; // 80% of container width
@@ -214,7 +232,7 @@ const LocationSeeITYourself = () => {
         </TabsContent>
       </Tabs>
       <div className="flex justify-center mt-6 max-md:hidden">
-        <Link to="https://tour.evolvestrength.ca/tour-form ">
+        <Link to={currentTourUrl}>
           <button className="btnPrimary">BOOK A FREE TOUR</button>
         </Link>
       </div>
@@ -299,7 +317,7 @@ const LocationSeeITYourself = () => {
           </TabsContent>
         </Tabs>
         <div className="flex justify-center mt-6 px-[16px] py-[17px]">
-          <Link to="https://tour.evolvestrength.ca/tour-form ">
+          <Link to={currentTourUrl}>
             <button className="btnPrimary">BOOK A FREE TOUR</button>
           </Link>
         </div>

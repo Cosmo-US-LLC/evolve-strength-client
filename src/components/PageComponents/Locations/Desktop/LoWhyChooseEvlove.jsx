@@ -53,6 +53,56 @@ const LoWhyChooseEvolve = () => {
     [Autoplay({ delay: 3000, stopOnInteraction: false })]
   );
 
+  // Get location from URL path
+  const currentPath = window.location.pathname;
+  let locationKey = "calgary-seton"; // default
+
+  if (currentPath.includes("vancouver-post")) {
+    locationKey = "vancouver-post";
+  } else if (currentPath.includes("burnaby-brentwood")) {
+    locationKey = "burnaby-brentwood";
+  } else if (currentPath.includes("calgary-seton")) {
+    locationKey = "calgary-seton";
+  } else if (currentPath.includes("calgary-royal-oak")) {
+    locationKey = "calgary-royal-oak";
+  } else if (currentPath.includes("calgary-sunridge")) {
+    locationKey = "calgary-sunridge";
+  } else if (currentPath.includes("edmonton-south")) {
+    locationKey = "edmonton-south";
+  } else if (currentPath.includes("edmonton-downtown")) {
+    locationKey = "edmonton-downtown";
+  } else if (currentPath.includes("edmonton-north")) {
+    locationKey = "edmonton-north";
+  }
+
+  // Location-specific subscription URLs
+  const getSubscriptionUrl = (locationKey) => {
+    const subscriptionUrls = {
+      "vancouver-post":
+        "https://subscription.evolvestrength.ca/membership-plans?location=40327",
+      "burnaby-brentwood":
+        "https://subscription.evolvestrength.ca/membership-plans?location=40248",
+      "calgary-seton":
+        "https://subscription.evolvestrength.ca/membership-plans?location=40097",
+      "calgary-royal-oak":
+        "https://subscription.evolvestrength.ca/membership-plans?location=40142",
+      "calgary-sunridge":
+        "https://subscription.evolvestrength.ca/membership-plans?location=06973",
+      "edmonton-south":
+        "https://subscription.evolvestrength.ca/membership-plans?location=06962",
+      "edmonton-downtown":
+        "https://subscription.evolvestrength.ca/membership-plans?location=06967",
+      "edmonton-north":
+        "https://subscription.evolvestrength.ca/membership-plans?location=06964",
+    };
+
+    return (
+      subscriptionUrls[locationKey] || "https://subscription.evolvestrength.ca/"
+    );
+  };
+
+  const subscriptionUrl = getSubscriptionUrl(locationKey);
+
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
   return (
@@ -66,7 +116,7 @@ const LoWhyChooseEvolve = () => {
             integrated health services, and top-tier facilities at a price you
             can afford.
           </h4>
-          <Link to="https://subscription.evolvestrength.ca/">
+          <Link to={subscriptionUrl}>
             <button className="btnPrimary">Join Now</button>
           </Link>
         </div>

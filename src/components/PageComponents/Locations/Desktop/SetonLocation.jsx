@@ -30,6 +30,32 @@ function SetonLocation() {
   const locationData =
     LOCATIONS_DATA[locationKey] || LOCATIONS_DATA["calgary-seton"];
 
+  // Location-specific tour URLs
+  const getTourUrl = (locationKey) => {
+    const tourUrls = {
+      "vancouver-post":
+        "https://tour.evolvestrength.ca/tour-form/?location=40327",
+      "burnaby-brentwood":
+        "https://tour.evolvestrength.ca/tour-form/?location=40248",
+      "calgary-seton":
+        "https://tour.evolvestrength.ca/tour-form/?location=40097",
+      "calgary-royal-oak":
+        "https://tour.evolvestrength.ca/tour-form/?location=40142",
+      "calgary-sunridge":
+        "https://tour.evolvestrength.ca/tour-form/?location=06973",
+      "edmonton-south":
+        "https://tour.evolvestrength.ca/tour-form/?location=06962",
+      "edmonton-downtown":
+        "https://tour.evolvestrength.ca/tour-form/?location=06967",
+      "edmonton-north":
+        "https://tour.evolvestrength.ca/tour-form/?location=06964",
+    };
+
+    return tourUrls[locationKey] || "https://tour.evolvestrength.ca/tour-form";
+  };
+
+  const tourUrl = getTourUrl(locationKey);
+
   const [isTimingsExpanded, setIsTimingsExpanded] = useState(false);
 
   return (
@@ -63,9 +89,9 @@ function SetonLocation() {
               </p>
             </div>
             <div className="flex flex-start pt-5 md:pt-0">
-               <Link to="https://tour.evolvestrength.ca/tour-form ">
-                          <button className="btnPrimary">BOOK A FREE TOUR</button>
-                          </Link>
+              <Link to={tourUrl}>
+                <button className="btnPrimary">BOOK A FREE TOUR</button>
+              </Link>
             </div>
           </div>
         </div>

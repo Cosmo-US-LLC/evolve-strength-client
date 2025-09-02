@@ -21,7 +21,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 function EdmontonNorth() {
   return (
     <>
-    <MetaTags
+      <MetaTags
         title="Evolve Strength North | Edmonton’s Best Fitness Gym"
         description="Join the best fitness club in Edmonton North with top gym equipment, strength training, personal trainers, and affordable memberships."
       />
