@@ -67,7 +67,7 @@ function LocationPricing() {
                   </li>
                 ))}
               </ul>
-              <Link to="https://subscription.evolvestrength.ca/">
+              <Link to={pricingData.subscriptionUrl}>
                 <button className="w-full btnPrimary">{plan.buttonText}</button>
               </Link>
             </div>

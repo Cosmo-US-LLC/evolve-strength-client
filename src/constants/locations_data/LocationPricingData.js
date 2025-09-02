@@ -4,6 +4,8 @@ export const LOCATION_PRICING = {
     sectionTitle: "Simple Pricing, No Surprises",
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
+    subscriptionUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=40097",
     plans: [
       {
         title: "1 Year Contract",
@@ -43,6 +45,8 @@ export const LOCATION_PRICING = {
     sectionTitle: "Simple Pricing, No Surprises",
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
+    subscriptionUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=40142",
     plans: [
       {
         title: "1 Year Contract",
@@ -82,6 +86,8 @@ export const LOCATION_PRICING = {
     sectionTitle: "Simple Pricing, No Surprises",
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
+    subscriptionUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=06973",
     plans: [
       {
         title: "1 Year Contract",
@@ -121,6 +127,8 @@ export const LOCATION_PRICING = {
     sectionTitle: "Simple Pricing, No Surprises",
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
+    subscriptionUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=06962",
     plans: [
       {
         title: "1 Year Contract",
@@ -160,6 +168,8 @@ export const LOCATION_PRICING = {
     sectionTitle: "Simple Pricing, No Surprises",
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
+    subscriptionUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=06964",
     plans: [
       {
         title: "1 Year Contract",
@@ -199,6 +209,8 @@ export const LOCATION_PRICING = {
     sectionTitle: "Simple Pricing, No Surprises",
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
+    subscriptionUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=06967",
     plans: [
       {
         title: "1 Year Contract",
@@ -238,6 +250,8 @@ export const LOCATION_PRICING = {
     sectionTitle: "Simple Pricing, No Surprises",
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
+    subscriptionUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=40248",
     plans: [
       {
         title: "1 Year Contract",
@@ -277,6 +291,8 @@ export const LOCATION_PRICING = {
     sectionTitle: "Simple Pricing, No Surprises",
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
+    subscriptionUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=40327",
     plans: [
       {
         title: "1 Year Contract",
