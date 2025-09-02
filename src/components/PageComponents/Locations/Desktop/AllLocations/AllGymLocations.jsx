@@ -74,7 +74,7 @@ function AllGymLocations() {
       id: 7,
       name: "Edmonton South",
       image:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/all_locations/g_ed_south.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/all_locations/edmonton_south.webp",
       address: "4825 89 St NW Edmonton, Alberta, T6E 5K1",
       phone: "+1 (780) 690-4252",
       directionsUrl: "https://maps.app.goo.gl/BgEi7NHqtePwbzHR8",
@@ -85,7 +85,7 @@ function AllGymLocations() {
       id: 8,
       name: "Edmonton North",
       image:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/all_locations/g_ed_north.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/all_locations/edmonton_north.webp",
       address: "13457 149 St Edmonton, Alberta, T5L 2T3",
       phone: "+1 (780) 784-7870",
       directionsUrl: "https://maps.app.goo.gl/CmMoacbKjrLrVqSi9",
