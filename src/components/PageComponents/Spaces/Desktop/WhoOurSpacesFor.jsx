@@ -45,7 +45,7 @@ const WhoOurSpacesFor = () => {
     <section className="py-12">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col items-start gap-8">
         <div className="flex flex-col gap-4">
-          <h2 className="text-[#000] uppercase">Who Our Spaces Are For</h2>
+          <h2 className="text-[#000] uppercase">Spaces Built for Wellness Professionals</h2>
           <h4 className="text-[#000] md:w-[719px] leading-[26px] font-[400]">
             Whether you're launching your first office or expanding to a new
             location, our spaces are <br className="hidden md:block" /> designed

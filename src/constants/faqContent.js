@@ -67,12 +67,12 @@ export const faqMain = {
     {
       question: "Is personal training included in my membership?",
       answer:
-        "Personal training is available for an additional cost. We offer a free consultation to help match you with the right trainer. <a href='/locations' class='text-[#4AB04A] cursor-pointer underline'>Click here</a> to book your consultation.",
+      "Personal training is not included in the membership and is available for an additional fee. However, all new Evolve members receive a one-on-one assessment with a certified trainer after <a href='https://subscription.evolvestrength.ca/' class='text-[#4AB04A] cursor-pointer underline'>signing up</a>.",
     },
     {
       question: "Are recovery services included in my membership?",
       answer:
-        "Recovery services like massage therapy, chiropractic care, and physiotherapy are offered through our in-house providers and are billed separately. Learn more about recovery services <a href='/locations' class='text-[#4AB04A] cursor-pointer underline'>here</a>.",
+        "Recovery services like massage therapy, chiropractic care, and physiotherapy are offered through our in-house providers and are billed separately. Learn more about recovery services <a href='/wellness' class='text-[#4AB04A] cursor-pointer underline'>here</a>.",
     },
     {
       question: "Can I use my membership at other Evolve locations?",
@@ -115,7 +115,7 @@ export const faqMain = {
     },
     {
       question: "Do your health care providers direct bill?",
-      answer: "Yes, almost all of our providers direct bill",
+      answer: "Yes, almost all of our providers direct bill.",
     },
     {
       question: "Can I bring my child with me while I work out?",
