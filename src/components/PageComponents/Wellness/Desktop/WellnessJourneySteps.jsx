@@ -1,5 +1,5 @@
 import React from "react";
-import { Search, CalendarDays, Dumbbell, Smile } from "lucide-react";
+import { Search, CalendarCheck2, PersonStanding, Smile } from "lucide-react";
 
 const steps = [
   {
@@ -16,7 +16,7 @@ const steps = [
       "Get the care and guidance you need directly from your chosen specialist.",
     image:
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessJourneySteps/step_2.webp",
-    icon: <CalendarDays className="w-5 h-5 text-white" />,
+    icon: <CalendarCheck2 className="w-5 h-5 text-white" />,
   },
   {
     title: "Step 3: Begin Your Plan",
@@ -24,7 +24,7 @@ const steps = [
       "Follow a personalized approach designed to support your health and well-being.",
     image:
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessJourneySteps/step_3.webp",
-    icon: <Dumbbell className="w-5 h-5 text-white" />,
+    icon: <PersonStanding className="w-5 h-5 text-white" />,
   },
   {
     title: "Step 4: Feel the Difference",

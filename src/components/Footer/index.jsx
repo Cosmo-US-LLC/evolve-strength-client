@@ -238,7 +238,7 @@ function Footer() {
               <Instagram className="w-6 md:w-7 h-6 md:h-7 " />
             </a>
 
-            <div className="flex flex-row    ">
+            <div className="flex flex-row">
               <div>
                 <p className="footer_quick_links uppercase text-[14px] leading-[19.6px]  text-[#6F6D66]">
                   Email
