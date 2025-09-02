@@ -4,60 +4,84 @@ import { Link } from "react-router-dom";
 
 const LOCATION_HERO_DATA = {
   "calgary-seton": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/seton.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/setonMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_seten.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_seten_mob.webp",
     locationTitle: "SETON",
     city: "CALGARY",
     fullTitle: "SETON's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=40097",
   },
   "calgary-royal-oak": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/royal-oak.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/royal-oakMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_royal_oak.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_royal_oak_mob.webp",
     locationTitle: "ROYAL OAK",
     city: "CALGARY",
     fullTitle: "ROYAL OAK's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=40142",
   },
   "calgary-sunridge": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/sunridge.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/sunridgeMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/sunridge.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/sunridgeMob.webp",
     locationTitle: "SUNRIDGE",
     city: "CALGARY",
     fullTitle: "SUNRIDGE's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=06973",
   },
   "edmonton-south": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/south.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/southMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/south.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/southMob.webp",
     locationTitle: "SOUTH",
     city: "EDMONTON",
     fullTitle: "Edmonton South's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=06962",
   },
   "edmonton-north": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/north.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/northMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/north.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/northMob.webp",
     locationTitle: "NORTH",
     city: "EDMONTON",
     fullTitle: "Edmonton North's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=06964",
   },
   "edmonton-downtown": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/downtown.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/downtownMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_downtown.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_downtown_mob.webp",
     locationTitle: "DOWNTOWN",
     city: "EDMONTON",
     fullTitle: "DOWNTOWN's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=06967",
   },
   "burnaby-brentwood": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/brentwood.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/brentwoodMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_brentwood.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_brentwood_mob.webp",
     locationTitle: "BRENTWOOD",
     city: "BURNABY",
     fullTitle: "BRENTWOOD's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=40248",
   },
   "vancouver-post": {
-    desktop: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/post.webp",
-    mobile: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/postMob.webp",
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_post.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_post_mob.webp",
     locationTitle: "THE POST",
     city: "VANCOUVER",
     fullTitle: "Vancouver's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=40327",
   },
 };
 
@@ -115,7 +139,7 @@ function LocationHero() {
         </h3>
         <div className="flex flex-col md:flex-row gap-4">
           <div className="w-[300px]">
-            <Link to="https://tour.evolvestrength.ca/tour-form ">
+            <Link to={dynamicData.tourUrl}>
               <button className="btnPrimary">BOOK A FREE TOUR</button>
             </Link>
           </div>

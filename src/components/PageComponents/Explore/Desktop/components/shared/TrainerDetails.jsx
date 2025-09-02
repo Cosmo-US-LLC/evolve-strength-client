@@ -6,6 +6,43 @@ function TrainerDetails({ trainer }) {
     return <div>Our amazing team of trainers will be announced soon!</div>;
   }
 
+  // Debug logging to see what's being passed
+  console.log("TrainerDetails - trainer object:", trainer);
+  console.log("TrainerDetails - trainer.location:", trainer.location);
+
+  // Location-specific subscription URLs
+  const getSubscriptionUrl = (location) => {
+    const locationUrls = {
+      "VANCOUVER POST":
+        "https://subscription.evolvestrength.ca/membership-plans?location=40327",
+      "BURNABY BRENTWOOD":
+        "https://subscription.evolvestrength.ca/membership-plans?location=40248",
+      "CALGARY SETON":
+        "https://subscription.evolvestrength.ca/membership-plans?location=40097",
+      "CALGARY ROYAL OAK":
+        "https://subscription.evolvestrength.ca/membership-plans?location=40142",
+      "CALGARY SUNRIDGE":
+        "https://subscription.evolvestrength.ca/membership-plans?location=06973",
+      "EDMONTON SOUTH":
+        "https://subscription.evolvestrength.ca/membership-plans?location=06962",
+      "EDMONTON DOWNTOWN":
+        "https://subscription.evolvestrength.ca/membership-plans?location=06967",
+      "EDMONTON NORTH":
+        "https://subscription.evolvestrength.ca/membership-plans?location=06964",
+    };
+
+    console.log("getSubscriptionUrl - input location:", location);
+    console.log(
+      "getSubscriptionUrl - available locations:",
+      Object.keys(locationUrls)
+    );
+    console.log("getSubscriptionUrl - matched URL:", locationUrls[location]);
+
+    return locationUrls[location] || "https://subscription.evolvestrength.ca";
+  };
+
+  const subscriptionUrl = getSubscriptionUrl(trainer.location);
+
   return (
     <div className="flex flex-col gap-4 md:gap-6 bg-[#FFF] rounded-[10px] p-4 md:p-6 border-2 border-[#CCCCCC] h-full">
       <div className="max-w-full flex flex-col">
@@ -49,10 +86,10 @@ function TrainerDetails({ trainer }) {
           </div>
 
           <div className="w-[50%] md:w-[20%] flex justify-end">
-            <Link to = "https://subscription.evolvestrength.ca/">
-            <button className="btnPrimary w-full md:w-auto text-sm md:text-base py-2 md:py-3">
-              Join Now
-            </button>
+            <Link to={subscriptionUrl}>
+              <button className="btnPrimary w-full md:w-auto text-sm md:text-base py-2 md:py-3">
+                Join Now
+              </button>
             </Link>
           </div>
         </div>
