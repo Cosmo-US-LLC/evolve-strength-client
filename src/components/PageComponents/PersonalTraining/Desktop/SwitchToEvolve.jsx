@@ -24,13 +24,15 @@ const SwitchToEvolve = () => {
           </div>
 
           <div className="w-full flex justify-center items-center">
-            <div className="relative z-10 w-full max-w-[750px] bg-[#0000006E] backdrop-blur-[25px] rounded-[10px] flex flex-col md:flex-row justify-center gap-4 md:gap-2 items-center px-2 md:px-6 py-4 text-[#fff]">
-              <span className="description text-[#fff] w-[72%]">
+            <div className="relative z-10 w-full max-w-[750px] bg-[#0000006E] backdrop-blur-[25px] rounded-[10px] flex flex-col md:flex-row justify-center gap-4 md:gap-2 items-center px-3 md:px-6 py-4 text-[#fff]">
+              <span className="description text-[#fff] w-full md:w-[72%]">
                 Train with the Best.
               </span>
               <div className="flex flex-row w-full gap-2 md:gap-4">
                 <Link to="/explore?category=trainers">
-                  <button className="btnPrimary ml-3 ">Find a Trainer</button>
+                  <button className="btnPrimary ml-0 md:ml-3 ">
+                    Find a Trainer
+                  </button>
                 </Link>
                 <Link to="/join-as-trainer">
                   <button className="btnSecondary">Become a Trainer</button>
