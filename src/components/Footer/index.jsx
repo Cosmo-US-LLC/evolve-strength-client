@@ -92,7 +92,11 @@ function Footer() {
 
               <div className=" flex flex-col md:flex-row py-2 md:py-8">
                 <div className="space-y-4 md:space-y-3 w-full flex flex-col md:max-w-[240px]">
-                  <Link smooth to="" className="text-[#B2B1AA] !text-[22px] !font-[600] pb-2 w-full border-b-2 border-[#2b2b2b] md:hidden">
+                  <Link
+                    smooth
+                    to=""
+                    className="text-[#B2B1AA] !text-[22px] !font-[600] pb-2 w-full border-b-2 border-[#2b2b2b] md:hidden"
+                  >
                     COMPANY
                   </Link>
                   <Link
@@ -122,8 +126,10 @@ function Footer() {
                   >
                     Contact Us
                   </Link>
-
-                  <Link to="https://tour.evolvestrength.ca/tour-form/" className="">
+                  <Link
+                    to="https://tour.evolvestrength.ca/tour-form/"
+                    className="max-md:hidden"
+                  >
                     <button className="my-1 md:mt-12 btnPrimary transition">
                       TAKE A TOUR
                     </button>
@@ -131,7 +137,11 @@ function Footer() {
                 </div>
 
                 <div className="space-y-4 md:space-y-3 flex flex-col w-full md:max-w-[260px]">
-                   <Link smooth to="" className="text-[#B2B1AA] mt-3 !text-[22px] !font-[600] pb-2 w-full border-b-2 border-[#2b2b2b] md:hidden">
+                  <Link
+                    smooth
+                    to=""
+                    className="text-[#B2B1AA] mt-3 !text-[22px] !font-[600] pb-2 w-full border-b-2 border-[#2b2b2b] md:hidden"
+                  >
                     CAREERS & PARTNERS
                   </Link>
                   <a
@@ -185,19 +195,23 @@ function Footer() {
                 </div>
 
                 <div className="space-y-4 md:space-y-3 flex flex-col w-full md:max-w-[240px]">
-                   <Link smooth to="" className="text-[#B2B1AA] mt-4 !text-[22px] !font-[600] pb-2 w-full border-b-2 border-[#2b2b2b] md:hidden">
+                  <Link
+                    smooth
+                    to=""
+                    className="text-[#B2B1AA] mt-4 !text-[22px] !font-[600] pb-2 w-full border-b-2 border-[#2b2b2b] md:hidden"
+                  >
                     FOR MEMBERS
                   </Link>
                   <Link
                     smooth
-                    to="/faqs"
+                    to="/personal-training"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Personal Training
                   </Link>
                   <Link
                     smooth
-                    to="/contact-us"
+                    to="/wellness"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Wellness Services
@@ -206,7 +220,15 @@ function Footer() {
               </div>
             </div>
           </div>
-          <div className="flex flex-row items-center  w-full max-w-[568px] h-[70px] md:h-[90px] gap-14 md:gap-6">
+          <Link
+            to="https://tour.evolvestrength.ca/tour-form/"
+            className="md:hidden"
+          >
+            <button className="mt-1 mb-2 md:mb-0 md:mt-12 btnPrimary transition">
+              TAKE A TOUR
+            </button>
+          </Link>
+          <div className="flex flex-row items-center md:justify-between justify-start  w-full max-w-[568px] h-[70px] md:h-[90px] gap-14 md:gap-6">
             <a
               href="https://www.instagram.com/evolve_strength/"
               target="_blank"
