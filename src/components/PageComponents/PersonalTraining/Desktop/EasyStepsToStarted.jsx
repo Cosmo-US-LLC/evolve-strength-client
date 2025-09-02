@@ -78,7 +78,7 @@ function EasyStepsToStarted() {
 
   return (
     <section className="py-10 bg-[#F9F9F9]">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8 relative">
         <h2 className="text-center text-[#000] mb-10">
           4 EASY STEPS TO GET STARTED
         </h2>
@@ -94,22 +94,6 @@ function EasyStepsToStarted() {
 
         {/* Mobile: Embla Carousel */}
         <div className="md:hidden mb-8 relative rounded-[10px] bg-[#fff]">
-          {/* Carousel Navigation - Top Right */}
-          <div className="absolute -top-[50px] right-4 z-10 flex gap-2">
-            <button
-              onClick={scrollPrev}
-              className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:shadow-lg transition-all duration-200 hover:scale-105 active:scale-95"
-            >
-              <ArrowLeft className="w-5 h-5 text-gray-600" />
-            </button>
-            <button
-              onClick={scrollNext}
-              className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:shadow-lg transition-all duration-200 hover:scale-105 active:scale-95"
-            >
-              <ArrowRight className="w-5 h-5 text-gray-600" />
-            </button>
-          </div>
-
           <div className="overflow-hidden w-full touch-pan-y" ref={emblaRef}>
             <div className="flex select-none -ml-1 will-change-transform">
               {steps.map((step, index) => (
@@ -124,12 +108,29 @@ function EasyStepsToStarted() {
           </div>
         </div>
 
-        <div className="text-center">
-          <button className="btnPrimary mb-6">JOIN EVOLVE</button>
+        <div className="md:hidden absolute bottom-[150px] right-[146px] z-10 flex gap-2">
+          <button
+            onClick={scrollPrev}
+            className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:shadow-lg transition-all duration-200 hover:scale-105 active:scale-95"
+          >
+            <ArrowLeft className="w-5 h-5 text-gray-600" />
+          </button>
+          <button
+            onClick={scrollNext}
+            className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:shadow-lg transition-all duration-200 hover:scale-105 active:scale-95"
+          >
+            <ArrowRight className="w-5 h-5 text-gray-600" />
+          </button>
+        </div>
+
+        <div className="text-center mt-[70px]">
+          <Link to="https://subscription.evolvestrength.ca/">
+            <button className="btnPrimary mb-6">JOIN EVOLVE</button>
+          </Link>
           <p className="text-[#000] text-[16px] font-[300] leading-[24px] font-[kanit]">
             Not ready to commit?{" "}
             <Link
-              to="/contact"
+              to="https://tour.evolvestrength.ca/tour-form"
               className="text-[#4AB04A] font-[600] leading-[22px] font-[kanit] underline"
             >
               Book A Free Tour
