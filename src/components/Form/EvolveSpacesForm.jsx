@@ -219,8 +219,8 @@ export default function EvolveSpacesForm() {
 
       {submitted && (
         <SuccessFullScreen
-          title="Congratulations, your spot is secured."
-          description="We’ve received your application. Our team will review it shortly and reach out with next steps. Welcome to the movement—your journey with Evolve starts here."
+          title="Thank you for your interest in Evolve."
+          description="We’ve received your details. Our team will review them and reach out soon with the next steps. We’re excited to help you find the right space to grow your practice."
           buttonText="BACK TO HOME"
           buttonLink="/"
           icon="check"

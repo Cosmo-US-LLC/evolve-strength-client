@@ -19,7 +19,6 @@ function Spaces() {
       <div className="">
         <GrowYourBusinessSection />
         <AvailableOffices />
-
         <WhoOurSpacesFor />
         <WhyEvolveIsDifferent />
         <PremiumAmenities />
