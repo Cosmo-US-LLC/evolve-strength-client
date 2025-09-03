@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Check } from "lucide-react";
 import {
   LOCATION_PRICING,
   DEFAULT_PRICING,
 } from "@/constants/locations_data/LocationPricingData";
 
 function LocationPricing() {
+  const [pricingType, setPricingType] = useState("monthly");
+
   const currentPath = window.location.pathname;
   let locationKey = "calgary-seton";
 
@@ -29,49 +35,123 @@ function LocationPricing() {
 
   const pricingData = LOCATION_PRICING[locationKey] || DEFAULT_PRICING;
 
+  const getPlanTitle = () => {
+    return pricingType === "monthly" ? "Month To Month" : "1 Year Contract";
+  };
+
+  const getPlanBilling = () => {
+    return "Bi-Weekly";
+  };
+
+  const getPlanPrice = () => {
+    const plan = pricingData.plans.find((p) =>
+      pricingType === "monthly"
+        ? p.title === "Month To Month"
+        : p.title === "1 Year Contract"
+    );
+    return plan ? plan.price : "$32.99";
+  };
+
+  const getFeatures = () => {
+    const plan = pricingData.plans.find((p) =>
+      pricingType === "monthly"
+        ? p.title === "Month To Month"
+        : p.title === "1 Year Contract"
+    );
+    return plan
+      ? plan.features
+      : [
+          "$0 Enrolment Fee",
+          "$0 Maintenance Fee",
+          "Personalized Assessment",
+          "Access to All Locations",
+          "On-Site Health Services",
+          "Modern, Clean Facilities",
+          "24/7 Online Member Portal",
+        ];
+  };
+
   return (
-    <div className="w-full py-12 max-w-[1280px] md:px-8 px-4 mx-auto flex flex-col gap-12">
-      <div className="flex flex-col md:flex-row w-full  ">
-        <div className="flex flex-col w-full justify-center">
-          <h1 className="!text-[40px] md:max-w-[300px] leading-[39px] uppercase">
-            {pricingData.sectionTitle}
-          </h1>
-          <p className="mt-4 mb-4  !font-[kanit] !font-[300] description md:max-w-[300px]">
-            {pricingData.sectionSubtitle}
-          </p>
+    <div className="w-full py-12 bg-white">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
+        {/* Header Section */}
+        <div className="text-center flex flex-col gap-2 mb-6">
+          <h2 className="text-[#000] uppercase">
+            SIMPLE PRICING, NO SURPRISES
+          </h2>
+          <h4 className="text-[#000] mx-auto">
+            Flexible plans designed to fit your goals and your lifestyle
+          </h4>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-4 w-full">
-          {pricingData.plans.map((plan, index) => (
-            <div
-              key={index}
-              className="flex flex-col md:w-[340px] p-6 w-full  shadow-lg border border-gray-200 rounded-[8px] bg-white"
+        {/* Pricing Toggle */}
+        <div className="flex justify-center mb-8">
+          <ToggleGroup
+            type="single"
+            value={pricingType}
+            onValueChange={(value) => value && setPricingType(value)}
+            className="bg-[#2E2E2E] border border-[#2E2E2E] rounded-[5px] p-1 shadow-sm"
+          >
+            <ToggleGroupItem
+              value="monthly"
+              className={`px-8 py-3 rounded-[5px] transition-all duration-200 ${
+                pricingType === "monthly"
+                  ? "bg-[#FFFFFF] text-[#4AB04A] shadow-md"
+                  : "bg-[#2E2E2E] text-[#FFFFFF] hover:bg-[#2E2E2E] hover:cursor-pointer hover:text-[#FFFFFF]"
+              }`}
             >
-              <h3 className="">{plan.title}</h3>
-              <p className="!description">{plan.billing}</p>
-              <h2 className="text-[#4AB04A] mt-2">{plan.price}</h2>
-              <hr className="my-4" />
-              <p className="description !font-[kanit] mb-4 ">
-                {plan.featuresTitle}
-              </p>
-              <ul className="space-y-[18px] !description !font-[kanit]  text-sm mb-6">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex ">
-                    <span className="text-black mr-2 ">
-                      <img
-                        src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/check_icon.svg"
-                        alt=""
-                      />
-                    </span>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link to={pricingData.subscriptionUrl}>
-                <button className="w-full btnPrimary">{plan.buttonText}</button>
+              Monthly
+            </ToggleGroupItem>
+            <ToggleGroupItem
+              value="yearly"
+              className={`px-8 py-3 rounded-[5px] transition-all duration-200 ${
+                pricingType === "yearly"
+                  ? "bg-[#FFFFFF] text-[#4AB04A] shadow-md"
+                  : "bg-[#2E2E2E] text-[#FFFFFF] hover:bg-[#2E2E2E] hover:cursor-pointer hover:text-[#FFFFFF]"
+              }`}
+            >
+              Yearly
+            </ToggleGroupItem>
+          </ToggleGroup>
+        </div>
+
+        {/* Pricing Card */}
+
+        <div className="flex justify-center">
+          <Card className="w-full max-w-2xl bg-[#FFFFFF] border-2 border-[#CCCCCC] ">
+            <CardContent className="p-8 text-center">
+              <h2 className="text-[#000]">{getPlanTitle()}</h2>
+              <p className="text-gray-600 mb-4">{getPlanBilling()}</p>
+              <div className="mb-6">
+                <h2 className=" text-[#4AB04A]">{getPlanPrice()}</h2>
+              </div>
+
+              <Link to={pricingData.subscriptionUrl} className="block">
+                <button className="btnPrimary w-full">JOIN NOW</button>
               </Link>
-            </div>
-          ))}
+
+              <div className="text-center my-6">
+                <h3 className="text-xl font-semibold text-black mb-8">
+                  Your membership offers:
+                </h3>
+                <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                  {getFeatures().map((feature, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-center md:justify-start space-x-3"
+                    >
+                      <div className="w-5 h-5 bg-black rounded-full flex items-center justify-center flex-shrink-0">
+                        <Check className="w-3 h-3 text-white" />
+                      </div>
+                      <span className="text-gray-800 font-medium">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>

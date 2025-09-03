@@ -16,7 +16,7 @@ import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLo
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
 import MetaTags from "@/components/Metatags/Meta";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import YourEvolveLocations from "@/components/PageComponents/Locations/Desktop/YourEvolveLocations";
 
 function EdmontonDowntown() {
   return (
@@ -27,16 +27,17 @@ function EdmontonDowntown() {
       />
       <LocationHero />
       <LocationPartners />
-      <LoWhyChooseEvolve />
+      <Spacious />
+      <MeetTheTrainers location="EDMONTON DOWNTOWN" />
+      <SetonLocation />
+      {/* <LoWhyChooseEvolve /> */}
       <LocationPricing />
       <FitnessCategory />
       <LocationsPersonalizedAssessment />
-      <RightTrainer />
+      {/* <RightTrainer /> */}
       <Services />
-      <Spacious />
-      <LocationsSeeItForYourSelf />
-      <SetonLocation />
-      <MeetTheTrainers location="EDMONTON DOWNTOWN" />
+      {/* <LocationsSeeItForYourSelf /> */}
+      <YourEvolveLocations />
       <JoinUsToday />
       <FrequentlyAskedQuestions {...LocationFaq} />
     </>
