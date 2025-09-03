@@ -59,30 +59,30 @@ function Footer() {
                 </button>
               </div> */}
               </div>
+              <div className="flex items-center gap-2 max-md:hidden">
+                <a
+                  href="https://www.instagram.com/evolve_strength/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#4AB04A] hover:text-[#ffffff] border-[2px] border-[#4AB04A] cursor-pointer hover:border-[#ffffff] rounded-full p-2 md:p-4 transition-colors duration-200"
+                >
+                  <Instagram className="w-6 md:w-7 h-6 md:h-7 " />
+                </a>
+              </div>
             </div>
 
             <div className="flex flex-col w-full">
               <div className="max-w-[790px] text-white border-b border-y-[#2b2b2b] pb-2 max-md:hidden">
                 <div className="footer_links flex flex-wrap items-center mb-4">
-                  <Link smooth to="" className="text-[#B2B1AA] w-[240px]">
-                    COMPANY
-                  </Link>
+                  <p className="text-[#B2B1AA] w-[240px]">COMPANY</p>
                   {/* <span className="text-[#B2B1AA]">/</span>
                   <a href="#" className="text-[#B2B1AA] hover:text-[#ffffff]">
                     Become a Practitioner
                   </a> */}
 
-                  <Link smooth to="" className="text-[#B2B1AA] w-[260px]">
-                    CAREERS & PARTNERS
-                  </Link>
+                  <p className="text-[#B2B1AA] w-[260px]">CAREERS & PARTNERS</p>
 
-                  <Link
-                    smooth
-                    to="/franchise"
-                    className="text-[#B2B1AA] w-[240px]"
-                  >
-                    FOR MEMBERS
-                  </Link>
+                  <p className="text-[#B2B1AA] w-[240px]">FOR MEMBERS</p>
                 </div>
 
                 {/* <p className="footer_quick_links pt-3 text-[#6F6D66] uppercase ">
@@ -228,7 +228,8 @@ function Footer() {
               TAKE A TOUR
             </button>
           </Link>
-          <div className="flex flex-row items-center md:justify-between justify-start  w-full max-w-[568px] h-[70px] md:h-[90px] gap-14 md:gap-6">
+
+          {/* <div className="flex flex-row items-center md:justify-between justify-start  w-full max-w-[568px] h-[70px] md:h-[90px] gap-14 md:gap-6">
             <a
               href="https://www.instagram.com/evolve_strength/"
               target="_blank"
@@ -251,14 +252,25 @@ function Footer() {
                 </a>
               </div>
             </div>
-          </div>
+          </div> */}
+
           <img
             src={ESFLogo}
             alt="footerImage"
-            className="w-[360px] h-auto absolute bottom-[-30px] right-[30px] opacity-5 max-md:hidden"
+            className="w-[260px] h-auto absolute bottom-[-10px] right-[30px] opacity-5 max-md:hidden"
           />
         </div>
-        <div className="flex w-full items-end justify-end md:hidden">
+        <div className="flex w-full items-start justify-between md:hidden">
+          <div className="flex items-center gap-2 md:hidden px-4 py-4">
+            <a
+              href="https://www.instagram.com/evolve_strength/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#4AB04A] hover:text-[#ffffff] border-[2px] border-[#4AB04A] cursor-pointer hover:border-[#ffffff] rounded-full p-2 md:p-4 transition-colors duration-200"
+            >
+              <Instagram className="w-10 h-10 " />
+            </a>
+          </div>
           <img
             src={ESFLogo}
             alt="footerImage"
