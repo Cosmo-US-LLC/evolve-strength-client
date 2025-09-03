@@ -17,26 +17,29 @@ import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAske
 import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
 import MetaTags from "@/components/Metatags/Meta";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import YourEvolveLocations from "@/components/PageComponents/Locations/Desktop/YourEvolveLocations";
 
 function CalgarySeton() {
   return (
     <>
-     <MetaTags
+      <MetaTags
         title="Evolve Strength Seton | Best Fitness Gym in Calgary"
         description="Best gym in Seton with personal fitness instructors, cardio workouts, and strength training for all fitness levels."
       />
       <LocationHero />
       <LocationPartners />
-      <LoWhyChooseEvolve />
+      <Spacious />
+      <MeetTheTrainers location="CALGARY SETON" />
+      <SetonLocation />
+      {/* <LoWhyChooseEvolve /> */}
       <LocationPricing />
       <FitnessCategory />
       <LocationsPersonalizedAssessment />
-      <RightTrainer />
+      {/* <RightTrainer /> */}
       <Services />
-      <Spacious />
-      <LocationsSeeItForYourSelf />
-      <SetonLocation />
-      <MeetTheTrainers location="CALGARY SETON" />
+      <YourEvolveLocations />
+      {/* <LocationsSeeItForYourSelf /> */}
+
       <JoinUsToday />
       <FrequentlyAskedQuestions {...LocationFaq} />
     </>

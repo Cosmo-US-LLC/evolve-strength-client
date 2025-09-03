@@ -17,6 +17,7 @@ import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAske
 import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
 import MetaTags from "@/components/Metatags/Meta";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import YourEvolveLocations from "@/components/PageComponents/Locations/Desktop/YourEvolveLocations";
 
 function VancouverPost() {
   return (
@@ -27,16 +28,18 @@ function VancouverPost() {
       />
       <LocationHero />
       <LocationPartners />
-      <LoWhyChooseEvolve />
+      <Spacious />
+      <MeetTheTrainers location="VANCOUVER POST" />
+      <SetonLocation />
+      {/* <LoWhyChooseEvolve /> */}
       <LocationPricing />
       <FitnessCategory />
       <LocationsPersonalizedAssessment />
-      <RightTrainer />
+      {/* <RightTrainer /> */}
       <Services />
-      <Spacious />
-      <LocationsSeeItForYourSelf />
-      <SetonLocation />
-      <MeetTheTrainers location="VANCOUVER POST" />
+      <YourEvolveLocations />
+      {/* <LocationsSeeItForYourSelf /> */}
+
       <JoinUsToday />
       <FrequentlyAskedQuestions {...LocationFaq} />
     </>
