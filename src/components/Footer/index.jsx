@@ -144,12 +144,13 @@ function Footer() {
                   >
                     CAREERS & PARTNERS
                   </Link>
-                  <a
-                    href="#"
+                  <Link
+                    smooth
+                    to="/careers"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Careers
-                  </a>
+                  </Link>
                   <Link
                     smooth
                     to="/spaces"
