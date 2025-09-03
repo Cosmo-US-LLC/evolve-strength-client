@@ -454,7 +454,7 @@ function EvolveExpansionPlans() {
 
                 {/* halifax */}
                 <div
-                  className="absolute left-[85.5%] top-[73.5%] z-10 w-[27px] md:w-[45px] h-[67px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[85.8%] top-[73.6%] z-10 w-[27px] md:w-[45px] h-[67px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("calgarySeton")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
