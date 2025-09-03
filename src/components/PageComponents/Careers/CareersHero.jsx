@@ -3,28 +3,22 @@ import { Link } from "react-router-dom";
 
 function CareersHero() {
   return (
-    <div className="relative wellnessHeroSection">
+    <div className="relative careersHeroSection">
       {/* <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/40" /> */}
       <div className="max-w-[1280px] px-4 md:px-8 pb-[60px] md:pb-[80px] mx-auto w-full h-full">
         <div className="relative z-2 flex  flex-col items-start justify-end h-full">
           <h1 className="text-[#FFFFFF] uppercase max-w-[707px] leading-[52px] md:leading-[56px] mb-5">
-            Wellness Services at Evolve
+            Careers at Evolve Strength
           </h1>
           <h3 className="text-[#FFFFFF] !font-[300] max-w-[707px] leading-[24px] md:leading-[29px] mb-6">
-            Your fitness does not stop at the gym. Recover faster, reduce pain,
-            and improve how you move with in-house experts, all without leaving
-            the building.
+            At Evolve Strength, we’re more than a gym, we’re a community of
+            trainers and health professionals working together to help people
+            thrive.
           </h3>
-          <h3 className="text-[#FFFFFF] !font-[300] max-w-[707px] leading-[24px] md:leading-[29px] mb-6">
-            You do not need a gym membership to use wellness services. Just find
-            a wellness expert and reach out to them directly.
-          </h3>
+
           <div className="flex flex-col md:flex-row gap-3">
-            <Link to="/explore?category=wellness">
-              <button className="btnPrimary">FIND A wellness expert</button>
-            </Link>
-            <Link to="/join-wellness">
-              <button className="btnSecondary">join now</button>
+            <Link to="/">
+              <button className="btnPrimary">Join Our Team</button>
             </Link>
           </div>
         </div>
