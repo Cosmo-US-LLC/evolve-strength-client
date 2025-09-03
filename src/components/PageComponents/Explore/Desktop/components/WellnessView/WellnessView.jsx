@@ -78,6 +78,100 @@ function WellnessView() {
 
   return (
     <div className="w-full bg-white pt-4 md:pt-6 pb-8 md:pb-16">
+      {/* Global Location Filter - Moved to top */}
+      <div className="mb-6 md:mb-8 px-4 md:px-0">
+        <div className="relative" ref={dropdownRef}>
+          <button
+            className="bg-[#fff] rounded-[8px] px-3 md:px-4 py-2 md:py-3 border border-[#CCCCCC] flex items-center justify-between min-w-[180px] md:min-w-[200px]"
+            onClick={() => setShowLocationDropdown(!showLocationDropdown)}
+          >
+            <div className="flex items-center gap-2">
+              <span className="text-black font-medium text-sm md:text-base">
+                {selectedLocation === "" ? "All Locations" : "Locations"}
+              </span>
+              <span className="text-green-600 font-medium text-sm md:text-base">
+                ({selectedLocation === "" ? "ALL" : "01"})
+              </span>
+            </div>
+            <ChevronDown
+              className={`pt-1 text-gray-400 transition-transform duration-200 w-4 h-4 md:w-5 md:h-5 ${
+                showLocationDropdown ? "rotate-180" : "rotate-0"
+              }`}
+            />
+          </button>
+
+          {showLocationDropdown && (
+            <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-50 min-w-[220px] md:min-w-[250px] max-h-[300px] overflow-y-auto">
+              <div
+                className="flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
+                onClick={() => {
+                  setSelectedLocation("");
+                  setShowLocationDropdown(false);
+                }}
+              >
+                <div
+                  className={`w-3 h-3 md:w-4 md:h-4 border-2 rounded flex items-center justify-center ${
+                    selectedLocation === ""
+                      ? "bg-[#4AB04A] border-[#4AB04A]"
+                      : "border-[#CCCCCC]"
+                  }`}
+                >
+                  {selectedLocation === "" && (
+                    <Check className="w-2 h-2 md:w-3 md:w-3 text-white" />
+                  )}
+                </div>
+                <span className="text-[#000] text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
+                  All Locations
+                </span>
+              </div>
+
+              {allLocations.map((location, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
+                  onClick={() => {
+                    setSelectedLocation(location.name);
+                    setShowLocationDropdown(false);
+                  }}
+                >
+                  <div
+                    className={`w-3 h-3 md:w-4 md:h-4 border-2 rounded flex items-center justify-center ${
+                      selectedLocation === location.name
+                        ? "bg-green-600 border-green-600"
+                        : "border-gray-300"
+                    }`}
+                  >
+                    {selectedLocation === location.name && (
+                      <Check className="w-2 h-2 md:w-3 md:w-3 text-white" />
+                    )}
+                  </div>
+                  <span className="text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
+                    {location.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Selected Location Display */}
+        {selectedLocation && (
+          <div className="mt-3 md:mt-4">
+            <div className="flex flex-wrap gap-2 md:gap-3">
+              <div className="flex items-center gap-2 bg-[#4AB04A] text-white px-3 md:px-4 py-1 md:py-2 rounded-full text-sm md:text-base">
+                <span className="font-[kanit]">{selectedLocation}</span>
+                <button
+                  onClick={() => setSelectedLocation("")}
+                  className="cursor-pointer rounded-full p-1"
+                >
+                  <X className="w-3 h-3 md:w-4 md:h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
       {/* Service List */}
       <div className="space-y-0">
         {wellnessData.map((service, index) => {
@@ -91,8 +185,9 @@ function WellnessView() {
               {/* Service Header */}
               <div
                 className={`
-                  flex items-center justify-between py-4 md:py-5 cursor-pointer border-b border-gray-200 bg-white
-                  ${isSelected ? "bg-green-50" : "bg-[#fff]"}
+                  flex items-center justify-between px-2 py-4 md:py-5 cursor-pointer border-b border-gray-200
+                  ${isOpen ? "bg-[#F5F5F5]" : "bg-[#fff]"}
+                  ${isSelected ? "bg-[#F5F5F5]" : "bg-[#fff]"}
                   ${index === 0 ? "border-t border-[#CCCCCC]" : ""}
                   hover:bg-gray-50 transition-all duration-300 ease-in-out
                   `}
@@ -109,123 +204,16 @@ function WellnessView() {
                   <span className="text-[#000] text-[18px] md:text-[24px] font-[600] leading-[20px] font-[kanit] uppercase transition-colors duration-300">
                     {service.name}
                   </span>
-                  <CircleChevronDown
-                    className={`w-5 h-5 md:w-6 md:h-6 text-gray-400 transition-transform duration-200 ${
-                      isOpen ? "rotate-180" : "rotate-0"
-                    }`}
-                  />
                 </div>
-                <Link to="https://subscription.evolvestrength.ca/">
-                  <button
-                    className="uppercase text-[16px] md:text-[20px] font-[400] leading-[20px] font-[kanit] text-[#4AB04A] hover:text-[#000] underline transition-colors duration-300"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    JOIN NOW
-                  </button>
-                </Link>
+                <CircleChevronDown
+                  className={`w-5 h-5 md:w-6 md:h-6 text-gray-400 transition-transform duration-200 ${
+                    isOpen ? "rotate-180" : "rotate-0"
+                  }`}
+                />
               </div>
 
               {isOpen && (
                 <div className="py-4 md:py-6 bg-white">
-                  <div className="mb-4 md:mb-6">
-                    <div className="relative" ref={dropdownRef}>
-                      <button
-                        className="bg-[#fff] rounded-[8px] px-3 md:px-4 py-2 md:py-3 border border-[#CCCCCC] flex items-center justify-between min-w-[180px] md:min-w-[200px]"
-                        onClick={() =>
-                          setShowLocationDropdown(!showLocationDropdown)
-                        }
-                      >
-                        <div className="flex items-center gap-2">
-                          <span className="text-black font-medium text-sm md:text-base">
-                            {selectedLocation === ""
-                              ? "All Locations"
-                              : "Locations"}
-                          </span>
-                          <span className="text-green-600 font-medium text-sm md:text-base">
-                            ({selectedLocation === "" ? "ALL" : "01"})
-                          </span>
-                        </div>
-                        <ChevronDown
-                          className={`pt-1 text-gray-400 transition-transform duration-200 w-4 h-4 md:w-5 md:h-5 ${
-                            showLocationDropdown ? "rotate-180" : "rotate-0"
-                          }`}
-                        />
-                      </button>
-
-                      {showLocationDropdown && (
-                        <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-50 min-w-[220px] md:min-w-[250px] max-h-[300px] overflow-y-auto">
-                          <div
-                            className="flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
-                            onClick={() => {
-                              setSelectedLocation("");
-                              setShowLocationDropdown(false);
-                            }}
-                          >
-                            <div
-                              className={`w-3 h-3 md:w-4 md:h-4 border-2 rounded flex items-center justify-center ${
-                                selectedLocation === ""
-                                  ? "bg-[#4AB04A] border-[#4AB04A]"
-                                  : "border-[#CCCCCC]"
-                              }`}
-                            >
-                              {selectedLocation === "" && (
-                                <Check className="w-2 h-2 md:w-3 md:h-3 text-white" />
-                              )}
-                            </div>
-                            <span className="text-[#000] text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                              All Locations
-                            </span>
-                          </div>
-
-                          {allLocations.map((location, idx) => (
-                            <div
-                              key={idx}
-                              className="flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
-                              onClick={() => {
-                                setSelectedLocation(location.name);
-                                setShowLocationDropdown(false);
-                              }}
-                            >
-                              <div
-                                className={`w-3 h-3 md:w-4 md:h-4 border-2 rounded flex items-center justify-center ${
-                                  selectedLocation === location.name
-                                    ? "bg-green-600 border-green-600"
-                                    : "border-gray-300"
-                                }`}
-                              >
-                                {selectedLocation === location.name && (
-                                  <Check className="w-2 h-2 md:w-3 md:h-3 text-white" />
-                                )}
-                              </div>
-                              <span className="text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                                {location.name}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Selected Location Display */}
-                    {selectedLocation && (
-                      <div className="mt-3 md:mt-4">
-                        <div className="flex flex-wrap gap-2 md:gap-3">
-                          <div className="flex items-center gap-2 bg-[#4AB04A] text-white px-3 md:px-4 py-1 md:py-2 rounded-full text-sm md:text-base">
-                            <span className="font-[kanit]">
-                              {selectedLocation}
-                            </span>
-                            <button
-                              onClick={() => setSelectedLocation("")}
-                              className="cursor-pointer rounded-full p-1"
-                            >
-                              <X className="w-3 h-3 md:w-4 md:h-4" />
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
                   {filteredTrainers && filteredTrainers.length > 0 && (
                     <>
                       {/* Mobile: Trainer Carousel */}
