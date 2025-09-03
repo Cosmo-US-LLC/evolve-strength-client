@@ -19,27 +19,30 @@ import LocationsPersonalizedAssessment from "@/components/PageComponents/Locatio
 import WellnessServices from "@/components/PageComponents/Home/Desktop/WellnessServices";
 import MetaTags from "@/components/Metatags/Meta";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import YourEvolveLocations from "@/components/PageComponents/Locations/Desktop/YourEvolveLocations";
 
 function CalgaryRoyalOak() {
   return (
     <>
-     <MetaTags
+      <MetaTags
         title="Evolve Strength Royal Oak | Premier Fitness Gym in Calgary"
         description="Join Evolve Strength, Calgary’s best fitness club, with top gym equipment for strength training and cardio, plus expert personal trainers."
       />
       <LocationHero />
       <LocationPartners />
-      <LoWhyChooseEvolve />
+      <Spacious />
+      <MeetTheTrainers location="CALGARY ROYAL OAK" />
+      <SetonLocation />
+      {/* <LoWhyChooseEvolve /> */}
       <LocationPricing />
       <FitnessCategory />
       <LocationsPersonalizedAssessment />
-      <RightTrainer />
+      {/* <RightTrainer /> */}
       {/* <WellnessServices/> */}
-      <LocationWellnessServices/>
-      <Spacious />
-      <LocationsSeeItForYourSelf />
-      <SetonLocation />
-      <MeetTheTrainers location="CALGARY ROYAL OAK" />
+      <LocationWellnessServices />
+      <YourEvolveLocations />
+      {/* <LocationsSeeItForYourSelf /> */}
+
       <JoinUsToday />
       <FrequentlyAskedQuestions {...LocationFaq} />
     </>

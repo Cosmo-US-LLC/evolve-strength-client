@@ -60,8 +60,12 @@ function SetonLocation() {
 
   return (
     <div className="w-full max-w-[1280px] mx-auto px-4 md:px-8 py-12 flex flex-col gap-4 ">
-      <h1 className="!text-[40px] mb-2 !font-bold text-center leading-[40px]">
-        ABOUT OUR {locationData.city} {locationData.branch} LOCATION
+      <h1 className="!text-[29px] md:!text-[40px] mb-2 !font-bold text-center leading-[29px] md:leading-[40px]">
+        ABOUT OUR{" "}
+        <span className="!text-[#4AB04A]">
+          {locationData.city} {locationData.branch}
+        </span>{" "}
+        LOCATION
       </h1>
 
       <div className="flex flex-col md:flex-row gap-4">

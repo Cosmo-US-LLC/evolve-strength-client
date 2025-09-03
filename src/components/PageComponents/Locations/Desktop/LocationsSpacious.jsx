@@ -3,7 +3,14 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { professionalMembershipPremiumAmenities } from "../../../../constants/professionalServicesImages.js";
+import {
+  professionalMembershipPremiumAmenities,
+  postPremiumAmenities,
+  setonPremiumAmenities,
+  brentwoodPremiumAmenities,
+  royalOakPremiumAmenities,
+  downtownPremiumAmenities,
+} from "../../../../constants/professionalServicesImages.js";
 
 const LocationsSpacious = () => {
   // Get location from URL path
@@ -27,6 +34,25 @@ const LocationsSpacious = () => {
   } else if (currentPath.includes("edmonton-north")) {
     locationKey = "edmonton-north";
   }
+
+  // Get location-specific amenities data
+  const getLocationAmenities = (locationKey) => {
+    const amenitiesMap = {
+      "vancouver-post": postPremiumAmenities,
+      "burnaby-brentwood": brentwoodPremiumAmenities,
+      "calgary-seton": setonPremiumAmenities,
+      "calgary-royal-oak": royalOakPremiumAmenities,
+      "calgary-sunridge": setonPremiumAmenities, // Using seton as fallback
+      "edmonton-south": downtownPremiumAmenities, // Using downtown as fallback
+      "edmonton-downtown": downtownPremiumAmenities,
+      "edmonton-north": downtownPremiumAmenities, // Using downtown as fallback
+    };
+
+    return amenitiesMap[locationKey] || professionalMembershipPremiumAmenities;
+  };
+
+  // Get the amenities data for the current location
+  const currentLocationAmenities = getLocationAmenities(locationKey);
 
   // Location-specific tour URLs
   const getTourUrl = (locationKey) => {
@@ -56,8 +82,8 @@ const LocationsSpacious = () => {
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
-      containScroll: "keepSnaps",
       loop: true,
+      slidesToScroll: 1,
     },
     [Autoplay({ delay: 3000, stopOnInteraction: true })]
   );
@@ -93,7 +119,7 @@ const LocationsSpacious = () => {
           <h2 className="text-[#000] uppercase ">
             Spacious and Modern Facilities
           </h2>
-          <h4 className="mb-6 !max-w-[800px]">
+          <h4 className="md:mb-4 mb-2 !max-w-[874px]">
             Our gyms give you space to move, train, and recover without the
             crowd. Each location has more training space than a typical gym in
             Canada. Every area is designed with purpose to support your fitness
@@ -106,19 +132,19 @@ const LocationsSpacious = () => {
 
         <div className="relative w-full">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex md:gap-4 md:pl-4 ">
-              {professionalMembershipPremiumAmenities.map((pro, idx) => (
+            <div className="flex md:gap-4 md:pl-1 ">
+              {currentLocationAmenities.map((amenity, idx) => (
                 <div
                   key={idx}
                   className="flex-[0_0_100%] md:flex-[0_0_32.5%] relative overflow-hidden"
                 >
                   <img
-                    src={pro.image}
-                    alt={pro.title}
+                    src={amenity.image}
+                    alt={amenity.title}
                     className="w-full md:w-[400px]  h-[224px] md:h-[257px] object-cover rounded-[8px] overflow-hidden "
                   />
                   <h3 className="flex items-center mt-6 text-[#000] leading-[24px] font-[500]">
-                    {pro.title}
+                    {amenity.title}
                   </h3>
                 </div>
               ))}

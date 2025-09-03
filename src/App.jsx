@@ -40,6 +40,7 @@ import TrainerForm from "./components/Form/TrainersForm";
 import AllLocations from "./pages/LocationsPage/AllLocations";
 import EdmontonSouthCommon from "./pages/LocationsPage/EdmontonSouthCommon";
 import WellnessInquiryForm from "./components/Form/WellnessInquiryForm";
+import Careers from "./pages/Careers";
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
           <Route path="/wellness" element={<Wellness />} />
           <Route path="/franchise" element={<Franchise />} />
           <Route path="/spaces" element={<Spaces />} />
+          <Route path="/careers" element={<Careers />} />
           <Route
             path="/corporate-membership"
             element={<CorporateMembership />}

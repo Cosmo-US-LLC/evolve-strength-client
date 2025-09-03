@@ -135,3 +135,108 @@ export const professionalMembershipPremiumAmenities = [
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/gym-area.webp",
   },
 ];
+
+// post premium amenities
+export const postPremiumAmenities = [
+  {
+    title: "On-Site Parking",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/post_parking.webp",
+  },
+  {
+    title: "Waiting Area",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/post_waiting_room.webp",
+  },
+  {
+    title: "Locker Rooms",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/post_locker_room.webp",
+  },
+  {
+    title: "Steam Rooms and Saunas",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/post_steam_room.webp",
+  },
+];
+
+// seton premium amenities
+export const setonPremiumAmenities = [
+  {
+    title: "On-Site Parking",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seten_parking.webp",
+  },
+  {
+    title: "Waiting Area",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seton_waiting_room.webp",
+  },
+  {
+    title: "Locker Rooms",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seten_locker_room.webp",
+  },
+  {
+    title: "Steam Rooms and Saunas",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seten_steam_room.webp",
+  },
+];
+
+// brentwood premium amenities
+export const brentwoodPremiumAmenities = [
+  {
+    title: "Waiting Area",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/brentwood_waiting_room.webp",
+  },
+  {
+    title: "Locker Rooms",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/brentwood_locker_room.webp",
+  },
+  {
+    title: "Steam Rooms and Saunas",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/brentwood_steam_room.webp",
+  },
+];
+
+// royal oak premium amenities
+export const royalOakPremiumAmenities = [
+  {
+    title: "On-Site Parking",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/royal_ock_parking_room.webp",
+  },
+  {
+    title: "Waiting Area",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/royal_ock_waiting_room.webp",
+  },
+  {
+    title: "Locker Rooms",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/royal_ock_locker_room.webp",
+  },
+];
+
+// downtown premium amenities
+export const downtownPremiumAmenities = [
+  {
+    title: "Waiting Area",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/downtown_waiting_room.webp",
+  },
+  {
+    title: "Steam Rooms and Saunas",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/diwntown_steam_room.webp",
+  },
+  {
+    title: "Locker Rooms",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/downtown_locker_room.webp",
+  },
+];

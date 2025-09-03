@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
 import { getTrainersByLocation } from "@/constants/trainerData";
 import TrainerDetails from "@/components/PageComponents/Explore/Desktop/components/shared/TrainerDetails";
 import downicon from "@/assets/images/Locations/icon_down.svg";
+import { Link } from "react-router-dom";
 
 const MeetTheTrainers = ({ location = "" }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -17,6 +18,54 @@ const MeetTheTrainers = ({ location = "" }) => {
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
+
+  // Get location from URL path for tour URL
+  const currentPath = window.location.pathname;
+  let locationKey = "calgary-seton"; // default
+
+  if (currentPath.includes("vancouver-post")) {
+    locationKey = "vancouver-post";
+  } else if (currentPath.includes("burnaby-brentwood")) {
+    locationKey = "burnaby-brentwood";
+  } else if (currentPath.includes("calgary-seton")) {
+    locationKey = "calgary-seton";
+  } else if (currentPath.includes("calgary-royal-oak")) {
+    locationKey = "calgary-royal-oak";
+  } else if (currentPath.includes("calgary-sunridge")) {
+    locationKey = "calgary-sunridge";
+  } else if (currentPath.includes("edmonton-south")) {
+    locationKey = "edmonton-south";
+  } else if (currentPath.includes("edmonton-downtown")) {
+    locationKey = "edmonton-downtown";
+  } else if (currentPath.includes("edmonton-north")) {
+    locationKey = "edmonton-north";
+  }
+
+  // Get location-specific tour URL
+  const getTourUrl = (locationKey) => {
+    const tourUrls = {
+      "vancouver-post":
+        "https://tour.evolvestrength.ca/tour-form/?location=40327",
+      "burnaby-brentwood":
+        "https://tour.evolvestrength.ca/tour-form/?location=40248",
+      "calgary-seton":
+        "https://tour.evolvestrength.ca/tour-form/?location=40097",
+      "calgary-royal-oak":
+        "https://tour.evolvestrength.ca/tour-form/?location=40142",
+      "calgary-sunridge":
+        "https://tour.evolvestrength.ca/tour-form/?location=06973",
+      "edmonton-south":
+        "https://tour.evolvestrength.ca/tour-form/?location=06962",
+      "edmonton-downtown":
+        "https://tour.evolvestrength.ca/tour-form/?location=06967",
+      "edmonton-north":
+        "https://tour.evolvestrength.ca/tour-form/?location=06964",
+    };
+
+    return tourUrls[locationKey] || "https://tour.evolvestrength.ca/tour-form";
+  };
+
+  const tourUrl = getTourUrl(locationKey);
 
   // Get trainers for the specified location
   const trainers = getTrainersByLocation(location);
@@ -56,11 +105,14 @@ const MeetTheTrainers = ({ location = "" }) => {
   // If no trainers found, show a message
   if (trainers.length === 0) {
     return (
-      <section className="md:mb-12.5  mb-20 bg-[#FFFFFF]">
+      <section className="md:mb-12.5 mb-20 bg-[#FFFFFF]">
         <div className="max-w-[1280px] mx-auto md:px-8  px-4 flex flex-col items-start ">
           <div className="w-full flex  flex-col text-center mt-6 gap-4 ">
             <h2 className="text-[#000] uppercase  ">
-              Meet the trainers at {locationDisplayName.toLowerCase()}
+              Meet the trainers at{" "}
+              <span className="!text-[#4AB04A]">
+                {locationDisplayName.toLowerCase()}
+              </span>
             </h2>
             <h4 className="mb-10 ">
               Every great workout starts with a great coach. Meet yours.
@@ -75,13 +127,21 @@ const MeetTheTrainers = ({ location = "" }) => {
   }
 
   return (
-    <section className="md:mb-12.5  mb-20 bg-[#FFFFFF]">
-      <div className="max-w-[1280px] mx-auto md:px-8  px-4 flex flex-col items-start ">
+    <section className="md:mb-2 mb-6 bg-[#FFFFFF]">
+      <div className="max-w-[1280px] mx-auto md:px-8 px-4 flex flex-col items-start ">
+        <div className="flex justify-center items-center w-full mb-4">
+          <Link to={tourUrl}>
+            <button className="btnPrimary">Book a Free Tour</button>
+          </Link>
+        </div>
         <div className="w-full flex  flex-col text-center mt-6 gap-4 ">
-          <h2 className="text-[#000] uppercase  ">
-            Meet the trainers at {locationDisplayName.toLowerCase()}
+          <h2 className="text-[#000] !text-[29px] md:!text-[40px] uppercase w-full">
+            Meet the trainers at{" "}
+            <span className="!text-[#4AB04A]">
+              {locationDisplayName.toLowerCase()}
+            </span>
           </h2>
-          <h4 className="mb-10 ">
+          <h4 className="md:mb-10 mb-6">
             Every great workout starts with a great coach. Meet yours.
           </h4>
         </div>
@@ -158,7 +218,7 @@ const MeetTheTrainers = ({ location = "" }) => {
             </div>
           </div>
           <div className="">
-            <div className="absolute md:top-[30%] left-[37%] md:left-[-60px] -translate-y-1/2 md:translate-y-1/2 ">
+            <div className="absolute md:top-[30%] left-[37%] md:left-[-60px] -translate-y-1/3 md:translate-y-1/2 ">
               <button
                 onClick={scrollPrev}
                 className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
@@ -166,7 +226,7 @@ const MeetTheTrainers = ({ location = "" }) => {
                 <ArrowLeft className="w-6 h-6" />
               </button>
             </div>
-            <div className="absolute md:top-[30%] -translate-y-1/2 md:translate-y-1/2 md:-right-[60px] right-[37%] z-10">
+            <div className="absolute md:top-[30%] -translate-y-1/3 md:translate-y-1/2 md:-right-[60px] right-[37%] z-10">
               <button
                 onClick={scrollNext}
                 className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"

@@ -16,28 +16,29 @@ import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLo
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
 import MetaTags from "@/components/Metatags/Meta";
-
+import YourEvolveLocations from "@/components/PageComponents/Locations/Desktop/YourEvolveLocations";
 
 function BurnabyBrentwood() {
   return (
     <>
-      
       <MetaTags
         title="Evolve Strength Brentwood | The Best Fitness Gym in Burnaby"
         description="Join the best fitness gym in Burnaby with affordable memberships, expert personal trainers, and top-of-the-line equipment."
       />
       <LocationHero />
       <LocationPartners />
-      <LoWhyChooseEvolve />
+      <Spacious />
+      <MeetTheTrainers location="BURNABY BRENTWOOD" />
+      <SetonLocation />
+      {/* <LoWhyChooseEvolve /> */}
       <LocationPricing />
       <FitnessCategory />
       <LocationsPersonalizedAssessment />
-      <RightTrainer />
+      {/* <RightTrainer /> */}
       <Services />
-      <Spacious />
-      <LocationsSeeItForYourSelf />
-      <SetonLocation />
-      <MeetTheTrainers location="BURNABY BRENTWOOD" />
+      <YourEvolveLocations />
+      {/* <LocationsSeeItForYourSelf /> */}
+
       <JoinUsToday />
       <FrequentlyAskedQuestions {...LocationFaq} />
     </>
