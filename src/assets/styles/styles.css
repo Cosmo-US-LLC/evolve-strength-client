@@ -85,7 +85,7 @@
 .careersHeroSection {
   background-image: url("https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/careers_hero.webp");
   background-size: cover;
-  background-position: bottom;
+  background-position: top;
   background-repeat: no-repeat;
   width: 100%;
   height: 700px;

@@ -107,7 +107,8 @@ function TrainersView() {
       {/* Filter Tabs */}
       {/* Mobile: Horizontal Scrollable Filters */}
       <div className="md:hidden mb-6">
-        <div className="flex gap-1 overflow-x-auto scrollbar-hide py-2 relative">
+        {/* Mobile Filter Buttons */}
+        <div className="flex gap-1 overflow-x-auto scrollbar-hide py-2">
           <button
             className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-3 py-2 font-[300] leading-[20px] capitalize text-[16px] cursor-pointer outline-none transition-all duration-200 flex-shrink-0 ${
               selectedTab === "All" &&
@@ -156,59 +157,6 @@ function TrainersView() {
                 />
               </div>
             </button>
-            {showLocationDropdown && (
-              <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-[9999] min-w-[220px] max-h-[300px]  ">
-                <div
-                  className="flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
-                  onClick={() => {
-                    setSelectedLocation("");
-                    setShowLocationDropdown(false);
-                  }}
-                >
-                  <div
-                    className={`w-3 h-3 border-2 rounded flex items-center justify-center ${
-                      !selectedLocation
-                        ? "bg-[#4AB04A] border-[#4AB04A]"
-                        : "border-[#CCCCCC]"
-                    }`}
-                  >
-                    {!selectedLocation && (
-                      <Check className="w-2 h-2 text-white" />
-                    )}
-                  </div>
-                  <span className="text-black font-medium text-sm">
-                    All Locations
-                  </span>
-                </div>
-
-                {/* Individual Location Options */}
-                {allLocations.map((location, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
-                    onClick={() => {
-                      setSelectedLocation(location.name);
-                      setShowLocationDropdown(false);
-                    }}
-                  >
-                    <div
-                      className={`w-3 h-3 border-2 rounded flex items-center justify-center ${
-                        selectedLocation === location.name
-                          ? "bg-[#4AB04A] border-[#4AB04A]"
-                          : "border-[#CCCCCC]"
-                      }`}
-                    >
-                      {selectedLocation === location.name && (
-                        <Check className="w-2 h-2 text-white" />
-                      )}
-                    </div>
-                    <span className="text-[16px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                      {location.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
 
           <div className="relative flex-shrink-0" ref={areasDropdownRef}>
@@ -220,7 +168,6 @@ function TrainersView() {
               }`}
               onClick={() => {
                 setShowAreasDropdown((v) => !v);
-                setShowLocationDropdown(false);
               }}
             >
               <div className="flex items-center gap-2">
@@ -232,69 +179,106 @@ function TrainersView() {
                 />
               </div>
             </button>
-            {showAreasDropdown && (
-              <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-[9999] min-w-[220px] max-h-[300px] overflow-y-auto">
-                <div
-                  className="flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
-                  onClick={() => {
-                    setSelectedAreasOfFocus([]);
-                    setShowAreasDropdown(false);
-                  }}
-                >
-                  <div
-                    className={`w-3 h-3 border-2 rounded flex items-center justify-center ${
-                      selectedAreasOfFocus.length === 0
-                        ? "bg-[#4AB04A] border-[#4AB04A]"
-                        : "border-[#CCCCCC]"
-                    }`}
-                  >
-                    {selectedAreasOfFocus.length === 0 && (
-                      <Check className="w-2 h-2 text-white" />
-                    )}
-                  </div>
-                  <span className="text-black font-medium text-sm">
-                    All Areas
-                  </span>
-                </div>
-
-                {/* Individual Areas of Focus Options */}
-                {allAreasOfFocus.map((area, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
-                    onClick={() => {
-                      if (selectedAreasOfFocus.includes(area.name)) {
-                        setSelectedAreasOfFocus(
-                          selectedAreasOfFocus.filter((a) => a !== area.name)
-                        );
-                      } else {
-                        setSelectedAreasOfFocus([
-                          ...selectedAreasOfFocus,
-                          area.name,
-                        ]);
-                      }
-                    }}
-                  >
-                    <div
-                      className={`w-3 h-3 border-2 rounded flex items-center justify-center ${
-                        selectedAreasOfFocus.includes(area.name)
-                          ? "bg-[#4AB04A] border-[#4AB04A]"
-                          : "border-[#CCCCCC]"
-                      }`}
-                    >
-                      {selectedAreasOfFocus.includes(area.name) && (
-                        <Check className="w-2 h-2 text-white" />
-                      )}
-                    </div>
-                    <span className="text-[16px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                      {area.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
         </div>
+
+        {/* Mobile Dropdowns - Match desktop design exactly */}
+        {showLocationDropdown && (
+          <div className="mt-2 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[250px]">
+            <div
+              className={`px-4 py-3 cursor-pointer first:rounded-t-lg border-b border-gray-100 ${
+                !selectedLocation
+                  ? "bg-[#4AB04A] text-white"
+                  : "hover:bg-gray-50 text-black"
+              }`}
+              onClick={() => {
+                setSelectedLocation("");
+              }}
+            >
+              <span className="text-base font-medium">All Locations</span>
+            </div>
+
+            {/* Individual Location Options */}
+            {allLocations.map((location, idx) => (
+              <div
+                key={idx}
+                className={`px-4 py-3 cursor-pointer last:rounded-b-lg ${
+                  selectedLocation === location.name
+                    ? "bg-[#4AB04A] text-white"
+                    : "hover:bg-gray-50 text-black"
+                }`}
+                onClick={() => {
+                  setSelectedLocation(location.name);
+                }}
+              >
+                <span className="text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
+                  {location.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {showAreasDropdown && (
+          <div className="mt-2 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[250px] h-[300px] overflow-y-auto">
+            <div
+              className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
+              onClick={() => {
+                setSelectedAreasOfFocus([]);
+              }}
+            >
+              <div
+                className={`w-4 h-4 border-2 rounded flex items-center justify-center ${
+                  selectedAreasOfFocus.length === 0
+                    ? "bg-[#4AB04A] border-[#4AB04A]"
+                    : "border-[#CCCCCC]"
+                }`}
+              >
+                {selectedAreasOfFocus.length === 0 && (
+                  <Check className="w-3 h-3 text-white" />
+                )}
+              </div>
+              <span className="text-black font-medium text-base">
+                All Areas
+              </span>
+            </div>
+
+            {/* Individual Areas of Focus Options */}
+            {allAreasOfFocus.map((area, idx) => (
+              <div
+                key={idx}
+                className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
+                onClick={() => {
+                  if (selectedAreasOfFocus.includes(area.name)) {
+                    setSelectedAreasOfFocus(
+                      selectedAreasOfFocus.filter((a) => a !== area.name)
+                    );
+                  } else {
+                    setSelectedAreasOfFocus([
+                      ...selectedAreasOfFocus,
+                      area.name,
+                    ]);
+                  }
+                }}
+              >
+                <div
+                  className={`w-4 h-4 border-2 rounded flex items-center justify-center ${
+                    selectedAreasOfFocus.includes(area.name)
+                      ? "bg-[#4AB04A] border-[#4AB04A]"
+                      : "border-[#CCCCCC]"
+                  }`}
+                >
+                  {selectedAreasOfFocus.includes(area.name) && (
+                    <Check className="w-3 h-3 text-white" />
+                  )}
+                </div>
+                <span className="text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
+                  {area.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Selected Filters Display - Mobile */}
@@ -385,49 +369,31 @@ function TrainersView() {
           {showLocationDropdown && (
             <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[250px]">
               <div
-                className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
+                className={`px-4 py-3 cursor-pointer first:rounded-t-lg border-b border-gray-100 ${
+                  !selectedLocation
+                    ? "bg-[#4AB04A] text-white"
+                    : "hover:bg-gray-50 text-black"
+                }`}
                 onClick={() => {
                   setSelectedLocation("");
-                  setShowLocationDropdown(false);
                 }}
               >
-                <div
-                  className={`w-4 h-4 border-2 rounded flex items-center justify-center ${
-                    !selectedLocation
-                      ? "bg-[#4AB04A] border-[#4AB04A]"
-                      : "border-[#CCCCCC]"
-                  }`}
-                >
-                  {!selectedLocation && (
-                    <Check className="w-3 h-3 text-white" />
-                  )}
-                </div>
-                <span className="text-black font-medium text-base">
-                  All Locations
-                </span>
+                <span className="text-base font-medium">All Locations</span>
               </div>
 
               {/* Individual Location Options */}
               {allLocations.map((location, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
+                  className={`px-4 py-3 cursor-pointer last:rounded-b-lg ${
+                    selectedLocation === location.name
+                      ? "bg-[#4AB04A] text-white"
+                      : "hover:bg-gray-50 text-black"
+                  }`}
                   onClick={() => {
                     setSelectedLocation(location.name);
-                    setShowLocationDropdown(false);
                   }}
                 >
-                  <div
-                    className={`w-4 h-4 border-2 rounded flex items-center justify-center ${
-                      selectedLocation === location.name
-                        ? "bg-[#4AB04A] border-[#4AB04A]"
-                        : "border-[#CCCCCC]"
-                    }`}
-                  >
-                    {selectedLocation === location.name && (
-                      <Check className="w-3 h-3 text-white" />
-                    )}
-                  </div>
                   <span className="text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
                     {location.name}
                   </span>
@@ -446,7 +412,6 @@ function TrainersView() {
             }`}
             onClick={() => {
               setShowAreasDropdown((v) => !v);
-              setShowLocationDropdown(false);
             }}
           >
             <div className="flex items-center gap-2">
@@ -539,7 +504,7 @@ function TrainersView() {
           {selectedAreasOfFocus.map((area, index) => (
             <div
               key={index}
-              className="flex items-center gap-2 bg-[#4AB04A] text-white px-4 py-2 rounded-full text-base"
+              className="flex items-center gap-2 bg-[#fff] text-[#000] border-2 border-[#000] px-4 py-2 rounded-full text-base"
             >
               <span>{area}</span>
               <button

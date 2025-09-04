@@ -218,7 +218,7 @@ function TrainerCard({
         <div className="ml-3 flex-row items-start w-[10%] h-full">
           <CircleChevronDown
             className={`transition-transform duration-200 ${
-              selected ? "rotate-0  text-[#fff]" : "rotate-180 text-[#000]"
+              selected ? "rotate-180  text-[#fff]" : "rotate-0 text-[#000]"
             }`}
           />
         </div>
