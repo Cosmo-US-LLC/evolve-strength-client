@@ -30,12 +30,9 @@ function Explore() {
   }, [location.search]);
 
   const handleCategorySelect = (categoryId) => {
-    // Handle both selection and deselection
     setSelected(categoryId);
 
-    // Update URL based on selection
     if (categoryId) {
-      // Map category ID to URL parameter
       const categoryMap = {
         TRAINERS: "trainers",
         LOCATIONS: "locations",

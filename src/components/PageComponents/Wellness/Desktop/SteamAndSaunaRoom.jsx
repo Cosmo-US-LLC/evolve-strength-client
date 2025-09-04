@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function SteamAndSaunaRoom() {
   return (
@@ -13,7 +14,11 @@ function SteamAndSaunaRoom() {
             Relax sore muscles, boost circulation, and recover faster with heat
             therapy. Available at most Evolve locations.
           </p>
-          <div className="flex gap-6"></div>
+          <div className="flex gap-6">
+            <Link to="https://tour.evolvestrength.ca/tour-form">
+              <button className="btnPrimary">Book a Tour</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

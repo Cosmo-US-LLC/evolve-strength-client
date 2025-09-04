@@ -57,7 +57,7 @@ function JoinAsTrainerHero(onSelectOption) {
             </div>
             <div className="px-[32px] space-y-[16px] pt-[24px] pb-[32px]">
               <div className="space-y-[5px]">
-                <h5 className="text-[#000]">Your hourly rate</h5>
+                <p className="text-[#000] text-[16px] font-[400] font-[kanit]">Your hourly rate</p>
                 <input
                   min="1"
                   max="200"
@@ -73,12 +73,12 @@ function JoinAsTrainerHero(onSelectOption) {
                   }}
                 />
                 <div className="flex justify-between">
-                  <h5 className="text-[#000] !text-[10px]">{valueHourly}</h5>
-                  <h5 className="text-[#000] !text-[10px]">200</h5>
+                  <p className="text-[#000] text-[16px] font-[kanit] font-[500]">{valueHourly}</p>
+                  <p className="text-[#000] text-[16px] font-[kanit] font-[500]">200</p>
                 </div>
               </div>
               <div className="space-y-[5px] ">
-                <h5 className="text-[#000]">Number of sessions per month</h5>
+                <p className="text-[#000] text-[16px] font-[400] font-[kanit]">Number of sessions per month</p>
                 <input
                   min="1"
                   max="200"
@@ -94,12 +94,12 @@ function JoinAsTrainerHero(onSelectOption) {
                   }}
                 />
                 <div className="flex justify-between">
-                  <h5 className="text-[#000] !text-[10px]">{sessions}</h5>
-                  <h5 className="text-[#000] !text-[10px]">200</h5>
+                  <p className="text-[#000] text-[16px] font-[kanit] font-[500]">{sessions}</p>
+                  <p className="text-[#000] text-[16px] font-[kanit] font-[500]">200</p>
                 </div>
               </div>
               <div className="space-y-[5px]">
-                <h5 className="text-[#000]">Your current gym split %</h5>
+                <p className="text-[#000] text-[16px] font-[400] font-[kanit]">Your current gym split %</p>
                 <div className="flex justify-between space-x-[1px] items-center">
                   {gymSplitOptions.map((option) => (
                     <button
@@ -117,7 +117,7 @@ function JoinAsTrainerHero(onSelectOption) {
                 </div>
               </div>
               <div className="pt-[8px]">
-                <h5 className="!font-[300] text-center !text-[12px] text-[#000] leading-[26px]">
+                <h5 className="!font-[300] text-center !text-[14px] text-[#000] leading-[26px]">
                   You’re losing
                 </h5>
                 <h3 className="!font-[700] leading-[26px] text-center">
@@ -131,7 +131,7 @@ function JoinAsTrainerHero(onSelectOption) {
                 </h5>
                 <h5 className="!font-[300] !text-[12px] text-[#000] text-center leading-[12px]">
                   That’s{" "}
-                  <span className="!font-[600]">
+                  <span className="text-[#000] text-[14px] font-[500] font-[kanit]">
                     ${yearlyLoss.toLocaleString(undefined, {
                       minimumFractionDigits: 0,
                       maximumFractionDigits: 0,
