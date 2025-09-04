@@ -4,8 +4,8 @@ import CareersHero from "@/components/PageComponents/Careers/CareersHero";
 import WhyEvolve from "@/components/PageComponents/Careers/WhyEvolve";
 import FitnessCategoryMarquee from "@/components/PageComponents/PersonalTraining/Desktop/FitnessCategoryMarquee";
 import WorkAtEvolve from "@/components/PageComponents/Careers/WorkAtEvolve";
-import WellnessServices from "@/components/PageComponents/Home/Desktop/WellnessServices";
 import JoinEvolveWithDreamTeam from "@/components/PageComponents/Careers/JoinEvolveWithDreamTeam";
+import PerksAndBenefits from "@/components/PageComponents/Careers/PerksAndBenefits";
 
 function Careers() {
   return (
@@ -18,7 +18,7 @@ function Careers() {
       <WhyEvolve />
       <FitnessCategoryMarquee />
       <WorkAtEvolve />
-      <WellnessServices />
+      <PerksAndBenefits />
       <JoinEvolveWithDreamTeam />
     </>
   );
