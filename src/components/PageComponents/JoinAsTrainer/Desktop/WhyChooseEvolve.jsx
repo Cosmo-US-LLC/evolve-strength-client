@@ -134,7 +134,7 @@ function WhyChooseEvolve() {
                   className="min-h-[550px] w-full left-0 rounded-b-[10px] absolute bottom-0"
                   style={{
                     background:
-                      "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 51.51%, #000 100%)",
+                      "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 22.51%, #000 100%)",
                   }}
                 ></div>
               </div>

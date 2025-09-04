@@ -531,7 +531,7 @@ function EvolveExpansionPlans() {
           <div className="flex flex-col gap-8 max-w-[493px] border border-[#CCCCCC] bg-[#F6F6F6] px-8 py-12 rounded-[10px]">
             <div className="flex flex-col gap-3">
               <h3 className=" text-[#000] leading-[25px] capitalize font-[400]">
-                Total Gym Locations
+                Total Locations
               </h3>
               <h2 className="font-[700] leading-[39px] text-[#000]">8</h2>
             </div>
@@ -539,13 +539,13 @@ function EvolveExpansionPlans() {
               <h3 className=" text-[#000] leading-[25px] capitalize font-[400]">
                 Amenities & Services
               </h3>
-              <h2 className="font-[700] leading-[39px] text-[#000]">50+</h2>
+              <h2 className="font-[700] leading-[39px] text-[#000]">150+</h2>
             </div>
             <div className="flex flex-col gap-3">
               <h3 className="text-[#000] leading-[25px] capitalize font-[400]">
-                Active Members
+                Trainers
               </h3>
-              <h2 className="font-[700] leading-[39px] text-[#000]">12,000+</h2>
+              <h2 className="font-[700] leading-[39px] text-[#000]">200+</h2>
             </div>
 
             <div className="flex items-center gap-4">

@@ -46,10 +46,10 @@ function CorporateMembershipWizard({ onSelectOption }) {
           <button
             type="button"
             onClick={handleBack}
-            className="self-start mb-4  flex items-center gap-2 text-black hover:text-gray-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-full"
+            className="self-start mb-4 cursor-pointer flex items-center gap-2 text-black hover:text-gray-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-full"
             aria-label="Go back"
           >
-            <div className="w-8 h-8 rounded-full border border-black flex  items-center justify-center">
+            <div className="w-8 h-8 rounded-full border border-black hover:text-[#fff] hover:bg-[#000] flex  items-center justify-center">
               <ArrowLeft className="w-4 h-4" />
             </div>
             <span className="font-medium">Back</span>
@@ -66,7 +66,7 @@ function CorporateMembershipWizard({ onSelectOption }) {
             <Link to="/check-membership-form">
               {/* Option 1 */}
               <button
-                className="flex-1 bg-white border border-[#D4D4D4] rounded-[8px] p-6 flex flex-col items-center cursor-pointer hover:border-[#4AB04A] transition-all md:min-w-[220px] md:max-w-[260px] shadow-sm"
+                className="flex-1 bg-white border-2 border-[#D4D4D4] rounded-[8px] p-6 flex flex-col items-center cursor-pointer hover:border-[#4AB04A] transition-all md:min-w-[220px] md:max-w-[260px] "
                 onClick={() => onSelectOption("check")}
               >
                 <span className="mb-3">
@@ -85,7 +85,7 @@ function CorporateMembershipWizard({ onSelectOption }) {
             {/* Option 2 */}
             <Link to="/apply-membership-form">
               <button
-                className="flex-1 bg-white border border-[#D4D4D4] rounded-[8px] p-6 flex flex-col items-center cursor-pointer hover:border-[#4AB04A] transition-all md:min-w-[220px] md:h-[208px] md:max-w-[260px] shadow-sm"
+                className="flex-1 bg-white border-2 border-[#D4D4D4] rounded-[8px] p-6 flex flex-col items-center cursor-pointer hover:border-[#4AB04A] transition-all md:min-w-[220px] md:h-[208px] md:max-w-[260px]"
                 onClick={() => onSelectOption("apply")}
               >
                 <span className="mb-3">

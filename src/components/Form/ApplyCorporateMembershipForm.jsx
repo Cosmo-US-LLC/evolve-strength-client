@@ -161,16 +161,27 @@ function ApplyCorporateMembershipForm({ onSubmit }) {
         </div>
         {/* Right Form */}
         <div className="flex flex-col md:items-start  justify-between w-full md:max-w-[50%]">
-          <button
+          {/* <button
             className="flex items-center md:pt-5 gap-2 text-[#222] text-[15px] hover:underline"
             onClick={() => navigate(-1)}
           >
             <ArrowLeft size={20} /> Back
+          </button> */}
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+            className="self-start md:pt-5 cursor-pointer flex items-center gap-2 text-black hover:text-gray-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-full"
+            aria-label="Go back"
+          >
+            <div className="w-8 h-8 rounded-full border border-black hover:text-[#fff] hover:bg-[#000] flex  items-center justify-center">
+              <ArrowLeft className="w-4 h-4" />
+            </div>
+            <span className="font-medium">Back</span>
           </button>
           <div className="w-full md:max-w-[537px] bg-white rounded-[10px] p-3">
             <div className="w-full">
-              <h3 className="!text-[18px] md:text-[22px] font-[700] text-center mb-2">
-                APPLY FOR A CORPORATE MEMBERSHIP
+              <h3 className="!text-[18px] md:text-[22px] font-[700] text-center mb-2 uppercase">
+                Apply For A New Corporate Membership
               </h3>
             </div>
             <div className="w-full">

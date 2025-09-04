@@ -63,7 +63,7 @@ function FranchiseHero() {
               {showThumbnail && (
                 <div className="absolute inset-0 z-20">
                   <img
-                    src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/franchise_thumbnail.webp"
+                    src="https://tor1.digitaloceanspaces.com/evolve-strength/assets/videos/franchise_video_thumbnail.webp"
                     alt="Franchise with Evolve - Thumbnail"
                     className="w-full h-full object-cover"
                   />

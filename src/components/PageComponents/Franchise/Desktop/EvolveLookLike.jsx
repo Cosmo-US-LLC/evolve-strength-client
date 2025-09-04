@@ -20,11 +20,11 @@ const professionals = [
     image:
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_3.webp",
   },
-  {
-    title: "Chiropractic Care",
-    image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_4.webp",
-  },
+  // {
+  //   title: "Chiropractic Care",
+  //   image:
+  //     "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_4.webp",
+  // },
   {
     title: "Acupuncture",
     image:
