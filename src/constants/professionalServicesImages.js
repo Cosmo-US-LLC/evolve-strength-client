@@ -103,6 +103,159 @@ export const professionalServices = [
   },
 ];
 
+export const professionalServicesForLocations = [
+  {
+    title: "Esthetician",
+    images: {
+      desktopImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/esthetician.webp",
+      mobileImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/esthetician_mobile.webp",
+    },
+    icon: Leaf,
+  },
+  {
+    title: "Chiropractic Care",
+    images: {
+      desktopImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_care.webp",
+      mobileImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_careMob.webp",
+    },
+    icon: Hand,
+  },
+  {
+    title: "Massage Therapy",
+    images: {
+      desktopImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_head.webp",
+      mobileImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_headMob.webp",
+    },
+    icon: HandHeart,
+  },
+  {
+    title: "Strength training",
+    images: {
+      desktopImage:
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/strength_training.webp",
+      mobileImage:
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/strength_training_mob.webp",
+    },
+    icon: HandHeart,
+  },
+  {
+    title: "calisthenics",
+    images: {
+      desktopImage:
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/calisthenics.webp",
+      mobileImage:
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/calisthenics_mob.webp",
+    },
+    icon: HandHeart,
+  },
+  {
+    title: "Physiotherapy",
+    images: {
+      desktopImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/physiotherapy.webp",
+      mobileImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/physiotherapyMob.webp",
+    },
+    icon: Dumbbell,
+  },
+  {
+    title: "Acupuncture",
+    images: {
+      desktopImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupuncture.webp",
+      mobileImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupunctureMob.webp",
+    },
+    icon: Activity,
+  },
+  {
+    title: "Dietitian Services",
+    images: {
+      desktopImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupuncture_food.webp",
+      mobileImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupuncture_foodMob.webp",
+    },
+    icon: Salad,
+  },
+  {
+    title: "Cardio",
+    images: {
+      desktopImage:
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/cardio.webp",
+      mobileImage:
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/cardio_.webp",
+    },
+    icon: HandHeart,
+  },
+  {
+    title: "Weight Loss",
+    images: {
+      desktopImage:
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/weight_loss.webp",
+      mobileImage:
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/weight_loss_mob.webp",
+    },
+    icon: HandHeart,
+  },
+  {
+    title: "Osteopathy",
+    images: {
+      desktopImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/osteopathy.webp",
+      mobileImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/osteopathyMob.webp",
+    },
+    icon: HeartPulse,
+  },
+  {
+    title: "Laser Therapy",
+    images: {
+      desktopImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/Laser.webp",
+      mobileImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/laserMob.webp",
+    },
+    icon: Sparkles,
+  },
+  {
+    title: "Mental Health",
+    images: {
+      desktopImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/mental_health.webp",
+      mobileImage:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/mental_healthMob.webp",
+    },
+    icon: Brain,
+  },
+  {
+    title: "Mobility",
+    images: {
+      desktopImage:
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/mobility.webp",
+      mobileImage:
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/mobility_mob.webp",
+    },
+    icon: HandHeart,
+  },
+  {
+    title: "Olympic Lifting",
+    images: {
+      desktopImage:
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/olympic_lifting.webp",
+      mobileImage:
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/olympic_lifting_mob.webp",
+    },
+    icon: HandHeart,
+  },
+];
+
 export const professionalMembershipPremiumAmenities = [
   {
     title: "On-Site Parking",

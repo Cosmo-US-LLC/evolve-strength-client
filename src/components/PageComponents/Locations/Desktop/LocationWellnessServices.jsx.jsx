@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Link } from "react-router-dom";
 import Autoplay from "embla-carousel-autoplay";
-import { professionalServices } from "../../../../constants/professionalServicesImages.js";
+import { professionalServices,professionalServicesForLocations } from "../../../../constants/professionalServicesImages.js";
 import {
   Carousel,
   CarouselContent,
@@ -58,7 +58,7 @@ const LocationWellnessServices = () => {
 
   // Preload images
   useEffect(() => {
-    professionalServices.forEach((service) => {
+    professionalServicesForLocations.forEach((service) => {
       // Preload desktop image
       const desktopImg = new Image();
       desktopImg.src = service.images.desktopImage;
@@ -72,12 +72,12 @@ const LocationWellnessServices = () => {
   return (
     <div className="w-full   max-md:pt-0">
       {/* Desktop View */}
-      <div className="relative flex flex-row items-center justify-center w-full min-h-[700px] max-md:hidden">
+      <div className="relative flex flex-row items-center justify-center w-full min-h-[740px] max-md:hidden">
         {/* Previous background image - stays visible during transition */}
         <div
           className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out hidden md:block"
           style={{
-            backgroundImage: `url(${professionalServices[previousIndex].images.desktopImage})`,
+            backgroundImage: `url(${professionalServicesForLocations[previousIndex].images.desktopImage})`,
           }}
         />
 
@@ -85,7 +85,7 @@ const LocationWellnessServices = () => {
         <div
           className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out hidden md:block"
           style={{
-            backgroundImage: `url(${professionalServices[activeIndex].images.desktopImage})`,
+            backgroundImage: `url(${professionalServicesForLocations[activeIndex].images.desktopImage})`,
           }}
         />
 
@@ -106,8 +106,8 @@ const LocationWellnessServices = () => {
             </Link>
           </div>
 
-          <div className="flex flex-wrap gap-4 max-w-[500px]">
-            {professionalServices.map((service, index) => {
+          <div className="flex flex-wrap gap-2 max-w-[713px]">
+            {professionalServicesForLocations.map((service, index) => {
               const isActive = index === activeIndex;
               const IconComponent = service.icon;
 
@@ -115,7 +115,7 @@ const LocationWellnessServices = () => {
                 <div
                   key={index}
                   onClick={() => handleManualClick(index)}
-                  className={`group relative w-[155px] h-[155px] flex flex-col items-center justify-center text-[#fff] backdrop-blur-[12px] rounded-[10px] cursor-pointer transition-all duration-300
+                  className={`group relative w-[134px] h-[138px] flex flex-col items-center justify-center text-[#fff] backdrop-blur-[12px] rounded-[10px] cursor-pointer transition-all duration-300
                   ${
                     isActive
                       ? "bg-white/20 ring-2 ring-white"
@@ -146,7 +146,7 @@ const LocationWellnessServices = () => {
         <div
           className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out md:hidden"
           style={{
-            backgroundImage: `url(${professionalServices[previousIndex].images.mobileImage})`,
+            backgroundImage: `url(${professionalServicesForLocations[previousIndex].images.mobileImage})`,
           }}
         />
 
@@ -154,7 +154,7 @@ const LocationWellnessServices = () => {
         <div
           className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out md:hidden"
           style={{
-            backgroundImage: `url(${professionalServices[activeIndex].images.mobileImage})`,
+            backgroundImage: `url(${professionalServicesForLocations[activeIndex].images.mobileImage})`,
           }}
         />
 
@@ -177,7 +177,7 @@ const LocationWellnessServices = () => {
         <div className="relative w-full mt-6">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-2 pl-2">
-              {professionalServices.map((service, index) => {
+              {professionalServicesForLocations.map((service, index) => {
                 const isActive = index === activeIndex;
                 const IconComponent = service.icon;
 
