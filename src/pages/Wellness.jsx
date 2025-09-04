@@ -24,7 +24,7 @@ function Home() {
       <WellnessPricingRoom />
       <MoreWaysToRecover />
       <SteamAndSaunaRoom />
-      <YogaAndRecoveryRoom />
+      {/* <YogaAndRecoveryRoom /> */}
       <FrequentlyAskedQuestions {...faqContent} />
     </>
   );

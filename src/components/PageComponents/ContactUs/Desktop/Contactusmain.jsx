@@ -24,11 +24,11 @@ const contactLocationsData = {
       location: "8888 Country Hills Blvd NW #600 Calgary, Alberta, T3G 5T4",
       number: "(403) 452-3169",
     },
-    {
-      cityName: "Calgary Sunridge",
-      location: "2985 23 Ave NE Unit#125 Calgary, Alberta, T1Y 7L3",
-      number: "(587) 393-9428",
-    },
+    // {
+    //   cityName: "Calgary Sunridge",
+    //   location: "2985 23 Ave NE Unit#125 Calgary, Alberta, T1Y 7L3",
+    //   number: "(587) 393-9428",
+    // },
     {
       cityName: "Calgary Seton",
       location: "710-19587 Seton Crescent SE Calgary, Alberta, T3M 2T5",

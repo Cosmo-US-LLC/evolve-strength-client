@@ -350,74 +350,74 @@ export const EXPLORE_DATA = [
           "CALGARY ROYAL OAK"
         ),
       },
-      {
-        id: "location-calgary-sunridge",
-        city: "CALGARY",
-        branch: "SUNRIDGE",
-        locationTitle: "CALGARY SUNRIDGE",
-        statelink:
-          "https://subscription.evolvestrength.ca/membership-plans?location=06973",
-        heroImage: sunridgeHero,
-        details: "Details for CALGARY SUNRIDGE",
-        services: [
-          { id: "service-all", name: "All", icon: AllIcon },
-          {
-            id: "service-personal-trainer",
-            name: "Personal Trainer",
-            icon: PersonalTrainerIcon,
-          },
-          {
-            id: "service-esthetician",
-            name: "Esthetician",
-            icon: EstheticianIcon,
-          },
-          {
-            id: "service-chiropractic",
-            name: "Chiropractic Care",
-            icon: ChiropracticIcon,
-          },
-          {
-            id: "service-massage",
-            name: "Massage Therapy",
-            icon: MassageTherapyIcon,
-          },
-          {
-            id: "service-physiotherapy",
-            name: "Physiotherapy",
-            icon: PhysiotherapyIcon,
-          },
-          {
-            id: "service-acupuncture",
-            name: "Acupuncture",
-            icon: AcupunctureIcon,
-          },
-          {
-            id: "service-dietitian",
-            name: "Dietitian Services",
-            icon: DietitianServicesIcon,
-          },
-          {
-            id: "service-osteopathy",
-            name: "Osteopathy",
-            icon: OsteopathyIcon,
-          },
-          {
-            id: "service-laser",
-            name: "Laser Therapy",
-            icon: LaserTherapyIcon,
-          },
-          {
-            id: "service-mental-health",
-            name: "Mental Health Support",
-            icon: MentalHealthIcon,
-          },
-        ],
-        trainerIds: getTrainerIdsForLocation("CALGARY SUNRIDGE"),
-        personalTrainerIds: getTrainerIdsForRoleInLocation(
-          "Personal Trainer",
-          "CALGARY SUNRIDGE"
-        ),
-      },
+      // {
+      //   id: "location-calgary-sunridge",
+      //   city: "CALGARY",
+      //   branch: "SUNRIDGE",
+      //   locationTitle: "CALGARY SUNRIDGE",
+      //   statelink:
+      //     "https://subscription.evolvestrength.ca/membership-plans?location=06973",
+      //   heroImage: sunridgeHero,
+      //   details: "Details for CALGARY SUNRIDGE",
+      //   services: [
+      //     { id: "service-all", name: "All", icon: AllIcon },
+      //     {
+      //       id: "service-personal-trainer",
+      //       name: "Personal Trainer",
+      //       icon: PersonalTrainerIcon,
+      //     },
+      //     {
+      //       id: "service-esthetician",
+      //       name: "Esthetician",
+      //       icon: EstheticianIcon,
+      //     },
+      //     {
+      //       id: "service-chiropractic",
+      //       name: "Chiropractic Care",
+      //       icon: ChiropracticIcon,
+      //     },
+      //     {
+      //       id: "service-massage",
+      //       name: "Massage Therapy",
+      //       icon: MassageTherapyIcon,
+      //     },
+      //     {
+      //       id: "service-physiotherapy",
+      //       name: "Physiotherapy",
+      //       icon: PhysiotherapyIcon,
+      //     },
+      //     {
+      //       id: "service-acupuncture",
+      //       name: "Acupuncture",
+      //       icon: AcupunctureIcon,
+      //     },
+      //     {
+      //       id: "service-dietitian",
+      //       name: "Dietitian Services",
+      //       icon: DietitianServicesIcon,
+      //     },
+      //     {
+      //       id: "service-osteopathy",
+      //       name: "Osteopathy",
+      //       icon: OsteopathyIcon,
+      //     },
+      //     {
+      //       id: "service-laser",
+      //       name: "Laser Therapy",
+      //       icon: LaserTherapyIcon,
+      //     },
+      //     {
+      //       id: "service-mental-health",
+      //       name: "Mental Health Support",
+      //       icon: MentalHealthIcon,
+      //     },
+      //   ],
+      //   trainerIds: getTrainerIdsForLocation("CALGARY SUNRIDGE"),
+      //   personalTrainerIds: getTrainerIdsForRoleInLocation(
+      //     "Personal Trainer",
+      //     "CALGARY SUNRIDGE"
+      //   ),
+      // },
       {
         id: "location-edmonton-south",
         city: "EDMONTON",

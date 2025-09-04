@@ -51,8 +51,8 @@ const ConsultationWithPersonalTrainers = () => {
           </h4>
 
           <div className="flex gap-4 md:gap-6 mb-8 md:mb-8">
-            <Link to="https://subscription.evolvestrength.ca">
-              <button className="btnPrimary">Join Evolve</button>
+            <Link to="#">
+              <button className="btnPrimary">Become a Trainer</button>
             </Link>
 
             <Link to="/explore?category=trainers">

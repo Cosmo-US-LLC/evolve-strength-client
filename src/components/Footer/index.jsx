@@ -153,7 +153,7 @@ function Footer() {
                   </Link>
                   <Link
                     smooth
-                    to="/spaces"
+                    to="/work-spaces"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Work Spaces

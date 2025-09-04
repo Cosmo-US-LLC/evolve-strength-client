@@ -54,7 +54,7 @@ function App() {
           <Route path="/personal-training" element={<PersonalTraining />} />
           <Route path="/wellness" element={<Wellness />} />
           <Route path="/franchise" element={<Franchise />} />
-          <Route path="/spaces" element={<Spaces />} />
+          <Route path="/work-spaces" element={<Spaces />} />
           <Route path="/careers" element={<Careers />} />
           <Route
             path="/corporate-membership"

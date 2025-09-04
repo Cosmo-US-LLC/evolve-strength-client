@@ -48,17 +48,17 @@ function AllGymLocations() {
       locationUrl: "/locations/calgary-royal-oak",
       commonbtn: false,
     },
-    {
-      id: 5,
-      name: "Calgary Sunridge",
-      image:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/all_locations/g_cal_sun.webp",
-      address: "321 32 St NE, Calgary, Alberta, T1Y 6J8",
-      phone: "+1 (587) 393-9428",
-      directionsUrl: "https://maps.app.goo.gl/XWSsS2qMqaRirD7q7",
-      locationUrl: "/locations/calgary-sunridge",
-      commonbtn: false,
-    },
+    // {
+    //   id: 5,
+    //   name: "Calgary Sunridge",
+    //   image:
+    //     "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/all_locations/g_cal_sun.webp",
+    //   address: "321 32 St NE, Calgary, Alberta, T1Y 6J8",
+    //   phone: "+1 (587) 393-9428",
+    //   directionsUrl: "https://maps.app.goo.gl/XWSsS2qMqaRirD7q7",
+    //   locationUrl: "/locations/calgary-sunridge",
+    //   commonbtn: false,
+    // },
     {
       id: 6,
       name: "Edmonton Downtown",
