@@ -20,43 +20,37 @@ function WorkAtEvolve() {
   ];
 
   return (
-    <section className="bg-black text-white">
-      {/* Header Section */}
-      <div className="text-center py-16 px-4">
-        <h1 className="text-5xl font-bold mb-6">WORK AT EVOLVE STRENGTH</h1>
-        <p className="text-xl max-w-4xl mx-auto leading-relaxed">
-          At Evolve Strength, we're more than a gym, we're a community of
-          trainers and health professionals working together to help people
-          thrive.
-        </p>
-      </div>
+    <section className="bg-[#000] text-[#fff] py-12">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col gap-12">
+        <div className="flex flex-col gap-6">
+          <h2 className="max-w-[529px]">WORK AT EVOLVE STRENGTH</h2>
+          <h4 className="max-w-[578px]">
+            At Evolve Strength, we're more than a gym, we're a community of
+            trainers and health professionals working together to help people
+            thrive.
+          </h4>
+        </div>
 
-      {/* Body Section - Two Columns */}
-      <div className="max-w-7xl mx-auto px-4 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Team Photo */}
           <div className="relative">
-            <div className="relative h-96 lg:h-[500px] rounded-lg overflow-hidden">
+            <div className="relative h-auto md:h-[350px] rounded-[6px] overflow-hidden">
               <img
-                src="/src/assets/images/wellness/wellness-4.webp"
+                src="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/work_at_evolve.webp"
                 alt="Evolve Strength team of fitness and health professionals collaborating in a modern gym"
                 className="w-full h-full object-cover"
               />
-              {/* Overlay to enhance text readability if needed */}
+
               <div className="absolute inset-0 bg-black/10"></div>
             </div>
           </div>
 
-          {/* Right Side - Benefits */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {benefits.map((benefit, index) => (
               <div key={index} className="group">
-                <h3 className="text-3xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors duration-300">
-                  {benefit.title}
-                </h3>
-                <p className="text-lg leading-relaxed text-gray-300 group-hover:text-white transition-colors duration-300">
+                <h3 className="mb-2 text-white">{benefit.title}</h3>
+                <h4 className="max-w-[406px] text-gray-300">
                   {benefit.description}
-                </p>
+                </h4>
               </div>
             ))}
           </div>
