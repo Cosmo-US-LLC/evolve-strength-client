@@ -5,38 +5,38 @@ function WhyEvolve() {
     {
       title: "Work Spaces",
       description:
-        "Set up your practice in our vibrant wellness hubs, with flexible, spacious spaces for health professionals.",
-      image: "/src/assets/images/wellness/wellness-1.webp",
+        "Modern, flexible hubs for health pros.",
+      image: "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/work_spaces.webp",
     },
     {
       title: "Professional environment",
       description:
-        "Set up your practice in our vibrant wellness hubs, with flexible, spacious spaces for health professionals.",
-      image: "/src/assets/images/wellness/wellness-2.webp",
+        "Collaborate and grow with experts.",
+      image: "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/professional_environment.webp",
     },
     {
       title: "Growth-focused culture",
       description:
-        "Set up your practice in our vibrant wellness hubs, with flexible, spacious spaces for health professionals.",
-      image: "/src/assets/images/wellness/wellness-3.webp",
+        "A network that drives success.",
+      image: "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/groth_culture.webp",
     },
       {
-      title: "Work Spaces",
+      title: "Premium Equipment",
       description:
-        "Set up your practice in our vibrant wellness hubs, with flexible, spacious spaces for health professionals.",
-      image: "/src/assets/images/wellness/wellness-1.webp",
+        "Top-tier tools at your fingertips.",
+      image: "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/premium_equiqment.webp",
     },
     {
-      title: "Professional environment",
+      title: "Flexibility & Independence",
       description:
-        "Set up your practice in our vibrant wellness hubs, with flexible, spacious spaces for health professionals.",
-      image: "/src/assets/images/wellness/wellness-2.webp",
+        "Set your own schedule.",
+      image: "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/flexibility.webp",
     },
     {
-      title: "Growth-focused culture",
+      title: "Strong Community",
       description:
-        "Set up your practice in our vibrant wellness hubs, with flexible, spacious spaces for health professionals.",
-      image: "/src/assets/images/wellness/wellness-3.webp",
+        "Thrive with like-minded professionals.",
+      image: "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/strong_community.webp",
     },
   ];
 
@@ -56,8 +56,8 @@ function WhyEvolve() {
                 className="relative h-60 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${card.image})` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/30 flex flex-col justify-end p-8 text-white">
-                  <h3 className="text-2xl font-semibold mb-4 leading-tight">
+                <div className="absolute inset-0 flex flex-col justify-end px-8 py-4 text-white">
+                  <h3 className="text-2xl font-semibold mb-1 leading-tight">
                     {card.title}
                   </h3>
                   <p className="text-sm leading-relaxed opacity-95">
