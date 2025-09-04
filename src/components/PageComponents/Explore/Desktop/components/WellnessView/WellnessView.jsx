@@ -9,7 +9,6 @@ import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
 import {
   ArrowUpCircle,
-  Check,
   ArrowLeft,
   ChevronDown,
   CircleChevronDown,
@@ -103,23 +102,16 @@ function WellnessView() {
           {showLocationDropdown && (
             <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-50 min-w-[220px] md:min-w-[250px] max-h-[300px] overflow-y-auto">
               <div
-                className="flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
+                className={`px-3 md:px-4 py-2 md:py-3 cursor-pointer first:rounded-t-lg border-b border-gray-100 ${
+                  selectedLocation === ""
+                    ? "bg-[#4AB04A] text-white"
+                    : "hover:bg-gray-50 text-black"
+                }`}
                 onClick={() => {
                   setSelectedLocation("");
                   setShowLocationDropdown(false);
                 }}
               >
-                <div
-                  className={`w-3 h-3 md:w-4 md:h-4 border-2 rounded flex items-center justify-center ${
-                    selectedLocation === ""
-                      ? "bg-[#4AB04A] border-[#4AB04A]"
-                      : "border-[#CCCCCC]"
-                  }`}
-                >
-                  {selectedLocation === "" && (
-                    <Check className="w-2 h-2 md:w-3 md:w-3 text-white" />
-                  )}
-                </div>
                 <span className="text-[#000] text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
                   All Locations
                 </span>
@@ -128,23 +120,16 @@ function WellnessView() {
               {allLocations.map((location, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
+                  className={`px-3 md:px-4 py-2 md:py-3 cursor-pointer last:rounded-b-lg ${
+                    selectedLocation === location.name
+                      ? "bg-[#4AB04A] text-white"
+                      : "hover:bg-gray-50 text-black"
+                  }`}
                   onClick={() => {
                     setSelectedLocation(location.name);
                     setShowLocationDropdown(false);
                   }}
                 >
-                  <div
-                    className={`w-3 h-3 md:w-4 md:h-4 border-2 rounded flex items-center justify-center ${
-                      selectedLocation === location.name
-                        ? "bg-green-600 border-green-600"
-                        : "border-gray-300"
-                    }`}
-                  >
-                    {selectedLocation === location.name && (
-                      <Check className="w-2 h-2 md:w-3 md:w-3 text-white" />
-                    )}
-                  </div>
                   <span className="text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
                     {location.name}
                   </span>
