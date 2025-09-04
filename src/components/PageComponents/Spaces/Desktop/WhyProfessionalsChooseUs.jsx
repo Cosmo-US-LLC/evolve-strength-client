@@ -10,15 +10,16 @@ function WhyProfessionalsChooseUs() {
             Why Professionals Choose Us?
           </h3>
           <p className="text-[#000] description md:mt-4 md:mb-6 mt-2 mb-3 leading-[26px]">
-            Some practitioners join us to open their first business without
-            taking on too much risk. Others expand to new locations because it’s
-            easy to replicate their setup across our network. <br /> <br />
-            With Evolve, there’s no long list of to-dos. You move in, set up
-            your space, and start seeing clients. We take care of the rest.
+            Many practitioners join Evolve to launch their first business with
+            minimal risk, while others expand seamlessly to new locations
+            because our model makes it simple to replicate their success. <br />
+            <br />
+            With Evolve, the setup is effortless. Move in, personalize your
+            space, and start seeing clients right away.
           </p>
-           <Link to="/join-the-wait-list">
-              <button className="btnPrimary">Apply Now</button>
-            </Link>
+          <Link to="/join-the-wait-list">
+            <button className="btnPrimary">Apply Now</button>
+          </Link>
         </div>
       </div>
       {/* <div className="absolute inset-0 bg-black/10 backdrop-blur-sm"></div> */}

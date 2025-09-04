@@ -136,10 +136,15 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
         {/* Right Form */}
         <div className="flex flex-col w-[50%]">
           <button
-            className="flex self-start gap-2 text-[#222] text-[15px] hover:underline"
+            type="button"
             onClick={() => navigate(-1)}
+            className="self-start mb-4 cursor-pointer flex items-center gap-2 text-black hover:text-gray-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-full"
+            aria-label="Go back"
           >
-            <ArrowLeft size={20} /> Back
+            <div className="w-8 h-8 rounded-full border border-black hover:text-[#fff] hover:bg-[#000] flex  items-center justify-center">
+              <ArrowLeft className="w-4 h-4" />
+            </div>
+            <span className="font-medium">Back</span>
           </button>
 
           <div className="w-full md:max-w={[420px]} bg-white rounded-[10px] mt-10">
@@ -154,7 +159,7 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
                 enrolled with Evolve.
               </h4>
             </div>
-            <div className="md:w-[537px] w-full md:h-[380px] rounded-[10px] bg-[#FCFCFC] border p-6">
+            <div className="md:w-[537px] w-full md:h-[380px] rounded-[10px] bg-[#FCFCFC] border p-6 mt-6">
               <form
                 className="flex flex-col  gap-3"
                 onSubmit={handleSubmit}
@@ -206,7 +211,7 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
                       name="email"
                       value={form.email}
                       onChange={handleChange}
-                      placeholder="Company Email"
+                      placeholder="Enter Your Gmail Address"
                       className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
                     />
                     {errors.email && (

@@ -33,10 +33,10 @@ function TrainerForm() {
       cityName: "Calgary Royal Oak",
       location: "8888 Country Hills Blvd NW #600 Calgary, Alberta, T3G 5T4",
     },
-    {
-      cityName: "Calgary Sunridge",
-      location: "2985 23 Ave NE Unit#125 Calgary, Alberta, T1Y 7L3",
-    },
+    // {
+    //   cityName: "Calgary Sunridge",
+    //   location: "2985 23 Ave NE Unit#125 Calgary, Alberta, T1Y 7L3",
+    // },
     {
       cityName: "Calgary Seton",
       location: "710-19587 Seton Crescent SE Calgary, Alberta, T3M 2T5",

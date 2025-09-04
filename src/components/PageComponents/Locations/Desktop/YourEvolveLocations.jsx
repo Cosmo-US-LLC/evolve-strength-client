@@ -45,15 +45,15 @@ const YourEvolveLocations = () => {
       city: "burnaby",
       province: "British Columbia",
     },
-    {
-      name: "SUNRIDGE",
-      mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/sunridge_mob.webp",
-      desktopImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/sunridge.webp",
-      city: "Calgary",
-      province: "Alberta",
-    },
+    // {
+    //   name: "SUNRIDGE",
+    //   mobileImage:
+    //     "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/sunridge_mob.webp",
+    //   desktopImage:
+    //     "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/sunridge.webp",
+    //   city: "Calgary",
+    //   province: "Alberta",
+    // },
     {
       name: "ROYAL OAK",
       mobileImage:

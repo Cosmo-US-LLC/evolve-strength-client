@@ -21,26 +21,28 @@ function CompanyNotRegistered({ onBack, onShare }) {
       {/* Right Confirmation */}
       <div className="flex flex-col items-center h-[650px]  w-full md:max-w-[60%]">
         <button
-                          className="flex self-start  !items-start gap-2   text-[#222] text-[15px] mb-4 hover:underline"
-                           onClick={() => navigate(-1)}
-                        >
-                          <ArrowLeft size={20} /> Back
-                        </button>
+          className="flex self-start  !items-start gap-2   text-[#222] text-[15px] mb-4 hover:underline"
+          onClick={() => navigate(-1)}
+        >
+          <ArrowLeft size={20} /> Back
+        </button>
         <div className="w-full md:max-w-[420px] self-start md:pl-30 bg-white rounded-[10px] md:mt-50 mt-50 md:p-6 flex flex-col items-center">
           <div className="md:w-[537px] w-[358px]">
-          <h3 className="text-[18px] md:text-[20px] font-[700]  text-center mb-2">
-            Your company doesn’t have a membership with Evolve 
-          </h3>
+            <h3 className="text-[18px] md:text-[20px] font-[700]  text-center mb-2">
+              Your company doesn’t have a membership with Evolve
+            </h3>
           </div>
           <div className="md:w-[537px] w-[358px] ">
-          <p className="text-[15px] font-[400] text-center mb-5 text-[#222]">
-            It looks like your company isn’t a member yet. You can share the link below with the right person in your organization so they can apply for a membership.
-          </p>
+            <p className="text-[15px] font-[400] text-center mb-5 text-[#222]">
+              It looks like your company isn’t a member yet. You can share the
+              link below with the right person in your organization so they can
+              apply for a membership.
+            </p>
           </div>
-          <Link to = "">
-          <button className="btnPrimary w-full" onClick={onShare}>
-            SHARE WITH ORGANIZATION
-          </button>
+          <Link to="">
+            <button className="btnPrimary w-full" onClick={onShare}>
+              SHARE WITH ORGANIZATION
+            </button>
           </Link>
         </div>
       </div>

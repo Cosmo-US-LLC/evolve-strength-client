@@ -24,11 +24,11 @@ const contactLocationsData = {
       location: "8888 Country Hills Blvd NW #600 Calgary, Alberta, T3G 5T4",
       number: "(403) 452-3169",
     },
-    {
-      cityName: "Calgary Sunridge",
-      location: "2985 23 Ave NE Unit#125 Calgary, Alberta, T1Y 7L3",
-      number: "(587) 393-9428",
-    },
+    // {
+    //   cityName: "Calgary Sunridge",
+    //   location: "2985 23 Ave NE Unit#125 Calgary, Alberta, T1Y 7L3",
+    //   number: "(587) 393-9428",
+    // },
     {
       cityName: "Calgary Seton",
       location: "710-19587 Seton Crescent SE Calgary, Alberta, T3M 2T5",
@@ -184,12 +184,12 @@ function Contactusmain() {
         </div>
 
         {/* RIGHT: FORM */}
-        <div className="w-full md:w-[50%] h-full md:h-auto px-6 py-4 items-center gap-[10px] rounded-[16px] bg-[#F7F5F5]">
-          <h3 className="font-bold mb-6 text-center text-xl">
+        <div className="w-full md:w-[50%] h-full md:h-auto  items-center gap-[10px] overflow-hidden rounded-[8px] bg-[#ffffff] border border-[#E5E5E5]">
+          <h3 className="font-bold mb-6 text-center text-xl bg-[#000000] text-white py-3">
             SEND US A MESSAGE
           </h3>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6 px-6 py-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label
@@ -205,7 +205,7 @@ function Contactusmain() {
                   value={formData.firstName}
                   onChange={handleInputChange}
                   placeholder="First Name"
-                  className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 ${
+                  className={`w-full p-3 border rounded-[6px] focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 ${
                     errors.firstName ? "border-red-500" : "border-gray-300"
                   }`}
                   disabled={isSubmitting}
@@ -231,7 +231,7 @@ function Contactusmain() {
                   value={formData.lastName}
                   onChange={handleInputChange}
                   placeholder="Last Name"
-                  className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 ${
+                  className={`w-full p-3 border rounded-[6px] focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 ${
                     errors.lastName ? "border-red-500" : "border-gray-300"
                   }`}
                   disabled={isSubmitting}
@@ -257,7 +257,7 @@ function Contactusmain() {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="Email Address"
-                  className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 ${
+                  className={`w-full p-3 border rounded-[6px] focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 ${
                     errors.email ? "border-red-500" : "border-gray-300"
                   }`}
                   disabled={isSubmitting}
@@ -281,7 +281,7 @@ function Contactusmain() {
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder="Phone Number"
-                  className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 ${
+                  className={`w-full p-3 border rounded-[6px] focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 ${
                     errors.phone ? "border-red-500" : "border-gray-300"
                   }`}
                   disabled={isSubmitting}
@@ -304,7 +304,7 @@ function Contactusmain() {
                 name="location"
                 value={formData.location}
                 onChange={handleInputChange}
-                className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 ${
+                className={`w-full p-3 border rounded-[6px] focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 ${
                   errors.location ? "border-red-500" : "border-gray-300"
                 }`}
                 disabled={isSubmitting}
@@ -335,7 +335,7 @@ function Contactusmain() {
                 onChange={handleInputChange}
                 placeholder="Type your message here..."
                 rows={8}
-                className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 resize-none ${
+                className={`w-full p-3 border rounded-[6px] focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 resize-none ${
                   errors.message ? "border-red-500" : "border-gray-300"
                 }`}
                 disabled={isSubmitting}
@@ -348,7 +348,7 @@ function Contactusmain() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full py-3 px-6 rounded-lg font-medium transition-all duration-200 ${
+              className={`w-full py-3 px-6 rounded-[6px] font-medium transition-all duration-200 ${
                 isSubmitting
                   ? "bg-gray-400 cursor-not-allowed"
                   : "bg-[#4AB04A] hover:bg-green-700 active:transform active:scale-95"

@@ -40,7 +40,7 @@ const AboutUsPractitioners = () => {
 
   return (
     <section className="py-8 md:py-12 bg-[#EEEEEE]">
-      <div className="max-w-[1280px] mx-auto px-4   md:px-8 flex flex-col items-start gap-8">
+      <div className="max-w-[1280px] mx-auto px-4   md:px-8 flex flex-col items-start gap-16 md:gap-8">
         <div className="flex items-start flex-col gap-6">
           <h2 className="text-[#000] uppercase ">Practitioners</h2>
           <h4 className=" !max-w-[800px]">
@@ -48,9 +48,16 @@ const AboutUsPractitioners = () => {
             take care of your body and mind under one roof. We make it easy to
             access health services without having to leave your gym.
           </h4>
-          <Link to="/explore?category=wellness">
-            <button className="btnPrimary">FIND A wellness expert</button>
-          </Link>{" "}
+          <div className="flex flex-row gap-4">
+            <Link to="/explore?category=wellness">
+              <button className="btnPrimary">FIND A wellness expert</button>
+            </Link>{" "}
+            <Link to="/join-as-trainer">
+              <button className="btnSecondary !bg-[#000] !border-[#fff] !border-2 !text-[#fff] hover:!border-[#000] hover:!bg-[#fff] hover:!text-[#000]">
+                BECOME A TRAINER
+              </button>
+            </Link>
+          </div>
         </div>
         <div className="relative w-full">
           <div className="overflow-hidden" ref={emblaRef}>

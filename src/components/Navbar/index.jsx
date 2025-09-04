@@ -36,7 +36,7 @@ function Navbar() {
     { to: "/personal-training", label: "Personal Training" },
     { to: "/wellness", label: "Wellness Services" },
     { to: "/locations", label: "Our Locations" },
-    { to: "/spaces", label: "Work Spaces" },
+    { to: "/work-spaces", label: "Work Spaces" },
   ];
 
   const handleMobileLinkClick = () => {
@@ -51,7 +51,7 @@ function Navbar() {
             className={`navbarWrapper fixed top-0 w-full  ${
               scrolled ? "scrolled" : ""
             }  ${
-              currentPath === "/spaces" ||
+              currentPath === "/work-spaces" ||
               currentPath === "/privacy-policy" ||
               currentPath === "/terms-and-conditions" ||
               currentPath === "/faqs" ||
@@ -68,7 +68,10 @@ function Navbar() {
             }`}
           >
             <div className="max-w-[1280px] w-full h-full mx-auto px-4 md:px-8 flex items-center justify-between">
-              <Link to="/" className="flex items-center select-none [-webkit-user-select:none] [-webkit-touch-callout:none]">
+              <Link
+                to="/"
+                className="flex items-center select-none [-webkit-user-select:none] [-webkit-touch-callout:none]"
+              >
                 <img
                   src={EvolveStrengthLogo}
                   alt="Evolve Logo"

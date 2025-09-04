@@ -12,14 +12,14 @@ import {
 import NoOfficeAvilable from "./NoOfficeAvailable";
 
 const tabs = [
-  { id: "All", label: "All (08)" },
+  { id: "All", label: "All (07)" },
+  { id: "Calgary Royal Oak", label: "Calgary Royal Oak" },
+  { id: "Edmonton Downtown", label: "Edmonton Downtown" },
+  { id: "Edmonton North", label: "Edmonton North" },
   { id: "Post", label: "Post" },
   { id: "Brentwood", label: "Brentwood" },
   { id: "Calgary Seton", label: "Calgary Seton" },
-  { id: "Calgary Royal Oak", label: "Calgary Royal Oak" },
-  { id: "Calgary Sunridge", label: "Calgary Sunridge" },
-  { id: "Edmonton Downtown", label: "Edmonton Downtown" },
-  { id: "Edmonton North", label: "Edmonton North" },
+  // { id: "Calgary Sunridge", label: "Calgary Sunridge" },
   { id: "Edmonton South", label: "Edmonton South" },
 ];
 
