@@ -41,6 +41,7 @@ import AllLocations from "./pages/LocationsPage/AllLocations";
 import EdmontonSouthCommon from "./pages/LocationsPage/EdmontonSouthCommon";
 import WellnessInquiryForm from "./components/Form/WellnessInquiryForm";
 import Careers from "./pages/Careers";
+import ApplyForWorkSpaceForm from "./components/Form/ApplyForWorkSpaceForm";
 
 function App() {
   return (
@@ -99,6 +100,10 @@ function App() {
         </Route>
 
         <Route path="/join-the-wait-list" element={<EvolveSpacesForm />} />
+        <Route
+          path="/apply-for-work-space"
+          element={<ApplyForWorkSpaceForm />}
+        />
         <Route
           path="/your-fitness-future"
           element={<YourFitnessFutureForm />}

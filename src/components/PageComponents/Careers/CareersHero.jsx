@@ -17,7 +17,7 @@ function CareersHero() {
           </h3>
 
           <div className="flex flex-col md:flex-row gap-3">
-            <Link to="/">
+            <Link to="/contact-us">
               <button className="btnPrimary">Join Our Team</button>
             </Link>
           </div>

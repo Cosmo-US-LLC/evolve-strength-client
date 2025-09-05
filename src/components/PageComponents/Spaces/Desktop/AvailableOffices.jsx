@@ -181,7 +181,7 @@ const AvailableOffices = () => {
 
           <div className="relative">
             {unavailableLocations.includes(activeTab) ? (
-              <NoOfficeAvilable />
+              <NoOfficeAvilable selectedLocation={activeTab} />
             ) : (
               <>
                 <div className="overflow-hidden" ref={emblaRef}>
@@ -210,7 +210,11 @@ const AvailableOffices = () => {
                             <MapPin className="w-4 h-4 text-[#515151] inline-block mr-1" />
                             {office.location}
                           </p>
-                          <Link to="/join-the-wait-list">
+                          <Link
+                            to={`/apply-for-work-space?location=${encodeURIComponent(
+                              office.location
+                            )}`}
+                          >
                             <button className="btnPrimary">APPLY NOW</button>
                           </Link>
                         </div>
@@ -282,7 +286,7 @@ const AvailableOffices = () => {
           <div className="relative">
             {unavailableLocations.includes(activeTabmobile) ? (
               <div className="px-[16px]">
-                <NoOfficeAvilable />
+                <NoOfficeAvilable selectedLocation={activeTabmobile} />
               </div>
             ) : (
               <>
@@ -309,13 +313,16 @@ const AvailableOffices = () => {
                             {office.roomStatus}
                           </p>
 
-                          <Link to="/join-the-wait-list">
+                          <Link
+                            to={`/apply-for-work-space?location=${encodeURIComponent(
+                              office.location
+                            )}`}
+                          >
                             <button className="btnPrimary">APPLY NOW</button>
                           </Link>
                         </div>
                       </div>
                     ))}
-                    ``
                   </div>
                   {mobileFilteredOffices.length > 2 && (
                     <>
