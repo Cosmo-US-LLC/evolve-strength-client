@@ -12,7 +12,7 @@ const contactLocationsData = {
     {
       cityName: "Edmonton South",
       location: "4825 89 St NW Edmonton, Alberta, T6E 5K1",
-      number: "(780) 690-4252",
+      number: "(587) 754-3632",
     },
     {
       cityName: "Edmonton North",

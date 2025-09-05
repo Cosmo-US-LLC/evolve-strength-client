@@ -75,7 +75,7 @@ function WellnessServicesForEveryone() {
       <div className="absolute inset-0 bg-black/30 z-10 transition-all duration-200" />
 
       <div className="relative z-20 w-full h-full max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-8">
-        <div className="flex flex-col items-start gap-4 md:gap-6 w-full md:max-w-[423px] text-left py-12 md:py-0 mb-6 md:mb-0">
+        <div className="flex flex-col items-start gap-4 md:gap-6 w-full md:max-w-[463px] text-left py-12 md:py-0 mb-6 md:mb-0">
           <h2 className="text-[#fff] font-[700] leading-[39px] uppercase">
             Comprehensive Care Under One Roof
           </h2>
