@@ -95,7 +95,8 @@ function JoinUsToday() {
 
   return (
     <div className="relative h-[600px] md:h-[700px] ">
-      <div className="absolute inset-y-0 left-0 top-0 border-0 w-[60%] h-full z-1 bg-gradient-to-r  from-black/90 via-black/40 to-transparent " />
+      <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/20" />
+      {/* <div className="absolute inset-y-0 left-0 top-0 border-0 w-[60%] h-full z-1 bg-gradient-to-r  from-black/90 via-black/40 to-transparent " /> */}
       {/* Desktop Image */}
       <img
         src={locationData.desktop}

@@ -53,10 +53,10 @@ const LOCATIONS = [
     cityName: "Calgary Royal Oak",
     location: "8888 Country Hills Blvd NW #600 Calgary, Alberta, T3G 5T4",
   },
-  // {
-  //   cityName: "Calgary Sunridge",
-  //   location: "2985 23 Ave NE Unit#125 Calgary, Alberta, T1Y 7L3",
-  // },
+  //   {
+  //     cityName: "Calgary Sunridge",
+  //     location: "2985 23 Ave NE Unit#125 Calgary, Alberta, T1Y 7L3",
+  //   },
   {
     cityName: "Calgary Seton",
     location: "710-19587 Seton Crescent SE Calgary, Alberta, T3M 2T5",
@@ -78,7 +78,7 @@ const LOCATION_ALIASES = {
   "calgary sunridge": "Calgary Sunridge",
 };
 
-export default function EvolveSpacesForm() {
+export default function ApplyForWorkSpaceForm() {
   const [form, setForm] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -260,8 +260,8 @@ export default function EvolveSpacesForm() {
 
       {submitted && (
         <SuccessFullScreen
-          title="Congratulations, your spot is secured."
-          description="We’ve received your application. Our team will review it shortly and reach out with next steps. Welcome to the movement - your journey with Evolve starts here."
+          title="Thank you for your interest in Evolve."
+          description="We’ve received your details. Our team will review them and reach out soon with the next steps. We’re excited to help you find the right space to grow your practice."
           buttonText="BACK TO HOME"
           buttonLink="/"
           icon="check"
@@ -294,7 +294,7 @@ export default function EvolveSpacesForm() {
           </div>
           <div className="bg-[#FCFCFC] rounded-[10px] border w-full overflow-hidden">
             <div className="bg-[#000] text-white text-center py-4 px-6">
-              <h3 className="mt-[4px] ">JOIN THE WAITLIST</h3>
+              <h3 className="mt-[4px] uppercase">Apply For a Work Space</h3>
               {/* <p className="text-[18px] leading-[19px] !font-[Kanit] font-[400]">
                 <span className="text-[#2DDE28] text-[18px] leading-[19px] font-[400]">
                   Over 120 professionals
