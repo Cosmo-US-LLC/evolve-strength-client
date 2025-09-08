@@ -1,15 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Mail, Instagram, Youtube, Linkedin } from "lucide-react";
+import { Mail, Instagram, Youtube, Linkedin, Phone } from "lucide-react";
 
 function TrainerDetails({ trainer }) {
   if (!trainer) {
     return <div>Our amazing team of trainers will be announced soon!</div>;
   }
-
-  // Debug logging to see what's being passed
-  console.log("TrainerDetails - trainer object:", trainer);
-  console.log("TrainerDetails - trainer.location:", trainer.location);
 
   // Location-specific subscription URLs
   const getSubscriptionUrl = (location) => {
@@ -31,13 +27,6 @@ function TrainerDetails({ trainer }) {
       "EDMONTON NORTH":
         "https://subscription.evolvestrength.ca/membership-plans?location=06964",
     };
-
-    console.log("getSubscriptionUrl - input location:", location);
-    console.log(
-      "getSubscriptionUrl - available locations:",
-      Object.keys(locationUrls)
-    );
-    console.log("getSubscriptionUrl - matched URL:", locationUrls[location]);
 
     return locationUrls[location] || "https://subscription.evolvestrength.ca";
   };
@@ -150,10 +139,21 @@ function TrainerDetails({ trainer }) {
           {trainer.email && (
             <a
               href={`mailto:${trainer.email}`}
-              className="px-2 md:px-3 py-3 text-[16px] font-[Vazirmatn] flex items-center gap-2 bg-[#F6F6F6] text-[#000] rounded-[5px] text-xs md:text-sm hover:bg-[#E6E6E6] transition-colors"
+              className="px-2 md:px-3 py-3  description flex items-center gap-2 bg-[#F6F6F6] rounded-[5px] hover:bg-[#E6E6E6] transition-colors"
             >
               <Mail className="text-[#4AB04A]" size={20} />
               {trainer.email}
+            </a>
+          )}
+
+          {/* Phone */}
+          {trainer.phone && (
+            <a
+              href={`tel:${trainer.phone}`}
+              className="px-2 md:px-3 py-3 text-[14px] md:text-[16px] font-[Vazirmatn] flex items-center gap-2 bg-[#F6F6F6] text-[#000] rounded-[5px] hover:bg-[#E6E6E6] transition-colors"
+            >
+              <Phone className="text-[#4AB04A]" size={20} />
+              {trainer.phone}
             </a>
           )}
 
@@ -179,14 +179,14 @@ function TrainerDetails({ trainer }) {
             })}
 
           {/* Fallback if no contact info */}
-          {(!trainer.email ||
-            !trainer.social_links ||
-            trainer.social_links.length === 0) && (
-            <span className="px-2 md:px-3 py-3 flex text-[16px] font-[Vazirmatn] items-center gap-2 bg-[#F6F6F6] text-[#000] rounded-[5px] text-xs md:text-sm">
-              <Mail className="text-[#4AB04A]" size={20} />
-              Contact information not available
-            </span>
-          )}
+          {!trainer.email &&
+            !trainer.phone &&
+            (!trainer.social_links || trainer.social_links.length === 0) && (
+              <span className="px-2 md:px-3 py-3 flex text-[16px] font-[Vazirmatn] items-center gap-2 bg-[#F6F6F6] text-[#000] rounded-[5px] text-xs md:text-sm">
+                <Mail className="text-[#4AB04A]" size={20} />
+                Contact information not available
+              </span>
+            )}
         </div>
       </div>
     </div>
