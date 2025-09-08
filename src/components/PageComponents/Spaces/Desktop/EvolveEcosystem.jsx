@@ -42,7 +42,7 @@ function EvolveEcosystem() {
                 Set up your practice in Canada’s best gym.
               </span>
               <Link to="/join-the-wait-list">
-                <button className="btnPrimary">Apply Now</button>
+                <button className="btnPrimary">Join the Waitlist</button>
               </Link>
             </div>
           </div>
