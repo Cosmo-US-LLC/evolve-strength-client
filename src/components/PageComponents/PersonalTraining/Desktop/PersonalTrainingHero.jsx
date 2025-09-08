@@ -15,11 +15,11 @@ function PersonalTrainingHero() {
             One-on-one coaching for unparalleled focus and results.
           </h3>
           <div className="flex gap-3 mb-5">
-            <Link to="https://subscription.evolvestrength.ca/">
-              <button className="btnPrimary">Join Evolve</button>
-            </Link>
             <Link to="/explore?category=trainers">
-              <button className="btnSecondary">Explore trainers</button>
+              <button className="btnPrimary">Explore trainers</button>
+            </Link>
+            <Link to="/match-me-with-a-trainer">
+              <button className="btnSecondary">match me with a trainer</button>
             </Link>
           </div>
           <Link to="https://subscription.evolvestrength.ca/">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import {
   getAllTrainers,
   getAllLocations,
@@ -6,7 +7,13 @@ import {
 } from "../../../../../../constants/exploreDataWithTrainer";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
-import { ArrowUpCircle, Check, ChevronDown, X } from "lucide-react";
+import {
+  ArrowUpCircle,
+  Check,
+  ChevronDown,
+  X,
+  ArrowUpRight,
+} from "lucide-react";
 
 function TrainersView() {
   const [selectedTab, setSelectedTab] = useState("All");
@@ -105,6 +112,17 @@ function TrainersView() {
 
   return (
     <div className="pt-4 md:pt-2">
+      {/* Match Me With Trainer Link */}
+      <div className="flex justify-center mb-6 md:mb-8">
+        <Link
+          to="/match-me-with-a-trainer"
+          className="inline-flex items-center gap-2 text-black font-bold text-base md:text-lg uppercase tracking-wide hover:text-gray-700 transition-colors duration-200 underline decoration-1 underline-offset-2"
+        >
+          MATCH ME WITH A TRAINER
+          <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
+        </Link>
+      </div>
+
       {/* Responsive Filter Tabs */}
       <div className="mb-6">
         {/* Filter Buttons - Responsive Grid */}

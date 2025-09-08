@@ -11,8 +11,8 @@ const initialState = {
   email: "",
   phone: "",
   location: "",
-  wellnessService: "",
-  otherWellnessService: "",
+  fitnessGoals: "",
+  otherFitnessGoals: "",
   message: "",
 };
 
@@ -34,10 +34,6 @@ const LOCATIONS = [
     cityName: "Calgary Royal Oak",
     location: "8888 Country Hills Blvd NW #600 Calgary, Alberta, T3G 5T4",
   },
-  // {
-  //   cityName: "Calgary Sunridge",
-  //   location: "2985 23 Ave NE Unit#125 Calgary, Alberta, T1Y 7L3",
-  // },
   {
     cityName: "Calgary Seton",
     location: "710-19587 Seton Crescent SE Calgary, Alberta, T3M 2T5",
@@ -52,20 +48,20 @@ const LOCATIONS = [
   },
 ];
 
-const wellnessServiceOptions = [
-  "Massage Therapy",
-  "Physiotherapy",
-  "Chiropractic Care",
-  "Acupuncture",
-  "Esthetician Services",
-  "Dietitian Services",
-  "Osteopathy",
-  "Laser Therapy",
-  "Mental Health Services",
+const fitnessGoalsOptions = [
+  "Weight Loss",
+  "Muscle Building",
+  "Strength Training",
+  "Cardio Fitness",
+  "Flexibility & Mobility",
+  "Sports Performance",
+  "Injury Rehabilitation",
+  "General Fitness",
+  "Nutrition Coaching",
   "Other",
 ];
 
-export default function WellnessInquiryForm() {
+export default function MatchMeWithTrainer() {
   const [form, setForm] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -114,12 +110,12 @@ export default function WellnessInquiryForm() {
       newErrors.location = "Please select a location";
     }
 
-    if (!form.wellnessService) {
-      newErrors.wellnessService = "Please select a wellness service";
+    if (!form.fitnessGoals) {
+      newErrors.fitnessGoals = "Please select your fitness goals";
     }
 
-    if (form.wellnessService === "Other" && !form.otherWellnessService.trim()) {
-      newErrors.otherWellnessService = "Please specify the wellness service";
+    if (form.fitnessGoals === "Other" && !form.otherFitnessGoals.trim()) {
+      newErrors.otherFitnessGoals = "Please specify your fitness goals";
     }
 
     if (!form.message.trim()) {
@@ -153,23 +149,23 @@ export default function WellnessInquiryForm() {
             { name: "phone", value: form.phone },
             { name: "location", value: form.location },
             {
-              name: "which_wellness_service_are_you_interested_in_",
+              name: "areas_of_focus",
               value:
-                form.wellnessService === "Other"
-                  ? form.otherWellnessService
-                  : form.wellnessService,
+                form.fitnessGoals === "Other"
+                  ? form.otherFitnessGoals
+                  : form.fitnessGoals,
             },
             { name: "message", value: form.message },
           ],
           context: {
             pageUri: window.location.href,
-            pageName: "Wellness Inquiry Form",
+            pageName: "Match Me With Trainer Form",
             ...(hutk ? { hutk } : {}),
           },
         };
 
         const response = await fetch(
-          "https://api.hsforms.com/submissions/v3/integration/submit/342148198/fe2bdba8-7fa5-4e84-858c-e625ed1f22e8",
+          "https://api.hsforms.com/submissions/v3/integration/submit/342148198/320c6048-1749-4714-b0a5-f5ad108eb454",
           {
             method: "POST",
             headers: {
@@ -199,8 +195,8 @@ export default function WellnessInquiryForm() {
   return (
     <>
       <MetaTags
-        title="Join Evolve Wellness Network | Professional Wellness Services"
-        description="Join our network of wellness professionals at Evolve Strength. Apply to provide your wellness services in our state-of-the-art facilities."
+        title="Find Your Perfect Personal Trainer | Evolve Strength"
+        description="Get matched with the perfect personal trainer at Evolve Strength. Tell us your goals and we'll connect you with the right trainer for your fitness journey."
       />
 
       <FormsHeader />
@@ -208,7 +204,7 @@ export default function WellnessInquiryForm() {
       {submitted && (
         <SuccessFullScreen
           title="Thank you for your application!"
-          description="We've received your wellness inquiry. Our team will review your application and reach out with next steps. Welcome to the Evolve wellness community."
+          description="We've received your trainer matching request. Our team will review your preferences and connect you with the perfect trainer within 24 hours. Let's start your fitness journey!"
           buttonText="BACK TO HOME"
           buttonLink="/"
           icon="check"
@@ -216,12 +212,12 @@ export default function WellnessInquiryForm() {
       )}
 
       <div className="flex gap-12 px-4 pt-24 pb-12 flex-row max-w-[1280px] mx-auto justify-center">
-        {/* Left Image - Wellness Session */}
+        {/* Left Image - Personal Training Session */}
         <div className="w-full max-w-[40%] flex-shrink-0 flex flex-col max-md:hidden">
           <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white relative">
             <img
-              src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/YogaAndRecoveryRoom/wellness_form.webp"
-              alt="Wellness Therapy Session"
+              src="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessJourneySteps/step_1.webp"
+              alt="Personal Training Session"
               className="object-cover w-full h-[690px]"
             />
           </div>
@@ -231,7 +227,7 @@ export default function WellnessInquiryForm() {
         <div className="flex flex-col gap-3 w-full md:max-w-[40%] overflow-hidden">
           <div className="">
             <Link
-              to="/wellness"
+              to="/personal-training"
               className="flex items-center gap-2 text-black hover:text-gray-700 transition-colors"
             >
               <div className="w-8 h-8 rounded-full border border-black flex items-center justify-center">
@@ -243,12 +239,12 @@ export default function WellnessInquiryForm() {
 
           <div className="bg-[#FCFCFC] rounded-[10px] border w-full overflow-hidden">
             <div className="bg-[#000] text-white text-center py-4 px-6">
-              <h3 className="mt-[4px] font-bold text-xl">JOIN NOW</h3>
+              <h3 className="mt-[4px] font-bold text-xl">FIND YOUR TRAINER</h3>
               <p className="text-[18px] leading-[19px] !font-[Kanit] font-[400]">
                 <span className="text-[#2DDE28] text-[18px] leading-[19px] font-[400]">
-                  Over 120 professionals
+                  Over 200+ certified trainers
                 </span>{" "}
-                have applied. Only a few spots left this month
+                ready to help you achieve your goals
               </p>
             </div>
 
@@ -368,49 +364,49 @@ export default function WellnessInquiryForm() {
 
               <div className="w-full flex flex-col">
                 <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
-                  Which wellness service are you interested in? *
+                  What are your fitness goals? *
                   <select
-                    name="wellnessService"
-                    value={form.wellnessService}
+                    name="fitnessGoals"
+                    value={form.fitnessGoals}
                     onChange={handleChange}
                     className={
                       "mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full " +
-                      (form.wellnessService === ""
+                      (form.fitnessGoals === ""
                         ? "text-[#6F6D66] text-[12px]"
                         : "text-[#000] text-[16px]")
                     }
                   >
-                    <option value="">Select a wellness service</option>
-                    {wellnessServiceOptions.map((service) => (
-                      <option key={service} value={service}>
-                        {service}
+                    <option value="">Select your fitness goals</option>
+                    {fitnessGoalsOptions.map((goal) => (
+                      <option key={goal} value={goal}>
+                        {goal}
                       </option>
                     ))}
                   </select>
-                  {errors.wellnessService && (
+                  {errors.fitnessGoals && (
                     <span className="text-red-600 text-[12px]">
-                      {errors.wellnessService}
+                      {errors.fitnessGoals}
                     </span>
                   )}
                 </label>
               </div>
 
-              {/* Other Wellness Service field - shows only when "Other" is selected */}
-              {form.wellnessService === "Other" && (
+              {/* Other Fitness Goals field - shows only when "Other" is selected */}
+              {form.fitnessGoals === "Other" && (
                 <div className="w-full flex flex-col">
                   <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
                     Other: *
                     <input
                       type="text"
-                      name="otherWellnessService"
-                      value={form.otherWellnessService}
+                      name="otherFitnessGoals"
+                      value={form.otherFitnessGoals}
                       onChange={handleChange}
-                      placeholder="Please specify your wellness service"
+                      placeholder="Please specify your fitness goals"
                       className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
                     />
-                    {errors.otherWellnessService && (
+                    {errors.otherFitnessGoals && (
                       <span className="text-red-600 text-[12px]">
-                        {errors.otherWellnessService}
+                        {errors.otherFitnessGoals}
                       </span>
                     )}
                   </label>
@@ -419,12 +415,12 @@ export default function WellnessInquiryForm() {
 
               <div className="w-full flex flex-col">
                 <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
-                  Write Your Message *
+                  Tell us more about yourself *
                   <textarea
                     name="message"
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="Type your message here.."
+                    placeholder="Tell us about your fitness journey, any injuries, preferences, or specific requirements..."
                     rows={4}
                     maxLength={1000}
                     className="mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400] resize-vertical min-h-[80px]"
@@ -442,7 +438,7 @@ export default function WellnessInquiryForm() {
                 className="w-full mt-2 btnPrimary"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "SUBMITTING..." : "SUBMIT NOW"}
+                {isSubmitting ? "SUBMITTING..." : "FIND MY TRAINER"}
               </button>
             </form>
           </div>

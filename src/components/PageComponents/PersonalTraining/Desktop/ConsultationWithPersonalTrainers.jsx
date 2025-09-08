@@ -50,14 +50,14 @@ const ConsultationWithPersonalTrainers = () => {
             someone here who knows how to help.
           </h4>
 
-          <div className="flex gap-4 md:gap-6 mb-8 md:mb-8">
-            <Link to="#">
-              <button className="btnPrimary">Become a Trainer</button>
+          <div className="flex gap-2 md:gap-4 mb-8 md:mb-8">
+            <Link to="/explore?category=trainers">
+              <button className="btnPrimary">Explore trainers</button>
             </Link>
 
-            <Link to="/explore?category=trainers">
+            <Link to="/match-me-with-a-trainer">
               <button className="btnSecondary !text-[#000000] !bg-[#fff] !border !border-[#000000] hover:!bg-[#000000] hover:!text-white">
-                Explore trainers
+                match me with a trainer
               </button>
             </Link>
           </div>

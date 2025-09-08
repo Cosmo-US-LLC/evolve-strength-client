@@ -40,6 +40,7 @@ import TrainerForm from "./components/Form/TrainersForm";
 import AllLocations from "./pages/LocationsPage/AllLocations";
 import EdmontonSouthCommon from "./pages/LocationsPage/EdmontonSouthCommon";
 import WellnessInquiryForm from "./components/Form/WellnessInquiryForm";
+import MatchMeWithTrainer from "./components/Form/MatchMeWithTrainer";
 import Careers from "./pages/Careers";
 import ApplyForWorkSpaceForm from "./components/Form/ApplyForWorkSpaceForm";
 
@@ -109,6 +110,10 @@ function App() {
           element={<YourFitnessFutureForm />}
         />
         <Route path="/join-wellness" element={<WellnessInquiryForm />} />
+        <Route
+          path="/match-me-with-a-trainer"
+          element={<MatchMeWithTrainer />}
+        />
         <Route
           path="/corporate-membership-wizard"
           element={<CorporateMembershipWizard />}
