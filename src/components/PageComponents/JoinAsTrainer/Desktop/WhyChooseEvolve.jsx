@@ -43,58 +43,66 @@ function WhyChooseEvolve() {
     cardData.map(() => ({ transform: "", opacity: 1 }))
   );
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const newTransforms = cardData.map((_, index) => {
-        const cardElement = document.getElementById(`card-${index}`);
-        if (!cardElement) return { transform: "", opacity: 1 };
+useEffect(() => {
+  const handleScroll = () => {
+    const newTransforms = cardData.map((_, index) => {
+      const cardElement = document.getElementById(`card-${index}`);
+      if (!cardElement) return { transform: "", opacity: 1 };
 
-        // LAST CARD - NO ANIMATION
-        if (index === cardData.length - 1) {
-          return { transform: "", opacity: 1 };
-        }
-
-        const nextCardElement = document.getElementById(`card-${index + 1}`);
-        if (nextCardElement) {
-          const nextRect = nextCardElement.getBoundingClientRect();
-          const viewportHeight = window.innerHeight;
-          const nextCardTop = nextRect.top;
-          const nextCardHeight = nextRect.height;
-
-          const nextCardVisibleHeight = Math.max(
-            0,
-            viewportHeight - nextCardTop
-          );
-          const nextCardVisibilityPercent =
-            (nextCardVisibleHeight / nextCardHeight) * 100;
-
-          if (nextCardVisibilityPercent > 0) {
-            const progressValue = Math.min(1, nextCardVisibilityPercent / 100);
-
-            const translateY = -progressValue * 24.1352;
-            const scale = 1 - progressValue * 0.0483;
-            const opacity = Math.max(0, 1 - progressValue);
-
-            return {
-              transform: `
-                translate3d(0px, ${translateY}px, 0px) 
-                scale(${scale}, ${scale})
-              `,
-              opacity,
-            };
-          }
-        }
+      if (index === cardData.length - 1) {
         return { transform: "", opacity: 1 };
-      });
+      }
 
-      setCardTransforms(newTransforms);
-    };
+      const nextCardElement = document.getElementById(`card-${index + 1}`);
+      if (nextCardElement) {
+        const nextRect = nextCardElement.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const nextCardTop = nextRect.top;
+        const nextCardHeight = nextRect.height;
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+        const nextCardVisibleHeight = Math.max(
+          0,
+          viewportHeight - nextCardTop
+        );
+        const nextCardVisibilityPercent =
+          (nextCardVisibleHeight / nextCardHeight) * 100;
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [cardData.length]);
+        if (nextCardVisibilityPercent > 0) {
+          const progressValue = Math.min(1, nextCardVisibilityPercent / 100);
+
+          const translateY = -progressValue * 24.1352;
+          const scale = 1 - progressValue * 0.0483;
+
+          const threshold = window.innerWidth < 768 ? 80 : 50;
+
+          const opacity =
+            nextCardVisibilityPercent < threshold
+              ? 1
+              : Math.max(
+                  0,
+                  1 - (nextCardVisibilityPercent - threshold) / (100 - threshold)
+                );
+
+          return {
+            transform: `
+              translate3d(0px, ${translateY}px, 0px) 
+              scale(${scale}, ${scale})
+            `,
+            opacity,
+          };
+        }
+      }
+      return { transform: "", opacity: 1 };
+    });
+
+    setCardTransforms(newTransforms);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [cardData.length]);
 
   return (
     <div className="w-full py-[54px] bg-[#F9F9F9]">
@@ -131,7 +139,7 @@ function WhyChooseEvolve() {
                   </p>
                 </div>
                 <div
-                  className="min-h-[550px] w-full left-0 rounded-b-[10px] absolute bottom-0"
+                  className="md:min-h-[550px] max-md:min-h-[400px] w-full left-0 rounded-b-[10px] absolute bottom-0"
                   style={{
                     background:
                       "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 22.51%, #000 100%)",
