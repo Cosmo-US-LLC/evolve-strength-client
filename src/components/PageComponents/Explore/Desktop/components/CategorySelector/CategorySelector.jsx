@@ -59,7 +59,7 @@ function CategorySelector({ selected, onSelect }) {
     <div className="w-full py-8 md:py-12 flex flex-col gap-8 md:gap-12">
       {/* Main Heading */}
       <div className="flex justify-center w-full">
-        <h1 className="leading-[34px] md:leading-[62px] max-w-[1000px] text-center !text-[34px] md:!text-[55px] uppercase w-full text-[#000]  ">
+        <h1 className="leading-[34px] md:leading-[52px] max-w-[1000px] text-center !text-[34px] md:!text-[55px] uppercase w-full text-[#000]  ">
           Explore Trainers & Wellness Services That Fit You
         </h1>
       </div>
