@@ -144,13 +144,13 @@ function Footer() {
                   >
                     CAREERS & PARTNERS
                   </Link>
-                  <Link
+                  {/* <Link
                     smooth
                     to="/careers"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Careers
-                  </Link>
+                  </Link> */}
                   <Link
                     smooth
                     to="/work-spaces"
