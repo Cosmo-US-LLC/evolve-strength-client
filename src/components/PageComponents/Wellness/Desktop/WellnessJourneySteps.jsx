@@ -7,7 +7,7 @@ const steps = [
     description:
       "Find from our team of physiotherapists, chiropractors, massage therapists, nutritionists, and more.",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessJourneySteps/step_1.webp",
+      "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessJourneySteps/step_1.webp",
     icon: <Search className="w-5 h-5 text-white" />,
   },
   {
@@ -28,7 +28,7 @@ const steps = [
   },
   {
     title: "Step 4: Feel the Difference",
-    description:  "Enjoy improved balance, recovery, and overall wellness.",
+    description: "Enjoy improved balance, recovery, and overall wellness.",
     image:
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessJourneySteps/step_4.webp",
     icon: <Smile className="w-5 h-5 text-white" />,
