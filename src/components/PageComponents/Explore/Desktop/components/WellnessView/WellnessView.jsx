@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import {
   getDataByCategory,
   getAllLocations,
@@ -6,7 +7,7 @@ import {
 } from "../../../../../../constants/exploreDataWithTrainer";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
-import { ChevronDown, X, Check } from "lucide-react";
+import { ChevronDown, X, Check, ArrowUpRight } from "lucide-react";
 
 function WellnessView() {
   const [selectedTrainerIdx, setSelectedTrainerIdx] = useState(null);
@@ -83,6 +84,17 @@ function WellnessView() {
 
   return (
     <div className="w-full bg-white pt-4 md:pt-6 pb-8 md:pb-16">
+      {/* Match Me With Wellness Expert Link */}
+      <div className="flex justify-center mb-6 md:mb-8">
+        <Link
+          to="/join-wellness"
+          className="inline-flex items-center gap-2 text-black font-bold text-base md:text-lg uppercase tracking-wide hover:text-gray-700 transition-colors duration-200 underline decoration-1 underline-offset-2"
+        >
+          MATCH ME WITH A WELLNESS EXPERT
+          <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
+        </Link>
+      </div>
+
       {/* Services + Location Filters */}
       <div className="mb-6 md:mb-8 ">
         <div className="flex pb-6 items-left gap-1 md:gap-4">
