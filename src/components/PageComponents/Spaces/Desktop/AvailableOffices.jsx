@@ -166,7 +166,11 @@ const AvailableOffices = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-3 py-1 rounded-[5px] text-sm font-medium cursor-pointer ${
+                className={`px-3 py-1 rounded-[5px]  text-sm font-medium cursor-pointer corporate-membership relative border-0
+  before:content-[''] before:absolute before:left-0 before:bottom-0 
+  before:h-[1.5px] before:w-0 before:bg-[#4AB04A] 
+  before:transition-all before:duration-300 
+  hover:before:w-full ${
                   activeTab === tab.id
                     ? "bg-[#4AB04A] text-[#fff]"
                     : "bg-white text-[#000000]"

@@ -94,11 +94,10 @@ const LocationWellnessServices = () => {
         <div className="relative z-10 max-w-[1280px] w-full mx-auto flex flex-row items-center justify-between px-8 gap-10">
           <div className="max-w-xl space-y-8">
             <h2 className="uppercase text-[#ffffff]">
-              WELLNESS SERVICES <br /> FOR EVERYONE.
+              Premium Wellness & <br /> Personal Training
             </h2>
             <p className="description leading-[20px] text-[#ffffff]">
-              Take full advantage of a wide range of wellness <br /> services at
-              every Evolve location, available at an <br /> additional cost.
+              Boost your fitness with our add-on services (not included <br /> in membership)
             </p>
 
             <Link to="/explore?category=wellness">
@@ -162,11 +161,10 @@ const LocationWellnessServices = () => {
 
         <div className="relative z-10 flex flex-col items-center w-full  gap-6">
           <h2 className="uppercase text-[#ffffff] font-bold">
-            WELLNESS SERVICES FOR EVERYONE.
+           Premium Wellness &  Personal Training
           </h2>
           <p className="description leading-[20px] text-[#ffffff] ">
-            Take full advantage of a wide range of wellness services at every
-            Evolve location, available at an additional cost.
+            Boost your fitness with our add-on services (not included in membership)
           </p>
           <div className="flex justify-start w-full">
             <Link to="/explore?category=wellness">

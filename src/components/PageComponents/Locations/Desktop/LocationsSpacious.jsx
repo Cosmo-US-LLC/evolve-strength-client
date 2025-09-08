@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -80,6 +80,9 @@ const LocationsSpacious = () => {
 
   const tourUrl = getTourUrl(locationKey);
 
+  const [prevDisabled, setPrevDisabled] = useState(true);
+  const [nextDisabled, setNextDisabled] = useState(false);
+
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
@@ -111,6 +114,18 @@ const LocationsSpacious = () => {
       }
     }
   }, [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setPrevDisabled(!emblaApi.canScrollPrev());
+    setNextDisabled(!emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+  }, [emblaApi, onSelect]);
 
   return (
     <section className="py-12 ">
@@ -151,22 +166,36 @@ const LocationsSpacious = () => {
             </div>
           </div>
 
-          <div className="absolute -top-1/9 left-[70%]  md:-top-1/6 md:left-[92%] -translate-y-1/2  z-10">
-            <button
-              onClick={scrollPrev}
-              className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
-            >
-              <ArrowLeft className="md:w-6 md:h-6 w-4 h-4" />
-            </button>
-          </div>
-          <div className="absolute -top-1/9  md:-top-1/6  -translate-y-1/2 left-[83%] md:left-auto md:right-[0.5%] z-10">
-            <button
-              onClick={scrollNext}
-              className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
-            >
-              <ArrowRight className="md:w-6 md:h-6  w-4 h-4" />
-            </button>
-          </div>
+          {currentLocationAmenities.length > 3 && (
+            <>
+              <div className="absolute -top-1/9 left-[70%]  md:-top-1/6 md:left-[92%] -translate-y-1/2  z-10">
+                <button
+                  onClick={scrollPrev}
+                  disabled={prevDisabled}
+                  className={`p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff] ${
+                    prevDisabled
+                      ? "opacity-30 cursor-not-allowed  hover:text-[#000000]"
+                      : ""
+                  }`}
+                >
+                  <ArrowLeft className="md:w-6 md:h-6 w-4 h-4" />
+                </button>
+              </div>
+              <div className="absolute -top-1/9  md:-top-1/6  -translate-y-1/2 left-[83%] md:left-auto md:right-[0.5%] z-10">
+                <button
+                  onClick={scrollNext}
+                  disabled={nextDisabled}
+                  className={`p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff] ${
+                    nextDisabled
+                      ? "opacity-30 cursor-not-allowed  hover:text-[#000000]"
+                      : ""
+                  }`}
+                >
+                  <ArrowRight className="md:w-6 md:h-6  w-4 h-4" />
+                </button>
+              </div>
+            </>
+          )}
         </div>
 
         {/* <button className="btnPrimary">APPLY NOW</button> */}
