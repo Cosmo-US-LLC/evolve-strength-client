@@ -97,12 +97,16 @@ const SeeItForYourSelf = () => {
         className="w-full max-md:hidden"
       >
         <div className="w-full max-w-[1220px] mx-auto relative rounded-[10px] border">
-          <TabsList className="flex w-full  bg-[#fff] h-[48px] p-[6px]">
+          <TabsList className="flex w-full  bg-[#fff] h-[48px] p-[6px] space-x-2">
             {facilityLocations.map((loc) => (
               <TabsTrigger
                 key={loc.key}
                 value={loc.key}
-                className="text-[16px] font-[Kanit] font-[500] leading-[16px] rounded-[5px] text-[#000] cursor-pointer data-[state=active]:bg-[#4AB04A] data-[state=active]:text-[#FFF]"
+                className="text-[16px] font-[Kanit] font-[500]  leading-[16px] rounded-[5px] text-[#000] cursor-pointer data-[state=active]:bg-[#4AB04A] data-[state=active]:text-[#FFF] relative !border-0
+  before:content-[''] before:absolute before:left-0 before:bottom-0 
+  before:h-[1.5px] before:w-0 before:bg-[#4AB04A] 
+  before:transition-all before:duration-300 
+  hover:before:w-full"
               >
                 {loc.label}
               </TabsTrigger>

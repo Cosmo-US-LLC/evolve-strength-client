@@ -124,17 +124,16 @@ function LocationsPersonalizedAssessment() {
       <div className="w-full max-w-[1280px] md:px-8 px-4 pb-[40px] md:pb-[120px] mx-auto z-10 h-full items-end flex flex-row relative">
         <div className="bg-[#ffffff] rounded-[10px] shadow-lg p-8 w-full md:max-w-[346px]">
           <h3 className="text-[#000] uppercase leading-[26px] !font-[700]">
-            Start Strong with a Free Personalised Assessment
+            Join now and get a free personalized assessment.
           </h3>
           <p className="text-[#000] description mt-4 mb-6 leading-[26px]">
-            All new Evolve members get a one-on-one assessment with a certified
-            trainer after signing up.
+           All new Evolve members get a one-on-one assessment with a certified trainer after signing up.
           </p>
           <a
             href={tourUrl}
             className="text-[#4AB04A] font-bold leading-[26px] underline underline-offset-4 decoration-solid decoration-auto [text-underline-position:from-font]"
           >
-            Book a Free Tour
+           Join Now
           </a>
         </div>
       </div>
