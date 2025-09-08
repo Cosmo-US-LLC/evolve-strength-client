@@ -79,22 +79,22 @@ const allOffices = [
   //   size: "Starting at 170 sq/ft",
   //   roomStatus:"Unfurnished | With or Without a Sink"
   // },
-  {
-    title: "Executive Office",
-    location: "Calgary Sunridge",
-    image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/CSSlides_1.webp",
-    size: "Starting at 121 sq/ft",
-    roomStatus: "Unfurnished | Without a Sink",
-  },
-  {
-    title: "Executive Office",
-    location: "Calgary Sunridge",
-    image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/CSSlides_1.webp",
-    size: "Starting at 121 sq/ft",
-    roomStatus: "Unfurnished | Without a Sink",
-  },
+  // {
+  //   title: "Executive Office",
+  //   location: "Calgary Sunridge",
+  //   image:
+  //     "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/CSSlides_1.webp",
+  //   size: "Starting at 121 sq/ft",
+  //   roomStatus: "Unfurnished | Without a Sink",
+  // },
+  // {
+  //   title: "Executive Office",
+  //   location: "Calgary Sunridge",
+  //   image:
+  //     "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/CSSlides_1.webp",
+  //   size: "Starting at 121 sq/ft",
+  //   roomStatus: "Unfurnished | Without a Sink",
+  // },
 ];
 
 const AvailableOffices = () => {

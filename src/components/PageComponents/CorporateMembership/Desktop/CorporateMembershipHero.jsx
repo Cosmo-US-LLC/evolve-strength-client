@@ -8,16 +8,17 @@ function CorporateMembershipHero() {
         <div className="flex flex-col md:flex-row gap-4 md:gap-10">
           <div className="w-[100%] md:w-[50%] flex">
             <h1 className="max-md:max-w-[340px] md:max-w-[655px] !text-[49px] md:!text-[70px] text-left leading-[52px] md:leading-[56px] uppercase">
-              Support Your Team with Gym and Wellness Access
+              Corporate Gym & Wellness Memberships
             </h1>
           </div>
           <div className="flex flex-col w-[100%] md:w-[50%] text-left justify-center items-start gap-4 md:gap-5">
             <h3 className="text-[#000] leading-[26px] font-[400] w-full md:w-[585px]">
-              Evolve Strength gives your team access to fitness and healthcare
-              under one roof. It’s a simple way to improve employee health,
-              performance, and recovery
-              <br /> <br /> Locations Edmonton, Calgary, Burnaby, and
-              Vancouver. 
+              Give your employees access to fitness and healthcare under one
+              roof with Evolve Strength. Our corporate memberships make it easy
+              to support employee health, performance, and recovery.
+            </h3>
+            <h3 className="text-[#000] leading-[26px] font-[400] w-full md:w-[585px]">
+             Available in Edmonton, Calgary, Burnaby, and Vancouver.
             </h3>
             <Link to="/corporate-membership-wizard">
               <button className="btnPrimary">Get Started</button>
@@ -26,8 +27,14 @@ function CorporateMembershipHero() {
         </div>
         <div className="flex flex-col items-center justify-center">
           <picture>
-            <source srcSet="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/corporateMemberHero/corporateHero.webp" media="(min-width: 768px)" />
-            <img src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/corporateMemberHero/corporateMobHero.webp" alt="Corporate Membership Hero" />
+            <source
+              srcSet="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/corporateMemberHero/corporateHero.webp"
+              media="(min-width: 768px)"
+            />
+            <img
+              src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/corporateMemberHero/corporateMobHero.webp"
+              alt="Corporate Membership Hero"
+            />
           </picture>
         </div>
       </div>
