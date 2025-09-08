@@ -88,7 +88,6 @@ const LocationsSpacious = () => {
       loop: true,
       slidesToScroll: 1,
     },
-    [Autoplay({ delay: 3000, stopOnInteraction: true })]
   );
 
   const scrollPrev = useCallback(() => {
