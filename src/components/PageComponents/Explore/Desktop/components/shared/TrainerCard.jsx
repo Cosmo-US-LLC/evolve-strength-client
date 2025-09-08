@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   Check,
   ChevronDown,
@@ -19,6 +19,14 @@ function TrainerCard({
 }) {
   const carouselRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Reset carousel position when trainers change
+  useEffect(() => {
+    setCurrentIndex(0);
+    if (carouselRef.current) {
+      carouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
+    }
+  }, [trainers]);
 
   const scrollToNext = () => {
     if (carouselRef.current) {
@@ -65,7 +73,7 @@ function TrainerCard({
         >
           {trainers.map((trainer, index) => (
             <div
-              key={index}
+              key={trainer.id || trainer.name || index}
               className="flex-shrink-0 w-full"
               style={{ scrollSnapAlign: "start" }}
             >
