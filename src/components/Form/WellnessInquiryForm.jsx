@@ -243,12 +243,14 @@ export default function WellnessInquiryForm() {
 
           <div className="bg-[#FCFCFC] rounded-[10px] border w-full overflow-hidden">
             <div className="bg-[#000] text-white text-center py-4 px-6">
-              <h3 className="mt-[4px] font-bold text-xl">JOIN NOW</h3>
+              <h3 className="mt-[4px] font-bold text-xl">
+                FIND A WELLNESS EXPERT
+              </h3>
               <p className="text-[18px] leading-[19px] !font-[Kanit] font-[400]">
                 <span className="text-[#2DDE28] text-[18px] leading-[19px] font-[400]">
-                  Over 120 professionals
+                  Get matched with your perfect wellness expert
                 </span>{" "}
-                have applied. Only a few spots left this month
+                based on your needs and preferences
               </p>
             </div>
 
@@ -442,7 +444,7 @@ export default function WellnessInquiryForm() {
                 className="w-full mt-2 btnPrimary"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "SUBMITTING..." : "SUBMIT NOW"}
+                {isSubmitting ? "SUBMITTING..." : "JOIN WELLNESS"}
               </button>
             </form>
           </div>

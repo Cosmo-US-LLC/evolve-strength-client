@@ -50,15 +50,27 @@ const LOCATIONS = [
 
 const fitnessGoalsOptions = [
   "Weight Loss",
-  "Muscle Building",
   "Strength Training",
-  "Cardio Fitness",
-  "Flexibility & Mobility",
+  "Hypertrophy",
+  "Powerlifting",
+  "Olympic Weightlifting",
   "Sports Performance",
-  "Injury Rehabilitation",
+  "Athletic Conditioning",
+  "Injury Rehab",
+  "Pain Management",
+  "Mobility and Flexibility",
+  "Posture",
+  "Technique and Movement",
+  "Nutrition and Lifestyle",
+  "Women's Health",
+  "Prenatal and Postnatal",
   "General Fitness",
-  "Nutrition Coaching",
-  "Other",
+  "Beginners",
+  "Seniors and Special Populations",
+  "Functional Fitness",
+  "HIIT and CrossFit",
+  "Combat Sports",
+  "Allied Health",
 ];
 
 export default function MatchMeWithTrainer() {
