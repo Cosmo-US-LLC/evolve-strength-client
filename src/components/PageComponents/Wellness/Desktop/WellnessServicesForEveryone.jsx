@@ -75,9 +75,9 @@ function WellnessServicesForEveryone() {
       <div className="absolute inset-0 bg-black/30 z-10 transition-all duration-200" />
 
       <div className="relative z-20 w-full h-full max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-8">
-        <div className="flex flex-col items-start gap-4 md:gap-6 w-full md:max-w-[463px] text-left py-12 md:py-0 mb-6 md:mb-0">
+        <div className="flex flex-col items-start gap-4 md:gap-6 w-full md:max-w-[580px] text-left py-12 md:py-0 mb-6 md:mb-0">
           <h2 className="text-[#fff] font-[700] leading-[39px] uppercase">
-            Comprehensive Care Under One Roof
+            Comprehensive Care <br /> Under One Roof
           </h2>
           <p className="description text-[#fff] font-[400]">
             Skip the hassle of driving to different clinics. At every Evolve
@@ -85,9 +85,16 @@ function WellnessServicesForEveryone() {
             osteopathy and everything in between.
           </p>
 
-          <Link to="/explore?category=wellness">
-            <button className="btnPrimary">FIND A wellness expert</button>
-          </Link>
+          <div className="flex flex-col md:flex-row gap-2">
+            <Link to="/explore?category=wellness">
+              <button className="btnPrimary">FIND A wellness expert</button>
+            </Link>
+            <Link to="/join-wellness">
+              <button className="btnSecondary">
+                Match Me with a Wellness Expert
+              </button>
+            </Link>
+          </div>
         </div>
 
         <div className="flex flex-col items-center md:items-end justify-between h-[300px] sm:h-[350px] md:h-[440px] gap-4 md:gap-8 flex-1 w-full md:min-w-[600px]">

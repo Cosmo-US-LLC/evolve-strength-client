@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import useSyncedCounter from "@/hooks/useSyncedCounter";
+import useCounter from "@/hooks/useCounter";
 const cardItems = [
   {
     count: "136+",
@@ -31,8 +32,12 @@ const cardItems = [
 ];
 
 function WellnessHub() {
+const { elementRef, hasStarted } = useCounter(1, 2000);
+   
   return (
-    <div id="wellnessHub" className="bg-white py-16">
+    <div id="wellnessHub" className="bg-white py-16"
+    ref={elementRef}
+    >
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         {/* Header Section */}
         <div className="text-left mb-6">
@@ -55,7 +60,15 @@ function WellnessHub() {
 
         {/* Cards Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 items-end">
-          {cardItems.map((item, index) => (
+             {cardItems.map((item, index) => {
+          const targetNumber = parseInt(item.count.replace(/\D/g, ""), 10);
+          const animatedValue = useSyncedCounter(
+            targetNumber,
+            3000,
+            hasStarted
+          );
+
+          return (
             <div
               key={index}
               className={`relative rounded-lg p-5 flex flex-col ${
@@ -65,11 +78,10 @@ function WellnessHub() {
                 height: window.innerWidth >= 768 ? item.height : "",
               }}
             >
-              {/* Card Content */}
               <div className="text-left flex flex-col flex-1">
                 {item.count && (
                   <h2 className="font-bold text-green-600 mb-2">
-                    {item.count}
+                    {animatedValue}+
                   </h2>
                 )}
                 <h3
@@ -88,7 +100,8 @@ function WellnessHub() {
                 </h4>
               </div>
             </div>
-          ))}
+          );
+        })}
         </div>
       </div>
     </div>

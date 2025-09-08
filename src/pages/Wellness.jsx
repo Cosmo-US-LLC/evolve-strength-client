@@ -22,7 +22,7 @@ function Home() {
       <WellnessJourneySteps />
       <WellnessServicesForEveryone />
       <WellnessPricingRoom />
-      <MoreWaysToRecover />
+      {/* <MoreWaysToRecover /> */}
       <SteamAndSaunaRoom />
       {/* <YogaAndRecoveryRoom /> */}
       <FrequentlyAskedQuestions {...faqContent} />

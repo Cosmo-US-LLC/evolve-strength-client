@@ -222,7 +222,7 @@ export default function ApplyForWorkSpaceForm() {
         };
 
         const response = await fetch(
-          "https://api.hsforms.com/submissions/v3/integration/submit/342148198/1bb16ac9-687a-49b8-bdf2-5b7db19f2a55",
+          "https://api.hsforms.com/submissions/v3/integration/submit/342148198/cd0925f8-5782-4c15-b784-6691da248002",
           {
             method: "POST",
             headers: {
