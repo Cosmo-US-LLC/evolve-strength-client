@@ -167,14 +167,14 @@ const AvailableOffices = () => {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-3 py-1 rounded-[5px]  text-sm font-medium cursor-pointer corporate-membership relative border-0
-  before:content-[''] before:absolute before:left-0 before:bottom-0 
-  before:h-[1.5px] before:w-0 before:bg-[#4AB04A] 
-  before:transition-all before:duration-300 
-  hover:before:w-full ${
-                  activeTab === tab.id
-                    ? "bg-[#4AB04A] text-[#fff]"
-                    : "bg-white text-[#000000]"
-                }`}
+                            before:content-[''] before:absolute before:left-0 before:bottom-0 
+                            before:h-[1.5px] before:w-0 before:bg-[#4AB04A] 
+                            before:transition-all before:duration-300 
+                            hover:before:w-full ${
+                              activeTab === tab.id
+                                ? "bg-[#4AB04A] text-[#fff]"
+                                : "bg-white text-[#000000]"
+                            }`}
               >
                 {tab.label}
               </button>
@@ -299,7 +299,7 @@ const AvailableOffices = () => {
                     {mobileFilteredOffices.map((office, idx) => (
                       <div
                         key={idx}
-                        className="flex-[0_0_100%] relative rounded-[6px] h-[530px] overflow-hidden bg-[#EEEEEE] "
+                        className="flex-[0_0_100%] relative rounded-[6px] h-[560px] overflow-hidden bg-[#EEEEEE] "
                       >
                         <img
                           src={office.image}
@@ -316,6 +316,10 @@ const AvailableOffices = () => {
                           <p className="description !font-[kanit] font-[400] text-[#000] leading-[20px] mt-1">
                             {office.roomStatus}
                           </p>
+                          <p className="description !font-[kanit] !text-[14px] text-[#515151] mb-1 flex items-center">
+                            <MapPin className="w-4 h-4 text-[#515151] inline-block mr-1" />
+                            {office.location}
+                          </p>
 
                           <Link
                             to={`/apply-for-work-space?location=${encodeURIComponent(
@@ -328,7 +332,7 @@ const AvailableOffices = () => {
                       </div>
                     ))}
                   </div>
-                  {mobileFilteredOffices.length > 2 && (
+                  {mobileFilteredOffices.length > 1 && (
                     <>
                       <div className="absolute top-[50%] -translate-y-1/2 left-[4%] z-10">
                         <button
