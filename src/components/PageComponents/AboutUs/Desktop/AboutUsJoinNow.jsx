@@ -4,27 +4,26 @@ import { Link } from "react-router-dom";
 function JoinUs() {
   return (
     <div className="w-full aboutUsReadyToEvolve pb-[70px] md:pb-[76px]  relative overflow-hidden">
-      <div className="absolute inset-0 bg-black/20  z-0"></div>
+      <div className="absolute inset-0 bg-black/40 md:bg-black/20 z-0"></div>
+
       <div className="w-full max-w-[1280px] mx-auto flex h-full items-end px-4 md:px-8">
-        <div className="space-y-[24px] relative z-[9]">
-          <h2 className="!text-[#fff] leading-[45px] uppercase">
+        <div className="space-y-[24px] relative z-[9] ">
+          <h2 className="!text-[#fff] leading-[45px] uppercase drop-shadow-lg">
             Ready to Evolve{" "}
           </h2>
-          <h4 className="!text-[#fff] ">
+          <h4 className="!text-[#fff] leading-[25px] max-w-[593px] font-[400] md:!font-[300] drop-shadow-lg">
             Experience premium features at affordable prices with no hidden fees{" "}
-            <br /> Canada’s largest gym offers more space, better amenities and
-            a <br />
+            Canada’s largest gym offers more space, better amenities and a
             supportive community so you can focus on your fitness, not the
             queue.
           </h4>
           <div className="flex gap-6">
-             <Link to="https://subscription.evolvestrength.ca/">
-                        <button className="btnPrimary">join now</button>
-                        </Link>
-           <Link to="https://tour.evolvestrength.ca/tour-form">
-            <button className="btnSecondary">BOOK A FREE TOUR</button>
+            <Link to="https://subscription.evolvestrength.ca/">
+              <button className="btnPrimary">join now</button>
             </Link>
-
+            <Link to="https://tour.evolvestrength.ca/tour-form">
+              <button className="btnSecondary">BOOK A FREE TOUR</button>
+            </Link>
           </div>
         </div>
       </div>

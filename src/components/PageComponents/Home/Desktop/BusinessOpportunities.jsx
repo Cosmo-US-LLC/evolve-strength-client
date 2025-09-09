@@ -6,16 +6,24 @@ const opportunities = [
     title: "Work Spaces",
     description:
       "Set up your practice in our vibrant wellness hubs, with flexible, spacious spaces for health professionals.",
-    image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/BusinessOpportunities/leasing_opportunities.webp",
-    link: "/spaces",
+    image: {
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/BusinessOpportunities/leasing_opportunities.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/BusinessOpportunities/leasing_opportunities_mobile.webp",
+    },
+    link: "/work-spaces",
   },
   {
     title: "Franchise Opportunities",
     description:
       "Own an Evolve Strength gym with a proven model, trusted brand, and nationwide support.",
-    image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/BusinessOpportunities/franchise_opportunities.webp",
+    image: {
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/BusinessOpportunities/franchise_opportunities.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/BusinessOpportunities/franchise_opportunities_mobile.webp",
+    },
     link: "/franchise",
   },
 ];
@@ -29,21 +37,28 @@ const BusinessOpportunities = () => {
           {opportunities.map((item, index) => (
             <div
               key={index}
-              className="md:flex-1 max-md:flex max-md:items-end  relative rounded-xl overflow-hidden shadow-md group"
+              className="md:flex-1 max-md:flex max-md:items-end relative rounded-xl overflow-hidden shadow-md group"
               style={{
-                backgroundImage: `url(${item.image})`,
+                backgroundImage: `url(${item.image.mobile})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 minHeight: "300px",
               }}
             >
-              <div className="max-w-[380px] relative z-10 p-8 flex flex-col justify-end h-full">
-                <h3 className="text-[#FFFFFF] leading-[24px] mb-3  ">
+              {/* Desktop Image */}
+              <div
+                className="hidden md:block absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: `url(${item.image.desktop})`,
+                }}
+              ></div>
+              <div className="md:max-w-[348px] max-w-[320px] relative z-10 md:px-6 md:py-6 px-4 py-4 flex flex-col justify-end h-full">
+                <h3 className="text-[#FFFFFF] leading-[24px] md:mb-3 mb-2">
                   {item.title}
                 </h3>
-                <p className="description !font-[kanit] leading-[20px] text-[#FFFFFF] mb-5   ">
+                <h4 className="md:!font-[300] !font-[400] w-full leading-[20px] text-[#FFFFFF] md:mb-5 mb-3 ">
                   {item.description}
-                </p>
+                </h4>
                 <Link to={item.link}>
                   <button className="self-start btnPrimary transition">
                     READ MORE
