@@ -18,13 +18,20 @@ function EvolveEcosystem() {
             }}
           />
           {/* <div className="absolute inset-0 bg-black/40 z-0" /> */}
-          <div className="absolute inset-y-0 left-0 w-[50%] z-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent " />
+          {/* <div className="absolute inset-y-0 left-0 w-[50%] z-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent " /> */}
+          <div
+            className="
+              absolute inset-0 z-0
+              bg-gradient-to-b from-black/70 via-black/10 to-transparent    
+              md:bg-gradient-to-r md:from-black/50 md:via-black/10 md:to-transparent   
+            "
+          ></div>
 
           <div className="relative z-10 max-md:px-[0px] max-w-3xl space-y-4">
-            <h2 className="uppercase text-[#FFF]">
-              Be Part of the Evolve <br /> Ecosystem
+            <h2 className="uppercase text-[#FFF] max-w-[560px]">
+              Be Part of the Evolve Ecosystem
             </h2>
-            <h4 className="leading-[26px] font-[400] text-[#fff] max-w-[400px] relative z-20">
+            <h4 className="leading-[26px] !font-[vazirmatn] md:!font-[300] !font-[400] text-[#fff] max-w-[400px] relative z-20">
               You’re not just renting a space. You’re joining a full wellness
               ecosystem. Our gym members often need the exact services you
               offer, and we help make that connection. No referral fees. No
