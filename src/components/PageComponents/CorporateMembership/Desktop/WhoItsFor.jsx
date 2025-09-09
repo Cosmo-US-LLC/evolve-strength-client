@@ -2,11 +2,26 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 
 const partnerLogos = [
-  { src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/AirCanada.svg", alt: "AirCanadaLogo" },
-  { src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/Amazon.svg", alt: "AmazonLogo" },
-  { src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/sony.svg", alt: "sonyLogo" },
-  { src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/WCB.svg", alt: "WCBLogo" },
-  { src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/alberta.svg", alt: "albertaLogo" },
+  {
+    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/AirCanada.svg",
+    alt: "AirCanadaLogo",
+  },
+  {
+    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/Amazon.svg",
+    alt: "AmazonLogo",
+  },
+  {
+    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/sony.svg",
+    alt: "sonyLogo",
+  },
+  {
+    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/WCB.svg",
+    alt: "WCBLogo",
+  },
+  {
+    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/alberta.svg",
+    alt: "albertaLogo",
+  },
 ];
 
 function WhoItsFor() {
@@ -22,20 +37,18 @@ function WhoItsFor() {
           </h4>
         </div>
 
-        
         <div className="w-full flex items-center justify-center gap-16 px-8 max-md:hidden">
           {partnerLogos.map((logo, index) => (
             <img
               key={index}
               src={logo.src}
               alt={logo.alt}
-              className="h-10"
-              // className="h-10 grayscale hover:grayscale-0 transition duration-300"
+              // className="h-10"
+              className="h-14 max-w-[160px] object-contain grayscale hover:grayscale-0 transition duration-300"
             />
           ))}
         </div>
 
-      
         <div className="w-full md:hidden">
           <Marquee
             speed={30}
@@ -51,7 +64,8 @@ function WhoItsFor() {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-8 max-w-[120px] object-contain"
+                  // className="h-8 max-w-[120px] object-contain"
+                  className="h-14 object-contain grayscale hover:grayscale-0 transition duration-300"
                 />
               </div>
             ))}
