@@ -10,13 +10,13 @@ function EvolveEmployeePlan() {
           <h2 className="text-[#FFFFFF] uppercase max-w-[560px] !font-[700] leading-[39px] mb-5">
             Add Evolve to Your Employee Benefits Plan
           </h2>
-          <p className="text-[#FFFFFF] description !font-[400] max-w-[542px] leading-[24px] mb-6">
+          <h4 className="text-[#FFFFFF] md:!font-[300] !font-[400] max-w-[542px] leading-[24px] mb-6">
             Give your people access to a complete fitness and wellness
             ecosystem. We’ll help you set it up, manage it, and make sure it
             works for your <br /> team.
-          </p>
+          </h4>
           <div className="flex gap-6">
-             <Link to="/corporate-membership-wizard">
+            <Link to="/corporate-membership-wizard">
               <button className="btnPrimary">Get Started</button>
             </Link>
           </div>
