@@ -52,9 +52,9 @@ const AboutUsPractitioners = () => {
             <Link to="/explore?category=wellness">
               <button className="btnPrimary">FIND A wellness expert</button>
             </Link>{" "}
-            <Link to="/join-as-trainer">
+            <Link to="/wellness">
               <button className="btnSecondary !bg-[#000] !border-[#fff] !border-2 !text-[#fff] hover:!border-[#000] hover:!bg-[#fff] hover:!text-[#000]">
-                BECOME A TRAINER
+                BECOME A PRACTITIONERS
               </button>
             </Link>
           </div>
