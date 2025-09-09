@@ -26,10 +26,32 @@ function FranchiseHero() {
       } else {
         // Video already loaded, play it directly
         if (videoRef.current) {
-          videoRef.current.play();
-          setIsMuted(false);
-          setShowThumbnail(false);
-          setIsPlaying(true);
+          // Safari requires muted play for user-initiated playback
+          videoRef.current.muted = true;
+          videoRef.current
+            .play()
+            .then(() => {
+              // Unmute after successful play if user wants sound
+              if (!isMuted) {
+                videoRef.current.muted = false;
+              }
+              setShowThumbnail(false);
+              setIsPlaying(true);
+            })
+            .catch((error) => {
+              console.error("Error playing video:", error);
+              // Try muted fallback
+              videoRef.current.muted = true;
+              videoRef.current
+                .play()
+                .then(() => {
+                  setShowThumbnail(false);
+                  setIsPlaying(true);
+                })
+                .catch((fallbackError) => {
+                  console.error("Fallback play failed:", fallbackError);
+                });
+            });
         }
       }
     }
@@ -51,20 +73,43 @@ function FranchiseHero() {
   // Effect to handle video play when element is created
   useEffect(() => {
     if (shouldPlay && videoRef.current) {
+      // Safari requires video to be muted initially for autoplay
+      videoRef.current.muted = true;
+
+      // Load the video first, then play
+      videoRef.current.load();
+
       videoRef.current
         .play()
         .then(() => {
-          setIsMuted(false);
+          // After successful play, unmute if user wants sound
+          if (!isMuted) {
+            videoRef.current.muted = false;
+          }
           setShowThumbnail(false);
           setIsPlaying(true);
           setShouldPlay(false);
         })
         .catch((error) => {
           console.error("Error playing video:", error);
-          setShouldPlay(false);
+          // Fallback: try to play muted
+          if (videoRef.current) {
+            videoRef.current.muted = true;
+            videoRef.current
+              .play()
+              .then(() => {
+                setShowThumbnail(false);
+                setIsPlaying(true);
+                setShouldPlay(false);
+              })
+              .catch((fallbackError) => {
+                console.error("Fallback play also failed:", fallbackError);
+                setShouldPlay(false);
+              });
+          }
         });
     }
-  }, [shouldPlay]);
+  }, [shouldPlay, isMuted]);
 
   return (
     <>
@@ -72,7 +117,7 @@ function FranchiseHero() {
       <link
         rel="preload"
         as="image"
-        href="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/franchise/EvolveFloorPlan/franchise-video-thumbnail.webp"
+        href="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/franchise/EvolveFloorPlan/franchise-video-thumbnail2.webp"
       />
       <div className="w-full pb-12 pt-[90px] md:pt-[120px]">
         <div className="w-full max-w-[1280px] px-4 md:px-8 mx-auto flex flex-col gap-8">
@@ -101,7 +146,7 @@ function FranchiseHero() {
                 {showThumbnail && (
                   <div className="absolute inset-0 z-20">
                     <img
-                      src="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/franchise/EvolveFloorPlan/franchise-video-thumbnail.webp"
+                      src="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/franchise/EvolveFloorPlan/franchise-video-thumbnail2.webp"
                       alt="Franchise with Evolve - Thumbnail"
                       className="w-full h-full object-cover"
                       loading="eager"
@@ -145,19 +190,27 @@ function FranchiseHero() {
                       setIsPlaying(false);
                       setShowThumbnail(true);
                     }}
+                    onLoadedData={() => {
+                      // Ensure video is ready for Safari
+                      if (videoRef.current) {
+                        videoRef.current.muted = isMuted;
+                      }
+                    }}
                     loop
                     playsInline
                     preload="none"
                     webkit-playsinline="true"
+                    x-webkit-airplay="allow"
                     controls={false}
+                    muted={isMuted}
                   >
-                    <source
-                      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/FranchiseHero.webm"
-                      type="video/webm"
-                    />
                     <source
                       src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/FranchiseHero.mp4"
                       type="video/mp4"
+                    />
+                    <source
+                      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/FranchiseHero.webm"
+                      type="video/webm"
                     />
                     Your browser does not support the video tag.
                   </video>
