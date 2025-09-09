@@ -27,7 +27,7 @@ function EasyStepsToStarted() {
     {
       number: "1",
       title: "Pick a Location",
-      description: "Choose from 8 Evolve gyms across Canada.",
+      description: "Choose from 7 Evolve gyms across Canada.",
       image:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/FreeAssessment/pick_location.webp",
     },

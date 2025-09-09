@@ -102,7 +102,7 @@ const MembershipBenefits = () => {
   return (
     <div>
       <div className="w-full py-12 max-md:hidden">
-        <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col items-center justify-center h-[700px] gap-12">
+        <div className="w-full max-w-[1280px] px-8 mx-auto flex flex-col items-center justify-center h-[760px] gap-12">
           <h2 className="text-[#000000] uppercase">
             ONE MEMBERSHIP, ENDLESS BENEFITS
           </h2>
@@ -166,8 +166,8 @@ const MembershipBenefits = () => {
           </div>
         </div>
       </div>
-      <div className="md:hidden">
-        <div className="flex flex-col gap-4 px-[16px] py-[48px]">
+      <div className="md:hidden ">
+        <div className="flex flex-col gap-4 px-[16px] justify-center h-[1080px]">
           <h2 className="text-[#000000] uppercase  font-bold mb-2 ">
             ONE MEMBERSHIP, ENDLESS BENEFITS
           </h2>
@@ -220,12 +220,12 @@ const MembershipBenefits = () => {
                       </div>
                     </div>
                     {isActive && (
-                      <div className="w-full flex justify-center mt-4">
+                      <div className="w-full flex justify-center mt-4 h-[400px]">
                         <img
                           key={item.image}
                           src={item.image}
                           alt={item.label}
-                          className="rounded-[10px] object-cover w-full max-w-[340px] h-auto shadow"
+                          className="rounded-[10px] object-cover w-full max-w-[340px] shadow"
                         />
                       </div>
                     )}
