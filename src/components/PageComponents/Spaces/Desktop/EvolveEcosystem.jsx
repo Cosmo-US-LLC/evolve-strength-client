@@ -31,14 +31,14 @@ function EvolveEcosystem() {
             <h2 className="uppercase text-[#FFF] max-w-[560px]">
               Be Part of the Evolve Ecosystem
             </h2>
-            <h4 className="leading-[26px] !font-[vazirmatn] md:!font-[300] !font-[400] text-[#fff] max-w-[400px] relative z-20">
+            <h4 className="leading-[26px] md:!font-[300] !font-[400] text-[#fff] max-w-[400px] relative z-20">
               You’re not just renting a space. You’re joining a full wellness
               ecosystem. Our gym members often need the exact services you
               offer, and we help make that connection. No referral fees. No
               gatekeeping.You grow. We support you.
             </h4>
 
-            <h4 className="leading-[26px] font-[700] text-[#fff] relative z-20 ">
+            <h4 className="leading-[26px] !font-[400] text-[#fff] relative z-20 ">
               You grow. We support you.
             </h4>
           </div>

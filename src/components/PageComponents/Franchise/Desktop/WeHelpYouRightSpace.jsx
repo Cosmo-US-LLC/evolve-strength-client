@@ -67,8 +67,8 @@ function WeHelpYouRightSpace() {
           </h4>
         </div>
         <Link to="/your-fitness-future">
-                      <button className="btnPrimary">Apply Now</button>
-                    </Link>
+          <button className="btnPrimary">Apply Now</button>
+        </Link>
       </div>
 
       {/* Mobile Carousel */}
@@ -124,7 +124,7 @@ function WeHelpYouRightSpace() {
           >
             <div className="flex items-start justify-between">
               <h3 className=" text-[#000]">{f.title}</h3>
-              
+
               <img src={f.icon} alt="" />
             </div>
             <p className="text-[#000] description max-w-[265px]">{f.desc}</p>
