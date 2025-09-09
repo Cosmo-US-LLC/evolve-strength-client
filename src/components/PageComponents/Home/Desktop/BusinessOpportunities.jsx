@@ -33,7 +33,7 @@ const BusinessOpportunities = () => {
     <div className="w-full py-12 bg-[#F9F9F9]">
       <div className="w-full max-w-[1280px] md:px-8 px-4 mx-auto flex flex-col justify-center items-center gap-12">
         <h2 className="">BUILD YOUR FUTURE WITH EVOLVE</h2>
-        <div className="flex md:flex-row max-md:flex-col w-[100%] min-h-[370px] gap-8">
+        <div className="flex md:flex-row max-md:flex-col w-[100%] min-h-[370px] gap-8  ">
           {opportunities.map((item, index) => (
             <div
               key={index}
@@ -45,6 +45,13 @@ const BusinessOpportunities = () => {
                 minHeight: "300px",
               }}
             >
+              <div
+                className="
+                  absolute inset-0 z-0
+                  bg-gradient-to-t from-black/60 via-black/20 to-transparent    
+                  md:bg-gradient-to-r md:from-black/60 md:via-black/20 md:to-transparent  
+                "
+              ></div>
               {/* Desktop Image */}
               <div
                 className="hidden md:block absolute inset-0 bg-cover bg-center"

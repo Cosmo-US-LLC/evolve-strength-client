@@ -8,6 +8,9 @@ import {
   Sparkles,
   Brain,
   Hand,
+  Zap,
+  Target,
+  TrendingDown,
 } from "lucide-react";
 
 export const professionalServices = [
@@ -142,7 +145,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/strength_training_mob.webp",
     },
-    icon: HandHeart,
+    icon: Dumbbell,
   },
   {
     title: "calisthenics",
@@ -152,7 +155,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/calisthenics_mob.webp",
     },
-    icon: HandHeart,
+    icon: Activity,
   },
   {
     title: "Physiotherapy",
@@ -192,7 +195,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/cardio_.webp",
     },
-    icon: HandHeart,
+    icon: HeartPulse,
   },
   {
     title: "Weight Loss",
@@ -202,7 +205,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/weight_loss_mob.webp",
     },
-    icon: HandHeart,
+    icon: TrendingDown,
   },
   {
     title: "Osteopathy",
@@ -242,7 +245,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/mobility_mob.webp",
     },
-    icon: HandHeart,
+    icon: Target,
   },
   {
     title: "Olympic Lifting",
@@ -252,7 +255,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/olympic_lifting_mob.webp",
     },
-    icon: HandHeart,
+    icon: Zap,
   },
 ];
 

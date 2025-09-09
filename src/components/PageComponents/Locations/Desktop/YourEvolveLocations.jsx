@@ -70,7 +70,7 @@ const YourEvolveLocations = () => {
       desktopImage:
         "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/north.webp",
       city: "Edmonton",
-      province: "",
+      province: "Alberta",
     },
     {
       name: "SETON",

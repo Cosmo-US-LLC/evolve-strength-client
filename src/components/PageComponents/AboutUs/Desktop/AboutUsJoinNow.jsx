@@ -11,7 +11,7 @@ function JoinUs() {
           <h2 className="!text-[#fff] leading-[45px] uppercase drop-shadow-lg">
             Ready to Evolve{" "}
           </h2>
-          <h4 className="!text-[#fff] leading-[25px] max-w-[593px] font-[400] md:!font-[300] drop-shadow-lg">
+          <h4 className="!text-[#fff] leading-[25px] max-w-[593px] !font-[400] md:!font-[300] drop-shadow-lg">
             Experience premium features at affordable prices with no hidden fees{" "}
             Canada’s largest gym offers more space, better amenities and a
             supportive community so you can focus on your fitness, not the
