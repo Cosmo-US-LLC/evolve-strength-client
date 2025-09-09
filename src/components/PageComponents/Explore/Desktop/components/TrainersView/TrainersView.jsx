@@ -143,7 +143,7 @@ function TrainersView() {
           >
             All
           </button>
-          <button
+          {/* <button
             className={`max-w-full border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-2 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[16px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
               selectedTab === "Alphabetical"
                 ? "bg-[#000] text-[#FFF]"
@@ -154,7 +154,7 @@ function TrainersView() {
             }}
           >
             Alphabetical (A-Z)
-          </button>
+          </button> */}
           <div className="relative" ref={locationDropdownRef}>
             <button
               className={`max-w-[240px] border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-2 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[16px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${

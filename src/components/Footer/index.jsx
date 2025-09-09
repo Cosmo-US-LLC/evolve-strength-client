@@ -126,14 +126,14 @@ function Footer() {
                   >
                     Contact Us
                   </Link>
-                  <Link
+                  {/* <Link
                     to="https://tour.evolvestrength.ca/tour-form/"
                     className="max-md:hidden"
                   >
                     <button className="my-1 md:mt-12 btnPrimary transition">
                       TAKE A TOUR
                     </button>
-                  </Link>
+                  </Link> */}
                 </div>
 
                 <div className="space-y-4 md:space-y-3 flex flex-col w-full md:max-w-[260px]">
@@ -221,14 +221,14 @@ function Footer() {
               </div>
             </div>
           </div>
-          <Link
+          {/* <Link
             to="https://tour.evolvestrength.ca/tour-form/"
             className="md:hidden"
           >
             <button className="mt-1 mb-2 md:mb-0 md:mt-12 btnPrimary transition">
               TAKE A TOUR
             </button>
-          </Link>
+          </Link> */}
 
           {/* <div className="flex flex-row items-center md:justify-between justify-start  w-full max-w-[568px] h-[70px] md:h-[90px] gap-14 md:gap-6">
             <a
