@@ -7,7 +7,7 @@ const steps = [
     description:
       "Find from our team of physiotherapists, chiropractors, massage therapists, nutritionists, and more.",
     image:
-      "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessJourneySteps/step_1.webp",
+      "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessJourneySteps/step_5.webp",
     icon: <Search className="w-5 h-5 text-white" />,
   },
   {
@@ -37,7 +37,8 @@ const steps = [
 
 const WellnessJourneySteps = () => {
   return (
-    <section className="flex flex-wrap">
+    <section className="flex flex-wrap relative">
+      <div className="absolute inset-0 md:bg-black/3 bg-black/30 z-10"></div>
       {steps.map((step, index) => (
         <div
           key={index}
@@ -52,19 +53,19 @@ const WellnessJourneySteps = () => {
           {/* <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all duration-300" /> */}
 
           <div className="relative z-10 px-2 md:px-3 py-2 sm:py-3 md:py-6 text-center text-white flex flex-col items-start md:items-center h-auto md:h-[230px]">
-            <div className="bg-green-500 rounded-full w-10 h-10 flex items-center justify-center mb-1.5 sm:mb-2 md:mb-3">
+            <div className="bg-green-500 rounded-full w-10 h-10 flex items-center justify-center mb-2 md:mb-3">
               {step.icon}
             </div>
 
             <h3
-              className={`text-left md:text-center font-[300] md:font-[400] font-[kanit] leading-[18px] md:leading-[26px] mb-2 transition-all duration-500 
+              className={`text-left md:text-center font-[300] md:font-[400] font-[kanit] leading-[21px] md:leading-[26px] mb-2 transition-all duration-500 
              
               `}
             >
               {step.title}
             </h3>
 
-            <p className="text-[14px] md:text-[18px] text-left md:text-center font-[300] md:font-[300] font-[kanit] leading-tight md:leading-relaxed text-[#fff]">
+            <p className="text-[16px] md:text-[18px] text-left md:text-center font-[300] md:font-[300] font-[kanit] leading-tight md:leading-relaxed text-[#fff]">
               {step.description}
             </p>
           </div>

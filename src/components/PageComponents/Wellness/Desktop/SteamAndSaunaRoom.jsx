@@ -10,9 +10,11 @@ function SteamAndSaunaRoom() {
           <h2 className="text-[#FFFFFF] uppercase max-w-[560px] !font-[700] leading-[39px] mb-5">
             More Ways to Recover and Restore
           </h2>
-          <p className="text-[#FFFFFF] description !font-[400] max-w-[542px] leading-[24px] mb-6">
-          With our steam rooms and saunas, relax sore muscles, boost circulation, and recover faster with heat therapy. Available at most Evolve locations.
-          </p>
+          <h4 className="text-[#FFFFFF] !font-[Vazirmatn] md:!font-[300] !font-[400] max-w-[552px] leading-[24px] mb-6">
+            With our steam rooms and saunas, relax sore muscles, boost
+            circulation, and recover faster with heat therapy. Available at most
+            Evolve locations.
+          </h4>
           <div className="flex gap-6">
             <Link to="https://tour.evolvestrength.ca/tour-form">
               <button className="btnPrimary">Book a Tour</button>
