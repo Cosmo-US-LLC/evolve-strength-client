@@ -7,7 +7,7 @@ function BuildToTeamSupport() {
 
   const practitionersCount = useSyncedCounter(195, 3000, hasStarted);
   const trainersCount = useSyncedCounter(205, 3000, hasStarted);
-  const facilitiesCount = useSyncedCounter(8, 3000, hasStarted);
+  const facilitiesCount = useSyncedCounter(7, 3000, hasStarted);
 
   return (
     <div className="w-full py-16 bg-[#EEEEEE]" ref={elementRef}>
@@ -37,7 +37,7 @@ function BuildToTeamSupport() {
             </h2>
             <h3 className="text-[#000] !font-[400] leading-[26px]">Trainers</h3>
           </div>
-          <div className="flex flex-col justify-center md:justify-start  items-center md:items-start gap-0 md:gap-2 md:border-b-0 max-md:border-b-2 md:border-r-2 max-md:border-r-0 border-[#C1C1C1] pr-0 md:pr-8 h-[100px] w-full max-md:w-[100%] md:w-auto">
+          <div className="flex flex-col justify-center md:justify-start items-center md:items-start gap-0 md:gap-2 md:border-b-0 max-md:border-b-0 md:border-r-0 max-md:border-r-0 border-[#C1C1C1] pr-0 md:pr-8 h-[100px] w-full max-md:w-[100%] md:w-auto">
             <h2 className="text-[#000] font-[700] leading-[39px]">
               {facilitiesCount.toString().padStart(2, "0")}
             </h2>
