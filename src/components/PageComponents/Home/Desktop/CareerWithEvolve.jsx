@@ -39,7 +39,7 @@ const tabData = {
       "All-Inclusive Office Setup",
       "Connect with a Like-Minded Community",
     ],
-    link: "/spaces",
+    link: "/work-spaces",
   },
 };
 
