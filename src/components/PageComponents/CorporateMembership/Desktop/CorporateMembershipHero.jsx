@@ -32,7 +32,7 @@ function CorporateMembershipHero() {
               media="(min-width: 768px)"
             />
             <img
-              src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/corporateMemberHero/corporrate_hero.webp"
+              src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/corporateMemberHero/corporate_hero_mob.webp"
               alt="Corporate Membership Hero"
             />
           </picture>
