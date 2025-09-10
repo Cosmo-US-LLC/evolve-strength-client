@@ -1,6 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 function EvolveEcosystem() {
+    const handleScroll = () => {
+    const element = document.querySelector("#available-offices");
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - 0;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  }
   return (
     <div className="w-full md:py-12 max-md:pt-0 pb-0 md:pb-[48px] bg-[#fff]">
       <div className="w-full max-w-[1280px] md:px-8  mx-auto ">
@@ -48,9 +59,8 @@ function EvolveEcosystem() {
               <span className="description text-[#fff]">
                 Set up your practice in Canada’s best gym.
               </span>
-              <Link to="/join-the-wait-list">
-                <button className="btnPrimary">Join the Waitlist</button>
-              </Link>
+             
+                <button className="btnPrimary" onClick={handleScroll}>See Available Spaces</button>
             </div>
           </div>
         </div>

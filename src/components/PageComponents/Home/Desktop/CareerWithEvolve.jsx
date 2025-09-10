@@ -32,7 +32,7 @@ const tabData = {
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/CareerWithEvolve/career_mob_2.webp",
     },
     description:
-      "Flexible office spaces for wellness professionals inside Canada's largest fitness facilities.",
+      "Flexible workspace for wellness professionals inside Canada’s top fitness facilities.",
     points: [
       "Build Your Business in a Prime Location",
       "Premium Amenities for You & Your Clients",
