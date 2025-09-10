@@ -253,7 +253,7 @@ const AvailableOffices = () => {
         </div>
       </div>
       <div className="py-12 md:hidden">
-        <div className="w-[100%] max-w-[1280px]  mx-auto flex flex-col gap-10">
+        <div className="w-[100%] max-w-[1280px] px-4 mx-auto flex flex-col gap-10">
           <h2 className="uppercase px-[16px] !font-[700]">
             Available <br /> Offices
           </h2>
