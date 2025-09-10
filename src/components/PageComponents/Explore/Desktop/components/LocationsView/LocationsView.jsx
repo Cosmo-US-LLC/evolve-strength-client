@@ -13,6 +13,7 @@ function LocationsView() {
   const [expandedLocation, setExpandedLocation] = useState(null); // Only one location can be expanded
   const [serviceTabs, setServiceTabs] = useState({}); // { [locKey]: selectedServiceName }
   const [selectedTrainer, setSelectedTrainer] = useState({}); // { [locKey_service]: trainerIdx }
+  const [currentCarouselIndex, setCurrentCarouselIndex] = useState({}); // { [locKey_service]: currentIndex }
 
   const locationsData = getDataByCategory("LOCATIONS")?.data || [];
 
@@ -22,6 +23,7 @@ function LocationsView() {
 
     // Reset trainer selection when changing locations
     setSelectedTrainer({});
+    setCurrentCarouselIndex({});
   };
 
   const handleServiceSelect = (locKey, serviceName) => {
@@ -30,6 +32,10 @@ function LocationsView() {
       ...prev,
       [`${locKey}_${serviceName}`]: null,
     })); // reset trainer selection on tab change
+    setCurrentCarouselIndex((prev) => ({
+      ...prev,
+      [`${locKey}_${serviceName}`]: 0,
+    })); // reset carousel index on tab change
   };
 
   // Helper function to transform trainer data for display
@@ -99,6 +105,7 @@ function LocationsView() {
 
           const trainerKey = `${locKey}_${selectedService}`;
           const selectedIdx = selectedTrainer[trainerKey];
+          const currentCarouselIdx = currentCarouselIndex[trainerKey] || 0;
 
           return (
             <div key={locKey} className="overflow-hidden">
@@ -212,6 +219,18 @@ function LocationsView() {
                           isCarousel={true}
                           trainers={transformedTrainers}
                           selectedTrainer={selectedIdx}
+                          currentIndex={currentCarouselIdx}
+                          onCarouselNavigate={(newIndex) => {
+                            setCurrentCarouselIndex((prev) => ({
+                              ...prev,
+                              [trainerKey]: newIndex,
+                            }));
+                            // Close details when navigating carousel
+                            setSelectedTrainer((prev) => ({
+                              ...prev,
+                              [trainerKey]: null,
+                            }));
+                          }}
                           onTrainerSelect={(index) => {
                             if (selectedIdx === index) {
                               setSelectedTrainer((prev) => ({
@@ -300,13 +319,15 @@ function LocationsView() {
                       </div>
 
                       {/* Trainer Details for Mobile */}
-                      {selectedIdx !== null && selectedIdx !== undefined && (
-                        <div className="md:hidden w-full bg-[#F6F6F6] px-4 py-6 transition-all duration-300 ease-in-out">
-                          <TrainerDetails
-                            trainer={transformedTrainers[selectedIdx]}
-                          />
-                        </div>
-                      )}
+                      {selectedIdx !== null &&
+                        selectedIdx !== undefined &&
+                        transformedTrainers[selectedIdx] && (
+                          <div className="md:hidden w-full bg-[#F6F6F6] px-4 py-6 transition-all duration-300 ease-in-out">
+                            <TrainerDetails
+                              trainer={transformedTrainers[selectedIdx]}
+                            />
+                          </div>
+                        )}
                     </>
                   )}
                   {transformedTrainers && transformedTrainers.length === 0 && (
