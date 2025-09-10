@@ -1,7 +1,6 @@
 import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { professionalServices } from "../../../../constants/professionalServicesImages.js";
 
@@ -40,7 +39,19 @@ const WhoOurSpacesFor = () => {
       }
     }
   }, [emblaApi]);
+  
+    const handleScroll = () => {
+    const element = document.querySelector("#available-offices");
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - 0;
 
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <section className="py-12">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col items-start gap-8">
@@ -107,9 +118,7 @@ const WhoOurSpacesFor = () => {
           </div>
         </div>
 
-        <Link to="/join-the-wait-list">
-          <button className="btnPrimary">Join the Waitlist</button>
-        </Link>
+          <button className="btnPrimary" onClick={handleScroll}>See Available Spaces</button>
       </div>
     </section>
   );
