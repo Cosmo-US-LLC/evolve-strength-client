@@ -11,7 +11,7 @@ const partnerLogos = [
     alt: "Precor",
   },
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/EquipmentPartners/newtech.svg",
+    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/EquipmentPartners/NewTech_logo.svg",
     alt: "Rogue",
   },
   // { src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/EquipmentPartners/rogue.svg", alt: "rogueLogo" },
