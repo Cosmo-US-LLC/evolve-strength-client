@@ -3,23 +3,23 @@ import Marquee from "react-fast-marquee";
 
 const partnerLogos = [
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/AirCanada.svg",
+    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/Air_canada_logo.svg",
     alt: "AirCanadaLogo",
   },
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/Amazon.svg",
+    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/Amazon_logo.svg",
     alt: "AmazonLogo",
   },
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/sony.svg",
+    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/Sony_logo.svg",
     alt: "sonyLogo",
   },
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/WCB.svg",
+    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/WCB_logo.svg",
     alt: "WCBLogo",
   },
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/alberta.svg",
+    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/Alberta_health_services_logo.svg",
     alt: "albertaLogo",
   },
 ];
@@ -43,8 +43,8 @@ function WhoItsFor() {
               key={index}
               src={logo.src}
               alt={logo.alt}
-              // className="h-10"
-              className="h-14 max-w-[160px] object-contain grayscale hover:grayscale-0 transition duration-300"
+              className="h-14"
+              // className="h-14 max-w-[160px] object-contain grayscale hover:grayscale-0 transition duration-300"
             />
           ))}
         </div>
@@ -64,8 +64,8 @@ function WhoItsFor() {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  // className="h-8 max-w-[120px] object-contain"
-                  className="h-14 object-contain grayscale hover:grayscale-0 transition duration-300"
+                  className="h-14 max-w-[120px] object-contain"
+                  // className="h-14 object-contain grayscale hover:grayscale-0 transition duration-300"
                 />
               </div>
             ))}
