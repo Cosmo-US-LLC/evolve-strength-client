@@ -67,8 +67,12 @@ const MeetTheTrainers = ({ location = "" }) => {
 
   const tourUrl = getTourUrl(locationKey);
 
-  // Get trainers for the specified location
-  const trainers = getTrainersByLocation(location);
+  // Get trainers for the specified location and filter for Personal Trainers only
+  const allTrainers = getTrainersByLocation(location);
+  const trainers = allTrainers.filter(
+    (trainer) =>
+      trainer.role && trainer.role.toLowerCase().includes("personal trainer")
+  );
 
   // Get location display name (remove underscores and format nicely)
   const getLocationDisplayName = (locationName) => {

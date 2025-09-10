@@ -134,7 +134,7 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
           </div>
         </div>
         {/* Right Form */}
-        <div className="flex flex-col w-[50%]">
+        <div className="flex flex-col md:w-[50%] w-full">
           <button
             type="button"
             onClick={() => navigate(-1)}

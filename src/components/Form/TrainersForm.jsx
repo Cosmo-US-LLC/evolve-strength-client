@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import MetaTags from "@/components/Metatags/Meta";
@@ -7,8 +7,6 @@ import SuccessFullScreen from "../ui/SuccessFullScreen";
 import trainerImage from "@/assets/images/form/trainer-form.webp";
 
 function TrainerForm() {
-  const turnstileRef = useRef(null);
-  const [isLoaded, setIsLoaded] = useState(false);
   const navigate = useNavigate();
 
   // HubSpot constants
@@ -62,32 +60,6 @@ function TrainerForm() {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false); // added
-
-  useEffect(() => {
-    const existingScript = document.querySelector(
-      'script[src="https://challenges.cloudflare.com/turnstile/v0/api.js"]'
-    );
-
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
-      script.async = true;
-      script.defer = true;
-      script.onload = () => setIsLoaded(true);
-      document.body.appendChild(script);
-    } else {
-      setIsLoaded(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isLoaded && window.turnstile && turnstileRef.current) {
-      window.turnstile.render(turnstileRef.current, {
-        sitekey: "1x00000000000000000000AA",
-        theme: "light",
-      });
-    }
-  }, [isLoaded]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -364,10 +336,6 @@ function TrainerForm() {
                     </span>
                   )}
                 </label>
-              </div>
-
-              <div className="w-full flex flex-col">
-                <div ref={turnstileRef} className="cf-turnstile"></div>
               </div>
 
               <button

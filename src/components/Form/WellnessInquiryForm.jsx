@@ -444,7 +444,7 @@ export default function WellnessInquiryForm() {
                 className="w-full mt-2 btnPrimary"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "SUBMITTING..." : "JOIN WELLNESS"}
+                {isSubmitting ? "SUBMITTING..." : "FIND WELLNESS EXPERT"}
               </button>
             </form>
           </div>

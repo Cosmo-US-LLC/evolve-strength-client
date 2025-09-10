@@ -8,14 +8,11 @@ function LetsBuildBigger() {
         <h2 className="text-[#fff]  uppercase leading-[39px] font-[700]">
           LET'S BUILD SOMETHING BIGGER, TOGETHER
         </h2>
-        <h4 className="text-[#fff] leading-[26px] md:!font-[300] !font-[400] max-w-[800px]">
+        <h4 className="text-[#fff] max-w-[622px] leading-[26px] md:!font-[300] !font-[400]">
           Whether you're a solo entrepreneur or a group of investors, Evolve is
-          your
-          <br />
-          opportunity to enter the booming wellness space with a partner you can
-          trust.
-          <br />
-          Fill out the form and let's explore your path to ownership.
+          your opportunity to enter the booming wellness space with a partner
+          you can trust. Fill out the form and let's explore your path to
+          ownership.
         </h4>
         <Link to="/your-fitness-future">
           <button className="btnPrimary">Apply Now</button>
