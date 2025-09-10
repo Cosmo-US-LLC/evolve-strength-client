@@ -32,7 +32,10 @@ function Footer() {
                 </div>
 
                 <p className="footer_description text-[#ffffff]">
-                 At Evolve Strength, we’re redefining fitness and health with cutting-edge gyms and integrated wellness spaces, stocked with an abundance of top-tier equipment, so you never wait and can dive into a premium workout and healthcare experience.
+                  At Evolve Strength, we’re redefining fitness and health with
+                  cutting-edge gyms and integrated wellness spaces, stocked with
+                  an abundance of top-tier equipment, so you never wait and can
+                  dive into a premium workout and healthcare experience.
                 </p>
 
                 {/* <div className="flex flex-col gap-2">
@@ -89,13 +92,9 @@ function Footer() {
 
               <div className=" flex flex-col md:flex-row py-2 md:py-8">
                 <div className="space-y-4 md:space-y-3 w-full flex flex-col md:max-w-[240px]">
-                  <Link
-                    smooth
-                    to=""
-                    className="text-[#B2B1AA] !text-[22px] !font-[600] pb-2 w-full border-b-2 border-[#2b2b2b] md:hidden"
-                  >
+                  <p className="text-[#B2B1AA] !text-[22px] !font-[600] pb-2 w-full border-b-2 border-[#2b2b2b] md:hidden">
                     COMPANY
-                  </Link>
+                  </p>
                   <Link
                     smooth
                     to="/about-us"
@@ -134,13 +133,9 @@ function Footer() {
                 </div>
 
                 <div className="space-y-4 md:space-y-3 flex flex-col w-full md:max-w-[260px]">
-                  <Link
-                    smooth
-                    to=""
-                    className="text-[#B2B1AA] mt-3 !text-[22px] !font-[600] pb-2 w-full border-b-2 border-[#2b2b2b] md:hidden"
-                  >
+                  <p className="text-[#B2B1AA] mt-3 !text-[22px] !font-[600] pb-2 w-full border-b-2 border-[#2b2b2b] md:hidden">
                     CAREERS & PARTNERS
-                  </Link>
+                  </p>
                   {/* <Link
                     smooth
                     to="/careers"
@@ -193,13 +188,9 @@ function Footer() {
                 </div>
 
                 <div className="space-y-4 md:space-y-3 flex flex-col w-full md:max-w-[240px]">
-                  <Link
-                    smooth
-                    to=""
-                    className="text-[#B2B1AA] mt-4 !text-[22px] !font-[600] pb-2 w-full border-b-2 border-[#2b2b2b] md:hidden"
-                  >
+                  <p className="text-[#B2B1AA] mt-4 !text-[22px] !font-[600] pb-2 w-full border-b-2 border-[#2b2b2b] md:hidden">
                     FOR MEMBERS
-                  </Link>
+                  </p>
                   <Link
                     smooth
                     to="/personal-training"

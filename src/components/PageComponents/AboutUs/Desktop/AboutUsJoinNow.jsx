@@ -12,10 +12,10 @@ function JoinUs() {
             Ready to Evolve{" "}
           </h2>
           <h4 className="!text-[#fff] leading-[25px] max-w-[593px] !font-[400] md:!font-[300] drop-shadow-lg">
-            Experience premium features at affordable prices with no hidden fees{" "}
-            Canada’s top fitness facility offers more space, better amenities and a
-            supportive community so you can focus on your fitness, not the
-            queue.
+            Experience premium features at affordable prices with no hidden
+            fees. Canada’s top fitness facility offers more space, better
+            amenities and a supportive community so you can focus on your
+            fitness, not the queue.
           </h4>
           <div className="flex gap-6">
             <Link to="https://subscription.evolvestrength.ca/">
