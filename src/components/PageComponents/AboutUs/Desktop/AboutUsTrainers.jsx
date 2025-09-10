@@ -81,12 +81,14 @@ const AboutUsTrainers = () => {
             see real results.
           </h4>
           <div className="flex flex-row gap-4">
-          <Link to="/explore?category=trainers">
-            <button className="btnPrimary">FIND A TRAINER</button>
-          </Link>
-          <Link to="/join-as-trainer">
-            <button className="btnSecondary !bg-[#000] !border-[#fff] !border-2 !text-[#fff] hover:!border-[#000] hover:!bg-[#fff] hover:!text-[#000]">BECAME A TRAINER</button>
-          </Link>
+            <Link to="/explore?category=trainers">
+              <button className="btnPrimary">FIND A TRAINER</button>
+            </Link>
+            <Link to="/join-as-trainer">
+              <button className="btnSecondary !bg-[#000] !border-[#fff] !border-2 !text-[#fff] hover:!border-[#000] hover:!bg-[#fff] hover:!text-[#000]">
+                BECAME A TRAINER
+              </button>
+            </Link>
           </div>
         </div>
         <div className="relative w-full">
