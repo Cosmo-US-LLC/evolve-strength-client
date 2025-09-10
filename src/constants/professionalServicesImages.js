@@ -1,17 +1,33 @@
-import {
-  Leaf,
-  Dumbbell,
-  HandHeart,
-  Activity,
-  HeartPulse,
-  Salad,
-  Sparkles,
-  Brain,
-  Hand,
-  Zap,
-  Target,
-  TrendingDown,
-} from "lucide-react";
+// import {
+//   Leaf,
+//   Dumbbell,
+//   HandHeart,
+//   Activity,
+//   HeartPulse,
+//   Salad,
+//   Sparkles,
+//   Brain,
+//   Hand,
+//   Zap,
+//   Target,
+//   TrendingDown,
+// } from "lucide-react";
+import Esthetician from "../assets/icons/home/Wellness-Services/wellness_icons (8).svg"
+import Chiropractic_Care from "../assets/icons/home/Wellness-Services/wellness_icons (14).svg"
+import Massage_Therapy from "../assets/icons/home/Wellness-Services/wellness_icons (1).svg"
+import Strength_training from "../assets/icons/home/Wellness-Services/wellness_icons (15).svg"
+import calisthenics from "../assets/icons/home/Wellness-Services/wellness_icons (4).svg"
+import Physiotherapy from "../assets/icons/home/Wellness-Services/wellness_icons (10).svg"
+import Acupuncture from "../assets/icons/home/Wellness-Services/wellness_icons (9).svg"
+import Dietitian_Services from "../assets/icons/home/Wellness-Services/wellness_icons (11).svg"
+import Cardio from "../assets/icons/home/Wellness-Services/wellness_icons (3).svg"
+import Weight_Loss from "../assets/icons/home/Wellness-Services/wellness_icons (7).svg"
+import Osteopathy from "../assets/icons/home/Wellness-Services/wellness_icons (12).svg"
+import Laser_Therapy from "../assets/icons/home/Wellness-Services/wellness_icons (13).svg"
+import Mental_Health from "../assets/icons/home/Wellness-Services/wellness_icons (5).svg"
+import Mobility_Olympic from "../assets/icons/home/Wellness-Services/wellness_icons (2).svg"
+import Lifting from "../assets/icons/home/Wellness-Services/wellness_icons (6).svg"
+  
 
 export const professionalServices = [
   {
@@ -22,7 +38,7 @@ export const professionalServices = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/esthetician_mobile.webp",
     },
-    icon: Leaf,
+    icon: Esthetician,
   },
   {
     title: "Chiropractic Care",
@@ -32,7 +48,7 @@ export const professionalServices = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_careMob.webp",
     },
-    icon: Hand,
+    icon: Chiropractic_Care,
   },
   {
     title: "Massage Therapy",
@@ -42,7 +58,7 @@ export const professionalServices = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_headMob.webp",
     },
-    icon: HandHeart,
+    icon: Massage_Therapy,
   },
   {
     title: "Physiotherapy",
@@ -52,7 +68,7 @@ export const professionalServices = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/physiotherapyMob.webp",
     },
-    icon: Dumbbell,
+    icon: Physiotherapy,
   },
   {
     title: "Acupuncture",
@@ -62,7 +78,7 @@ export const professionalServices = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupunctureMob.webp",
     },
-    icon: Activity,
+    icon: Acupuncture,
   },
   {
     title: "Dietitian Services",
@@ -72,7 +88,7 @@ export const professionalServices = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupuncture_foodMob.webp",
     },
-    icon: Salad,
+    icon: Dietitian_Services,
   },
   {
     title: "Osteopathy",
@@ -82,7 +98,7 @@ export const professionalServices = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/osteopathyMob.webp",
     },
-    icon: HeartPulse,
+    icon: Osteopathy,
   },
   {
     title: "Laser Therapy",
@@ -92,7 +108,7 @@ export const professionalServices = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/laserMob.webp",
     },
-    icon: Sparkles,
+    icon: Laser_Therapy,
   },
   {
     title: "Mental Health",
@@ -102,7 +118,7 @@ export const professionalServices = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/mental_healthMob.webp",
     },
-    icon: Brain,
+    icon: Mental_Health,
   },
 ];
 
@@ -115,7 +131,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/esthetician_mobile.webp",
     },
-    icon: Leaf,
+    icon: Esthetician,
   },
   {
     title: "Chiropractic Care",
@@ -125,7 +141,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_careMob.webp",
     },
-    icon: Hand,
+    icon: Chiropractic_Care,
   },
   {
     title: "Massage Therapy",
@@ -135,7 +151,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_headMob.webp",
     },
-    icon: HandHeart,
+    icon: Massage_Therapy,
   },
   {
     title: "Strength training",
@@ -145,7 +161,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/strength_training_mob.webp",
     },
-    icon: Dumbbell,
+    icon: Strength_training,
   },
   {
     title: "calisthenics",
@@ -155,7 +171,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/calisthenics_mob.webp",
     },
-    icon: Activity,
+    icon: calisthenics,
   },
   {
     title: "Physiotherapy",
@@ -165,7 +181,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/physiotherapyMob.webp",
     },
-    icon: Dumbbell,
+    icon: Physiotherapy,
   },
   {
     title: "Acupuncture",
@@ -175,7 +191,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupunctureMob.webp",
     },
-    icon: Activity,
+    icon: Acupuncture,
   },
   {
     title: "Dietitian Services",
@@ -185,7 +201,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupuncture_foodMob.webp",
     },
-    icon: Salad,
+    icon: Dietitian_Services,
   },
   {
     title: "Cardio",
@@ -195,7 +211,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/cardio_.webp",
     },
-    icon: HeartPulse,
+    icon: Cardio,
   },
   {
     title: "Weight Loss",
@@ -205,7 +221,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/weight_loss_mob.webp",
     },
-    icon: TrendingDown,
+    icon: Weight_Loss,
   },
   {
     title: "Osteopathy",
@@ -215,7 +231,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/osteopathyMob.webp",
     },
-    icon: HeartPulse,
+    icon: Osteopathy,
   },
   {
     title: "Laser Therapy",
@@ -225,7 +241,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/laserMob.webp",
     },
-    icon: Sparkles,
+    icon: Laser_Therapy,
   },
   {
     title: "Mental Health",
@@ -235,7 +251,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/mental_healthMob.webp",
     },
-    icon: Brain,
+    icon: Mental_Health,
   },
   {
     title: "Mobility",
@@ -245,7 +261,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/mobility_mob.webp",
     },
-    icon: Target,
+    icon: Mobility_Olympic,
   },
   {
     title: "Olympic Lifting",
@@ -255,7 +271,7 @@ export const professionalServicesForLocations = [
       mobileImage:
         "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/olympic_lifting_mob.webp",
     },
-    icon: Zap,
+    icon: Lifting,
   },
 ];
 

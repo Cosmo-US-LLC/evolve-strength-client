@@ -108,7 +108,6 @@ const LocationWellnessServices = () => {
           <div className="flex flex-wrap gap-2 max-w-[713px]">
             {professionalServicesForLocations.map((service, index) => {
               const isActive = index === activeIndex;
-              const IconComponent = service.icon;
 
               return (
                 <div
@@ -123,7 +122,7 @@ const LocationWellnessServices = () => {
                 `}
                 >
                   <div className="mb-2 text-[16px] font-[kanit] font-[500] leading-[16px] uppercase">
-                    <IconComponent />
+                   <img src={service.icon} alt="" />
                   </div>
                   <div className="text-[16px] font-kanit font-[500] leading-[20px] uppercase text-[#fff] text-center px-[5px]">
                     {service.title}
@@ -177,7 +176,6 @@ const LocationWellnessServices = () => {
             <div className="flex gap-2 pl-2">
               {professionalServicesForLocations.map((service, index) => {
                 const isActive = index === activeIndex;
-                const IconComponent = service.icon;
 
                 return (
                   <div key={index} className="flex-[0_0_70%] min-w-0 px-2 py-4">
@@ -201,7 +199,7 @@ const LocationWellnessServices = () => {
                             isActive ? "text-[#fff]" : "text-[#fff]"
                           }`}
                         >
-                          <IconComponent />
+                           <img src={service.icon} alt="" />
                         </div>
                         <div className="text-[14px] font-kanit font-[400] leading-[20px] uppercase text-[#fff] text-center">
                           {service.title}
