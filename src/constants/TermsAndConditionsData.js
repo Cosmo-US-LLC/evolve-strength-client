@@ -143,35 +143,16 @@ export const termsMain = [
           "any complaint by any other member of a Facility or an employee (or contractor) of the Facility, and the Operator determines, in its sole discretion, that such complaint is valid and warrants termination of your membership.",
         ],
       },
-      "Upon such termination by Evolve, you are required to pay the remaining balance of your membership fees to the end of the current term of your membership, in full, as well as all amounts that are outstanding",
-
-      {
-        text: "Warranty Disclaimer:",
-        sublist: [
-          "THE FACILITIES, ALL OF THEIR EQUIPMENT AND THEIR SERVICES ARE PROVIDED “AS IS” AND ARE USED BY YOU AT YOUR SOLE RISK. EVOLVE EXPRESSLY DISCLAIMS ANY AND ALL WARRANTIES AND CONDITIONS CONCERNING THE FACILITIES, THEIR EQUIPMENT AND SERVICES, INCLUDING ANY AND ALL WARRANTIES AND CONDITIONS OF DESIGN, MERCHANTABILITY AND FITNESS FOR ANY PARTICULAR PURPOSE, PERFORMANCE AND ANY AND ALL WARRANTIES AND CONDITIONS THAT MIGHT OTHERWISE ARISE DURING THE COURSE OF DEALING, CUSTOM OR TRADE USAGE AND THOSE WHICH MAY BE IMPLIED BY STATUTE.",
-        ],
-      },
-
-      {
-        text: "Disclaimer of Liability:",
-        sublist: [
-          "UNDER NO CIRCUMSTANCES SHALL EVOLVE BE LIABLE FOR ANY INCIDENTAL, SPECIAL, INDIRECT OR CONSEQUENTIAL LOSS OR DAMAGE OR ANY INJURY INCURRED OR SUFFERED BY YOU WHICH MAY ARISE IN CONNECTION WITH YOUR USE OF THE FACILITIES OR ANY OF THEIR EQUIPMENT OR THE RECEIPT OF ANY SERVICES PROVIDED WHETHER OR NOT EVOLVE WAS TOLD OF THE POSSIBILITY OF SUCH LOSS OR DAMAGE OR INJURY.",
-        ],
-      },
-      {
-        text: "Limitations of Liability:",
-        sublist: [
-          "IN ALL CIRCUMSTANCES, EVOLVE’S TOTAL AGGREGATE LIABILITY TO YOU, HOWEVER ARISING, SHALL BE LIMITED TO THE FEES THAT YOU HAVE ACTUALLY PAID TO EVOLVE. THIS LIMITATION SHALL APPLY TO ALL CAUSES OF ACTION IN THE AGGREGATE, INCLUDING WITHOUT LIMITATION, TO BREACH OF CONTRACT, BREACH OF WARRANTY, NEGLIGENCE, STRICT LIABILITY, MISREPRESENTATIONS AND OTHER TORTS, NOTWITHSTANDING ANY FAILURE OF ESSENTIAL PURPOSE OF ANY REMEDY.",
-        ],
-      },
+      "Upon such termination by Evolve, you are required to pay the remaining balance of your membership fees to the end of the current term of your membership, in full, as well as all amounts that are outstanding.",
     ],
   },
   {
-    h1: "Email Notices",
-    id: "email",
+    h1: "Disclaimer of Liability, Limitation of Liability and Warranty Disclaimer",
+    id: "disclaimer-of-liability, Limitation of Liability and Warranty Disclaimer",
     content: [
-      "Any notice, direction or other communication given to you regarding the matters contemplated by this Agreement may be given at the email address you provided during the registration process or if you should replace that email address within our systems, to the replacement email address.",
-      "A notice is deemed to be given and received by you on the sending of the email. You will be deemed to have received the email even if it is undelivered. If your email address changes, you are responsible for updating your email address in your account. Further, you are responsible to ensure that your email account and email address are functioning at all times. You will bear all risks for failure to comply with the foregoing.",
+      "Warranty disclaimer: The facilities, all of their equipment and their services are provided “as is” and are used by you at your sole risk. Evolve expressly disclaims any and all warranties and conditions concerning the facilities, their equipment and services, including any and all warranties and conditions of design, merchantability and fitness for any particular purpose, performance and any and all warranties and conditions that might otherwise arise during the course of dealing, custom or trade usage and those which may be implied by statute.",
+      "Disclaimer of liability: Under no circumstances shall Evolve be liable for any incidental, special, indirect or consequential loss or damage or any injury incurred or suffered by you which may arise in connection with your use of the facilities or any of their equipment or the receipt of any service.",
+      "Limitations of liability: In all circumstances, Evolve’s total aggregate liability to you, however arising, shall be limited to the fees that you have actually paid to Evolve. This limitation shall apply to all causes of action in the aggregate, including without limitation, to breach of contract, breach of warranty, negligence, strict liability, misrepresentations and other torts, notwithstanding any failure of essential purpose of any remedy.",
     ],
   },
   {
