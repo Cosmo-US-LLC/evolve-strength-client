@@ -325,7 +325,7 @@ export const postPremiumAmenities = [
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/post_locker_room.webp",
   },
   {
-    title: "Steam Rooms and Saunas",
+    title: "Saunas",
     image:
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/post_steam_room.webp",
   },
@@ -355,6 +355,29 @@ export const setonPremiumAmenities = [
   },
 ];
 
+// calgary seton premium amenities
+export const calgarysetonPremiumAmenities = [
+  {
+    title: "On-Site Parking",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seten_parking.webp",
+  },
+  {
+    title: "Waiting Area",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seton_waiting_room.webp",
+  },
+  {
+    title: "Locker Rooms",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seten_locker_room.webp",
+  },
+  {
+    title: "Steam Rooms",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seten_steam_room.webp",
+  },
+];
 // brentwood premium amenities
 export const brentwoodPremiumAmenities = [
   {
@@ -368,7 +391,7 @@ export const brentwoodPremiumAmenities = [
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/brentwood_locker_room.webp",
   },
   {
-    title: "Steam Rooms and Saunas",
+    title: "Saunas",
     image:
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/brentwood_steam_room.webp",
   },
@@ -400,8 +423,26 @@ export const downtownPremiumAmenities = [
     image:
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/downtown_waiting_room.webp",
   },
+  // {
+  //   title: "Steam Rooms and Saunas",
+  //   image:
+  //     "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/diwntown_steam_room.webp",
+  // },
   {
-    title: "Steam Rooms and Saunas",
+    title: "Locker Rooms",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/downtown_locker_room.webp",
+  },
+];
+
+export const EdmontonDowntownPremiumAmenities = [
+  {
+    title: "Waiting Area",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/downtown_waiting_room.webp",
+  },
+  {
+    title: "Steam Rooms",
     image:
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/diwntown_steam_room.webp",
   },
