@@ -8,7 +8,7 @@ function LocationsHoverCard({ show, mousePosition, data }) {
   // Single card design for all devices
   const cardContent = (
     <div
-      className="bg-[#F6F6F6] rounded-[10px] shadow-[0_4px_24px_rgba(0,0,0,0.16)] max-w-[280px] md:max-w-[300px]"
+      className="bg-[#F6F6F6] rounded-[10px] shadow-[0_4px_24px_rgba(0,0,0,0.16)] max-w-[280px] md:max-w-[320px]"
       style={{
         border: `2px solid ${data.available ? "#4AB04A" : "#CCCCCC"}`,
       }}
