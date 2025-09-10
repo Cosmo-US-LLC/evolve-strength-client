@@ -21,7 +21,7 @@ function CategoryCard({ card, selected, onClick }) {
         `}
       />
 
-      <div className="max-w-[calc(100%-2rem)] md:max-w-[333px] absolute top-4 md:top-6 left-4 md:left-5 right-4 md:right-5 text-[#fff] z-20 text-[13px] md:text-[15px] font-[500] leading-[16px]">
+      <div className="max-w-[calc(100%-2rem)] md:max-w-[333px] absolute top-4 md:top-6 left-4 md:left-5 right-4 md:right-5 text-[#fff]  z-20 text-[13px] md:text-[19px] font-[500] leading-[16px] md:leading-[22px]">
         {card.description}
       </div>
 
@@ -30,7 +30,7 @@ function CategoryCard({ card, selected, onClick }) {
         <div
           className={`
             flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full transition-transform duration-200 
-            ${selected ? "rotate-180" : "rotate-0"}
+            ${selected ? "rotate-0" : "rotate-180"}
           `}
         >
           <ArrowUpCircle className="w-5 h-5 md:w-6 md:h-6 text-white transition-all duration-300" />

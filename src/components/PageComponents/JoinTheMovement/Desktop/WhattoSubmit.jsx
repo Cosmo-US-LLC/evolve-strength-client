@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-
-import LeftArrowIcon from "@/assets/images/JoinAsTrainer/WhatTrainersAre/left-arrow.svg";
-import RightArrowIcon from "@/assets/images/JoinAsTrainer/WhatTrainersAre/right-arrow.svg";
-import Client from "@/assets/images/JoinAsTrainer/WhatTrainersAre/client.webp";
+import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
 
 function WhattoSubmit() {
   const slidesdata = [
@@ -50,17 +47,25 @@ function WhattoSubmit() {
           <h5 className="description leading-[20px]">
             Send Us Content You’ve Shot at Evolve
           </h5>
-          <button  onClick={() => {
-    const formElement = document.getElementById("join-the-movement-form");
-    if (formElement) {
-      const yOffset = -150; // adjust this value for more/less space
-      const yPosition =
-        formElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          <button
+            onClick={() => {
+              const formElement = document.getElementById(
+                "join-the-movement-form"
+              );
+              if (formElement) {
+                const yOffset = -150; // adjust this value for more/less space
+                const yPosition =
+                  formElement.getBoundingClientRect().top +
+                  window.pageYOffset +
+                  yOffset;
 
-      window.scrollTo({ top: yPosition, behavior: "smooth" });
-    }
-  }}
-           className="btnPrimary">Submit your short</button>
+                window.scrollTo({ top: yPosition, behavior: "smooth" });
+              }
+            }}
+            className="btnPrimary"
+          >
+            Submit your short
+          </button>
         </div>
         <div className="relative w-full ">
           <div className="overflow-hidden" ref={emblaRef}>
@@ -79,23 +84,15 @@ function WhattoSubmit() {
 
           <button
             onClick={scrollPrev}
-            className="absolute md:left-[85%] max-md:left-[80%] md:-top-[16%] max-md:-top-[10%] -translate-y-1/2 md:h-[46px] md:w-[46px] max-md:w-[30px] max-md:h-[30px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
+            className="absolute md:left-[91%] max-md:left-[80%] md:-top-[16%] max-md:-top-[10%] -translate-y-1/2 md:h-[46px] md:w-[46px] max-md:w-[30px] max-md:h-[30px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
           >
-            <img
-              src={LeftArrowIcon}
-              alt="Previous"
-              className="h-5 w-5 text-[#00000060] cursor-pointer "
-            />
+            <ArrowLeft className="w-6 h-6" />
           </button>
           <button
             onClick={scrollNext}
-            className="absolute md:right-[80px] max-md:right-[0px] md:-top-[16%] max-md:-top-[10%] -translate-y-1/2 md:h-[46px] md:w-[46px] max-md:w-[30px] max-md:h-[30px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
+            className="absolute md:right-[0px] max-md:right-[0px] md:-top-[16%] max-md:-top-[10%] -translate-y-1/2 md:h-[46px] md:w-[46px] max-md:w-[30px] max-md:h-[30px] bg-[#fff] rounded-full border border-[#00000060] flex items-center justify-center shadow cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
           >
-            <img
-              src={RightArrowIcon}
-              alt="Next"
-              className="h-5 w-5 text-[#00000060] cursor-pointer"
-            />
+            <ArrowRight className="w-6 h-6" />
           </button>
         </div>
       </div>

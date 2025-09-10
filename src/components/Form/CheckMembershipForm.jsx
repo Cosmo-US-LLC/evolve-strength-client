@@ -106,42 +106,48 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
   return (
     <>
       {/* Header (same as previous form) */}
+
       <FormsHeader />
 
       {/* Success overlay with high z-index (same as previous form) */}
       {submitted && (
         <div className="fixed inset-0 z-[9999]">
           <SuccessFullScreen
-            title="REQUEST RECEIVED"
-            description="Thanks! We’ve got your details. We’ll check your company’s membership status and get back to you shortly."
+            title="Thank You for Reaching Out"
+            description="We’re excited to help your organization take the next step toward better health and performance. A member of our team will contact you soon to discuss corporate membership options tailored to your needs."
             buttonText="BACK TO HOME"
             buttonLink="/"
-            icon="trophy"
+            icon="check"
           />
         </div>
       )}
 
-      <div className="flex gap-12 md:p-6 p-4 flex-row max-w-[1280px] mx-auto items-center  min-h-screen">
+      <div className="flex px-4 md:px-8 pt-24 pb-12 flex-row max-w-[1280px] mx-auto">
         {/* Left Image */}
-        <div className="w-full max-w-[40%] flex-shrink-0 flex max-md:hidden">
+        <div className="w-full max-w-[50%]  flex max-md:hidden">
           <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white">
             <img
               src={locationImg}
               alt="Evolve Strength Facility"
-              className="object-cover w-full h-auto"
+              className="object-cover w-full h-[630px]"
             />
           </div>
         </div>
         {/* Right Form */}
-        <div className="flex flex-col md:items-end md:pl-20  md:h-[660px] justify-between w-full md:max-w-[0%]">
+        <div className="flex flex-col md:w-[50%] w-full">
           <button
-            className="flex self-start md:self- gap-2 text-[#222] text-[15px] hover:underline"
+            type="button"
             onClick={() => navigate(-1)}
+            className="self-start mb-4 cursor-pointer flex items-center gap-2 text-black hover:text-gray-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-full"
+            aria-label="Go back"
           >
-            <ArrowLeft size={20} /> Back
+            <div className="w-8 h-8 rounded-full border border-black hover:text-[#fff] hover:bg-[#000] flex  items-center justify-center">
+              <ArrowLeft className="w-4 h-4" />
+            </div>
+            <span className="font-medium">Back</span>
           </button>
 
-          <div className="w-full md:max-w={[420px]} bg-white rounded-[10px] mt-10  md:mb-30">
+          <div className="w-full md:max-w={[420px]} bg-white rounded-[10px] mt-10">
             <div className="md:pb-4  md:w-[537px] md:h-[26px]">
               <h3 className="md:text-center  leading-[26px]  md:mb-2">
                 CHECK YOUR COMPANY MEMBERSHIP
@@ -149,11 +155,11 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
             </div>
             <div className="md:pt-[16px] md:pb-[40px] text-center j md:leading-[19px] md:w-[537px] md:h-[26px]">
               <h4>
-                Enter your details to see if your organization is already enrolled 
-                with Evolve.
+                Enter your details to see if your organization is already
+                enrolled with Evolve.
               </h4>
             </div>
-            <div className="md:w-[537px] w-full md:h-[380px] rounded-[10px] bg-[#FCFCFC] border p-6">
+            <div className="md:w-[537px] w-full md:h-[380px] rounded-[10px] bg-[#FCFCFC] border p-6 mt-6">
               <form
                 className="flex flex-col  gap-3"
                 onSubmit={handleSubmit}
@@ -205,7 +211,7 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
                       name="email"
                       value={form.email}
                       onChange={handleChange}
-                      placeholder="Company Email"
+                      placeholder="Enter Your Gmail Address"
                       className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
                     />
                     {errors.email && (
@@ -232,7 +238,11 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
                   </label>
                 </div>
 
-                <button type="submit" className="mt-2 btnPrimary w-full" disabled={isSubmitting}>
+                <button
+                  type="submit"
+                  className="mt-2 btnPrimary w-full"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? "Submitting..." : "CHECK MEMBERSHIP"}
                 </button>
               </form>

@@ -40,7 +40,26 @@ const LocationSeeITYourself = () => {
 
   const [activeTab, setActiveTab] = useState(defaultTab);
   const tabBarRef = useRef(null);
-  const carouselRef = useRef(null);
+  const desktopCarouselRef = useRef(null);
+  const mobileCarouselRef = useRef(null);
+
+  // Location-specific tour URLs
+  const getTourUrl = (tabKey) => {
+    const tourUrls = {
+      post: "https://tour.evolvestrength.ca/tour-form/?location=40327", // Vancouver Post
+      brentwood: "https://tour.evolvestrength.ca/tour-form/?location=40248", // Burnaby Brentwood
+      seton: "https://tour.evolvestrength.ca/tour-form/?location=40097", // Calgary Seton
+      royaloak: "https://tour.evolvestrength.ca/tour-form/?location=40142", // Calgary Royal Oak
+      sunridge: "https://tour.evolvestrength.ca/tour-form/?location=06973", // Calgary Sunridge
+      south: "https://tour.evolvestrength.ca/tour-form/?location=06962", // Edmonton South
+      downtown: "https://tour.evolvestrength.ca/tour-form/?location=06967", // Edmonton Downtown
+      north: "https://tour.evolvestrength.ca/tour-form/?location=06964", // Edmonton North
+    };
+
+    return tourUrls[tabKey] || "https://tour.evolvestrength.ca/tour-form";
+  };
+
+  const currentTourUrl = getTourUrl(activeTab);
 
   const scrollTabsLeft = () => {
     if (tabBarRef.current) {
@@ -58,14 +77,65 @@ const LocationSeeITYourself = () => {
 
   const activeLocation = getLocationData(activeTab);
 
+  const resetCarousels = () => {
+    // Reset desktop carousel
+    if (desktopCarouselRef.current) {
+      try {
+        desktopCarouselRef.current.scrollTo(0);
+        // Additional reset attempts
+        setTimeout(() => {
+          if (desktopCarouselRef.current) {
+            desktopCarouselRef.current.scrollTo(0);
+          }
+        }, 50);
+      } catch (error) {
+        console.log("Desktop carousel reset error:", error);
+      }
+    }
+
+    // Reset mobile carousel
+    if (mobileCarouselRef.current) {
+      try {
+        mobileCarouselRef.current.scrollTo(0);
+        // Additional reset attempts
+        setTimeout(() => {
+          if (mobileCarouselRef.current) {
+            mobileCarouselRef.current.scrollTo(0);
+          }
+        }, 50);
+      } catch (error) {
+        console.log("Mobile carousel reset error:", error);
+      }
+    }
+  };
+
+  const handleTabChange = (newTab) => {
+    setActiveTab(newTab);
+    // Reset carousels immediately and after a delay
+    resetCarousels();
+    setTimeout(() => {
+      resetCarousels();
+    }, 100);
+    setTimeout(() => {
+      resetCarousels();
+    }, 200);
+  };
+
+  // Reset carousels when activeTab changes
   useEffect(() => {
-    if (carouselRef.current?.scrollTo) {
-      carouselRef.current.scrollTo({
+    resetCarousels();
+  }, [activeTab]);
+
+  // Scroll to top on mobile when component mounts
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      window.scrollTo({
+        top: 0,
         left: 0,
-        behavior: "smooth", // Smooth scroll instead of immediate
+        behavior: "smooth",
       });
     }
-  }, [activeTab]);
+  }, []);
 
   // Update active tab when URL changes (user navigates to different location)
   useEffect(() => {
@@ -92,16 +162,18 @@ const LocationSeeITYourself = () => {
 
     setActiveTab(newDefaultTab);
 
-    // Scroll to the active tab in mobile view - removed setTimeout
-    const activeTabElement = tabBarRef.current?.querySelector(
-      `[data-tab="${newDefaultTab}"]`
-    );
-    if (activeTabElement && tabBarRef.current) {
-      activeTabElement.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center",
-      });
+    // Only scroll to active tab on desktop, not mobile
+    if (window.innerWidth >= 768) {
+      const activeTabElement = tabBarRef.current?.querySelector(
+        `[data-tab="${newDefaultTab}"]`
+      );
+      if (activeTabElement && tabBarRef.current) {
+        activeTabElement.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      }
     }
   }, [currentPath]);
 
@@ -110,7 +182,7 @@ const LocationSeeITYourself = () => {
       {/* Desktop Version */}
       <div className="max-w-[1280px] mx-auto px-8 flex flex-col gap-2 mb-5 max-md:hidden">
         <h2 className="text-[#1C1C1C] uppercase">
-          Access All Evolve Locations with <br /> Your Membership
+          Access All Evolve Locations with <br /> One Membership
         </h2>
         <h4 className="text-[#000] leading-[26px]">
           Spacious. Affordable. Unmatched
@@ -118,7 +190,7 @@ const LocationSeeITYourself = () => {
       </div>
       <Tabs
         value={activeTab}
-        onValueChange={setActiveTab}
+        onValueChange={handleTabChange}
         className="w-full max-md:hidden"
       >
         <div className="w-full max-w-[1220px] mx-auto relative rounded-[10px] border">
@@ -138,7 +210,7 @@ const LocationSeeITYourself = () => {
         <TabsContent value={activeTab} className="mt-6">
           <Carousel
             opts={{ align: "start" }}
-            setApi={(api) => (carouselRef.current = api)}
+            setApi={(api) => (desktopCarouselRef.current = api)}
             className="w-full"
           >
             <CarouselContent>
@@ -154,13 +226,13 @@ const LocationSeeITYourself = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-4 md:left-[100px] w-12 h-12 md:w-14 md:h-14 bg-transparent text-white border border-white" />
-            <CarouselNext className="right-4 md:right-[100px] w-12 h-12 md:w-14 md:h-14 bg-transparent text-white border border-white" />
+            <CarouselPrevious className="left-4 md:left-[100px] w-12 h-12 md:w-14 md:h-14 bg-transparent text-white border border-white cursor-pointer hover:bg-[#000000] hover:text-[#fff]" />
+            <CarouselNext className="right-4 md:right-[100px] w-12 h-12 md:w-14 md:h-14 bg-transparent text-white border border-white cursor-pointer hover:bg-[#000000] hover:text-[#fff]" />
           </Carousel>
         </TabsContent>
       </Tabs>
       <div className="flex justify-center mt-6 max-md:hidden">
-        <Link to="https://join.evolvestrength.ca/tour-form/">
+        <Link to={currentTourUrl}>
           <button className="btnPrimary">BOOK A FREE TOUR</button>
         </Link>
       </div>
@@ -169,25 +241,29 @@ const LocationSeeITYourself = () => {
       <div className="md:hidden w-full px-[0px]  pb-[48px] ">
         <div className=" flex flex-col gap-2 mb-5 px-[16px]">
           <h2 className="text-[#1C1C1C] text-[22px] font-bold uppercase">
-            Access All Evolve Locations with Your Membership
+            Access All Evolve Locations with One Membership
           </h2>
           <h4 className="text-[#000] leading-[26px] text-[15px]">
             Spacious. Affordable. Unmatched
           </h4>
         </div>
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <Tabs
+          value={activeTab}
+          onValueChange={handleTabChange}
+          className="w-full"
+        >
           <div className="relative w-full flex items-start px-[16px] pt-10">
             {/* Arrow buttons at top right */}
             <div className="absolute -top-4 right-4 flex gap-3 z-10">
               <button
                 onClick={scrollTabsLeft}
-                className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full"
+                className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
               >
                 <ArrowLeft className="w-4 h-4 text-[#1C1C1C]" />
               </button>
               <button
                 onClick={scrollTabsRight}
-                className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full"
+                className="bg-white border border-[#E8EBEF] w-8 h-8 flex items-center justify-center shadow rounded-full cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
               >
                 <ArrowRight className="w-4 h-4 text-[#1C1C1C]" />
               </button>
@@ -201,7 +277,7 @@ const LocationSeeITYourself = () => {
                 {locations.map((loc) => (
                   <button
                     key={loc.key}
-                    onClick={() => setActiveTab(loc.key)}
+                    onClick={() => handleTabChange(loc.key)}
                     className={`min-w-[100px] w-[auto] max-w-[160px] px-2 py-2 rounded-[8px]  text-[14px] font-[500] transition-all duration-200 scroll-snap-align-start ${
                       activeTab === loc.key
                         ? "bg-[#4AB04A] text-[#fff] "
@@ -219,7 +295,7 @@ const LocationSeeITYourself = () => {
           <TabsContent value={activeTab} className="w-full mt-4 ">
             <Carousel
               opts={{ align: "start" }}
-              setApi={(api) => (carouselRef.current = api)}
+              setApi={(api) => (mobileCarouselRef.current = api)}
               className="w-full"
             >
               <CarouselContent>
@@ -241,7 +317,7 @@ const LocationSeeITYourself = () => {
           </TabsContent>
         </Tabs>
         <div className="flex justify-center mt-6 px-[16px] py-[17px]">
-          <Link to="https://join.evolvestrength.ca/tour-form/">
+          <Link to={currentTourUrl}>
             <button className="btnPrimary">BOOK A FREE TOUR</button>
           </Link>
         </div>

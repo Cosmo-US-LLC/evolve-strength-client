@@ -2,81 +2,102 @@ import React from "react";
 import Cancel from "@/assets/images/Locations/Cancel_Icon.svg";
 import { Link } from "react-router-dom";
 
-// Location-specific hero images - Desktop
-import setonHero from "@/assets/images/Locations/location-hero/seton.webp";
-import setonHeroMobile from "@/assets/images/Locations/location-hero/setonMob.webp";
-import royalOakHero from "@/assets/images/Locations/location-hero/royal-oak.webp";
-import royalOakHeroMobile from "@/assets/images/Locations/location-hero/royal-oakMob.webp";
-import sunridgeHero from "@/assets/images/Locations/location-hero/sunridge.webp";
-import sunridgeHeroMobile from "@/assets/images/Locations/location-hero/sunridgeMob.webp";
-import southHero from "@/assets/images/Locations/location-hero/south.webp";
-import southHeroMobile from "@/assets/images/Locations/location-hero/southMob.webp";
-import northHero from "@/assets/images/Locations/location-hero/north.webp";
-import northHeroMobile from "@/assets/images/Locations/location-hero/northMob.webp";
-import downtownHero from "@/assets/images/Locations/location-hero/downtown.webp";
-import downtownHeroMobile from "@/assets/images/Locations/location-hero/downtownMob.webp";
-import brentwoodHero from "@/assets/images/Locations/location-hero/brentwood.webp";
-import brentwoodHeroMobile from "@/assets/images/Locations/location-hero/brentwoodMob.webp";
-import postHero from "@/assets/images/Locations/location-hero/post.webp";
-import postHeroMobile from "@/assets/images/Locations/location-hero/postMob.webp";
-
-// Location data with hero images and titles
 const LOCATION_HERO_DATA = {
   "calgary-seton": {
-    desktop: setonHero,
-    mobile: setonHeroMobile,
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_seten.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_seten_mob.webp",
     locationTitle: "SETON",
     city: "CALGARY",
     fullTitle: "SETON's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=40097",
+    membershipUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=40097",
   },
   "calgary-royal-oak": {
-    desktop: royalOakHero,
-    mobile: royalOakHeroMobile,
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_royal_oak.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_royal_oak_mob.webp",
     locationTitle: "ROYAL OAK",
     city: "CALGARY",
     fullTitle: "ROYAL OAK's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=40142",
+    membershipUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=40142",
   },
   "calgary-sunridge": {
-    desktop: sunridgeHero,
-    mobile: sunridgeHeroMobile,
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/sunridge.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/sunridgeMob.webp",
     locationTitle: "SUNRIDGE",
     city: "CALGARY",
     fullTitle: "SUNRIDGE's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=06973",
+    membershipUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=06973",
   },
   "edmonton-south": {
-    desktop: southHero,
-    mobile: southHeroMobile,
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/south.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/southMob.webp",
     locationTitle: "SOUTH",
     city: "EDMONTON",
     fullTitle: "Edmonton South's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=06962",
+    membershipUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=06962",
   },
   "edmonton-north": {
-    desktop: northHero,
-    mobile: northHeroMobile,
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/north.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/northMob.webp",
     locationTitle: "NORTH",
     city: "EDMONTON",
     fullTitle: "Edmonton North's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=06964",
+    membershipUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=06964",
   },
   "edmonton-downtown": {
-    desktop: downtownHero,
-    mobile: downtownHeroMobile,
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_downtown.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_downtown_mob.webp",
     locationTitle: "DOWNTOWN",
     city: "EDMONTON",
     fullTitle: "DOWNTOWN's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=06967",
+    membershipUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=06967",
   },
   "burnaby-brentwood": {
-    desktop: brentwoodHero,
-    mobile: brentwoodHeroMobile,
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_brentwood.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_brentwood_mob.webp",
     locationTitle: "BRENTWOOD",
     city: "BURNABY",
     fullTitle: "BRENTWOOD's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=40248",
+    membershipUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=40248",
   },
   "vancouver-post": {
-    desktop: postHero,
-    mobile: postHeroMobile,
+    desktop:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_post.webp",
+    mobile:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_post_mob.webp",
     locationTitle: "THE POST",
     city: "VANCOUVER",
     fullTitle: "Vancouver's Premier Fitness and Wellness Club",
+    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=40327",
+    membershipUrl:
+      "https://subscription.evolvestrength.ca/membership-plans?location=40327",
   },
 };
 
@@ -125,17 +146,21 @@ function LocationHero() {
         className="absolute inset-0 w-full h-full object-cover object-top block md:hidden"
       />
       <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/30" />
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8 pb-[20px] md:pb-[80px] relative z-2 flex flex-col items-start justify-end w-full h-full">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8 pb-[20px] md:pb-[64px] relative z-2 flex flex-col items-start justify-end w-full h-full">
         <h1 className="text-[#FFFFFF] uppercase max-w-[960px] leading-[39px] md:leading-[56px] mb-1.5 md:mb-5">
           {fullTitle}
         </h1>
-        <h3 className="text-[#FFFFFF] !font-[300] max-w-[707px] leading-[29px] mb-4 md:mb-6">
-          See what makes us different.
+        <h3 className="text-[#FFFFFF] !font-[300] max-w-[844px] leading-[29px] mb-4 md:mb-6">
+          Kickstart your fitness journey at our premier gym. Ready to dive in?
+          Sign up for a membership or schedule a free tour to explore our space!
         </h3>
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="w-[300px]">
-            <Link to="https://join.evolvestrength.ca/tour-form/">
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-row gap-4">
+            <Link to={dynamicData.tourUrl}>
               <button className="btnPrimary">BOOK A FREE TOUR</button>
+            </Link>
+            <Link to={dynamicData.membershipUrl}>
+              <button className="btnSecondary">JOIN NOW</button>
             </Link>
           </div>
           <div className="flex gap-2 md:gap-8 w-full">

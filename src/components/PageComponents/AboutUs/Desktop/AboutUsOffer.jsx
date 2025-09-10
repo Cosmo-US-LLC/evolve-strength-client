@@ -54,7 +54,7 @@ const AboutUsOffer = () => {
             than a typical gym in Canada. We build with purpose, ensuring every
             area supports your fitness and wellness journey.
           </h4>
-          <Link to="https://join.evolvestrength.ca/tour-form/">
+          <Link to="https://tour.evolvestrength.ca/tour-form">
             <button className="btnPrimary">BOOK A FREE TOUR</button>
           </Link>
         </div>

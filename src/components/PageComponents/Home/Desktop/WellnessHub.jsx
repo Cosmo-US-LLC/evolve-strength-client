@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import useSyncedCounter from "@/hooks/useSyncedCounter";
+import useCounter from "@/hooks/useCounter";
 const cardItems = [
   {
     count: "136+",
@@ -9,15 +10,15 @@ const cardItems = [
     background: "white",
     textColor: "black",
     hasIcon: false,
-    height: "250px",
+    height: "180px",
   },
   {
     count: "195+",
     title: "PRACTITIONERS",
     description: "Offering a wide range of health and wellness services",
-    background: "black",
-    textColor: "white",
-    height: "330px",
+    background: "white",
+    textColor: "black",
+    height: "180px",
   },
   {
     count: "205+",
@@ -26,20 +27,24 @@ const cardItems = [
     background: "white",
     textColor: "black",
     hasIcon: false,
-    height: "400px",
+    height: "180px",
   },
 ];
 
 function WellnessHub() {
+const { elementRef, hasStarted } = useCounter(1, 2000);
+   
   return (
-    <div id="wellnessHub" className="bg-white py-16">
+    <div id="wellnessHub" className="bg-white py-16"
+    ref={elementRef}
+    >
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         {/* Header Section */}
-        <div className="text-left md:text-center mb-6">
-          <h2 className="font-[700] w-full !text-[30px] md:!text-[40px] text-[#000] mb-4 uppercase leading-[39px]">
+        <div className="text-left mb-6">
+          <h2 className="font-[700] w-full max-w-[540px] !text-[30px] md:!text-[40px] text-[#000] mb-4 uppercase leading-[39px]">
             CANADA'S BEST FITNESS AND WELLNESS HUB
           </h2>
-          <h4 className="max-w-[940px] mx-auto leading-[26px]">
+          <h4 className="max-w-[640px] leading-[26px]">
             With state-of-the-art locations in Edmonton, Calgary, Burnaby, and
             Vancouver, Evolve brings together top-tier fitness and wellness
             under one roof.
@@ -47,29 +52,36 @@ function WellnessHub() {
 
           {/* <button className="btnPrimary mt-auto w-fit">Book Now</button> */}
         </div>
-        <div className="flex justify-start md:justify-center mb-10">
-          <Link to = "https://join.evolvestrength.ca/tour-form/">
-          <button className="btnPrimary mt-auto w-fit">Book Now</button>
+        {/* <div className="flex justify-start md:justify-center mb-10">
+          <Link to="https://tour.evolvestrength.ca/tour-form ">
+            <button className="btnPrimary mt-auto w-fit">Book Now</button>
           </Link>
-        </div>
+        </div> */}
 
         {/* Cards Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 items-end">
-          {cardItems.map((item, index) => (
+             {cardItems.map((item, index) => {
+          const targetNumber = parseInt(item.count.replace(/\D/g, ""), 10);
+          const animatedValue = useSyncedCounter(
+            targetNumber,
+            3000,
+            hasStarted
+          );
+
+          return (
             <div
               key={index}
               className={`relative rounded-lg p-5 flex flex-col ${
                 item.background === "black" ? "bg-black" : "bg-white"
               } border border-gray-200`}
               style={{
-                height: window.innerWidth >= 768 ? item.height : "270px",
+                height: window.innerWidth >= 768 ? item.height : "",
               }}
             >
-              {/* Card Content */}
               <div className="text-left flex flex-col flex-1">
                 {item.count && (
                   <h2 className="font-bold text-green-600 mb-2">
-                    {item.count}
+                    {animatedValue}+
                   </h2>
                 )}
                 <h3
@@ -88,7 +100,8 @@ function WellnessHub() {
                 </h4>
               </div>
             </div>
-          ))}
+          );
+        })}
         </div>
       </div>
     </div>

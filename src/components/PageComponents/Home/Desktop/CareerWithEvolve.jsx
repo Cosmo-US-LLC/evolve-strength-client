@@ -2,22 +2,15 @@ import React from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
 
-// Desktop images
-import personalTrainerImg from "/src/assets/images/home/CareerWithEvolve/career_1.webp";
-import wellnessExpertImg from "/src/assets/images/home/CareerWithEvolve/career_2.webp";
-
-// Mobile images
-import personalTrainerImgMobile from "/src/assets/images/home/CareerWithEvolve/career_mob_1.webp";
-import wellnessExpertImgMobile from "/src/assets/images/home/CareerWithEvolve/career_mob_2.webp";
-
 const tabData = {
   trainer: {
     title: "PERSONAL TRAINER",
-    
+
     image: {
-      desktop: personalTrainerImg,
-      mobile: personalTrainerImgMobile,
-      
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/CareerWithEvolve/career_1.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/CareerWithEvolve/career_mob_1.webp",
     },
     description:
       "Build your own personal training business inside Canada's most advanced fitness facility.",
@@ -31,26 +24,28 @@ const tabData = {
   },
   expert: {
     title: "WELLNESS EXPERT",
-    
+
     image: {
-      desktop: wellnessExpertImg,
-      mobile: wellnessExpertImgMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/CareerWithEvolve/career_2.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/CareerWithEvolve/career_mob_2.webp",
     },
     description:
-      "Flexible office spaces for wellness professionals inside Canada's largest fitness facilities.",
+      "Flexible workspace for wellness professionals inside Canada’s top fitness facilities.",
     points: [
       "Build Your Business in a Prime Location",
       "Premium Amenities for You & Your Clients",
       "All-Inclusive Office Setup",
       "Connect with a Like-Minded Community",
     ],
-    link:"/spaces",
+    link: "/work-spaces",
   },
 };
 
 const CareerWithEvolve = () => {
   return (
-    <div className="w-full md:py-12 max-md:pb-[48px] max-md:pt-0">
+    <div className="w-full py-16 ">
       <div className="w-full max-w-[1280px] md:px-8 max-md:px-[16px] mx-auto flex flex-col items-start gap-6">
         <div className="flex flex-col items-start gap-3">
           <h2 className="uppercase">BUILD YOUR CAREER WITH EVOLVE</h2>
@@ -65,14 +60,14 @@ const CareerWithEvolve = () => {
           <TabsList className="flex gap-0 bg-[#2E2E2E] h-[50px] rounded-[5px] p-1 mb-4">
             <TabsTrigger
               value="trainer"
-              className="data-[state=active]:bg-white data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all duration-700 ease-in-out"
+              className="data-[state=active]:bg-white cursor-pointer data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all duration-700 ease-in-out"
             >
               Personal Trainer
             </TabsTrigger>
 
             <TabsTrigger
               value="expert"
-              className="data-[state=active]:bg-white data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all duration-700 ease-in-out"
+              className="data-[state=active]:bg-white cursor-pointer data-[state=active]:text-[#4AB04A] text-[#ffffff] font-[kanit] text-[18px] font-[300] leading-[26px] px-6 py-2 rounded-[5px] transition-all duration-700 ease-in-out"
             >
               Wellness Expert
             </TabsTrigger>
@@ -85,13 +80,11 @@ const CareerWithEvolve = () => {
               className="rounded-[10px] overflow-hidden shadow-lg w-full"
             >
               <div className="relative w-full min-h-[600px] flex flex-col justify-center">
-                {/* Desktop background image */}
                 <div
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block"
                   style={{ backgroundImage: `url(${tab.image.desktop})` }}
                 />
 
-                {/* Mobile background image */}
                 <div
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
                   style={{ backgroundImage: `url(${tab.image.mobile})` }}
@@ -117,9 +110,10 @@ const CareerWithEvolve = () => {
                       </p>
                     ))}
                   </div>
-                   <Link to={tab.link}>
-            <button className="btnPrimary">learn more</button>
-            </Link>                </div>
+                  <Link to={tab.link}>
+                    <button className="btnPrimary">learn more</button>
+                  </Link>{" "}
+                </div>
               </div>
             </TabsContent>
           ))}

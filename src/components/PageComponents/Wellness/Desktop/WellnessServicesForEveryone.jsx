@@ -2,91 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import esthetician from "../../../../assets/images/wellness/WellnessServicesForEveryone/esthetician.webp";
-import estheticianMobile from "../../../../assets/images/wellness/WellnessServicesForEveryone/esthetician_mobile.webp";
-import chiropracticCare from "../../../../assets/images/wellness/WellnessServicesForEveryone/chiropractic_care.webp";
-import chiropracticCareMobile from "../../../../assets/images/wellness/WellnessServicesForEveryone/chiropractic_careMob.webp";
-import chiropracticHead from "../../../../assets/images/wellness/WellnessServicesForEveryone/chiropractic_head.webp";
-import chiropracticHeadMobile from "../../../../assets/images/wellness/WellnessServicesForEveryone/chiropractic_headMob.webp";
-import acupuncture from "../../../../assets/images/wellness/WellnessServicesForEveryone/acupuncture.webp";
-import acupunctureMobile from "../../../../assets/images/wellness/WellnessServicesForEveryone/acupunctureMob.webp";
-import acupunctureFood from "../../../../assets/images/wellness/WellnessServicesForEveryone/acupuncture_food.webp";
-import acupunctureFoodMobile from "../../../../assets/images/wellness/WellnessServicesForEveryone/acupuncture_foodMob.webp";
-import mentalHealth from "../../../../assets/images/wellness/WellnessServicesForEveryone/mental_health.webp";
-import mentalHealthMobile from "../../../../assets/images/wellness/WellnessServicesForEveryone/mental_healthMob.webp";
-import laser from "../../../../assets/images/wellness/WellnessServicesForEveryone/Laser.webp";
-import laserMob from "../../../../assets/images/wellness/WellnessServicesForEveryone/laserMob.webp";
-import physiotherapy from "../../../../assets/images/wellness/WellnessServicesForEveryone/physiotherapy.webp";
-import physiotherapyMobile from "../../../../assets/images/wellness/WellnessServicesForEveryone/physiotherapyMob.webp";
-import osteopathy from "../../../../assets/images/wellness/WellnessServicesForEveryone/osteopathy.webp";
-import osteopathyMob from "../../../../assets/images/wellness/WellnessServicesForEveryone/osteopathyMob.webp";
-
-
-const services = [
-  {
-    title: "Esthetician",
-    images: {
-      desktop: esthetician,
-      mobile: estheticianMobile,  
-    },
-  },
-  {
-    title: "Chiropractic",
-    images: {
-      desktop: chiropracticCare,
-      mobile: chiropracticCareMobile,  
-    },
-  },
-  {
-    title: "Massage Therapy",
-    images: {
-      desktop: chiropracticHead,
-      mobile: chiropracticHeadMobile,  
-    },
-  },
-  {
-    title: "Physiotherapy",
-    images: {
-      desktop: physiotherapy,
-      mobile: physiotherapyMobile, 
-    },
-  },
-  {
-    title: "Acupuncture",
-    images: {
-      desktop: acupuncture,
-      mobile: acupunctureMobile, 
-    },
-  },
-  {
-    title: "Dietitian",
-    images: {
-      desktop: acupunctureFood,
-      mobile: acupunctureFoodMobile, 
-    },
-  },
-  {
-    title: "Osteopathy",
-    images: {
-      desktop: osteopathy,
-      mobile: osteopathyMob,
-    },
-  },
-  {
-    title: "Laser Therapy",
-    images: {
-      desktop: laser,
-      mobile: laserMob,  
-    },
-  },
-  {
-    title: "Mental Health",
-    images: {
-      desktop: mentalHealth,
-      mobile: mentalHealthMobile, 
-    },
-  },
-];
+import { professionalServices } from "../../../../constants/professionalServicesImages.js";
 
 const CARDS_VISIBLE = 5;
 
@@ -143,41 +59,47 @@ function WellnessServicesForEveryone() {
   };
 
   return (
-    <div className="relative w-full h-[636px] md:h-[600px] flex items-center justify-center bg-black/80 overflow-hidden">
+    <div className="relative w-full h-[636px] md:h-[700px] flex items-center justify-center bg-black/80 overflow-hidden">
       {/* Desktop Background Image */}
       <img
-        src={services[selectedIndex]?.images.desktop || ""}
+        src={professionalServices[selectedIndex]?.images.desktopImage || ""}
         alt="Wellness Hero Desktop"
         className="absolute inset-0 w-full h-full object-cover z-0 transition-all duration-500 max-md:hidden"
       />
       {/* Mobile Background Image */}
       <img
-        src={services[selectedIndex]?.images.mobile || ""}
+        src={professionalServices[selectedIndex]?.images.mobileImage || ""}
         alt="Wellness Hero Mobile"
         className="absolute inset-0 w-full h-full object-cover z-0 transition-all duration-500 md:hidden"
       />
       <div className="absolute inset-0 bg-black/30 z-10 transition-all duration-200" />
 
       <div className="relative z-20 w-full h-full max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-8">
-        <div className="flex flex-col items-start gap-4 md:gap-6 w-full md:max-w-[423px] text-left py-12 md:py-0 mb-6 md:mb-0">
+        <div className="flex flex-col items-start gap-4 md:gap-6 w-full md:max-w-[580px] text-left py-12 md:py-0 mb-6 md:mb-0">
           <h2 className="text-[#fff] font-[700] leading-[39px] uppercase">
-            Wellness Services For Everyone.
+            Comprehensive Care <br /> Under One Roof
           </h2>
           <p className="description text-[#fff] font-[400]">
-            Take full advantage of a wide range of wellness services at every
-            Evolve location, available at an additional cost.
+            Skip the hassle of driving to different clinics. At every Evolve
+            location, you will find trusted specialists for massage to
+            osteopathy and everything in between.
           </p>
-          
-            <Link to="/explore">
-            <button className="btnPrimary">FIND A wellness expert</button>
-            </Link> 
 
-
+          <div className="flex flex-col md:flex-row gap-2">
+            <Link to="/explore?category=wellness">
+              <button className="btnPrimary">FIND A wellness expert</button>
+            </Link>
+            <Link to="/join-wellness">
+              <button className="btnSecondary">
+                Match Me with a Wellness Expert
+              </button>
+            </Link>
+          </div>
         </div>
 
         <div className="flex flex-col items-center md:items-end justify-between h-[300px] sm:h-[350px] md:h-[440px] gap-4 md:gap-8 flex-1 w-full md:min-w-[600px]">
           <div className="flex gap-3 mb-6 justify-end w-full pr-2 max-md:hidden">
-            {services.map((_, i) => (
+            {professionalServices.map((_, i) => (
               <div
                 key={i}
                 className={`h-1 rounded transition-all duration-300 ${
@@ -192,7 +114,7 @@ function WellnessServicesForEveryone() {
           <div className="flex flex-col md:flex-row items-center md:w-[600px] gap-8 md:gap-4 relative w-full pt-[120px] md:pt-0">
             <div className="overflow-hidden w-full relative" ref={emblaRef}>
               <div className="flex">
-                {services.map((service, idx) => (
+                {professionalServices.map((service, idx) => (
                   <div
                     key={idx}
                     className=" pl-0.5 md:pl-2.5 w-fit basis-1/3 md:basis-1/5"
@@ -212,13 +134,13 @@ function WellnessServicesForEveryone() {
                     >
                       {/* Desktop Thumbnail Image */}
                       <img
-                        src={service.images.desktop}
+                        src={service.images.desktopImage}
                         alt={`${service.title} Desktop`}
                         className="w-full h-full object-cover max-md:hidden"
                       />
                       {/* Mobile Thumbnail Image */}
                       <img
-                        src={service.images.mobile}
+                        src={service.images.mobileImage}
                         alt={`${service.title} Mobile`}
                         className="w-full h-full object-cover md:hidden"
                       />
@@ -233,7 +155,7 @@ function WellnessServicesForEveryone() {
               </div>
             </div>
             <div className="flex gap-3 mb-6 justify-start w-full pr-2 md:hidden">
-              {services.map((_, i) => (
+              {professionalServices.map((_, i) => (
                 <div
                   key={i}
                   className={`h-1  rounded transition-all duration-300 ${
@@ -246,13 +168,13 @@ function WellnessServicesForEveryone() {
             </div>
             <button
               onClick={handlePrev}
-              className="z-10 absolute right-[13%] md:right-[9%] bottom-[180px] md:-bottom-[70px] -translate-y-1/2 h-[32px] w-[32px] md:h-[36px] md:w-[36px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
+              className="z-10 absolute right-[13%] md:right-[8%] bottom-[180px] md:-bottom-[70px] -translate-y-1/2 h-[32px] w-[32px] md:h-[36px] md:w-[36px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
             >
               <ArrowLeft className="w-3 h-3 md:w-5 md:h-5 text-white" />
             </button>
             <button
               onClick={handleNext}
-              className="absolute right-[2%] md:right-[1%] bottom-[180px] md:-bottom-[70px] -translate-y-1/2 h-[32px] w-[32px] md:h-[36px] md:w-[36px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow"
+              className="absolute right-[2%] md:right-[0%] bottom-[180px] md:-bottom-[70px] -translate-y-1/2 h-[32px] w-[32px] md:h-[36px] md:w-[36px] bg-transparent rounded-full border border-[#fff] flex items-center justify-center shadow cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
             >
               <ArrowRight className="w-3 h-3 md:w-5 md:h-5 text-white" />
             </button>

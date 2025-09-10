@@ -1,5 +1,4 @@
 import React from "react";
-import pricingFits from "@/assets/images/corporateMembership/PricingFitsYourBudget/pricingFits.webp";
 import { Link } from "react-router-dom";
 
 function PricingFitsYourBudget() {
@@ -9,19 +8,19 @@ function PricingFitsYourBudget() {
         <h2 className="uppercase leading-[39px] font-[700] max-w-[542px]">
           Pricing That Fits Your Budget
         </h2>
-        <h4 className="leading-[24px] max-w-[542px]">
-          We offer flexible pricing based on your team size and what you want{" "}
-          <br /> to include. You can cover just gym access, or add wellness
-          services <br /> like physio, massage, and more. No long-term contracts
-          unless you <br /> want one. You choose what works best.
+        <h4 className="leading-[24px] max-w-[534px]">
+          We offer flexible pricing based on your team size and what you want to
+          include. You can cover just gym access, or add wellness services like
+          physio, massage, and more. No long-term contracts unless you want one.
+          You choose what works best.
         </h4>
- <Link to="/corporate-membership-wizard">
-              <button className="btnPrimary">Get Started</button>
-            </Link> 
-                 </div>
+        <Link to="/corporate-membership-wizard">
+          <button className="btnPrimary">Get Started</button>
+        </Link>
+      </div>
       <div className="w-[100%] md:w-[50%] rounded-[10px]">
         <img
-          src= {pricingFits}
+          src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/PricingFitsYourBudget/pricingFits.webp"
           alt="Join the Movement"
           className="w-full h-full object-cover"
         />

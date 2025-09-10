@@ -4,7 +4,6 @@ import {
   LOCATIONS_DATA,
   FACILITY_TIMINGS,
 } from "@/constants/locations_data/LocationsData";
-import icon from "@/assets/images/Locations/Seton/icon.svg";
 
 function SetonLocation() {
   const currentPath = window.location.pathname;
@@ -31,12 +30,42 @@ function SetonLocation() {
   const locationData =
     LOCATIONS_DATA[locationKey] || LOCATIONS_DATA["calgary-seton"];
 
+  // Location-specific tour URLs
+  const getTourUrl = (locationKey) => {
+    const tourUrls = {
+      "vancouver-post":
+        "https://tour.evolvestrength.ca/tour-form/?location=40327",
+      "burnaby-brentwood":
+        "https://tour.evolvestrength.ca/tour-form/?location=40248",
+      "calgary-seton":
+        "https://tour.evolvestrength.ca/tour-form/?location=40097",
+      "calgary-royal-oak":
+        "https://tour.evolvestrength.ca/tour-form/?location=40142",
+      "calgary-sunridge":
+        "https://tour.evolvestrength.ca/tour-form/?location=06973",
+      "edmonton-south":
+        "https://tour.evolvestrength.ca/tour-form/?location=06962",
+      "edmonton-downtown":
+        "https://tour.evolvestrength.ca/tour-form/?location=06967",
+      "edmonton-north":
+        "https://tour.evolvestrength.ca/tour-form/?location=06964",
+    };
+
+    return tourUrls[locationKey] || "https://tour.evolvestrength.ca/tour-form";
+  };
+
+  const tourUrl = getTourUrl(locationKey);
+
   const [isTimingsExpanded, setIsTimingsExpanded] = useState(false);
 
   return (
     <div className="w-full max-w-[1280px] mx-auto px-4 md:px-8 py-12 flex flex-col gap-4 ">
-      <h1 className="!text-[40px] mb-2 !font-bold text-center leading-[40px]">
-        ABOUT OUR {locationData.city} {locationData.branch} LOCATION
+      <h1 className="!text-[29px] md:!text-[40px] mb-2 !font-bold text-center leading-[29px] md:leading-[40px]">
+        ABOUT OUR{" "}
+        <span className="!text-[#4AB04A]">
+          {locationData.city} {locationData.branch}
+        </span>{" "}
+        LOCATION
       </h1>
 
       <div className="flex flex-col md:flex-row gap-4">
@@ -64,9 +93,9 @@ function SetonLocation() {
               </p>
             </div>
             <div className="flex flex-start pt-5 md:pt-0">
-               <Link to="https://join.evolvestrength.ca/tour-form/">
-                          <button className="btnPrimary">BOOK A FREE TOUR</button>
-                          </Link>
+              <Link to={tourUrl}>
+                <button className="btnPrimary">BOOK A FREE TOUR</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -79,7 +108,7 @@ function SetonLocation() {
         >
           FACILITY TIMINGS
           <img
-            src={icon}
+            src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/Seton/icon.svg"
             alt=""
             className={`transition-transform duration-300 ${
               isTimingsExpanded ? "rotate-180" : ""

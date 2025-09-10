@@ -14,7 +14,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 const SeeItForYourSelf = () => {
   const [activeTab, setActiveTab] = useState(facilityLocations[0].key);
   const tabBarRef = useRef(null);
-  const carouselRef = useRef(null);
+  const desktopCarouselRef = useRef(null);
+  const mobileCarouselRef = useRef(null);
 
   const scrollTabsLeft = () => {
     if (tabBarRef.current) {
@@ -30,10 +31,53 @@ const SeeItForYourSelf = () => {
 
   const activeLocation = facilityLocations.find((loc) => loc.key === activeTab);
 
-  useEffect(() => {
-    if (carouselRef.current?.scrollTo) {
-      carouselRef.current.scrollTo(0);
+  const resetCarousels = () => {
+    // Reset desktop carousel
+    if (desktopCarouselRef.current) {
+      try {
+        desktopCarouselRef.current.scrollTo(0);
+        // Additional reset attempts
+        setTimeout(() => {
+          if (desktopCarouselRef.current) {
+            desktopCarouselRef.current.scrollTo(0);
+          }
+        }, 50);
+      } catch (error) {
+        console.log("Desktop carousel reset error:", error);
+      }
     }
+
+    // Reset mobile carousel
+    if (mobileCarouselRef.current) {
+      try {
+        mobileCarouselRef.current.scrollTo(0);
+        // Additional reset attempts
+        setTimeout(() => {
+          if (mobileCarouselRef.current) {
+            mobileCarouselRef.current.scrollTo(0);
+          }
+        }, 50);
+      } catch (error) {
+        console.log("Mobile carousel reset error:", error);
+      }
+    }
+  };
+
+  const handleTabChange = (newTab) => {
+    setActiveTab(newTab);
+    // Reset carousels immediately and after a delay
+    resetCarousels();
+    setTimeout(() => {
+      resetCarousels();
+    }, 100);
+    setTimeout(() => {
+      resetCarousels();
+    }, 200);
+  };
+
+  // Reset carousels when activeTab changes
+  useEffect(() => {
+    resetCarousels();
   }, [activeTab]);
 
   return (
@@ -49,16 +93,20 @@ const SeeItForYourSelf = () => {
       </div>
       <Tabs
         value={activeTab}
-        onValueChange={setActiveTab}
+        onValueChange={handleTabChange}
         className="w-full max-md:hidden"
       >
         <div className="w-full max-w-[1220px] mx-auto relative rounded-[10px] border">
-          <TabsList className="flex w-full  bg-[#fff] h-[48px] p-[6px]">
+          <TabsList className="flex w-full  bg-[#fff] h-[48px] p-[6px] space-x-2">
             {facilityLocations.map((loc) => (
               <TabsTrigger
                 key={loc.key}
                 value={loc.key}
-                className="text-[16px] font-[Kanit] font-[500] leading-[16px] rounded-[5px] text-[#000] cursor-pointer data-[state=active]:bg-[#4AB04A] data-[state=active]:text-[#FFF]"
+                className="text-[16px] font-[Kanit] font-[500]  leading-[16px] rounded-[5px] text-[#000] cursor-pointer data-[state=active]:bg-[#4AB04A] data-[state=active]:text-[#FFF] relative !border-0
+  before:content-[''] before:absolute before:left-0 before:bottom-0 
+  before:h-[1.5px] before:w-0 before:bg-[#4AB04A] 
+  before:transition-all before:duration-300 
+  hover:before:w-full"
               >
                 {loc.label}
               </TabsTrigger>
@@ -68,7 +116,7 @@ const SeeItForYourSelf = () => {
         <TabsContent value={activeTab} className="mt-6">
           <Carousel
             opts={{ align: "start" }}
-            setApi={(api) => (carouselRef.current = api)}
+            setApi={(api) => (desktopCarouselRef.current = api)}
             className="w-full"
           >
             <CarouselContent>
@@ -90,7 +138,7 @@ const SeeItForYourSelf = () => {
         </TabsContent>
       </Tabs>
       <div className="flex justify-center mt-6 max-md:hidden">
-        <Link to="https://join.evolvestrength.ca/tour-form/">
+        <Link to="https://tour.evolvestrength.ca/tour-form">
           <button className="btnPrimary">BOOK A FREE TOUR</button>
         </Link>
       </div>
@@ -105,7 +153,11 @@ const SeeItForYourSelf = () => {
             Spacious. Affordable. Unmatched
           </h4>
         </div>
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <Tabs
+          value={activeTab}
+          onValueChange={handleTabChange}
+          className="w-full"
+        >
           <div className="relative w-full flex items-start px-[16px] pt-10">
             {/* Arrow buttons at top right */}
             <div className="absolute -top-4 right-4 flex gap-3 z-10">
@@ -131,7 +183,7 @@ const SeeItForYourSelf = () => {
                 {facilityLocations.map((loc) => (
                   <button
                     key={loc.key}
-                    onClick={() => setActiveTab(loc.key)}
+                    onClick={() => handleTabChange(loc.key)}
                     className={`min-w-[100px] w-[auto] max-w-[160px] px-2 py-2 rounded-[6px]  text-[14px] font-[500] transition-all duration-200 scroll-snap-align-start ${
                       activeTab === loc.key
                         ? "bg-[#4AB04A] text-[#fff] "
@@ -148,7 +200,7 @@ const SeeItForYourSelf = () => {
           <TabsContent value={activeTab} className="w-full mt-4">
             <Carousel
               opts={{ align: "start" }}
-              setApi={(api) => (carouselRef.current = api)}
+              setApi={(api) => (mobileCarouselRef.current = api)}
               className="w-full"
             >
               <CarouselContent>
@@ -170,7 +222,7 @@ const SeeItForYourSelf = () => {
           </TabsContent>
         </Tabs>
         <div className="flex justify-center mt-6 px-[16px] py-[17px]">
-          <Link to="https://join.evolvestrength.ca/tour-form/">
+          <Link to="https://tour.evolvestrength.ca/tour-form">
             <button className="btnPrimary">BOOK A FREE TOUR</button>
           </Link>
         </div>

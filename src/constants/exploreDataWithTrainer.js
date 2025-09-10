@@ -83,7 +83,8 @@ export const EXPLORE_DATA = [
         city: "VANCOUVER",
         branch: "POST",
         locationTitle: "VANCOUVER POST",
-        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=40327",
+        statelink:
+          "https://subscription.evolvestrength.ca/membership-plans?location=40327",
         heroImage: postHero,
         details: "Details for VANCOUVER POST",
         services: [
@@ -150,7 +151,8 @@ export const EXPLORE_DATA = [
         city: "BURNABY",
         branch: "BRENTWOOD",
         locationTitle: "BURNABY BRENTWOOD",
-        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=40248",
+        statelink:
+          "https://subscription.evolvestrength.ca/membership-plans?location=40248",
         heroImage: brentwoodHero,
         details: "Details for BURNABY BRENTWOOD",
         services: [
@@ -217,7 +219,8 @@ export const EXPLORE_DATA = [
         city: "CALGARY",
         branch: "SETON",
         locationTitle: "CALGARY SETON",
-        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=40097",
+        statelink:
+          "https://subscription.evolvestrength.ca/membership-plans?location=40097",
         heroImage: setonHero,
         details: "Details for CALGARY SETON",
         services: [
@@ -284,7 +287,8 @@ export const EXPLORE_DATA = [
         city: "CALGARY",
         branch: "ROYAL OAK",
         locationTitle: "CALGARY ROYAL OAK",
-        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=40142",
+        statelink:
+          "https://subscription.evolvestrength.ca/membership-plans?location=40142",
         heroImage: royalOakHero,
         details: "Details for CALGARY ROYAL OAK",
         services: [
@@ -346,79 +350,81 @@ export const EXPLORE_DATA = [
           "CALGARY ROYAL OAK"
         ),
       },
-      {
-        id: "location-calgary-sunridge",
-        city: "CALGARY",
-        branch: "SUNRIDGE",
-        locationTitle: "CALGARY SUNRIDGE",
-        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=06973",
-        heroImage: sunridgeHero,
-        details: "Details for CALGARY SUNRIDGE",
-        services: [
-          { id: "service-all", name: "All", icon: AllIcon },
-          {
-            id: "service-personal-trainer",
-            name: "Personal Trainer",
-            icon: PersonalTrainerIcon,
-          },
-          {
-            id: "service-esthetician",
-            name: "Esthetician",
-            icon: EstheticianIcon,
-          },
-          {
-            id: "service-chiropractic",
-            name: "Chiropractic Care",
-            icon: ChiropracticIcon,
-          },
-          {
-            id: "service-massage",
-            name: "Massage Therapy",
-            icon: MassageTherapyIcon,
-          },
-          {
-            id: "service-physiotherapy",
-            name: "Physiotherapy",
-            icon: PhysiotherapyIcon,
-          },
-          {
-            id: "service-acupuncture",
-            name: "Acupuncture",
-            icon: AcupunctureIcon,
-          },
-          {
-            id: "service-dietitian",
-            name: "Dietitian Services",
-            icon: DietitianServicesIcon,
-          },
-          {
-            id: "service-osteopathy",
-            name: "Osteopathy",
-            icon: OsteopathyIcon,
-          },
-          {
-            id: "service-laser",
-            name: "Laser Therapy",
-            icon: LaserTherapyIcon,
-          },
-          {
-            id: "service-mental-health",
-            name: "Mental Health Support",
-            icon: MentalHealthIcon,
-          },
-        ],
-        trainerIds: getTrainerIdsForLocation("CALGARY SUNRIDGE"),
-        personalTrainerIds: getTrainerIdsForRoleInLocation(
-          "Personal Trainer",
-          "CALGARY SUNRIDGE"
-        ),
-      },
+      // {
+      //   id: "location-calgary-sunridge",
+      //   city: "CALGARY",
+      //   branch: "SUNRIDGE",
+      //   locationTitle: "CALGARY SUNRIDGE",
+      //   statelink:
+      //     "https://subscription.evolvestrength.ca/membership-plans?location=06973",
+      //   heroImage: sunridgeHero,
+      //   details: "Details for CALGARY SUNRIDGE",
+      //   services: [
+      //     { id: "service-all", name: "All", icon: AllIcon },
+      //     {
+      //       id: "service-personal-trainer",
+      //       name: "Personal Trainer",
+      //       icon: PersonalTrainerIcon,
+      //     },
+      //     {
+      //       id: "service-esthetician",
+      //       name: "Esthetician",
+      //       icon: EstheticianIcon,
+      //     },
+      //     {
+      //       id: "service-chiropractic",
+      //       name: "Chiropractic Care",
+      //       icon: ChiropracticIcon,
+      //     },
+      //     {
+      //       id: "service-massage",
+      //       name: "Massage Therapy",
+      //       icon: MassageTherapyIcon,
+      //     },
+      //     {
+      //       id: "service-physiotherapy",
+      //       name: "Physiotherapy",
+      //       icon: PhysiotherapyIcon,
+      //     },
+      //     {
+      //       id: "service-acupuncture",
+      //       name: "Acupuncture",
+      //       icon: AcupunctureIcon,
+      //     },
+      //     {
+      //       id: "service-dietitian",
+      //       name: "Dietitian Services",
+      //       icon: DietitianServicesIcon,
+      //     },
+      //     {
+      //       id: "service-osteopathy",
+      //       name: "Osteopathy",
+      //       icon: OsteopathyIcon,
+      //     },
+      //     {
+      //       id: "service-laser",
+      //       name: "Laser Therapy",
+      //       icon: LaserTherapyIcon,
+      //     },
+      //     {
+      //       id: "service-mental-health",
+      //       name: "Mental Health Support",
+      //       icon: MentalHealthIcon,
+      //     },
+      //   ],
+      //   trainerIds: getTrainerIdsForLocation("CALGARY SUNRIDGE"),
+      //   personalTrainerIds: getTrainerIdsForRoleInLocation(
+      //     "Personal Trainer",
+      //     "CALGARY SUNRIDGE"
+      //   ),
+      // },
       {
         id: "location-edmonton-south",
         city: "EDMONTON",
         branch: "SOUTH",
         locationTitle: "EDMONTON SOUTH",
-        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=06962",
+        statelink:
+          "https://subscription.evolvestrength.ca/membership-plans?location=06962",
         heroImage: southHero,
         details: "Details for EDMONTON SOUTH",
         services: [
@@ -485,7 +491,8 @@ export const EXPLORE_DATA = [
         city: "EDMONTON",
         branch: "DOWNTOWN",
         locationTitle: "EDMONTON DOWNTOWN",
-        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=06967",
+        statelink:
+          "https://subscription.evolvestrength.ca/membership-plans?location=06967",
         heroImage: downtownHero,
         details: "Details for EDMONTON DOWNTOWN",
         services: [
@@ -552,7 +559,8 @@ export const EXPLORE_DATA = [
         city: "EDMONTON",
         branch: "NORTH",
         locationTitle: "EDMONTON NORTH",
-        statelink:"https://subscription.evolvestrength.ca/membership-plans?location=06964",
+        statelink:
+          "https://subscription.evolvestrength.ca/membership-plans?location=06964",
         heroImage: northHero,
         details: "Details for EDMONTON NORTH",
         services: [
@@ -765,6 +773,38 @@ export const getAllWellnessServices = () => {
   return wellnessData.map((service) => ({
     id: service.id,
     name: service.name,
+  }));
+};
+
+export const getAllAreasOfFocus = () => {
+  const predefinedAreas = [
+    "Weight Loss",
+    "Strength Training",
+    "Hypertrophy",
+    "Powerlifting",
+    "Olympic Weightlifting",
+    "Sports Performance",
+    "Athletic Conditioning",
+    "Injury Rehab",
+    "Pain Management",
+    "Mobility and Flexibility",
+    "Posture",
+    "Technique and Movement",
+    "Nutrition and Lifestyle",
+    "Women's Health",
+    "Prenatal and Postnatal",
+    "General Fitness",
+    "Beginners",
+    "Seniors and Special Populations",
+    "Functional Fitness",
+    "HIIT and CrossFit",
+    "Combat Sports",
+    "Allied Health",
+  ];
+
+  return predefinedAreas.map((area) => ({
+    id: area.toLowerCase().replace(/\s+/g, "-"),
+    name: area,
   }));
 };
 

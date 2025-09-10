@@ -1,53 +1,52 @@
 import React from "react";
-import step1 from "@/assets/images/franchise/howtoJoinEvolveJourney/step-1.webp";
-import step2 from "@/assets/images/franchise/howtoJoinEvolveJourney/step-2.webp";
-import step3 from "@/assets/images/franchise/howtoJoinEvolveJourney/step-3.webp";
-import step4 from "@/assets/images/franchise/howtoJoinEvolveJourney/step-4.webp";
-import step5 from "@/assets/images/franchise/howtoJoinEvolveJourney/step-5.webp";
-import step6 from "@/assets/images/franchise/howtoJoinEvolveJourney/step-6.webp";
-
 const steps = [
   {
     number: "01",
     title: "Apply Online",
     description:
       "Complete our simple application form to share your background, location of interest, and investment readiness.",
-    image: step1,
+    image:
+      "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/franchise/howtoJoinEvolveJourney/step-1.webp",
   },
   {
     number: "02",
     title: "Initial Discovery Call",
     description:
       "Our franchise development team will walk you through the model, answer questions, and help determine if Evolve is the right fit.",
-    image: step2,
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/howtoJoinEvolveJourney/step-2.webp",
   },
   {
     number: "03",
     title: "Territory Selection",
     description:
       "We'll review your target market, assess demographic data, and confirm territory availability.",
-    image: step3,
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/howtoJoinEvolveJourney/step-3.webp",
   },
   {
     number: "04",
     title: "Franchise Disclosure",
     description:
       "You'll receive our Franchise Disclosure Document (FDD), outlining all the legal and financial details. We'll also connect you with existing franchisees.",
-    image: step4,
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/howtoJoinEvolveJourney/step-4.webp",
   },
   {
     number: "05",
     title: "Site Visit",
     description:
       "Come see one of our flagship facilities, meet the leadership team, and get a feel for the operations and culture.",
-    image: step5,
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/howtoJoinEvolveJourney/step-5.webp",
   },
   {
     number: "06",
     title: "Franchise Awarded",
     description:
       "Once mutual alignment is confirmed and agreements are signed, you're officially part of the Evolve family.",
-    image: step6,
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/howtoJoinEvolveJourney/step-6.webp",
   },
 ];
 

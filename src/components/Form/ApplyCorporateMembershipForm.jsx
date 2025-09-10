@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SuccessFullScreen from "../ui/SuccessFullScreen"; // added
 import FormsHeader from "../ui/FormsHeader"; // added
 
-function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
+function ApplyCorporateMembershipForm({ onSubmit }) {
   // === HubSpot constants (replace GUID if you have a separate corporate form) ===
   const HUBSPOT_PORTAL_ID = "342148198";
   const HUBSPOT_FORM_GUID = "a51560aa-fb0b-4ba7-a013-70b2dc550b85"; // <- replace if needed
@@ -18,6 +18,7 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
     organization: "",
     email: "",
     confirmEmail: "",
+    phone: "", // Added phone field
     city: "",
     province: "",
     questions: "",
@@ -74,6 +75,7 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
           { name: "firstname", value: form.firstName },
           { name: "lastname", value: form.lastName },
           { name: "email", value: form.email },
+          { name: "phone", value: "" }, // Submit empty phone to HubSpot
           { name: "company", value: form.organization },
           { name: "state", value: form.province },
           { name: "city", value: form.city },
@@ -98,14 +100,31 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
       if (!res.ok) {
         const text = await res.text().catch(() => "");
         console.error("HubSpot submission failed", res.status, text);
-        return;
+        throw new Error("Submission failed");
       }
 
-      onSubmit(form);       // keep your callback
-      setSubmitted(true);   // show success overlay
-      // navigate("/application-submitted"); // not navigating so overlay is visible
+      // Call onSubmit if provided, otherwise just show success
+      if (onSubmit && typeof onSubmit === "function") {
+        onSubmit(form);
+      }
+      setSubmitted(true); // show success overlay
+
+      // Reset form after successful submission
+      setForm({
+        firstName: "",
+        lastName: "",
+        organization: "",
+        email: "",
+        confirmEmail: "",
+        phone: "",
+        city: "",
+        province: "",
+        questions: "",
+      });
+      setErrors({});
     } catch (err) {
       console.error("HubSpot submission error", err);
+      alert("There was an error submitting your form. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -118,56 +137,67 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
 
       {/* Success Screen Full Screen Overlay */}
       {submitted && (
-  <div className="fixed inset-0 z-[9999]">
-    <SuccessFullScreen
-      title="APPLICATION SUBMITTED"
-      description="Thanks! We've received your corporate membership application. Our team will contact you shortly to discuss the next steps."
-      buttonText="BACK TO HOME"
-      buttonLink="/"
-      icon="trophy"
-    />
-  </div>
-)}
+        <div className="fixed inset-0 z-[9999] bg-white">
+          <SuccessFullScreen
+            title="Thank You for Reaching Out"
+            description="We’re excited to help your organization take the next step toward better health and performance. A member of our team will contact you soon to discuss corporate membership options tailored to your needs."
+            buttonText="BACK TO HOME"
+            buttonLink="/"
+            icon="check"
+          />
+        </div>
+      )}
 
-      <div className="flex gap-12 md:p-6 p-4 flex-row max-w-[1280px] mx-auto items-center min-h-screen">
+      <div className="flex gap-10 pt-24 pb-12 px-4 md:px-6 flex-row max-w-[1280px] mx-auto items-center w-full">
         {/* Left Image */}
-        <div className="w-full max-w-[40%] flex-shrink-0 flex max-md:hidden">
-          <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white">
+        <div className="w-full max-w-[50%] flex-shrink-0 flex max-md:hidden">
+          <div className="rounded-[8px] overflow-hidden bg-white">
             <img
               src={locationImg}
               alt="Evolve Strength Facility"
-              className="object-cover w-full h-auto"
+              className="object-cover w-full h-[700px]"
             />
           </div>
         </div>
         {/* Right Form */}
-        <div className="flex flex-col md:items-end md:pl-20  md:h-[660px] justify-between w-full md:max-w-[10%]">
-          <button
-            className="flex items-center   md:pt-5 gap-2 text-[#222] text-[15px]  hover:underline"
+        <div className="flex flex-col md:items-start  justify-between w-full md:max-w-[50%]">
+          {/* <button
+            className="flex items-center md:pt-5 gap-2 text-[#222] text-[15px] hover:underline"
             onClick={() => navigate(-1)}
           >
             <ArrowLeft size={20} /> Back
+          </button> */}
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+            className="self-start md:pt-5 cursor-pointer flex items-center gap-2 text-black hover:text-gray-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-full"
+            aria-label="Go back"
+          >
+            <div className="w-8 h-8 rounded-full border border-black hover:text-[#fff] hover:bg-[#000] flex  items-center justify-center">
+              <ArrowLeft className="w-4 h-4" />
+            </div>
+            <span className="font-medium">Back</span>
           </button>
-          <div className="w-full md:max-w-[420px] bg-white rounded-[10px]  p-3">
-            <div className="md:w-[537px] w-full">
-              <h3 className="!text-[18px] md:text-[22px] font-[700] text-center mb-2 ">
-                APPLY FOR A CORPORATE MEMBERSHIP
+          <div className="w-full md:max-w-[537px] bg-white rounded-[10px] p-3">
+            <div className="w-full">
+              <h3 className="!text-[18px] md:text-[22px] font-[700] text-center mb-2 uppercase">
+                Apply For A New Corporate Membership
               </h3>
             </div>
-            <div className="md:w-[537px] w-full ">
-              <h4 className="text-[15px] font-[400] text-center mb-5 text-[#222] ">
-                Fill out the form below to start the process of bringing Evolve to
-                your workplace! We'll be in touch shortly.
+            <div className="w-full">
+              <h4 className="text-[15px] font-[400] text-center mb-5 text-[#222]">
+                Fill out the form below to start the process of bringing Evolve
+                to your workplace! We'll be in touch shortly.
               </h4>
             </div>
-            <div className="md:w-[537px] w-full  self-stretch gap-[12px] p-[32px_24px] rounded-[10px] border border-[#D4D4D4] bg-[#FCFCFC]">
+            <div className="w-full self-stretch gap-[12px] p-[32px_24px] rounded-[10px] border border-[#D4D4D4] bg-[#FCFCFC]">
               <form
                 className="flex flex-col gap-3"
                 onSubmit={handleSubmit}
                 noValidate
               >
-                <div className="flex  flex-row gap-4">
-                  <div className="flex-1 flex md:flex-col">
+                <div className="flex flex-row gap-4">
+                  <div className="flex-1 flex flex-col">
                     <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[15px] leading-[24px]">
                       First Name *
                       <input
@@ -239,7 +269,7 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
                       )}
                     </label>
                   </div>
-                  <div className="flex-1 flex md:flex-col">
+                  <div className="flex-1 flex flex-col">
                     <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[15px] leading-[24px]">
                       Confirm Email *
                       <input
@@ -308,7 +338,11 @@ function ApplyCorporateMembershipForm({ onBack, onSubmit }) {
                   />
                 </label>
 
-                <button type="submit" className="mt-2 btnPrimary w-full" disabled={isSubmitting}>
+                <button
+                  type="submit"
+                  className="mt-2 btnPrimary w-full"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? "Submitting..." : "SUBMIT NOW"}
                 </button>
               </form>

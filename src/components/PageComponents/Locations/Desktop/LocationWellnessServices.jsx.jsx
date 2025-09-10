@@ -2,19 +2,7 @@ import React, { useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Link } from "react-router-dom";
 import Autoplay from "embla-carousel-autoplay";
-import {
-  Leaf,
-  Dumbbell,
-  HandHeart,
-  Activity,
-  HeartPulse,
-  Salad,
-  Sparkles,
-  Brain,
-  Hand,
-  ArrowLeft,
-  ArrowRight,
-} from "lucide-react";
+import { professionalServices,professionalServicesForLocations } from "../../../../constants/professionalServicesImages.js";
 import {
   Carousel,
   CarouselContent,
@@ -22,115 +10,6 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
-
-// Desktop images
-import estheticianBg from "/src/assets/images/home/wellness-services/esthetician.webp";
-import chiropracticBg from "/src/assets/images/home/wellness-services/chiropractic_care.webp";
-import massageBg from "/src/assets/images/home/wellness-services/chiropractic_head.webp";
-import physiotherapy from "/src/assets/images/home/wellness-services/physiotherapy.webp";
-import acupunctureBg from "/src/assets/images/home/wellness-services/acupuncture.webp";
-import dietitianBg from "/src/assets/images/home/wellness-services/acupuncture_food.webp";
-import osteopathyBg from "/src/assets/images/home/wellness-services/osteopathy.webp";
-import laserBg from "/src/assets/images/home/wellness-services/osteopathy_glass.webp";
-import mentalHealthBg from "/src/assets/images/home/wellness-services/mental_health.webp";
-
-// Mobile images (currently using same images, replace with mobile-specific ones when available)
-import estheticianBgMobile from "/src/assets/images/home/wellness-services/esthetician_mobile.webp";
-import chiropracticBgMobile from "/src/assets/images/home/wellness-services/chiropractic_careMob.webp";
-import massageBgMobile from "/src/assets/images/home/wellness-services/chiropractic_headMob.webp";
-import physiotherapyMobile from "/src/assets/images/home/wellness-services/physiotherapyMob.webp";
-import acupunctureBgMobile from "/src/assets/images/home/wellness-services/acpunctureMob.webp";
-import dietitianBgMobile from "/src/assets/images/home/wellness-services/dietitionMob.webp";
-import osteopathyBgMobile from "/src/assets/images/home/wellness-services/osteopathyMob.webp";
-import laserBgMobile from "/src/assets/images/home/wellness-services/osteoathy_glassMob.webp";
-import mentalHealthBgMobile from "/src/assets/images/home/wellness-services/mental_healthMob.webp";
-
-const services = [
-  {
-    label: "Esthetician",
-    icon: <Leaf />,
-    bgImage: {
-      desktop: estheticianBg,
-      mobile: estheticianBgMobile,
-    },
-  },
-  {
-    label: (
-      <p>
-        Chiropractic <br /> Care
-      </p>
-    ),
-    icon: <Hand />,
-    bgImage: {
-      desktop: chiropracticBg,
-      mobile: chiropracticBgMobile,
-    },
-  },
-  {
-    label: (
-      <p>
-        Massage <br /> Therapy
-      </p>
-    ),
-    icon: <HandHeart />,
-    bgImage: {
-      desktop: massageBg,
-      mobile: massageBgMobile,
-    },
-  },
-  {
-    label: "physiotherapy",
-    icon: <Dumbbell />,
-    bgImage: {
-      desktop: physiotherapy,
-      mobile: physiotherapyMobile,
-    },
-  },
-  {
-    label: "Acupuncture",
-    icon: <Activity />,
-    bgImage: {
-      desktop: acupunctureBg,
-      mobile: acupunctureBgMobile,
-    },
-  },
-  {
-    label: (
-      <p>
-        Dietitian <br /> Services
-      </p>
-    ),
-    icon: <Salad />,
-    bgImage: {
-      desktop: dietitianBg,
-      mobile: dietitianBgMobile,
-    },
-  },
-  {
-    label: "Osteopathy",
-    icon: <HeartPulse />,
-    bgImage: {
-      desktop: osteopathyBg,
-      mobile: osteopathyBgMobile,
-    },
-  },
-  {
-    label: "Laser Therapy",
-    icon: <Sparkles />,
-    bgImage: {
-      desktop: laserBg,
-      mobile: laserBgMobile,
-    },
-  },
-  {
-    label: "Mental Health",
-    icon: <Brain />,
-    bgImage: {
-      desktop: mentalHealthBg,
-      mobile: mentalHealthBgMobile,
-    },
-  },
-];
 
 const LocationWellnessServices = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -179,21 +58,26 @@ const LocationWellnessServices = () => {
 
   // Preload images
   useEffect(() => {
-    services.forEach((service) => {
-      const img = new Image();
-      img.src = service.bgImage.desktop;
+    professionalServicesForLocations.forEach((service) => {
+      // Preload desktop image
+      const desktopImg = new Image();
+      desktopImg.src = service.images.desktopImage;
+
+      // Preload mobile image
+      const mobileImg = new Image();
+      mobileImg.src = service.images.mobileImage;
     });
   }, []);
 
   return (
     <div className="w-full   max-md:pt-0">
       {/* Desktop View */}
-      <div className="relative flex flex-row items-center justify-center w-full min-h-[700px] max-md:hidden">
+      <div className="relative flex flex-row items-center justify-center w-full min-h-[740px] max-md:hidden">
         {/* Previous background image - stays visible during transition */}
         <div
           className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out hidden md:block"
           style={{
-            backgroundImage: `url(${services[previousIndex].bgImage.desktop})`,
+            backgroundImage: `url(${professionalServicesForLocations[previousIndex].images.desktopImage})`,
           }}
         />
 
@@ -201,7 +85,7 @@ const LocationWellnessServices = () => {
         <div
           className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out hidden md:block"
           style={{
-            backgroundImage: `url(${services[activeIndex].bgImage.desktop})`,
+            backgroundImage: `url(${professionalServicesForLocations[activeIndex].images.desktopImage})`,
           }}
         />
 
@@ -210,27 +94,26 @@ const LocationWellnessServices = () => {
         <div className="relative z-10 max-w-[1280px] w-full mx-auto flex flex-row items-center justify-between px-8 gap-10">
           <div className="max-w-xl space-y-8">
             <h2 className="uppercase text-[#ffffff]">
-              WELLNESS SERVICES <br /> FOR EVERYONE.
+              Premium Wellness & <br /> Personal Training
             </h2>
             <p className="description leading-[20px] text-[#ffffff]">
-              Take full advantage of a wide range of wellness <br /> services at
-              every Evolve location, available at an <br /> additional cost.
+              Boost your fitness with our add-on services (not included <br /> in membership)
             </p>
-            
-<Link to="/explore">
-            <button className="btnPrimary">FIND A wellness expert</button>
+
+            <Link to="/explore?category=wellness">
+              <button className="btnPrimary">FIND A wellness expert</button>
             </Link>
           </div>
 
-          <div className="flex flex-wrap gap-4 max-w-[500px]">
-            {services.map((service, index) => {
+          <div className="flex flex-wrap gap-2 max-w-[713px]">
+            {professionalServicesForLocations.map((service, index) => {
               const isActive = index === activeIndex;
 
               return (
                 <div
                   key={index}
                   onClick={() => handleManualClick(index)}
-                  className={`group relative w-[155px] h-[155px] flex flex-col items-center justify-center text-[#fff] backdrop-blur-[12px] rounded-[10px] cursor-pointer transition-all duration-300
+                  className={`group relative w-[134px] h-[138px] flex flex-col items-center justify-center text-[#fff] backdrop-blur-[12px] rounded-[10px] cursor-pointer transition-all duration-300
                   ${
                     isActive
                       ? "bg-white/20 ring-2 ring-white"
@@ -239,11 +122,10 @@ const LocationWellnessServices = () => {
                 `}
                 >
                   <div className="mb-2 text-[16px] font-[kanit] font-[500] leading-[16px] uppercase">
-                    {service.icon}
+                   <img src={service.icon} alt="" />
                   </div>
-                  <div className="text-[16px] font-kanit font-[500] leading-[20px] uppercase text-[#fff] text-center">
-                    {" "}
-                    {service.label}
+                  <div className="text-[16px] font-kanit font-[500] leading-[20px] uppercase text-[#fff] text-center px-[5px]">
+                    {service.title}
                   </div>
 
                   {isActive && (
@@ -262,7 +144,7 @@ const LocationWellnessServices = () => {
         <div
           className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out md:hidden"
           style={{
-            backgroundImage: `url(${services[previousIndex].bgImage.mobile})`,
+            backgroundImage: `url(${professionalServicesForLocations[previousIndex].images.mobileImage})`,
           }}
         />
 
@@ -270,7 +152,7 @@ const LocationWellnessServices = () => {
         <div
           className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 ease-in-out md:hidden"
           style={{
-            backgroundImage: `url(${services[activeIndex].bgImage.mobile})`,
+            backgroundImage: `url(${professionalServicesForLocations[activeIndex].images.mobileImage})`,
           }}
         />
 
@@ -278,24 +160,23 @@ const LocationWellnessServices = () => {
 
         <div className="relative z-10 flex flex-col items-center w-full  gap-6">
           <h2 className="uppercase text-[#ffffff] font-bold">
-            WELLNESS SERVICES FOR EVERYONE.
+           Premium Wellness &  Personal Training
           </h2>
           <p className="description leading-[20px] text-[#ffffff] ">
-            Take full advantage of a wide range of wellness services at every
-            Evolve location, available at an additional cost.
+            Boost your fitness with our add-on services (not included in membership)
           </p>
           <div className="flex justify-start w-full">
-            
-             <Link to="/explore">
-            <button className="btnPrimary">FIND A wellness expert</button>
+            <Link to="/explore?category=wellness">
+              <button className="btnPrimary">FIND A wellness expert</button>
             </Link>
           </div>
         </div>
         <div className="relative w-full mt-6">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-2 pl-2">
-              {services.map((service, index) => {
+              {professionalServicesForLocations.map((service, index) => {
                 const isActive = index === activeIndex;
+
                 return (
                   <div key={index} className="flex-[0_0_70%] min-w-0 px-2 py-4">
                     <div
@@ -318,16 +199,10 @@ const LocationWellnessServices = () => {
                             isActive ? "text-[#fff]" : "text-[#fff]"
                           }`}
                         >
-                          {service.icon}
+                           <img src={service.icon} alt="" />
                         </div>
                         <div className="text-[14px] font-kanit font-[400] leading-[20px] uppercase text-[#fff] text-center">
-                          {typeof service.label === "string" ? (
-                            service.label
-                          ) : (
-                            <span className="whitespace-pre-line">
-                              {service.label}
-                            </span>
-                          )}
+                          {service.title}
                         </div>
                       </div>
                     </div>

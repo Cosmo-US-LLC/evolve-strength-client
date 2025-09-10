@@ -38,7 +38,7 @@ function GotYourBack() {
                 </div>
               </span>
 
-              <h4 className="font-[400] leading-[31px]">{item}</h4>
+              <h4 className="font-[400] leading-[21px] md:leading-[31px]">{item}</h4>
             </li>
           ))}
         </ul>

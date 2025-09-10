@@ -33,11 +33,10 @@ function Navbar() {
 
   const navigationLinks = [
     { to: "/explore", label: "Explore" },
-    { to: "/membership-benefits", label: "Membership" },
-    { to: "/personal-training", label: "Training" },
-    { to: "/wellness", label: "Wellness" },
-    { to: "/spaces", label: "Spaces" },
-    { to: "/franchise", label: "Franchise" },
+    { to: "/personal-training", label: "Personal Training" },
+    { to: "/wellness", label: "Wellness Services" },
+    { to: "/locations", label: "Our Locations" },
+    { to: "/work-spaces", label: "Work Spaces" },
   ];
 
   const handleMobileLinkClick = () => {
@@ -52,50 +51,74 @@ function Navbar() {
             className={`navbarWrapper fixed top-0 w-full  ${
               scrolled ? "scrolled" : ""
             }  ${
-              currentPath === "/spaces" ||
+              currentPath === "/work-spaces" ||
               currentPath === "/privacy-policy" ||
               currentPath === "/terms-and-conditions" ||
               currentPath === "/faqs" ||
               currentPath === "/franchise" ||
               currentPath === "/join-as-trainer" ||
               currentPath === "/join-the-Movement" ||
-              currentPath === "/corporate-membership"
+              currentPath === "/corporate-membership" ||
+              currentPath === "/about-us" ||
+              currentPath === "/contact-us" ||
+              currentPath === "/locations" ||
+              currentPath === "/explore"
                 ? "!bg-[#000]"
                 : ""
             }`}
           >
             <div className="max-w-[1280px] w-full h-full mx-auto px-4 md:px-8 flex items-center justify-between">
-              <Link smooth to="/" className="flex items-center">
+              <Link
+                to="/"
+                className="flex items-center select-none [-webkit-user-select:none] [-webkit-touch-callout:none]"
+              >
                 <img
                   src={EvolveStrengthLogo}
-                  alt="Attune Logo"
-                  className="md:w-[196px] w-[140px]"
+                  alt="Evolve Logo"
+                  className="md:w-[196px] w-[140px] cursor-pointer z-20 select-none [-webkit-user-select:none] [-webkit-user-drag:none]"
+                  draggable="false"
                 />
               </Link>
 
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center justify-center gap-8">
-                {navigationLinks.map((link, index) => (
-                  <React.Fragment key={link.to}>
-                    <Link
-                      smooth
-                      to={link.to}
-                      className="navBarLinks text-[#F8F8F8]"
-                    >
-                      {link.label}
-                    </Link>
-                    {index === 3 && (
-                      <div className="w-[1.5px] font-[vazirmatn] h-4 bg-[#F8F8F8]" />
-                    )}
-                  </React.Fragment>
-                ))}
+                {navigationLinks.map((link, index) => {
+                  const isActive =
+                    currentPath === link.to ||
+                    (link.to === "/explore" &&
+                      currentPath.startsWith("/explore")) ||
+                    (link.to === "/personal-training" &&
+                      currentPath.startsWith("/personal-training")) ||
+                    (link.to === "/wellness" &&
+                      currentPath.startsWith("/wellness")) ||
+                    (link.to === "/locations" &&
+                      currentPath.startsWith("/locations")) ||
+                    (link.to === "/spaces" &&
+                      currentPath.startsWith("/spaces"));
+
+                  return (
+                    <React.Fragment key={link.to}>
+                      <Link
+                        smooth
+                        to={link.to}
+                        className={`navBarLinks text-[#F8F8F8] ${
+                          isActive ? "active" : ""
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                      {index === 2 && (
+                        <div className="w-[1.5px] font-[vazirmatn] h-4 bg-[#F8F8F8]" />
+                      )}
+                    </React.Fragment>
+                  );
+                })}
               </div>
 
               {/* Desktop CTA Button */}
               <div className="hidden md:flex items-center">
-                          <Link to = "https://join.evolvestrength.ca/tour-form/">
-
-                <button className="btnSecondary">Book a Free Tour</button>
+                <Link to="https://tour.evolvestrength.ca/tour-form/">
+                  <button className="btnSecondary">Book a Free Tour</button>
                 </Link>
               </div>
 
@@ -137,10 +160,12 @@ function Navbar() {
                         </Link>
                       ))}
 
-                      <div className="pt-4">
-                        <button className="btnSecondary">
-                          Book a Free Tour
-                        </button>
+                      <div className="">
+                        <Link to="https://tour.evolvestrength.ca/tour-form/">
+                          <button className="btnSecondary">
+                            Book a Free Tour
+                          </button>
+                        </Link>
                       </div>
                       <img
                         src={ESFLogo}

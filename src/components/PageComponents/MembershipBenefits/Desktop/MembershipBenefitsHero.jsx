@@ -7,17 +7,16 @@ function MembershipBenefitsHero() {
       {/* <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/40" /> */}
       <div className="max-w-[1280px] px-4 md:px-8 pb-[110px] mx-auto w-full h-full">
         <div className="relative z-2 flex  flex-col items-start justify-end h-full">
-          <h1 className="text-[#FFFFFF] uppercase max-w-[740px] leading-[56px] mb-5">
+          <h1 className="text-[#FFFFFF] uppercase max-w-[750px] leading-[42px] md:leading-[56px] mb-5">
             One Membership Endless Possibilities
           </h1>
           <div className="flex gap-6">
             <Link to="https://subscription.evolvestrength.ca/">
-            <button className="btnPrimary">Join Now</button>
+              <button className="btnPrimary">Join Now</button>
             </Link>
-            <Link to="https://join.evolvestrength.ca/tour-form/">
-            <button className="btnSecondary">BOOK A FREE TOUR</button>
+            <Link to="https://tour.evolvestrength.ca/tour-form ">
+              <button className="btnSecondary">BOOK A FREE TOUR</button>
             </Link>
-
           </div>
         </div>
       </div>

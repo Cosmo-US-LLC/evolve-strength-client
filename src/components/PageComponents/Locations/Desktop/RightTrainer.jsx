@@ -29,8 +29,10 @@ const gymCards = [
     ),
     description: "",
     bgImage: {
-      desktop: fitness,
-      mobile: fitnessMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/fitness.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/fitnessMob.webp",
     },
   },
   {
@@ -38,17 +40,25 @@ const gymCards = [
     title: "Calisthenics",
     description: "",
     bgImage: {
-      desktop: wellness,
-      mobile: wellnessMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_training.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_trainingMob.webp",
     },
   },
   {
     count: "03",
-    title: "Cardio",
+    title: (
+      <p>
+        Build <br /> Muscle
+      </p>
+    ),
     description: "",
     bgImage: {
-      desktop: atmosphere,
-      mobile: atmosphereMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/cardio.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/cardioMob.webp",
     },
   },
   {
@@ -60,8 +70,10 @@ const gymCards = [
     ),
     description: "",
     bgImage: {
-      desktop: turfWorkouts,
-      mobile: turfWorkoutsMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/turf_workouts.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/turf_workoutsMob.webp",
     },
   },
   {
@@ -73,8 +85,10 @@ const gymCards = [
     ),
     description: "",
     bgImage: {
-      desktop: olympicLifting,
-      mobile: olympicLiftingMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/olympic_lifting.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/olympic_liftingMob.webp",
     },
   },
   {
@@ -82,8 +96,10 @@ const gymCards = [
     title: "Mobility",
     description: "",
     bgImage: {
-      desktop: yoga,
-      mobile: yogaMobile,
+      desktop:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp",
+      mobile:
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp",
     },
   },
 ];
@@ -93,17 +109,14 @@ const RightTrainer = () => {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState(0);
 
-  // Desktop: use hover state, Mobile: use carousel state
   const activeIndex = hoveredIndex !== null ? hoveredIndex : carouselIndex;
 
-  // Update previous index when active index changes
   useEffect(() => {
     if (activeIndex !== previousIndex) {
       setPreviousIndex(activeIndex);
     }
   }, [activeIndex, previousIndex]);
 
-  // Mobile Carousel with Scale Effect
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       containScroll: "keepSnaps",
@@ -113,7 +126,6 @@ const RightTrainer = () => {
     // [Autoplay({ delay: 4000, stopOnInteraction: false })]
   );
 
-  // Scale effect for mobile carousel
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const onSelect = useCallback(() => {
@@ -128,7 +140,6 @@ const RightTrainer = () => {
     return () => emblaApi.off("select", onSelect);
   }, [emblaApi, onSelect]);
 
-  // Sync carousel index with background image
   useEffect(() => {
     if (!emblaApi) return;
 
@@ -137,21 +148,18 @@ const RightTrainer = () => {
     };
 
     emblaApi.on("select", onCarouselSelect);
-    onCarouselSelect(); // Set initial index
+    onCarouselSelect();
 
     return () => {
       emblaApi.off("select", onCarouselSelect);
     };
   }, [emblaApi]);
 
-  // Preload images for both desktop and mobile
   useEffect(() => {
     gymCards.forEach((card) => {
-      // Preload desktop image
       const desktopImg = new Image();
       desktopImg.src = card.bgImage.desktop;
 
-      // Preload mobile image
       const mobileImg = new Image();
       mobileImg.src = card.bgImage.mobile;
     });
@@ -159,22 +167,19 @@ const RightTrainer = () => {
 
   return (
     <div className="relative w-full overflow-hidden ">
-      {/* Background Image - Desktop with Crossfade */}
       <div className="hidden md:block">
         {/* Previous background (fading out) */}
         <div
-          className="absolute inset-0 bg-cover bg-center    "
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-150 ease-in-out"
           style={{
             backgroundImage: `url(${gymCards[previousIndex].bgImage.desktop})`,
-            // opacity: activeIndex === previousIndex ? 1 : 0,
           }}
         />
         {/* Current background (fading in) */}
         <div
-          className="absolute inset-0 bg-cover bg-center     "
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-150 ease-in-out"
           style={{
             backgroundImage: `url(${gymCards[activeIndex].bgImage.desktop})`,
-            // opacity: activeIndex === previousIndex ? 0 : 1,
           }}
         />
         <div className="absolute inset-0 bg-black/20 pointer-events-none" />
@@ -184,21 +189,19 @@ const RightTrainer = () => {
       <div className="md:hidden">
         {/* Previous background (fading out) */}
         <div
-          className="absolute inset-0 bg-cover bg-center  "
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-150 ease-in-out"
           style={{
             backgroundImage: `url(${gymCards[previousIndex].bgImage.mobile})`,
-            // opacity: carouselIndex === previousIndex ? 1 : 0,
           }}
         />
-        {/* Current background (fading in) */}
+
         <div
-          className="absolute inset-0 bg-cover bg-center  "
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-150 ease-in-out"
           style={{
             backgroundImage: `url(${gymCards[carouselIndex].bgImage.mobile})`,
-            // opacity: carouselIndex === previousIndex ? 0 : 1,
           }}
         />
-        <div className="absolute inset-0 bg-black/20 pointer-events-none  " />
+        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-4 md:px-8">
@@ -226,11 +229,11 @@ const RightTrainer = () => {
               key={index}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className="flex-1 p-8 rounded-t-[5px] flex flex-col gap-8 cursor-pointer relative group overflow-hidden transition-transform duration-300 ease-out hover:scale-[1.02]"
+              className="flex-1 p-8 rounded-t-[5px] flex flex-col gap-8 cursor-pointer relative group overflow-hidden transition-transform duration-150 ease-out hover:scale-[1.02]"
             >
               {/* White Overlay - Smooth slide up animation */}
               <div
-                className={`absolute inset-0 z-0 bg-[#ffffff] transition-transform duration-300 ease-out ${
+                className={`absolute inset-0 z-0 bg-[#ffffff] transition-transform duration-150 ease-out ${
                   isActive ? "translate-y-0" : "translate-y-full"
                 }`}
               />
@@ -238,7 +241,7 @@ const RightTrainer = () => {
               {/* Content Container */}
               <div className="relative z-10 w-[246px] h-[100px] flex flex-col justify-center">
                 <p
-                  className={`description leading-[25px] !font-[600] transition-all duration-300 ease-out ${
+                  className={`description leading-[25px] !font-[600] transition-all duration-150 ease-out ${
                     isActive
                       ? "text-[#000] translate-y-0"
                       : "text-[#ffffff] translate-y-1"
@@ -247,7 +250,7 @@ const RightTrainer = () => {
                   {card.count}
                 </p>
                 <h3
-                  className={`uppercase !text-[24px] font-Vazirmatn leading-[30px] !font-[600] mb-4 transition-all duration-300 ease-out ${
+                  className={`uppercase !text-[24px] font-Vazirmatn leading-[30px] !font-[600] mb-4 transition-all duration-150 ease-out ${
                     isActive
                       ? "text-[#1C1C1C] translate-y-0"
                       : "text-[#ffffff] translate-y-1"
@@ -270,17 +273,17 @@ const RightTrainer = () => {
               return (
                 <div key={index} className="flex-[0_0_70%] min-w-0 px-3 py-4">
                   <div
-                    className={`w-full min-h-[100px] px-3 rounded-[5px] flex flex-col justify-center gap-4 cursor-pointer relative group overflow-hidden transition-all duration-200 transform ${
+                    className={`w-full min-h-[100px] px-3 rounded-[5px] flex flex-col justify-center gap-4 cursor-pointer relative group overflow-hidden transition-all duration-150 transform ${
                       isSelected ? "scale-110" : "scale-95"
                     }`}
                   >
                     <div className="absolute inset-0 z-0 bg-[#ffffff] h-[100%] flex flex-col items-center justify-center" />
 
-                    <div className="relative z-10 transition-colors duration-300 w-full text-center text-[#1C1C1C]">
-                      <p className="description leading-[20px] !font-[600] transition-all duration-200 text-[#000]">
+                    <div className="relative z-10 transition-colors duration-150 w-full text-center text-[#1C1C1C]">
+                      <p className="description leading-[20px] !font-[600] transition-all duration-150 text-[#000]">
                         {card.count}
                       </p>
-                      <h3 className="uppercase !text-[20px] font-Vazirmatn leading-[26px] !font-[600] transition-all duration-200 text-[#1C1C1C]">
+                      <h3 className="uppercase !text-[20px] font-Vazirmatn leading-[26px] !font-[600] transition-all duration-150 text-[#1C1C1C]">
                         {card.title}
                       </h3>
                     </div>

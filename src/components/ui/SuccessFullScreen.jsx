@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Trophy, CheckCircle, Star, Award } from "lucide-react";
+import { Trophy, Star, Award, Check } from "lucide-react";
 
 function SuccessFullScreen({
   title = "LET'S OWN A PIECE OF STRENGTH",
@@ -9,10 +9,9 @@ function SuccessFullScreen({
   buttonLink = "/",
   icon = "trophy",
 }) {
-  // Icon mapping
   const iconMap = {
     trophy: Trophy,
-    check: CheckCircle,
+    check: Check,
     star: Star,
     award: Award,
   };
@@ -21,10 +20,10 @@ function SuccessFullScreen({
 
   return (
     <div className="fixed inset-0 bg-black/80 bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-[10px] px-8 py-10 max-w-md w-full text-center relative shadow-lg">
+      <div className="bg-white rounded-[8px] px-4 py-10 max-w-md w-full text-center relative">
         <div className="flex justify-center mb-6">
           <div className="w-16 h-16 bg-[#4AB04A] rounded-full flex items-center justify-center">
-            <IconComponent className="w-8 h-8 text-white" />
+            <IconComponent className="w-12 h-12 text-white" />
           </div>
         </div>
 

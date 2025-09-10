@@ -13,10 +13,9 @@ function LocationsView() {
   const [expandedLocation, setExpandedLocation] = useState(null); // Only one location can be expanded
   const [serviceTabs, setServiceTabs] = useState({}); // { [locKey]: selectedServiceName }
   const [selectedTrainer, setSelectedTrainer] = useState({}); // { [locKey_service]: trainerIdx }
+  const [currentCarouselIndex, setCurrentCarouselIndex] = useState({}); // { [locKey_service]: currentIndex }
 
   const locationsData = getDataByCategory("LOCATIONS")?.data || [];
-
-  console.log(locationsData)
 
   const handleToggle = (locKey) => {
     // Accordion behavior: if clicking the same location, close it; if clicking different location, close previous and open new one
@@ -24,6 +23,7 @@ function LocationsView() {
 
     // Reset trainer selection when changing locations
     setSelectedTrainer({});
+    setCurrentCarouselIndex({});
   };
 
   const handleServiceSelect = (locKey, serviceName) => {
@@ -32,6 +32,10 @@ function LocationsView() {
       ...prev,
       [`${locKey}_${serviceName}`]: null,
     })); // reset trainer selection on tab change
+    setCurrentCarouselIndex((prev) => ({
+      ...prev,
+      [`${locKey}_${serviceName}`]: 0,
+    })); // reset carousel index on tab change
   };
 
   // Helper function to transform trainer data for display
@@ -47,6 +51,22 @@ function LocationsView() {
     };
   };
 
+  // Helper function to get available services (services with trainers)
+  const getAvailableServices = (location) => {
+    if (!location.services) return [];
+
+    return location.services.filter((service) => {
+      if (service.name === "All") return true; // Always show "All" service
+
+      const serviceId = service.id;
+      const trainersForService = getTrainersForLocationService(
+        location.id,
+        serviceId
+      );
+      return trainersForService.length > 0;
+    });
+  };
+
   return (
     <div className="w-full bg-white pt-4 md:pt-6 pb-8 md:pb-16">
       {/* Location List */}
@@ -54,7 +74,22 @@ function LocationsView() {
         {locationsData.map((loc, index) => {
           const locKey = `${loc.city} ${loc.branch}`;
           const isOpen = expandedLocation === locKey;
-          const selectedService = serviceTabs[locKey] || "All";
+          const availableServices = getAvailableServices(loc);
+
+          // Ensure selected service is available, default to "All" if not
+          let selectedService = serviceTabs[locKey] || "All";
+          if (
+            !availableServices.find(
+              (service) => service.name === selectedService
+            )
+          ) {
+            selectedService = "All";
+            // Update the service tabs state to reflect this change
+            if (serviceTabs[locKey] !== "All") {
+              setServiceTabs((prev) => ({ ...prev, [locKey]: "All" }));
+            }
+          }
+
           // Get trainers for this location and service
           const serviceId =
             loc.services.find((s) => s.name === selectedService)?.id || "";
@@ -70,6 +105,7 @@ function LocationsView() {
 
           const trainerKey = `${locKey}_${selectedService}`;
           const selectedIdx = selectedTrainer[trainerKey];
+          const currentCarouselIdx = currentCarouselIndex[trainerKey] || 0;
 
           return (
             <div key={locKey} className="overflow-hidden">
@@ -118,62 +154,60 @@ function LocationsView() {
                   {/* Mobile: Horizontal Scrollable Services */}
                   <div className="md:hidden py-6">
                     <div className="flex gap-3 overflow-x-auto scrollbar-hide py-2">
-                      {loc.services &&
-                        loc.services.map((service) => (
-                          <button
-                            key={service.name}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleServiceSelect(locKey, service.name);
-                            }}
-                            className={`
-                              flex items-center justify-center gap-2 flex-shrink-0  px-4 h-[48px] rounded-[6px] text-[16px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform 
-                              ${
-                                selectedService === service.name
-                                  ? "bg-[#000] text-white shadow-lg"
-                                  : "bg-[#fff] border border-[#CCCCCC] hover:bg-green-50 hover:border-green-300"
-                              }
-                            `}
-                          >
-                            <img
-                              src={service.icon}
-                              alt={service.name}
-                              className="w-5 h-5 transition-transform duration-300"
-                            />
-                            {service.name}
-                          </button>
-                        ))}
+                      {getAvailableServices(loc).map((service) => (
+                        <button
+                          key={service.name}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleServiceSelect(locKey, service.name);
+                          }}
+                          className={`
+                            flex items-center justify-center gap-2 flex-shrink-0  px-4 h-[48px] rounded-[6px] text-[16px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform 
+                            ${
+                              selectedService === service.name
+                                ? "bg-[#000] text-white shadow-lg"
+                                : "bg-[#fff] border border-[#CCCCCC] hover:bg-green-50 hover:border-green-300"
+                            }
+                          `}
+                        >
+                          <img
+                            src={service.icon}
+                            alt={service.name}
+                            className="w-5 h-5 transition-transform duration-300"
+                          />
+                          {service.name}
+                        </button>
+                      ))}
                     </div>
                   </div>
 
                   {/* Desktop: Flex Wrap Services */}
                   <div className="hidden md:block">
-                    <div className="flex flex-wrap justify-center gap-3 py-10">
-                      {loc.services &&
-                        loc.services.map((service) => (
-                          <button
-                            key={service.name}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleServiceSelect(locKey, service.name);
-                            }}
-                            className={`
-                              flex items-center justify-center gap-2 w-[294px] h-[52px] rounded-[6px] text-[18px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform
-                              ${
-                                selectedService === service.name
-                                  ? "bg-[#000] text-white shadow-lg"
-                                  : "bg-[#fff] border border-[#CCCCCC] hover:bg-green-50 hover:border-green-300"
-                              }
-                            `}
-                          >
-                            <img
-                              src={service.icon}
-                              alt={service.name}
-                              className="w-6 h-6 transition-transform duration-300"
-                            />
-                            {service.name}
-                          </button>
-                        ))}
+                    <div className="flex flex-wrap   gap-3 py-10">
+                      {getAvailableServices(loc).map((service) => (
+                        <button
+                          key={service.name}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleServiceSelect(locKey, service.name);
+                          }}
+                          className={`
+                            flex items-center justify-center gap-2 w-[294px] h-[52px] rounded-[6px] text-[18px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform
+                            ${
+                              selectedService === service.name
+                                ? "bg-[#000] text-white shadow-lg"
+                                : "bg-[#fff] border border-[#CCCCCC] hover:bg-green-50 hover:border-green-300"
+                            }
+                          `}
+                        >
+                          <img
+                            src={service.icon}
+                            alt={service.name}
+                            className="w-6 h-6 transition-transform duration-300"
+                          />
+                          {service.name}
+                        </button>
+                      ))}
                     </div>
                   </div>
 
@@ -185,6 +219,18 @@ function LocationsView() {
                           isCarousel={true}
                           trainers={transformedTrainers}
                           selectedTrainer={selectedIdx}
+                          currentIndex={currentCarouselIdx}
+                          onCarouselNavigate={(newIndex) => {
+                            setCurrentCarouselIndex((prev) => ({
+                              ...prev,
+                              [trainerKey]: newIndex,
+                            }));
+                            // Close details when navigating carousel
+                            setSelectedTrainer((prev) => ({
+                              ...prev,
+                              [trainerKey]: null,
+                            }));
+                          }}
                           onTrainerSelect={(index) => {
                             if (selectedIdx === index) {
                               setSelectedTrainer((prev) => ({
@@ -273,13 +319,15 @@ function LocationsView() {
                       </div>
 
                       {/* Trainer Details for Mobile */}
-                      {selectedIdx !== null && selectedIdx !== undefined && (
-                        <div className="md:hidden w-full bg-[#F6F6F6] px-4 py-6 transition-all duration-300 ease-in-out">
-                          <TrainerDetails
-                            trainer={transformedTrainers[selectedIdx]}
-                          />
-                        </div>
-                      )}
+                      {selectedIdx !== null &&
+                        selectedIdx !== undefined &&
+                        transformedTrainers[selectedIdx] && (
+                          <div className="md:hidden w-full bg-[#F6F6F6] px-4 py-6 transition-all duration-300 ease-in-out">
+                            <TrainerDetails
+                              trainer={transformedTrainers[selectedIdx]}
+                            />
+                          </div>
+                        )}
                     </>
                   )}
                   {transformedTrainers && transformedTrainers.length === 0 && (

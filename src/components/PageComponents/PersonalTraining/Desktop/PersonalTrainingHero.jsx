@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 function PersonalTrainingHero() {
   return (
     <div className="relative personalTrainingHeroSection">
-      {/* <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/40" /> */}
+      {/* <div className="absolute inset-y-0 left-0 w-[100%] md:w-[70%] z-0 bg-gradient-to-r md:bg-gradient-to-r from-black/60 via-black/60 to-transparent " /> */}
+      <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/50" />
       <div className="max-w-[1280px] px-4 md:px-8 pb-[60px] md:pb-[80px] mx-auto w-full h-full">
         <div className="relative z-2 flex flex-col items-start justify-end h-full pt-16 md:pt-0">
           <h1 className="text-[#FFFFFF] uppercase max-w-[707px] leading-[50px] md:leading-[56px] mb-5 font-bold">
@@ -14,16 +15,17 @@ function PersonalTrainingHero() {
             One-on-one coaching for unparalleled focus and results.
           </h3>
           <div className="flex gap-3 mb-5">
-
-           <Link to="https://subscription.evolvestrength.ca/">
-            <button className="btnPrimary">Join Now</button>
+            <Link to="/explore?category=trainers">
+              <button className="btnPrimary">Explore trainers</button>
             </Link>
-            <Link to="/explore">
-          <button className="btnSecondary"> Explore Trainer</button>
-          </Link>
+            <Link to="/match-me-with-a-trainer">
+              <button className="btnSecondary">match me with a trainer</button>
+            </Link>
           </div>
-                    <Link to = "https://subscription.evolvestrength.ca/">
-          <button className="description underline !font-[Kanit] text-[#FFFFFF]  font-bold hover:cursor-pointer ">Join now for a free assessment with a certified trainer. Personal training is available for an additional fee.</button>
+          <Link to="https://subscription.evolvestrength.ca/">
+            <button className="description underline leading-[18px] !font-[Kanit] text-[#FFFFFF]  font-bold hover:cursor-pointer ">
+              Personal training is available for an additional fee.
+            </button>
           </Link>
         </div>
       </div>

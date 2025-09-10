@@ -1,7 +1,6 @@
 import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { professionalServices } from "../../../../constants/professionalServicesImages.js";
 
@@ -40,12 +39,26 @@ const WhoOurSpacesFor = () => {
       }
     }
   }, [emblaApi]);
+  
+    const handleScroll = () => {
+    const element = document.querySelector("#available-offices");
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - 0;
 
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <section className="py-12">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col items-start gap-8">
         <div className="flex flex-col gap-4">
-          <h2 className="text-[#000] uppercase">Who Our Spaces Are For</h2>
+          <h2 className="text-[#000] uppercase">
+            Spaces Built for Wellness Professionals
+          </h2>
           <h4 className="text-[#000] md:w-[719px] leading-[26px] font-[400]">
             Whether you're launching your first office or expanding to a new
             location, our spaces are <br className="hidden md:block" /> designed
@@ -63,13 +76,20 @@ const WhoOurSpacesFor = () => {
               {professionalServices.map((pro, idx) => (
                 <div
                   key={idx}
-                  className=" pl-0.5 md:pl-2.5 w-fit md:basis-1/4 flex-shrink-0"
+                  className="pl-0.5 md:pl-2.5 w-fit basis-full md:basis-1/4 flex-shrink-0"
                 >
                   <div className="flex relative rounded-lg overflow-hidden">
+                    {/* Desktop Image */}
                     <img
-                      src={pro.image}
+                      src={pro.images.desktopImage}
                       alt={pro.title}
-                      className="w-full h-[380px] object-cover"
+                      className="w-full h-[380px] object-cover hidden md:block"
+                    />
+                    {/* Mobile Image */}
+                    <img
+                      src={pro.images.mobileImage}
+                      alt={pro.title}
+                      className="w-full h-[380px] object-cover block md:hidden"
                     />
                     <h3 className="absolute bottom-[40px] left-0 right-0 flex items-center justify-center text-[#FFF] leading-[24px] font-[500]">
                       {pro.title}
@@ -80,27 +100,25 @@ const WhoOurSpacesFor = () => {
             </div>
           </div>
 
-          <div className="absolute -top-1/7 -translate-y-1/2 left-[86%] z-10 max-md:hidden">
+          <div className="absolute -top-1/7 -translate-y-1/2 left-[92%] z-10 max-md:hidden">
             <button
               onClick={scrollPrev}
-              className="bg-[#ffffff] p-2 cursor-pointer rounded-full border border-[#000000] text-[#000000] hover:bg-gray-100 transition-colors"
+              className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
             >
               <ArrowLeft className="w-6 h-6" />
             </button>
           </div>
-          <div className="absolute -top-1/7 -translate-y-1/2 right-[6%] z-10 max-md:hidden">
+          <div className="absolute -top-1/7 -translate-y-1/2 right-[0.5%] z-10 max-md:hidden">
             <button
               onClick={scrollNext}
-              className="bg-[#ffffff] p-2 cursor-pointer rounded-full border border-[#000000] text-[#000000] hover:bg-gray-100 transition-colors"
+              className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
             >
               <ArrowRight className="w-6 h-6" />
             </button>
           </div>
         </div>
 
-        <Link to="/join-the-wait-list">
-          <button className="btnPrimary">Apply Now</button>
-        </Link>
+          <button className="btnPrimary" onClick={handleScroll}>See Available Spaces</button>
       </div>
     </section>
   );

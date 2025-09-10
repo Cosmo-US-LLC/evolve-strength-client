@@ -3,20 +3,38 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import strength from "@/assets/images/AboutUs/AboutUs_Trainers/Strenght_Training.webp";
-import Cardio from "@/assets/images/AboutUs/AboutUs_Trainers/Cardio.webp";
-import Body from "@/assets/images/AboutUs/AboutUs_Trainers/Weight_Training.webp";
-import Turf from "@/assets/images/AboutUs/AboutUs_Trainers/Turf_Workout.webp";
-import Olympic from "@/assets/images/AboutUs/AboutUs_Trainers/Olympic_Lifting.webp";
-import Yoga from "@/assets/images/AboutUs/AboutUs_Trainers/Yoga.webp";
 
 const professionals = [
-  { title: "Strength Training", image: strength },
-  { title: "Body Weight Training", image: Body },
-  { title: "Cardio", image: Cardio },
-  { title: "Turf Workout", image: Turf },
-  { title: "Olympic Lifting", image: Olympic },
-  { title: "Yoga", image: Yoga },
+  {
+    title: "Strength Training",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Strenght_Training.webp",
+  },
+  {
+    title: "Body Weight Training",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Weight_Training.webp",
+  },
+  {
+    title: "Cardio",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Cardio.webp",
+  },
+  {
+    title: "Turf Workout",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Turf_Workout.webp",
+  },
+  {
+    title: "Olympic Lifting",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Olympic_Lifting.webp",
+  },
+  {
+    title: "Yoga",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Yoga.webp",
+  },
 ];
 
 const AboutUsTrainers = () => {
@@ -62,9 +80,16 @@ const AboutUsTrainers = () => {
             experienced in helping people set clear goals, stay consistent, and
             see real results.
           </h4>
-          <Link to="/explore">
-            <button className="btnPrimary">FIND A TRAINER</button>
-          </Link>
+          <div className="flex flex-row gap-4">
+            <Link to="/explore?category=trainers">
+              <button className="btnPrimary">FIND A TRAINER</button>
+            </Link>
+            <Link to="/join-as-trainer">
+              <button className="btnSecondary !bg-[#000] !border-[#fff] !border-2 !text-[#fff] hover:!border-[#000] hover:!bg-[#fff] hover:!text-[#000]">
+                BECOME A TRAINER
+              </button>
+            </Link>
+          </div>
         </div>
         <div className="relative w-full">
           <div className="overflow-hidden" ref={emblaRef}>

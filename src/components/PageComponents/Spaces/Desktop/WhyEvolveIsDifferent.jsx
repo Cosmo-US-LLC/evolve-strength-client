@@ -1,8 +1,5 @@
 import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import img1 from "@/assets/images/spaces/WhyEvolveIsDifferent/slide1.webp";
-import img2 from "@/assets/images/spaces/WhyEvolveIsDifferent/slide2.webp";
-import img3 from "@/assets/images/spaces/WhyEvolveIsDifferent/slide3.webp";
 import {
   Carousel,
   CarouselContent,
@@ -15,22 +12,25 @@ const cardData = [
     number: "01",
     title: "Worry-Free Entrepreneurship",
     description:
-      "We can grow your business without the usual drain. You don't need to hire front desk staff or cleaners. We handle operations, you serve customers, and all the facility details. You just show up and work with your clients.",
-    image: img1,
+      "Start or grow your business without the usual stress. You don’t need to hire front desk staff or cleaners. We handle shared areas, gym maintenance, and all the facility details. You just show up and work with your clients.",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/WhyEvolveIsDifferent/Worry-Free.webp",
   },
   {
     number: "02",
     title: "All-Inclusive Rent",
     description:
       "No surprise bills: one flat monthly payment covers utilities, gym access, shared amenities, and more. You won't have to manage multiple service vendors.",
-    image: img2,
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/WhyEvolveIsDifferent/All-Inclusive.webp",
   },
   {
     number: "03",
     title: "Built-In Community",
     description:
       "Be part of a trusted network of wellness professionals. That makes it easy to connect, refer clients, and grow together. We don't charge finder's fees or take a cut of your earnings.",
-    image: img3,
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/WhyEvolveIsDifferent/slide3.webp",
   },
 ];
 
@@ -39,10 +39,13 @@ function clamp(val, min, max) {
 }
 
 function WhyEvolveIsDifferent() {
-  const containerRef = useRef(null);
   const [scrollY, setScrollY] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [api, setApi] = useState(null);
+  const containerRef = useRef(null);
+  const [cardTransforms, setCardTransforms] = useState(
+    cardData.map(() => ({ transform: "", opacity: 1 }))
+  );
 
   useEffect(() => {
     if (!api) return;
@@ -78,32 +81,155 @@ function WhyEvolveIsDifferent() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const newTransforms = cardData.map((_, index) => {
+        const cardElement = document.getElementById(`diff-card-${index}`);
+        if (!cardElement) return { transform: "", opacity: 1 };
+
+        if (index === cardData.length - 1) {
+          return { transform: "", opacity: 1 };
+        }
+
+        const nextCardElement = document.getElementById(
+          `diff-card-${index + 1}`
+        );
+        if (nextCardElement) {
+          const nextRect = nextCardElement.getBoundingClientRect();
+          const viewportHeight = window.innerHeight;
+          const nextCardTop = nextRect.top;
+          const nextCardHeight = nextRect.height;
+
+          const nextCardVisibleHeight = Math.max(
+            0,
+            viewportHeight - nextCardTop
+          );
+          const nextCardVisibilityPercent =
+            (nextCardVisibleHeight / nextCardHeight) * 100;
+
+          if (nextCardVisibilityPercent > 0) {
+            const progressValue = Math.min(1, nextCardVisibilityPercent / 100);
+
+            const translateY = -progressValue * 24.1352;
+
+            const threshold = window.innerWidth < 768 ? 80 : 50;
+
+            const opacity =
+              nextCardVisibilityPercent < threshold
+                ? 1
+                : Math.max(
+                    0,
+                    1 -
+                      (nextCardVisibilityPercent - threshold) /
+                        (100 - threshold)
+                  );
+
+            return {
+              transform: `translate3d(0px, ${translateY}px, 0px)`,
+              opacity,
+            };
+          }
+        }
+        return { transform: "", opacity: 1 };
+      });
+
+      setCardTransforms(newTransforms);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const vh = window.innerHeight;
   const totalHeight = cardData.length * vh;
   const peekPercent = 0.1; // 10% of viewport height
   const peekOffset = vh * peekPercent; // e.g., 10vh
 
   // Define custom top offsets for each card
-  const topOffsets = ["6rem", "8rem", "10rem"];
+  const topOffsets = ["9rem", "12rem", "12rem"];
 
   return (
     <div>
       <div
         ref={containerRef}
-        className="w-full md:py-[54px] max-md:pt-0 max-md:pb-[48px] max-md:hidden"
+        className="w-full flex items-center md:py-[54px] max-md:pt-0 max-md:pb-[48px] max-md:hidden"
       >
-        <div className="w-full max-w-[1280px] md:px-8 max-md:px-[16px] mx-auto">
-          <div className="flex justify-center mb-[32px]">
-            <h2 className="max-w-[707px] text-center text-[#000000] font-[700] leading-[39px] uppercase">
+        <div className="w-full max-w-[1280px] md:px-8 md:pt-4 max-md:px-[16px] mx-auto">
+          {/* Heading fixed at top of section */}
+
+        
+          {/* Cards with gap */}
+          <div className="w-full space-y-[40px] relative mt-8 ">
+            {cardData.map((card, i) => {
+              const topOffset =
+                topOffsets[i] || topOffsets[topOffsets.length - 1];
+              return (
+                <>
+               {i === 0 && (
+                   <div className="sticky top-[5rem] z-[-50] py-4 ">
+            <h2 className="max-w-[707px] mx-auto text-center text-[#000000] font-[700] leading-[39px] uppercase">
               Why Evolve Is Different
             </h2>
           </div>
-
-          {/* Cards Container */}
+        )}
+                <div
+                  key={i}
+                  style={{
+                    position: "sticky",
+                    top: topOffset,
+                    height: `400px`,
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    zIndex: 10 + i,
+                    pointerEvents: "auto",
+                  }}
+                >
+                  
+                  <div className="rounded-[10px] flex justify-between w-full p-8 relative h-full border-[#CCCCCC] border bg-[#fff] shadow-[0_-4px_10px_rgba(0,0,0,0.1)]">
+                    <div className="relative z-[9] max-w-[520px] flex flex-col gap-4 justify-center">
+                      <h2 className="text-[#4AB04A] !font-[500] !font-[kanit] leading-[39px] tracking-[-1.2px]">
+                        {card.number}
+                      </h2>
+                      <h3 className="text-[#000] !font-[kanit] !font-[500] leading-[24px] tracking-[-0.72px]">
+                        {card.title}
+                      </h3>
+                      <h4 className="text-[#000] font-[kanit] font-[400] leading-[24px]">
+                        {card.description}
+                      </h4>
+                    </div>
+                    <div>
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className="w-full h-full object-cover rounded-bl-[10px]"
+                      />
+                    </div>
+                  </div>
+                </div>
+                </>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+      {/* <div
+        ref={containerRef}
+        className="w-full md:py-[54px]   max-md:pt-0 max-md:pb-[48px] max-md:hidden"
+      >
+        
+        <div className="w-full max-w-[1280px] md:px-8 md:pt-4 max-md:px-[16px] mx-auto">
+             <div className="flex justify-center mb-[32px]">
+                      <h2 className="max-w-[707px] text-center text-[#000000] font-[700] leading-[39px] uppercase">
+                        Why Evolve Is Different
+                      </h2>
+         </div>
           <div
-            style={{ position: "relative" }}
-            className="w-full space-y-[20px]"
+            style={{ position: "" }}
+            className="w-full space-y-[20px] relative"
           >
+          
             {cardData.map((card, i) => {
               // Use the custom offset for each card, fallback to last value if more cards
               const topOffset =
@@ -147,7 +273,7 @@ function WhyEvolveIsDifferent() {
             })}
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="relative block md:hidden  max-md:pb-[48px]">
         <h2 className="text-left text-[#000] font-bold uppercase  px-4 mb-6">
           Why Evolve Is Differentt

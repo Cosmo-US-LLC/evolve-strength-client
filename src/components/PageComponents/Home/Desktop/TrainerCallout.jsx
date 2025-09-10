@@ -5,10 +5,7 @@ const TrainerCallout = () => {
   return (
     <div className="w-full md:py-12 max-md:pt-0 max-md:pb-[48px] ">
       <div className="w-full max-w-[1280px] md:px-8 px-4 max-md:px-0 mx-auto ">
-        <div
-          className="trainerCallout bg-cover bg-center flex flex-col justify-between md:py-14 max-md:py-[24px] items-center text-center md:rounded-xl max-md:rounded-0 overflow-hidden shadow-lg max-md:px-[16px]"
-          // style={{ backgroundImage: `url(${trainerBg})` }}
-        >
+        <div className="trainerCallout bg-cover bg-center flex flex-col justify-between md:py-14 max-md:py-[24px] items-center text-center md:rounded-xl max-md:rounded-0 overflow-hidden shadow-lg max-md:px-[16px]">
           {/* <div className="absolute inset-0 bg-black/40 z-0" /> */}
 
           <div className="relative z-10 max-w-3xl  px-[0px] md:px-[16px] space-y-4">
@@ -40,8 +37,8 @@ const TrainerCallout = () => {
             <span className="description max-md:text-start text-[#fff]">
               Find the Right Personal Trainer for Your Goals.
             </span>
-            <Link to="/explore">
-            <button className="btnPrimary">FIND A TRAINER</button>
+            <Link to="/explore?category=trainers">
+              <button className="btnPrimary">FIND A TRAINER</button>
             </Link>
           </div>
         </div>

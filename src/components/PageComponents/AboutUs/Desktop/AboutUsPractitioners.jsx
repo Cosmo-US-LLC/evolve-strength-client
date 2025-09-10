@@ -40,7 +40,7 @@ const AboutUsPractitioners = () => {
 
   return (
     <section className="py-8 md:py-12 bg-[#EEEEEE]">
-      <div className="max-w-[1280px] mx-auto px-4   md:px-8 flex flex-col items-start gap-8">
+      <div className="max-w-[1280px] mx-auto px-4   md:px-8 flex flex-col items-start gap-16 md:gap-8">
         <div className="flex items-start flex-col gap-6">
           <h2 className="text-[#000] uppercase ">Practitioners</h2>
           <h4 className=" !max-w-[800px]">
@@ -48,9 +48,16 @@ const AboutUsPractitioners = () => {
             take care of your body and mind under one roof. We make it easy to
             access health services without having to leave your gym.
           </h4>
-          <Link to="/explore">
-            <button className="btnPrimary">FIND A wellness expert</button>
-          </Link>{" "}
+          <div className="flex flex-row gap-4">
+            <Link to="/explore?category=wellness">
+              <button className="btnPrimary">FIND A wellness expert</button>
+            </Link>{" "}
+            <Link to="/wellness">
+              <button className="btnSecondary !bg-[#000] !border-[#fff] !border-2 !text-[#fff] hover:!border-[#000] hover:!bg-[#fff] hover:!text-[#000]">
+                BECOME A PRACTITIONERS
+              </button>
+            </Link>
+          </div>
         </div>
         <div className="relative w-full">
           <div className="overflow-hidden" ref={emblaRef}>
@@ -60,10 +67,17 @@ const AboutUsPractitioners = () => {
                   key={idx}
                   className="flex-[0_0_100%] md:flex-[0_0_32.5%] relative"
                 >
+                  {/* Desktop Image */}
                   <img
-                    src={pro.image}
+                    src={pro.images.desktopImage}
                     alt={pro.title}
-                    className="w-full h-[220px] md:h-[273px] object-cover rounded-lg"
+                    className="w-full h-[220px] md:h-[273px] object-cover rounded-lg hidden md:block"
+                  />
+                  {/* Mobile Image */}
+                  <img
+                    src={pro.images.mobileImage}
+                    alt={pro.title}
+                    className="w-full h-[290px] object-cover rounded-lg block md:hidden"
                   />
                   <h3 className="flex items-center mt-4 md:mt-6 text-[#000] leading-[20px] md:leading-[24px] font-[500] text-sm md:text-base">
                     {pro.title}

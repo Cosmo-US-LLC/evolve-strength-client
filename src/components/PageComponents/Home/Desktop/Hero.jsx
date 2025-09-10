@@ -12,13 +12,14 @@ function Hero() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
           style={{
-            // width: "100%",
-            // height: "100vh",
             objectFit: "cover",
             objectPosition: "bottom",
           }}
         >
-          <source src="/videos/ExplorePages.webm" type="video/webm" />
+          <source
+            src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/ExplorePages.webm"
+            type="video/webm"
+          />
           Your browser does not support the video tag.
         </video>
 
@@ -26,13 +27,18 @@ function Hero() {
 
         <div className="max-w-[1280px] md:px-8 px-4 md:pb-[135px] max-md:pb-[24px] mx-auto w-full h-full relative z-2">
           <div className="relative z-2 flex flex-col items-start justify-end h-full">
-            <h1 className="text-[#FFFFFF] uppercase leading-[79px]">Evolve</h1>
-            <h2 className="text-[#FFFFFF] !font-[400] leading-[24px] md:mb-7 max-md:mb-[16px]">
-              More Space. More Possibilities.
-            </h2>
-            <Link to="https://join.evolvestrength.ca/tour-form/">
-            <button className="btnPrimary">BOOK A FREE TOUR</button>
-            </Link>
+            {/* <h1 className="text-[#FFFFFF] uppercase leading-[79px]">Evolve</h1> */}
+            <h1 className="text-[#FFFFFF] !text-[36px] md:!text-[70px] leading-[32px] md:leading-[59px] max-w-[740px] uppercase mb-4 md:mb-6 ">
+              The Standard <br /> of Health.
+            </h1>
+            <div className="flex gap-4">
+              <Link to="https://tour.evolvestrength.ca/tour-form ">
+                <button className="btnPrimary">BOOK A FREE TOUR</button>
+              </Link>
+              <Link to="https://subscription.evolvestrength.ca/">
+                <button className="btnSecondary">JOIN NOW</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

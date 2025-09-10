@@ -9,7 +9,7 @@ function TrainWithEvolve() {
       <div className="md:w-7 md:h-7 w-5 h-3 rounded-full bg-[#4AB04A] flex items-center justify-center">
         {/* Replace with your actual SVG/icon */}
         <div className=""></div>
-        <img src={logo} className='' />
+        <img src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/SocialMedia/TrainWithEvolve/gymnastics_logo.svg" className='' />
       </div>
 
       {/* Hashtag text */}

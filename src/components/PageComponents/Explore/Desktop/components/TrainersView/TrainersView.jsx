@@ -1,25 +1,65 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import {
   getAllTrainers,
   getAllLocations,
-  getToday,
+  getAllAreasOfFocus,
 } from "../../../../../../constants/exploreDataWithTrainer";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
-import { ArrowUpCircle, Check, ChevronDown } from "lucide-react";
+import {
+  ArrowUpCircle,
+  Check,
+  ChevronDown,
+  X,
+  ArrowUpRight,
+} from "lucide-react";
 
 function TrainersView() {
   const [selectedTab, setSelectedTab] = useState("All");
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
+  const [showAreasDropdown, setShowAreasDropdown] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState("");
+  const [selectedAreasOfFocus, setSelectedAreasOfFocus] = useState([]);
   const [selectedTrainerIdx, setSelectedTrainerIdx] = useState(null);
+  const [carouselCurrentIndex, setCarouselCurrentIndex] = useState(0);
+
+  // Refs for dropdown containers
+  const locationDropdownRef = useRef(null);
+  const areasDropdownRef = useRef(null);
 
   const allTrainers = getAllTrainers();
   const allLocations = getAllLocations();
+  const allAreasOfFocus = getAllAreasOfFocus();
 
   useEffect(() => {
+    console.log("Filters changed, resetting trainer selection");
     setSelectedTrainerIdx(null);
-  }, [selectedTab, selectedLocation]);
+    setCarouselCurrentIndex(0);
+  }, [selectedTab, selectedLocation, selectedAreasOfFocus]);
+
+  // Handle click outside dropdowns
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        locationDropdownRef.current &&
+        !locationDropdownRef.current.contains(event.target)
+      ) {
+        setShowLocationDropdown(false);
+      }
+      if (
+        areasDropdownRef.current &&
+        !areasDropdownRef.current.contains(event.target)
+      ) {
+        setShowAreasDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   // Helper function to transform trainer data for display
   const transformTrainerData = (trainer) => {
@@ -35,19 +75,31 @@ function TrainersView() {
   };
 
   let filteredTrainers = allTrainers;
-  if (selectedTab === "Alphabetical") {
-    filteredTrainers = [...allTrainers].sort((a, b) =>
-      (a.trainerName || a.name).localeCompare(b.trainerName || b.name)
-    );
-  } else if (selectedTab === "Locations" && selectedLocation) {
-    filteredTrainers = allTrainers.filter(
+
+  // Apply multiple filters simultaneously
+  if (selectedLocation) {
+    filteredTrainers = filteredTrainers.filter(
       (trainer) => trainer.location === selectedLocation
     );
-  } else if (selectedTab === "New Trainers") {
-    // Note: The trainer data doesn't have a 'joined' field, so this will show no results
-    // You may need to add this field to your trainer data or remove this filter
-    filteredTrainers = allTrainers.filter(
-      (trainer) => trainer.joined === getToday()
+  }
+
+  if (selectedAreasOfFocus.length > 0) {
+    filteredTrainers = filteredTrainers.filter(
+      (trainer) =>
+        trainer.areas_of_focus &&
+        selectedAreasOfFocus.some((selectedArea) => {
+          const trainerAreas = trainer.areas_of_focus.toLowerCase();
+          const searchArea = selectedArea.toLowerCase();
+          // Check if the area is mentioned in the trainer's areas of focus
+          return trainerAreas.includes(searchArea);
+        })
+    );
+  }
+
+  // Apply sorting if needed
+  if (selectedTab === "Alphabetical") {
+    filteredTrainers = [...filteredTrainers].sort((a, b) =>
+      (a.trainerName || a.name).localeCompare(b.trainerName || b.name)
     );
   }
 
@@ -62,105 +114,102 @@ function TrainersView() {
   }
 
   return (
-    <div className="pt-4 md:pt-6">
-      {/* Filter Tabs */}
-      {/* Mobile: Horizontal Scrollable Filters */}
-      <div className="md:hidden mb-6">
-        <div className="flex gap-1 overflow-x-auto scrollbar-hide py-2">
+    <div className="pt-4 md:pt-2">
+      {/* Match Me With Trainer Link */}
+      <div className="flex justify-center mb-6 md:mb-8">
+        <Link
+          to="/match-me-with-a-trainer"
+          className="inline-flex items-center gap-2 text-black font-bold text-base md:text-lg uppercase tracking-wide hover:text-gray-700 transition-colors duration-200 underline decoration-1 underline-offset-2"
+        >
+          MATCH ME WITH A TRAINER
+          <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
+        </Link>
+      </div>
+
+      {/* Responsive Filter Tabs */}
+      <div className="mb-6">
+        {/* Filter Buttons - Single Row Layout */}
+        <div className="flex flex-row gap-1 md:gap-3 py-2 overflow-y-visible">
+          {/* All Button - Compact on mobile */}
           <button
-            className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-3 py-2 font-[300] leading-[20px] capitalize text-[16px] cursor-pointer outline-none transition-all duration-200 flex-shrink-0 ${
-              selectedTab === "All"
+            className={` border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-3 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[14px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
+              selectedTab === "All" &&
+              !selectedLocation &&
+              selectedAreasOfFocus.length === 0
                 ? "bg-[#000] text-[#FFF]"
                 : "bg-[#fff] text-[#000] hover:bg-gray-50"
             }`}
             onClick={() => {
               setSelectedTab("All");
               setSelectedLocation("");
+              setSelectedAreasOfFocus([]);
             }}
           >
             All
           </button>
-          <button
-            className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-2 py-2 font-[300] leading-[20px] capitalize text-[16px] cursor-pointer outline-none transition-all duration-200 flex-shrink-0 ${
+          {/* <button
+            className={`max-w-full border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-2 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[16px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
               selectedTab === "Alphabetical"
                 ? "bg-[#000] text-[#FFF]"
                 : "bg-[#fff] text-[#000] hover:bg-gray-50"
             }`}
             onClick={() => {
               setSelectedTab("Alphabetical");
-              setSelectedLocation("");
             }}
           >
             Alphabetical (A-Z)
-          </button>
-          <div className="relative flex-shrink-0">
+          </button> */}
+          <div className="relative " ref={locationDropdownRef}>
             <button
-              className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-2 py-2 font-[300] leading-[20px] capitalize text-[16px] cursor-pointer outline-none transition-all duration-200 ${
-                selectedTab === "Locations"
+              className={`w-full border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-3 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[14px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
+                selectedLocation
                   ? "bg-[#000] text-[#FFF]"
                   : "bg-[#fff] text-[#000] hover:bg-gray-50"
               }`}
               onClick={() => {
-                setSelectedTab("Locations");
                 setShowLocationDropdown((v) => !v);
               }}
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 md:gap-2">
                 <span>Locations</span>
                 <ChevronDown
-                  className={`pt-1 text-gray-400 transition-transform duration-200 w-4 h-4 ${
+                  className={`pt-1 text-gray-400 transition-transform duration-200 w-5 h-5 md:w-5 md:h-5 ${
                     showLocationDropdown ? "rotate-180" : "rotate-0"
                   }`}
                 />
               </div>
             </button>
-            {selectedTab === "Locations" && showLocationDropdown && (
-              <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[220px]">
+            {showLocationDropdown && (
+              <div className="absolute top-full left-0 mt-2 bg-white rounded-lg border border-gray-200 shadow-lg z-50 min-w-[250px] w-max">
                 <div
-                  className="flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
+                  className={`px-4 py-3 cursor-pointer first:rounded-t-lg border-b border-gray-100 ${
+                    !selectedLocation
+                      ? "bg-[#4AB04A] text-white"
+                      : "hover:bg-gray-50 text-black"
+                  }`}
                   onClick={() => {
                     setSelectedLocation("");
                     setShowLocationDropdown(false);
                   }}
                 >
-                  <div
-                    className={`w-3 h-3 border-2 rounded flex items-center justify-center ${
-                      !selectedLocation
-                        ? "bg-[#4AB04A] border-[#4AB04A]"
-                        : "border-[#CCCCCC]"
-                    }`}
-                  >
-                    {!selectedLocation && (
-                      <Check className="w-2 h-2 text-white" />
-                    )}
-                  </div>
-                  <span className="text-black font-medium text-sm">
-                    All Locations
-                  </span>
+                  <span className="text-base font-medium">All Locations</span>
                 </div>
 
                 {/* Individual Location Options */}
                 {allLocations.map((location, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
+                    className={`px-4 py-3 cursor-pointer last:rounded-b-lg ${
+                      selectedLocation === location.name
+                        ? "bg-[#4AB04A] text-white"
+                        : "hover:bg-gray-50 text-black"
+                    }`}
                     onClick={() => {
                       setSelectedLocation(location.name);
                       setShowLocationDropdown(false);
                     }}
                   >
-                    <div
-                      className={`w-3 h-3 border-2 rounded flex items-center justify-center ${
-                        selectedLocation === location.name
-                          ? "bg-[#4AB04A] border-[#4AB04A]"
-                          : "border-[#CCCCCC]"
-                      }`}
-                    >
-                      {selectedLocation === location.name && (
-                        <Check className="w-2 h-2 text-white" />
-                      )}
-                    </div>
-                    <span className="text-[16px] font-[Kanit] font-[300] leading-[20px] capitalize">
+                    <span className="text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
                       {location.name}
                     </span>
                   </div>
@@ -168,138 +217,125 @@ function TrainersView() {
               </div>
             )}
           </div>
-          <button
-            className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-2 py-2 font-[300] leading-[20px] capitalize text-[16px] cursor-pointer outline-none transition-all duration-200 flex-shrink-0 ${
-              selectedTab === "New Trainers"
-                ? "bg-[#000] text-[#FFF]"
-                : "bg-[#fff] text-[#000] hover:bg-gray-50"
-            }`}
-            onClick={() => {
-              setSelectedTab("New Trainers");
-              setSelectedLocation("");
-            }}
-          >
-            New Trainers
-          </button>
-        </div>
-      </div>
 
-      {/* Desktop: Flex Wrap Filters */}
-      <div className="hidden md:flex items-center mb-10">
-        <button
-          className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-7 py-3 font-[300] leading-[20px] capitalize text-[18px] cursor-pointer mr-3 outline-none transition-all duration-200 ${
-            selectedTab === "All"
-              ? "bg-[#000] text-[#FFF]"
-              : "bg-[#fff] text-[#000] hover:bg-gray-50"
-          }`}
-          onClick={() => {
-            setSelectedTab("All");
-            setSelectedLocation("");
-          }}
-        >
-          All
-        </button>
-        <button
-          className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-7 py-3 font-[300] leading-[20px] capitalize text-[18px] cursor-pointer mr-3 outline-none transition-all duration-200  ${
-            selectedTab === "Alphabetical"
-              ? "bg-[#000] text-[#FFF]"
-              : "bg-[#fff] text-[#000] hover:bg-gray-50"
-          }`}
-          onClick={() => {
-            setSelectedTab("Alphabetical");
-            setSelectedLocation("");
-          }}
-        >
-          Alphabetical (A-Z)
-        </button>
-        <div className="relative">
-          <button
-            className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-7 py-3 font-[300] leading-[20px] capitalize text-[18px] cursor-pointer mr-3 outline-none transition-all duration-200  ${
-              selectedTab === "Locations"
-                ? "bg-[#000] text-[#FFF]"
-                : "bg-[#fff] text-[#000] hover:bg-gray-50"
-            }`}
-            onClick={() => {
-              setSelectedTab("Locations");
-              setShowLocationDropdown((v) => !v);
-            }}
-          >
-            <div className="flex items-center gap-2">
-              <span>Locations</span>
-              <ChevronDown
-                className={`pt-1 text-gray-400 transition-transform duration-200 w-5 h-5 ${
-                  showLocationDropdown ? "rotate-180" : "rotate-0"
-                }`}
-              />
-            </div>
-          </button>
-          {selectedTab === "Locations" && showLocationDropdown && (
-            <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[250px]">
-              <div
-                className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
-                onClick={() => {
-                  setSelectedLocation("");
-                  setShowLocationDropdown(false);
-                }}
-              >
-                <div
-                  className={`w-4 h-4 border-2 rounded flex items-center justify-center ${
-                    !selectedLocation
-                      ? "bg-[#4AB04A] border-[#4AB04A]"
-                      : "border-[#CCCCCC]"
+          <div className="relative" ref={areasDropdownRef}>
+            <button
+              className={`w-full border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-2 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[14px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
+                selectedAreasOfFocus.length > 0
+                  ? "bg-[#000] text-[#FFF]"
+                  : "bg-[#fff] text-[#000] hover:bg-gray-50"
+              }`}
+              onClick={() => {
+                setShowAreasDropdown((v) => !v);
+              }}
+            >
+              <div className="flex items-center gap-1 md:gap-2">
+                <span>Areas of Focus</span>
+                <ChevronDown
+                  className={`pt-1 text-gray-400 transition-transform duration-200 w-5 h-5 md:w-5 md:h-5 ${
+                    showAreasDropdown ? "rotate-180" : "rotate-0"
                   }`}
-                >
-                  {!selectedLocation && (
-                    <Check className="w-3 h-3 text-white" />
-                  )}
-                </div>
-                <span className="text-black font-medium text-base">
-                  All Locations
-                </span>
+                />
               </div>
-
-              {/* Individual Location Options */}
-              {allLocations.map((location, idx) => (
+            </button>
+            {showAreasDropdown && (
+              <div className="absolute top-full left-0 mt-2 bg-white rounded-lg border border-gray-200 shadow-lg z-50 max-w-[230px] md:max-w-[320px] w-max h-[300px] overflow-y-scroll scrollbar-hide">
                 <div
-                  key={idx}
-                  className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
+                  className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
                   onClick={() => {
-                    setSelectedLocation(location.name);
-                    setShowLocationDropdown(false);
+                    setSelectedAreasOfFocus([]);
+                    setShowAreasDropdown(false);
                   }}
                 >
                   <div
                     className={`w-4 h-4 border-2 rounded flex items-center justify-center ${
-                      selectedLocation === location.name
+                      selectedAreasOfFocus.length === 0
                         ? "bg-[#4AB04A] border-[#4AB04A]"
                         : "border-[#CCCCCC]"
                     }`}
                   >
-                    {selectedLocation === location.name && (
+                    {selectedAreasOfFocus.length === 0 && (
                       <Check className="w-3 h-3 text-white" />
                     )}
                   </div>
-                  <span className="text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                    {location.name}
+                  <span className="text-black font-medium text-base">
+                    All Areas
                   </span>
                 </div>
-              ))}
+
+                {/* Individual Areas of Focus Options */}
+                {allAreasOfFocus.map((area, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
+                    onClick={() => {
+                      if (selectedAreasOfFocus.includes(area.name)) {
+                        setSelectedAreasOfFocus(
+                          selectedAreasOfFocus.filter((a) => a !== area.name)
+                        );
+                      } else {
+                        setSelectedAreasOfFocus([
+                          ...selectedAreasOfFocus,
+                          area.name,
+                        ]);
+                      }
+                    }}
+                  >
+                    <div
+                      className={`w-4 h-4 border-2 rounded flex items-center justify-center ${
+                        selectedAreasOfFocus.includes(area.name)
+                          ? "bg-[#4AB04A] border-[#4AB04A]"
+                          : "border-[#CCCCCC]"
+                      }`}
+                    >
+                      {selectedAreasOfFocus.includes(area.name) && (
+                        <Check className="w-3 h-3 text-white" />
+                      )}
+                    </div>
+                    <span className="text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
+                      {area.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Selected Filters Display - Responsive */}
+      <div className="mb-4 md:mb-6">
+        <div className="flex flex-wrap gap-2 md:gap-3">
+          {selectedLocation && (
+            <div className="flex items-center gap-2 bg-[#4AB04A] text-white px-3 md:px-4 py-1 md:py-2 rounded-full text-sm md:text-base">
+              <span className="font-[kanit]">{selectedLocation}</span>
+              <button
+                onClick={() => setSelectedLocation("")}
+                className="cursor-pointer rounded-full p-1"
+              >
+                <X className="w-3 h-3 md:w-4 md:h-4" />
+              </button>
             </div>
           )}
+          {selectedAreasOfFocus.map((area, index) => (
+            <div
+              key={index}
+              className="flex items-center gap-2 bg-[#fff] md:bg-[#fff] text-[#000] md:text-[#000] border-2 md:border-2 border-[#000] px-3 md:px-4 py-1 md:py-2 rounded-full text-sm md:text-base"
+            >
+              <span className="font-[kanit]">{area}</span>
+              <button
+                onClick={() =>
+                  setSelectedAreasOfFocus(
+                    selectedAreasOfFocus.filter((_, i) => i !== index)
+                  )
+                }
+                className="cursor-pointer rounded-full p-1"
+              >
+                <X className="w-3 h-3 md:w-4 md:h-4" />
+              </button>
+            </div>
+          ))}
         </div>
-        <button
-          className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-7 py-3 font-[300] leading-[20px] capitalize text-[18px] cursor-pointer mr-3 outline-none transition-all duration-200 ${
-            selectedTab === "New Trainers"
-              ? "bg-[#000] text-[#FFF]"
-              : "bg-[#fff] text-[#000] hover:bg-gray-50"
-          }`}
-          onClick={() => {
-            setSelectedTab("New Trainers");
-            setSelectedLocation("");
-          }}
-        >
-          New Trainers
-        </button>
       </div>
 
       {/* Trainer Display */}
@@ -312,12 +348,29 @@ function TrainersView() {
                 isCarousel={true}
                 trainers={transformedTrainers}
                 selectedTrainer={selectedTrainerIdx}
+                currentIndex={carouselCurrentIndex}
                 onTrainerSelect={(index) => {
-                  if (selectedTrainerIdx === index) {
+                  console.log(
+                    "Trainer selected:",
+                    index,
+                    "Current selected:",
+                    selectedTrainerIdx,
+                    "Carousel position:",
+                    carouselCurrentIndex
+                  );
+                  // Always use the current carousel position for selection
+                  const targetIndex = carouselCurrentIndex;
+                  if (selectedTrainerIdx === targetIndex) {
                     setSelectedTrainerIdx(null);
                   } else {
-                    setSelectedTrainerIdx(index);
+                    setSelectedTrainerIdx(targetIndex);
                   }
+                }}
+                onCarouselNavigate={(newIndex) => {
+                  console.log("Carousel navigated to:", newIndex);
+                  setCarouselCurrentIndex(newIndex);
+                  // Close details when navigating with arrows
+                  setSelectedTrainerIdx(null);
                 }}
               />
             </div>
