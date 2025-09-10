@@ -86,7 +86,7 @@ const AboutUsTrainers = () => {
             </Link>
             <Link to="/join-as-trainer">
               <button className="btnSecondary !bg-[#000] !border-[#fff] !border-2 !text-[#fff] hover:!border-[#000] hover:!bg-[#fff] hover:!text-[#000]">
-                BECAME A TRAINER
+                BECOME A TRAINER
               </button>
             </Link>
           </div>
