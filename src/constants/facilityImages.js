@@ -142,6 +142,7 @@ export const facilityLocations = [
     label: "Downtown",
     images: {
       desktop: [
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/home/facility/downtown_9.webp.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_1.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_3.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_2.webp",
@@ -152,6 +153,7 @@ export const facilityLocations = [
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_8.webp",
       ],
       mobile: [
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/home/facility/downtown_9.webp.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_1Mob.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_2Mob.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_3Mob.webp",

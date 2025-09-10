@@ -18,7 +18,7 @@ function CorporateMembershipHero() {
               to support employee health, performance, and recovery.
             </h3>
             <h3 className="text-[#000] leading-[26px] font-[400] w-full md:w-[585px]">
-             Available in Edmonton, Calgary, Burnaby, and Vancouver.
+              Available in Edmonton, Calgary, Burnaby, and Vancouver.
             </h3>
             <Link to="/corporate-membership-wizard">
               <button className="btnPrimary">Get Started</button>
@@ -28,11 +28,11 @@ function CorporateMembershipHero() {
         <div className="flex flex-col items-center justify-center">
           <picture>
             <source
-              srcSet="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/corporateMemberHero/corporateHero.webp"
+              srcSet="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/corporateMemberHero/corporrate_hero.webp"
               media="(min-width: 768px)"
             />
             <img
-              src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/corporateMemberHero/corporateMobHero.webp"
+              src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/corporateMemberHero/corporrate_hero.webp"
               alt="Corporate Membership Hero"
             />
           </picture>

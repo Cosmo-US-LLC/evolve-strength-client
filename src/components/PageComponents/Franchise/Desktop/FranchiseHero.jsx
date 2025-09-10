@@ -70,6 +70,21 @@ function FranchiseHero() {
     setTimeout(() => setShowControls(false), 3000);
   };
 
+  // Preload a smaller, optimized thumbnail for faster loading
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href =
+      "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/franchise/EvolveFloorPlan/franchise_thumbnail_light.webp";
+    link.fetchPriority = "high";
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
+
   // Effect to handle video play when element is created
   useEffect(() => {
     if (shouldPlay && videoRef.current) {
@@ -113,12 +128,6 @@ function FranchiseHero() {
 
   return (
     <>
-      {/* Preload thumbnail image for faster loading */}
-      <link
-        rel="preload"
-        as="image"
-        href="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/franchise/EvolveFloorPlan/franchise-video-thumbnail2.webp"
-      />
       <div className="w-full pb-12 pt-[90px] md:pt-[120px]">
         <div className="w-full max-w-[1280px] px-4 md:px-8 mx-auto flex flex-col gap-8">
           <div className="flex md:flex-row flex-col gap-4 md:gap-10">
@@ -146,20 +155,23 @@ function FranchiseHero() {
                 {showThumbnail && (
                   <div className="absolute inset-0 z-20">
                     <img
-                      src="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/franchise/EvolveFloorPlan/franchise-video-thumbnail2.webp"
+                      src="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/franchise/EvolveFloorPlan/franchise_thumbnail_light.webp"
                       alt="Franchise with Evolve - Thumbnail"
                       className="w-full h-full object-cover"
+                      width="600"
+                      height="242"
                       loading="eager"
                       fetchPriority="high"
+                      decoding="async"
                       onLoad={() => setThumbnailLoaded(true)}
                       onError={() => setThumbnailLoaded(true)}
                     />
                     {/* Loading State */}
-                    {!thumbnailLoaded && (
+                    {/* {!thumbnailLoaded && (
                       <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
                         <div className="w-8 h-8 border-4 border-gray-300 border-t-[#4AB04A] rounded-full animate-spin"></div>
                       </div>
-                    )}
+                    )} */}
                     {/* Play Button Overlay on Thumbnail */}
                     <div
                       className="absolute inset-0 flex items-center justify-center bg-opacity-30 cursor-pointer transition-all duration-300 hover:bg-opacity-40"
