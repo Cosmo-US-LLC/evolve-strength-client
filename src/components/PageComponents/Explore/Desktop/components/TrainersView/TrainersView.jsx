@@ -22,6 +22,7 @@ function TrainersView() {
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedAreasOfFocus, setSelectedAreasOfFocus] = useState([]);
   const [selectedTrainerIdx, setSelectedTrainerIdx] = useState(null);
+  const [carouselCurrentIndex, setCarouselCurrentIndex] = useState(0);
 
   // Refs for dropdown containers
   const locationDropdownRef = useRef(null);
@@ -32,7 +33,9 @@ function TrainersView() {
   const allAreasOfFocus = getAllAreasOfFocus();
 
   useEffect(() => {
+    console.log("Filters changed, resetting trainer selection");
     setSelectedTrainerIdx(null);
+    setCarouselCurrentIndex(0);
   }, [selectedTab, selectedLocation, selectedAreasOfFocus]);
 
   // Handle click outside dropdowns
@@ -125,10 +128,11 @@ function TrainersView() {
 
       {/* Responsive Filter Tabs */}
       <div className="mb-6">
-        {/* Filter Buttons - Responsive Grid */}
-        <div className="grid grid-cols-2 md:flex md:items-center gap-2 md:gap-3 py-2">
+        {/* Filter Buttons - Single Row Layout */}
+        <div className="flex flex-row gap-1 md:gap-3 py-2 overflow-y-visible">
+          {/* All Button - Compact on mobile */}
           <button
-            className={`max-w-full border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-3 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[16px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
+            className={` border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-3 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[14px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
               selectedTab === "All" &&
               !selectedLocation &&
               selectedAreasOfFocus.length === 0
@@ -155,9 +159,9 @@ function TrainersView() {
           >
             Alphabetical (A-Z)
           </button> */}
-          <div className="relative" ref={locationDropdownRef}>
+          <div className="relative " ref={locationDropdownRef}>
             <button
-              className={`max-w-[240px] border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-2 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[16px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
+              className={`w-full border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-3 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[14px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
                 selectedLocation
                   ? "bg-[#000] text-[#FFF]"
                   : "bg-[#fff] text-[#000] hover:bg-gray-50"
@@ -166,17 +170,17 @@ function TrainersView() {
                 setShowLocationDropdown((v) => !v);
               }}
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 md:gap-2">
                 <span>Locations</span>
                 <ChevronDown
-                  className={`pt-1 text-gray-400 transition-transform duration-200 w-4 h-4 md:w-5 md:h-5 ${
+                  className={`pt-1 text-gray-400 transition-transform duration-200 w-5 h-5 md:w-5 md:h-5 ${
                     showLocationDropdown ? "rotate-180" : "rotate-0"
                   }`}
                 />
               </div>
             </button>
             {showLocationDropdown && (
-              <div className="absolute top-12 left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[250px]">
+              <div className="absolute top-full left-0 mt-2 bg-white rounded-lg border border-gray-200 shadow-lg z-50 min-w-[250px] w-max">
                 <div
                   className={`px-4 py-3 cursor-pointer first:rounded-t-lg border-b border-gray-100 ${
                     !selectedLocation
@@ -216,7 +220,7 @@ function TrainersView() {
 
           <div className="relative" ref={areasDropdownRef}>
             <button
-              className={`max-w-full border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-2 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[16px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
+              className={`w-full border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-2 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[14px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
                 selectedAreasOfFocus.length > 0
                   ? "bg-[#000] text-[#FFF]"
                   : "bg-[#fff] text-[#000] hover:bg-gray-50"
@@ -225,17 +229,17 @@ function TrainersView() {
                 setShowAreasDropdown((v) => !v);
               }}
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 md:gap-2">
                 <span>Areas of Focus</span>
                 <ChevronDown
-                  className={`pt-1 text-gray-400 transition-transform duration-200 w-4 h-4 md:w-5 md:h-5 ${
+                  className={`pt-1 text-gray-400 transition-transform duration-200 w-5 h-5 md:w-5 md:h-5 ${
                     showAreasDropdown ? "rotate-180" : "rotate-0"
                   }`}
                 />
               </div>
             </button>
             {showAreasDropdown && (
-              <div className="absolute top-12 -left-20 md:left-0 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[250px] h-[300px] overflow-y-auto">
+              <div className="absolute top-full left-0 mt-2 bg-white rounded-lg border border-gray-200 shadow-lg z-50 max-w-[230px] md:max-w-[320px] w-max h-[300px] overflow-y-scroll scrollbar-hide">
                 <div
                   className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-gray-50 first:rounded-t-lg border-b border-gray-100"
                   onClick={() => {
@@ -344,12 +348,29 @@ function TrainersView() {
                 isCarousel={true}
                 trainers={transformedTrainers}
                 selectedTrainer={selectedTrainerIdx}
+                currentIndex={carouselCurrentIndex}
                 onTrainerSelect={(index) => {
-                  if (selectedTrainerIdx === index) {
+                  console.log(
+                    "Trainer selected:",
+                    index,
+                    "Current selected:",
+                    selectedTrainerIdx,
+                    "Carousel position:",
+                    carouselCurrentIndex
+                  );
+                  // Always use the current carousel position for selection
+                  const targetIndex = carouselCurrentIndex;
+                  if (selectedTrainerIdx === targetIndex) {
                     setSelectedTrainerIdx(null);
                   } else {
-                    setSelectedTrainerIdx(index);
+                    setSelectedTrainerIdx(targetIndex);
                   }
+                }}
+                onCarouselNavigate={(newIndex) => {
+                  console.log("Carousel navigated to:", newIndex);
+                  setCarouselCurrentIndex(newIndex);
+                  // Close details when navigating with arrows
+                  setSelectedTrainerIdx(null);
                 }}
               />
             </div>

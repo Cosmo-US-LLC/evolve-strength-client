@@ -1,6 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Mail, Instagram, Youtube, Linkedin, Phone } from "lucide-react";
+import {
+  Mail,
+  Instagram,
+  Youtube,
+  Linkedin,
+  Phone,
+  Globe,
+  Facebook,
+  Twitter,
+} from "lucide-react";
 
 function TrainerDetails({ trainer }) {
   if (!trainer) {
@@ -8,37 +17,42 @@ function TrainerDetails({ trainer }) {
   }
 
   // Location-specific subscription URLs
-  const getSubscriptionUrl = (location) => {
-    const locationUrls = {
-      "VANCOUVER POST":
-        "https://subscription.evolvestrength.ca/membership-plans?location=40327",
-      "BURNABY BRENTWOOD":
-        "https://subscription.evolvestrength.ca/membership-plans?location=40248",
-      "CALGARY SETON":
-        "https://subscription.evolvestrength.ca/membership-plans?location=40097",
-      "CALGARY ROYAL OAK":
-        "https://subscription.evolvestrength.ca/membership-plans?location=40142",
-      "CALGARY SUNRIDGE":
-        "https://subscription.evolvestrength.ca/membership-plans?location=06973",
-      "EDMONTON SOUTH":
-        "https://subscription.evolvestrength.ca/membership-plans?location=06962",
-      "EDMONTON DOWNTOWN":
-        "https://subscription.evolvestrength.ca/membership-plans?location=06967",
-      "EDMONTON NORTH":
-        "https://subscription.evolvestrength.ca/membership-plans?location=06964",
-    };
+  // const getSubscriptionUrl = (location) => {
+  //   const locationUrls = {
+  //     "VANCOUVER POST":
+  //       "https://subscription.evolvestrength.ca/membership-plans?location=40327",
+  //     "BURNABY BRENTWOOD":
+  //       "https://subscription.evolvestrength.ca/membership-plans?location=40248",
+  //     "CALGARY SETON":
+  //       "https://subscription.evolvestrength.ca/membership-plans?location=40097",
+  //     "CALGARY ROYAL OAK":
+  //       "https://subscription.evolvestrength.ca/membership-plans?location=40142",
+  //     "CALGARY SUNRIDGE":
+  //       "https://subscription.evolvestrength.ca/membership-plans?location=06973",
+  //     "EDMONTON SOUTH":
+  //       "https://subscription.evolvestrength.ca/membership-plans?location=06962",
+  //     "EDMONTON DOWNTOWN":
+  //       "https://subscription.evolvestrength.ca/membership-plans?location=06967",
+  //     "EDMONTON NORTH":
+  //       "https://subscription.evolvestrength.ca/membership-plans?location=06964",
+  //   };
 
-    return locationUrls[location] || "https://subscription.evolvestrength.ca";
-  };
+  //   return locationUrls[location] || "https://subscription.evolvestrength.ca";
+  // };
 
-  const subscriptionUrl = getSubscriptionUrl(trainer.location);
+  // const subscriptionUrl = getSubscriptionUrl(trainer.location);
 
   // Helper function to get social media platform from URL
   const getSocialPlatform = (url) => {
-    if (url.includes("instagram.com")) return "instagram";
-    if (url.includes("youtube.com") || url.includes("youtu.be"))
+    const lowerUrl = url.toLowerCase();
+    if (lowerUrl.includes("instagram.com")) return "instagram";
+    if (lowerUrl.includes("youtube.com") || lowerUrl.includes("youtu.be"))
       return "youtube";
-    if (url.includes("linkedin.com")) return "linkedin";
+    if (lowerUrl.includes("linkedin.com")) return "linkedin";
+    if (lowerUrl.includes("facebook.com")) return "facebook";
+    if (lowerUrl.includes("twitter.com") || lowerUrl.includes("x.com"))
+      return "twitter";
+    if (lowerUrl.includes("tiktok.com")) return "tiktok";
     return "website";
   };
 
@@ -47,19 +61,30 @@ function TrainerDetails({ trainer }) {
     try {
       const urlObj = new URL(url);
       const pathname = urlObj.pathname;
+      const lowerUrl = url.toLowerCase();
 
-      if (url.includes("instagram.com")) {
+      if (lowerUrl.includes("instagram.com")) {
         return pathname.replace("/", "") || "Instagram";
       }
-      if (url.includes("youtube.com") || url.includes("youtu.be")) {
+      if (lowerUrl.includes("youtube.com") || lowerUrl.includes("youtu.be")) {
         return pathname.includes("/channel/") ? "Channel" : "YouTube";
       }
-      if (url.includes("linkedin.com")) {
+      if (lowerUrl.includes("linkedin.com")) {
         return pathname.replace("/", "") || "LinkedIn";
       }
+      if (lowerUrl.includes("facebook.com")) {
+        return pathname.replace("/", "") || "Facebook";
+      }
+      if (lowerUrl.includes("twitter.com") || lowerUrl.includes("x.com")) {
+        return pathname.replace("/", "") || "Twitter";
+      }
+      if (lowerUrl.includes("tiktok.com")) {
+        return pathname.replace("/", "") || "TikTok";
+      }
+      // For website URLs, return the domain name
       return urlObj.hostname.replace("www.", "");
     } catch {
-      return "Social Media";
+      return "Website";
     }
   };
 
@@ -72,6 +97,12 @@ function TrainerDetails({ trainer }) {
         return <Youtube className="text-[#4AB04A]" size={20} />;
       case "linkedin":
         return <Linkedin className="text-[#4AB04A]" size={20} />;
+      case "facebook":
+        return <Facebook className="text-[#4AB04A]" size={20} />;
+      case "twitter":
+        return <Twitter className="text-[#4AB04A]" size={20} />;
+      case "website":
+        return <Globe className="text-[#4AB04A]" size={20} />;
       default:
         return <Mail className="text-[#4AB04A]" size={20} />;
     }
