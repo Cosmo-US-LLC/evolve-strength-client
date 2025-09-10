@@ -91,6 +91,7 @@ const LocationsSpacious = () => {
     align: "start",
     containScroll: false,
     },
+    [Autoplay({ delay: 3000, stopOnInteraction: true })]
   );
 
  const slides =
@@ -171,40 +172,7 @@ const LocationsSpacious = () => {
             </div>
           </div>
 
-          {/* {currentLocationAmenities.length > 3 && (
-            <>
-              <div className="absolute -top-1/9 left-[70%]  md:-top-1/6 md:left-[92%] -translate-y-1/2  z-10">
-                <button
-                  onClick={scrollPrev}
-                  disabled={prevDisabled}
-                  className={`p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff] ${
-                    prevDisabled
-                      ? "opacity-30 cursor-not-allowed  hover:text-[#000000]"
-                      : ""
-                  }`}
-                >
-                  <ArrowLeft className="md:w-6 md:h-6 w-4 h-4" />
-                </button>
-              </div>
-              <div className="absolute -top-1/9  md:-top-1/6  -translate-y-1/2 left-[83%] md:left-auto md:right-[0.5%] z-10">
-                <button
-                  onClick={scrollNext}
-                  disabled={nextDisabled}
-                  className={`p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff] ${
-                    nextDisabled
-                      ? "opacity-30 cursor-not-allowed  hover:text-[#000000]"
-                      : ""
-                  }`}
-                >
-                  <ArrowRight className="md:w-6 md:h-6  w-4 h-4" />
-                </button>
-              </div>
-            </>
-          )} */}
- 
-          {currentLocationAmenities.length > 3 && (
-      
-        <>
+         <>
           <div className="absolute -top-1/7 -translate-y-1/2 left-[92%] z-10 max-md:hidden">
             <button
               onClick={scrollPrev}
@@ -222,7 +190,6 @@ const LocationsSpacious = () => {
             </button>
           </div>
         </>
-      )}
 
         </div>
 

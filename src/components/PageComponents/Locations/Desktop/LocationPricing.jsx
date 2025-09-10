@@ -138,7 +138,7 @@ function LocationPricing() {
                   {getFeatures().map((feature, index) => (
                     <div
                       key={index}
-                      className="flex items-center justify-center md:justify-start space-x-3"
+                      className="flex items-center max:md:justify-center md:justify-start space-x-3"
                     >
                       <div className="w-5 h-5 bg-black rounded-full flex items-center justify-center flex-shrink-0">
                         <Check className="w-3 h-3 text-white" />
