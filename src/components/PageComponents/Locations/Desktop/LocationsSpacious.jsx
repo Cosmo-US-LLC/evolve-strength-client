@@ -85,32 +85,73 @@ const LocationsSpacious = () => {
   const [prevDisabled, setPrevDisabled] = useState(true);
   const [nextDisabled, setNextDisabled] = useState(false);
 
-  const canScroll = currentLocationAmenities.length > 2;
-  const loopEnabled = currentLocationAmenities.length > 2;
-  const autoplayPlugin = loopEnabled
-    ? [Autoplay({ delay: 3000, stopOnInteraction: true })]
-    : [];
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      loop: loopEnabled,
-      slidesToScroll: canScroll ? 1 : 0,
-      align: "start",
-      containScroll: false,
-    },
-    autoplayPlugin
-  );
 
-  //  const slides =
-  //     currentLocationAmenities.length <= 4
-  //       ? [...currentLocationAmenities, ...currentLocationAmenities]
-  //       : currentLocationAmenities;
 
-  let slides = [...currentLocationAmenities];
 
-  // Duplicate slides only if 3 or 4 items
-  if (loopEnabled && currentLocationAmenities.length <= 4) {
-    slides = [...currentLocationAmenities, ...currentLocationAmenities];
-  }
+ const [isMobile, setIsMobile] = useState(
+  typeof window !== "undefined" ? window.innerWidth <= 768 : false
+);
+
+
+
+useEffect(() => {
+  const onResize = () => setIsMobile(window.innerWidth <= 768);
+  window.addEventListener("resize", onResize);
+  return () => window.removeEventListener("resize", onResize);
+}, []);
+
+const canScrollMobile = isMobile && currentLocationAmenities.length > 0;
+const loopEnabledMobile = isMobile && currentLocationAmenities.length > 0;
+
+const autoplayPluginMobile = loopEnabledMobile
+  ? [Autoplay({ delay: 3000, stopOnInteraction: true })]
+  : [];
+
+const [emblaRefMobile, emblaApiMobile] = useEmblaCarousel(
+  {
+    loop: loopEnabledMobile,
+    slidesToScroll: canScrollMobile ? 1 : 1,
+    align: "start",
+    containScroll: false,
+    draggable: canScrollMobile, 
+  },
+  autoplayPluginMobile
+);
+
+let slidesMobile = [...currentLocationAmenities];
+if (loopEnabledMobile && currentLocationAmenities.length <= 4) {
+  slidesMobile = [...currentLocationAmenities, ...currentLocationAmenities];
+}
+
+const canScrollDesktop = !isMobile && currentLocationAmenities.length > 2;
+const loopEnabledDesktop = !isMobile && currentLocationAmenities.length > 2;
+
+const autoplayPluginDesktop = loopEnabledDesktop
+  ? [Autoplay({ delay: 3000, stopOnInteraction: true })]
+  : [];
+
+const [emblaRefDesktop, emblaApiDesktop] = useEmblaCarousel(
+  {
+    loop: loopEnabledDesktop,
+    slidesToScroll: canScrollDesktop ? 1 : 0,
+    align: "start",
+    containScroll: false,
+    draggable: canScrollDesktop,
+  },
+  autoplayPluginDesktop
+);
+
+let slidesDesktop = [...currentLocationAmenities];
+if (loopEnabledDesktop && currentLocationAmenities.length <= 4) {
+  slidesDesktop = [...currentLocationAmenities, ...currentLocationAmenities];
+}
+
+
+ const emblaRef = isMobile ? emblaRefMobile : emblaRefDesktop;
+const emblaApi = isMobile ? emblaApiMobile : emblaApiDesktop;
+const slides = isMobile ? slidesMobile : slidesDesktop;
+const loopEnabled = isMobile ? loopEnabledMobile : loopEnabledDesktop;
+ 
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) {

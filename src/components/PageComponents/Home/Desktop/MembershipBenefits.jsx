@@ -13,7 +13,7 @@ const benefitItems = [
       />
     ),
     description:
-      "We priorities strategies to get you the most out of your property sale, all while ensuring a smooth and stress-free process.",
+      "Supported recovery through massage, physiotherapy, and more at Evolve Strength.",
     image:
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/MembershipBenefits/image_1.webp",
   },
