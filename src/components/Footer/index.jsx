@@ -32,10 +32,7 @@ function Footer() {
                 </div>
 
                 <p className="footer_description text-[#ffffff]">
-                  At Evolve Strength, we’re redefining fitness with cutting-edge
-                  gyms stocked with an abundance of top-tier equipment, ensuring
-                  you never wait and can dive into a premium workout
-                  experience. 
+                 At Evolve Strength, we’re redefining fitness and health with cutting-edge gyms and integrated wellness spaces, stocked with an abundance of top-tier equipment, so you never wait and can dive into a premium workout and healthcare experience.
                 </p>
 
                 {/* <div className="flex flex-col gap-2">
@@ -73,7 +70,7 @@ function Footer() {
 
             <div className="flex flex-col w-full">
               <div className="max-w-[790px] text-white border-b border-y-[#2b2b2b] pb-2 max-md:hidden">
-                <div className="footer_links flex flex-wrap items-center mb-4">
+                <div className="footer_links !cursor-default flex flex-wrap items-center mb-4">
                   <p className="text-[#B2B1AA] w-[240px]">COMPANY</p>
                   {/* <span className="text-[#B2B1AA]">/</span>
                   <a href="#" className="text-[#B2B1AA] hover:text-[#ffffff]">

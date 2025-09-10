@@ -10,6 +10,8 @@ import {
   brentwoodPremiumAmenities,
   royalOakPremiumAmenities,
   downtownPremiumAmenities,
+  EdmontonDowntownPremiumAmenities,
+  calgarysetonPremiumAmenities,
 } from "../../../../constants/professionalServicesImages.js";
 
 const LocationsSpacious = () => {
@@ -40,11 +42,11 @@ const LocationsSpacious = () => {
     const amenitiesMap = {
       "vancouver-post": postPremiumAmenities,
       "burnaby-brentwood": brentwoodPremiumAmenities,
-      "calgary-seton": setonPremiumAmenities,
+      "calgary-seton": calgarysetonPremiumAmenities,
       "calgary-royal-oak": royalOakPremiumAmenities,
       "calgary-sunridge": setonPremiumAmenities, // Using seton as fallback
       "edmonton-south": downtownPremiumAmenities, // Using downtown as fallback
-      "edmonton-downtown": downtownPremiumAmenities,
+      "edmonton-downtown": EdmontonDowntownPremiumAmenities,
       "edmonton-north": downtownPremiumAmenities, // Using downtown as fallback
     };
 
@@ -83,20 +85,32 @@ const LocationsSpacious = () => {
   const [prevDisabled, setPrevDisabled] = useState(true);
   const [nextDisabled, setNextDisabled] = useState(false);
 
-
- const [emblaRef, emblaApi] = useEmblaCarousel(
+  const canScroll = currentLocationAmenities.length > 2;
+  const loopEnabled = currentLocationAmenities.length > 2;
+  const autoplayPlugin = loopEnabled
+    ? [Autoplay({ delay: 3000, stopOnInteraction: true })]
+    : [];
+  const [emblaRef, emblaApi] = useEmblaCarousel(
     {
-       loop: true,
-    slidesToScroll: 1,
-    align: "start",
-    containScroll: false,
+      loop: loopEnabled,
+      slidesToScroll: canScroll ? 1 : 0,
+      align: "start",
+      containScroll: false,
     },
+    autoplayPlugin
   );
 
- const slides =
-    currentLocationAmenities.length <= 4
-      ? [...currentLocationAmenities, ...currentLocationAmenities]
-      : currentLocationAmenities;
+  //  const slides =
+  //     currentLocationAmenities.length <= 4
+  //       ? [...currentLocationAmenities, ...currentLocationAmenities]
+  //       : currentLocationAmenities;
+
+  let slides = [...currentLocationAmenities];
+
+  // Duplicate slides only if 3 or 4 items
+  if (loopEnabled && currentLocationAmenities.length <= 4) {
+    slides = [...currentLocationAmenities, ...currentLocationAmenities];
+  }
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) {
@@ -171,40 +185,7 @@ const LocationsSpacious = () => {
             </div>
           </div>
 
-          {/* {currentLocationAmenities.length > 3 && (
-            <>
-              <div className="absolute -top-1/9 left-[70%]  md:-top-1/6 md:left-[92%] -translate-y-1/2  z-10">
-                <button
-                  onClick={scrollPrev}
-                  disabled={prevDisabled}
-                  className={`p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff] ${
-                    prevDisabled
-                      ? "opacity-30 cursor-not-allowed  hover:text-[#000000]"
-                      : ""
-                  }`}
-                >
-                  <ArrowLeft className="md:w-6 md:h-6 w-4 h-4" />
-                </button>
-              </div>
-              <div className="absolute -top-1/9  md:-top-1/6  -translate-y-1/2 left-[83%] md:left-auto md:right-[0.5%] z-10">
-                <button
-                  onClick={scrollNext}
-                  disabled={nextDisabled}
-                  className={`p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff] ${
-                    nextDisabled
-                      ? "opacity-30 cursor-not-allowed  hover:text-[#000000]"
-                      : ""
-                  }`}
-                >
-                  <ArrowRight className="md:w-6 md:h-6  w-4 h-4" />
-                </button>
-              </div>
-            </>
-          )} */}
- 
-          {currentLocationAmenities.length > 3 && (
-      
-        <>
+          {/* <>
           <div className="absolute -top-1/7 -translate-y-1/2 left-[92%] z-10 max-md:hidden">
             <button
               onClick={scrollPrev}
@@ -221,9 +202,27 @@ const LocationsSpacious = () => {
               <ArrowRight className="w-6 h-6" />
             </button>
           </div>
-        </>
-      )}
-
+        </> */}
+          {loopEnabled && (
+            <>
+              <div className="absolute -top-1/7 -translate-y-1/2 left-[92%] z-10 max-md:hidden">
+                <button
+                  onClick={scrollPrev}
+                  className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
+                >
+                  <ArrowLeft className="w-6 h-6" />
+                </button>
+              </div>
+              <div className="absolute -top-1/7 -translate-y-1/2 right-[0.5%] z-10 max-md:hidden">
+                <button
+                  onClick={scrollNext}
+                  className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
+                >
+                  <ArrowRight className="w-6 h-6" />
+                </button>
+              </div>
+            </>
+          )}
         </div>
 
         {/* <button className="btnPrimary">APPLY NOW</button> */}
