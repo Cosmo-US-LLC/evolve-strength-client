@@ -130,7 +130,7 @@ function LocationPricing() {
                 <button className="btnPrimary w-full">JOIN NOW</button>
               </Link>
 
-              <div className="text-center my-6">
+              <div className="text-center my-6 w-[100%] max-md:w-[300px] mx-auto">
                 <h3 className="text-xl font-semibold text-black mb-8">
                   Your membership offers:
                 </h3>
