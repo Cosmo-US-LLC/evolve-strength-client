@@ -15,6 +15,7 @@ function WellnessView() {
   const [showServiceDropdown, setShowServiceDropdown] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState(""); // Start with no location selected to show all trainers
   const [selectedServiceIds, setSelectedServiceIds] = useState([]); // Multi-select services
+  const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0); // For mobile carousel navigation
 
   const dropdownRef = useRef(null);
   const serviceDropdownRef = useRef(null);
@@ -45,6 +46,11 @@ function WellnessView() {
   useEffect(() => {
     setSelectedTrainerIdx(null);
   }, [selectedServiceIds, selectedLocation]);
+
+  // Close details when carousel navigation changes
+  useEffect(() => {
+    setSelectedTrainerIdx(null);
+  }, [currentCarouselIndex]);
 
   // Helper function to transform trainer data for display
   const transformTrainerData = (trainer) => {
@@ -318,6 +324,8 @@ function WellnessView() {
                   isCarousel={true}
                   trainers={transformedTrainers}
                   selectedTrainer={selectedTrainerIdx}
+                  currentIndex={currentCarouselIndex}
+                  onCarouselNavigate={setCurrentCarouselIndex}
                   onTrainerSelect={(index) => {
                     if (selectedTrainerIdx === index) {
                       setSelectedTrainerIdx(null);
@@ -374,13 +382,14 @@ function WellnessView() {
               </div>
 
               {/* Mobile details */}
-              {selectedTrainerIdx !== null && (
-                <div className="md:hidden w-full bg-[#F6F6F6] px-4 py-6 transition-all duration-300 ease-in-out">
-                  <TrainerDetails
-                    trainer={transformedTrainers[selectedTrainerIdx]}
-                  />
-                </div>
-              )}
+              {selectedTrainerIdx !== null &&
+                transformedTrainers[selectedTrainerIdx] && (
+                  <div className="md:hidden w-full bg-[#F6F6F6] px-4 py-6 transition-all duration-300 ease-in-out">
+                    <TrainerDetails
+                      trainer={transformedTrainers[selectedTrainerIdx]}
+                    />
+                  </div>
+                )}
             </>
           )}
 
