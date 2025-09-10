@@ -64,20 +64,20 @@ function FranchiseJourneySteps() {
 
           {/* <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all duration-300" /> */}
 
-          <div className="relative z-10 px-2 md:px-4 py-2 md:py-0 text-left md:text-center text-white flex flex-col items-start md:items-center transition-all duration-500 group-hover:pb-6">
-            <div className="bg-green-500 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center mb-2 md:mb-3">
+          <div className="relative z-10 px-2 md:px-4 py-2 md:py-6 text-left md:text-center text-white flex flex-col items-start md:items-center ">
+            <div className="bg-[#4AB04A] rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center mb-2 md:mb-3">
               {step.icon}
             </div>
 
             <h2
-              className={`font-semibold text-sm md:text-base lg:text-lg mb-1 transition-all duration-500 ${
-                index === 0 ? "" : "group-hover:-translate-y-1"
-              }`}
+              className={`font-semibold text-sm md:text-base lg:text-lg mb-1 
+               
+              `}
             >
               {step.title}
             </h2>
 
-            <p className="text-[14px] md:text-[20px] opacity-100 md:opacity-0 translate-y-0 md:translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+            <p className="text-[14px] md:text-[20px]">
               {step.description}
             </p>
           </div>

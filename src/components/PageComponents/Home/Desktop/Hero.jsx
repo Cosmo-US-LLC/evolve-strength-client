@@ -29,7 +29,7 @@ function Hero() {
           <div className="relative z-2 flex flex-col items-start justify-end h-full">
             {/* <h1 className="text-[#FFFFFF] uppercase leading-[79px]">Evolve</h1> */}
             <h1 className="text-[#FFFFFF] !text-[36px] md:!text-[70px] leading-[32px] md:leading-[59px] max-w-[740px] uppercase mb-4 md:mb-6 ">
-              More Space. <br /> More Possibilities.
+              The Standard <br /> of Health.
             </h1>
             <div className="flex gap-4">
               <Link to="https://tour.evolvestrength.ca/tour-form ">
