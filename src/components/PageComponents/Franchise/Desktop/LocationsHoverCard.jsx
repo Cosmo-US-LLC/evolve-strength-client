@@ -1,10 +1,7 @@
 import React from "react";
 
 function LocationsHoverCard({ show, mousePosition, data }) {
-  console.log("LocationsHoverCard render:", { show, mousePosition, data });
-
   if (!show || !data) {
-    console.log("LocationsHoverCard: Not showing - show:", show, "data:", data);
     return null;
   }
 
@@ -32,10 +29,10 @@ function LocationsHoverCard({ show, mousePosition, data }) {
   const isMobile = window.innerWidth < 768;
 
   if (isMobile) {
-    // Mobile: Center the card at the bottom of the screen
+    // Mobile: Center the card in the middle of the screen
     return (
       <div
-        className="fixed z-50 pointer-events-auto top-[54%] left-1/2 transform -translate-x-1/2"
+        className="fixed z-50 pointer-events-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         style={{
           touchAction: "none",
         }}

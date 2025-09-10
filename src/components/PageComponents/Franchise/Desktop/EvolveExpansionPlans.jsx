@@ -154,7 +154,7 @@ function EvolveExpansionPlans() {
         console.log("Timeout fired: Hiding card");
         setHoveredProvince(null);
         touchTimeoutRef.current = null;
-      }, 2000);
+      }, 1000);
     }
   };
 
@@ -305,7 +305,7 @@ function EvolveExpansionPlans() {
                 </svg>
                 {/* British Columbia */}
                 <div
-                  className="absolute left-[0%] top-[40.3%] z-10 w-[67px] h-[211px] md:w-[121px] md:h-[211px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[0%] top-[40.3%] z-12 w-[67px] h-[211px] md:w-[121px] md:h-[211px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("britishColumbia")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -492,7 +492,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* yukon */}
                 <div
-                  className="absolute left-[1.3%] top-[20.9%] z-10 w-[52px] h-[154px] md:w-[91px] md:h-[154px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[1.3%] top-[20.9%] z-10 w-[50px] h-[154px] md:w-[91px] md:h-[154px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("yukon")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
