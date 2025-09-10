@@ -40,7 +40,7 @@ function EvolveExpansionPlans() {
     },
     alberta: {
       name: "ALBERTA",
-      available: false,
+      available: true,
     },
     saskatchewan: {
       name: "SASKATCHEWAN",
@@ -88,12 +88,12 @@ function EvolveExpansionPlans() {
     },
     newfoundland: {
       name: "NEWFOUNDLAND",
-      available: false,
+      available: true,
     },
 
     labrador: {
       name: "LABRADOR",
-      available: false,
+      available: true,
     },
   };
 

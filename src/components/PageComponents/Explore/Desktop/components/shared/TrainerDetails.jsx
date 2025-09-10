@@ -139,7 +139,7 @@ function TrainerDetails({ trainer }) {
           {trainer.email && (
             <a
               href={`mailto:${trainer.email}`}
-              className="px-2 md:px-3 py-3  description flex items-center gap-2 bg-[#F6F6F6] rounded-[5px] hover:bg-[#E6E6E6] transition-colors"
+              className="px-2 md:px-3 py-3 flex items-center gap-2 description bg-[#F6F6F6] text-[#000] rounded-[5px] text-xs md:text-sm hover:bg-[#E6E6E6] transition-colors"
             >
               <Mail className="text-[#4AB04A]" size={20} />
               {trainer.email}
@@ -150,7 +150,7 @@ function TrainerDetails({ trainer }) {
           {trainer.phone && (
             <a
               href={`tel:${trainer.phone}`}
-              className="px-2 md:px-3 py-3 text-[14px] md:text-[16px] font-[Vazirmatn] flex items-center gap-2 bg-[#F6F6F6] text-[#000] rounded-[5px] hover:bg-[#E6E6E6] transition-colors"
+              className="px-2 md:px-3 py-3 description text-xs md:text-sm flex items-center gap-2 bg-[#F6F6F6] text-[#000] rounded-[5px] hover:bg-[#E6E6E6] transition-colors"
             >
               <Phone className="text-[#4AB04A]" size={20} />
               {trainer.phone}
@@ -182,7 +182,7 @@ function TrainerDetails({ trainer }) {
           {!trainer.email &&
             !trainer.phone &&
             (!trainer.social_links || trainer.social_links.length === 0) && (
-              <span className="px-2 md:px-3 py-3 flex text-[16px] font-[Vazirmatn] items-center gap-2 bg-[#F6F6F6] text-[#000] rounded-[5px] text-xs md:text-sm">
+              <span className="px-2 md:px-3 py-3 flex items-center gap-2 description bg-[#F6F6F6] text-[#000] rounded-[5px] text-xs md:text-sm">
                 <Mail className="text-[#4AB04A]" size={20} />
                 Contact information not available
               </span>
