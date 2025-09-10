@@ -1,7 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 function WhyProfessionalsChooseUs() {
+
+  const handleScroll = () => {
+    const element = document.querySelector("#available-offices");
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - 0;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <div className="relative w-full spacesWhyChooseUs">
       <div className="w-full max-w-[1280px] md:px-8 px-4   mx-auto z-10 h-full items-center flex flex-row relative">
@@ -17,9 +29,8 @@ function WhyProfessionalsChooseUs() {
             With Evolve, the setup is effortless. Move in, personalize your
             space, and start seeing clients right away.
           </p>
-          <Link to="/join-the-wait-list">
-            <button className="btnPrimary">Join the Waitlist</button>
-          </Link>
+       
+            <button className="btnPrimary" onClick={handleScroll}>See Available Spaces</button>
         </div>
       </div>
       {/* <div className="absolute inset-0 bg-black/10 backdrop-blur-sm"></div> */}

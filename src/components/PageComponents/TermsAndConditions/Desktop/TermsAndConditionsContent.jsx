@@ -53,7 +53,7 @@ const TermsAgreementContent = ({ termsMain }) => {
           </div>
         
           <div className="flex flex-col gap-6 flex-1 p-2">
-            <h1 id="terms-agreement" className='!text-[40px] leading-[34px]'>Terms and Agreement</h1>
+            <h1 id="terms-agreement" className='!text-[40px] !font-[700]  leading-[34px]'>Terms and Agreement</h1>
             {termsMain.map((section) => (
               <div key={section.id} id={section.id} className="flex flex-col gap-4">
                 <h3 className="!text-[20px] font-Kanit leading-normal">{section.h1}</h3>

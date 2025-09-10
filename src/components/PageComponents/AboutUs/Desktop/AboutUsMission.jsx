@@ -84,7 +84,7 @@ function AboutUsMission() {
             <div className="text-green-600 text-3xl mb-3 h-[40px] w-[45px] md:h-auto md:w-auto ">
               <img src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/about_origin.svg" alt="Origin" />
             </div>
-            <h2 className="w-[300px] md:w-auto  text-white ">
+            <h2 className="w-[300px] mb-3 md:w-auto  text-white ">
               {cardsData[2].title}
             </h2>
             <h4 className="text-white ">{cardsData[2].content}</h4>
