@@ -16,31 +16,30 @@ function TrainerCard({
   trainers = [],
   selectedTrainer,
   onTrainerSelect,
+  currentIndex = 0,
+  onCarouselNavigate,
 }) {
   const carouselRef = useRef(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Reset carousel position when trainers change
+  // Sync carousel position with external currentIndex
   useEffect(() => {
-    setCurrentIndex(0);
-    if (carouselRef.current) {
-      carouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
+    if (carouselRef.current && isCarousel) {
+      const scrollAmount = currentIndex * 280; // card width + gap
+      carouselRef.current.scrollTo({ left: scrollAmount, behavior: "smooth" });
     }
-  }, [trainers]);
+  }, [currentIndex, isCarousel]);
 
   const scrollToNext = () => {
-    if (carouselRef.current) {
-      const scrollAmount = 280; // card width + gap
-      carouselRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      setCurrentIndex((prev) => Math.min(prev + 1, trainers.length - 1));
+    if (onCarouselNavigate) {
+      const newIndex = Math.min(currentIndex + 1, trainers.length - 1);
+      onCarouselNavigate(newIndex);
     }
   };
 
   const scrollToPrev = () => {
-    if (carouselRef.current) {
-      const scrollAmount = -280; // card width + gap
-      carouselRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      setCurrentIndex((prev) => Math.max(prev - 1, 0));
+    if (onCarouselNavigate) {
+      const newIndex = Math.max(currentIndex - 1, 0);
+      onCarouselNavigate(newIndex);
     }
   };
 

@@ -414,6 +414,11 @@ export const royalOakPremiumAmenities = [
     image:
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/royal_ock_locker_room.webp",
   },
+  {
+    title: "Saunas and Steam Rooms",
+    image:
+      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/royal_oak_sauna_steam.webp",
+  },
 ];
 
 // downtown premium amenities

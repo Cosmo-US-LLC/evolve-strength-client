@@ -121,8 +121,7 @@ function AllGymLocations() {
         </h1>
         <h4 className="text-[#000] w-full md:max-w-[895px] mx-auto leading-[26px]">
           Discover all Evolve Strength gym locations across Canada. Find your
-          nearest club and take the first step toward a stronger, healthier
-          you.
+          nearest club and take the first step toward a stronger, healthier you.
         </h4>
       </div>
 

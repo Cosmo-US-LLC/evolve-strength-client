@@ -51,7 +51,7 @@ export const facilityLocations = [
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/brentwood10Mob.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/brentwood7Mob.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/brentwood8Mob.webp",
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/brentwood9Mob.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_mob_9.webp",
       ],
     },
   },

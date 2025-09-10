@@ -24,7 +24,7 @@ function CategorySelector({ selected, onSelect }) {
           // Calculate offset to account for fixed header/navbar
           // Desktop: 84px, Mobile: 70px
           // Adding extra offset to scroll higher above the cards
-          const baseOffset = isMobile ? 70 : 84;
+          const baseOffset = isMobile ? -40 : -24;
           const extraOffset = 120; // Additional space above the cards
           const offset = baseOffset + extraOffset;
 
