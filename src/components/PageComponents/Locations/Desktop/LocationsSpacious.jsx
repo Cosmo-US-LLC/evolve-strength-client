@@ -83,17 +83,24 @@ const LocationsSpacious = () => {
   const [prevDisabled, setPrevDisabled] = useState(true);
   const [nextDisabled, setNextDisabled] = useState(false);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(
+
+ const [emblaRef, emblaApi] = useEmblaCarousel(
     {
-      loop: true,
-      slidesToScroll: 1,
+       loop: true,
+    slidesToScroll: 1,
+    align: "start",
+    containScroll: false,
     },
   );
+
+ const slides =
+    currentLocationAmenities.length <= 4
+      ? [...currentLocationAmenities, ...currentLocationAmenities]
+      : currentLocationAmenities;
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) {
       emblaApi.scrollPrev();
-      // Reset autoplay after manual navigation
       const autoplayPlugin = emblaApi.plugins().autoplay;
       if (autoplayPlugin) {
         autoplayPlugin.stop();
@@ -105,7 +112,6 @@ const LocationsSpacious = () => {
   const scrollNext = useCallback(() => {
     if (emblaApi) {
       emblaApi.scrollNext();
-      // Reset autoplay after manual navigation
       const autoplayPlugin = emblaApi.plugins().autoplay;
       if (autoplayPlugin) {
         autoplayPlugin.stop();
@@ -114,17 +120,17 @@ const LocationsSpacious = () => {
     }
   }, [emblaApi]);
 
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setPrevDisabled(!emblaApi.canScrollPrev());
-    setNextDisabled(!emblaApi.canScrollNext());
-  }, [emblaApi]);
+  // const onSelect = useCallback(() => {
+  //   if (!emblaApi) return;
+  //   setPrevDisabled(!emblaApi.canScrollPrev());
+  //   setNextDisabled(!emblaApi.canScrollNext());
+  // }, [emblaApi]);
 
-  useEffect(() => {
-    if (!emblaApi) return;
-    onSelect();
-    emblaApi.on("select", onSelect);
-  }, [emblaApi, onSelect]);
+  // useEffect(() => {
+  //   if (!emblaApi) return;
+  //   onSelect();
+  //   emblaApi.on("select", onSelect);
+  // }, [emblaApi, onSelect]);
 
   return (
     <section className="py-12 ">
@@ -146,11 +152,11 @@ const LocationsSpacious = () => {
 
         <div className="relative w-full">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex md:gap-4 md:pl-1 ">
-              {currentLocationAmenities.map((amenity, idx) => (
+            <div className="flex md:gap-3 md:pl-1 ">
+              {slides.map((amenity, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_100%] md:flex-[0_0_32.5%] relative overflow-hidden"
+                  className="pl-2 flex-[0_0_100%] md:flex-[0_0_32.8%] relative overflow-hidden"
                 >
                   <img
                     src={amenity.image}
@@ -165,7 +171,7 @@ const LocationsSpacious = () => {
             </div>
           </div>
 
-          {currentLocationAmenities.length > 3 && (
+          {/* {currentLocationAmenities.length > 3 && (
             <>
               <div className="absolute -top-1/9 left-[70%]  md:-top-1/6 md:left-[92%] -translate-y-1/2  z-10">
                 <button
@@ -194,7 +200,30 @@ const LocationsSpacious = () => {
                 </button>
               </div>
             </>
-          )}
+          )} */}
+ 
+          {currentLocationAmenities.length > 3 && (
+      
+        <>
+          <div className="absolute -top-1/7 -translate-y-1/2 left-[92%] z-10 max-md:hidden">
+            <button
+              onClick={scrollPrev}
+              className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
+            >
+              <ArrowLeft className="w-6 h-6" />
+            </button>
+          </div>
+          <div className="absolute -top-1/7 -translate-y-1/2 right-[0.5%] z-10 max-md:hidden">
+            <button
+              onClick={scrollNext}
+              className="bg-[#ffffff] p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
+            >
+              <ArrowRight className="w-6 h-6" />
+            </button>
+          </div>
+        </>
+      )}
+
         </div>
 
         {/* <button className="btnPrimary">APPLY NOW</button> */}
