@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
 import { getTrainersByLocation } from "@/constants/trainerData";
@@ -16,8 +16,36 @@ const MeetTheTrainers = ({ location = "" }) => {
 
   const [selectedTrainer, setSelectedTrainer] = useState(null);
 
-  const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
-  const scrollNext = () => emblaApi && emblaApi.scrollNext();
+  // Close details when carousel navigation changes (swipe, drag, etc.)
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const onSelect = () => {
+      setSelectedTrainer(null);
+    };
+
+    emblaApi.on("select", onSelect);
+
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi]);
+
+  const scrollPrev = () => {
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+      // Close details when navigating carousel
+      setSelectedTrainer(null);
+    }
+  };
+
+  const scrollNext = () => {
+    if (emblaApi) {
+      emblaApi.scrollNext();
+      // Close details when navigating carousel
+      setSelectedTrainer(null);
+    }
+  };
 
   // Get location from URL path for tour URL
   const currentPath = window.location.pathname;
@@ -95,16 +123,18 @@ const MeetTheTrainers = ({ location = "" }) => {
     }
   };
 
-  // Transform trainer data to match TrainerDetails component expectations
-  const transformTrainerData = (trainer) => {
-    return {
-      ...trainer,
-      about: trainer.bio,
-      areasOfFocus: trainer.areas_of_focus
-        ? trainer.areas_of_focus.split(", ")
-        : [],
+  // Transform trainer data to match TrainerDetails component expectations - memoized for performance
+  const transformTrainerData = useMemo(() => {
+    return (trainer) => {
+      return {
+        ...trainer,
+        about: trainer.bio,
+        areasOfFocus: trainer.areas_of_focus
+          ? trainer.areas_of_focus.split(", ")
+          : [],
+      };
     };
-  };
+  }, []);
 
   // If no trainers found, show a message
   if (trainers.length === 0) {
@@ -221,8 +251,8 @@ const MeetTheTrainers = ({ location = "" }) => {
               ))}
             </div>
           </div>
-          <div className="">
-            <div className="absolute md:top-[30%] left-[37%] md:left-[-60px] -translate-y-1/3 md:translate-y-1/2 ">
+          <div className=" ">
+            <div className="absolute md:top-[30%] left-[37%] md:left-[-60px] translate-y-1/4 md:translate-y-1/2 ">
               <button
                 onClick={scrollPrev}
                 className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
@@ -230,7 +260,7 @@ const MeetTheTrainers = ({ location = "" }) => {
                 <ArrowLeft className="w-6 h-6" />
               </button>
             </div>
-            <div className="absolute md:top-[30%] -translate-y-1/3 md:translate-y-1/2 md:-right-[60px] right-[37%] z-10">
+            <div className="absolute md:top-[30%] translate-y-1/4 md:translate-y-1/2 md:-right-[60px] right-[37%] z-10">
               <button
                 onClick={scrollNext}
                 className="p-2 rounded-full border border-[#000000] text-[#000000] cursor-pointer hover:bg-[#000000] hover:text-[#fff]"
@@ -243,7 +273,7 @@ const MeetTheTrainers = ({ location = "" }) => {
 
         {/* Trainer Details Section */}
         {selectedTrainer && (
-          <div className="w-full mt-8 transition-all duration-300 ease-in-out">
+          <div className="w-full mt-16 transition-all duration-300 ease-in-out">
             <TrainerDetails trainer={transformTrainerData(selectedTrainer)} />
           </div>
         )}
