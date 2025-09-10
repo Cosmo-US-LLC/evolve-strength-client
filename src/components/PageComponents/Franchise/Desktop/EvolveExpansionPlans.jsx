@@ -59,15 +59,15 @@ function EvolveExpansionPlans() {
       available: true,
     },
     fredericton: {
-      name: "FREDERICTON",
+      name: "New Brunswick",
       available: true,
     },
     halifax: {
-      name: "HALIFAX",
+      name: "Nova Scotia",
       available: true,
     },
     edwardIsland: {
-      name: "EDWARD ISLAND",
+      name: "PRINCE EDWARD ISLAND",
       available: true,
     },
     yukon: {
@@ -87,12 +87,12 @@ function EvolveExpansionPlans() {
       available: false,
     },
     newfoundland: {
-      name: "NEWFOUNDLAND",
+      name: "Newfoundland and Labrador",
       available: true,
     },
 
     labrador: {
-      name: "LABRADOR",
+      name: "Newfoundland and Labrador",
       available: true,
     },
   };
@@ -154,7 +154,7 @@ function EvolveExpansionPlans() {
         console.log("Timeout fired: Hiding card");
         setHoveredProvince(null);
         touchTimeoutRef.current = null;
-      }, 2000);
+      }, 1000);
     }
   };
 
@@ -305,7 +305,7 @@ function EvolveExpansionPlans() {
                 </svg>
                 {/* British Columbia */}
                 <div
-                  className="absolute left-[0%] top-[40.3%] z-10 w-[67px] h-[211px] md:w-[121px] md:h-[211px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[0%] top-[40.3%] z-12 w-[67px] h-[106px] md:w-[121px] md:h-[211px] cursor-pointer transition-all duration-200 hover:scale-105 "
                   onMouseEnter={() => handleProvinceHover("britishColumbia")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -331,7 +331,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* northwest territories */}
                 <div
-                  className="absolute left-[12.8%] top-[24.6%] z-10 w-[84px] h-[174px] md:w-[154px] md:h-[174px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[12.8%] top-[24.6%] z-10 w-[84px] h-auto md:w-[154px] md:h-[174px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() =>
                     handleProvinceHover("northwestTerritories")
                   }
@@ -360,7 +360,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* northwest territories-2 */}
                 <div
-                  className="absolute left-[25%] top-[11.7%] z-10 w-[42px] h-[121px] md:w-[79px] md:h-[112px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[25%] top-[11.7%] z-10 w-[42px] h-auto md:w-[79px] md:h-[112px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() =>
                     handleProvinceHover("northwestTerritories")
                   }
@@ -464,7 +464,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* nunavut */}
                 <div
-                  className="absolute left-[24.6%] top-[0%] z-8 w-[166px] h-[395px] md:w-[296px] md:h-[395px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[24.6%] top-[0%] z-8 w-[166px] h-[0px] md:w-[296px] md:h-[395px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("nunavut")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -492,7 +492,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* yukon */}
                 <div
-                  className="absolute left-[1.3%] top-[20.9%] z-10 w-[52px] h-[154px] md:w-[91px] md:h-[154px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[1.3%] top-[20.9%] z-10 w-[50px]  h-auto md:w-[91px] md:h-[154px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("yukon")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -517,7 +517,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* newfoundland */}
                 <div
-                  className="absolute left-[72.7%] top-[48.5%] z-12 w-[61px] h-[101px] md:w-[110px] md:h-[101px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[72.7%] top-[48.5%] z-12 w-[61px]  h-[0px] md:w-[110px] md:h-[101px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("newfoundland")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -542,7 +542,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* newfoundland */}
                 <div
-                  className="absolute left-[90.3%] top-[60%] z-10 w-[36px] h-[62px] md:w-[58px] md:h-[62px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[90.3%] top-[60%] z-10 w-[36px] h-auto md:w-[58px] md:h-[62px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("labrador")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -568,7 +568,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* Alberta */}
                 <div
-                  className="absolute left-[14%] top-[52%] z-10 w-[52px] md:w-[93px] h-[159px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[14%] top-[52%] z-10 w-[52px] md:w-[93px] h-[0px] md:h-[159px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("alberta")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -595,7 +595,7 @@ function EvolveExpansionPlans() {
 
                 {/* Saskatchewan */}
                 <div
-                  className="absolute left-[23.4%] top-[55.8%] z-10 w-[47px] h-[150px] md:w-[84px] md:h-[150px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[23.4%] top-[55.8%] z-10 w-[47px] h-[0px] md:w-[84px] md:h-[150px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("saskatchewan")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -624,7 +624,7 @@ function EvolveExpansionPlans() {
 
                 {/* Manitoba */}
                 <div
-                  className="absolute left-[34.8%] top-[57.4%] md:top-[57.3%] z-10 w-[55.3px] md:w-[99px] h-[140px] md:h-[145px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[34.8%] top-[57.4%] md:top-[57.3%] z-10 w-[55.3px] md:w-[99px] h-[0px] md:h-[145px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("manitoba")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -650,7 +650,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* ontario */}
                 <div
-                  className="absolute left-[43.4%] top-[64.9%] z-10 w-[106px] md:w-[190px] h-[185px] md:h-[185px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[43.4%] top-[64.9%] z-10 w-[106px] md:w-[190px] h-[0px] md:h-[185px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("ontario")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -676,7 +676,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* quebec */}
                 <div
-                  className="absolute left-[59.5%] top-[48%] z-10 w-[104px] md:w-[188px] h-[214px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[59.5%] top-[48%] z-10 w-[104px] md:w-[188px]  h-[0px] md:h-[214px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("quebec")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -701,7 +701,7 @@ function EvolveExpansionPlans() {
 
                 {/* halifax */}
                 <div
-                  className="absolute left-[85.8%] top-[73.6%] z-10 w-[27px] md:w-[45px] h-[67px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[85.8%] top-[73.6%] z-10 w-[27px] md:w-[45px] h-[0px] md:h-[67px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("halifax")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -727,7 +727,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* fredericton */}
                 <div
-                  className="absolute left-[79.2%] top-[75.6%] z-10 w-[30px] md:w-[55px] h-[43px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[79.2%] top-[75.6%] z-10 w-[30px]  md:w-[55px] h-[0px] md:h-[43px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("fredericton")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}
@@ -753,7 +753,7 @@ function EvolveExpansionPlans() {
                 </div>
                 {/* edward */}
                 <div
-                  className="absolute left-[86%] top-[76.2%] z-10 w-[14px] md:w-[24px] h-[14px] cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute left-[86%] top-[76.2%] z-10 w-[14px] md:w-[24px] h-[0px] md:h-[14px] cursor-pointer transition-all duration-200 hover:scale-105"
                   onMouseEnter={() => handleProvinceHover("edwardIsland")}
                   onMouseLeave={handleProvinceLeave}
                   onMouseMove={handleMouseMove}

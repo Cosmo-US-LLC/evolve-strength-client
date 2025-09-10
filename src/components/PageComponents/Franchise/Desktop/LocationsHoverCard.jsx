@@ -1,17 +1,14 @@
 import React from "react";
 
 function LocationsHoverCard({ show, mousePosition, data }) {
-  console.log("LocationsHoverCard render:", { show, mousePosition, data });
-
   if (!show || !data) {
-    console.log("LocationsHoverCard: Not showing - show:", show, "data:", data);
     return null;
   }
 
   // Single card design for all devices
   const cardContent = (
     <div
-      className="bg-[#F6F6F6] rounded-[10px] shadow-[0_4px_24px_rgba(0,0,0,0.16)] max-w-[280px] md:max-w-[300px]"
+      className="bg-[#F6F6F6] rounded-[10px] shadow-[0_4px_24px_rgba(0,0,0,0.16)] max-w-[280px] md:max-w-[320px]"
       style={{
         border: `2px solid ${data.available ? "#4AB04A" : "#CCCCCC"}`,
       }}
@@ -32,10 +29,10 @@ function LocationsHoverCard({ show, mousePosition, data }) {
   const isMobile = window.innerWidth < 768;
 
   if (isMobile) {
-    // Mobile: Center the card at the bottom of the screen
+    // Mobile: Center the card in the middle of the screen
     return (
       <div
-        className="fixed z-50 pointer-events-auto top-[54%] left-1/2 transform -translate-x-1/2"
+        className="fixed z-50 pointer-events-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         style={{
           touchAction: "none",
         }}

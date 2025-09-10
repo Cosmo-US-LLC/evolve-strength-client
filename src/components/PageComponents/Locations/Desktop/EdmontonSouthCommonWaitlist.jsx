@@ -1,34 +1,9 @@
 import EdmontonSouthCommonForm from "@/components/Form/EdmontonSouthCommonForm";
 import EvolveStrengthBlackLogo from "@/assets/images/home/navbar/Evolve-logo-dark.svg";
 import { Link } from "react-router-dom";
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 
 function EdmontonSouthCommonWaitlist() {
-  const [videoError, setVideoError] = useState(false);
-  const desktopVideoRef = useRef(null);
-  const mobileVideoRef = useRef(null);
-
-  // Handle video errors and provide fallback
-  const handleVideoError = () => {
-    setVideoError(true);
-  };
-
-  // Ensure videos play on Safari
-  useEffect(() => {
-    const playVideos = () => {
-      if (desktopVideoRef.current) {
-        desktopVideoRef.current.play().catch(console.error);
-      }
-      if (mobileVideoRef.current) {
-        mobileVideoRef.current.play().catch(console.error);
-      }
-    };
-
-    // Try to play videos after a short delay
-    const timer = setTimeout(playVideos, 50);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
       <div className="relative pb-[60px] overflow-hidden">
@@ -44,58 +19,42 @@ function EdmontonSouthCommonWaitlist() {
       </div>
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">
-        {/* Fallback Background Image */}
-        {videoError && (
-          <div
-            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage:
-                "url('https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/someThinkNew/common_new_branch_desktop.webp')",
-            }}
-          />
-        )}
         {/* Desktop Video */}
         <video
-          ref={desktopVideoRef}
           autoPlay
-          loop
           muted
+          loop
           playsInline
-          webkit-playsinline="true"
-          x-webkit-airplay="allow"
-          className="hidden md:block w-full h-full object-cover"
-          onError={handleVideoError}
+          className="hidden md:block absolute inset-0 w-full h-full object-cover"
+          style={{
+            objectFit: "cover",
+            objectPosition: "bottom",
+          }}
         >
-          <source
-            src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/ES_waitlist_desktop.webm"
-            type="video/mp4"
-          />
           <source
             src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/ES_waitlist_desktop.webm"
             type="video/webm"
           />
+          Your browser does not support the video tag.
         </video>
 
         {/* Mobile Video */}
         <video
-          ref={mobileVideoRef}
           autoPlay
-          loop
           muted
+          loop
           playsInline
-          webkit-playsinline="true"
-          x-webkit-airplay="allow"
-          className="block md:hidden w-full h-full object-cover"
-          onError={handleVideoError}
+          className="block md:hidden absolute inset-0 w-full h-full object-cover"
+          style={{
+            objectFit: "cover",
+            objectPosition: "bottom",
+          }}
         >
-          <source
-            src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/ES_waitlist_mobile.webm"
-            type="video/mp4"
-          />
           <source
             src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/ES_waitlist_mobile.webm"
             type="video/webm"
           />
+          Your browser does not support the video tag.
         </video>
       </div>
 

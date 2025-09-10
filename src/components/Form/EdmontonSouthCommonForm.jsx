@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 
 function EdmontonSouthCommonForm() {
   const [formData, setFormData] = useState({
@@ -213,14 +214,20 @@ function EdmontonSouthCommonForm() {
 
         {/* Status Messages */}
         {submitStatus === "success" && (
-          <div className="text-[#4AB04A] text-center font-medium">
-            Thank you! You've been added to the waitlist successfully.
-          </div>
+          <h4 className="text-[#fff] text-center  font-medium">
+            Thank you! You've been added to the waitlist successfully.{" "}
+            <Link
+              to="/"
+              className="text-[#fff] underline !font-[400] !text-[20px]"
+            >
+              Back to Home
+            </Link>
+          </h4>
         )}
         {submitStatus === "error" && (
-          <div className="text-red-400 text-center font-medium">
+          <h4 className="text-red-400 text-center font-medium">
             Something went wrong. Please try again.
-          </div>
+          </h4>
         )}
       </form>
     </div>

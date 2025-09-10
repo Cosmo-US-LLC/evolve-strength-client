@@ -10,7 +10,7 @@ function WellnessPricingRoom() {
           <h2 className="text-[#FFFFFF] uppercase max-w-[560px] !font-[700] leading-[39px] mb-5">
             Premium Wellness, Affordable Pricing
           </h2>
-          <h4 className="text-[#FFFFFF] !font-[Vazirmatn] md:!font-[300] !font-[400] max-w-[552px] leading-[24px] mb-6">
+          <h4 className="text-[#FFFFFF] md:!font-[300] !font-[400] max-w-[552px] leading-[24px] mb-6">
             Our wellness services are open to everyone. You do not need to join
             the gym to book a session. Independent specialists set fair and
             transparent rates, so you get expert care at a price that makes
