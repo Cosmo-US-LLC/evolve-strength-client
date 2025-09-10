@@ -12,22 +12,21 @@
 //   Target,
 //   TrendingDown,
 // } from "lucide-react";
-import Esthetician from "../assets/icons/home/Wellness-Services/wellness_icons (8).svg"
-import Chiropractic_Care from "../assets/icons/home/Wellness-Services/wellness_icons (14).svg"
-import Massage_Therapy from "../assets/icons/home/Wellness-Services/wellness_icons (1).svg"
-import Strength_training from "../assets/icons/home/Wellness-Services/wellness_icons (15).svg"
-import calisthenics from "../assets/icons/home/Wellness-Services/wellness_icons (4).svg"
-import Physiotherapy from "../assets/icons/home/Wellness-Services/wellness_icons (10).svg"
-import Acupuncture from "../assets/icons/home/Wellness-Services/wellness_icons (9).svg"
-import Dietitian_Services from "../assets/icons/home/Wellness-Services/wellness_icons (11).svg"
-import Cardio from "../assets/icons/home/Wellness-Services/wellness_icons (3).svg"
-import Weight_Loss from "../assets/icons/home/Wellness-Services/wellness_icons (7).svg"
-import Osteopathy from "../assets/icons/home/Wellness-Services/wellness_icons (12).svg"
-import Laser_Therapy from "../assets/icons/home/Wellness-Services/wellness_icons (13).svg"
-import Mental_Health from "../assets/icons/home/Wellness-Services/wellness_icons (5).svg"
-import Mobility_Olympic from "../assets/icons/home/Wellness-Services/wellness_icons (2).svg"
-import Lifting from "../assets/icons/home/Wellness-Services/wellness_icons (6).svg"
-  
+import Esthetician from "../assets/icons/home/Wellness-Services/wellness_icons (8).svg";
+import Chiropractic_Care from "../assets/icons/home/Wellness-Services/wellness_icons (14).svg";
+import Massage_Therapy from "../assets/icons/home/Wellness-Services/wellness_icons (1).svg";
+import Strength_training from "../assets/icons/home/Wellness-Services/wellness_icons (15).svg";
+import calisthenics from "../assets/icons/home/Wellness-Services/wellness_icons (4).svg";
+import Physiotherapy from "../assets/icons/home/Wellness-Services/wellness_icons (10).svg";
+import Acupuncture from "../assets/icons/home/Wellness-Services/wellness_icons (9).svg";
+import Dietitian_Services from "../assets/icons/home/Wellness-Services/wellness_icons (11).svg";
+import Cardio from "../assets/icons/home/Wellness-Services/wellness_icons (3).svg";
+import Weight_Loss from "../assets/icons/home/Wellness-Services/wellness_icons (7).svg";
+import Osteopathy from "../assets/icons/home/Wellness-Services/wellness_icons (12).svg";
+import Laser_Therapy from "../assets/icons/home/Wellness-Services/wellness_icons (13).svg";
+import Mental_Health from "../assets/icons/home/Wellness-Services/wellness_icons (5).svg";
+import Mobility_Olympic from "../assets/icons/home/Wellness-Services/wellness_icons (2).svg";
+import Lifting from "../assets/icons/home/Wellness-Services/wellness_icons (6).svg";
 
 export const professionalServices = [
   {
@@ -209,7 +208,7 @@ export const professionalServicesForLocations = [
       desktopImage:
         "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/cardio.webp",
       mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/cardio_.webp",
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/cardio_mob.webp",
     },
     icon: Cardio,
   },
