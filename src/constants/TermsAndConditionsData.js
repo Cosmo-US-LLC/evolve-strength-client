@@ -4,7 +4,7 @@ export const termsMain = [
     id: "introduction",
     content: [
       'By becoming a member of an Evolve Strength fitness facility you agree to abide by the terms and conditions of this agreement (the "Agreement"). You acknowledge that at the time you signed up to become a member you were provided with access to this Agreement and were given time to review it. As well, a copy of this Agreement was or will be emailed to you.',
-      "You have agreed to become a member of the Evolve Strength fitness facility located at [•].",
+      "You have agreed to become a member of Evolve Strength.",
       'Depending on the type of membership that you have signed up for, your membership may give you access to other Evolve Strength fitness facilities (each a "Facility").',
       "In the event you frequent another Facility, your membership may be transferred to that Facility.",
       {
