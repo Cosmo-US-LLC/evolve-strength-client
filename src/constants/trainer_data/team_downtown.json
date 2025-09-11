@@ -6,15 +6,13 @@
     "trainerNumber": 1,
     "name": "Brad Ballard",
     "role": "Massage Therapist",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2025/03/Brad-Ballard.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Brad-Ballard.jpg",
     "bio": "Brad is a former paramedic turned registered massage therapist and offers cupping, advanced Neuromuscular Therapy and myofascial release. He specializes in sports therapy, injury management, acute injuries, trigger point therapy, therapeutic and relaxation massage.\nWith unique training in fencing and martial arts, he can assist with varying acute & chronic sports injuries. Book with Brad to experience a thorough massage treatment with a specialized expertise in sports related injuries and assessment.",
     "areas_of_focus": "Sports Therapy, Injury Management, Trigger Point Therapy, Cupping, Advanced Neuromuscular Therapy, Myofascial Release, Therapeutic and Relaxation Massage",
     "certification": "3000 Hour Clinical Massage Therapist, Cupping",
     "email": "info@striveholistic.com",
     "phone": "780-237-5665",
-    "social_links": [
-      "http://www.striveholistic.com"
-    ]
+    "social_links": ["http://www.striveholistic.com"]
   },
   {
     "id": "edmonton-downtown-catalina-castaneda",
@@ -23,15 +21,13 @@
     "trainerNumber": 2,
     "name": "Catalina Castaneda",
     "role": "Massage Therapist",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2022/08/Catalina-Castaneda.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Catalina-Castaneda.jpg",
     "bio": "Fully-certified since 2016, Catalina offers deep tissue, therapeutic, sports, pre/post-natal, cupping, foot reflexology and Thai yoga massage. She enjoys using a variety of techniques, and incorporates Thai stretching, energy lines and trigger point therapy to ensure that clients feel restored and renewed after each treatment.\nIn addition to completing Advanced Clinical Massage Therapy training at Alberta’s Makami College, Catalina studied ITM (International Training Massage) in Chiang Mai, Thailand, and was certified to perform Thai yoga massage in Calgary in 2017.",
     "areas_of_focus": "Deep tissue and relaxation massage, Cupping treatments, Lymphatic drainage, Thai table massage, Cranial sacral therapy, foot reflexology and prenatal massage",
     "certification": "Registered Massage Therapist, Manual Osteopathic Therapist, Nuad Boran Thai massage",
     "email": "catalina@wellnessartmassage.com",
     "phone": "587-223-0966",
-    "social_links": [
-      "https://wellnessartinc.clinicsense.com/"
-    ]
+    "social_links": ["https://wellnessartinc.clinicsense.com/"]
   },
   {
     "id": "edmonton-downtown-bailey-mccormack",
@@ -40,15 +36,13 @@
     "trainerNumber": 3,
     "name": "Bailey McCormack",
     "role": "Massage Therapist",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2023/09/Strive-Holistic-1111.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Strive-Holistic-1111.jpg",
     "bio": "Bailey focuses specifically on therapeutic assessment based treatment with a\nplethora of knowledge in pathology, anatomy, and kinesiology\nwhich will allow her to confidently find and treat the root cause of your pain.",
     "areas_of_focus": "Therapeutic Deep Tissue, Injury Rehab, Sports Massage Therapy, Intra Oral Therapy, Cupping Therapy, Muscle Energy Techniques, Graston Technique",
     "certification": "Her sports background coupled with her makes her passionate to work with athletes to achieve the best physical performance their body is capable of! Book with Bailey as an essential addition to optimizing your physical health, rehabilitation & overall health., , 2200 Hour Registered Massage Therapy Diploma, Pre & Post Event Sports Massage Certification, Intra-Oral Certification, Cupping Certification, CPR/AED level C (BL)",
     "email": "info@striveholistic.com",
     "phone": "780-237-5665",
-    "social_links": [
-      "http://www.striveholistic.com"
-    ]
+    "social_links": ["http://www.striveholistic.com"]
   },
   {
     "id": "edmonton-downtown-allysia-nicolle",
@@ -57,15 +51,13 @@
     "trainerNumber": 4,
     "name": "Allysia Nicolle",
     "role": "Pilates Instructor",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2022/07/Allysia-Nicolle.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Allysia-Nicolle.jpg",
     "bio": "Allysia Nicolle has always loved the body in motion.  As a former professional dancer, Pilates was an integral part of her dance training.  After a serious knee injury, where she ended up having her knee reconstructed, Allysia started a rigorous sports rehabilitation program.  It was here that she fell in love with the Pilates method and all the benefits Pilates has to offer.  When Allysia isn’t in the pilates studio you can find her dancing, golfing, biking, running or curling",
     "areas_of_focus": "A balanced body that moves with strength, stability and flexibility, Better posture by creating enhanced mind-body awareness, Athletic conditioning, Injury prevention",
     "certification": "STOTT PILATES® Intensive Mat & Reformer Plus, Injuries & Special PopulationsPN1, Prenatal Pilates on the Reformer & Split-Pedal Stability Chair™, Athletic Conditioning on the Reformer",
     "email": "info@corestrengthpilates.ca",
     "phone": "780-953-4764",
-    "social_links": [
-      "http://www.corestrengthpilates.ca"
-    ]
+    "social_links": ["http://www.corestrengthpilates.ca"]
   },
   {
     "id": "edmonton-downtown-angela-das",
@@ -74,7 +66,7 @@
     "trainerNumber": 5,
     "name": "Angela Das",
     "role": "Psychologist",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2020/09/Angela-Das.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Angela-Das.jpg",
     "bio": "Angela Das is a registered psychologist with the province of Alberta.  She graduated from Athabasca University with her Masters in Counselling in 2016.  She has worked in a wide variety of settings including non for profits, both elementary and secondary highschools, seniors associations, and now private practice.  These different locations gave her a breadth of different client demographics and cultures to work with.  Angela also has a special interest in Sport Psychology and performance, which pairs with her personal experience in both team and individual sport.\nAngela welcomes all ages in her practice and can address a wide variety of concerns.  She works with individuals, couples and families.  Angela now offers both in-person and online sessions.  Her therapy style can be described as eclectic as she pulls techniques from several different modalities in order to fit each individual client’s unique needs.  She is person-centered, which provides a teammate approach to counselling goals.  She strives to help her clients reach an overall higher potential by encouraging each person to see his/her/their own strengths and abilities.  Angela believes in better accessibility and offers sliding scale to those without insurance.",
     "areas_of_focus": null,
     "certification": null,
@@ -89,7 +81,7 @@
     "trainerNumber": 6,
     "name": "ARC by Pivotal",
     "role": null,
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2022/07/arc-by-pivotal.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/arc-by-pivotal.jpg",
     "bio": "My training philosophy is about mastering the basics. I believe that building a solid foundation and educating each client ARC by Pivotal Physiotherapy is the home to a group of professionals – Physiotherapists, Strength & Conditioning Coaches, Massage Therapists, Kinesiologists, and Recovery Specialists. Located in Evolve Strength downtown; our multidisciplinary team combines their knowledge and expertise to provide Edmontonians the services you need to reach your athletic and performance goals.\nServices Offered:",
     "areas_of_focus": null,
     "certification": null,
@@ -107,7 +99,7 @@
     "trainerNumber": 7,
     "name": "Miranda Lacey Horvath",
     "role": "Registered Massage Therapist, Registered Somatic Thai Therapist",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2022/07/Strive-Holistic-11.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Strive-Holistic-11.jpg",
     "bio": "Miranda is a brilliant massage therapist who specializes in therapeutic deep tissue, cupping, myofascial release, intra-oral, Graston Technique, stretch therapy, mobility, chronic pain relief and Thai massage. Miranda is relentlessly driven by⁠ the hope and idea that she’s inspiring others through her actions to reach their potential in life and health, leaving a positive imprint on whomever she comes in contact with. Come see Miranda for the massage therapy your body’s been craving, as an essential addition to your overall health.",
     "areas_of_focus": "Myofascial Release, Therapeutic Deep Tissue, Intra Oral Therapy, Graston Technique, Cupping Therapy, Chronic Pain Relief, Thai Massage, Mobility & Flexibility",
     "certification": "3000 Hour Registered Massage Therapy Diploma, Intra Oral Advanced Certification, Graston Technique Certification, Accredited Thai Massage Certification, CPR/AED level C (BL)",
@@ -125,7 +117,7 @@
     "trainerNumber": 8,
     "name": "Rich Hill",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2022/07/Rich-Hill-1.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Rich-Hill-1.jpg",
     "bio": "Named one of Impact Magazine’s Top Personal Trainers in Canada for 2024, Rich has been a certified personal trainer since 2011, helping hundreds of people reach their weight loss and performance goals.\nAfter dealing with a multitude of injuries as a Professional Wrestler, Rich has developed a passion for pain-free performance, helping people alleviate pain to help them stay in the game.\nRich is a believer in making the gym a comfortable and welcoming place for all people, including new gym goers and experienced athletes alike.\nAs an advocate for men’s mental and physical health, he’s helped raise nearly $8000 for programs helping men in need.\nWith a proven approach to see life changing results and a passion to help people live life to the fullest, Rich is here to help. If you’re looking to lose weight, build your athletic performance, or a combination of the two – he would love to help you either in-person or online at Evolve Strength.",
     "areas_of_focus": "Fat Loss, Athletic Performance, Building Confidence, Pain-Free Performance, Nutrition Coaching",
     "certification": "Kinesiology Diploma, CSEP – Certified Personal Trainer, NCI Level 1 Nutrition Coach, Pain-Free Performance Specialist Certified, Strongfirst Barbell & Kettlebell Certified, Trigger Point Performance Myofascial Compression Certified",
@@ -143,15 +135,13 @@
     "trainerNumber": 9,
     "name": "Ian Wheat",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2019/06/Ian_3330f3efd2b6d3effced1d53b99488a6.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Ian_3330f3efd2b6d3effced1d53b99488a6.jpg",
     "bio": "Ian Started Strength Training over\n10 years ago. He was 145lbs in Grade 12 and wanted to get bigger and stronger\nso he could be more competitive.\nSince he has started coaching, Ian has had multiple national-level powerlifters, many of which own Provincial records. His Lifter achieved Best Female Bench Press at the 2019 APU Provincials and 2019 Westerns, has worked for Team Alberta at CPU Powerlifting Nationals and has an international level lifter in another federation; raw with wraps.\nAfter Ian\nmoved to Evolve, he discovered the sport of Strongman. He has coached\nStrongman/Strongwoman Athletes in multiple competitions, competed himself and\nachieved 3rd place at the 2019 Spruce Grove’s Strongest; lightweight men\ncategory at 180lbs Bodyweight in a <231lbs weight class\nAsgardian Strength is dedicated to making the world a stronger place. Book a free consultation and needs assessment.\nACE Certified\nPersonal Training Diploma\nYouth Training Certificate\nSports Nutrition Certificate\nTeam Alberta Powerlifting\nCoach\n3rd Place LW, Spruce Grove’s\nStrongest 2019",
     "areas_of_focus": null,
     "certification": "He spent a few years Bodybuilding to put on size after high school. He got to 180lbs before he started a job as a commercial mover after finishing university. His weight went down to 155lbs because of a poor lifestyle so he got a trainer and put the weight back on. This time he was taught how to do different exercises and was exposed to a more methodical approach to training. He got more interested in the science behind training and eventually took a diploma program and a certification, becoming a personal trainer., He was\nhired before he finished the program and spent the next 4 years working with\nGeneral Population clients. He had a natural talent for strength training and\neventually found powerlifting. This enabled Ian to get to 215lbs and build a\nniche around powerlifting; taking the Canadian Powerlifting Union Coaching\nCourse after coaching private clients for a few years.",
     "email": "wheat.ian04@gmail.com",
     "phone": "1-780-297 9522",
-    "social_links": [
-      "http://www.asgardianstrength.com"
-    ]
+    "social_links": ["http://www.asgardianstrength.com"]
   },
   {
     "id": "edmonton-downtown-john-stevenson",
@@ -160,15 +150,13 @@
     "trainerNumber": 10,
     "name": "John Stevenson",
     "role": "Registered Sports/Performance Psychologist",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/01/John-Stevenson.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/John-Stevenson.jpg",
     "bio": "He works with athletes and teams across all sports at every level, from Professional & Olympic caliber right down to amateur level competitors. He specializes in helping athletes snap out of slumps, overcome fears and blocks, and perform to their potential. He has received extensive training Perceptual-Cognitive Training, Sports Mindfulness Training, and Breathwork Training to optimize the health and well-being of his clients. He uses breakthrough methods that teach his clients to become self-reliant and gets them unstuck and back on track, performing at their best and enjoying their competition. He trains athletes’ minds, teaching them practical skills that can be used immediately in their sports and other areas of their life. He also works with performing artists, surgeons, business clients, and students to optimize their performance levels.",
     "areas_of_focus": "Sports/Performance Psychology, Perceptual Cognitive Training (Vision Training), Mental Skills Coach, Individual and Team Mental Performance Coaching",
     "certification": "Member Psychology Association of Alberta, Member College of Alberta Psychologists",
     "email": null,
     "phone": "780-504-9469",
-    "social_links": [
-      "https://championsmindset.ca/"
-    ]
+    "social_links": ["https://championsmindset.ca/"]
   },
   {
     "id": "edmonton-downtown-fit-group-training",
@@ -177,15 +165,13 @@
     "trainerNumber": 11,
     "name": "FIT Group Training",
     "role": null,
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2022/07/Fit-group-training.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Fit-group-training.jpg",
     "bio": null,
     "areas_of_focus": null,
     "certification": null,
     "email": null,
     "phone": null,
-    "social_links": [
-      "https://fitgrouptraining.com/"
-    ]
+    "social_links": ["https://fitgrouptraining.com/"]
   },
   {
     "id": "edmonton-downtown-omar-ali",
@@ -194,15 +180,13 @@
     "trainerNumber": 12,
     "name": "Omar Ali",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/01/Omar-Ali.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Omar-Ali.jpg",
     "bio": "Hello, I’m Omar, a Canfitpro Certified Personal Trainer and Nutrition Coach with over 6 years in the fitness industry. My expertise spans enhancing mobility, stability, low back pain and strength, with a special focus on weight loss and holistic wellness through nutrition. I excel in injury prevention and rehabilitation, aiding clients with injuries, chronic joint issues, and pre/post-surgical fitness needs.\nRecognized as a Top 50 Edmonton Personal Trainer and Top Team Coach, and honoured with the Rising Star Award, my professional journey reflects a commitment to excellence. As a celebrated athlete, I hold titles like the 2023 Canadian National Champion and the 2022 WNBF National Champion,\nPassionate about empowering clients towards healthier lifestyles, I’m here to guide you in achieving your fitness goals, whether you’re recovering from an injury or striving for better health. Let’s embark on this journey together!",
     "areas_of_focus": "Mobility, Stability, Strength, Low Back Pain solution, Injury prevention & rehabilitation, Nutrition Coach, Weight Loss",
     "certification": "Canfitpro certified personal trainer, Precision nutrition certified coach, Pre-script stability mobility strength coach, DTS low back pain solution, GL-Skill Acquisition (foundation of training), GL-Wave Loading programming, CPR & AE",
     "email": "Omar.ali.fitness90@gmail.com",
     "phone": "519-890-1446",
-    "social_links": [
-      "https://www.instagram.com/omar.ali.fit/"
-    ]
+    "social_links": ["https://www.instagram.com/omar.ali.fit/"]
   },
   {
     "id": "edmonton-downtown-jenna-donovan",
@@ -211,7 +195,7 @@
     "trainerNumber": 13,
     "name": "Jenna Donovan",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2019/06/Jenna-Donovan-1.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Jenna-Donovan-1.jpg",
     "bio": "Jenna has been a personal trainer since 2014, and is currently working on her masters in Counselling Psychology. She has been training Muay Thai at Frank Lees since 2017 and loves being able to share that passion with her clients. Along with that she plays soccer, and spends time with her dog Mr. Duke. In 2011 she underwent open heart surgery to correct a congenital heart defect, which started her interest in rehabilitative fitness training.",
     "areas_of_focus": "Inclusive space, Beginners, Competitive Athletes, Injuries & Muscle Imbalances, Muay Thai Kickboxing",
     "certification": "Certified Personal Fitness Trainer, Corrective Exercise specialist",
@@ -226,7 +210,7 @@
     "trainerNumber": 14,
     "name": "Ahslei Skibin",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2022/07/Ahslei-Skibin.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Ahslei-Skibin.jpg",
     "bio": "Alpha State Holistics was born out of necessity for a paradigm shift in the health and fitness industry, where the physical body is typically isolated from the client’s mental and emotional status; this shift is especially critical when it comes to women.\nOver Ashlei’s training and educational career, she has learned that the science and training models used in the fitness industry (and many others) are based almost exclusively on research performed on men. The unique, female physiology is rarely if ever, considered when training or lifestyle coaching. It is a primary endeavor of Alpha State Holistics to bridge this divide.\nAshlei’s approach to training (both men and women) is to integrate the needs of the mental, emotional, spiritual, and physical body with highly individualized coaching.",
     "areas_of_focus": "Her mission is to guide you to life-changing results and offer unwavering support on your wellness journey.",
     "certification": "NAIT PFT graduate with Honors, NASM Corrective Exercise Specialist, Holistic Pre/Post Natal CES/Pelvic Floor Integration, CHEK Institute Holistic Lifestyle Coach LVL 1",
@@ -241,7 +225,7 @@
     "trainerNumber": 15,
     "name": "Sydney Carlson",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2019/06/Sydney-Carlson-1_0c51d5624f3941d7e1b396a7b9353bd0-1.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Sydney-Carlson-1_0c51d5624f3941d7e1b396a7b9353bd0-1.jpg",
     "bio": "Sydney has always been active with sports when she was younger, and has transitioned more into personal fitness in the last 8 years. Going through a personal transition with health, fitness, and nutrition, she understands the hard work, consistency, and dedication that it takes to make these changes. She is now dedicated to helping others do the same.\nCSEP – CPT,\nNASM- CORRECTIVE EXERCISE SPECIALIST, NAIT PFT.",
     "areas_of_focus": null,
     "certification": "She is nationally recognized as a trainer with her CSEP CPT certification; additionally, she has her NASM Corrective Exercise Specialist certification, as well as her Personal Training Diploma from NAIT. She has 4 years of experience from a commercial gym, before deciding to branch off with her own business, Beast Mode Bodies., Sydney inspires others to live their best life possible, both physically and mentally. She believes that with hard work, discipline, and a good support system, anyone can achieve any goal they set their mind to. She is passionate about helping people unlock their potential and assisting them in many different ways to get there.",
@@ -256,7 +240,7 @@
     "trainerNumber": 16,
     "name": "Eileen Chan",
     "role": "Acupuncturist",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2022/07/Eileen-Chan.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Eileen-Chan.jpg",
     "bio": "Hello everyone! My fascination with the human body and the mind-body connection allows me to do what I love everyday.  I am a Registered Acupuncturist, a Yoga Educator and life enthusiast. Acupuncture can help with a multitude of issues including musculoskeletal injuries, digestive problems, psycho-emotional issues to name a few. If you are experiencing pain,  imbalance or dis-ease,  I am eager to work with you to find balance in your life through the lens of Traditional Chinese Medicine.",
     "areas_of_focus": "Educating clients to create positive changes that help find balance and prevent further injuries.",
     "certification": "Acupuncture Diploma, 1000 hours Master Yoga Educator, Pranassage Practitioner",
@@ -271,15 +255,13 @@
     "trainerNumber": 17,
     "name": "Andy Sidor",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2019/06/Andy-Sidor.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Andy-Sidor.jpg",
     "bio": "I was born in Montreal, and my drive for fitness began as a young teenager. At 18, I began Body Building and competed throughout the age of 19, winning Junior Mr. Canada in B.C. I last competed at 20 years old. I went on to work in the Oil and Gas Industry, before returning to my passion in fitness, where I have been a Personal Trainer for the last 17 years.",
     "areas_of_focus": "Achieving Goals, Lifestyle Planning, Functional Training",
     "certification": "CanFitPro, Lifestyle Coach Level I, Hypopressive Level I, CPR",
     "email": "asidor@hotmail.com",
     "phone": "1-780-717-5046",
-    "social_links": [
-      "https://www.andysidornxtlvlfit.com/"
-    ]
+    "social_links": ["https://www.andysidornxtlvlfit.com/"]
   },
   {
     "id": "edmonton-downtown-sean-macnaughton",
@@ -288,7 +270,7 @@
     "trainerNumber": 18,
     "name": "Sean MacNaughton",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/06/Sean-MacNaughton.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Sean-MacNaughton.jpg",
     "bio": "My name is Sean MacNaughton and I’m the owner of Train to Serve where I specialize in helping First Responders increase their strength, recovery and performance through custom full body and conjugate style training.",
     "areas_of_focus": "Mobility, Weight loss, Power Development & Performance, Nutritional Support",
     "certification": "From 2012-2022 I worked in Calgary as a First Responder so I understand the challenges of the job first hand and the difficulty of maintaining your health & level of physical fitness. Regardless if you’re a First Responder or not, through the combination of my work experience, certifications & 20+ years of lifting experience I am confident that when we work together I will be able to help you not only reach your fitness goals but develop strong healthy habits that you can carry with you for the rest of your life., , Can Fit Pro PTS, Confident Coach Programming Specialist Certification (CCPSC), Foundations of Exercise",
@@ -306,15 +288,13 @@
     "trainerNumber": 19,
     "name": "Grant Wilson",
     "role": "Acupuncturist",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2025/03/Grant-Wilson.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Grant-Wilson.jpg",
     "bio": "Grant is a Registered Acupuncturist and Clinical Herbal Therapist, health educator and health practitioner with roots in the Edmonton community as a business and health care innovator with over twenty-seven years of experience.\nGrant is dedicated to assisting you in developing individualized care for your lifestyle, taking into account the holistic needs of your body by utilizing his extensive knowledge in homeopathy, the healing power of plants and herbs, nutrition and traditional acupuncture practices. He encompasses aspects of nature and the healing arts to create an optimal environment for your mind, body and spirit to work together to facilitate healing.\nHis treatments shift ancient practices into tailored, individualized plans for your modern lifestyle. Whether you are looking for a simple health plan based on TCM (Traditional Chinese Medicine), or guidance to solve a very specific or unique health challenge, Grant is the Acupuncturist for you if you wish to learn more about your body! Relax with balancing therapies that include the traditional needling practice that you’re used to with Acupuncture along with homeopathy, herbology, aromatherapy, Reiki, Thai massage inspired stretches and Chinese massage on the table.",
     "areas_of_focus": "Acupuncture, Traditional Chinese Medicine, Thai Massage",
     "certification": "Registered Acupuncturist, Reiki Practitioner, Clinical Herbal Therapist, Advanced Homeopathic Practitioner",
     "email": "info@striveholistic.com",
     "phone": "780-237-5665",
-    "social_links": [
-      "http://www.striveholistic.com"
-    ]
+    "social_links": ["http://www.striveholistic.com"]
   },
   {
     "id": "edmonton-downtown-ivan-radovanovic",
@@ -323,7 +303,7 @@
     "trainerNumber": 20,
     "name": "Ivan Radovanovic",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2019/06/Ivan-Radovanovic.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Ivan-Radovanovic.jpg",
     "bio": null,
     "areas_of_focus": "Weight loss, Strength and Power, Performance",
     "certification": "Canfit Pro, Precision Nutrition, DTS Level 1, DTS Barbell, Strength Certification, DTS Conditioning, Movement Masterminds, TRX Functional Training, Fascia Movement and Assessment",
@@ -341,7 +321,7 @@
     "trainerNumber": 21,
     "name": "Dean Somerset",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2019/06/Dean-Somerset.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Dean-Somerset.jpg",
     "bio": "Dean has been a personal trainer and exercise physiologist since 2004. He’s been featured in publications such as Men’s Health, Women’s Health, and Shape magazines. Dean has worked with olympic, paralympic, professional and amateur athletes, as well as clients managing medical concerns such as heart failure, diabetes, spinal cord injuries, and developmental dysfunctions. Whether training for your next competition, recovering from injury, or just looking to get into your best fitness ever, Dean is more than able to assist.",
     "areas_of_focus": "Medical Management, Injury Post-Rehab",
     "certification": "BSc. Kinesiology, CSEP-CEP, NSCA-CSCS",
@@ -359,15 +339,13 @@
     "trainerNumber": 22,
     "name": "Nicholas Mudryk",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/04/Nicholas-Mudryk.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Nicholas-Mudryk.jpg",
     "bio": "Being an avid athlete my entire life, health and fitness have always been at the forefront of everything I do. My true love for the fitness world began after a traumatic brain injury at hockey practice when I was 14. After the long recovery process, I knew that keeping my body in tip-top shape and helping people with their health and fitness goals was what I needed to do. I have learned that possessing the physical ability to perform certain tasks is crucial to that individual’s overall success. Not just in sports and activity, but in life as well. As a personal trainer, my job is not just helping individuals achieve their physical goals but includes being mentally available for them. When people walk into the gym to see me, they can expect the highest level of training and a coach who treats them like a friend with the utmost respect and professionalism!",
     "areas_of_focus": "Hockey Performance and Training, Athletic Performance and Training, Strength and Conditioning",
     "certification": "NAIT PFT Diploma, CSEP CPT, NASM CES",
     "email": "nick@muddspf.com",
     "phone": "780-910-9430",
-    "social_links": [
-      "https://www.instagram.com/mudds_performancefitness/"
-    ]
+    "social_links": ["https://www.instagram.com/mudds_performancefitness/"]
   },
   {
     "id": "edmonton-downtown-xanthinna-mcmahon",
@@ -376,15 +354,13 @@
     "trainerNumber": 23,
     "name": "Xanthinna McMahon",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2022/08/Xanthinna-McMahon.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Xanthinna-McMahon.jpg",
     "bio": "Xanthinna McMahon is a Canfitpro Certified trainer with a background in dance and group fitness. She grew up dancing which initiated her love of movement, and when she decided to embark on a new path, she became dedicated to resistance training. Her background is in luxury retail where she learned a lot about curating an exceptional client experience centered around clients needs. Recently, she left her long term leadership role to pursue fitness as a full time career as she believes in following your passion, ALWAYS. Regardless of what your goals are (weight loss, gaining muscle, aesthetics, mobility, overall improved health) Xanthinna will not only work with you on a personalized program to achieve them, but create an experience that is safe and fun while keeping you challenged through the process. Through her own personal journey, Xanthinna learned that there is no “end goal” when deciding to take steps toward living a healthier lifestyle. “Falling in love with the process IS the goal and I cannot wait to work with others to discover what this will mean for them.”\nWhere else can you find her? You can find her on the bags at Champs Boxing Studio as a Fitness Boxing Coach located downtown on 109st. Follow her on IG for her full schedule.",
     "areas_of_focus": "Weight loss, Strength and Power, Performance",
     "certification": "Canfit Pro",
     "email": "xanthinna@gmail.com",
     "phone": null,
-    "social_links": [
-      "https://www.instagram.com/xanthinna/"
-    ]
+    "social_links": ["https://www.instagram.com/xanthinna/"]
   },
   {
     "id": "edmonton-downtown-dan-pagnotta",
@@ -393,15 +369,13 @@
     "trainerNumber": 24,
     "name": "Dan Pagnotta",
     "role": "Fitness Coach",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2022/07/Dan-Pagnotta.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Dan-Pagnotta.jpg",
     "bio": "Certified Trainer in Edmonton since 2012, coaching Men & Women to build muscle and lose body fat with proper nutrition and exercise.\nI have 31 years experience in ITF Taekwon-Do, and am a 12 time Canadian National Champion, representing Canada at the World Championships 9 times as an athlete, and 3 times as Coach for Team Canada (coaching athlete’s strength & conditioning, and TKD training).  I am currently training for my first bodybuilding competition.\nAs a Trainer, I believe in staying true to yourself, and that there’s no substitute for hard work, discipline, and persistence.",
     "areas_of_focus": "Strength & Conditioning, Hypertrophy & Fat loss Training, Nutrition & Meal Planning",
     "certification": "CanFitPro PTS, CanFitPro Online Training Specialist, Precision Nutrition (Level 1)",
     "email": null,
     "phone": "780-231-1953",
-    "social_links": [
-      "https://www.instagram.com/dan_silverbackstrength/?hl=en"
-    ]
+    "social_links": ["https://www.instagram.com/dan_silverbackstrength/?hl=en"]
   },
   {
     "id": "edmonton-downtown-andrea-troughton",
@@ -410,7 +384,7 @@
     "trainerNumber": 25,
     "name": "Andrea Troughton",
     "role": "Holistic Health Coach and Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2019/06/Andrea-Troughton.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Andrea-Troughton.jpg",
     "bio": "Andrea is a holistic health coach who helps women develop unshakeable self worth through movement, nutrition, and self care. She specializes in creating healthy relationships with exercise, food, and the body so that her clients can not only achieve their health and fitness goals, but can also feel more confident in their skin, in their clothing, and out in the world so that they can live life to the fullest.",
     "areas_of_focus": "Intuitive eating, Joyful movement, Body positivity, Mindset",
     "certification": "CSNN – Certified Holistic Nutrition Consultant, CSEP – Certified Personal Trainer, NASM – Corrective Exercise Specialist",
@@ -428,15 +402,13 @@
     "trainerNumber": 26,
     "name": "Bowonkit Tubsuri (Nan)",
     "role": "Massage Therapist",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2022/08/Bowonkit-Tubsuri-Nan.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Bowonkit-Tubsuri-Nan.jpg",
     "bio": "Nan is a talented massage therapist and Thai Yoga Massage instructor with expertise in a variety of pain management techniques. He has over 12 years of experience in Thai Massage and is accredited by the Thailand Ministry of Labor and Education as an Advanced Master Trainer.\nNan performs his treatments mixing western and eastern techniques including deep tissue, relaxation, foot reflexology, Thai Yoga Massage, acupressure, energy lines and trigger point therapy.",
     "areas_of_focus": "Deep tissue and relaxation massage, Cupping treatments, Lymphatic drainage, Thai table massage, Cranial sacral therapy, foot reflexology and prenatal massage",
     "certification": "Registered Massage Therapist, Nuad Boran Thai massage, Thailand Ministry of Labor and Education as an Advanced Master Trainer",
     "email": "nan@wellnessartmassage.com",
     "phone": "825-365-1822",
-    "social_links": [
-      "https://wellnessartinc.clinicsense.com/"
-    ]
+    "social_links": ["https://wellnessartinc.clinicsense.com/"]
   },
   {
     "id": "edmonton-downtown-jesse-fraser",
@@ -445,15 +417,13 @@
     "trainerNumber": 27,
     "name": "Jesse Fraser",
     "role": "Massage Therapist",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2025/05/Jesse-Fraser.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Jesse-Fraser.jpg",
     "bio": "Jesse is a skilled massage therapist with over a decade of experience in spas, clinics, and chiropractic settings. He launched into entrepreneurship with his mobile massage business in 2020. Specializing in deep tissue, Jesse blends techniques like passive stretching, neuromuscular therapy, soft tissue release, and trigger point therapy to deliver top results in treatments. He has extensive experience with motor vehicle accident claims, prenatal/postnatal massage, and overuse injuries. Passionate about serving the LGBTQIA+ community, Jesse is committed to providing a safe, inclusive, and affirming space for all bodies to heal and thrive.",
     "areas_of_focus": "Deep Tissue, Dynamic Cupping, Relaxation, Neuromusulcar therapy",
     "certification": null,
     "email": "jesselevirmt@gmail.com",
     "phone": "780-952-9593",
-    "social_links": [
-      "https://www.instagram.com/jesselevirmt/"
-    ]
+    "social_links": ["https://www.instagram.com/jesselevirmt/"]
   },
   {
     "id": "edmonton-downtown-brandon-schultze",
@@ -462,7 +432,7 @@
     "trainerNumber": 28,
     "name": "Brandon Schultze",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2019/06/Brandon-Schultze.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Brandon-Schultze.jpg",
     "bio": "Simplicity is the ultimate form of sophistication. By breaking down the way you move, we can expose areas of opportunity so you get the most out of your training. My goal with every client is to restore function through mobility, and stability so you can develop strength in a sustainable way without gimmicks or shortcuts. Movement quality is always the primary goal, and the best way to reduce the risk of injury is through intentional training.",
     "areas_of_focus": "Strength development, Hypertrophy, Olympic Weightlifting, Training Technique, Breathing",
     "certification": "CSEP Certified Trainer, Pre-Script Level 1 & 2, Eleiko Strength Coach, Oxygen Advantage Advanced Instructor, Anatomy Trains Fascial Dissection",
@@ -480,15 +450,13 @@
     "trainerNumber": 29,
     "name": "Reno Henrique",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2025/07/Reno.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Reno.jpg",
     "bio": "Hey, I’m Reno, founder and coach of Even You Ever Fit. With 14 years of experience in multiple sports and athletics, and over 9,000 hours of Personal Training experience, I’ve helped people from all walks of life overcome conditional and structural pain, restrictions, challenges, self-doubt, and busy schedules. After my own athletic career ended early due to financial limitations, and years of transversing my own structural restrictions and challenges, I found passion and purpose in helping others look, feel, and perform their best, while earning various top education grades and Personal Trainer awards across Canada.",
     "areas_of_focus": "Injury, Pain, and Movement Rehabilitation, Strength, Power, Conditioning, and Athletic Performance Development, Muscle Building and Body Fat Loss Physique Transformation Programming, Nutrition and Lifestyle Coaching, Mental and Physical Health, Wellness, and Sustainability",
     "certification": "Fanshawe – Pre-Med/Health Sciences, NAIT and CSEP – Certified Personal Trainer, Clean Health – Physique Coaching Specialist, NASM, ETA, and DTS – Corrective Exercise and Pain Therapist, Pre-Script and Max Aita – Hypertrophy, Programming, and SuperTotal Barbell Specialist",
     "email": "evenyoueverfit@gmail.com",
     "phone": "(587) 990-8488",
-    "social_links": [
-      "https://www.instagram.com/renohenrique/"
-    ]
+    "social_links": ["https://www.instagram.com/renohenrique/"]
   },
   {
     "id": "edmonton-downtown-sharyn-sample",
@@ -497,15 +465,13 @@
     "trainerNumber": 30,
     "name": "Sharyn Sample",
     "role": "Massage Therapist",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2019/06/Sharyn-Sample-1_cca759520e26180f4e890bee6b5fbfa1.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Sharyn-Sample-1_cca759520e26180f4e890bee6b5fbfa1.jpg",
     "bio": "Sharyn graduated from MH Vicars School of Massage Therapy with the 2-year diploma in Remedial Massage. She specializes in deep tissue, trigger point treatment, myofascial release, and sports massage. She has helped people recover from vehicle injuries, sports injuries, stress related pain, and general discomfort. Sharyn strives to provide her clients with an effective therapeutic treatment to help release holding patterns and increase range of motion and circulation; bringing relief from discomfort whether it be caused by injury, acute or chronic pain, repetitive movement, or the stress of daily life.\nSharyn is an athlete herself, she has enjoyed playing rugby, volleyball, basketball, softball, slo-pitch, running, and cycling. Sharyn has used her massage therapy to work with both local and international rugby clubs. Sharyn has ‘real-life’ experiences in the injury, pain, and recovery department. She is pleased to be able use her experience to help others overcome obstacles of injury and pain.\nHaving always enjoyed an active lifestyle, when she is not working Sharyn enjoys hiking and camping, cycling, kayaking, and photography.",
     "areas_of_focus": null,
     "certification": null,
     "email": "info@kiakaha.ca",
     "phone": "1-780-222-3362",
-    "social_links": [
-      "https://kiakaha.ca/"
-    ]
+    "social_links": ["https://kiakaha.ca/"]
   },
   {
     "id": "edmonton-downtown-megan-labrie",
@@ -514,7 +480,7 @@
     "trainerNumber": 31,
     "name": "Megan Labrie",
     "role": "Massage Therapist",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2025/07/Megan.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Megan.jpg",
     "bio": "Megan is a Registered Massage Therapist and graduate of MacEwan University’s Massage Therapy program (2019). After three years practicing in BC—where she was nominated for Best Massage Therapist—she returned to Edmonton in 2024 to be closer to family and friends.\nWith nearly six years of experience, Megan supports clients dealing with acute and chronic pain, migraines, muscle imbalances, and sports or work-related injuries. She also focuses on injury prevention through biomechanical assessment of posture, alignment, and movement patterns.\nAs an athlete, Megan values the connection between physical and mental wellness. She believes in the power of proactive health care and is committed to providing compassionate, educational support to help clients achieve their wellness goals.",
     "areas_of_focus": "Therapeutic Deep Tissue, Triggerpoint Therapy, Myofascial Release, Joint Mobilization, Proprioceptive Neuromuscular Facilitation., Therapeutic Exercise",
     "certification": "2200 Hour Registered Massage Therapy Diploma, AED/CPR First Aid Certificate",
@@ -529,7 +495,7 @@
     "trainerNumber": 32,
     "name": "Emil Sziron",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2022/07/Emil-Sziron.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Emil-Sziron.jpg",
     "bio": "Emil is a results oriented fitness pro. Whether that entails getting leaner, stronger, improving joint aches/arthritis or rehabilitation. It starts with designing a personalized program for each individual, based on their abilities and goals. He places a premium on gymnastics, mobility, full body strength, sound nutritional habits, agility, balance, to achieve peak fitness and functionality.\nEmil has 20 years of experience working with a diverse group of individuals and teams. His present clientele covers 16 to 91 year olds, working hard towards their goals, whether that is international competition, or being able to continue living life to the fullest.\n“I’m as far from a natural athlete as one gets. I’ve had to work extra hard to achieve my goals, and hope to be a part of others’ success!”",
     "areas_of_focus": null,
     "certification": "Anatomy, Sports Nutrition in the Cayman Islands",
@@ -544,7 +510,7 @@
     "trainerNumber": 33,
     "name": "Emilia Bazar",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2023/08/Emilia-Bazar.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Emilia-Bazar.jpg",
     "bio": "In life there are three aspects of reality that all individuals must come to terms with – pain, uncertainty, and constant work. Once we embrace these aspects of life and reframe them as growth opportunities, we can begin to shape ourselves into the person we have always wanted to be.\nFitness has always been a focus in my life via competitive swimming, basketball, and volleyball and through working in the industry for over 10 years. During this time I had many roles but found my passion in Personal Training. I’ve learnt not only the importance of exercise for physical health but also the enormous impact it has on mental well-being. I know how much personal connection and support can impact our trajectory in life. If you find this is an area where you are struggling, I am here to help!\nMy goal as a Personal Trainer is to provide an experience that leaves my clients feeling better than they did when they walked through the door. I achieve this through open communication, setting clear expectations, relationship and confidence building, and science-based program design tailored to individual needs. I am a firm believer that the results we see are not purely driven by the exercises we perform or the food we consume but by the mental shift that occurs once we fall in love with the continuous process of bettering ourselves.",
     "areas_of_focus": "● Hypertrophy ● Conditioning ● Injury prevention ● Training technique",
     "certification": "National Academy of Sports Medicine (NASM) Certified Personal Trainer, Bachelors of Science in Nursing (2024)",
@@ -559,15 +525,13 @@
     "trainerNumber": 34,
     "name": "Aidan Kornel",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2024/01/Aidan-Kornel.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Aidan-Kornel.jpg",
     "bio": "Aidan Kornel is a passionate personal trainer with roots deeply embedded in athletics, she developed a profound understanding of the body’s incredible capabilities from a young age. She continues to embrace the spirit of competition and camaraderie as an avid rugby player, using the field as a training ground for life’s challenges and instilling values of teamwork, resilience, and discipline.\nAidan’s journey took an exciting turn when a love for fitness led to a career in the industry. More than just a profession, it’s a calling to inspire and guide individuals on their transformative journeys. Helping people become the best version of themselves is not just a goal—it’s her purpose.\nAidan brings a unique blend of athletic experience and a deep commitment to well-being To craft personalized fitness plans tailored to individual goals, whether clients are seasoned athletes seeking new heights or individuals taking the first steps toward a healthier lifestyle. Embark on a transformative journey with Aidan, where potential knows no bounds.",
     "areas_of_focus": "Strength and conditioning, Sports performance, Weight gain/ weight loss, Injury rehabilitation",
     "certification": "CanFit pro PTS, ETA level 1 Lower body mastery, Max Aita Client centric strength training",
     "email": "kornela2@mymacewan.ca",
     "phone": "780-566-7795",
-    "social_links": [
-      "https://www.instagram.com/aidan.paige.fitness/%20"
-    ]
+    "social_links": ["https://www.instagram.com/aidan.paige.fitness/%20"]
   },
   {
     "id": "edmonton-downtown-jack-haworth",
@@ -576,15 +540,13 @@
     "trainerNumber": 35,
     "name": "Jack Haworth",
     "role": "Physiotherapist",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2019/06/Jack-Haworth-1_8479e108852bf86eba6b1a4f0d0deaed.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Jack-Haworth-1_8479e108852bf86eba6b1a4f0d0deaed.jpg",
     "bio": "I grew up in England where I completed my Bachelor’s degree in Exercise Physiology and Nutrition. I then went on to complete my Masters in Physiotherapy from Manchester Metropolitan University in 2013 where, whilst writing my thesis, I first explored the benefits of compression and contrast therapy as recovery interventions for athletes, post performance . For my final placement, I chose to come to Alberta to explore the profession overseas and to be closer to the mountains. I instantly felt like I belonged here and decided to move in January 2014, joining the Pivotal team in 2016. I’m also co-owner of ARC by Pivotal Physiotherapy.\nHaving completed my CSCS through the NSCA, I have a strong belief in functional rehabilitation and my treatment model is to facilitate tissue adaptation by prescribing functional exercise alongside anti inflammatory interventions.  This is aimed at increasing tissue extensibility and joint range of motion with stretching and flexibility work, or to increase neuromuscular recruitment along with the associated strength benefits from a progressive loading program. I believe that alongside traditional techniques such as joint manipulation, dry needling and muscle energy techniques that functional rehabilitation offers the best potential outcome for all athletes and patients.\nOn my off time, I enjoy CrossFit, rugby, golf and exploring the great outdoors!\nMScPT, CSCS, ACUPUNCTURE,\nDRY NEEDLING, EXERCISE PHYSIOLOGY",
     "areas_of_focus": null,
     "certification": null,
     "email": "info@pivotalphysio.com",
     "phone": "1-780-809-3460",
-    "social_links": [
-      "https://pivotalphysio.com/"
-    ]
+    "social_links": ["https://pivotalphysio.com/"]
   },
   {
     "id": "edmonton-downtown-jeremy-dougan",
@@ -593,7 +555,7 @@
     "trainerNumber": 36,
     "name": "Jeremy Dougan",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2019/06/Jeremy-Dougan.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Jeremy-Dougan.jpg",
     "bio": "I am a results driven personal trainer who has been an active member of the fitness industry for over twenty years. My years of experience have given me the tools to assist my clients in transforming both their bodies and minds. My clients are successful because I educate them on proper training techniques, provide them with consistent emotional support, and build their confidence in the gym setting. My passion for fitness is ignited when working with people that are dedicated to making a change, regardless of their fitness level. My outgoing personality, honesty, and commitment allow me to push through barriers that keep my clients from reaching their goals. I also understand the importance of developing a trusting relationship with all of the people I work with. To me, personal training goes far beyond the session itself.",
     "areas_of_focus": "Fat loss, Strength & conditioning, Athletic performance, Bodybuilding, Program design",
     "certification": "NFLA-PT, CANFIT PRO, Level 1 & 2 Coaching, CFC, Resistance Trainer Leadership",
@@ -611,14 +573,12 @@
     "trainerNumber": 37,
     "name": "Barrett L Kyle",
     "role": "Personal Trainer",
-    "image": "https://www.evolvestrength.ca/wp-content/uploads/2025/07/Barrett-Kyle.jpg",
+    "image": "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/All_Trainer_Images/downtown_trainers/Barrett-Kyle.jpg",
     "bio": "As a Performance and Wellness Specialist, I believe movement is medicine and that lasting progress—in fitness and in life—is built through consistency. With a deep passion for active pursuits and global travel, I’m driven to live a healthy, balanced lifestyle and help others do the same. My approach blends evidence-based training with holistic wellness to support performance, longevity, and vitality in every stage of life.",
     "areas_of_focus": "University of Alberta Phys.Ed – Sport & Human Performance, Titleist Performance Institute Level 1 & 2, I create practical, sustainable programs",
     "certification": "University of Alberta Phys.Ed – Sport & Human Performance, Titleist Performance Institute Level 1 & 2, McGill Back Health Level 1,2,3, ELDOA level 1, Pain Free Performance Specialist",
     "email": "Bkyle780@gmail.com",
     "phone": "780-886-3498",
-    "social_links": [
-      "https://www.instagram.com/bkperformancegolf/"
-    ]
+    "social_links": ["https://www.instagram.com/bkperformancegolf/"]
   }
 ]

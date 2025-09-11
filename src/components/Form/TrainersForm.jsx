@@ -55,6 +55,9 @@ function TrainerForm() {
     email: "",
     phone: "",
     location: "",
+    yearsOfExperience: "",
+    areasOfExpertise: "",
+    otherAreasOfExpertise: "",
     about: "",
   });
   const [errors, setErrors] = useState({});
@@ -73,6 +76,15 @@ function TrainerForm() {
     if (!form.email) newErrors.email = "Required";
     if (!form.phone) newErrors.phone = "Required";
     if (!form.location) newErrors.location = "Required";
+    if (!form.yearsOfExperience) newErrors.yearsOfExperience = "Required";
+    if (!form.areasOfExpertise) newErrors.areasOfExpertise = "Required";
+    if (
+      form.areasOfExpertise === "Other" &&
+      !form.otherAreasOfExpertise.trim()
+    ) {
+      newErrors.otherAreasOfExpertise =
+        "Please specify your areas of expertise";
+    }
     if (!form.about) newErrors.about = "Required";
     return newErrors;
   };
@@ -106,7 +118,20 @@ function TrainerForm() {
           { name: "lastname", value: form.lastName },
           { name: "email", value: form.email },
           { name: "phone", value: form.phone },
-          { name: "location", value: form.location },
+          {
+            name: "location",
+            value:
+              LOCATIONS.find((loc) => loc.location === form.location)
+                ?.cityName || form.location,
+          },
+          { name: "years_of_experience", value: form.yearsOfExperience },
+          {
+            name: "areas_of_expertise__select_all_that_apply_",
+            value:
+              form.areasOfExpertise === "Other"
+                ? form.otherAreasOfExpertise
+                : form.areasOfExpertise,
+          },
           { name: "tell_us_about_yourself", value: form.about }, // fixed name
         ],
         context: {
@@ -176,7 +201,7 @@ function TrainerForm() {
             <img
               src={trainerImage}
               alt="Trainer at Gym"
-              className="object-cover w-full h-[616px]"
+              className="object-cover w-full h-[766px]"
             />
           </div>
         </div>
@@ -318,6 +343,109 @@ function TrainerForm() {
                   )}
                 </label>
               </div>
+
+              {/* Years of Experience */}
+              <div className="w-full flex flex-col">
+                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                  Years of Experience *
+                  <select
+                    name="yearsOfExperience"
+                    value={form.yearsOfExperience}
+                    onChange={handleChange}
+                    className={
+                      "mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full " +
+                      (form.yearsOfExperience === ""
+                        ? "text-[#6F6D66] text-[12px]"
+                        : "text-[#000] text-[16px]")
+                    }
+                  >
+                    <option value="">Select Years of Experience</option>
+                    <option value="0-1 years">0-1 years</option>
+                    <option value="1-2 years">1-2 years</option>
+                    <option value="2-3 years">2-3 years</option>
+                    <option value="3-5 years">3-5 years</option>
+                    <option value="5-10 years">5-10 years</option>
+                    <option value="10+ years">10+ years</option>
+                  </select>
+                  {errors.yearsOfExperience && (
+                    <span className="text-red-600 text-[12px]">
+                      {errors.yearsOfExperience}
+                    </span>
+                  )}
+                </label>
+              </div>
+
+              {/* Areas of Expertise */}
+              <div className="w-full flex flex-col">
+                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                  Areas of Expertise *
+                </label>
+                <select
+                  name="areasOfExpertise"
+                  value={form.areasOfExpertise}
+                  onChange={handleChange}
+                  className={
+                    "mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full " +
+                    (form.areasOfExpertise === ""
+                      ? "text-[#6F6D66] text-[12px] !font-[600]"
+                      : "text-[#000] text-[16px]")
+                  }
+                >
+                  <option value="">Select your areas of expertise</option>
+                  {[
+                    "Strength Training",
+                    "Cardio Training",
+                    "Weight Loss",
+                    "Muscle Building",
+                    "Functional Training",
+                    "Sports Performance",
+                    "Rehabilitation",
+                    "Nutrition Coaching",
+                    "Group Fitness",
+                    "Personal Training",
+                    "Yoga/Pilates",
+                    "CrossFit",
+                    "Bodybuilding",
+                    "Powerlifting",
+                    "Olympic Lifting",
+                    "HIIT Training",
+                    "Senior Fitness",
+                    "Youth Training",
+                    "Other",
+                  ].map((expertise) => (
+                    <option key={expertise} value={expertise}>
+                      {expertise}
+                    </option>
+                  ))}
+                </select>
+                {errors.areasOfExpertise && (
+                  <span className="text-red-600 text-[12px]">
+                    {errors.areasOfExpertise}
+                  </span>
+                )}
+              </div>
+
+              {/* Other Areas of Expertise field - shows only when "Other" is selected */}
+              {form.areasOfExpertise === "Other" && (
+                <div className="w-full flex flex-col">
+                  <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                    Other: *
+                    <input
+                      type="text"
+                      name="otherAreasOfExpertise"
+                      value={form.otherAreasOfExpertise}
+                      onChange={handleChange}
+                      placeholder="Please specify your areas of expertise"
+                      className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
+                    />
+                    {errors.otherAreasOfExpertise && (
+                      <span className="text-red-600 text-[12px]">
+                        {errors.otherAreasOfExpertise}
+                      </span>
+                    )}
+                  </label>
+                </div>
+              )}
 
               <div className="w-full flex flex-col">
                 <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
