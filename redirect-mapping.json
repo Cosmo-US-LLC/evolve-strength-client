@@ -1,0 +1,625 @@
+{
+  "redirects": [
+    {
+      "oldUrl": "https://www.evolvestrength.ca/about/",
+      "newUrl": "https://www.evolvestrength.ca/about-us",
+      "redirectType": "301",
+      "priority": 1,
+      "notes": "About page"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/contact/",
+      "newUrl": "https://www.evolvestrength.ca/contact-us",
+      "redirectType": "301",
+      "priority": 1,
+      "notes": "Contact page"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/corporate/",
+      "newUrl": "https://www.evolvestrength.ca/corporate-membership",
+      "redirectType": "301",
+      "priority": 1,
+      "notes": "Corporate membership"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/spaces/",
+      "newUrl": "https://www.evolvestrength.ca/work-spaces",
+      "redirectType": "301",
+      "priority": 1,
+      "notes": "Work spaces"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/become-a-trainer/",
+      "newUrl": "https://www.evolvestrength.ca/join-as-trainer",
+      "redirectType": "301",
+      "priority": 1,
+      "notes": "Join as trainer"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/burnaby-brentwood/",
+      "newUrl": "https://www.evolvestrength.ca/locations/burnaby-brentwood",
+      "redirectType": "301",
+      "priority": 2,
+      "notes": "Burnaby location"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/calgary-royal-oak/",
+      "newUrl": "https://www.evolvestrength.ca/locations/calgary-royal-oak",
+      "redirectType": "301",
+      "priority": 2,
+      "notes": "Calgary Royal Oak"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/calgary-seton/",
+      "newUrl": "https://www.evolvestrength.ca/locations/calgary-seton",
+      "redirectType": "301",
+      "priority": 2,
+      "notes": "Calgary Seton"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/calgary-sunridge/",
+      "newUrl": "https://www.evolvestrength.ca/locations/calgary-sunridge",
+      "redirectType": "301",
+      "priority": 2,
+      "notes": "Calgary Sunridge"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/edmonton-downtown/",
+      "newUrl": "https://www.evolvestrength.ca/locations/edmonton-downtown",
+      "redirectType": "301",
+      "priority": 2,
+      "notes": "Edmonton Downtown"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/edmonton-north/",
+      "newUrl": "https://www.evolvestrength.ca/locations/edmonton-north",
+      "redirectType": "301",
+      "priority": 2,
+      "notes": "Edmonton North"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/edmonton-south/",
+      "newUrl": "https://www.evolvestrength.ca/locations/edmonton-south",
+      "redirectType": "301",
+      "priority": 2,
+      "notes": "Edmonton South"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/vancouver-post/",
+      "newUrl": "https://www.evolvestrength.ca/locations/vancouver-post",
+      "redirectType": "301",
+      "priority": 2,
+      "notes": "Vancouver Post"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/our-team-brentwood/",
+      "newUrl": "https://www.evolvestrength.ca/explore",
+      "redirectType": "301",
+      "priority": 3,
+      "notes": "Brentwood team"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/our-team-downtown/",
+      "newUrl": "https://www.evolvestrength.ca/explore",
+      "redirectType": "301",
+      "priority": 3,
+      "notes": "Downtown team"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/our-team-north/",
+      "newUrl": "https://www.evolvestrength.ca/explore",
+      "redirectType": "301",
+      "priority": 3,
+      "notes": "North team"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/our-team-royaloak/",
+      "newUrl": "https://www.evolvestrength.ca/explore",
+      "redirectType": "301",
+      "priority": 3,
+      "notes": "Royal Oak team"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/our-team-seton/",
+      "newUrl": "https://www.evolvestrength.ca/explore",
+      "redirectType": "301",
+      "priority": 3,
+      "notes": "Seton team"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/our-team-south/",
+      "newUrl": "https://www.evolvestrength.ca/explore",
+      "redirectType": "301",
+      "priority": 3,
+      "notes": "South team"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/our-team-sunridge/",
+      "newUrl": "https://www.evolvestrength.ca/explore",
+      "redirectType": "301",
+      "priority": 3,
+      "notes": "Sunridge team"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/our-team/",
+      "newUrl": "https://www.evolvestrength.ca/explore",
+      "redirectType": "301",
+      "priority": 3,
+      "notes": "General team"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/recovery-brentwood/",
+      "newUrl": "https://www.evolvestrength.ca/wellness",
+      "redirectType": "301",
+      "priority": 4,
+      "notes": "Brentwood wellness"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/recovery-downtown/",
+      "newUrl": "https://www.evolvestrength.ca/wellness",
+      "redirectType": "301",
+      "priority": 4,
+      "notes": "Downtown wellness"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/recovery-north/",
+      "newUrl": "https://www.evolvestrength.ca/wellness",
+      "redirectType": "301",
+      "priority": 4,
+      "notes": "North wellness"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/recovery-royaloak/",
+      "newUrl": "https://www.evolvestrength.ca/wellness",
+      "redirectType": "301",
+      "priority": 4,
+      "notes": "Royal Oak wellness"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/recovery-seton/",
+      "newUrl": "https://www.evolvestrength.ca/wellness",
+      "redirectType": "301",
+      "priority": 4,
+      "notes": "Seton wellness"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/recovery-south/",
+      "newUrl": "https://www.evolvestrength.ca/wellness",
+      "redirectType": "301",
+      "priority": 4,
+      "notes": "South wellness"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/recovery-sunridge/",
+      "newUrl": "https://www.evolvestrength.ca/wellness",
+      "redirectType": "301",
+      "priority": 4,
+      "notes": "Sunridge wellness"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/recovery/",
+      "newUrl": "https://www.evolvestrength.ca/wellness",
+      "redirectType": "301",
+      "priority": 4,
+      "notes": "General recovery"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/services/",
+      "newUrl": "https://www.evolvestrength.ca/wellness",
+      "redirectType": "301",
+      "priority": 4,
+      "notes": "Services to wellness"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/spaces-brentwood/",
+      "newUrl": "https://www.evolvestrength.ca/work-spaces",
+      "redirectType": "301",
+      "priority": 5,
+      "notes": "Brentwood spaces"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/spaces-downtown/",
+      "newUrl": "https://www.evolvestrength.ca/work-spaces",
+      "redirectType": "301",
+      "priority": 5,
+      "notes": "Downtown spaces"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/spaces-north/",
+      "newUrl": "https://www.evolvestrength.ca/work-spaces",
+      "redirectType": "301",
+      "priority": 5,
+      "notes": "North spaces"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/spaces-royaloak/",
+      "newUrl": "https://www.evolvestrength.ca/work-spaces",
+      "redirectType": "301",
+      "priority": 5,
+      "notes": "Royal Oak spaces"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/spaces-seton/",
+      "newUrl": "https://www.evolvestrength.ca/work-spaces",
+      "redirectType": "301",
+      "priority": 5,
+      "notes": "Seton spaces"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/spaces-south/",
+      "newUrl": "https://www.evolvestrength.ca/work-spaces",
+      "redirectType": "301",
+      "priority": 5,
+      "notes": "South spaces"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/spaces-sunridge/",
+      "newUrl": "https://www.evolvestrength.ca/work-spaces",
+      "redirectType": "301",
+      "priority": 5,
+      "notes": "Sunridge spaces"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/workspace/",
+      "newUrl": "https://www.evolvestrength.ca/work-spaces",
+      "redirectType": "301",
+      "priority": 5,
+      "notes": "Workspace to work-spaces"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/training-brentwood/",
+      "newUrl": "https://www.evolvestrength.ca/explore",
+      "redirectType": "301",
+      "priority": 6,
+      "notes": "Brentwood training"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/training-downtown/",
+      "newUrl": "https://www.evolvestrength.ca/explore",
+      "redirectType": "301",
+      "priority": 6,
+      "notes": "Downtown training"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/training-north/",
+      "newUrl": "https://www.evolvestrength.ca/explore",
+      "redirectType": "301",
+      "priority": 6,
+      "notes": "North training"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/training-royaloak/",
+      "newUrl": "https://www.evolvestrength.ca/explore",
+      "redirectType": "301",
+      "priority": 6,
+      "notes": "Royal Oak training"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/training-seton/",
+      "newUrl": "https://www.evolvestrength.ca/explore",
+      "redirectType": "301",
+      "priority": 6,
+      "notes": "Seton training"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/training-south/",
+      "newUrl": "https://www.evolvestrength.ca/explore",
+      "redirectType": "301",
+      "priority": 6,
+      "notes": "South training"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/training-sunridge/",
+      "newUrl": "https://www.evolvestrength.ca/explore",
+      "redirectType": "301",
+      "priority": 6,
+      "notes": "Sunridge training"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/category/uncategorized/",
+      "newUrl": "https://www.evolvestrength.ca/",
+      "redirectType": "301",
+      "priority": 7,
+      "notes": "Dummy page to home"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/christmas-promotions/",
+      "newUrl": "https://www.evolvestrength.ca/",
+      "redirectType": "301",
+      "priority": 7,
+      "notes": "Christmas promotions to home"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/gym-new-year/",
+      "newUrl": "https://www.evolvestrength.ca/",
+      "redirectType": "301",
+      "priority": 7,
+      "notes": "Gym new year to home"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/is-walking-good-exercise/",
+      "newUrl": "https://www.evolvestrength.ca/",
+      "redirectType": "301",
+      "priority": 7,
+      "notes": "Walking exercise to home"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/new-gym-georgetown/",
+      "newUrl": "https://www.evolvestrength.ca/",
+      "redirectType": "301",
+      "priority": 7,
+      "notes": "New gym Georgetown to home"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/business-and-coaching-conference/",
+      "newUrl": "https://www.evolvestrength.ca/",
+      "redirectType": "301",
+      "priority": 7,
+      "notes": "Business conference to home"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/project/downtown/",
+      "newUrl": "https://www.evolvestrength.ca/",
+      "redirectType": "301",
+      "priority": 7,
+      "notes": "Project downtown to home"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/testhomepage/",
+      "newUrl": "https://www.evolvestrength.ca/",
+      "redirectType": "301",
+      "priority": 7,
+      "notes": "Test homepage to home"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/gym/",
+      "newUrl": "https://www.evolvestrength.ca/",
+      "redirectType": "301",
+      "priority": 7,
+      "notes": "Gym page to home"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/facilities/",
+      "newUrl": "https://www.evolvestrength.ca/locations",
+      "redirectType": "301",
+      "priority": 8,
+      "notes": "Facilities to locations"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/memberships/",
+      "newUrl": "https://www.evolvestrength.ca/locations",
+      "redirectType": "301",
+      "priority": 8,
+      "notes": "Memberships to locations"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/burnaby-brentwood/",
+      "newUrl": "https://join.evolvestrength.ca/burnaby-brentwood/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/calgary-royal-oak/",
+      "newUrl": "https://join.evolvestrength.ca/calgary-royal-oak/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/calgary-seton/",
+      "newUrl": "https://join.evolvestrength.ca/calgary-seton/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/calgary-sunridge/",
+      "newUrl": "https://join.evolvestrength.ca/calgary-sunridge/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/edmonton-downtown/",
+      "newUrl": "https://join.evolvestrength.ca/edmonton-downtown/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/edmonton-north/",
+      "newUrl": "https://join.evolvestrength.ca/edmonton-north/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/edmonton-south/",
+      "newUrl": "https://join.evolvestrength.ca/edmonton-south/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/vancouver-post/",
+      "newUrl": "https://join.evolvestrength.ca/vancouver-post/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/category/uncategorized/",
+      "newUrl": "https://join.evolvestrength.ca/category/uncategorized/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/christmas-promotions/",
+      "newUrl": "https://join.evolvestrength.ca/christmas-promotions/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/gym-new-year/",
+      "newUrl": "https://join.evolvestrength.ca/gym-new-year/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/is-walking-good-exercise/",
+      "newUrl": "https://join.evolvestrength.ca/is-walking-good-exercise/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/new-gym-georgetown/",
+      "newUrl": "https://join.evolvestrength.ca/new-gym-georgetown/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/privacy-policy/",
+      "newUrl": "https://join.evolvestrength.ca/privacy-policy/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/terms-and-conditions/",
+      "newUrl": "https://join.evolvestrength.ca/terms-and-conditions/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://join.evolvestrength.ca/tour-form/",
+      "newUrl": "https://join.evolvestrength.ca/tour-form/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://subscription.evolvestrength.ca/",
+      "newUrl": "https://subscription.evolvestrength.ca/",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06962",
+      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06962",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06964",
+      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06964",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06967",
+      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06967",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06973",
+      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06973",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40097",
+      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40097",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40142",
+      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40142",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40248",
+      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40248",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40327",
+      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40327",
+      "redirectType": "No redirect",
+      "priority": "External",
+      "notes": "External service - no redirect needed"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/",
+      "newUrl": "https://www.evolvestrength.ca/",
+      "redirectType": "No redirect",
+      "priority": "Same",
+      "notes": "Home page - no redirect needed"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/franchise/",
+      "newUrl": "https://www.evolvestrength.ca/franchise/",
+      "redirectType": "No redirect",
+      "priority": "Same",
+      "notes": "Franchise page - no redirect needed"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/personal-training/",
+      "newUrl": "https://www.evolvestrength.ca/personal-training/",
+      "redirectType": "No redirect",
+      "priority": "Same",
+      "notes": "Personal training page - no redirect needed"
+    },
+    {
+      "oldUrl": "https://www.evolvestrength.ca/locations/",
+      "newUrl": "https://www.evolvestrength.ca/locations/",
+      "redirectType": "No redirect",
+      "priority": "Same",
+      "notes": "All locations page - no redirect needed"
+    }
+  ],
+  "metadata": {
+    "totalUrls": 74,
+    "activeRedirects": 59,
+    "externalServices": 15,
+    "noRedirectNeeded": 15,
+    "createdDate": "2024-12-19",
+    "description": "Complete Evolve Strength URL mapping - includes all URLs from original data",
+    "priorities": {
+      "1": "Critical pages (about, contact, corporate, spaces, become-a-trainer)",
+      "2": "Location pages (all 8 locations)",
+      "3": "Team pages (redirect to explore)",
+      "4": "Wellness pages (redirect to wellness)",
+      "5": "Spaces pages (redirect to work-spaces)",
+      "6": "Training pages (redirect to explore)",
+      "7": "Dummy pages (redirect to home)",
+      "8": "Facilities/memberships (redirect to locations)",
+      "External": "External services (join.evolvestrength.ca, subscription.evolvestrength.ca)",
+      "Same": "Pages that stay the same (no redirect needed)"
+    },
+    "summary": {
+      "mainSiteRedirects": 59,
+      "externalServices": 15,
+      "sameUrls": 4,
+      "totalProcessed": 74
+    }
+  }
+}

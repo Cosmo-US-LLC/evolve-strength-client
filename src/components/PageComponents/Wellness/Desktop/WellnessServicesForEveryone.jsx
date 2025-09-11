@@ -59,7 +59,7 @@ function WellnessServicesForEveryone() {
   };
 
   return (
-    <div className="relative w-full h-[636px] md:h-[700px] flex items-center justify-center bg-black/80 overflow-hidden">
+    <div className="relative w-full h-[667px] md:h-[700px] flex items-center justify-center bg-black/80 overflow-hidden">
       {/* Desktop Background Image */}
       <img
         src={professionalServices[selectedIndex]?.images.desktopImage || ""}
