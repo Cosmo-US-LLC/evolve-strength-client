@@ -71,7 +71,7 @@ const fitnessGoalsOptions = [
   "HIIT and CrossFit",
   "Combat Sports",
   "Allied Health",
-  "Other"
+  "Other",
 ];
 
 export default function MatchMeWithTrainer() {

@@ -59,7 +59,7 @@ function WellnessServicesForEveryone() {
   };
 
   return (
-    <div className="relative w-full h-[636px] md:h-[700px] flex items-center justify-center bg-black/80 overflow-hidden">
+    <div className="relative w-full h-[667px] md:h-[700px] flex items-center justify-center bg-black/80 overflow-hidden">
       {/* Desktop Background Image */}
       <img
         src={professionalServices[selectedIndex]?.images.desktopImage || ""}
@@ -89,7 +89,7 @@ function WellnessServicesForEveryone() {
             <Link to="/explore?category=wellness">
               <button className="btnPrimary">FIND A wellness expert</button>
             </Link>
-            <Link to="/join-wellness">
+            <Link to="/match-me-with-a-wellness-expert">
               <button className="btnSecondary">
                 Match Me with a Wellness Expert
               </button>

@@ -109,7 +109,7 @@ function App() {
           path="/your-fitness-future"
           element={<YourFitnessFutureForm />}
         />
-        <Route path="/join-wellness" element={<WellnessInquiryForm />} />
+        <Route path="/match-me-with-a-wellness-expert" element={<WellnessInquiryForm />} />
         <Route
           path="/match-me-with-a-trainer"
           element={<MatchMeWithTrainer />}

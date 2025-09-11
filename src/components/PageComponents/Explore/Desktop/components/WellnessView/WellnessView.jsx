@@ -93,7 +93,7 @@ function WellnessView() {
       {/* Match Me With Wellness Expert Link */}
       <div className="flex justify-center mb-6 md:mb-8">
         <Link
-          to="/join-wellness"
+          to="/match-me-with-a-wellness-expert"
           className="inline-flex items-center gap-2 text-black font-bold text-base md:text-lg uppercase tracking-wide hover:text-gray-700 transition-colors duration-200 underline decoration-1 underline-offset-2"
         >
           MATCH ME WITH A WELLNESS EXPERT
