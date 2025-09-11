@@ -13,7 +13,7 @@ function TakesToLaunchEvolve() {
         <div className="flex flex-col md:flex-row gap-5 md:gap-20 justify-center md:items-end w-full">
           <div className="flex flex-col items-center">
             <div className="text-[#fff] text-[55px] font-[300] leading-[55px] mb-2">
-              $250,000
+              $300,000
             </div>
             <h4 className="text-[#fff] leading-[55px] font-[400] opacity-80">
               Minimum Liquid Capital
