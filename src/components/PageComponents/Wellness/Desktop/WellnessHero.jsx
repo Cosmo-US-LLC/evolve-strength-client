@@ -23,7 +23,7 @@ function WellnessHero() {
             <Link to="/explore?category=wellness">
               <button className="btnPrimary">FIND A wellness expert</button>
             </Link>
-            <Link to="/join-wellness">
+            <Link to="/match-me-with-a-wellness-expert">
               <button className="btnSecondary">
                 Match Me with a Wellness Expert
               </button>
