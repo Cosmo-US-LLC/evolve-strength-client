@@ -163,7 +163,7 @@ export const professionalServicesForLocations = [
     icon: Strength_training,
   },
   {
-    title: "calisthenics",
+    title: "group training",
     images: {
       desktopImage:
         "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/calisthenics.webp",
