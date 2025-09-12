@@ -16,8 +16,8 @@ import Esthetician from "../assets/icons/home/Wellness-Services/wellness_icons (
 import Chiropractic_Care from "../assets/icons/home/Wellness-Services/wellness_icons (14).svg";
 import Massage_Therapy from "../assets/icons/home/Wellness-Services/wellness_icons (1).svg";
 import Strength_training from "../assets/icons/home/Wellness-Services/wellness_icons (15).svg";
-import calisthenics from "../assets/icons/home/Wellness-Services/wellness_icons (4).svg";
-import Physiotherapy from "../assets/icons/home/Wellness-Services/wellness_icons (10).svg";
+import calisthenics from "../assets/icons/home/Wellness-Services/group_training.svg";
+import Physiotherapy from "../assets/icons/home/Wellness-Services/Physiotherapy.svg";
 import Acupuncture from "../assets/icons/home/Wellness-Services/wellness_icons (9).svg";
 import Dietitian_Services from "../assets/icons/home/Wellness-Services/wellness_icons (11).svg";
 import Cardio from "../assets/icons/home/Wellness-Services/wellness_icons (3).svg";
@@ -166,9 +166,9 @@ export const professionalServicesForLocations = [
     title: "group training",
     images: {
       desktopImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/calisthenics.webp",
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/group_training_desktop.webp",
       mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/calisthenics_mob.webp",
+        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/group_training_mobile.webp",
     },
     icon: calisthenics,
   },

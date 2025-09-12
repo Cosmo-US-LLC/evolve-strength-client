@@ -151,7 +151,15 @@ export default function WellnessInquiryForm() {
             { name: "lastname", value: form.lastName },
             { name: "email", value: form.email },
             { name: "phone", value: form.phone },
-            { name: "location", value: form.location },
+            {
+              name: "location",
+              value: form.location
+                ? `${
+                    LOCATIONS.find((loc) => loc.location === form.location)
+                      ?.cityName || form.location
+                  } - ${form.location}`
+                : "",
+            },
             {
               name: "which_wellness_service_are_you_interested_in_",
               value:
