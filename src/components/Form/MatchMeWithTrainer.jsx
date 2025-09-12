@@ -160,7 +160,15 @@ export default function MatchMeWithTrainer() {
             { name: "lastname", value: form.lastName },
             { name: "email", value: form.email },
             { name: "phone", value: form.phone },
-            { name: "location", value: form.location },
+            {
+              name: "location",
+              value: form.location
+                ? `${
+                    LOCATIONS.find((loc) => loc.location === form.location)
+                      ?.cityName || form.location
+                  } - ${form.location}`
+                : "",
+            },
             {
               name: "areas_of_focus",
               value:
