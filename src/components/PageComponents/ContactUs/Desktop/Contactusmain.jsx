@@ -100,7 +100,16 @@ function Contactusmain() {
           { name: "lastname", value: formData.lastName },
           { name: "email", value: formData.email },
           { name: "phone", value: formData.phone },
-          { name: "location", value: formData.location },
+          {
+            name: "location",
+            value: formData.location
+              ? `${
+                  contactLocationsData.locations.find(
+                    (loc) => loc.location === formData.location
+                  )?.cityName || formData.location
+                } - ${formData.location}`
+              : "",
+          },
           { name: "message", value: formData.message },
         ],
         context: {
