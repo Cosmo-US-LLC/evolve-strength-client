@@ -483,3 +483,13 @@
     height: 460px;
   }
 }
+
+/* Hide scrollbar for select dropdowns */
+select::-webkit-scrollbar {
+  display: none;
+}
+
+select {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

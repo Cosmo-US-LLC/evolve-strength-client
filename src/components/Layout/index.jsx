@@ -7,7 +7,7 @@ import ScrollToTop from "../ScrollToTop";
 function Layout() {
   return (
     <div>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <div className="">
         <Navbar />
       </div>

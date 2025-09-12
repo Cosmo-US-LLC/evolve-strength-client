@@ -120,9 +120,12 @@ function TrainerForm() {
           { name: "phone", value: form.phone },
           {
             name: "location",
-            value:
-              LOCATIONS.find((loc) => loc.location === form.location)
-                ?.cityName || form.location,
+            value: form.location
+              ? `${
+                  LOCATIONS.find((loc) => loc.location === form.location)
+                    ?.cityName || form.location
+                } - ${form.location}`
+              : "",
           },
           { name: "years_of_experience", value: form.yearsOfExperience },
           {
@@ -388,10 +391,12 @@ function TrainerForm() {
                     "mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full " +
                     (form.areasOfExpertise === ""
                       ? "text-[#6F6D66] text-[12px] !font-[600]"
-                      : "text-[#000] text-[16px]")
+                      : "text-[#000] text-[16px] !font-[600]")
                   }
                 >
-                  <option value="">Select your areas of expertise</option>
+                  <option value="" className="">
+                    Select your areas of expertise
+                  </option>
                   {[
                     "Strength Training",
                     "Cardio Training",
@@ -419,7 +424,7 @@ function TrainerForm() {
                   ))}
                 </select>
                 {errors.areasOfExpertise && (
-                  <span className="text-red-600 text-[12px]">
+                  <span className="text-red-600 text-[12px] font-[600]">
                     {errors.areasOfExpertise}
                   </span>
                 )}
