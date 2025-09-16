@@ -111,7 +111,7 @@ export const faqMain = {
     {
       question: "Can I get towels at the gym?",
       answer:
-        "Yes, you can add towel service as an optional add-on when you <a href='https://subscription.evolvestrength.ca/ ' class='text-[#4AB04A] cursor-pointer underline'>sign up</a> for your membership.",
+        "Yes, you can add towel service as an optional add-on when you <a href='https://www.evolvestrength.ca/join-now/' class='text-[#4AB04A] cursor-pointer underline'>sign up</a> for your membership.",
     },
     {
       question: "Do your health care providers direct bill?",
