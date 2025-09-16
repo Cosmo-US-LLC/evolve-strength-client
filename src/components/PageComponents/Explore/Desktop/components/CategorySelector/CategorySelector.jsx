@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import CategoryCard from "./CategoryCard";
 import { EXPLORE_DATA } from "../../../../../../constants/exploreDataWithTrainer";
 import LocationsView from "../LocationsView/LocationsView";
@@ -9,38 +9,80 @@ function CategorySelector({ selected, onSelect }) {
   const mobileCategoryCardsRef = useRef(null);
   const desktopCategoryCardsRef = useRef(null);
 
+  // Helper function to scroll to category cards
+  const scrollToCategoryCards = useCallback(() => {
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+      // On mobile, scroll to the specific selected card
+      const selectedCardElement = document.querySelector(
+        `[data-card-id="${selected}"]`
+      );
+      if (selectedCardElement) {
+        const rect = selectedCardElement.getBoundingClientRect();
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+        const elementTop = rect.top + scrollTop;
+
+        // Calculate offset for mobile header
+        const headerHeight = 70;
+        const extraPadding = 20;
+        const targetPosition = elementTop - headerHeight - extraPadding;
+        const finalPosition = Math.max(0, targetPosition);
+
+        window.scrollTo({
+          top: finalPosition,
+          behavior: "smooth",
+        });
+      }
+    } else {
+      // On desktop, scroll to the category cards section
+      const targetRef = desktopCategoryCardsRef;
+      if (targetRef.current) {
+        const rect = targetRef.current.getBoundingClientRect();
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+        const elementTop = rect.top + scrollTop;
+
+        const headerHeight = 84;
+        const extraPadding = 20;
+        const targetPosition = elementTop - headerHeight - extraPadding;
+        const finalPosition = Math.max(0, targetPosition);
+
+        window.scrollTo({
+          top: finalPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [selected]);
+
   // Scroll to category cards when a category is selected
   useEffect(() => {
     if (selected) {
       // Small delay to ensure the component is fully rendered and content is expanded
       const timer = setTimeout(() => {
-        // Determine which ref to use based on screen size
-        const isMobile = window.innerWidth <= 768;
-        const targetRef = isMobile
-          ? mobileCategoryCardsRef
-          : desktopCategoryCardsRef;
-
-        if (targetRef.current) {
-          // Calculate offset to account for fixed header/navbar
-          // Desktop: 84px, Mobile: 70px
-          // Adding extra offset to scroll higher above the cards
-          const baseOffset = isMobile ? -40 : -24;
-          const extraOffset = 120; // Additional space above the cards
-          const offset = baseOffset + extraOffset;
-
-          const elementTop = targetRef.current.offsetTop;
-          const elementPosition = elementTop - offset;
-
-          window.scrollTo({
-            top: elementPosition,
-            behavior: "smooth",
-          });
-        }
-      }, 300); // Increased delay to allow content to expand
+        scrollToCategoryCards();
+      }, 200); // Slightly longer delay to allow content to expand, especially on mobile
 
       return () => clearTimeout(timer);
     }
-  }, [selected]);
+  }, [selected, scrollToCategoryCards]);
+
+  // Handle window resize to recalculate scroll position if needed
+  useEffect(() => {
+    const handleResize = () => {
+      if (selected) {
+        // Re-scroll after resize to maintain proper positioning
+        setTimeout(() => {
+          scrollToCategoryCards();
+        }, 100);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [selected, scrollToCategoryCards]);
 
   const renderViewContent = (categoryId) => {
     switch (categoryId) {
@@ -70,7 +112,7 @@ function CategorySelector({ selected, onSelect }) {
         ref={mobileCategoryCardsRef}
       >
         {EXPLORE_DATA.map((card) => (
-          <div key={card.id} className="flex flex-col">
+          <div key={card.id} className="flex flex-col" data-card-id={card.id}>
             <CategoryCard
               card={card}
               selected={selected === card.id}
