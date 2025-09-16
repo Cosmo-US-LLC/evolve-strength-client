@@ -67,7 +67,7 @@ export const faqMain = {
     {
       question: "Is personal training included in my membership?",
       answer:
-      "Personal training is not included in the membership and is available for an additional fee. However, all new Evolve members receive a one-on-one assessment with a certified trainer after <a href='https://subscription.evolvestrength.ca/' class='text-[#4AB04A] cursor-pointer underline'>signing up</a>.",
+      "Personal training is not included in the membership and is available for an additional fee. However, all new Evolve members receive a one-on-one assessment with a certified trainer after <a href='/join-now/' class='text-[#4AB04A] cursor-pointer underline'>signing up</a>.",
     },
     {
       question: "Are recovery services included in my membership?",

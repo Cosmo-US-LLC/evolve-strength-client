@@ -5,7 +5,7 @@ export const LOCATION_PRICING = {
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
     subscriptionUrl:
-      "https://subscription.evolvestrength.ca/membership-plans?location=40097",
+      "/join-now/membership-type?location=Calgary%20Seton",
     plans: [
       {
         title: "1 Year Contract",
@@ -46,7 +46,7 @@ export const LOCATION_PRICING = {
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
     subscriptionUrl:
-      "https://subscription.evolvestrength.ca/membership-plans?location=40142",
+      "/join-now/membership-type?location=Calgary%20Royal%20Oak",
     plans: [
       {
         title: "1 Year Contract",
@@ -87,7 +87,7 @@ export const LOCATION_PRICING = {
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
     subscriptionUrl:
-      "https://subscription.evolvestrength.ca/membership-plans?location=06973",
+      "/join-now/membership-type?location=Calgary%20Sunridge",
     plans: [
       {
         title: "1 Year Contract",
@@ -128,7 +128,7 @@ export const LOCATION_PRICING = {
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
     subscriptionUrl:
-      "https://subscription.evolvestrength.ca/membership-plans?location=06962",
+      "/join-now/membership-type?location=Edmonton%20South",
     plans: [
       {
         title: "1 Year Contract",
@@ -169,7 +169,7 @@ export const LOCATION_PRICING = {
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
     subscriptionUrl:
-      "https://subscription.evolvestrength.ca/membership-plans?location=06964",
+      "/join-now/membership-type?location=Edmonton%20North",
     plans: [
       {
         title: "1 Year Contract",
@@ -210,7 +210,7 @@ export const LOCATION_PRICING = {
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
     subscriptionUrl:
-      "https://subscription.evolvestrength.ca/membership-plans?location=06967",
+      "/join-now/membership-type?location=Edmonton%20Downtown",
     plans: [
       {
         title: "1 Year Contract",
@@ -251,7 +251,7 @@ export const LOCATION_PRICING = {
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
     subscriptionUrl:
-      "https://subscription.evolvestrength.ca/membership-plans?location=40248",
+      "/join-now/membership-type?location=Burnaby%20Brentwood",
     plans: [
       {
         title: "1 Year Contract",
@@ -292,7 +292,7 @@ export const LOCATION_PRICING = {
     sectionSubtitle:
       "Flexible plans designed to fit your goals and your lifestyle",
     subscriptionUrl:
-      "https://subscription.evolvestrength.ca/membership-plans?location=40327",
+      "/join-now/membership-type?location=Vancouver,%20The%20Post",
     plans: [
       {
         title: "1 Year Contract",

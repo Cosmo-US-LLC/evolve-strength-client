@@ -79,21 +79,21 @@ const LoWhyChooseEvolve = () => {
   const getSubscriptionUrl = (locationKey) => {
     const subscriptionUrls = {
       "vancouver-post":
-        "https://subscription.evolvestrength.ca/membership-plans?location=40327",
+        "/join-now/membership-type?location=Vancouver,%20The%20Post",
       "burnaby-brentwood":
-        "https://subscription.evolvestrength.ca/membership-plans?location=40248",
+        "/join-now/membership-type?location=Burnaby%20Brentwood",
       "calgary-seton":
-        "https://subscription.evolvestrength.ca/membership-plans?location=40097",
+        "/join-now/membership-type?location=Calgary%20Seton",
       "calgary-royal-oak":
-        "https://subscription.evolvestrength.ca/membership-plans?location=40142",
+        "/join-now/membership-type?location=Calgary%20Royal%20Oak",
       "calgary-sunridge":
-        "https://subscription.evolvestrength.ca/membership-plans?location=06973",
+        "/join-now/membership-type?location=Calgary%20Sunridge",
       "edmonton-south":
-        "https://subscription.evolvestrength.ca/membership-plans?location=06962",
+        "/join-now/membership-type?location=Edmonton%20South",
       "edmonton-downtown":
-        "https://subscription.evolvestrength.ca/membership-plans?location=06967",
+        "/join-now/membership-type?location=Edmonton%20Downtown",
       "edmonton-north":
-        "https://subscription.evolvestrength.ca/membership-plans?location=06964",
+        "/join-now/membership-type?location=Edmonton%20North",
     };
 
     return (
@@ -116,9 +116,9 @@ const LoWhyChooseEvolve = () => {
             integrated health services, and top-tier facilities at a price you
             can afford.
           </h4>
-          <Link to={subscriptionUrl}>
+          <a href={subscriptionUrl}>
             <button className="btnPrimary">Join Now</button>
-          </Link>
+          </a>
         </div>
 
         <div className="relative w-full">

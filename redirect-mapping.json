@@ -512,57 +512,57 @@
       "notes": "External service - no redirect needed"
     },
     {
-      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06962",
-      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06962",
+      "oldUrl": "/join-now/membership-type?location=Edmonton%20South",
+      "newUrl": "/join-now/membership-type?location=Edmonton%20South",
       "redirectType": "No redirect",
       "priority": "External",
       "notes": "External service - no redirect needed"
     },
     {
-      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06964",
-      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06964",
+      "oldUrl": "/join-now/membership-type?location=Edmonton%20North",
+      "newUrl": "/join-now/membership-type?location=Edmonton%20North",
       "redirectType": "No redirect",
       "priority": "External",
       "notes": "External service - no redirect needed"
     },
     {
-      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06967",
-      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06967",
+      "oldUrl": "/join-now/membership-type?location=Edmonton%20Downtown",
+      "newUrl": "/join-now/membership-type?location=Edmonton%20Downtown",
       "redirectType": "No redirect",
       "priority": "External",
       "notes": "External service - no redirect needed"
     },
     {
-      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06973",
-      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=06973",
+      "oldUrl": "/join-now/membership-type?location=Calgary%20Sunridge",
+      "newUrl": "/join-now/membership-type?location=Calgary%20Sunridge",
       "redirectType": "No redirect",
       "priority": "External",
       "notes": "External service - no redirect needed"
     },
     {
-      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40097",
-      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40097",
+      "oldUrl": "/join-now/membership-type?location=Calgary%20Seton",
+      "newUrl": "/join-now/membership-type?location=Calgary%20Seton",
       "redirectType": "No redirect",
       "priority": "External",
       "notes": "External service - no redirect needed"
     },
     {
-      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40142",
-      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40142",
+      "oldUrl": "/join-now/membership-type?location=Calgary%20Royal%20Oak",
+      "newUrl": "/join-now/membership-type?location=Calgary%20Royal%20Oak",
       "redirectType": "No redirect",
       "priority": "External",
       "notes": "External service - no redirect needed"
     },
     {
-      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40248",
-      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40248",
+      "oldUrl": "/join-now/membership-type?location=Burnaby%20Brentwood",
+      "newUrl": "/join-now/membership-type?location=Burnaby%20Brentwood",
       "redirectType": "No redirect",
       "priority": "External",
       "notes": "External service - no redirect needed"
     },
     {
-      "oldUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40327",
-      "newUrl": "https://subscription.evolvestrength.ca/membership-plans?location=40327",
+      "oldUrl": "/join-now/membership-type?location=Vancouver,%20The%20Post",
+      "newUrl": "/join-now/membership-type?location=Vancouver,%20The%20Post",
       "redirectType": "No redirect",
       "priority": "External",
       "notes": "External service - no redirect needed"
