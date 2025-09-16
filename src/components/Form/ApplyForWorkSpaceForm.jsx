@@ -204,7 +204,15 @@ export default function ApplyForWorkSpaceForm() {
             { name: "email", value: form.email },
             { name: "mobilephone", value: form.phone },
             { name: "best_time_to_call_you__cloned_", value: form.bestTime },
-            { name: "location", value: form.location },
+            {
+              name: "location",
+              value: form.location
+                ? `${
+                    LOCATIONS.find((loc) => loc.location === form.location)
+                      ?.cityName || form.location
+                  } - ${form.location}`
+                : "",
+            },
             {
               name: "could_you_share_the_purpose_of_using_the_office_",
               value:

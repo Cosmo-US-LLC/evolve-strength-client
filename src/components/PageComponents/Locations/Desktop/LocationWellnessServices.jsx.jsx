@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Link } from "react-router-dom";
 import Autoplay from "embla-carousel-autoplay";
-import { professionalServices,professionalServicesForLocations } from "../../../../constants/professionalServicesImages.js";
+import {
+  professionalServices,
+  professionalServicesForLocations,
+} from "../../../../constants/professionalServicesImages.js";
 import {
   Carousel,
   CarouselContent,
@@ -97,12 +100,17 @@ const LocationWellnessServices = () => {
               Premium Wellness & <br /> Personal Training
             </h2>
             <p className="description leading-[20px] text-[#ffffff]">
-              Boost your fitness with our add-on services (not included <br /> in membership)
+              Boost your fitness with our add-on services (not included <br />{" "}
+              in membership)
             </p>
-
-            <Link to="/explore?category=wellness">
-              <button className="btnPrimary">FIND A wellness expert</button>
-            </Link>
+            <div className="flex flex-row gap-2">
+              <Link to="/explore?category=wellness">
+                <button className="btnPrimary">FIND A wellness expert</button>
+              </Link>
+              <Link to="/explore?category=trainers">
+                <button className="btnSecondary">FIND A Trainer</button>
+              </Link>
+            </div>
           </div>
 
           <div className="flex flex-wrap gap-2 max-w-[713px]">
@@ -122,7 +130,7 @@ const LocationWellnessServices = () => {
                 `}
                 >
                   <div className="mb-2 text-[16px] font-[kanit] font-[500] leading-[16px] uppercase">
-                   <img src={service.icon} alt="" />
+                    <img src={service.icon} alt="" />
                   </div>
                   <div className="text-[16px] font-kanit font-[500] leading-[20px] uppercase text-[#fff] text-center px-[5px]">
                     {service.title}
@@ -160,15 +168,19 @@ const LocationWellnessServices = () => {
 
         <div className="relative z-10 flex flex-col items-center w-full  gap-6">
           <h2 className="uppercase text-[#ffffff] font-bold">
-           Premium Wellness &  Personal Training
+            Premium Wellness & Personal Training
           </h2>
           <p className="description leading-[20px] text-[#ffffff] ">
-            Boost your fitness with our add-on services (not included in membership)
+            Boost your fitness with our add-on services (not included in
+            membership)
           </p>
-          <div className="flex justify-start w-full">
+          <div className="flex gap-2 justify-start w-full">
             <Link to="/explore?category=wellness">
               <button className="btnPrimary">FIND A wellness expert</button>
             </Link>
+             <Link to="/explore?category=trainers">
+                <button className="btnSecondary">FIND A Trainer</button>
+              </Link>
           </div>
         </div>
         <div className="relative w-full mt-6">
@@ -199,7 +211,7 @@ const LocationWellnessServices = () => {
                             isActive ? "text-[#fff]" : "text-[#fff]"
                           }`}
                         >
-                           <img src={service.icon} alt="" />
+                          <img src={service.icon} alt="" />
                         </div>
                         <div className="text-[14px] font-kanit font-[400] leading-[20px] uppercase text-[#fff] text-center">
                           {service.title}
