@@ -18,7 +18,7 @@ function JoinUs() {
             fitness, not the queue.
           </h4>
           <div className="flex gap-6">
-            <Link to="https://subscription.evolvestrength.ca/">
+            <Link to="/join-now">
               <button className="btnPrimary">join now</button>
             </Link>
             <Link to="https://tour.evolvestrength.ca/tour-form">

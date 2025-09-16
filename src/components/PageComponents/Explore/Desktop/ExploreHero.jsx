@@ -19,7 +19,7 @@ function ExploreHero() {
               <button className="btnPrimary">BOOK A FREE TOUR</button>
             </Link>
 
-            <Link to="https://subscription.evolvestrength.ca/">
+            <Link to="/join-now">
               <button className="btnSecondary">Join Now</button>
             </Link>
           </div>

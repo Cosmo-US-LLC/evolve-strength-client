@@ -97,7 +97,7 @@ const LoWhyChooseEvolve = () => {
     };
 
     return (
-      subscriptionUrls[locationKey] || "https://subscription.evolvestrength.ca/"
+      subscriptionUrls[locationKey] || "/join-now"
     );
   };
 

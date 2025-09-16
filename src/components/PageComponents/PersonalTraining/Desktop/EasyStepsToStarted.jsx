@@ -124,7 +124,7 @@ function EasyStepsToStarted() {
         </div>
 
         <div className="text-center mt-[70px]">
-          <Link to="https://subscription.evolvestrength.ca/">
+          <Link to="/join-now">
             <button className="btnPrimary mb-6">JOIN EVOLVE</button>
           </Link>
           <p className="text-[#000] text-[16px] font-[300] leading-[24px] font-[kanit]">
