@@ -22,11 +22,11 @@ function PersonalTrainingHero() {
               <button className="btnSecondary">match me with a trainer</button>
             </Link>
           </div>
-          <Link to="/join-now">
+          <a href="/join-now/">
             <button className="description underline leading-[18px] !font-[Kanit] text-[#FFFFFF]  font-bold hover:cursor-pointer ">
               Personal training is available for an additional fee.
             </button>
-          </Link>
+          </a>
         </div>
       </div>
     </div>

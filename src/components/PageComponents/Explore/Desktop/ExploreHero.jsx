@@ -19,9 +19,9 @@ function ExploreHero() {
               <button className="btnPrimary">BOOK A FREE TOUR</button>
             </Link>
 
-            <Link to="/join-now">
+            <a href="/join-now/">
               <button className="btnSecondary">Join Now</button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
