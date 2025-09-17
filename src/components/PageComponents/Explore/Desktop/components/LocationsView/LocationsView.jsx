@@ -129,13 +129,13 @@ function LocationsView() {
                     }`}
                   />
                 </div>
-                <Link
-                  to={loc?.statelink}
+                <a
+                  href={loc?.statelink}
                   className="uppercase text-[16px] md:text-[20px] font-[400] leading-[20px] font-[kanit] text-[#4AB04A] hover:text-[#000] underline transition-colors duration-300"
                   onClick={(e) => e.stopPropagation()}
                 >
                   JOIN NOW
-                </Link>
+                </a>
               </div>
 
               {/* Accordion Content with Smooth Animation */}

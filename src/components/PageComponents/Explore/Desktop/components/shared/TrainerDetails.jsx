@@ -20,21 +20,21 @@ function TrainerDetails({ trainer }) {
   // const getSubscriptionUrl = (location) => {
   //   const locationUrls = {
   //     "VANCOUVER POST":
-  //       "https://subscription.evolvestrength.ca/membership-plans?location=40327",
+  //       "/join-now/membership-type?location=Vancouver,%20The%20Post",
   //     "BURNABY BRENTWOOD":
-  //       "https://subscription.evolvestrength.ca/membership-plans?location=40248",
+  //       "/join-now/membership-type?location=Burnaby%20Brentwood",
   //     "CALGARY SETON":
-  //       "https://subscription.evolvestrength.ca/membership-plans?location=40097",
+  //       "/join-now/membership-type?location=Calgary%20Seton",
   //     "CALGARY ROYAL OAK":
-  //       "https://subscription.evolvestrength.ca/membership-plans?location=40142",
+  //       "/join-now/membership-type?location=Calgary%20Royal%20Oak",
   //     "CALGARY SUNRIDGE":
-  //       "https://subscription.evolvestrength.ca/membership-plans?location=06973",
+  //       "/join-now/membership-type?location=Calgary%20Sunridge",
   //     "EDMONTON SOUTH":
-  //       "https://subscription.evolvestrength.ca/membership-plans?location=06962",
+  //       "/join-now/membership-type?location=Edmonton%20South",
   //     "EDMONTON DOWNTOWN":
-  //       "https://subscription.evolvestrength.ca/membership-plans?location=06967",
+  //       "/join-now/membership-type?location=Edmonton%20Downtown",
   //     "EDMONTON NORTH":
-  //       "https://subscription.evolvestrength.ca/membership-plans?location=06964",
+  //       "/join-now/membership-type?location=Edmonton%20North",
   //   };
 
   //   return locationUrls[location] || "https://subscription.evolvestrength.ca";

@@ -126,9 +126,9 @@ function LocationPricing() {
                 <h2 className=" text-[#4AB04A]">{getPlanPrice()}</h2>
               </div>
 
-              <Link to={pricingData.subscriptionUrl} className="block">
+              <a href={pricingData.subscriptionUrl} className="block">
                 <button className="btnPrimary w-full">JOIN NOW</button>
-              </Link>
+              </a>
 
               <div className="text-center my-6 w-[100%] max-md:w-[300px] mx-auto">
                 <h3 className="text-xl font-semibold text-black mb-8">

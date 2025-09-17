@@ -67,7 +67,7 @@ export const faqMain = {
     {
       question: "Is personal training included in my membership?",
       answer:
-      "Personal training is not included in the membership and is available for an additional fee. However, all new Evolve members receive a one-on-one assessment with a certified trainer after <a href='https://subscription.evolvestrength.ca/' class='text-[#4AB04A] cursor-pointer underline'>signing up</a>.",
+      "Personal training is not included in the membership and is available for an additional fee. However, all new Evolve members receive a one-on-one assessment with a certified trainer after <a href='/join-now/' class='text-[#4AB04A] cursor-pointer underline'>signing up</a>.",
     },
     {
       question: "Are recovery services included in my membership?",
@@ -111,7 +111,7 @@ export const faqMain = {
     {
       question: "Can I get towels at the gym?",
       answer:
-        "Yes, you can add towel service as an optional add-on when you <a href='https://subscription.evolvestrength.ca/ ' class='text-[#4AB04A] cursor-pointer underline'>sign up</a> for your membership.",
+        "Yes, you can add towel service as an optional add-on when you <a href='https://www.evolvestrength.ca/join-now/' class='text-[#4AB04A] cursor-pointer underline'>sign up</a> for your membership.",
     },
     {
       question: "Do your health care providers direct bill?",

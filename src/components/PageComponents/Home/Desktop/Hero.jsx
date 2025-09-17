@@ -35,9 +35,9 @@ function Hero() {
               <Link to="https://tour.evolvestrength.ca/tour-form ">
                 <button className="btnPrimary">BOOK A FREE TOUR</button>
               </Link>
-              <Link to="https://subscription.evolvestrength.ca/">
+              <a href="/join-now/">
                 <button className="btnSecondary">JOIN NOW</button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
