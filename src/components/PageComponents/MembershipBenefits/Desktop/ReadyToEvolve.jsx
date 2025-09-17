@@ -17,9 +17,9 @@ function ReadyToEvolve() {
             queue.
           </p>
           <div className="flex gap-6">
-            <Link to="https://subscription.evolvestrength.ca/">
+            <a href="/join-now/">
             <button className="btnPrimary">Join Now</button>
-            </Link>
+            </a>
             <Link to="https://tour.evolvestrength.ca/tour-form ">
             <button className="btnSecondary">take a tour</button>
             </Link>

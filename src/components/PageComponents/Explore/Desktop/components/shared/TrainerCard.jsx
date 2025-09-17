@@ -79,8 +79,10 @@ function TrainerCard({
   }, [isCarousel, currentIndex, onCarouselNavigate, onSwipeDetected]);
 
   const scrollToNext = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     if (onCarouselNavigate) {
       const newIndex = Math.min(currentIndex + 1, trainers.length - 1);
       onCarouselNavigate(newIndex);
@@ -88,8 +90,10 @@ function TrainerCard({
   };
 
   const scrollToPrev = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     if (onCarouselNavigate) {
       const newIndex = Math.max(currentIndex - 1, 0);
       onCarouselNavigate(newIndex);
@@ -103,9 +107,13 @@ function TrainerCard({
         {/* Navigation Buttons */}
         <button
           onClick={scrollToPrev}
-          onTouchEnd={scrollToPrev}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            scrollToPrev(e);
+          }}
           disabled={currentIndex === 0}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full p-3 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+          className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full p-3 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation select-none"
           style={{ minWidth: "44px", minHeight: "44px" }}
         >
           <ChevronLeft className="w-5 h-5 text-gray-600" />
@@ -113,9 +121,13 @@ function TrainerCard({
 
         <button
           onClick={scrollToNext}
-          onTouchEnd={scrollToNext}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            scrollToNext(e);
+          }}
           disabled={currentIndex === trainers.length - 1}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full p-3 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full p-3 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation select-none"
           style={{ minWidth: "44px", minHeight: "44px" }}
         >
           <ChevronRight className="w-5 h-5 text-gray-600" />

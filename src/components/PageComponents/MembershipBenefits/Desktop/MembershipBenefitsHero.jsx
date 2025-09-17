@@ -11,9 +11,9 @@ function MembershipBenefitsHero() {
             One Membership Endless Possibilities
           </h1>
           <div className="flex gap-6">
-            <Link to="https://subscription.evolvestrength.ca/">
+            <a href="/join-now/">
               <button className="btnPrimary">Join Now</button>
-            </Link>
+            </a>
             <Link to="https://tour.evolvestrength.ca/tour-form ">
               <button className="btnSecondary">BOOK A FREE TOUR</button>
             </Link>
