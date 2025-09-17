@@ -179,7 +179,7 @@ h5 {
   font-weight: 400;
   color: #6f6d66;
   background-color: #fff;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 .input-error {
   font-family: "Vazirmatn";
