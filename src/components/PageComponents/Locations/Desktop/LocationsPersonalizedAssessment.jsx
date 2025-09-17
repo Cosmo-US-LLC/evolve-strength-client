@@ -27,24 +27,24 @@ function LocationsPersonalizedAssessment() {
   const getTourUrl = (locationKey) => {
     const tourUrls = {
       "vancouver-post":
-        "https://tour.evolvestrength.ca/tour-form/?location=40327",
+        "/book-a-tour/?location=40327",
       "burnaby-brentwood":
-        "https://tour.evolvestrength.ca/tour-form/?location=40248",
+        "/book-a-tour/?location=40248",
       "calgary-seton":
-        "https://tour.evolvestrength.ca/tour-form/?location=40097",
+        "/book-a-tour/?location=40097",
       "calgary-royal-oak":
-        "https://tour.evolvestrength.ca/tour-form/?location=40142",
+        "/book-a-tour/?location=40142",
       "calgary-sunridge":
-        "https://tour.evolvestrength.ca/tour-form/?location=06973",
+        "/book-a-tour/?location=06973",
       "edmonton-south":
-        "https://tour.evolvestrength.ca/tour-form/?location=06962",
+        "/book-a-tour/?location=06962",
       "edmonton-downtown":
-        "https://tour.evolvestrength.ca/tour-form/?location=06967",
+        "/book-a-tour/?location=06967",
       "edmonton-north":
-        "https://tour.evolvestrength.ca/tour-form/?location=06964",
+        "/book-a-tour/?location=06964",
     };
 
-    return tourUrls[locationKey] || "https://tour.evolvestrength.ca/tour-form";
+    return tourUrls[locationKey] || "/book-a-tour/";
   };
 
   const tourUrl = getTourUrl(locationKey);

@@ -46,17 +46,17 @@ const LocationSeeITYourself = () => {
   // Location-specific tour URLs
   const getTourUrl = (tabKey) => {
     const tourUrls = {
-      post: "https://tour.evolvestrength.ca/tour-form/?location=40327", // Vancouver Post
-      brentwood: "https://tour.evolvestrength.ca/tour-form/?location=40248", // Burnaby Brentwood
-      seton: "https://tour.evolvestrength.ca/tour-form/?location=40097", // Calgary Seton
-      royaloak: "https://tour.evolvestrength.ca/tour-form/?location=40142", // Calgary Royal Oak
-      sunridge: "https://tour.evolvestrength.ca/tour-form/?location=06973", // Calgary Sunridge
-      south: "https://tour.evolvestrength.ca/tour-form/?location=06962", // Edmonton South
-      downtown: "https://tour.evolvestrength.ca/tour-form/?location=06967", // Edmonton Downtown
-      north: "https://tour.evolvestrength.ca/tour-form/?location=06964", // Edmonton North
+      post: "/book-a-tour/?location=40327", // Vancouver Post
+      brentwood: "/book-a-tour/?location=40248", // Burnaby Brentwood
+      seton: "/book-a-tour/?location=40097", // Calgary Seton
+      royaloak: "/book-a-tour/?location=40142", // Calgary Royal Oak
+      sunridge: "/book-a-tour/?location=06973", // Calgary Sunridge
+      south: "/book-a-tour/?location=06962", // Edmonton South
+      downtown: "/book-a-tour/?location=06967", // Edmonton Downtown
+      north: "/book-a-tour/?location=06964", // Edmonton North
     };
 
-    return tourUrls[tabKey] || "https://tour.evolvestrength.ca/tour-form";
+    return tourUrls[tabKey] || "/book-a-tour/";
   };
 
   const currentTourUrl = getTourUrl(activeTab);
@@ -232,9 +232,9 @@ const LocationSeeITYourself = () => {
         </TabsContent>
       </Tabs>
       <div className="flex justify-center mt-6 max-md:hidden">
-        <Link to={currentTourUrl}>
+        <a href={currentTourUrl}>
           <button className="btnPrimary">BOOK A FREE TOUR</button>
-        </Link>
+        </a>
       </div>
 
       {/* Mobile Version */}
@@ -317,9 +317,9 @@ const LocationSeeITYourself = () => {
           </TabsContent>
         </Tabs>
         <div className="flex justify-center mt-6 px-[16px] py-[17px]">
-          <Link to={currentTourUrl}>
+          <a href={currentTourUrl}>
             <button className="btnPrimary">BOOK A FREE TOUR</button>
-          </Link>
+          </a>
         </div>
       </div>
     </div>
