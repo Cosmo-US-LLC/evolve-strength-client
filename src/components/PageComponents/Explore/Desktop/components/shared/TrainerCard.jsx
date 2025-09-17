@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import {
   Check,
   ChevronDown,
@@ -18,8 +18,10 @@ function TrainerCard({
   onTrainerSelect,
   currentIndex = 0,
   onCarouselNavigate,
+  onSwipeDetected,
 }) {
   const carouselRef = useRef(null);
+  const lastScrollLeft = useRef(0);
 
   // Sync carousel position with external currentIndex
   useEffect(() => {
@@ -28,6 +30,46 @@ function TrainerCard({
       carouselRef.current.scrollTo({ left: scrollAmount, behavior: "smooth" });
     }
   }, [currentIndex, isCarousel]);
+
+  // Handle manual swipe detection
+  useEffect(() => {
+    if (!isCarousel || !carouselRef.current) return;
+
+    const handleScroll = () => {
+      if (!carouselRef.current) return;
+
+      const currentScrollLeft = carouselRef.current.scrollLeft;
+      const scrollDifference = Math.abs(
+        currentScrollLeft - lastScrollLeft.current
+      );
+
+      // If user manually scrolled (swiped) and there's a significant difference
+      if (scrollDifference > 50) {
+        // Calculate which card is currently visible
+        const cardWidth = 280; // card width + gap
+        const newIndex = Math.round(currentScrollLeft / cardWidth);
+
+        // Update the current index if it changed
+        if (newIndex !== currentIndex && onCarouselNavigate) {
+          onCarouselNavigate(newIndex);
+        }
+
+        // Close trainer details if they're open
+        if (onSwipeDetected) {
+          onSwipeDetected();
+        }
+
+        lastScrollLeft.current = currentScrollLeft;
+      }
+    };
+
+    const carousel = carouselRef.current;
+    carousel.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      carousel.removeEventListener("scroll", handleScroll);
+    };
+  }, [isCarousel, currentIndex, onCarouselNavigate, onSwipeDetected]);
 
   const scrollToNext = () => {
     if (onCarouselNavigate) {

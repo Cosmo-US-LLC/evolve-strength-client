@@ -14,6 +14,7 @@ import EvolveFloorPlan from "@/components/PageComponents/Franchise/Desktop/Evolv
 import OurFranchiseesSay from "@/components/PageComponents/Franchise/Desktop/OurFranchiseesSay";
 import EvolveExpansionPlans from "@/components/PageComponents/Franchise/Desktop/EvolveExpansionPlans";
 import MetaTags from "@/components/Metatags/Meta";
+import { getFloorPlanData } from "@/constants/floorPlanSlides";
 
 function Franchise() {
   return (
@@ -30,7 +31,11 @@ function Franchise() {
         <EvolveSmarterInvestment />
         <TakesToLaunchEvolve />
         <WeHelpYouRightSpace />
-        <EvolveFloorPlan />
+        <EvolveFloorPlan
+          slides={getFloorPlanData("franchise").slides}
+          heading={getFloorPlanData("franchise").heading}
+          description={getFloorPlanData("franchise").description}
+        />
         <GotYourBack />
         <EvolveExpansionPlans />
         {/* <OurFranchiseesSay /> */}

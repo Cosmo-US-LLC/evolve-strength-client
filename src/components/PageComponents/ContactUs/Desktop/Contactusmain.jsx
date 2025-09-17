@@ -193,7 +193,7 @@ function Contactusmain() {
         </div>
 
         {/* RIGHT: FORM */}
-        <div className="w-full md:w-[50%] h-full md:h-auto  items-center gap-[10px] overflow-hidden rounded-[8px] bg-[#ffffff] border border-[#E5E5E5]">
+        <div className="w-full md:w-[50%] h-full md:h-auto items-center gap-[10px] overflow-hidden rounded-[8px] bg-[#ffffff] border border-[#E5E5E5]">
           <h3 className="font-bold mb-6 text-center text-xl bg-[#000000] text-white py-3">
             SEND US A MESSAGE
           </h3>
@@ -201,10 +201,7 @@ function Contactusmain() {
           <form onSubmit={handleSubmit} className="space-y-6 px-6 py-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label
-                  htmlFor="firstName"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
+                <label htmlFor="firstName" className="block form-label mb-1">
                   First Name *
                 </label>
                 <input
@@ -213,24 +210,19 @@ function Contactusmain() {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleInputChange}
-                  placeholder="First Name"
-                  className={`w-full p-3 border rounded-[6px] focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 ${
-                    errors.firstName ? "border-red-500" : "border-gray-300"
+                  placeholder="John"
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.firstName ? "border-red-500" : "border-[#D4D4D4]"
                   }`}
                   disabled={isSubmitting}
                 />
                 {errors.firstName && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.firstName}
-                  </p>
+                  <p className="input-error  mt-1">{errors.firstName}</p>
                 )}
               </div>
 
               <div>
-                <label
-                  htmlFor="lastName"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
+                <label htmlFor="lastName" className="block form-label mb-1">
                   Last Name *
                 </label>
                 <input
@@ -239,24 +231,21 @@ function Contactusmain() {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleInputChange}
-                  placeholder="Last Name"
-                  className={`w-full p-3 border rounded-[6px] focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 ${
-                    errors.lastName ? "border-red-500" : "border-gray-300"
+                  placeholder="Doe"
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.lastName ? "border-red-500" : "border-[#D4D4D4]"
                   }`}
                   disabled={isSubmitting}
                 />
                 {errors.lastName && (
-                  <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>
+                  <p className="input-error mt-1">{errors.lastName}</p>
                 )}
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
+                <label htmlFor="email" className="block form-label mb-1">
                   Email Address *
                 </label>
                 <input
@@ -265,22 +254,19 @@ function Contactusmain() {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  placeholder="Email Address"
-                  className={`w-full p-3 border rounded-[6px] focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 ${
-                    errors.email ? "border-red-500" : "border-gray-300"
+                  placeholder="john.doe@email.com"
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.email ? "border-red-500" : "border-[#D4D4D4]"
                   }`}
                   disabled={isSubmitting}
                 />
                 {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                  <p className="input-error mt-1">{errors.email}</p>
                 )}
               </div>
 
               <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
+                <label htmlFor="phone" className="block form-label mb-1">
                   Phone Number *
                 </label>
                 <input
@@ -289,23 +275,20 @@ function Contactusmain() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  placeholder="Phone Number"
-                  className={`w-full p-3 border rounded-[6px] focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 ${
-                    errors.phone ? "border-red-500" : "border-gray-300"
+                  placeholder="(555) 123-4567"
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.phone ? "border-red-500" : "border-[#D4D4D4]"
                   }`}
                   disabled={isSubmitting}
                 />
                 {errors.phone && (
-                  <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                  <p className="input-error mt-1">{errors.phone}</p>
                 )}
               </div>
             </div>
 
             <div>
-              <label
-                htmlFor="location"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
+              <label htmlFor="location" className="block form-label mb-1">
                 Select Location *
               </label>
               <select
@@ -313,12 +296,12 @@ function Contactusmain() {
                 name="location"
                 value={formData.location}
                 onChange={handleInputChange}
-                className={`w-full p-3 border rounded-[6px] focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 ${
-                  errors.location ? "border-red-500" : "border-gray-300"
+                className={`w-full px-3 py-2 form-placeholder border rounded-[5px] ${
+                  errors.location ? "border-red-500" : "border-[#D4D4D4]"
                 }`}
                 disabled={isSubmitting}
               >
-                <option value="">Select Location</option>
+                <option value="">Select your preferred location</option>
                 {contactLocationsData.locations.map((location, index) => (
                   <option key={index} value={location.location}>
                     {location.cityName}
@@ -326,15 +309,12 @@ function Contactusmain() {
                 ))}
               </select>
               {errors.location && (
-                <p className="text-red-500 text-sm mt-1">{errors.location}</p>
+                <p className="input-error mt-1">{errors.location}</p>
               )}
             </div>
 
             <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
+              <label htmlFor="message" className="block form-label mb-1">
                 Message *
               </label>
               <textarea
@@ -342,22 +322,22 @@ function Contactusmain() {
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
-                placeholder="Type your message here..."
-                rows={8}
-                className={`w-full p-3 border rounded-[6px] focus:ring-2 focus:ring-[#4AB04A] focus:border-[#4AB04A] transition-colors duration-200 resize-none ${
-                  errors.message ? "border-red-500" : "border-gray-300"
+                placeholder="I'm interested in joining your gym and would like to know about membership options..."
+                rows={4}
+                className={`w-full px-3 py-2 form-placeholder border rounded-[5px] resize-none ${
+                  errors.message ? "border-red-500" : "border-[#D4D4D4]"
                 }`}
                 disabled={isSubmitting}
               />
               {errors.message && (
-                <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+                <p className="input-error mt-1">{errors.message}</p>
               )}
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full py-3 px-6 rounded-[6px] font-medium transition-all duration-200 ${
+              className={`w-full btnPrimary ${
                 isSubmitting
                   ? "bg-gray-400 cursor-not-allowed"
                   : "bg-[#4AB04A] hover:bg-green-700 active:transform active:scale-95"
