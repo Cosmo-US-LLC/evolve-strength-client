@@ -96,7 +96,7 @@ export const faqMain = {
     {
       question: "Do you offer a free trial or day pass?",
       answer:
-        "We do offer day passes though they need to be purchased. You can also book a free tour to visit the facility, meet our team, and see the space before joining. <a href='https://tour.evolvestrength.ca/tour-form ' class='text-[#4AB04A] cursor-pointer underline'>Click here</a> to book your tour.",
+        "We do offer day passes though they need to be purchased. You can also book a free tour to visit the facility, meet our team, and see the space before joining. <a href='/book-a-tour/' class='text-[#4AB04A] cursor-pointer underline'>Click here</a> to book your tour.",
     },
     {
       question: "How old do I need to be to sign up?",

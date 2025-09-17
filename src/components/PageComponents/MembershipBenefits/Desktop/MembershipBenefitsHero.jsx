@@ -14,9 +14,9 @@ function MembershipBenefitsHero() {
             <a href="/join-now/">
               <button className="btnPrimary">Join Now</button>
             </a>
-            <Link to="https://tour.evolvestrength.ca/tour-form ">
+            <a href="/book-a-tour/">
               <button className="btnSecondary">BOOK A FREE TOUR</button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

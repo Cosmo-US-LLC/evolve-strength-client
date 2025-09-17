@@ -117,9 +117,9 @@ function Navbar() {
 
               {/* Desktop CTA Button */}
               <div className="hidden md:flex items-center">
-                <Link to="https://tour.evolvestrength.ca/tour-form/">
+                <a href="/book-a-tour">
                   <button className="btnSecondary">Book a Free Tour</button>
-                </Link>
+                </a>
               </div>
 
               {/* Mobile Hamburger Menu */}
@@ -161,11 +161,11 @@ function Navbar() {
                       ))}
 
                       <div className="">
-                        <Link to="https://tour.evolvestrength.ca/tour-form/">
+                        <a href="/book-a-tour">
                           <button className="btnSecondary">
                             Book a Free Tour
                           </button>
-                        </Link>
+                        </a>
                       </div>
                       <img
                         src={ESFLogo}

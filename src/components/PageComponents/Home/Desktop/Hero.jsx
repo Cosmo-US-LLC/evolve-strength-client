@@ -32,9 +32,9 @@ function Hero() {
               The Standard <br /> of Health.
             </h1>
             <div className="flex gap-4">
-              <Link to="https://tour.evolvestrength.ca/tour-form ">
+              <a href="/book-a-tour">
                 <button className="btnPrimary">BOOK A FREE TOUR</button>
-              </Link>
+              </a>
               <a href="/join-now/">
                 <button className="btnSecondary">JOIN NOW</button>
               </a>

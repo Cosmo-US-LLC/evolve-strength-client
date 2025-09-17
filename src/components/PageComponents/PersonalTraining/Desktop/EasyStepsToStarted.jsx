@@ -129,12 +129,12 @@ function EasyStepsToStarted() {
           </a>
           <p className="text-[#000] text-[16px] font-[300] leading-[24px] font-[kanit]">
             Not ready to commit?{" "}
-            <Link
-              to="https://tour.evolvestrength.ca/tour-form"
+            <a
+              href="/book-a-tour/"
               className="text-[#4AB04A] font-[600] leading-[22px] font-[kanit] underline"
             >
               Book A Free Tour
-            </Link>{" "}
+            </a>{" "}
             to see the facility and meet some of our trainers before you decide.
           </p>
         </div>
