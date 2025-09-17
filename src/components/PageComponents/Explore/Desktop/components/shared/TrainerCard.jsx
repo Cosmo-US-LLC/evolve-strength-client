@@ -26,9 +26,13 @@ function TrainerCard({
   // Sync carousel position with external currentIndex
   useEffect(() => {
     if (carouselRef.current && isCarousel) {
-      const scrollAmount = currentIndex * 280; // card width + gap
-      // Use instant scroll for better mobile compatibility
-      carouselRef.current.scrollTo({ left: scrollAmount, behavior: "auto" });
+      // Calculate actual card width dynamically
+      const containerWidth = carouselRef.current.offsetWidth;
+      const gap = 16; // 4 * 4px (gap-4 in Tailwind)
+      const cardWidth = containerWidth + gap;
+      const scrollAmount = currentIndex * cardWidth;
+      // Use smooth scroll for better user experience
+      carouselRef.current.scrollTo({ left: scrollAmount, behavior: "smooth" });
     }
   }, [currentIndex, isCarousel]);
 
@@ -45,9 +49,11 @@ function TrainerCard({
       );
 
       // If user manually scrolled (swiped) and there's a significant difference
-      if (scrollDifference > 50) {
+      if (scrollDifference > 30) {
         // Calculate which card is currently visible
-        const cardWidth = 280; // card width + gap
+        const containerWidth = carouselRef.current.offsetWidth;
+        const gap = 16; // 4 * 4px (gap-4 in Tailwind)
+        const cardWidth = containerWidth + gap;
         const newIndex = Math.round(currentScrollLeft / cardWidth);
 
         // Update the current index if it changed
@@ -122,6 +128,7 @@ function TrainerCard({
           style={{
             scrollSnapType: "x mandatory",
             touchAction: "manipulation",
+            scrollBehavior: "smooth",
           }}
         >
           {trainers.map((trainer, index) => (
