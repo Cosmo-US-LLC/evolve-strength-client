@@ -23,6 +23,7 @@ function TrainersView() {
   const [selectedAreasOfFocus, setSelectedAreasOfFocus] = useState([]);
   const [selectedTrainerIdx, setSelectedTrainerIdx] = useState(null);
   const [carouselCurrentIndex, setCarouselCurrentIndex] = useState(0);
+  const navigationTimeoutRef = useRef(null);
 
   // Refs for dropdown containers
   const locationDropdownRef = useRef(null);
@@ -37,6 +38,15 @@ function TrainersView() {
     setSelectedTrainerIdx(null);
     setCarouselCurrentIndex(0);
   }, [selectedTab, selectedLocation, selectedAreasOfFocus]);
+
+  // Cleanup navigation timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (navigationTimeoutRef.current) {
+        clearTimeout(navigationTimeoutRef.current);
+      }
+    };
+  }, []);
 
   // Handle click outside dropdowns
   useEffect(() => {
@@ -367,9 +377,22 @@ function TrainersView() {
                 }}
                 onCarouselNavigate={(newIndex) => {
                   console.log("Carousel navigated to:", newIndex);
-                  setCarouselCurrentIndex(newIndex);
-                  // Close details when navigating with arrows
-                  setSelectedTrainerIdx(null);
+
+                  // Clear any existing timeout
+                  if (navigationTimeoutRef.current) {
+                    clearTimeout(navigationTimeoutRef.current);
+                  }
+
+                  // Debounce the navigation update to prevent rapid switching
+                  navigationTimeoutRef.current = setTimeout(() => {
+                    console.log(
+                      "Actually updating carousel index to:",
+                      newIndex
+                    );
+                    setCarouselCurrentIndex(newIndex);
+                    // Close details when navigating with arrows
+                    setSelectedTrainerIdx(null);
+                  }, 100); // 100ms debounce
                 }}
                 onSwipeDetected={() => {
                   // Close trainer details when user manually swipes
