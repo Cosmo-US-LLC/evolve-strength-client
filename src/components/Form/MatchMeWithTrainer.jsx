@@ -239,7 +239,7 @@ export default function MatchMeWithTrainer() {
             <img
               src="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessJourneySteps/step_1.webp"
               alt="Personal Training Session"
-              className="object-cover w-full h-[690px]"
+              className="object-cover w-full h-[710px]"
             />
           </div>
         </div>
@@ -275,183 +275,204 @@ export default function MatchMeWithTrainer() {
               noValidate
             >
               <div className="flex flex-row gap-4">
-                <div className="flex-1 flex flex-col">
-                  <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                <div className="flex-1">
+                  <label htmlFor="firstName" className="block form-label mb-1">
                     First Name *
-                    <input
-                      type="text"
-                      name="firstName"
-                      value={form.firstName}
-                      onChange={handleChange}
-                      placeholder="First Name"
-                      maxLength={50}
-                      className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                    />
-                    {errors.firstName && (
-                      <span className="text-red-600 text-[12px]">
-                        {errors.firstName}
-                      </span>
-                    )}
                   </label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    value={form.firstName}
+                    onChange={handleChange}
+                    placeholder="John"
+                    maxLength={50}
+                    className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                      errors.firstName ? "border-red-500" : "border-[#D4D4D4]"
+                    }`}
+                    disabled={isSubmitting}
+                  />
+                  {errors.firstName && (
+                    <p className="input-error mt-1">{errors.firstName}</p>
+                  )}
                 </div>
-                <div className="flex-1 flex flex-col">
-                  <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                <div className="flex-1">
+                  <label htmlFor="lastName" className="block form-label mb-1">
                     Last Name *
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={form.lastName}
-                      onChange={handleChange}
-                      placeholder="Last Name"
-                      maxLength={50}
-                      className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                    />
-                    {errors.lastName && (
-                      <span className="text-red-600 text-[12px]">
-                        {errors.lastName}
-                      </span>
-                    )}
                   </label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    value={form.lastName}
+                    onChange={handleChange}
+                    placeholder="Doe"
+                    maxLength={50}
+                    className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                      errors.lastName ? "border-red-500" : "border-[#D4D4D4]"
+                    }`}
+                    disabled={isSubmitting}
+                  />
+                  {errors.lastName && (
+                    <p className="input-error mt-1">{errors.lastName}</p>
+                  )}
                 </div>
               </div>
 
               <div className="flex flex-row gap-4">
-                <div className="flex-1 flex flex-col">
-                  <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                <div className="flex-1">
+                  <label htmlFor="email" className="block form-label mb-1">
                     Email Address *
-                    <input
-                      type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="Email Address"
-                      className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                    />
-                    {errors.email && (
-                      <span className="text-red-600 text-[12px]">
-                        {errors.email}
-                      </span>
-                    )}
                   </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="john@example.com"
+                    className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                      errors.email ? "border-red-500" : "border-[#D4D4D4]"
+                    }`}
+                    disabled={isSubmitting}
+                  />
+                  {errors.email && (
+                    <p className="input-error mt-1">{errors.email}</p>
+                  )}
                 </div>
-                <div className="flex-1 flex flex-col">
-                  <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                <div className="flex-1">
+                  <label htmlFor="phone" className="block form-label mb-1">
                     Phone Number *
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={form.phone}
-                      onChange={handleChange}
-                      placeholder="Phone Number"
-                      className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                    />
-                    {errors.phone && (
-                      <span className="text-red-600 text-[12px]">
-                        {errors.phone}
-                      </span>
-                    )}
                   </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="(555) 123-4567"
+                    className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                      errors.phone ? "border-red-500" : "border-[#D4D4D4]"
+                    }`}
+                    disabled={isSubmitting}
+                  />
+                  {errors.phone && (
+                    <p className="input-error mt-1">{errors.phone}</p>
+                  )}
                 </div>
               </div>
 
-              <div className="w-full flex flex-col">
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+              <div className="w-full">
+                <label htmlFor="location" className="block form-label mb-1">
                   Select a Location *
-                  <select
-                    name="location"
-                    value={form.location}
-                    onChange={handleChange}
-                    className={
-                      "mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full " +
-                      (form.location === ""
-                        ? "text-[#6F6D66] text-[12px]"
-                        : "text-[#000] text-[16px]")
-                    }
-                  >
-                    <option value="">Select a location</option>
-                    {LOCATIONS.map((loc) => (
-                      <option key={loc.cityName} value={loc.location}>
-                        {loc.cityName}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.location && (
-                    <span className="text-red-600 text-[12px]">
-                      {errors.location}
-                    </span>
-                  )}
                 </label>
+                <select
+                  id="location"
+                  name="location"
+                  value={form.location}
+                  onChange={handleChange}
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.location ? "border-red-500" : "border-[#D4D4D4]"
+                  } ${
+                    form.location === ""
+                      ? "text-[#6F6D66] text-[12px]"
+                      : "text-[#000] text-[16px]"
+                  }`}
+                  disabled={isSubmitting}
+                >
+                  <option value="">Select a location</option>
+                  {LOCATIONS.map((loc) => (
+                    <option key={loc.cityName} value={loc.location}>
+                      {loc.cityName}
+                    </option>
+                  ))}
+                </select>
+                {errors.location && (
+                  <p className="input-error mt-1">{errors.location}</p>
+                )}
               </div>
 
-              <div className="w-full flex flex-col">
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+              <div className="w-full">
+                <label htmlFor="fitnessGoals" className="block form-label mb-1">
                   What are your fitness goals? *
-                  <select
-                    name="fitnessGoals"
-                    value={form.fitnessGoals}
-                    onChange={handleChange}
-                    className={
-                      "mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full " +
-                      (form.fitnessGoals === ""
-                        ? "text-[#6F6D66] text-[12px]"
-                        : "text-[#000] text-[16px]")
-                    }
-                  >
-                    <option value="">Select your fitness goals</option>
-                    {fitnessGoalsOptions.map((goal) => (
-                      <option key={goal} value={goal}>
-                        {goal}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.fitnessGoals && (
-                    <span className="text-red-600 text-[12px]">
-                      {errors.fitnessGoals}
-                    </span>
-                  )}
                 </label>
+                <select
+                  id="fitnessGoals"
+                  name="fitnessGoals"
+                  value={form.fitnessGoals}
+                  onChange={handleChange}
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.fitnessGoals ? "border-red-500" : "border-[#D4D4D4]"
+                  } ${
+                    form.fitnessGoals === ""
+                      ? "text-[#6F6D66] text-[12px]"
+                      : "text-[#000] text-[16px]"
+                  }`}
+                  disabled={isSubmitting}
+                >
+                  <option value="">Select your fitness goals</option>
+                  {fitnessGoalsOptions.map((goal) => (
+                    <option key={goal} value={goal}>
+                      {goal}
+                    </option>
+                  ))}
+                </select>
+                {errors.fitnessGoals && (
+                  <p className="input-error mt-1">{errors.fitnessGoals}</p>
+                )}
               </div>
 
               {/* Other Fitness Goals field - shows only when "Other" is selected */}
               {form.fitnessGoals === "Other" && (
-                <div className="w-full flex flex-col">
-                  <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                <div className="w-full">
+                  <label
+                    htmlFor="otherFitnessGoals"
+                    className="block form-label mb-1"
+                  >
                     Other: *
-                    <input
-                      type="text"
-                      name="otherFitnessGoals"
-                      value={form.otherFitnessGoals}
-                      onChange={handleChange}
-                      placeholder="Please specify your fitness goals"
-                      className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                    />
-                    {errors.otherFitnessGoals && (
-                      <span className="text-red-600 text-[12px]">
-                        {errors.otherFitnessGoals}
-                      </span>
-                    )}
                   </label>
+                  <input
+                    type="text"
+                    id="otherFitnessGoals"
+                    name="otherFitnessGoals"
+                    value={form.otherFitnessGoals}
+                    onChange={handleChange}
+                    placeholder="Please specify your fitness goals"
+                    className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                      errors.otherFitnessGoals
+                        ? "border-red-500"
+                        : "border-[#D4D4D4]"
+                    }`}
+                    disabled={isSubmitting}
+                  />
+                  {errors.otherFitnessGoals && (
+                    <p className="input-error mt-1">
+                      {errors.otherFitnessGoals}
+                    </p>
+                  )}
                 </div>
               )}
 
-              <div className="w-full flex flex-col">
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+              <div className="w-full">
+                <label htmlFor="message" className="block form-label mb-1">
                   Tell us more about yourself *
-                  <textarea
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    placeholder="Tell us about your fitness journey, any injuries, preferences, or specific requirements..."
-                    rows={4}
-                    maxLength={1000}
-                    className="mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400] resize-vertical min-h-[80px]"
-                  />
-                  {errors.message && (
-                    <span className="text-red-600 text-[12px]">
-                      {errors.message}
-                    </span>
-                  )}
                 </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  placeholder="Tell us about your fitness journey, any injuries, preferences, or specific requirements..."
+                  rows={4}
+                  maxLength={1000}
+                  className={`w-full px-3 py-2 form-placeholder border rounded-[5px] resize-vertical min-h-[80px] ${
+                    errors.message ? "border-red-500" : "border-[#D4D4D4]"
+                  }`}
+                  disabled={isSubmitting}
+                />
+                {errors.message && (
+                  <p className="input-error mt-1">{errors.message}</p>
+                )}
               </div>
 
               <button
