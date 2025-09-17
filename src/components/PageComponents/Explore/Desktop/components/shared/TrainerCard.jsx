@@ -22,6 +22,8 @@ function TrainerCard({
 }) {
   const carouselRef = useRef(null);
   const lastScrollLeft = useRef(0);
+  const isNavigating = useRef(false);
+  const isProgrammaticScroll = useRef(false);
 
   // Sync carousel position with external currentIndex
   useEffect(() => {
@@ -31,8 +33,27 @@ function TrainerCard({
       const gap = 16; // 4 * 4px (gap-4 in Tailwind)
       const cardWidth = containerWidth + gap;
       const scrollAmount = currentIndex * cardWidth;
+      console.log(
+        "Scroll sync - currentIndex:",
+        currentIndex,
+        "containerWidth:",
+        containerWidth,
+        "cardWidth:",
+        cardWidth,
+        "scrollAmount:",
+        scrollAmount
+      );
+
+      // Set flag to indicate programmatic scroll
+      isProgrammaticScroll.current = true;
+
       // Use smooth scroll for better user experience
       carouselRef.current.scrollTo({ left: scrollAmount, behavior: "smooth" });
+
+      // Reset flag after scroll completes
+      setTimeout(() => {
+        isProgrammaticScroll.current = false;
+      }, 500); // Wait for smooth scroll to complete
     }
   }, [currentIndex, isCarousel]);
 
@@ -41,7 +62,19 @@ function TrainerCard({
     if (!isCarousel || !carouselRef.current) return;
 
     const handleScroll = () => {
-      if (!carouselRef.current) return;
+      if (
+        !carouselRef.current ||
+        isNavigating.current ||
+        isProgrammaticScroll.current
+      ) {
+        console.log(
+          "Scroll ignored - isNavigating:",
+          isNavigating.current,
+          "isProgrammatic:",
+          isProgrammaticScroll.current
+        );
+        return; // Skip if navigation is in progress or programmatic scroll
+      }
 
       const currentScrollLeft = carouselRef.current.scrollLeft;
       const scrollDifference = Math.abs(
@@ -56,8 +89,18 @@ function TrainerCard({
         const cardWidth = containerWidth + gap;
         const newIndex = Math.round(currentScrollLeft / cardWidth);
 
+        console.log(
+          "Manual scroll detected - currentScrollLeft:",
+          currentScrollLeft,
+          "newIndex:",
+          newIndex,
+          "currentIndex:",
+          currentIndex
+        );
+
         // Update the current index if it changed
         if (newIndex !== currentIndex && onCarouselNavigate) {
+          console.log("Manual scroll triggering navigation to:", newIndex);
           onCarouselNavigate(newIndex);
         }
 
@@ -79,20 +122,59 @@ function TrainerCard({
   }, [isCarousel, currentIndex, onCarouselNavigate, onSwipeDetected]);
 
   const scrollToNext = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (onCarouselNavigate) {
-      const newIndex = Math.min(currentIndex + 1, trainers.length - 1);
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    // Prevent multiple rapid calls
+    if (isNavigating.current) {
+      console.log("Navigation already in progress, ignoring click");
+      return;
+    }
+
+    console.log(
+      "Next clicked, current:",
+      currentIndex,
+      "trainers:",
+      trainers.length
+    );
+    if (onCarouselNavigate && currentIndex < trainers.length - 1) {
+      isNavigating.current = true;
+      const newIndex = currentIndex + 1;
+      console.log("Navigating to:", newIndex);
       onCarouselNavigate(newIndex);
+
+      // Reset navigation flag after a short delay
+      setTimeout(() => {
+        isNavigating.current = false;
+      }, 300);
     }
   };
 
   const scrollToPrev = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (onCarouselNavigate) {
-      const newIndex = Math.max(currentIndex - 1, 0);
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    // Prevent multiple rapid calls
+    if (isNavigating.current) {
+      console.log("Navigation already in progress, ignoring click");
+      return;
+    }
+
+    console.log("Prev clicked, current:", currentIndex);
+    if (onCarouselNavigate && currentIndex > 0) {
+      isNavigating.current = true;
+      const newIndex = currentIndex - 1;
+      console.log("Navigating to:", newIndex);
       onCarouselNavigate(newIndex);
+
+      // Reset navigation flag after a short delay
+      setTimeout(() => {
+        isNavigating.current = false;
+      }, 300);
     }
   };
 
@@ -103,9 +185,8 @@ function TrainerCard({
         {/* Navigation Buttons */}
         <button
           onClick={scrollToPrev}
-          onTouchEnd={scrollToPrev}
           disabled={currentIndex === 0}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full p-3 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+          className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full p-3 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation select-none"
           style={{ minWidth: "44px", minHeight: "44px" }}
         >
           <ChevronLeft className="w-5 h-5 text-gray-600" />
@@ -113,9 +194,8 @@ function TrainerCard({
 
         <button
           onClick={scrollToNext}
-          onTouchEnd={scrollToNext}
           disabled={currentIndex === trainers.length - 1}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full p-3 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full p-3 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation select-none"
           style={{ minWidth: "44px", minHeight: "44px" }}
         >
           <ChevronRight className="w-5 h-5 text-gray-600" />
