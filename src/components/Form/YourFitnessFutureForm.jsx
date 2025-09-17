@@ -305,7 +305,7 @@ function YourFitnessFutureForm() {
                   name="city"
                   value={form.city}
                   onChange={handleChange}
-                  placeholder="City"
+                  placeholder="Toronto"
                   className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
                     errors.city ? "border-red-500" : "border-[#D4D4D4]"
                   }`}
@@ -325,7 +325,7 @@ function YourFitnessFutureForm() {
                   name="province"
                   value={form.province}
                   onChange={handleChange}
-                  placeholder="Province / State"
+                  placeholder="Ontario"
                   className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
                     errors.province ? "border-red-500" : "border-[#D4D4D4]"
                   }`}
