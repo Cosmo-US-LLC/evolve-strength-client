@@ -231,6 +231,13 @@ function LocationsView() {
                               [trainerKey]: null,
                             }));
                           }}
+                          onSwipeDetected={() => {
+                            // Close trainer details when user manually swipes
+                            setSelectedTrainer((prev) => ({
+                              ...prev,
+                              [trainerKey]: null,
+                            }));
+                          }}
                           onTrainerSelect={(index) => {
                             if (selectedIdx === index) {
                               setSelectedTrainer((prev) => ({

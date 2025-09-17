@@ -155,7 +155,7 @@ function ApplyCorporateMembershipForm({ onSubmit }) {
             <img
               src={locationImg}
               alt="Evolve Strength Facility"
-              className="object-cover w-full h-[700px]"
+              className="object-cover w-full h-[740px]"
             />
           </div>
         </div>
@@ -198,145 +198,161 @@ function ApplyCorporateMembershipForm({ onSubmit }) {
               >
                 <div className="flex flex-row gap-4">
                   <div className="flex-1 flex flex-col">
-                    <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[15px] leading-[24px]">
+                    <label
+                      htmlFor="firstName"
+                      className="block form-label mb-1"
+                    >
                       First Name *
-                      <input
-                        type="text"
-                        name="firstName"
-                        value={form.firstName}
-                        onChange={handleChange}
-                        placeholder="First Name"
-                        className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                      />
-                      {errors.firstName && (
-                        <span className="text-red-600 text-[12px]">
-                          {errors.firstName}
-                        </span>
-                      )}
                     </label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      value={form.firstName}
+                      onChange={handleChange}
+                      placeholder="John"
+                      className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                        errors.firstName ? "border-red-500" : "border-[#D4D4D4]"
+                      }`}
+                    />
+                    {errors.firstName && (
+                      <p className="input-error mt-1">{errors.firstName}</p>
+                    )}
                   </div>
                   <div className="flex-1 flex flex-col">
-                    <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[15px] leading-[24px]">
+                    <label htmlFor="lastName" className="block form-label mb-1">
                       Last Name *
-                      <input
-                        type="text"
-                        name="lastName"
-                        value={form.lastName}
-                        onChange={handleChange}
-                        placeholder="Last Name"
-                        className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                      />
-                      {errors.lastName && (
-                        <span className="text-red-600 text-[12px]">
-                          {errors.lastName}
-                        </span>
-                      )}
                     </label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      value={form.lastName}
+                      onChange={handleChange}
+                      placeholder="Doe"
+                      className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                        errors.lastName ? "border-red-500" : "border-[#D4D4D4]"
+                      }`}
+                    />
+                    {errors.lastName && (
+                      <p className="input-error mt-1">{errors.lastName}</p>
+                    )}
                   </div>
                 </div>
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[15px] leading-[24px]">
+                <label htmlFor="organization" className="block form-label mb-1">
                   Organization *
-                  <input
-                    type="text"
-                    name="organization"
-                    value={form.organization}
-                    onChange={handleChange}
-                    placeholder="Organization"
-                    className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                  />
-                  {errors.organization && (
-                    <span className="text-red-600 text-[12px]">
-                      {errors.organization}
-                    </span>
-                  )}
                 </label>
+                <input
+                  type="text"
+                  id="organization"
+                  name="organization"
+                  value={form.organization}
+                  onChange={handleChange}
+                  placeholder="Acme Corporation"
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.organization ? "border-red-500" : "border-[#D4D4D4]"
+                  }`}
+                />
+                {errors.organization && (
+                  <p className="input-error mt-1">{errors.organization}</p>
+                )}
                 <div className="flex flex-row gap-4">
                   <div className="flex-1 flex flex-col">
-                    <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[15px] leading-[24px]">
+                    <label htmlFor="email" className="block form-label mb-1">
                       Email Address *
-                      <input
-                        type="email"
-                        name="email"
-                        value={form.email}
-                        onChange={handleChange}
-                        placeholder="Email Address"
-                        className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                      />
-                      {errors.email && (
-                        <span className="text-red-600 text-[12px]">
-                          {errors.email}
-                        </span>
-                      )}
                     </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      placeholder="john.doe@company.com"
+                      className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                        errors.email ? "border-red-500" : "border-[#D4D4D4]"
+                      }`}
+                    />
+                    {errors.email && (
+                      <p className="input-error mt-1">{errors.email}</p>
+                    )}
                   </div>
                   <div className="flex-1 flex flex-col">
-                    <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[15px] leading-[24px]">
+                    <label
+                      htmlFor="confirmEmail"
+                      className="block form-label mb-1"
+                    >
                       Confirm Email *
-                      <input
-                        type="email"
-                        name="confirmEmail"
-                        value={form.confirmEmail}
-                        onChange={handleChange}
-                        placeholder="Confirm Email"
-                        className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                      />
-                      {errors.confirmEmail && (
-                        <span className="text-red-600 text-[12px]">
-                          {errors.confirmEmail}
-                        </span>
-                      )}
                     </label>
+                    <input
+                      type="email"
+                      id="confirmEmail"
+                      name="confirmEmail"
+                      value={form.confirmEmail}
+                      onChange={handleChange}
+                      placeholder="john.doe@company.com"
+                      className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                        errors.confirmEmail
+                          ? "border-red-500"
+                          : "border-[#D4D4D4]"
+                      }`}
+                    />
+                    {errors.confirmEmail && (
+                      <p className="input-error mt-1">{errors.confirmEmail}</p>
+                    )}
                   </div>
                 </div>
                 <div className="flex flex-row gap-4">
                   <div className="flex-1 flex flex-col">
-                    <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[15px] leading-[24px]">
+                    <label htmlFor="city" className="block form-label mb-1">
                       City *
-                      <input
-                        type="text"
-                        name="city"
-                        value={form.city}
-                        onChange={handleChange}
-                        placeholder="City"
-                        className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                      />
-                      {errors.city && (
-                        <span className="text-red-600 text-[12px]">
-                          {errors.city}
-                        </span>
-                      )}
                     </label>
+                    <input
+                      type="text"
+                      id="city"
+                      name="city"
+                      value={form.city}
+                      onChange={handleChange}
+                      placeholder="Toronto"
+                      className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                        errors.city ? "border-red-500" : "border-[#D4D4D4]"
+                      }`}
+                    />
+                    {errors.city && (
+                      <p className="input-error mt-1">{errors.city}</p>
+                    )}
                   </div>
                   <div className="flex-1 flex flex-col">
-                    <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[15px] leading-[24px]">
+                    <label htmlFor="province" className="block form-label mb-1">
                       Province *
-                      <input
-                        type="text"
-                        name="province"
-                        value={form.province}
-                        onChange={handleChange}
-                        placeholder="Province"
-                        className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                      />
-                      {errors.province && (
-                        <span className="text-red-600 text-[12px]">
-                          {errors.province}
-                        </span>
-                      )}
                     </label>
+                    <input
+                      type="text"
+                      id="province"
+                      name="province"
+                      value={form.province}
+                      onChange={handleChange}
+                      placeholder="Ontario"
+                      className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                        errors.province ? "border-red-500" : "border-[#D4D4D4]"
+                      }`}
+                    />
+                    {errors.province && (
+                      <p className="input-error mt-1">{errors.province}</p>
+                    )}
                   </div>
                 </div>
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[15px] leading-[24px]">
+                <label htmlFor="questions" className="block form-label mb-1">
                   Questions
-                  <textarea
-                    name="questions"
-                    value={form.questions}
-                    onChange={handleChange}
-                    placeholder="Your question here..."
-                    rows={3}
-                    className="mt-1 px-2 border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400] resize-vertical min-h-[60px]"
-                  />
                 </label>
+                <textarea
+                  id="questions"
+                  name="questions"
+                  value={form.questions}
+                  onChange={handleChange}
+                  placeholder="We're interested in corporate membership for our 50+ employees. What packages do you offer and what are the pricing options?"
+                  rows={3}
+                  className="w-full px-3 py-2 form-placeholder border rounded-[5px] resize-none"
+                />
 
                 <button
                   type="submit"

@@ -372,6 +372,10 @@ function TrainersView() {
                   // Close details when navigating with arrows
                   setSelectedTrainerIdx(null);
                 }}
+                onSwipeDetected={() => {
+                  // Close trainer details when user manually swipes
+                  setSelectedTrainerIdx(null);
+                }}
               />
             </div>
 

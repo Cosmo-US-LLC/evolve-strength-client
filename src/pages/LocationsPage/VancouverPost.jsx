@@ -18,6 +18,8 @@ import LocationsPersonalizedAssessment from "@/components/PageComponents/Locatio
 import MetaTags from "@/components/Metatags/Meta";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import YourEvolveLocations from "@/components/PageComponents/Locations/Desktop/YourEvolveLocations";
+import EvolveFloorPlan from "@/components/PageComponents/Franchise/Desktop/EvolveFloorPlan";
+import { getFloorPlanData } from "@/constants/floorPlanSlides";
 
 function VancouverPost() {
   return (
@@ -31,6 +33,11 @@ function VancouverPost() {
       <Spacious />
       <MeetTheTrainers location="VANCOUVER POST" />
       <SetonLocation />
+      <EvolveFloorPlan
+        slides={getFloorPlanData("vancouverPost").slides}
+        heading={getFloorPlanData("vancouverPost").heading}
+        description={getFloorPlanData("vancouverPost").description}
+      />
       {/* <LoWhyChooseEvolve /> */}
       <LocationPricing />
       <FitnessCategory />

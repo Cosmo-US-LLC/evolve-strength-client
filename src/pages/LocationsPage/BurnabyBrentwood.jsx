@@ -17,6 +17,8 @@ import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAske
 import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
 import MetaTags from "@/components/Metatags/Meta";
 import YourEvolveLocations from "@/components/PageComponents/Locations/Desktop/YourEvolveLocations";
+import EvolveFloorPlan from "@/components/PageComponents/Franchise/Desktop/EvolveFloorPlan";
+import { getFloorPlanData } from "@/constants/floorPlanSlides";
 
 function BurnabyBrentwood() {
   return (
@@ -30,6 +32,11 @@ function BurnabyBrentwood() {
       <Spacious />
       <MeetTheTrainers location="BURNABY BRENTWOOD" />
       <SetonLocation />
+      <EvolveFloorPlan
+        slides={getFloorPlanData("brentwood").slides}
+        heading={getFloorPlanData("brentwood").heading}
+        description={getFloorPlanData("brentwood").description}
+      />
       {/* <LoWhyChooseEvolve /> */}
       <LocationPricing />
       <FitnessCategory />

@@ -204,7 +204,7 @@ function TrainerForm() {
             <img
               src={trainerImage}
               alt="Trainer at Gym"
-              className="object-cover w-full h-[766px]"
+              className="object-cover w-full h-[786px]"
             />
           </div>
         </div>
@@ -241,162 +241,164 @@ function TrainerForm() {
             >
               <div className="flex flex-row gap-4">
                 <div className="flex-1 flex flex-col">
-                  <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                  <label htmlFor="firstName" className="block form-label mb-1">
                     First Name *
-                    <input
-                      type="text"
-                      name="firstName"
-                      value={form.firstName}
-                      onChange={handleChange}
-                      placeholder="First Name"
-                      className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                    />
-                    {errors.firstName && (
-                      <span className="text-red-600 text-[12px]">
-                        {errors.firstName}
-                      </span>
-                    )}
                   </label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    value={form.firstName}
+                    onChange={handleChange}
+                    placeholder="John"
+                    className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                      errors.firstName ? "border-red-500" : "border-[#D4D4D4]"
+                    }`}
+                  />
+                  {errors.firstName && (
+                    <p className="input-error mt-1">{errors.firstName}</p>
+                  )}
                 </div>
                 <div className="flex-1 flex flex-col">
-                  <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                  <label htmlFor="lastName" className="block form-label mb-1">
                     Last Name *
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={form.lastName}
-                      onChange={handleChange}
-                      placeholder="Last Name"
-                      className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                    />
-                    {errors.lastName && (
-                      <span className="text-red-600 text-[12px]">
-                        {errors.lastName}
-                      </span>
-                    )}
                   </label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    value={form.lastName}
+                    onChange={handleChange}
+                    placeholder="Doe"
+                    className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                      errors.lastName ? "border-red-500" : "border-[#D4D4D4]"
+                    }`}
+                  />
+                  {errors.lastName && (
+                    <p className="input-error mt-1">{errors.lastName}</p>
+                  )}
                 </div>
               </div>
 
               <div className="flex flex-row gap-4">
                 <div className="flex-1 flex flex-col">
-                  <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                  <label htmlFor="email" className="block form-label mb-1">
                     Email Address *
-                    <input
-                      type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="Email Address"
-                      className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                    />
-                    {errors.email && (
-                      <span className="text-red-600 text-[12px]">
-                        {errors.email}
-                      </span>
-                    )}
                   </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="john.doe@email.com"
+                    className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                      errors.email ? "border-red-500" : "border-[#D4D4D4]"
+                    }`}
+                  />
+                  {errors.email && (
+                    <p className="input-error mt-1">{errors.email}</p>
+                  )}
                 </div>
                 <div className="flex-1 flex flex-col">
-                  <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                  <label htmlFor="phone" className="block form-label mb-1">
                     Phone Number *
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={form.phone}
-                      onChange={handleChange}
-                      placeholder="Phone Number"
-                      className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                    />
-                    {errors.phone && (
-                      <span className="text-red-600 text-[12px]">
-                        {errors.phone}
-                      </span>
-                    )}
                   </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="(555) 123-4567"
+                    className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                      errors.phone ? "border-red-500" : "border-[#D4D4D4]"
+                    }`}
+                  />
+                  {errors.phone && (
+                    <p className="input-error mt-1">{errors.phone}</p>
+                  )}
                 </div>
               </div>
 
               {/* Location dropdown (city label -> address value) */}
               <div className="w-full flex flex-col">
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                <label htmlFor="location" className="block form-label mb-1">
                   Location *
-                  <select
-                    name="location"
-                    value={form.location}
-                    onChange={handleChange}
-                    className={
-                      "mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full " +
-                      (form.location === ""
-                        ? "text-[#6F6D66] text-[12px]"
-                        : "text-[#000] text-[16px]")
-                    }
-                  >
-                    <option value="">Select Location</option>
-                    {LOCATIONS.map((loc) => (
-                      <option key={loc.cityName} value={loc.location}>
-                        {loc.cityName}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.location && (
-                    <span className="text-red-600 text-[12px]">
-                      {errors.location}
-                    </span>
-                  )}
                 </label>
+                <select
+                  id="location"
+                  name="location"
+                  value={form.location}
+                  onChange={handleChange}
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.location ? "border-red-500" : "border-[#D4D4D4]"
+                  }`}
+                >
+                  <option value="">Select your preferred location</option>
+                  {LOCATIONS.map((loc) => (
+                    <option key={loc.cityName} value={loc.location}>
+                      {loc.cityName}
+                    </option>
+                  ))}
+                </select>
+                {errors.location && (
+                  <p className="input-error mt-1">{errors.location}</p>
+                )}
               </div>
 
               {/* Years of Experience */}
               <div className="w-full flex flex-col">
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                <label
+                  htmlFor="yearsOfExperience"
+                  className="block form-label mb-1"
+                >
                   Years of Experience *
-                  <select
-                    name="yearsOfExperience"
-                    value={form.yearsOfExperience}
-                    onChange={handleChange}
-                    className={
-                      "mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full " +
-                      (form.yearsOfExperience === ""
-                        ? "text-[#6F6D66] text-[12px]"
-                        : "text-[#000] text-[16px]")
-                    }
-                  >
-                    <option value="">Select Years of Experience</option>
-                    <option value="0-1 years">0-1 years</option>
-                    <option value="1-2 years">1-2 years</option>
-                    <option value="2-3 years">2-3 years</option>
-                    <option value="3-5 years">3-5 years</option>
-                    <option value="5-10 years">5-10 years</option>
-                    <option value="10+ years">10+ years</option>
-                  </select>
-                  {errors.yearsOfExperience && (
-                    <span className="text-red-600 text-[12px]">
-                      {errors.yearsOfExperience}
-                    </span>
-                  )}
                 </label>
+                <select
+                  id="yearsOfExperience"
+                  name="yearsOfExperience"
+                  value={form.yearsOfExperience}
+                  onChange={handleChange}
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.yearsOfExperience
+                      ? "border-red-500"
+                      : "border-[#D4D4D4]"
+                  }`}
+                >
+                  <option value="">Select your experience level</option>
+                  <option value="0-1 years">0-1 years</option>
+                  <option value="1-2 years">1-2 years</option>
+                  <option value="2-3 years">2-3 years</option>
+                  <option value="3-5 years">3-5 years</option>
+                  <option value="5-10 years">5-10 years</option>
+                  <option value="10+ years">10+ years</option>
+                </select>
+                {errors.yearsOfExperience && (
+                  <p className="input-error mt-1">{errors.yearsOfExperience}</p>
+                )}
               </div>
 
               {/* Areas of Expertise */}
               <div className="w-full flex flex-col">
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                <label
+                  htmlFor="areasOfExpertise"
+                  className="block form-label mb-1"
+                >
                   Areas of Expertise *
                 </label>
                 <select
+                  id="areasOfExpertise"
                   name="areasOfExpertise"
                   value={form.areasOfExpertise}
                   onChange={handleChange}
-                  className={
-                    "mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full " +
-                    (form.areasOfExpertise === ""
-                      ? "text-[#6F6D66] text-[12px] !font-[600]"
-                      : "text-[#000] text-[16px] !font-[600]")
-                  }
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.areasOfExpertise
+                      ? "border-red-500"
+                      : "border-[#D4D4D4]"
+                  }`}
                 >
-                  <option value="" className="">
-                    Select your areas of expertise
-                  </option>
+                  <option value="">Select your areas of expertise</option>
                   {[
                     "Strength Training",
                     "Cardio Training",
@@ -424,51 +426,58 @@ function TrainerForm() {
                   ))}
                 </select>
                 {errors.areasOfExpertise && (
-                  <span className="text-red-600 text-[12px] font-[600]">
-                    {errors.areasOfExpertise}
-                  </span>
+                  <p className="input-error mt-1">{errors.areasOfExpertise}</p>
                 )}
               </div>
 
               {/* Other Areas of Expertise field - shows only when "Other" is selected */}
               {form.areasOfExpertise === "Other" && (
                 <div className="w-full flex flex-col">
-                  <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                  <label
+                    htmlFor="otherAreasOfExpertise"
+                    className="block form-label mb-1"
+                  >
                     Other: *
-                    <input
-                      type="text"
-                      name="otherAreasOfExpertise"
-                      value={form.otherAreasOfExpertise}
-                      onChange={handleChange}
-                      placeholder="Please specify your areas of expertise"
-                      className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                    />
-                    {errors.otherAreasOfExpertise && (
-                      <span className="text-red-600 text-[12px]">
-                        {errors.otherAreasOfExpertise}
-                      </span>
-                    )}
                   </label>
+                  <input
+                    type="text"
+                    id="otherAreasOfExpertise"
+                    name="otherAreasOfExpertise"
+                    value={form.otherAreasOfExpertise}
+                    onChange={handleChange}
+                    placeholder="e.g. Martial Arts, Dance, Swimming"
+                    className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                      errors.otherAreasOfExpertise
+                        ? "border-red-500"
+                        : "border-[#D4D4D4]"
+                    }`}
+                  />
+                  {errors.otherAreasOfExpertise && (
+                    <p className="input-error mt-1">
+                      {errors.otherAreasOfExpertise}
+                    </p>
+                  )}
                 </div>
               )}
 
               <div className="w-full flex flex-col">
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+                <label htmlFor="about" className="block form-label mb-1">
                   Tell Us About Yourself! *
-                  <textarea
-                    name="about"
-                    value={form.about}
-                    onChange={handleChange}
-                    placeholder="Tell us about yourself..."
-                    rows={4}
-                    className="mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400] resize-vertical min-h-[80px]"
-                  />
-                  {errors.about && (
-                    <span className="text-red-600 text-[12px]">
-                      {errors.about}
-                    </span>
-                  )}
                 </label>
+                <textarea
+                  id="about"
+                  name="about"
+                  value={form.about}
+                  onChange={handleChange}
+                  placeholder="I have 5 years of experience in personal training and specialize in strength training and weight loss. I'm passionate about helping clients achieve their fitness goals..."
+                  rows={4}
+                  className={`w-full px-3 py-2 form-placeholder border rounded-[5px] resize-none ${
+                    errors.about ? "border-red-500" : "border-[#D4D4D4]"
+                  }`}
+                />
+                {errors.about && (
+                  <p className="input-error mt-1">{errors.about}</p>
+                )}
               </div>
 
               <button
