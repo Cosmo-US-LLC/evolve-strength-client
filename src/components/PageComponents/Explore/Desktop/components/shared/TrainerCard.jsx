@@ -27,7 +27,8 @@ function TrainerCard({
   useEffect(() => {
     if (carouselRef.current && isCarousel) {
       const scrollAmount = currentIndex * 280; // card width + gap
-      carouselRef.current.scrollTo({ left: scrollAmount, behavior: "smooth" });
+      // Use instant scroll for better mobile compatibility
+      carouselRef.current.scrollTo({ left: scrollAmount, behavior: "auto" });
     }
   }, [currentIndex, isCarousel]);
 
@@ -71,14 +72,18 @@ function TrainerCard({
     };
   }, [isCarousel, currentIndex, onCarouselNavigate, onSwipeDetected]);
 
-  const scrollToNext = () => {
+  const scrollToNext = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (onCarouselNavigate) {
       const newIndex = Math.min(currentIndex + 1, trainers.length - 1);
       onCarouselNavigate(newIndex);
     }
   };
 
-  const scrollToPrev = () => {
+  const scrollToPrev = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (onCarouselNavigate) {
       const newIndex = Math.max(currentIndex - 1, 0);
       onCarouselNavigate(newIndex);
@@ -92,25 +97,32 @@ function TrainerCard({
         {/* Navigation Buttons */}
         <button
           onClick={scrollToPrev}
+          onTouchEnd={scrollToPrev}
           disabled={currentIndex === 0}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full p-3 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+          style={{ minWidth: "44px", minHeight: "44px" }}
         >
-          <ChevronLeft className="w-4 h-4 text-gray-600" />
+          <ChevronLeft className="w-5 h-5 text-gray-600" />
         </button>
 
         <button
           onClick={scrollToNext}
+          onTouchEnd={scrollToNext}
           disabled={currentIndex === trainers.length - 1}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full p-3 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+          style={{ minWidth: "44px", minHeight: "44px" }}
         >
-          <ChevronRight className="w-4 h-4 text-gray-600" />
+          <ChevronRight className="w-5 h-5 text-gray-600" />
         </button>
 
         {/* Carousel Container */}
         <div
           ref={carouselRef}
           className="flex gap-4 overflow-x-auto scrollbar-hide"
-          style={{ scrollSnapType: "x mandatory" }}
+          style={{
+            scrollSnapType: "x mandatory",
+            touchAction: "pan-x",
+          }}
         >
           {trainers.map((trainer, index) => (
             <div
