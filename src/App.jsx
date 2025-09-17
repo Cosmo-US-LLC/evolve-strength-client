@@ -75,10 +75,10 @@ function App() {
             path="/locations/edmonton-downtown"
             element={<EdmontonDowntown />}
           />
-          <Route
+          {/* <Route
             path="/locations/calgary-sunridge"
             element={<CalgarySunridge />}
-          />
+          /> */}
           <Route
             path="/locations/calgary-royal-oak"
             element={<CalgaryRoyalOak />}
@@ -109,7 +109,10 @@ function App() {
           path="/your-fitness-future"
           element={<YourFitnessFutureForm />}
         />
-        <Route path="/match-me-with-a-wellness-expert" element={<WellnessInquiryForm />} />
+        <Route
+          path="/match-me-with-a-wellness-expert"
+          element={<WellnessInquiryForm />}
+        />
         <Route
           path="/match-me-with-a-trainer"
           element={<MatchMeWithTrainer />}

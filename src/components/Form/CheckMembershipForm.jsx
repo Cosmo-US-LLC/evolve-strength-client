@@ -159,7 +159,7 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
                 enrolled with Evolve.
               </h4>
             </div>
-            <div className="md:w-[537px] w-full md:h-[380px] rounded-[10px] bg-[#FCFCFC] border p-6 mt-6">
+            <div className="md:w-[537px] w-full md:h-auto rounded-[10px] bg-[#FCFCFC] border p-6 mt-6">
               <form
                 className="flex flex-col  gap-3"
                 onSubmit={handleSubmit}
@@ -167,75 +167,87 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
               >
                 <div className="flex flex-row gap-4">
                   <div className="flex-1 flex flex-col ">
-                    <label className="font-[500] text-[#000] flex flex-col gap-[10px] text-[15px] leading-[24px]">
+                    <label
+                      htmlFor="firstName"
+                      className="block form-label mb-1"
+                    >
                       First Name *
-                      <input
-                        type="text"
-                        name="firstName"
-                        value={form.firstName}
-                        onChange={handleChange}
-                        placeholder="First Name"
-                        className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                      />
-                      {errors.firstName && (
-                        <span className="text-red-600 text-[12px]">
-                          {errors.firstName}
-                        </span>
-                      )}
                     </label>
-                  </div>
-                  <div className="flex-1 flex flex-col">
-                    <label className="font-[500] text-[#000] flex flex-col gap-[10px] text-[15px] leading-[24px]">
-                      Last Name *
-                      <input
-                        type="text"
-                        name="lastName"
-                        value={form.lastName}
-                        onChange={handleChange}
-                        placeholder="Last Name"
-                        className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                      />
-                      {errors.lastName && (
-                        <span className="text-red-600 text-[12px]">
-                          {errors.lastName}
-                        </span>
-                      )}
-                    </label>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-4">
-                  <label className="font-[500] text-[#000] flex flex-col gap-[10px] text-[15px] leading-[24px]">
-                    Company Email *
-                    <input
-                      type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="Enter Your Gmail Address"
-                      className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                    />
-                    {errors.email && (
-                      <span className="text-red-600 text-[12px]">
-                        {errors.email}
-                      </span>
-                    )}
-                  </label>
-                  <label className="font-[500] text-[#000] flex flex-col gap-[10px] text-[15px] leading-[24px]">
-                    Organization Name *
                     <input
                       type="text"
-                      name="organization"
-                      value={form.organization}
+                      id="firstName"
+                      name="firstName"
+                      value={form.firstName}
                       onChange={handleChange}
-                      placeholder="Organization Name"
-                      className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
+                      placeholder="John"
+                      className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                        errors.firstName ? "border-red-500" : "border-[#D4D4D4]"
+                      }`}
                     />
-                    {errors.organization && (
-                      <span className="text-red-600 text-[12px]">
-                        {errors.organization}
-                      </span>
+                    {errors.firstName && (
+                      <p className="input-error mt-1">{errors.firstName}</p>
                     )}
+                  </div>
+                  <div className="flex-1 flex flex-col">
+                    <label htmlFor="lastName" className="block form-label mb-1">
+                      Last Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      value={form.lastName}
+                      onChange={handleChange}
+                      placeholder="Doe"
+                      className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                        errors.lastName ? "border-red-500" : "border-[#D4D4D4]"
+                      }`}
+                    />
+                    {errors.lastName && (
+                      <p className="input-error mt-1">{errors.lastName}</p>
+                    )}
+                  </div>
+                </div>
+                <div className="flex flex-col ">
+                  <label htmlFor="email" className="block form-label mb-1">
+                    Company Email *
                   </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="john.doe@company.com"
+                    className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                      errors.email ? "border-red-500" : "border-[#D4D4D4]"
+                    }`}
+                  />
+                  {errors.email && (
+                    <p className="input-error mt-1">{errors.email}</p>
+                  )}
+                  <label
+                    htmlFor="organization"
+                    className="block form-label mb-1 mt-4"
+                  >
+                    Organization Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="organization"
+                    name="organization"
+                    value={form.organization}
+                    onChange={handleChange}
+                    placeholder="Acme Corporation"
+                    className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                      errors.organization
+                        ? "border-red-500"
+                        : "border-[#D4D4D4]"
+                    }`}
+                  />
+                  {errors.organization && (
+                    <p className="input-error mt-1">{errors.organization}</p>
+                  )}
                 </div>
 
                 <button

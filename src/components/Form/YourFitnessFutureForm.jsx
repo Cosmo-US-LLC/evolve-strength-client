@@ -179,7 +179,7 @@ function YourFitnessFutureForm() {
             <img
               src={locationImg}
               alt="Fitness Facility"
-              className="object-cover w-full h-auto"
+              className="object-cover w-full h-[710px]"
             />
           </div>
         </div>
@@ -191,461 +191,490 @@ function YourFitnessFutureForm() {
             noValidate
           >
             <div className="flex flex-row gap-4">
-              <div className="flex-1 flex flex-col">
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+              <div className="flex-1">
+                <label htmlFor="firstName" className="block form-label mb-1">
                   First Name *
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={form.firstName}
-                    onChange={handleChange}
-                    placeholder="First Name"
-                    className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                  />
-                  {errors.firstName && (
-                    <span className="text-red-600 text-[12px]">
-                      {errors.firstName}
-                    </span>
-                  )}
                 </label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={form.firstName}
+                  onChange={handleChange}
+                  placeholder="John"
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.firstName ? "border-red-500" : "border-[#D4D4D4]"
+                  }`}
+                  disabled={isSubmitting}
+                />
+                {errors.firstName && (
+                  <p className="input-error mt-1">{errors.firstName}</p>
+                )}
               </div>
-              <div className="flex-1 flex flex-col">
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+              <div className="flex-1">
+                <label htmlFor="lastName" className="block form-label mb-1">
                   Last Name *
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={form.lastName}
-                    onChange={handleChange}
-                    placeholder="Last Name"
-                    className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                  />
-                  {errors.lastName && (
-                    <span className="text-red-600 text-[12px]">
-                      {errors.lastName}
-                    </span>
-                  )}
                 </label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={form.lastName}
+                  onChange={handleChange}
+                  placeholder="Doe"
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.lastName ? "border-red-500" : "border-[#D4D4D4]"
+                  }`}
+                  disabled={isSubmitting}
+                />
+                {errors.lastName && (
+                  <p className="input-error mt-1">{errors.lastName}</p>
+                )}
               </div>
             </div>
             <div className="flex flex-row gap-4">
-              <div className="flex-1 flex flex-col">
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+              <div className="flex-1">
+                <label htmlFor="email" className="block form-label mb-1">
                   Email Address *
-                  <input
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    placeholder="Email Address"
-                    className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                  />
-                  {errors.email && (
-                    <span className="text-red-600 text-[12px]">
-                      {errors.email}
-                    </span>
-                  )}
                 </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="john@example.com"
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.email ? "border-red-500" : "border-[#D4D4D4]"
+                  }`}
+                  disabled={isSubmitting}
+                />
+                {errors.email && (
+                  <p className="input-error mt-1">{errors.email}</p>
+                )}
               </div>
-              <div className="flex-1 flex flex-col">
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+              <div className="flex-1">
+                <label htmlFor="phone" className="block form-label mb-1">
                   Phone Number *
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={form.phone}
-                    onChange={handleChange}
-                    placeholder="Phone Number"
-                    className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                  />
-                  {errors.phone && (
-                    <span className="text-red-600 text-[12px]">
-                      {errors.phone}
-                    </span>
-                  )}
                 </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={form.phone}
+                  onChange={handleChange}
+                  placeholder="(555) 123-4567"
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.phone ? "border-red-500" : "border-[#D4D4D4]"
+                  }`}
+                  disabled={isSubmitting}
+                />
+                {errors.phone && (
+                  <p className="input-error mt-1">{errors.phone}</p>
+                )}
               </div>
             </div>
-            <div className="flex-1 flex flex-col">
-              <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+            <div className="w-full">
+              <label htmlFor="address" className="block form-label mb-1">
                 Your Address *
-                <input
-                  type="text"
-                  name="address"
-                  value={form.address}
-                  onChange={handleChange}
-                  placeholder="Street Address"
-                  className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                />
-                {errors.address && (
-                  <span className="text-red-600 text-[12px]">
-                    {errors.address}
-                  </span>
-                )}
               </label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                value={form.address}
+                onChange={handleChange}
+                placeholder="Street Address"
+                className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                  errors.address ? "border-red-500" : "border-[#D4D4D4]"
+                }`}
+                disabled={isSubmitting}
+              />
+              {errors.address && (
+                <p className="input-error mt-1">{errors.address}</p>
+              )}
             </div>
             <div className="flex flex-col md:flex-row gap-4">
-              <div className="md:flex-1 flex  flex-col">
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+              <div className="md:flex-1">
+                <label htmlFor="city" className="block form-label mb-1">
                   City *
-                  <input
-                    type="text"
-                    name="city"
-                    value={form.city}
-                    onChange={handleChange}
-                    placeholder="City"
-                    className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                  />
-                  {errors.city && (
-                    <span className="text-red-600 text-[12px]">
-                      {errors.city}
-                    </span>
-                  )}
                 </label>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  value={form.city}
+                  onChange={handleChange}
+                  placeholder="Toronto"
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.city ? "border-red-500" : "border-[#D4D4D4]"
+                  }`}
+                  disabled={isSubmitting}
+                />
+                {errors.city && (
+                  <p className="input-error mt-1">{errors.city}</p>
+                )}
               </div>
-              <div className="flex-1 flex flex-col">
-                <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+              <div className="flex-1">
+                <label htmlFor="province" className="block form-label mb-1">
                   Province / State *
-                  <input
-                    type="text"
-                    name="province"
-                    value={form.province}
-                    onChange={handleChange}
-                    placeholder="Province / State"
-                    className="px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400]"
-                  />
-                  {errors.province && (
-                    <span className="text-red-600 text-[12px]">
-                      {errors.province}
-                    </span>
-                  )}
                 </label>
+                <input
+                  type="text"
+                  id="province"
+                  name="province"
+                  value={form.province}
+                  onChange={handleChange}
+                  placeholder="Ontario"
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.province ? "border-red-500" : "border-[#D4D4D4]"
+                  }`}
+                  disabled={isSubmitting}
+                />
+                {errors.province && (
+                  <p className="input-error mt-1">{errors.province}</p>
+                )}
               </div>
             </div>
             {/* Business Experience */}
-            <div className="w-full flex flex-col">
-              <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+            <div className="w-full">
+              <label
+                htmlFor="businessExperience"
+                className="block form-label mb-1"
+              >
                 Business Experience *
-                <div className="relative w-full">
-                  <select
-                    name="businessExperience"
-                    value={form.businessExperience}
-                    onChange={handleChange}
-                    onFocus={() => setBusinessFocused(true)}
-                    onBlur={() => setBusinessFocused(false)}
-                    className={
-                      "appearance-none mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400] " +
-                      (form.businessExperience === ""
-                        ? "text-[#6F6D66] text-[12px]"
-                        : "text-[#000] text-[16px]")
-                    }
-                  >
-                    <option value="">
-                      Select the years of business experience
-                    </option>
-                    {businessExperienceOptions.map((opt) => (
-                      <option key={opt} value={opt}>
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
-                  <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
-                    {businessFocused ? (
-                      <img
-                        src={arrowUp}
-                        alt="Arrow Up"
-                        width={20}
-                        height={20}
-                        style={{
-                          filter:
-                            form.businessExperience === ""
-                              ? "grayscale(1)"
-                              : "none",
-                        }}
-                      />
-                    ) : (
-                      <img
-                        src={arrowDown}
-                        alt="Arrow Down"
-                        width={20}
-                        height={20}
-                        style={{
-                          filter:
-                            form.businessExperience === ""
-                              ? "grayscale(1)"
-                              : "none",
-                        }}
-                      />
-                    )}
-                  </span>
-                </div>
-                {errors.businessExperience && (
-                  <span className="text-red-600 text-[12px]">
-                    {errors.businessExperience}
-                  </span>
-                )}
               </label>
+              <div className="relative w-full">
+                <select
+                  id="businessExperience"
+                  name="businessExperience"
+                  value={form.businessExperience}
+                  onChange={handleChange}
+                  onFocus={() => setBusinessFocused(true)}
+                  onBlur={() => setBusinessFocused(false)}
+                  className={`appearance-none w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.businessExperience
+                      ? "border-red-500"
+                      : "border-[#D4D4D4]"
+                  } ${
+                    form.businessExperience === ""
+                      ? "text-[#6F6D66] text-[12px]"
+                      : "text-[#000] text-[16px]"
+                  }`}
+                  disabled={isSubmitting}
+                >
+                  <option value="">
+                    Select the years of business experience
+                  </option>
+                  {businessExperienceOptions.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {opt}
+                    </option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
+                  {businessFocused ? (
+                    <img
+                      src={arrowUp}
+                      alt="Arrow Up"
+                      width={20}
+                      height={20}
+                      style={{
+                        filter:
+                          form.businessExperience === ""
+                            ? "grayscale(1)"
+                            : "none",
+                      }}
+                    />
+                  ) : (
+                    <img
+                      src={arrowDown}
+                      alt="Arrow Down"
+                      width={20}
+                      height={20}
+                      style={{
+                        filter:
+                          form.businessExperience === ""
+                            ? "grayscale(1)"
+                            : "none",
+                      }}
+                    />
+                  )}
+                </span>
+              </div>
+              {errors.businessExperience && (
+                <p className="input-error mt-1">{errors.businessExperience}</p>
+              )}
             </div>
             {/* Liquid Capital */}
-            <div className="w-full flex flex-col">
-              <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+            <div className="w-full">
+              <label htmlFor="liquidCapital" className="block form-label mb-1">
                 Available Liquid Capital *
-                <div className="relative w-full">
-                  <select
-                    name="liquidCapital"
-                    value={form.liquidCapital}
-                    onChange={handleChange}
-                    onFocus={() => setLiquidFocused(true)}
-                    onBlur={() => setLiquidFocused(false)}
-                    className={
-                      "appearance-none mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400] " +
-                      (form.liquidCapital === ""
-                        ? "text-[#6F6D66] text-[12px]"
-                        : "text-[#000] text-[16px]")
-                    }
-                  >
-                    <option value="">Select available liquid capital</option>
-                    {liquidCapitalOptions.map((opt) => (
-                      <option key={opt} value={opt}>
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
-                  <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
-                    {liquidFocused ? (
-                      <img
-                        src={arrowUp}
-                        alt="Arrow Up"
-                        width={20}
-                        height={20}
-                        style={{
-                          filter:
-                            form.liquidCapital === "" ? "grayscale(1)" : "none",
-                        }}
-                      />
-                    ) : (
-                      <img
-                        src={arrowDown}
-                        alt="Arrow Down"
-                        width={20}
-                        height={20}
-                        style={{
-                          filter:
-                            form.liquidCapital === "" ? "grayscale(1)" : "none",
-                        }}
-                      />
-                    )}
-                  </span>
-                </div>
-                {errors.liquidCapital && (
-                  <span className="text-red-600 text-[12px]">
-                    {errors.liquidCapital}
-                  </span>
-                )}
               </label>
+              <div className="relative w-full">
+                <select
+                  id="liquidCapital"
+                  name="liquidCapital"
+                  value={form.liquidCapital}
+                  onChange={handleChange}
+                  onFocus={() => setLiquidFocused(true)}
+                  onBlur={() => setLiquidFocused(false)}
+                  className={`appearance-none w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.liquidCapital ? "border-red-500" : "border-[#D4D4D4]"
+                  } ${
+                    form.liquidCapital === ""
+                      ? "text-[#6F6D66] text-[12px]"
+                      : "text-[#000] text-[16px]"
+                  }`}
+                  disabled={isSubmitting}
+                >
+                  <option value="">Select available liquid capital</option>
+                  {liquidCapitalOptions.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {opt}
+                    </option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
+                  {liquidFocused ? (
+                    <img
+                      src={arrowUp}
+                      alt="Arrow Up"
+                      width={20}
+                      height={20}
+                      style={{
+                        filter:
+                          form.liquidCapital === "" ? "grayscale(1)" : "none",
+                      }}
+                    />
+                  ) : (
+                    <img
+                      src={arrowDown}
+                      alt="Arrow Down"
+                      width={20}
+                      height={20}
+                      style={{
+                        filter:
+                          form.liquidCapital === "" ? "grayscale(1)" : "none",
+                      }}
+                    />
+                  )}
+                </span>
+              </div>
+              {errors.liquidCapital && (
+                <p className="input-error mt-1">{errors.liquidCapital}</p>
+              )}
             </div>
             {/* Franchise Experience */}
-            <div className="w-full flex flex-col">
-              <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+            <div className="w-full">
+              <label
+                htmlFor="franchiseExperience"
+                className="block form-label mb-1"
+              >
                 Previous Franchise Experience *
-                <div className="relative w-full">
-                  <select
-                    name="franchiseExperience"
-                    value={form.franchiseExperience}
-                    onChange={handleChange}
-                    onFocus={() => setFranchiseFocused(true)}
-                    onBlur={() => setFranchiseFocused(false)}
-                    className={
-                      "appearance-none mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400] " +
-                      (form.franchiseExperience === ""
-                        ? "text-[#6F6D66] text-[12px]"
-                        : "text-[#000] text-[16px]")
-                    }
-                  >
-                    <option value="">
-                      Select the previous franchise experience
-                    </option>
-                    {franchiseExperienceOptions.map((opt) => (
-                      <option key={opt} value={opt}>
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
-                  <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
-                    {franchiseFocused ? (
-                      <img
-                        src={arrowUp}
-                        alt="Arrow Up"
-                        width={20}
-                        height={20}
-                        style={{
-                          filter:
-                            form.franchiseExperience === ""
-                              ? "grayscale(1)"
-                              : "none",
-                        }}
-                      />
-                    ) : (
-                      <img
-                        src={arrowDown}
-                        alt="Arrow Down"
-                        width={20}
-                        height={20}
-                        style={{
-                          filter:
-                            form.franchiseExperience === ""
-                              ? "grayscale(1)"
-                              : "none",
-                        }}
-                      />
-                    )}
-                  </span>
-                </div>
-                {errors.franchiseExperience && (
-                  <span className="text-red-600 text-[12px]">
-                    {errors.franchiseExperience}
-                  </span>
-                )}
               </label>
+              <div className="relative w-full">
+                <select
+                  id="franchiseExperience"
+                  name="franchiseExperience"
+                  value={form.franchiseExperience}
+                  onChange={handleChange}
+                  onFocus={() => setFranchiseFocused(true)}
+                  onBlur={() => setFranchiseFocused(false)}
+                  className={`appearance-none w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.franchiseExperience
+                      ? "border-red-500"
+                      : "border-[#D4D4D4]"
+                  } ${
+                    form.franchiseExperience === ""
+                      ? "text-[#6F6D66] text-[12px]"
+                      : "text-[#000] text-[16px]"
+                  }`}
+                  disabled={isSubmitting}
+                >
+                  <option value="">
+                    Select the previous franchise experience
+                  </option>
+                  {franchiseExperienceOptions.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {opt}
+                    </option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
+                  {franchiseFocused ? (
+                    <img
+                      src={arrowUp}
+                      alt="Arrow Up"
+                      width={20}
+                      height={20}
+                      style={{
+                        filter:
+                          form.franchiseExperience === ""
+                            ? "grayscale(1)"
+                            : "none",
+                      }}
+                    />
+                  ) : (
+                    <img
+                      src={arrowDown}
+                      alt="Arrow Down"
+                      width={20}
+                      height={20}
+                      style={{
+                        filter:
+                          form.franchiseExperience === ""
+                            ? "grayscale(1)"
+                            : "none",
+                      }}
+                    />
+                  )}
+                </span>
+              </div>
+              {errors.franchiseExperience && (
+                <p className="input-error mt-1">{errors.franchiseExperience}</p>
+              )}
             </div>
             {/* Bankruptcy/Litigation */}
-            <div className="w-full flex flex-col">
-              <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+            <div className="w-full">
+              <label htmlFor="bankruptcy" className="block form-label mb-1">
                 Have You Ever Declared Bankruptcy Or Been Involved In
                 Litigation? *
-                <div className="relative w-full">
-                  <select
-                    name="bankruptcy"
-                    value={form.bankruptcy}
-                    onChange={handleChange}
-                    onFocus={() => setBankruptcyFocused(true)}
-                    onBlur={() => setBankruptcyFocused(false)}
-                    className={
-                      "appearance-none mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400] " +
-                      (form.bankruptcy === ""
-                        ? "text-[#6F6D66] text-[12px]"
-                        : "text-[#000] text-[16px]")
-                    }
-                  >
-                    <option value="">
-                      Have You Ever Declared Bankruptcy or Been Involved in
-                      Litigation?
-                    </option>
-                    {bankruptcyOptions.map((opt) => (
-                      <option key={opt} value={opt}>
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
-                  <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
-                    {bankruptcyFocused ? (
-                      <img
-                        src={arrowUp}
-                        alt="Arrow Up"
-                        width={20}
-                        height={20}
-                        style={{
-                          filter:
-                            form.bankruptcy === "" ? "grayscale(1)" : "none",
-                        }}
-                      />
-                    ) : (
-                      <img
-                        src={arrowDown}
-                        alt="Arrow Down"
-                        width={20}
-                        height={20}
-                        style={{
-                          filter:
-                            form.bankruptcy === "" ? "grayscale(1)" : "none",
-                        }}
-                      />
-                    )}
-                  </span>
-                </div>
-                {errors.bankruptcy && (
-                  <span className="text-red-600 text-[12px]">
-                    {errors.bankruptcy}
-                  </span>
-                )}
               </label>
+              <div className="relative w-full">
+                <select
+                  id="bankruptcy"
+                  name="bankruptcy"
+                  value={form.bankruptcy}
+                  onChange={handleChange}
+                  onFocus={() => setBankruptcyFocused(true)}
+                  onBlur={() => setBankruptcyFocused(false)}
+                  className={`appearance-none w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.bankruptcy ? "border-red-500" : "border-[#D4D4D4]"
+                  } ${
+                    form.bankruptcy === ""
+                      ? "text-[#6F6D66] text-[12px]"
+                      : "text-[#000] text-[16px]"
+                  }`}
+                  disabled={isSubmitting}
+                >
+                  <option value="">
+                    Have You Ever Declared Bankruptcy or Been Involved in
+                    Litigation?
+                  </option>
+                  {bankruptcyOptions.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {opt}
+                    </option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
+                  {bankruptcyFocused ? (
+                    <img
+                      src={arrowUp}
+                      alt="Arrow Up"
+                      width={20}
+                      height={20}
+                      style={{
+                        filter:
+                          form.bankruptcy === "" ? "grayscale(1)" : "none",
+                      }}
+                    />
+                  ) : (
+                    <img
+                      src={arrowDown}
+                      alt="Arrow Down"
+                      width={20}
+                      height={20}
+                      style={{
+                        filter:
+                          form.bankruptcy === "" ? "grayscale(1)" : "none",
+                      }}
+                    />
+                  )}
+                </span>
+              </div>
+              {errors.bankruptcy && (
+                <p className="input-error mt-1">{errors.bankruptcy}</p>
+              )}
             </div>
             {/* Evolve Member */}
-            <div className="w-full flex flex-col">
-              <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+            <div className="w-full">
+              <label htmlFor="isMember" className="block form-label mb-1">
                 Are You a Current Evolve Member? *
-                <div className="relative w-full">
-                  <select
-                    name="isMember"
-                    value={form.isMember}
-                    onChange={handleChange}
-                    onFocus={() => setIsMemberFocused(true)}
-                    onBlur={() => setIsMemberFocused(false)}
-                    className={
-                      "appearance-none mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400] " +
-                      (form.isMember === ""
-                        ? "text-[#6F6D66] text-[12px]"
-                        : "text-[#000] text-[16px]")
-                    }
-                  >
-                    <option value="">Are You a Current Evolve Member?</option>
-                    {isMemberOptions.map((opt) => (
-                      <option key={opt} value={opt}>
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
-                  <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
-                    {isMemberFocused ? (
-                      <img
-                        src={arrowUp}
-                        alt="Arrow Up"
-                        width={20}
-                        height={20}
-                        style={{
-                          filter:
-                            form.isMember === "" ? "grayscale(1)" : "none",
-                        }}
-                      />
-                    ) : (
-                      <img
-                        src={arrowDown}
-                        alt="Arrow Down"
-                        width={20}
-                        height={20}
-                        style={{
-                          filter:
-                            form.isMember === "" ? "grayscale(1)" : "none",
-                        }}
-                      />
-                    )}
-                  </span>
-                </div>
-                {errors.isMember && (
-                  <span className="text-red-600 text-[12px]">
-                    {errors.isMember}
-                  </span>
-                )}
               </label>
+              <div className="relative w-full">
+                <select
+                  id="isMember"
+                  name="isMember"
+                  value={form.isMember}
+                  onChange={handleChange}
+                  onFocus={() => setIsMemberFocused(true)}
+                  onBlur={() => setIsMemberFocused(false)}
+                  className={`appearance-none w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.isMember ? "border-red-500" : "border-[#D4D4D4]"
+                  } ${
+                    form.isMember === ""
+                      ? "text-[#6F6D66] text-[12px]"
+                      : "text-[#000] text-[16px]"
+                  }`}
+                  disabled={isSubmitting}
+                >
+                  <option value="">Are You a Current Evolve Member?</option>
+                  {isMemberOptions.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {opt}
+                    </option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
+                  {isMemberFocused ? (
+                    <img
+                      src={arrowUp}
+                      alt="Arrow Up"
+                      width={20}
+                      height={20}
+                      style={{
+                        filter: form.isMember === "" ? "grayscale(1)" : "none",
+                      }}
+                    />
+                  ) : (
+                    <img
+                      src={arrowDown}
+                      alt="Arrow Down"
+                      width={20}
+                      height={20}
+                      style={{
+                        filter: form.isMember === "" ? "grayscale(1)" : "none",
+                      }}
+                    />
+                  )}
+                </span>
+              </div>
+              {errors.isMember && (
+                <p className="input-error mt-1">{errors.isMember}</p>
+              )}
             </div>
             {/* About Yourself */}
-            <div className="w-full flex flex-col">
-              <label className="font-[500] text-[#000] flex flex-col gap-[2px] text-[16px] leading-[24px]">
+            <div className="w-full">
+              <label htmlFor="about" className="block form-label mb-1">
                 Tell Us About Yourself! *
-                <textarea
-                  name="about"
-                  value={form.about}
-                  onChange={handleChange}
-                  placeholder="Tell us about yourself..."
-                  rows={4}
-                  className="mt-1 px-2 h-[40px] border border-[#D4D4D4] rounded-[4px] bg-[#FFFFFF] focus:border-[#4AB04A] focus:outline-none w-full placeholder:text-[#6F6D66] placeholder:text-[12px] !placeholder:font-[400] resize-vertical min-h-[80px]"
-                />
-                {errors.about && (
-                  <span className="text-red-600 text-[12px]">
-                    {errors.about}
-                  </span>
-                )}
               </label>
+              <textarea
+                id="about"
+                name="about"
+                value={form.about}
+                onChange={handleChange}
+                placeholder="Tell us about yourself..."
+                rows={4}
+                className={`w-full px-3 py-2 form-placeholder border rounded-[5px] resize-vertical min-h-[80px] ${
+                  errors.about ? "border-red-500" : "border-[#D4D4D4]"
+                }`}
+                disabled={isSubmitting}
+              />
+              {errors.about && (
+                <p className="input-error mt-1">{errors.about}</p>
+              )}
             </div>
             <button
               type="submit"

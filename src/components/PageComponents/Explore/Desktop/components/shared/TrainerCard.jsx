@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import {
   Check,
   ChevronDown,
@@ -18,25 +18,78 @@ function TrainerCard({
   onTrainerSelect,
   currentIndex = 0,
   onCarouselNavigate,
+  onSwipeDetected,
 }) {
   const carouselRef = useRef(null);
+  const lastScrollLeft = useRef(0);
 
   // Sync carousel position with external currentIndex
   useEffect(() => {
     if (carouselRef.current && isCarousel) {
-      const scrollAmount = currentIndex * 280; // card width + gap
+      // Calculate actual card width dynamically
+      const containerWidth = carouselRef.current.offsetWidth;
+      const gap = 16; // 4 * 4px (gap-4 in Tailwind)
+      const cardWidth = containerWidth + gap;
+      const scrollAmount = currentIndex * cardWidth;
+      // Use smooth scroll for better user experience
       carouselRef.current.scrollTo({ left: scrollAmount, behavior: "smooth" });
     }
   }, [currentIndex, isCarousel]);
 
-  const scrollToNext = () => {
+  // Handle manual swipe detection
+  useEffect(() => {
+    if (!isCarousel || !carouselRef.current) return;
+
+    const handleScroll = () => {
+      if (!carouselRef.current) return;
+
+      const currentScrollLeft = carouselRef.current.scrollLeft;
+      const scrollDifference = Math.abs(
+        currentScrollLeft - lastScrollLeft.current
+      );
+
+      // If user manually scrolled (swiped) and there's a significant difference
+      if (scrollDifference > 30) {
+        // Calculate which card is currently visible
+        const containerWidth = carouselRef.current.offsetWidth;
+        const gap = 16; // 4 * 4px (gap-4 in Tailwind)
+        const cardWidth = containerWidth + gap;
+        const newIndex = Math.round(currentScrollLeft / cardWidth);
+
+        // Update the current index if it changed
+        if (newIndex !== currentIndex && onCarouselNavigate) {
+          onCarouselNavigate(newIndex);
+        }
+
+        // Close trainer details if they're open
+        if (onSwipeDetected) {
+          onSwipeDetected();
+        }
+
+        lastScrollLeft.current = currentScrollLeft;
+      }
+    };
+
+    const carousel = carouselRef.current;
+    carousel.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      carousel.removeEventListener("scroll", handleScroll);
+    };
+  }, [isCarousel, currentIndex, onCarouselNavigate, onSwipeDetected]);
+
+  const scrollToNext = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (onCarouselNavigate) {
       const newIndex = Math.min(currentIndex + 1, trainers.length - 1);
       onCarouselNavigate(newIndex);
     }
   };
 
-  const scrollToPrev = () => {
+  const scrollToPrev = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (onCarouselNavigate) {
       const newIndex = Math.max(currentIndex - 1, 0);
       onCarouselNavigate(newIndex);
@@ -50,25 +103,33 @@ function TrainerCard({
         {/* Navigation Buttons */}
         <button
           onClick={scrollToPrev}
+          onTouchEnd={scrollToPrev}
           disabled={currentIndex === 0}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full p-3 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+          style={{ minWidth: "44px", minHeight: "44px" }}
         >
-          <ChevronLeft className="w-4 h-4 text-gray-600" />
+          <ChevronLeft className="w-5 h-5 text-gray-600" />
         </button>
 
         <button
           onClick={scrollToNext}
+          onTouchEnd={scrollToNext}
           disabled={currentIndex === trainers.length - 1}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 bg-white rounded-full p-3 shadow-lg border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+          style={{ minWidth: "44px", minHeight: "44px" }}
         >
-          <ChevronRight className="w-4 h-4 text-gray-600" />
+          <ChevronRight className="w-5 h-5 text-gray-600" />
         </button>
 
         {/* Carousel Container */}
         <div
           ref={carouselRef}
           className="flex gap-4 overflow-x-auto scrollbar-hide"
-          style={{ scrollSnapType: "x mandatory" }}
+          style={{
+            scrollSnapType: "x mandatory",
+            touchAction: "manipulation",
+            scrollBehavior: "smooth",
+          }}
         >
           {trainers.map((trainer, index) => (
             <div

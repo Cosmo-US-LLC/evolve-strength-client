@@ -163,9 +163,35 @@ h5 {
   font-style: normal;
   font-weight: 400;
 }
+
+.form-label {
+  font-family: "Kanit";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  color: #000;
+  text-transform: capitalize;
+}
+.form-placeholder {
+  font-family: "Vazirmatn";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  color: #6f6d66;
+  background-color: #fff;
+  /* text-transform: capitalize; */
+}
+.input-error {
+  font-family: "Vazirmatn";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  color: #ff0000;
+}
+
 .description {
   font-family: "Vazirmatn";
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
 }

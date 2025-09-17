@@ -358,18 +358,21 @@ function TrainersView() {
                     "Carousel position:",
                     carouselCurrentIndex
                   );
-                  // Always use the current carousel position for selection
-                  const targetIndex = carouselCurrentIndex;
-                  if (selectedTrainerIdx === targetIndex) {
+                  // Use the actual clicked trainer index for selection
+                  if (selectedTrainerIdx === index) {
                     setSelectedTrainerIdx(null);
                   } else {
-                    setSelectedTrainerIdx(targetIndex);
+                    setSelectedTrainerIdx(index);
                   }
                 }}
                 onCarouselNavigate={(newIndex) => {
                   console.log("Carousel navigated to:", newIndex);
                   setCarouselCurrentIndex(newIndex);
                   // Close details when navigating with arrows
+                  setSelectedTrainerIdx(null);
+                }}
+                onSwipeDetected={() => {
+                  // Close trainer details when user manually swipes
                   setSelectedTrainerIdx(null);
                 }}
               />

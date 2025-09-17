@@ -47,7 +47,7 @@ function WellnessView() {
     setSelectedTrainerIdx(null);
   }, [selectedServiceIds, selectedLocation]);
 
-  // Close details when carousel navigation changes
+  // Close details when carousel navigation changes (for button navigation)
   useEffect(() => {
     setSelectedTrainerIdx(null);
   }, [currentCarouselIndex]);
@@ -326,6 +326,10 @@ function WellnessView() {
                   selectedTrainer={selectedTrainerIdx}
                   currentIndex={currentCarouselIndex}
                   onCarouselNavigate={setCurrentCarouselIndex}
+                  onSwipeDetected={() => {
+                    // Close trainer details when user manually swipes
+                    setSelectedTrainerIdx(null);
+                  }}
                   onTrainerSelect={(index) => {
                     if (selectedTrainerIdx === index) {
                       setSelectedTrainerIdx(null);

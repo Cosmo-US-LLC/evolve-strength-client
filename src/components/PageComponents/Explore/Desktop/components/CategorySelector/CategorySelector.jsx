@@ -8,9 +8,17 @@ import TrainersView from "../TrainersView/TrainersView";
 function CategorySelector({ selected, onSelect }) {
   const mobileCategoryCardsRef = useRef(null);
   const desktopCategoryCardsRef = useRef(null);
+  const isScrollingRef = useRef(false);
 
   // Helper function to scroll to category cards
   const scrollToCategoryCards = useCallback(() => {
+    // Prevent multiple scroll triggers
+    if (isScrollingRef.current) {
+      return;
+    }
+
+    isScrollingRef.current = true;
+
     const isMobile = window.innerWidth <= 768;
 
     if (isMobile) {
@@ -55,6 +63,11 @@ function CategorySelector({ selected, onSelect }) {
         });
       }
     }
+
+    // Reset the flag after scroll completes
+    setTimeout(() => {
+      isScrollingRef.current = false;
+    }, 1000); // Allow 1 second for scroll to complete
   }, [selected]);
 
   // Scroll to category cards when a category is selected
@@ -62,7 +75,10 @@ function CategorySelector({ selected, onSelect }) {
     if (selected) {
       // Small delay to ensure the component is fully rendered and content is expanded
       const timer = setTimeout(() => {
-        scrollToCategoryCards();
+        // Only scroll if we're not already scrolling
+        if (!isScrollingRef.current) {
+          scrollToCategoryCards();
+        }
       }, 200); // Slightly longer delay to allow content to expand, especially on mobile
 
       return () => clearTimeout(timer);
@@ -71,17 +87,51 @@ function CategorySelector({ selected, onSelect }) {
 
   // Handle window resize to recalculate scroll position if needed
   useEffect(() => {
+    let resizeTimeout;
+    let lastResizeTime = 0;
+
     const handleResize = () => {
-      if (selected) {
-        // Re-scroll after resize to maintain proper positioning
-        setTimeout(() => {
-          scrollToCategoryCards();
-        }, 100);
+      const now = Date.now();
+
+      // Prevent rapid resize events (like touch events)
+      if (now - lastResizeTime < 100) {
+        return;
       }
+      lastResizeTime = now;
+
+      // Clear any existing timeout
+      if (resizeTimeout) {
+        clearTimeout(resizeTimeout);
+      }
+
+      // Only re-scroll on actual resize, not on touch events
+      resizeTimeout = setTimeout(() => {
+        if (selected && !isScrollingRef.current) {
+          // Only re-scroll if the window size actually changed significantly
+          const currentWidth = window.innerWidth;
+
+          // Only trigger re-scroll if we're switching between mobile/desktop
+          // or if it's a significant resize (more than 100px change)
+          const shouldRescroll =
+            Math.abs(currentWidth - (handleResize.lastWidth || currentWidth)) >
+            100;
+
+          if (shouldRescroll) {
+            scrollToCategoryCards();
+          }
+
+          handleResize.lastWidth = currentWidth;
+        }
+      }, 200); // Increased debounce time for resize events
     };
 
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if (resizeTimeout) {
+        clearTimeout(resizeTimeout);
+      }
+    };
   }, [selected, scrollToCategoryCards]);
 
   const renderViewContent = (categoryId) => {
