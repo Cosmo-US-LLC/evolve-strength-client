@@ -121,7 +121,7 @@ function TrainerCard({
           className="flex gap-4 overflow-x-auto scrollbar-hide"
           style={{
             scrollSnapType: "x mandatory",
-            touchAction: "pan-x",
+            touchAction: "manipulation",
           }}
         >
           {trainers.map((trainer, index) => (
