@@ -50,21 +50,22 @@ function Navbar() {
           <nav
             className={`navbarWrapper fixed top-0 w-full  ${
               scrolled ? "scrolled" : ""
-            }  ${
-              currentPath === "/work-spaces" ||
-              currentPath === "/privacy-policy" ||
-              currentPath === "/terms-and-conditions" ||
-              currentPath === "/faqs" ||
-              currentPath === "/franchise" ||
-              currentPath === "/join-as-trainer" ||
-              currentPath === "/join-the-Movement" ||
-              currentPath === "/corporate-membership" ||
-              currentPath === "/about-us" ||
-              currentPath === "/contact-us" ||
-              currentPath === "/locations" ||
-              currentPath === "/explore"
+            } ${
+              currentPath.includes("work-spaces") ||
+              currentPath.includes("privacy-policy") ||
+              currentPath.includes("terms-and-conditions") ||
+              currentPath.includes("faqs") ||
+              currentPath.includes("franchise") ||
+              currentPath.includes("join-as-trainer") ||
+              currentPath.includes("join-the-Movement") ||
+              currentPath.includes("corporate-membership") ||
+              currentPath.includes("about-us") ||
+              currentPath.includes("contact-us") ||
+              currentPath.includes("locations") ||
+              currentPath.includes("explore")
                 ? "!bg-[#000]"
                 : ""
+            }
             }`}
           >
             <div className="max-w-[1280px] w-full h-full mx-auto px-4 md:px-8 flex items-center justify-between">
