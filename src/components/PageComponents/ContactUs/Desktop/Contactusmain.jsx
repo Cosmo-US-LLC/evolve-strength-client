@@ -94,6 +94,30 @@ function Contactusmain() {
     setIsSubmitting(true);
 
     try {
+      // Get HubSpot tracking cookie and other tracking data
+      const getCookie = (name) => {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(";").shift();
+        return null;
+      };
+
+      const hutk = getCookie("hubspotutk");
+
+      // Get user's IP address (client-side approximation)
+      const getUserIP = async () => {
+        try {
+          const response = await fetch("https://api.ipify.org?format=json");
+          const data = await response.json();
+          return data.ip;
+        } catch (error) {
+          console.warn("Could not fetch IP address:", error);
+          return null;
+        }
+      };
+
+      const userIP = await getUserIP();
+
       const hubspotFormData = {
         fields: [
           { name: "firstname", value: formData.firstName },
@@ -115,6 +139,8 @@ function Contactusmain() {
         context: {
           pageUri: window.location.href,
           pageName: "Contact Us Form",
+          ...(hutk && { hutk }),
+          ...(userIP && { ipAddress: userIP }),
         },
       };
 

@@ -191,11 +191,29 @@ export default function EvolveSpacesForm() {
     if (Object.keys(validationErrors).length === 0) {
       setIsSubmitting(true);
       try {
-        // include HubSpot tracking cookie
-        const hutk = document.cookie
-          .split("; ")
-          .find((c) => c.startsWith("hubspotutk="))
-          ?.split("=")[1];
+        // Get HubSpot tracking cookie and other tracking data
+        const getCookie = (name) => {
+          const value = `; ${document.cookie}`;
+          const parts = value.split(`; ${name}=`);
+          if (parts.length === 2) return parts.pop().split(";").shift();
+          return null;
+        };
+
+        const hutk = getCookie("hubspotutk");
+
+        // Get user's IP address (client-side approximation)
+        const getUserIP = async () => {
+          try {
+            const response = await fetch("https://api.ipify.org?format=json");
+            const data = await response.json();
+            return data.ip;
+          } catch (error) {
+            console.warn("Could not fetch IP address:", error);
+            return null;
+          }
+        };
+
+        const userIP = await getUserIP();
 
         const formData = {
           fields: [
@@ -225,7 +243,8 @@ export default function EvolveSpacesForm() {
           context: {
             pageUri: window.location.href,
             pageName: "Spaces Form",
-            ...(hutk ? { hutk } : {}),
+            ...(hutk && { hutk }),
+            ...(userIP && { ipAddress: userIP }),
           },
         };
 
