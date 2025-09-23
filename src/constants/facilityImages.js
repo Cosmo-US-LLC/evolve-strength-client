@@ -32,7 +32,7 @@ export const facilityLocations = [
     label: "Brentwood",
     images: {
       desktop: [
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/brentwood1.webp",
+        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/brentwood11.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/brentwood2.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/brentwood3.webp",
         "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/brentwood4.webp",

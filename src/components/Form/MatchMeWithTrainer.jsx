@@ -170,7 +170,7 @@ export default function MatchMeWithTrainer() {
                 : "",
             },
             {
-              name: "areas_of_focus",
+              name: "fitness_goals",
               value:
                 form.fitnessGoals === "Other"
                   ? form.otherFitnessGoals
