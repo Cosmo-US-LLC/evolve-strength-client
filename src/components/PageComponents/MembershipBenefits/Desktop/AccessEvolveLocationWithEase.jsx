@@ -113,9 +113,9 @@ const AccessEvolveLocationWithEase = () => {
         </div>
       </div>
 
-      <Link to="https://tour.evolvestrength.ca/tour-form ">
+      <a href="/book-a-tour/">
         <button className="btnPrimary mt-10 md:mt-0">BOOK A FREE TOUR</button>
-      </Link>
+      </a>
     </div>
   );
 };

@@ -16,9 +16,9 @@ function SteamAndSaunaRoom() {
             Evolve locations.
           </h4>
           <div className="flex gap-6">
-            <Link to="https://tour.evolvestrength.ca/tour-form">
+            <a href="/book-a-tour/">
               <button className="btnPrimary">Book a Tour</button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ const LOCATION_HERO_DATA = {
     locationTitle: "SETON",
     city: "CALGARY",
     fullTitle: "SETON's Premier Fitness and Wellness Club",
-    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=40097",
+    tourUrl: "/book-a-tour/?location=40097",
     membershipUrl:
       "/join-now/membership-type?location=Calgary%20Seton",
   },
@@ -23,7 +23,7 @@ const LOCATION_HERO_DATA = {
     locationTitle: "ROYAL OAK",
     city: "CALGARY",
     fullTitle: "ROYAL OAK's Premier Fitness and Wellness Club",
-    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=40142",
+    tourUrl: "/book-a-tour/?location=40142",
     membershipUrl:
       "/join-now/membership-type?location=Calgary%20Royal%20Oak",
   },
@@ -35,7 +35,7 @@ const LOCATION_HERO_DATA = {
     locationTitle: "SUNRIDGE",
     city: "CALGARY",
     fullTitle: "SUNRIDGE's Premier Fitness and Wellness Club",
-    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=06973",
+    tourUrl: "/book-a-tour/?location=06973",
     membershipUrl:
       "/join-now/membership-type?location=Calgary%20Sunridge",
   },
@@ -47,7 +47,7 @@ const LOCATION_HERO_DATA = {
     locationTitle: "SOUTH",
     city: "EDMONTON",
     fullTitle: "Edmonton South's Premier Fitness and Wellness Club",
-    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=06962",
+    tourUrl: "/book-a-tour/?location=06962",
     membershipUrl:
       "/join-now/membership-type?location=Edmonton%20South",
   },
@@ -59,7 +59,7 @@ const LOCATION_HERO_DATA = {
     locationTitle: "NORTH",
     city: "EDMONTON",
     fullTitle: "Edmonton North's Premier Fitness and Wellness Club",
-    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=06964",
+    tourUrl: "/book-a-tour/?location=06964",
     membershipUrl:
       "/join-now/membership-type?location=Edmonton%20North",
   },
@@ -71,7 +71,7 @@ const LOCATION_HERO_DATA = {
     locationTitle: "DOWNTOWN",
     city: "EDMONTON",
     fullTitle: "DOWNTOWN's Premier Fitness and Wellness Club",
-    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=06967",
+    tourUrl: "/book-a-tour/?location=06967",
     membershipUrl:
       "/join-now/membership-type?location=Edmonton%20Downtown",
   },
@@ -83,7 +83,7 @@ const LOCATION_HERO_DATA = {
     locationTitle: "BRENTWOOD",
     city: "BURNABY",
     fullTitle: "BRENTWOOD's Premier Fitness and Wellness Club",
-    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=40248",
+    tourUrl: "/book-a-tour/?location=40248",
     membershipUrl:
       "/join-now/membership-type?location=Burnaby%20Brentwood",
   },
@@ -95,7 +95,7 @@ const LOCATION_HERO_DATA = {
     locationTitle: "THE POST",
     city: "VANCOUVER",
     fullTitle: "Vancouver's Premier Fitness and Wellness Club",
-    tourUrl: "https://tour.evolvestrength.ca/tour-form/?location=40327",
+    tourUrl: "/book-a-tour/?location=40327",
     membershipUrl:
       "/join-now/membership-type?location=Vancouver,%20The%20Post",
   },
@@ -156,9 +156,9 @@ function LocationHero() {
         </h3>
         <div className="flex flex-col gap-6">
           <div className="flex flex-row gap-4">
-            <Link to={dynamicData.tourUrl}>
+            <a href={dynamicData.tourUrl}>
               <button className="btnPrimary">BOOK A FREE TOUR</button>
-            </Link>
+            </a>
             <a href={dynamicData.membershipUrl}>
               <button className="btnSecondary">JOIN NOW</button>
             </a>

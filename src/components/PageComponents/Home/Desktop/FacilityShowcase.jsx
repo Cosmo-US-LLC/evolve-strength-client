@@ -137,9 +137,9 @@ const FacilityShowcase = () => {
         </TabsContent>
       </Tabs>
       <div className="flex justify-center mt-6 max-md:hidden">
-        <Link to="https://tour.evolvestrength.ca/tour-form">
+        <a href="/book-a-tour/">
           <button className="btnPrimary">BOOK A FREE TOUR</button>
-        </Link>
+        </a>
       </div>
 
       {/* Mobile Version */}
@@ -220,9 +220,9 @@ const FacilityShowcase = () => {
           </TabsContent>
         </Tabs>
         <div className="flex justify-center mt-6 px-[16px] py-[17px]">
-          <Link to="https://tour.evolvestrength.ca/tour-form">
+          <a href="/book-a-tour/">
             <button className="btnPrimary !py-[17px]">BOOK A FREE TOUR</button>
-          </Link>
+          </a>
         </div>
       </div>
     </div>
