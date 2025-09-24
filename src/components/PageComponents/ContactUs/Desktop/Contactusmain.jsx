@@ -62,6 +62,7 @@ function Contactusmain() {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isHuman, setIsHuman] = useState(false);
 
   // Input handler
   const handleInputChange = (e) => {
@@ -92,6 +93,10 @@ function Contactusmain() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
+      if (!isHuman) {
+    alert("Please verify you are human before submitting.");
+    return;
+  }
     setIsSubmitting(true);
 
     try {
@@ -370,9 +375,9 @@ function Contactusmain() {
 
             <button
               type="submit"
-              disabled={isSubmitting}
+              disabled={isSubmitting || !isHuman}
               className={`w-full btnPrimary ${
-                isSubmitting
+                isSubmitting || !isHuman
                   ? "bg-gray-400 cursor-not-allowed"
                   : "bg-[#4AB04A] hover:bg-green-700 active:transform active:scale-95"
               } text-white`}
