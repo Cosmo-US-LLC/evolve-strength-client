@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import SuccessFullScreen from "@/components/ui/SuccessFullScreen"; // single import
+import SuccessFullScreen from "@/components/ui/SuccessFullScreen";
+import Turnstile from "react-turnstile";
 
 const contactLocationsData = {
   heading: "OUR LOCATIONS",
@@ -359,6 +360,13 @@ function Contactusmain() {
                 <p className="input-error mt-1">{errors.message}</p>
               )}
             </div>
+
+             <Turnstile
+              sitekey="0x4AAAAAABbwGUJsSvo2brY2"
+              onSuccess={() => setIsHuman(true)}
+              onError={() => setIsHuman(false)}
+              onExpire={() => setIsHuman(false)}
+            />
 
             <button
               type="submit"
