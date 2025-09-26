@@ -95,14 +95,14 @@ const LocationWellnessServices = () => {
         <div className="absolute inset-0 bg-black/40 z-0" />
 
         <div className="relative z-10 max-w-[1280px] w-full mx-auto flex flex-row items-center justify-between px-8 gap-10">
-          <div className="max-w-xl space-y-8">
+          <div className="max-w-xl space-y-6">
             <h2 className="uppercase text-[#ffffff]">
               Premium Wellness & <br /> Personal Training
             </h2>
-            <p className="description leading-[20px] text-[#ffffff]">
-              Boost your fitness with our add-on services (not included <br />{" "}
+            <h4 className="md:!text-[20px] leading-[20px] text-[#ffffff]">
+              Boost your fitness with our add-on services <br /> (not included
               in membership)
-            </p>
+            </h4>
             <div className="flex flex-row gap-2">
               <Link to="/explore?category=wellness">
                 <button className="btnPrimary">FIND A wellness expert</button>
@@ -113,7 +113,7 @@ const LocationWellnessServices = () => {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-2 max-w-[713px]">
+          <div className="flex flex-wrap gap-2 max-w-[734px]">
             {professionalServicesForLocations.map((service, index) => {
               const isActive = index === activeIndex;
 
@@ -121,7 +121,7 @@ const LocationWellnessServices = () => {
                 <div
                   key={index}
                   onClick={() => handleManualClick(index)}
-                  className={`group relative w-[134px] h-[138px] flex flex-col items-center justify-center text-[#fff] backdrop-blur-[12px] rounded-[10px] cursor-pointer transition-all duration-300
+                  className={`group relative w-[140px] h-[138px] flex flex-col items-center justify-center text-[#fff] backdrop-blur-[12px] rounded-[10px] cursor-pointer transition-all duration-300
                   ${
                     isActive
                       ? "bg-white/20 ring-2 ring-white"
@@ -132,7 +132,7 @@ const LocationWellnessServices = () => {
                   <div className="mb-2 text-[16px] font-[kanit] font-[500] leading-[16px] uppercase">
                     <img src={service.icon} alt="" />
                   </div>
-                  <div className="text-[16px] font-kanit font-[500] leading-[20px] uppercase text-[#fff] text-center px-[5px]">
+                  <div className="text-[16px] font-kanit font-[500] leading-[20px] uppercase text-[#fff] text-center px-[12px]">
                     {service.title}
                   </div>
 
@@ -166,21 +166,21 @@ const LocationWellnessServices = () => {
 
         <div className="absolute inset-0 bg-black/40 z-0" />
 
-        <div className="relative z-10 flex flex-col items-center w-full  gap-6">
+        <div className="relative z-10 flex flex-col items-center w-full  gap-4">
           <h2 className="uppercase text-[#ffffff] font-bold">
             Premium Wellness & Personal Training
           </h2>
-          <p className="description leading-[20px] text-[#ffffff] ">
+          <h4 className=" leading-[20px] text-[#ffffff] ">
             Boost your fitness with our add-on services (not included in
             membership)
-          </p>
+          </h4>
           <div className="flex gap-2 justify-start w-full">
             <Link to="/explore?category=wellness">
               <button className="btnPrimary">FIND A wellness expert</button>
             </Link>
-             <Link to="/explore?category=trainers">
-                <button className="btnSecondary">FIND A Trainer</button>
-              </Link>
+            <Link to="/explore?category=trainers">
+              <button className="btnSecondary">FIND A Trainer</button>
+            </Link>
           </div>
         </div>
         <div className="relative w-full mt-6">

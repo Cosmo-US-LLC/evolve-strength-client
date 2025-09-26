@@ -158,7 +158,6 @@ function WhyEvolveIsDifferent() {
         <div className="w-full max-w-[1280px] md:px-8 md:pt-4 max-md:px-[16px] mx-auto">
           {/* Heading fixed at top of section */}
 
-        
           {/* Cards with gap */}
           <div className="w-full space-y-[40px] relative mt-8 ">
             {cardData.map((card, i) => {
@@ -166,48 +165,47 @@ function WhyEvolveIsDifferent() {
                 topOffsets[i] || topOffsets[topOffsets.length - 1];
               return (
                 <>
-               {i === 0 && (
-                   <div className="sticky top-[5rem] z-[-50] py-4 ">
-            <h2 className="max-w-[707px] mx-auto text-center text-[#000000] font-[700] leading-[39px] uppercase">
-              Why Evolve Is Different
-            </h2>
-          </div>
-        )}
-                <div
-                  key={i}
-                  style={{
-                    position: "sticky",
-                    top: topOffset,
-                    height: `400px`,
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    zIndex: 10 + i,
-                    pointerEvents: "auto",
-                  }}
-                >
-                  
-                  <div className="rounded-[10px] flex justify-between w-full p-8 relative h-full border-[#CCCCCC] border bg-[#fff] shadow-[0_-4px_10px_rgba(0,0,0,0.1)]">
-                    <div className="relative z-[9] max-w-[520px] flex flex-col gap-4 justify-center">
-                      <h2 className="text-[#4AB04A] !font-[500] !font-[kanit] leading-[39px] tracking-[-1.2px]">
-                        {card.number}
+                  {i === 0 && (
+                    <div className="sticky top-[5rem] z-[-50] py-4 ">
+                      <h2 className="max-w-[707px] mx-auto text-center text-[#000000] font-[700] leading-[39px] uppercase">
+                        Why Evolve Is Different
                       </h2>
-                      <h3 className="text-[#000] !font-[kanit] !font-[500] leading-[24px] tracking-[-0.72px]">
-                        {card.title}
-                      </h3>
-                      <h4 className="text-[#000] font-[kanit] font-[400] leading-[24px]">
-                        {card.description}
-                      </h4>
                     </div>
-                    <div>
-                      <img
-                        src={card.image}
-                        alt={card.title}
-                        className="w-full h-full object-cover rounded-bl-[10px]"
-                      />
+                  )}
+                  <div
+                    key={i}
+                    style={{
+                      position: "sticky",
+                      top: topOffset,
+                      height: `400px`,
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      zIndex: 10 + i,
+                      pointerEvents: "auto",
+                    }}
+                  >
+                    <div className="rounded-[10px] flex justify-between gap-10 w-full p-8 relative h-full border-[#CCCCCC] border bg-[#fff] shadow-[0_-4px_10px_rgba(0,0,0,0.1)]">
+                      <div className="relative z-[9] max-w-[520px] flex flex-col gap-4 justify-center">
+                        <h2 className="text-[#4AB04A] !font-[500] !font-[kanit] leading-[39px] tracking-[-1.2px]">
+                          {card.number}
+                        </h2>
+                        <h3 className="text-[#000] !font-[kanit] !font-[500] leading-[24px] tracking-[-0.72px]">
+                          {card.title}
+                        </h3>
+                        <h4 className="text-[#000] font-[kanit] font-[400] leading-[24px]">
+                          {card.description}
+                        </h4>
+                      </div>
+                      <div className="w-[420px] h-full overflow-hidden ">
+                        <img
+                          src={card.image}
+                          alt={card.title}
+                          className="w-full h-full object-cover rounded-[10px]"
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
                 </>
               );
             })}

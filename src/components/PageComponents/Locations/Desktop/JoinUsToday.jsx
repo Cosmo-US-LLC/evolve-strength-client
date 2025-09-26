@@ -114,7 +114,7 @@ function JoinUsToday() {
         <h2 className="!text-[#FFF] w-full md:max-w-[420px] uppercase !leading-[50px] !text-[50px] font-[600] ">
           Join Evolve Strength Today
         </h2>
-        <h4 className="!font-vazirmatn w-full md:max-w-[520px] !font-[400] text-[#fff] !leading-[25px]">
+        <h4 className="w-full md:max-w-[480px] text-[#fff] !leading-[24px]">
           Book a free tour and explore what Evolve has to offer. Experience the
           space. Meet our team. See the difference.
         </h4>
