@@ -76,7 +76,7 @@ const WellnessServices = () => {
         <div className="absolute inset-0 bg-black/40 z-0" />
 
         <div className="relative z-10 max-w-[1280px] w-full mx-auto flex flex-row items-center justify-between px-8 gap-10">
-          <div className="max-w-xl space-y-8">
+          <div className="max-w-xl space-y-6">
             <h2 className="uppercase text-[#ffffff]">
               WELLNESS SERVICES <br /> FOR EVERYONE.
             </h2>
@@ -106,7 +106,7 @@ const WellnessServices = () => {
                 `}
                 >
                   <div className="mb-2 text-[16px] font-[kanit] font-[500] leading-[16px] uppercase">
-                   <img src={service.icon} alt="" />
+                    <img src={service.icon} alt="" />
                   </div>
                   <div className="text-[16px] font-kanit font-[500] leading-[20px] uppercase text-[#fff] text-center px-[5px]">
                     {service.title}
@@ -181,7 +181,7 @@ const WellnessServices = () => {
                             isActive ? "text-[#fff]" : "text-[#fff]"
                           }`}
                         >
-                            <img src={service.icon} alt="" />
+                          <img src={service.icon} alt="" />
                         </div>
                         <div className="text-[14px] font-kanit font-[400] leading-[20px] uppercase text-[#fff] text-center">
                           {service.title}

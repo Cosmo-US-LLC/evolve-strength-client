@@ -114,13 +114,13 @@ const GymExperience = () => {
                   >
                     {card.title}
                   </h2>
-                  <p
-                    className={`description leading-[26px] text-[16px] transition-all duration-75 group-hover:translate-y-[-2px] group-hover:opacity-90 ${
+                  <h4
+                    className={`leading-[26px] transition-all duration-75 group-hover:translate-y-[-2px] group-hover:opacity-90 ${
                       isActive ? "text-[#000]" : "text-[#ffffff]"
                     }`}
                   >
                     {card.description}
-                  </p>
+                  </h4>
                 </div>
               </div>
             );

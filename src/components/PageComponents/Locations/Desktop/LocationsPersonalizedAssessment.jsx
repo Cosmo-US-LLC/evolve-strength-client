@@ -26,22 +26,14 @@ function LocationsPersonalizedAssessment() {
   // Location-specific tour URLs
   const getTourUrl = (locationKey) => {
     const tourUrls = {
-      "vancouver-post":
-        "/book-a-tour/?location=40327",
-      "burnaby-brentwood":
-        "/book-a-tour/?location=40248",
-      "calgary-seton":
-        "/book-a-tour/?location=40097",
-      "calgary-royal-oak":
-        "/book-a-tour/?location=40142",
-      "calgary-sunridge":
-        "/book-a-tour/?location=06973",
-      "edmonton-south":
-        "/book-a-tour/?location=06962",
-      "edmonton-downtown":
-        "/book-a-tour/?location=06967",
-      "edmonton-north":
-        "/book-a-tour/?location=06964",
+      "vancouver-post": "/book-a-tour/?location=40327",
+      "burnaby-brentwood": "/book-a-tour/?location=40248",
+      "calgary-seton": "/book-a-tour/?location=40097",
+      "calgary-royal-oak": "/book-a-tour/?location=40142",
+      "calgary-sunridge": "/book-a-tour/?location=06973",
+      "edmonton-south": "/book-a-tour/?location=06962",
+      "edmonton-downtown": "/book-a-tour/?location=06967",
+      "edmonton-north": "/book-a-tour/?location=06964",
     };
 
     return tourUrls[locationKey] || "/book-a-tour/";
@@ -126,14 +118,15 @@ function LocationsPersonalizedAssessment() {
           <h3 className="text-[#000] uppercase leading-[26px] !font-[700]">
             Join now and get a free personalized assessment.
           </h3>
-          <p className="text-[#000] description mt-4 mb-6 leading-[26px]">
-           All new Evolve members get a one-on-one assessment with a certified trainer after signing up.
-          </p>
+          <h4 className="text-[#000] mt-4 mb-4 md:!leading-[24px]">
+            All new Evolve members get a one-on-one assessment with a certified
+            trainer after signing up.
+          </h4>
           <a
             href={tourUrl}
             className="text-[#4AB04A] font-bold leading-[26px] underline underline-offset-4 decoration-solid decoration-auto [text-underline-position:from-font]"
           >
-           Join Now
+            Join Now
           </a>
         </div>
       </div>
