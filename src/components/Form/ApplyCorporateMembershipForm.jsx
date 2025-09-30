@@ -192,7 +192,7 @@ function ApplyCorporateMembershipForm({ onSubmit }) {
             <img
               src={locationImg}
               alt="Evolve Strength Facility"
-              className="object-cover w-full h-[740px]"
+              className="object-cover w-full h-[820px]"
             />
           </div>
         </div>
@@ -338,26 +338,7 @@ function ApplyCorporateMembershipForm({ onSubmit }) {
                     )}
                   </div>
                 </div>
-                <div className="flex flex-row gap-4">
-                  <div className="flex-1 flex flex-col">
-                    <label htmlFor="city" className="block form-label mb-1">
-                      City *
-                    </label>
-                    <input
-                      type="text"
-                      id="city"
-                      name="city"
-                      value={form.city}
-                      onChange={handleChange}
-                      placeholder="Toronto"
-                      className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
-                        errors.city ? "border-red-500" : "border-[#D4D4D4]"
-                      }`}
-                    />
-                    {errors.city && (
-                      <p className="input-error mt-1">{errors.city}</p>
-                    )}
-                  </div>
+                <div className="flex flex-col gap-4">
                   <div className="flex-1 flex flex-col">
                     <label htmlFor="province" className="block form-label mb-1">
                       Province/Territories *
@@ -431,6 +412,25 @@ function ApplyCorporateMembershipForm({ onSubmit }) {
                     </div>
                     {errors.province && (
                       <p className="input-error mt-1">{errors.province}</p>
+                    )}
+                  </div>
+                  <div className="flex-1 flex flex-col">
+                    <label htmlFor="city" className="block form-label mb-1">
+                      City *
+                    </label>
+                    <input
+                      type="text"
+                      id="city"
+                      name="city"
+                      value={form.city}
+                      onChange={handleChange}
+                      placeholder="Toronto"
+                      className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                        errors.city ? "border-red-500" : "border-[#D4D4D4]"
+                      }`}
+                    />
+                    {errors.city && (
+                      <p className="input-error mt-1">{errors.city}</p>
                     )}
                   </div>
                 </div>
