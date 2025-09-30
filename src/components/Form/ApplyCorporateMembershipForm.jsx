@@ -360,7 +360,7 @@ function ApplyCorporateMembershipForm({ onSubmit }) {
                   </div>
                   <div className="flex-1 flex flex-col">
                     <label htmlFor="province" className="block form-label mb-1">
-                      Province *
+                      Province/Territories *
                     </label>
                     <div className="relative w-full">
                       <select
@@ -384,7 +384,7 @@ function ApplyCorporateMembershipForm({ onSubmit }) {
                         }}
                         disabled={isSubmitting}
                       >
-                        <option value="">Select Province</option>
+                        <option value="">Province/Territories</option>
                         {provinceOptions.map((opt) => (
                           <option key={opt} value={opt}>
                             {opt}
