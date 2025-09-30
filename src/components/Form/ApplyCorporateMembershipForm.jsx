@@ -5,6 +5,22 @@ import { Link, useNavigate } from "react-router-dom";
 import SuccessFullScreen from "../ui/SuccessFullScreen"; // added
 import FormsHeader from "../ui/FormsHeader"; // added
 
+const provinceOptions = [
+  "Alberta",
+  "British Columbia",
+  "Manitoba",
+  "New Brunswick",
+  "Newfoundland and Labrador",
+  "Nova Scotia",
+  "Ontario",
+  "Prince Edward Island",
+  "Quebec",
+  "Saskatchewan",
+  "Northwest Territories",
+  "Nunavut",
+  "Yukon",
+];
+
 function ApplyCorporateMembershipForm({ onSubmit }) {
   // === HubSpot constants (replace GUID if you have a separate corporate form) ===
   const HUBSPOT_PORTAL_ID = "342148198";
@@ -26,6 +42,7 @@ function ApplyCorporateMembershipForm({ onSubmit }) {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false); // existing
   const [submitted, setSubmitted] = useState(false); // added
+  const [provinceFocused, setProvinceFocused] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -345,17 +362,73 @@ function ApplyCorporateMembershipForm({ onSubmit }) {
                     <label htmlFor="province" className="block form-label mb-1">
                       Province *
                     </label>
-                    <input
-                      type="text"
-                      id="province"
-                      name="province"
-                      value={form.province}
-                      onChange={handleChange}
-                      placeholder="Ontario"
-                      className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
-                        errors.province ? "border-red-500" : "border-[#D4D4D4]"
-                      }`}
-                    />
+                    <div className="relative w-full">
+                      <select
+                        id="province"
+                        name="province"
+                        value={form.province}
+                        onChange={handleChange}
+                        onFocus={() => setProvinceFocused(true)}
+                        onBlur={() => setProvinceFocused(false)}
+                        className={`appearance-none w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                          errors.province
+                            ? "border-red-500"
+                            : "border-[#D4D4D4]"
+                        } ${
+                          form.province === ""
+                            ? "text-[#6F6D66] text-[12px]"
+                            : "text-[#000] text-[16px]"
+                        }`}
+                        style={{
+                          maxHeight: "200px",
+                        }}
+                        disabled={isSubmitting}
+                      >
+                        <option value="">Select Province</option>
+                        {provinceOptions.map((opt) => (
+                          <option key={opt} value={opt}>
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
+                      <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
+                        {provinceFocused ? (
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            style={{
+                              filter:
+                                form.province === "" ? "grayscale(1)" : "none",
+                            }}
+                          >
+                            <polyline points="18,15 12,9 6,15"></polyline>
+                          </svg>
+                        ) : (
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            style={{
+                              filter:
+                                form.province === "" ? "grayscale(1)" : "none",
+                            }}
+                          >
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                          </svg>
+                        )}
+                      </span>
+                    </div>
                     {errors.province && (
                       <p className="input-error mt-1">{errors.province}</p>
                     )}
