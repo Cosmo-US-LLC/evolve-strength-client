@@ -24,21 +24,21 @@ const tabs = [
 ];
 
 const allOffices = [
-  {
-    title: "Executive Office",
-    location: "Calgary Royal Oak",
-    image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
-    size: "Starting at 130 sq/ft",
-    roomStatus: "Unfurnished | With or Without a Sink",
-  },
+  // {
+  //   title: "Executive Office",
+  //   location: "Calgary Royal Oak",
+  //   image:
+  //     "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
+  //   size: "Starting at 130 sq/ft",
+  //   roomStatus: "Unfurnished | With or Without a Sink",
+  // },
   {
     title: "Premium Office Suite",
     location: "Calgary Royal Oak",
     image:
       "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_P.webp",
-    size: "Starting at 170 sq/ft",
-    roomStatus: "Unfurnished | With a Sink",
+    size: "170 sq/ft",
+    roomStatus: "Unfurnished | without a sink",
   },
   // {
   //   title: "Anchor",
