@@ -360,7 +360,7 @@ function YourFitnessFutureForm() {
               </div>
               <div className="flex-1">
                 <label htmlFor="province" className="block form-label mb-1">
-                  Province / State *
+                  Province/Territories *
                 </label>
                 <div className="relative w-full">
                   <select
@@ -379,7 +379,7 @@ function YourFitnessFutureForm() {
                     }`}
                     disabled={isSubmitting}
                   >
-                    <option value="">Select Province / State</option>
+                    <option value="">Province/Territories</option>
                     {provinceOptions.map((opt) => (
                       <option key={opt} value={opt}>
                         {opt}
