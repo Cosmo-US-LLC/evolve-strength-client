@@ -40,6 +40,21 @@ const liquidCapitalOptions = [
 const franchiseExperienceOptions = ["None", "Some", "Extensive"];
 const bankruptcyOptions = ["Yes", "No"];
 const isMemberOptions = ["Yes", "No"];
+const provinceOptions = [
+  "Alberta",
+  "British Columbia",
+  "Manitoba",
+  "New Brunswick",
+  "Newfoundland and Labrador",
+  "Nova Scotia",
+  "Ontario",
+  "Prince Edward Island",
+  "Quebec",
+  "Saskatchewan",
+  "Northwest Territories",
+  "Nunavut",
+  "Yukon",
+];
 
 function YourFitnessFutureForm() {
   const [form, setForm] = useState(initialState);
@@ -51,6 +66,7 @@ function YourFitnessFutureForm() {
   const [franchiseFocused, setFranchiseFocused] = useState(false);
   const [bankruptcyFocused, setBankruptcyFocused] = useState(false);
   const [isMemberFocused, setIsMemberFocused] = useState(false);
+  const [provinceFocused, setProvinceFocused] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -346,18 +362,56 @@ function YourFitnessFutureForm() {
                 <label htmlFor="province" className="block form-label mb-1">
                   Province / State *
                 </label>
-                <input
-                  type="text"
-                  id="province"
-                  name="province"
-                  value={form.province}
-                  onChange={handleChange}
-                  placeholder="Ontario"
-                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
-                    errors.province ? "border-red-500" : "border-[#D4D4D4]"
-                  }`}
-                  disabled={isSubmitting}
-                />
+                <div className="relative w-full">
+                  <select
+                    id="province"
+                    name="province"
+                    value={form.province}
+                    onChange={handleChange}
+                    onFocus={() => setProvinceFocused(true)}
+                    onBlur={() => setProvinceFocused(false)}
+                    className={`appearance-none w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                      errors.province ? "border-red-500" : "border-[#D4D4D4]"
+                    } ${
+                      form.province === ""
+                        ? "text-[#6F6D66] text-[12px]"
+                        : "text-[#000] text-[16px]"
+                    }`}
+                    disabled={isSubmitting}
+                  >
+                    <option value="">Select Province / State</option>
+                    {provinceOptions.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                  <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
+                    {provinceFocused ? (
+                      <img
+                        src={arrowUp}
+                        alt="Arrow Up"
+                        width={20}
+                        height={20}
+                        style={{
+                          filter:
+                            form.province === "" ? "grayscale(1)" : "none",
+                        }}
+                      />
+                    ) : (
+                      <img
+                        src={arrowDown}
+                        alt="Arrow Down"
+                        width={20}
+                        height={20}
+                        style={{
+                          filter:
+                            form.province === "" ? "grayscale(1)" : "none",
+                        }}
+                      />
+                    )}
+                  </span>
+                </div>
                 {errors.province && (
                   <p className="input-error mt-1">{errors.province}</p>
                 )}
