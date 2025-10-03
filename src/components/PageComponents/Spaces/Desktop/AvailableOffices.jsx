@@ -11,8 +11,8 @@ import {
 } from "@/components/ui/carousel";
 import NoOfficeAvilable from "./NoOfficeAvailable";
 
-const tabs = [
-  { id: "All", label: "All (07)" },
+const baseTabs = [
+  { id: "All", label: "All" },
   { id: "Calgary Royal Oak", label: "Calgary Royal Oak" },
   { id: "Edmonton Downtown", label: "Edmonton Downtown" },
   { id: "Edmonton North", label: "Edmonton North" },
@@ -99,7 +99,7 @@ const allOffices = [
 
 const AvailableOffices = () => {
   const [activeTab, setActiveTab] = useState("All");
-  const [activeTabmobile, setActiveTabmobile] = useState(tabs[0].id);
+  const [activeTabmobile, setActiveTabmobile] = useState(baseTabs[0].id);
   const carouselRef = useRef(null);
 
   // Desktop carousel
@@ -129,6 +129,22 @@ const AvailableOffices = () => {
     "Brentwood",
     "Post",
   ];
+
+  // Calculate available offices count for "All" tab
+  const availableOfficesCount = allOffices.filter(
+    (office) => !unavailableLocations.includes(office.location)
+  ).length;
+
+  // Generate tabs with dynamic counts
+  const tabs = baseTabs.map((tab) => {
+    if (tab.id === "All") {
+      return {
+        ...tab,
+        label: `All (${availableOfficesCount})`,
+      };
+    }
+    return tab;
+  });
 
   const filteredOffices =
     activeTab === "All"

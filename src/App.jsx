@@ -43,6 +43,7 @@ import WellnessInquiryForm from "./components/Form/WellnessInquiryForm";
 import MatchMeWithTrainer from "./components/Form/MatchMeWithTrainer";
 import Careers from "./pages/Careers";
 import ApplyForWorkSpaceForm from "./components/Form/ApplyForWorkSpaceForm";
+import Intake from "./components/Form/Intake";
 
 function App() {
   return (
@@ -152,6 +153,7 @@ function App() {
         <Route path="/loader" element={<Loader />} />
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/trainer-form" element={<TrainerForm />} />
+        <Route path="/intake" element={<Intake />} />
       </Routes>
     </>
   );
