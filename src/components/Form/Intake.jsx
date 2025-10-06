@@ -10,8 +10,7 @@ function Intake() {
     lastName: "",
     email: "",
     phone: "",
-    category: "",
-    otherCategory: "",
+    eventName: "",
     preferredContact: "",
     comments: "",
     consent: false,
@@ -40,38 +39,6 @@ function Intake() {
     "Text Message",
   ];
 
-  const categories = [
-    "Enter Category",
-    "Weight Loss",
-    "Strength Training",
-    "Hypertrophy",
-    "Powerlifting",
-    "Olympic Weightlifting",
-    "Sports Performance",
-    "Athletic Conditioning",
-    "Injury Rehab",
-    "Pain Management",
-    "Mobility and Flexibility",
-    "Posture",
-    "Technique and Movement",
-    "Nutrition and Lifestyle",
-    "Women's Health",
-    "Prenatal and Postnatal",
-    "General Fitness",
-    "Beginners",
-    "Seniors and Special Populations",
-    "Functional Fitness",
-    "HIIT and CrossFit",
-    "Combat Sports",
-    "Allied Health",
-    "Personal Training",
-    "Group Classes",
-    "Corporate Membership",
-    "General Membership",
-    "Wellness Programs",
-    "Other",
-  ];
-
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -98,12 +65,8 @@ function Intake() {
     else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(formData.email))
       newErrors.email = "Invalid email format";
     if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
-    if (!formData.category || formData.category === "Enter Category")
-      newErrors.category = "Category is required";
-
-    if (formData.category === "Other" && !formData.otherCategory.trim()) {
-      newErrors.otherCategory = "Please specify your category";
-    }
+    if (!formData.eventName.trim())
+      newErrors.eventName = "Event name is required";
     if (!selectedLocation || selectedLocation === "Select Location")
       newErrors.location = "Location is required";
     if (!formData.consent) newErrors.consent = "You must agree to be contacted";
@@ -161,26 +124,24 @@ function Intake() {
 
       const hubspotFormData = {
         fields: [
+          { name: "location", value: selectedLocation || "" },
           { name: "firstname", value: formData.firstName },
           { name: "lastname", value: formData.lastName },
           { name: "email", value: formData.email },
           { name: "phone", value: formData.phone },
-          {
-            name: "location",
-            value: selectedLocation || "",
-          },
-          {
-            name: "category",
-            value:
-              formData.category === "Other"
-                ? formData.otherCategory
-                : formData.category,
-          },
+          { name: "event_name", value: formData.eventName },
           {
             name: "preferred_contact_method",
             value: formData.preferredContact,
           },
-          { name: "comments", value: formData.comments },
+          {
+            name: "intake_additional_comments_or_questions",
+            value: formData.comments,
+          },
+          {
+            name: "intake_agree_checkbox",
+            value: formData.consent ? "Yes" : "No",
+          },
         ],
         context: {
           pageUri: window.location.href,
@@ -191,7 +152,7 @@ function Intake() {
       };
 
       const response = await fetch(
-        // "https://api.hsforms.com/submissions/v3/integration/submit/342148198/a51560aa-fb0b-4ba7-a013-70b2dc550b85",
+        "https://api.hsforms.com/submissions/v3/integration/submit/342148198/ec5de179-8970-4a69-bca2-fd28690a7594",
         {
           method: "POST",
           headers: {
@@ -221,8 +182,7 @@ function Intake() {
         lastName: "",
         email: "",
         phone: "",
-        category: "",
-        otherCategory: "",
+        eventName: "",
         preferredContact: "",
         comments: "",
         consent: false,
@@ -246,7 +206,7 @@ function Intake() {
         <div className="fixed inset-0 z-[9999] bg-white">
           <SuccessFullScreen
             title="Thank You for Your Interest"
-            description="We've received your information and will be in touch soon to discuss your fitness goals and how we can help you achieve them."
+            description="We've received your event information and will be in touch soon to discuss your event details and how we can help make it a success."
             buttonText="BACK TO HOME"
             buttonLink="/"
             icon="check"
@@ -324,6 +284,7 @@ function Intake() {
                 onSubmit={handleSubmit}
                 noValidate
               >
+                <h3>Personal Information</h3>
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="flex-1 flex flex-col">
                     <label
@@ -422,61 +383,29 @@ function Intake() {
                 </div>
 
                 <div className="flex flex-col">
-                  <label htmlFor="category" className="block form-label mb-1">
-                    Category *
+                  <label htmlFor="eventName" className="block form-label mb-1">
+                    Event Name *
                   </label>
-                  <select
-                    id="category"
-                    name="category"
-                    value={formData.category}
+                  <textarea
+                    id="eventName"
+                    name="eventName"
+                    value={formData.eventName}
                     onChange={handleInputChange}
+                    placeholder="Enter event name"
+                    rows={3}
                     required
-                    className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
-                      errors.category ? "border-red-500" : "border-[#D4D4D4]"
+                    className={`w-full px-3 py-2 form-placeholder border rounded-[5px] resize-none ${
+                      errors.eventName ? "border-red-500" : "border-[#D4D4D4]"
                     }`}
-                  >
-                    {categories.map((category, index) => (
-                      <option key={index} value={category}>
-                        {category}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.category && (
+                  />
+                  {errors.eventName && (
                     <p className="text-red-500 text-sm mt-1">
-                      {errors.category}
+                      {errors.eventName}
                     </p>
                   )}
                 </div>
 
-                {/* Other Category field - shows only when "Other" is selected */}
-                {formData.category === "Other" && (
-                  <div className="flex flex-col">
-                    <label
-                      htmlFor="otherCategory"
-                      className="block form-label mb-1"
-                    >
-                      Other: *
-                    </label>
-                    <input
-                      type="text"
-                      id="otherCategory"
-                      name="otherCategory"
-                      value={formData.otherCategory}
-                      onChange={handleInputChange}
-                      placeholder="Please specify your category"
-                      className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
-                        errors.otherCategory
-                          ? "border-red-500"
-                          : "border-[#D4D4D4]"
-                      }`}
-                    />
-                    {errors.otherCategory && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.otherCategory}
-                      </p>
-                    )}
-                  </div>
-                )}
+                <h3>Contact Preferences</h3>
 
                 <div className="flex flex-col">
                   <label
@@ -526,7 +455,7 @@ function Intake() {
                   />
                   <span className="text-sm font-[kanit] text-[#000]">
                     I agree to be contacted by{" "}
-                    <strong>{selectedLocation || "Downtown"}</strong> regarding
+                    <strong>{selectedLocation || "Location"}</strong> regarding
                     membership information and fitness programs. I understand I
                     can opt out at any time.
                   </span>
