@@ -14,8 +14,8 @@ import NoOfficeAvilable from "./NoOfficeAvailable";
 const baseTabs = [
   { id: "All", label: "All" },
   { id: "Calgary Royal Oak", label: "Calgary Royal Oak" },
-  { id: "Edmonton Downtown", label: "Edmonton Downtown" },
   { id: "Edmonton North", label: "Edmonton North" },
+  { id: "Edmonton Downtown", label: "Edmonton Downtown" },
   { id: "Post", label: "Post" },
   { id: "Brentwood", label: "Brentwood" },
   { id: "Calgary Seton", label: "Calgary Seton" },
@@ -64,14 +64,14 @@ const allOffices = [
     size: "Starting at 114 sq/ft",
     roomStatus: "Unfurnished | Without a Sink",
   },
-  {
-    title: "Executive Office",
-    location: "Edmonton Downtown",
-    image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
-    size: "Starting at 120 sq/ft",
-    roomStatus: "Unfurnished | Without a Sink",
-  },
+  // {
+  //   title: "Executive Office",
+  //   location: "Edmonton Downtown",
+  //   image:
+  //     "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
+  //   size: "Starting at 120 sq/ft",
+  //   roomStatus: "Unfurnished | Without a Sink",
+  // },
   // {
   //   title: "Premium Office Suite",
   //   location: "Edmonton Downtown",
@@ -128,6 +128,7 @@ const AvailableOffices = () => {
     "Calgary Seton",
     "Brentwood",
     "Post",
+    "Edmonton Downtown",
   ];
 
   // Calculate available offices count for "All" tab
