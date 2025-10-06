@@ -206,7 +206,7 @@ function Intake() {
         <div className="fixed inset-0 z-[9999] bg-white">
           <SuccessFullScreen
             title="Thank You for Your Interest"
-            description="We've received your information and will be in touch soon to discuss your fitness goals and how we can help you achieve them."
+            description="We've received your event information and will be in touch soon to discuss your event details and how we can help make it a success."
             buttonText="BACK TO HOME"
             buttonLink="/"
             icon="check"
