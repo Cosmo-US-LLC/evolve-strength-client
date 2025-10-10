@@ -58,7 +58,7 @@ function TrustedEquipmentBrands() {
 
         <div className="w-full flex flex-col md:flex-row gap-8">
           <div className="w-[50%]">
-            <h2 className="text-4xl max-w-[500px] font-bold text-gray-800 mb-5 tracking-wide leading-tight">
+            <h2 className="text-4xl max-w-[500px] font-bold text-[#000] mb-5 tracking-wide leading-tight">
               TRUSTED EQUIPMENT BRANDS
             </h2>
           </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function TimeToEvolve() {
   return (
-    <div className="w-full timeToEvolve pb-[70px] md:pb-[76px]  relative overflow-hidden">
+    <div className="w-full timeToEvolve  relative overflow-hidden">
       <div className="absolute inset-0 bg-black/40 md:bg-black/20 z-0"></div>
 
       <div className="w-full max-w-[1280px] mx-auto flex h-full items-center px-4 md:px-8">
@@ -15,11 +15,11 @@ function TimeToEvolve() {
             Feel the energy, ride the momentum, and crush your next workout.
           </h4>
           <div className="flex gap-6">
-            <a href="/join-now/">
-              <button className="btnPrimary">join now</button>
-            </a>
             <a href="/book-a-tour/">
-              <button className="btnSecondary">BOOK A FREE TOUR</button>
+              <button className="btnPrimary">BOOK A FREE TOUR</button>
+            </a>
+            <a href="/join-now/">
+              <button className="btnSecondary">join now</button>
             </a>
           </div>
         </div>
