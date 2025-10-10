@@ -43,7 +43,7 @@ function PumpIt() {
 
   return (
     <div className="bg-black py-20 min-h-screen">
-      <div className="text-center mb-15 px-5">
+      <div className="text-left mb-15 px-5 max-w-[1280px] mx-auto px-4 md:px-8">
         <h2 className="text-6xl md:text-4xl font-black text-white mb-5 tracking-tight leading-tight">
           PUMP IT. RUN IT. LIFT IT. LOVE IT.
         </h2>
@@ -79,11 +79,6 @@ function PumpIt() {
               <h3 className="text-2xl font-bold uppercase tracking-wide mb-0">
                 {zone.title}
               </h3>
-              {hoveredZone === zone.id && (
-                <p className="text-base mt-2 opacity-90 animate-fade-in-up">
-                  {zone.description}
-                </p>
-              )}
             </div>
           </div>
         ))}

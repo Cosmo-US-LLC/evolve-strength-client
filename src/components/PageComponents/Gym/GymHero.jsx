@@ -13,7 +13,7 @@ function GymHero() {
 
           <div className="flex flex-col md:flex-row gap-3">
             <Link to="/book-a-tour/">
-              <button className="btnPrimary">Book a Tour</button>
+              <button className="btnPrimary">Book a Free Tour</button>
             </Link>
             <Link to="/join-now/">
               <button className="btnSecondary">join now</button>
