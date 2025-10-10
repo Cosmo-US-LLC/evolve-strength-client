@@ -6,7 +6,7 @@ function TimeToEvolve() {
     <div className="w-full timeToEvolve pb-[70px] md:pb-[76px]  relative overflow-hidden">
       <div className="absolute inset-0 bg-black/40 md:bg-black/20 z-0"></div>
 
-      <div className="w-full max-w-[1280px] mx-auto flex h-full items-end px-4 md:px-8">
+      <div className="w-full max-w-[1280px] mx-auto flex h-full items-center px-4 md:px-8">
         <div className="space-y-[20px] relative z-[9] ">
           <h2 className="!text-[#fff] leading-[45px] uppercase drop-shadow-lg">
             It’s Time to Evolve{" "}
