@@ -44,6 +44,7 @@ import MatchMeWithTrainer from "./components/Form/MatchMeWithTrainer";
 import Careers from "./pages/Careers";
 import ApplyForWorkSpaceForm from "./components/Form/ApplyForWorkSpaceForm";
 import Intake from "./components/Form/Intake";
+import Gym from "./pages/Gym";
 
 function App() {
   return (
@@ -67,10 +68,11 @@ function App() {
           <Route path="/join-the-Movement" element={<JoinTheMovement />} />
           <Route path="/join-as-trainer" element={<JoinAsTrainer />} />
 
+          <Route path="/location/gym" element={<Gym />} />
+
           <Route path="/locations" element={<AllLocations />} />
           <Route path="/locations/calgary-seton" element={<CalgarySeton />} />
           <Route path="/locations/edmonton-south" element={<EdmontonSouth />} />
-
           <Route path="/locations/edmonton-north" element={<EdmontonNorth />} />
           <Route
             path="/locations/edmonton-downtown"
