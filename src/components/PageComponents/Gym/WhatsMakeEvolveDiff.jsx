@@ -115,12 +115,12 @@ const WhatsMakeEvolveDiff = () => {
 
                   <div
                     className={`relative z-10 transition-colors duration-75 ${
-                      isActive ? "text-[#1C1C1C]" : "text-[#ffffff]"
+                      isActive ? "text-[#000]" : "text-[#ffffff]"
                     }`}
                   >
                     <h2
                       className={`uppercase mb-3 !text-[30px] font-semibold transition-all duration-75 group-hover:translate-y-[-2px] group-hover:opacity-90 ${
-                        isActive ? "text-[#1C1C1C]" : "text-[#ffffff]"
+                        isActive ? "text-[#000]" : "text-[#ffffff]"
                       }`}
                     >
                       {card.title}
