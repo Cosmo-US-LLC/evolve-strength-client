@@ -46,7 +46,7 @@ function Navbar() {
   const navigationLinks = [
     { to: "/explore", label: "Explore" },
     { to: "/locations", label: "Our Locations" },
-    { to: "/Equipments", label: "Equipments" },
+    { to: "/equipments", label: "Equipments" },
     {
       label: "Training & Services",
       dropdown: [

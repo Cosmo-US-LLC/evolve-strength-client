@@ -207,7 +207,7 @@ function Footer() {
                   </Link>
                   <Link
                     smooth
-                    to="/Equipments"
+                    to="/equipments"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
                     Equipments
