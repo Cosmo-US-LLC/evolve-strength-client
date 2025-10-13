@@ -412,6 +412,16 @@
     background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/someThinkNew/common_new_branch_mob.webp");
   }
 
+  .gymHero {
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/gym/gym_hero_mob.webp");
+  }
+  .grassIsIndeed {
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/gym/truf_that_last_mob_bg.webp");
+  }
+  .timeToEvolve {
+    background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/gym/time-to-evolve-mob.webp");
+  }
+
   .personalTrainingHeroSection {
     background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/hero/evolve-personal-training-mob.webp");
     height: 646px;
