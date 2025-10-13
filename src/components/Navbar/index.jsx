@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import "./styles.css";
 import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-logo-light.svg";
 import ESFLogo from "../../assets/images/home/footer/Evolve-Strength-footer-Logo.svg";
@@ -16,6 +16,7 @@ import {
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
 
   const currentPath = location.pathname;
@@ -31,11 +32,28 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isDropdownOpen && !event.target.closest(".dropdown-container")) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [isDropdownOpen]);
+
   const navigationLinks = [
     { to: "/explore", label: "Explore" },
-    { to: "/personal-training", label: "Personal Training" },
-    { to: "/wellness", label: "Wellness Services" },
     { to: "/locations", label: "Our Locations" },
+    { to: "/Equipments", label: "Equipments" },
+    {
+      label: "Training & Services",
+      dropdown: [
+        { to: "/personal-training", label: "Personal Training" },
+        { to: "/wellness", label: "Wellness Services" },
+      ],
+    },
     { to: "/work-spaces", label: "Work Spaces" },
   ];
 
@@ -46,7 +64,7 @@ function Navbar() {
   return (
     <>
       <div className="">
-        <div className="fixed top-0 w-[100%] z-[99]">
+        <div className="fixed top-0 w-[100%] z-[9999]">
           <nav
             className={`navbarWrapper fixed top-0 w-full  ${
               scrolled ? "scrolled" : ""
@@ -84,14 +102,59 @@ function Navbar() {
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center justify-center gap-8">
                 {navigationLinks.map((link, index) => {
+                  // Check if this is a dropdown
+                  if (link.dropdown) {
+                    const isDropdownActive = link.dropdown.some(
+                      (dropdownItem) => currentPath === dropdownItem.to
+                    );
+
+                    return (
+                      <React.Fragment key={link.label}>
+                        {index === 3 && (
+                          <div className="w-[1.5px] font-[vazirmatn] h-4 bg-[#F8F8F8]" />
+                        )}
+                        <div className="relative z-[9999] dropdown-container">
+                          <button
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            className={`navBarLinks text-[#F8F8F8] flex flex-col items-center gap-1 ${
+                              isDropdownActive ? "active" : ""
+                            }`}
+                          >
+                            {link.label}
+                            <ChevronDown
+                              size={20}
+                              className={`transition-transform duration-300 ${
+                                isDropdownOpen ? "rotate-180" : ""
+                              }`}
+                            />
+                          </button>
+
+                          {/* Dropdown Menu */}
+                          {isDropdownOpen && (
+                            <div className="absolute top-[30px] left-0 space-y-4 z-[9999] bg-[#000] border border-[#ffffff20] rounded-[5px] min-w-[170px]  px-4 py-6 shadow-lg">
+                              {link.dropdown.map((dropdownItem) => (
+                                <Link
+                                  key={dropdownItem.to}
+                                  smooth
+                                  to={dropdownItem.to}
+                                  className="navBarLinks block   text-[#F8F8F8] hover:bg-[#ffffff10] transition-colors"
+                                  onClick={() => setIsDropdownOpen(false)}
+                                >
+                                  {dropdownItem.label}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </React.Fragment>
+                    );
+                  }
+
+                  // Regular link
                   const isActive =
                     currentPath === link.to ||
                     (link.to === "/explore" &&
                       currentPath.startsWith("/explore")) ||
-                    (link.to === "/personal-training" &&
-                      currentPath.startsWith("/personal-training")) ||
-                    (link.to === "/wellness" &&
-                      currentPath.startsWith("/wellness")) ||
                     (link.to === "/locations" &&
                       currentPath.startsWith("/locations")) ||
                     (link.to === "/spaces" &&
@@ -108,9 +171,6 @@ function Navbar() {
                       >
                         {link.label}
                       </Link>
-                      {index === 2 && (
-                        <div className="w-[1.5px] font-[vazirmatn] h-4 bg-[#F8F8F8]" />
-                      )}
                     </React.Fragment>
                   );
                 })}
@@ -149,17 +209,47 @@ function Navbar() {
                     </SheetHeader> */}
 
                     <div className="flex flex-col space-y-6 mt-8">
-                      {navigationLinks.map((link) => (
-                        <Link
-                          key={link.to}
-                          smooth
-                          to={link.to}
-                          className="text-white text-lg font-medium hover:text-green-400 transition-colors"
-                          onClick={handleMobileLinkClick}
-                        >
-                          {link.label}
-                        </Link>
-                      ))}
+                      {navigationLinks.map((link) => {
+                        // Check if this is a dropdown - show items directly on mobile
+                        if (link.dropdown) {
+                          return (
+                            <div
+                              key={link.label}
+                              className="flex flex-col space-y-3"
+                            >
+                              <span className="text-white text-lg font-medium">
+                                {link.label}
+                              </span>
+                              <div className="flex flex-col space-y-2 pl-4">
+                                {link.dropdown.map((dropdownItem) => (
+                                  <Link
+                                    key={dropdownItem.to}
+                                    smooth
+                                    to={dropdownItem.to}
+                                    className="text-white/80 text-base font-medium hover:text-green-400 transition-colors"
+                                    onClick={handleMobileLinkClick}
+                                  >
+                                    {dropdownItem.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        }
+
+                        // Regular link
+                        return (
+                          <Link
+                            key={link.to}
+                            smooth
+                            to={link.to}
+                            className="text-white text-lg font-medium hover:text-green-400 transition-colors"
+                            onClick={handleMobileLinkClick}
+                          >
+                            {link.label}
+                          </Link>
+                        );
+                      })}
 
                       <div className="">
                         <a href="/book-a-tour">
