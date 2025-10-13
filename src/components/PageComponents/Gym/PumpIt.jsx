@@ -75,7 +75,7 @@ function PumpIt() {
               backgroundRepeat: "no-repeat",
             }}
           >
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/20 to-transparent md:px-6 px-2 md:py-6 py-1 text-[#FFF]">
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/20 to-transparent md:px-6 px-3 md:py-6 py-3 text-[#FFF]">
               <h3
                 className={`uppercase text-[#fff] z-10 tracking-wide  ${
                   hoveredZone === zone.id
