@@ -205,6 +205,13 @@ function Footer() {
                   >
                     Wellness Services
                   </Link>
+                  <Link
+                    smooth
+                    to="/Equipments"
+                    className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
+                  >
+                    Equipments
+                  </Link>
                 </div>
               </div>
             </div>
