@@ -1,6 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 function TrustedEquipmentBrands() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Touch handlers for swipe functionality
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && currentSlide < equipmentImages.length - 1) {
+      setCurrentSlide(currentSlide + 1);
+    }
+    if (isRightSwipe && currentSlide > 0) {
+      setCurrentSlide(currentSlide - 1);
+    }
+  };
+
   const equipmentImages = [
     {
       id: 1,
@@ -52,17 +94,17 @@ function TrustedEquipmentBrands() {
   ];
 
   return (
-    <section className="bg-white py-20 w-full">
+    <section className="bg-white py-12 w-full">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col gap-8">
         {/* Header Section */}
 
-        <div className="w-full flex flex-col md:flex-row gap-8">
-          <div className="w-[50%]">
+        <div className="w-full flex flex-col md:flex-row md:gap-8 gap-1">
+          <div className="w-[100%] md:w-[50%]">
             <h2 className="text-4xl max-w-[500px] font-bold text-[#000] mb-5 tracking-wide leading-tight">
               TRUSTED EQUIPMENT BRANDS
             </h2>
           </div>
-          <div className="w-[50%]">
+          <div className="w-[100%] md:w-[50%]">
             <h4 className="text-lg text-[#000] leading-relaxed ">
               Achieve your fitness goals in a space built for results. From
               Olympic-grade machines by top brands like Eleiko and Atlantis to
@@ -73,36 +115,121 @@ function TrustedEquipmentBrands() {
         </div>
 
         {/* Equipment Cards with Brand Logos */}
-        <div className="flex flex-col md:flex-row flex-wrap gap-5">
-          {equipmentImages.map((image, index) => {
-            const brand = brandLogos[index];
-            return (
-              <div key={image.id} className="flex-1 min-w-0 md:w-1/2 lg:w-1/4">
-                <div className="bg-white rounded-lg transition-all duration-300 hover:-translate-y-1 group overflow-hidden">
-                  {/* Equipment Image */}
-                  <div className="relative rounded-lg aspect-square overflow-hidden">
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      className="w-full h-full rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
+        {isMobile ? (
+          // Mobile Slider
+          <div className="relative overflow-hidden">
+            <div
+              className="flex transition-transform duration-300 ease-in-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              {equipmentImages.map((image, index) => {
+                const brand = brandLogos[index];
+                return (
+                  <div key={image.id} className="w-full flex-shrink-0">
+                    <div className="bg-white rounded-lg transition-all duration-300 hover:-translate-y-1 group overflow-hidden">
+                      {/* Equipment Image */}
+                      <div className="relative rounded-lg aspect-square overflow-hidden">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="w-full h-full rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      </div>
 
-                  {/* Brand Logo Below Image */}
-                  <div className="py-4 bg-[#FFF] flex ">
-                    <img
-                      src={brand.logo}
-                      alt={brand.alt}
-                      className="h-10 w-auto object-contain"
-                      loading="lazy"
-                    />
+                      {/* Brand Logo Below Image */}
+                      <div className="py-4 bg-[#FFF] flex ">
+                        <img
+                          src={brand.logo}
+                          alt={brand.alt}
+                          className="h-10 w-auto object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Navigation Arrows */}
+            <div className="flex justify-center gap-3 items-center ">
+              <button
+                onClick={() => setCurrentSlide(Math.max(0, currentSlide - 1))}
+                disabled={currentSlide === 0}
+                className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-300 ${
+                  currentSlide === 0
+                    ? "border-gray-300 text-gray-300 cursor-not-allowed"
+                    : "border-[#000] text-[#000] hover:bg-[#000] hover:text-white"
+                }`}
+                aria-label="Previous slide"
+              >
+                <ArrowLeft size={20} />
+              </button>
+
+              {/* <div className="flex items-center gap-2">
+                <span className="text-sm text-gray-600">
+                  {currentSlide + 1} / {equipmentImages.length}
+                </span>
+              </div> */}
+
+              <button
+                onClick={() =>
+                  setCurrentSlide(
+                    Math.min(equipmentImages.length - 1, currentSlide + 1)
+                  )
+                }
+                disabled={currentSlide === equipmentImages.length - 1}
+                className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-300 ${
+                  currentSlide === equipmentImages.length - 1
+                    ? "border-gray-300 text-gray-300 cursor-not-allowed"
+                    : "border-[#000] text-[#000] hover:bg-[#000] hover:text-white"
+                }`}
+                aria-label="Next slide"
+              >
+                <ArrowRight size={20} />
+              </button>
+            </div>
+          </div>
+        ) : (
+          // Desktop Grid
+          <div className="flex flex-col md:flex-row flex-wrap gap-5">
+            {equipmentImages.map((image, index) => {
+              const brand = brandLogos[index];
+              return (
+                <div
+                  key={image.id}
+                  className="flex-1 min-w-0 md:w-1/2 lg:w-1/4"
+                >
+                  <div className="bg-white rounded-lg transition-all duration-300 hover:-translate-y-1 group overflow-hidden">
+                    {/* Equipment Image */}
+                    <div className="relative rounded-lg aspect-square overflow-hidden">
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-full rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+
+                    {/* Brand Logo Below Image */}
+                    <div className="py-4 bg-[#FFF] flex ">
+                      <img
+                        src={brand.logo}
+                        alt={brand.alt}
+                        className="h-10 w-auto object-contain"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </section>
   );
