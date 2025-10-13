@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function PumpIt() {
-  const [hoveredZone, setHoveredZone] = useState(null);
+  const [hoveredZone, setHoveredZone] = useState("machines");
 
   const gymZones = [
     {
@@ -43,7 +43,7 @@ function PumpIt() {
 
   return (
     <div className="bg-black py-20 min-h-screen">
-      <div className="text-left mb-15 px-5 max-w-[1280px] mx-auto px-4 md:px-8">
+      <div className="text-left mb-15 max-w-[1280px] mx-auto px-4 md:px-8">
         <h2 className="text-6xl md:text-4xl font-black text-white mb-5 tracking-tight leading-tight">
           PUMP IT. RUN IT. LIFT IT. LOVE IT.
         </h2>
@@ -58,8 +58,7 @@ function PumpIt() {
             key={zone.id}
             className={`
               relative rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ease-out flex items-end
-              ${zone.id === "machines" ? "flex-[10]" : "flex-1"}
-              ${hoveredZone === zone.id ? "flex-[12] z-10 scale-105" : ""}
+              ${hoveredZone === zone.id ? "flex-[12] z-10 " : "flex-1"}
               ${
                 hoveredZone && hoveredZone !== zone.id
                   ? "opacity-30 grayscale"
@@ -67,7 +66,7 @@ function PumpIt() {
               }
             `}
             onMouseEnter={() => setHoveredZone(zone.id)}
-            onMouseLeave={() => setHoveredZone(null)}
+            onMouseLeave={() => setHoveredZone("machines")}
             style={{
               backgroundImage: `url(${zone.image})`,
               backgroundSize: "cover",
