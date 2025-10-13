@@ -413,6 +413,7 @@
   }
 
   .gymHero {
+    height: 520px;
     background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/gym/gym_hero_mob.webp");
   }
   .grassIsIndeed {
