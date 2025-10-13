@@ -8,10 +8,8 @@ function TimeToEvolve() {
 
       <div className="w-full max-w-[1280px] mx-auto flex h-full items-center px-4 md:px-8">
         <div className="space-y-[20px] relative z-[9] ">
-          <h2 className="!text-[#fff] leading-[45px] uppercase drop-shadow-lg">
-            It’s Time to Evolve{" "}
-          </h2>
-          <h4 className="!text-[#fff] leading-[25px] max-w-[593px] !font-[400] md:!font-[300] drop-shadow-lg">
+          <h2 className="!text-[#fff] uppercase">It’s Time to Evolve </h2>
+          <h4 className="!text-[#fff] leading-[25px] max-w-[593px] !font-[400] md:!font-[300]">
             Feel the energy, ride the momentum, and crush your next workout.
           </h4>
           <div className="flex gap-6">
