@@ -100,12 +100,12 @@ function TrustedEquipmentBrands() {
 
         <div className="w-full flex flex-col md:flex-row md:gap-8 gap-1">
           <div className="w-[100%] md:w-[50%]">
-            <h2 className="text-4xl max-w-[500px] font-bold text-[#000] mb-5 tracking-wide leading-tight">
+            <h2 className="max-w-[500px] md:text-left text-center font-bold text-[#000] mb-3">
               TRUSTED EQUIPMENT BRANDS
             </h2>
           </div>
           <div className="w-[100%] md:w-[50%]">
-            <h4 className="text-lg text-[#000] leading-relaxed ">
+            <h4 className="text-lg text-[#000] leading-relaxed md:text-left text-center">
               Achieve your fitness goals in a space built for results. From
               Olympic-grade machines by top brands like Eleiko and Atlantis to
               fully equipped strength zones, Evolve gives you everything you

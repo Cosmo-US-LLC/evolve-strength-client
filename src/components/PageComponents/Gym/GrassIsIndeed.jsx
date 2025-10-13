@@ -8,7 +8,7 @@ function GrassIsIndeed() {
 
       <div className="w-full max-w-[1280px] mx-auto flex h-full items-end px-4 md:px-8">
         <div className="space-y-[20px] relative z-[9] ">
-          <h2 className="!text-[#fff] leading-[45px] uppercase drop-shadow-lg">
+          <h2 className="!text-[#fff] uppercase">
             Turf That Lasts <br /> Through Thick and Thin{" "}
           </h2>
           <h4 className="!text-[#fff] leading-[25px] max-w-[593px] !font-[400] md:!font-[300] drop-shadow-lg">
