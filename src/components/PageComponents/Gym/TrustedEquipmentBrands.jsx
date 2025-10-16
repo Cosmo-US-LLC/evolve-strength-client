@@ -141,7 +141,7 @@ function TrustedEquipmentBrands() {
                       </div>
 
                       {/* Brand Logo Below Image */}
-                      <div className="py-4 bg-[#FFF] flex ">
+                      <div className="py-4 bg-[#FFF] flex justify-center">
                         <img
                           src={brand.logo}
                           alt={brand.alt}
@@ -206,17 +206,17 @@ function TrustedEquipmentBrands() {
                 >
                   <div className="bg-white rounded-lg transition-all duration-300 hover:-translate-y-1 group overflow-hidden">
                     {/* Equipment Image */}
-                    <div className="relative rounded-lg aspect-square overflow-hidden">
+                    <div className="relative h-[490px] rounded-lg  overflow-hidden flex items-center justify-center">
                       <img
                         src={image.src}
                         alt={image.alt}
-                        className="w-full h-full rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="w-full aspect-square h-full  object-cover object-center transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
                       />
                     </div>
 
                     {/* Brand Logo Below Image */}
-                    <div className="py-4 bg-[#FFF] flex ">
+                    <div className="py-4 bg-[#FFF] flex justify-center">
                       <img
                         src={brand.logo}
                         alt={brand.alt}
