@@ -1,5 +1,7 @@
+import Evolvegallery from "@/components/PageComponents/Gym/Evolvegallery";
 import GrassIsIndeed from "@/components/PageComponents/Gym/GrassIsIndeed";
 import GymHero from "@/components/PageComponents/Gym/GymHero";
+import GymTrainingCategories from "@/components/PageComponents/Gym/GymTrainingCategories";
 import PumpIt from "@/components/PageComponents/Gym/PumpIt";
 import TimeToEvolve from "@/components/PageComponents/Gym/TimeToEvolve";
 import TrustedEquipmentBrands from "@/components/PageComponents/Gym/TrustedEquipmentBrands";
@@ -12,8 +14,10 @@ function Gym() {
       <GymHero />
       <PumpIt />
       <WhatsMakeEvolveDiff />
+      <GymTrainingCategories />
       <GrassIsIndeed />
       <TrustedEquipmentBrands />
+      <Evolvegallery />
       <TimeToEvolve />
     </>
   );
