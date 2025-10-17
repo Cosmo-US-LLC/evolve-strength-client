@@ -19,10 +19,10 @@ const GymTrainingCategories = () => {
     <div className="pt-[80px] pb-[40px]">
       <div className=" w-full max-w-[1280px] mx-auto md:px-8 px-4 md:flex md:items-center md:justify-center items-center justify-center ">
         <div className="md:flex-1  flex flex-col gap-3">
-          <h2 className="text-[#000] text-center uppercase ">
+          <h2 className="text-[#000] md:text-center text-left uppercase ">
             205+ World-Class Personal Trainers
           </h2>
-          <h4 className="text-[#000] max-w-[611px] mx-auto text-center font-normal ">
+          <h4 className="text-[#000] max-w-[611px] mx-auto md:text-center text-left font-normal ">
             No matter where you’re starting or what your goal is, you’ll find a
             trainer at Evolve who understands your journey and knows how to
             deliver results.
