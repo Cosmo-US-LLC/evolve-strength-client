@@ -34,10 +34,10 @@ const WhatsMakeEvolveDiff = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: "center",
-    loop: false,
-    skipSnaps: false,
-    dragFree: false,
+    align: "start",
+    loop: true,
+    slidesToScroll: 1,
+    containScroll: "trimSnaps",
   });
 
   // Preload images
@@ -195,6 +195,13 @@ const WhatsMakeEvolveDiff = () => {
                     <div
                       key={index}
                       className="flex-[0_0_75vw] min-w-0 px-3 py-4"
+                      onClick={() => {
+                        if (emblaApi) {
+                          emblaApi.scrollTo(index);
+                          setPreviousIndex(selectedIndex);
+                          setSelectedIndex(index);
+                        }
+                      }}
                     >
                       <div
                         className={`w-full min-h-[180px] px-4 py-4 rounded-[6px] flex flex-col justify-center gap-4 cursor-pointer relative group overflow-hidden transition-all duration-75 transform 
