@@ -418,6 +418,7 @@
   }
   .grassIsIndeed {
     background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/gym/truf_that_last_mob_bg.webp");
+    background-position: left;
   }
   .timeToEvolve {
     background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/gym/time-to-evolve-mob.webp");
