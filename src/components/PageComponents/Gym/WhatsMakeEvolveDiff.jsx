@@ -74,8 +74,8 @@ const WhatsMakeEvolveDiff = () => {
   return (
     <div>
       <div className="space-y-[20px] py-12 text-center relative z-[9] max-w-[1280px] mx-auto flex flex-col justify-center items-center  h-full  px-4 md:px-8">
-        <h2 className="!text-[#000] uppercase">What Makes Evolve Different</h2>
-        <h4 className="!text-[#000] leading-[25px] max-w-[593px]">
+        <h2 className="!text-[#000] uppercase md:text-center text-left">What Makes Evolve Different</h2>
+        <h4 className="!text-[#000] leading-[25px] md:text-center text-left max-w-[593px]">
           Evolve excels with its user-focused design and advanced technology,
           enhancing productivity and fostering teamwork in dynamic settings.
         </h4>
