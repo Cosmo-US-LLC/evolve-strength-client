@@ -6,22 +6,22 @@ const gymCards = [
     title: "Premium Equipment",
     description:
       "Train on top-of-the-line machines and free weights, all expertly maintained for smarter lifts and faster results.",
-    bgImage:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/gym/premium_eq.webp",
+    video: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703686095-2b7f5707-b22c-41ab-b746-a1a23c6fa234.webm",
+    videomobile:"https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632418364-2ae4dfc4-dbf7-4a7e-b6bf-514a32eadcba.mp4",
   },
   {
     title: "Room to Move",
     description:
       "Spacious, open training zones give you freedom to focus, move freely, and challenge your limits.",
-    bgImage:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/gym/room_to_move.webp",
+    video: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703608053-568cac3d-912b-4505-99bb-84a94b9b79a6.webm",
+     videomobile:"https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632354725-62c014a5-4988-4976-a834-89d492aa8c6b.mp4",
   },
   {
     title: "Atmosphere",
     description:
       "Stay motivated in a vibrant, inspiring space designed to energize and elevate every workout experience.",
-    bgImage:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/gym/atmosphere_pumpit.webp",
+    video: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703643796-bfad9aab-51e1-4ed5-af09-1f804aff883b.webm",
+     videomobile:"https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632574411-b43edd39-e64a-46cc-8401-2b10f516aa6f.mp4",
   },
 ];
 
@@ -82,12 +82,25 @@ const WhatsMakeEvolveDiff = () => {
       </div>
       <div className="relative w-full overflow-hidden max-md:hidden">
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center transition-all duration-150 ease-in-out"
-            style={{
-              backgroundImage: `url(${gymCards[activeIndex].bgImage})`,
-            }}
-          />
+          {gymCards.map((card, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-500 ${
+                activeIndex === index ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                key={card.video}
+              >
+                <source src={card.video} type="video/webm" />
+              </video>
+            </div>
+          ))}
           <div className="absolute inset-0 bg-black/20 pointer-events-none" />
         </div>
 
@@ -140,22 +153,36 @@ const WhatsMakeEvolveDiff = () => {
 
       {/* Mobile Carousel - Simplified like PersonalGymExperience */}
       <div className="md:hidden">
+        
         <div className="relative w-full overflow-hidden min-h-[512px] flex flex-col">
-          <div
-            className="absolute inset-0 z-0 bg-cover bg-center transition-opacity duration-150 ease-in-out"
-            style={{
-              backgroundImage: `url(${gymCards[previousIndex].bgImage})`,
-            }}
-          />
+         <div className="absolute inset-0 z-0 overflow-hidden">
+            <div className="absolute inset-0 transition-opacity duration-500 ease-in-out">
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                key={gymCards[previousIndex].videomobile}
+              >
+                <source src={gymCards[previousIndex].videomobile} type="video/mp4" />
+              </video>
+            </div>
 
-          <div
-            className="absolute inset-0 z-0 bg-cover bg-center transition-opacity duration-150 ease-in-out"
-            style={{
-              backgroundImage: `url(${gymCards[selectedIndex].bgImage})`,
-            }}
-          />
-
-          <div className="absolute inset-0 bg-black/20 pointer-events-none z-10" />
+            <div className="absolute inset-0 transition-opacity duration-500 ease-in-out">
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                key={gymCards[selectedIndex].videomobile}
+              >
+                <source src={gymCards[selectedIndex].videomobile} type="video/mp4" />
+              </video>
+            </div>
+            <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+        </div>
 
           <div className="flex-1" />
 
