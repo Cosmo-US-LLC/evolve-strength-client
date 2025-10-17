@@ -167,10 +167,10 @@ const Evolvegallery = () => {
         {/* Header */}
         <div className=" w-full max-w-[1280px] mx-auto md:px-8 px-4 md:flex md:items-center md:justify-center items-center justify-center mb-4">
           <div className="md:flex-1  flex flex-col gap-3">
-            <h2 className="text-[#000] text-center uppercase ">
+            <h2 className="text-[#000] md:text-center text-left uppercase ">
              Evolve gallery
             </h2>
-            <h4 className="text-[#000] max-w-[611px] mx-auto text-center font-normal ">
+            <h4 className="text-[#000] max-w-[611px] mx-auto md:text-center text-left font-normal ">
              Welcome to our gym gallery, where fitness meets innovation! Explore a vibrant space designed to inspire and motivate. 
             </h4>
           </div>

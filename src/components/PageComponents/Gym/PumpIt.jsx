@@ -93,12 +93,12 @@ function PumpIt() {
   };
 
   return (
-    <div className="bg-black py-20 min-h-screen">
+    <div className="bg-black py-20 ">
       <div className=" mb-12 max-w-[1280px] mx-auto px-6 md:px-8">
-        <h2 className="text-[#fff] md:text-left text-center mb-4">
+        <h2 className="text-[#fff] text-left  mb-4">
           PUMP IT. RUN IT. LIFT IT. LOVE IT.
         </h2>
-        <h4 className="text-[#fff]  md:text-left text-center opacity-90">
+        <h4 className="text-[#fff] text-left opacity-90">
           Dive into all the zones that make working out fun.
         </h4>
       </div>
