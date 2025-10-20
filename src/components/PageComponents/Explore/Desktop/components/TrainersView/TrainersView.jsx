@@ -25,7 +25,7 @@ function TrainersView() {
   const areasDropdownRef = useRef(null);
 
   const allLocations = getAllLocations(trainers);
-  const allAreasOfFocus = getAllAreasOfFocus(trainers);
+  const allAreasOfFocus = getAllAreasOfFocus(); // ✅ Now uses predefined list
 
   useEffect(() => {
     setSelectedTrainerIdx(null);
