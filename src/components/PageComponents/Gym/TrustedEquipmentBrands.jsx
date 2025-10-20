@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+
+
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 function TrustedEquipmentBrands() {
@@ -6,7 +10,6 @@ function TrustedEquipmentBrands() {
   const [isMobile, setIsMobile] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
-  const [isPaused, setIsPaused] = useState(false);
 
   // Check if device is mobile
   useEffect(() => {
@@ -19,48 +22,20 @@ function TrustedEquipmentBrands() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Autoplay functionality
-  useEffect(() => {
-    let interval;
-    if (!isPaused) {
-      interval = setInterval(() => {
-        setCurrentSlide((prev) => 
-          prev === equipmentImages.length - 1 ? 0 : prev + 1
-        );
-      }, 3000); // Change slide every 3 seconds
-    }
-    return () => clearInterval(interval);
-  }, [isPaused]);
+  
 
-  // Touch handlers for swipe functionality
-  const handleTouchStart = (e) => {
-    setIsPaused(true); // Pause autoplay on touch
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
+ 
 
-  const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
 
-  const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-
-    if (isLeftSwipe && currentSlide < equipmentImages.length - 1) {
-      setCurrentSlide(currentSlide + 1);
-    }
-    if (isRightSwipe && currentSlide > 0) {
-      setCurrentSlide(currentSlide - 1);
-    }
-
-    setTimeout(() => {
-      setIsPaused(false);
-    }, 5000);
-  };
+   const [emblaRef, emblaApi] = useEmblaCarousel(
+      {
+        containScroll: "trimSnaps",
+        loop: true,
+        slidesToScroll: 1,
+        align: "start",
+      },
+      [Autoplay({ delay: 3000, stopOnInteraction: true })]
+    );
 
   const equipmentImages = [
     {
@@ -133,21 +108,17 @@ function TrustedEquipmentBrands() {
           </div>
         </div>
 
+        {/* Equipment Cards with Brand Logos */}
         {isMobile ? (
-          <div className="relative overflow-hidden">
-            <div
-              className="flex transition-transform duration-300 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              {equipmentImages.map((image, index) => {
+
+            <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex py-4">
+             {equipmentImages.map((image, index) => {
                 const brand = brandLogos[index];
                 return (
                   <div key={image.id} className="w-full flex-shrink-0">
                     <div className="bg-white rounded-lg transition-all duration-300 hover:-translate-y-1 group overflow-hidden">
-                      {/* Equipment Image */}
+                    
                       <div className="relative rounded-lg aspect-square overflow-hidden">
                         <img
                           src={image.src}
@@ -170,10 +141,86 @@ function TrustedEquipmentBrands() {
                   </div>
                 );
               })}
-            </div>
-
-            
           </div>
+        </div>
+          // Mobile Slider
+          // <div className="relative overflow-hidden">
+          //   <div
+          //     className="flex transition-transform duration-300 ease-in-out"
+          //     style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          //     onTouchStart={handleTouchStart}
+          //     onTouchMove={handleTouchMove}
+          //     onTouchEnd={handleTouchEnd}
+          //   >
+          //     {equipmentImages.map((image, index) => {
+          //       const brand = brandLogos[index];
+          //       return (
+          //         <div key={image.id} className="w-full flex-shrink-0">
+          //           <div className="bg-white rounded-lg transition-all duration-300 hover:-translate-y-1 group overflow-hidden">
+          //             {/* Equipment Image */}
+          //             <div className="relative rounded-lg aspect-square overflow-hidden">
+          //               <img
+          //                 src={image.src}
+          //                 alt={image.alt}
+          //                 className="w-full h-full rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
+          //                 loading="lazy"
+          //               />
+          //             </div>
+
+          //             {/* Brand Logo Below Image */}
+          //             <div className="py-4 bg-[#FFF] flex justify-center">
+          //               <img
+          //                 src={brand.logo}
+          //                 alt={brand.alt}
+          //                 className="h-10 w-auto object-contain"
+          //                 loading="lazy"
+          //               />
+          //             </div>
+          //           </div>
+          //         </div>
+          //       );
+          //     })}
+          //   </div>
+
+          //   {/* Navigation Arrows */}
+          //   <div className="flex justify-center gap-3 items-center ">
+          //     <button
+          //       onClick={() => setCurrentSlide(Math.max(0, currentSlide - 1))}
+          //       disabled={currentSlide === 0}
+          //       className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-300 ${
+          //         currentSlide === 0
+          //           ? "border-gray-300 text-gray-300 cursor-not-allowed"
+          //           : "border-[#000] text-[#000] hover:bg-[#000] hover:text-white"
+          //       }`}
+          //       aria-label="Previous slide"
+          //     >
+          //       <ArrowLeft size={20} />
+          //     </button>
+
+          //     {/* <div className="flex items-center gap-2">
+          //       <span className="text-sm text-gray-600">
+          //         {currentSlide + 1} / {equipmentImages.length}
+          //       </span>
+          //     </div> */}
+
+          //     <button
+          //       onClick={() =>
+          //         setCurrentSlide(
+          //           Math.min(equipmentImages.length - 1, currentSlide + 1)
+          //         )
+          //       }
+          //       disabled={currentSlide === equipmentImages.length - 1}
+          //       className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-300 ${
+          //         currentSlide === equipmentImages.length - 1
+          //           ? "border-gray-300 text-gray-300 cursor-not-allowed"
+          //           : "border-[#000] text-[#000] hover:bg-[#000] hover:text-white"
+          //       }`}
+          //       aria-label="Next slide"
+          //     >
+          //       <ArrowRight size={20} />
+          //     </button>
+          //   </div>
+          // </div>
         ) : (
           // Desktop Grid
           <div className="flex flex-col md:flex-row flex-wrap gap-5">
