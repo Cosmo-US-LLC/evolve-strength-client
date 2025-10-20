@@ -6,6 +6,7 @@ function TrustedEquipmentBrands() {
   const [isMobile, setIsMobile] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Check if device is mobile
   useEffect(() => {
@@ -18,8 +19,22 @@ function TrustedEquipmentBrands() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  // Autoplay functionality
+  useEffect(() => {
+    let interval;
+    if (!isPaused) {
+      interval = setInterval(() => {
+        setCurrentSlide((prev) => 
+          prev === equipmentImages.length - 1 ? 0 : prev + 1
+        );
+      }, 3000); // Change slide every 3 seconds
+    }
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
   // Touch handlers for swipe functionality
   const handleTouchStart = (e) => {
+    setIsPaused(true); // Pause autoplay on touch
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
   };
@@ -41,6 +56,10 @@ function TrustedEquipmentBrands() {
     if (isRightSwipe && currentSlide > 0) {
       setCurrentSlide(currentSlide - 1);
     }
+
+    setTimeout(() => {
+      setIsPaused(false);
+    }, 5000);
   };
 
   const equipmentImages = [
@@ -114,9 +133,7 @@ function TrustedEquipmentBrands() {
           </div>
         </div>
 
-        {/* Equipment Cards with Brand Logos */}
         {isMobile ? (
-          // Mobile Slider
           <div className="relative overflow-hidden">
             <div
               className="flex transition-transform duration-300 ease-in-out"
