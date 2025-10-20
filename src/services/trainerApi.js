@@ -156,9 +156,45 @@ export const getAllLocations = (trainers) => {
 };
 
 /**
- * Get all unique areas of focus from trainers
+ * Predefined Areas of Focus list (standardized)
  */
-export const getAllAreasOfFocus = (trainers) => {
+export const PREDEFINED_AREAS_OF_FOCUS = [
+  "Weight Loss",
+  "Strength Training",
+  "Hypertrophy",
+  "Powerlifting",
+  "Olympic Weightlifting",
+  "Sports Performance",
+  "Athletic Conditioning",
+  "Injury Rehab",
+  "Pain Management",
+  "Mobility and Flexibility",
+  "Posture",
+  "Technique and Movement",
+  "Nutrition and Lifestyle",
+  "Women's Health",
+  "Prenatal and Postnatal",
+  "General Fitness",
+  "Beginners",
+  "Seniors and Special Populations",
+  "Functional Fitness",
+  "HIIT and CrossFit",
+  "Combat Sports",
+  "Allied Health",
+];
+
+/**
+ * Get all areas of focus (returns predefined list)
+ */
+export const getAllAreasOfFocus = () => {
+  return PREDEFINED_AREAS_OF_FOCUS;
+};
+
+/**
+ * Get all unique areas of focus from trainers (dynamic from API)
+ * Use this if you need to see what areas trainers actually have
+ */
+export const getAreasOfFocusFromTrainers = (trainers) => {
   const areasSet = new Set();
 
   trainers.forEach((trainer) => {
