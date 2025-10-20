@@ -33,9 +33,10 @@ const WhatsMakeEvolveDiff = () => {
   // Mobile state - simplified like PersonalGymExperience
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState(0);
+  const [nextVideoReady, setNextVideoReady] = useState(true);
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
-    loop: true,
+    loop: false,
     slidesToScroll: 1,
     containScroll: "trimSnaps",
   });
@@ -156,31 +157,24 @@ const WhatsMakeEvolveDiff = () => {
         
         <div className="relative w-full overflow-hidden min-h-[512px] flex flex-col">
          <div className="absolute inset-0 z-0 overflow-hidden">
-            <div className="absolute inset-0 transition-opacity duration-500 ease-in-out">
-              <video
-                className="absolute inset-0 w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                key={gymCards[previousIndex].videomobile}
+            {gymCards.map((card, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 ${index === selectedIndex ? 'block' : 'hidden'}`}
               >
-                <source src={gymCards[previousIndex].videomobile} type="video/mp4" />
-              </video>
-            </div>
-
-            <div className="absolute inset-0 transition-opacity duration-500 ease-in-out">
-              <video
-                className="absolute inset-0 w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                key={gymCards[selectedIndex].videomobile}
-              >
-                <source src={gymCards[selectedIndex].videomobile} type="video/mp4" />
-              </video>
-            </div>
+                <video
+                  className="absolute inset-0 w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  onCanPlay={() => setNextVideoReady(true)}
+                >
+                  <source src={card.videomobile} type="video/mp4" />
+                </video>
+              </div>
+            ))}
             <div className="absolute inset-0 bg-black/20 pointer-events-none" />
         </div>
 
@@ -196,7 +190,8 @@ const WhatsMakeEvolveDiff = () => {
                       key={index}
                       className="flex-[0_0_75vw] min-w-0 px-3 py-4"
                       onClick={() => {
-                        if (emblaApi) {
+                        if (emblaApi && nextVideoReady) {
+                          setNextVideoReady(false);
                           emblaApi.scrollTo(index);
                           setPreviousIndex(selectedIndex);
                           setSelectedIndex(index);
@@ -205,7 +200,7 @@ const WhatsMakeEvolveDiff = () => {
                     >
                       <div
                         className={`w-full min-h-[176px] max-h-[176px] px-[16px] py-[24px] flex flex-col justify-center gap-[12px] cursor-pointer relative group overflow-hidden transition-all duration-75 transform 
-                          ${isSelected ? "scale-105" : "scale-95"}
+                          ${isSelected ? "" : ""}
                         `}
                       >
                         <div className="absolute inset-0 z-0 bg-[#ffffff] " />
