@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -43,6 +43,9 @@ const numberWithinRange = (number, min, max) =>
   Math.min(Math.max(number, min), max);
 
 const Evolvegallery = () => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState([]);
+  
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
@@ -113,12 +116,23 @@ const Evolvegallery = () => {
     });
   }, []);
 
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
   useEffect(() => {
     if (!emblaApi) return;
 
     setTweenNodes(emblaApi);
     setTweenFactor(emblaApi);
     tweenScale(emblaApi);
+    
+    // Set up scroll snaps for pagination
+    setScrollSnaps(emblaApi.scrollSnapList());
+    onSelect();
+
+    emblaApi.on('select', onSelect);
 
     emblaApi
       .on("reInit", setTweenNodes)
@@ -168,13 +182,13 @@ const Evolvegallery = () => {
         <div className=" w-full max-w-[1280px] mx-auto md:px-8 px-4 md:flex md:items-center md:justify-center items-center justify-center mb-4">
           <div className="md:flex-1  flex flex-col gap-3">
             <h2 className="text-[#000] md:text-center text-left uppercase ">
-             Evolve gallery
+              Evolve gallery
             </h2>
             <h4 className="text-[#000] max-w-[611px] mx-auto md:text-center text-left font-normal ">
-             Welcome to our gym gallery, where fitness meets innovation! Explore a vibrant space designed to inspire and motivate. 
+              Welcome to our gym gallery, where fitness meets innovation!
+              Explore a vibrant space designed to inspire and motivate.
             </h4>
           </div>
-        
         </div>
 
         {/* Slider */}
@@ -202,18 +216,100 @@ const Evolvegallery = () => {
           </div>
 
           {/* Navigation Arrows */}
-          <div className="flex items-center justify-center gap-2 md:gap-6 mt-6 md:mt-8">
+          <div className="flex items-center justify-center gap-4 md:gap-6 mt-6 md:mt-8">
             <button
               onClick={scrollPrev}
-              className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 transition-all"
+              className="w-10 h-10 cursor-pointer md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full border-[1px] border-[#000]"
             >
-              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-gray-700" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="17"
+                viewBox="0 0 18 17"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_9277_762)">
+                  <path
+                    d="M7.96981 1.48828L1.30469 8.48828L7.96981 15.4883"
+                    stroke="black"
+                    stroke-width="0.7"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                  <path
+                    d="M16.7004 8.48828H1.65625"
+                    stroke="black"
+                    stroke-width="0.7"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_9277_762">
+                    <rect
+                      width="16.8"
+                      height="15.4"
+                      fill="white"
+                      transform="translate(0.601562 0.789062)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
             </button>
+            
+            {/* Pagination Dots */}
+            <div className="flex gap-2 md:hidden">
+              {scrollSnaps.map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === selectedIndex
+                      ? "bg-black "
+                      : "bg-black/30"
+                  }`}
+                  onClick={() => emblaApi?.scrollTo(index)}
+                />
+              ))}
+            </div>
+
             <button
               onClick={scrollNext}
-              className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full border border-gray-200 shadow-md hover:bg-gray-100 transition-all"
+              className="w-10 h-10 cursor-pointer md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full border-[1px] border-[#000]"
             >
-              <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-gray-700" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="17"
+                viewBox="0 0 18 17"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_9277_773)">
+                  <path
+                    d="M10.0391 1.48828L16.7042 8.48828L10.0391 15.4883"
+                    stroke="black"
+                    stroke-width="0.7"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                  <path
+                    d="M1.30469 8.48828H16.3489"
+                    stroke="black"
+                    stroke-width="0.7"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_9277_773">
+                    <rect
+                      width="16.8"
+                      height="15.4"
+                      fill="white"
+                      transform="translate(0.601562 0.789062)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
             </button>
           </div>
         </div>
