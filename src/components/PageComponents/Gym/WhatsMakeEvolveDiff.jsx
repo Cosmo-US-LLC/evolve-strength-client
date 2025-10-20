@@ -204,17 +204,17 @@ const WhatsMakeEvolveDiff = () => {
                       }}
                     >
                       <div
-                        className={`w-full min-h-[180px] px-4 py-4 rounded-[6px] flex flex-col justify-center gap-4 cursor-pointer relative group overflow-hidden transition-all duration-75 transform 
+                        className={`w-full min-h-[176px] max-h-[176px] px-[16px] py-[24px] flex flex-col justify-center gap-[12px] cursor-pointer relative group overflow-hidden transition-all duration-75 transform 
                           ${isSelected ? "scale-105" : "scale-95"}
                         `}
                       >
-                        <div className="absolute inset-0 z-0 bg-[#ffffff] rounded-[10px]" />
+                        <div className="absolute inset-0 z-0 bg-[#ffffff] " />
 
                         <div className="relative z-10 transition-colors duration-75 w-full">
-                          <h2 className="uppercase mb-3 text-[#1C1C1C] font-semibold">
+                          <h3 className="uppercase mb-[12px] !text-[20px] text-[#1C1C1C] !font-[600]">
                             {card.title}
-                          </h2>
-                          <p className="description leading-[24px] md:leading-[26px] text-[16px] text-[#000]">
+                          </h3>
+                          <p className="description leading-[24px] md:leading-[26px] !text-[16px] text-[#000]">
                             {card.description}
                           </p>
                         </div>
