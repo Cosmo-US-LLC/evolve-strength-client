@@ -118,7 +118,7 @@ function TrustedEquipmentBrands() {
                 return (
                   <div key={image.id} className="w-full flex-shrink-0">
                     <div className="bg-white rounded-lg transition-all duration-300 hover:-translate-y-1 group overflow-hidden">
-                      {/* Equipment Image */}
+                    
                       <div className="relative rounded-lg aspect-square overflow-hidden">
                         <img
                           src={image.src}
