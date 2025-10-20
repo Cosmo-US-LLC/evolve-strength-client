@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import FormsHeader from "../ui/FormsHeader";
 import SuccessFullScreen from "../ui/SuccessFullScreen";
+import MetaTags from "../Metatags/Meta";
 
 function Intake() {
   const [formData, setFormData] = useState({
@@ -198,6 +199,10 @@ function Intake() {
 
   return (
     <>
+      <MetaTags
+        title="Event Intake Form | Evolve Strength"
+        description="Interested in joining an upcoming event at Evolve Strength? Fill out our event intake form to share your info and stay connected with future opportunities and updates."
+      />
       {/* Form Header */}
       <FormsHeader />
 

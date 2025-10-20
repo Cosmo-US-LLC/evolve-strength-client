@@ -207,10 +207,10 @@ function Footer() {
                   </Link>
                   <Link
                     smooth
-                    to="/equipments"
+                    to="/gym"
                     className="footer_links text-[#B2B1AA] hover:text-[#ffffff]"
                   >
-                    Equipments
+                    Gym
                   </Link>
                 </div>
               </div>
