@@ -44,14 +44,20 @@ export const transformTrainer = (apiTrainer) => {
     .map((cert) => cert.name)
     .join(", ");
 
-  // Determine role: Use trainer_roles first, fallback to specialty
-  let role = "N/A";
+  // Determine roles: Use trainer_roles array, fallback to specialty
+  let roles = [];
   if (apiTrainer.trainer_roles && apiTrainer.trainer_roles.length > 0) {
-    // Use the first trainer_role name and trim any whitespace
-    role = apiTrainer.trainer_roles[0].name.trim();
+    // Get all trainer roles and trim whitespace
+    roles = apiTrainer.trainer_roles.map((r) => r.name.trim());
   } else if (apiTrainer.specialty) {
-    role = apiTrainer.specialty;
+    // Fallback to specialty if no trainer_roles
+    roles = [apiTrainer.specialty];
+  } else {
+    roles = ["N/A"];
   }
+
+  // Join all roles for display (e.g., "Personal Trainer, Wellness Expert")
+  const roleDisplay = roles.join(", ");
 
   return {
     id: `${location.toLowerCase().replace(/\s+/g, "-")}-${apiTrainer.name
@@ -60,7 +66,8 @@ export const transformTrainer = (apiTrainer) => {
     location,
     trainerName: apiTrainer.name,
     name: apiTrainer.name,
-    role: role,
+    role: roleDisplay, // ALL roles for display (comma-separated)
+    roles: roles, // All roles array for filtering
     image: apiTrainer.photo_url,
     bio: apiTrainer.bio || "",
     areas_of_focus: areasOfFocus,
@@ -99,25 +106,45 @@ export const getTrainersByLocation = (trainers, locationName) => {
 };
 
 /**
- * Get trainers by role
+ * Get trainers by role (checks ALL roles, not just primary)
  */
 export const getTrainersByRole = (trainers, role) => {
-  return trainers.filter(
-    (trainer) =>
+  return trainers.filter((trainer) => {
+    // Check if ANY of the trainer's roles includes the target role
+    if (trainer.roles && Array.isArray(trainer.roles)) {
+      return trainer.roles.some((r) =>
+        r.toLowerCase().includes(role.toLowerCase())
+      );
+    }
+    // Fallback to single role field
+    return (
       trainer.role && trainer.role.toLowerCase().includes(role.toLowerCase())
-  );
+    );
+  });
 };
 
 /**
- * Get trainers by location and role
+ * Get trainers by location and role (checks ALL roles, not just primary)
  */
 export const getTrainersByLocationAndRole = (trainers, locationName, role) => {
-  return trainers.filter(
-    (trainer) =>
-      trainer.location.toUpperCase() === locationName.toUpperCase() &&
-      trainer.role &&
-      trainer.role.toLowerCase().includes(role.toLowerCase())
-  );
+  return trainers.filter((trainer) => {
+    // Check location
+    if (trainer.location.toUpperCase() !== locationName.toUpperCase()) {
+      return false;
+    }
+
+    // Check if ANY of the trainer's roles includes the target role
+    if (trainer.roles && Array.isArray(trainer.roles)) {
+      return trainer.roles.some((r) =>
+        r.toLowerCase().includes(role.toLowerCase())
+      );
+    }
+
+    // Fallback to single role field
+    return (
+      trainer.role && trainer.role.toLowerCase().includes(role.toLowerCase())
+    );
+  });
 };
 
 /**
@@ -159,11 +186,20 @@ export const filterTrainers = (trainers, filters) => {
     );
   }
 
-  // Filter by role
+  // Filter by role (checks ALL roles, not just primary)
   if (filters.role) {
-    filtered = filtered.filter(
-      (t) => t.role && t.role.toLowerCase().includes(filters.role.toLowerCase())
-    );
+    filtered = filtered.filter((t) => {
+      // Check if ANY of the trainer's roles includes the target role
+      if (t.roles && Array.isArray(t.roles)) {
+        return t.roles.some((r) =>
+          r.toLowerCase().includes(filters.role.toLowerCase())
+        );
+      }
+      // Fallback to single role field
+      return (
+        t.role && t.role.toLowerCase().includes(filters.role.toLowerCase())
+      );
+    });
   }
 
   // Filter by areas of focus
