@@ -155,44 +155,7 @@ function TrustedEquipmentBrands() {
               })}
             </div>
 
-            {/* Navigation Arrows */}
-            <div className="flex justify-center gap-3 items-center ">
-              <button
-                onClick={() => setCurrentSlide(Math.max(0, currentSlide - 1))}
-                disabled={currentSlide === 0}
-                className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-300 ${
-                  currentSlide === 0
-                    ? "border-gray-300 text-gray-300 cursor-not-allowed"
-                    : "border-[#000] text-[#000] hover:bg-[#000] hover:text-white"
-                }`}
-                aria-label="Previous slide"
-              >
-                <ArrowLeft size={20} />
-              </button>
-
-              {/* <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-600">
-                  {currentSlide + 1} / {equipmentImages.length}
-                </span>
-              </div> */}
-
-              <button
-                onClick={() =>
-                  setCurrentSlide(
-                    Math.min(equipmentImages.length - 1, currentSlide + 1)
-                  )
-                }
-                disabled={currentSlide === equipmentImages.length - 1}
-                className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-300 ${
-                  currentSlide === equipmentImages.length - 1
-                    ? "border-gray-300 text-gray-300 cursor-not-allowed"
-                    : "border-[#000] text-[#000] hover:bg-[#000] hover:text-white"
-                }`}
-                aria-label="Next slide"
-              >
-                <ArrowRight size={20} />
-              </button>
-            </div>
+            
           </div>
         ) : (
           // Desktop Grid

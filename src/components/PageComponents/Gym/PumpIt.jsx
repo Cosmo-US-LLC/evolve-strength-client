@@ -1,10 +1,11 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 function PumpIt() {
-  // const [hoveredZone, setHoveredZone] = useState("machines");
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState([]);
 
   const gymZones = [
     {
@@ -78,6 +79,21 @@ function PumpIt() {
     }
   }, [emblaApi]);
 
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    setScrollSnaps(emblaApi.scrollSnapList());
+    onSelect();
+
+    emblaApi.on('select', onSelect);
+    return () => emblaApi.off('select', onSelect);
+  }, [emblaApi, onSelect]);
+
   const handleScroll = () => {
     const element = document.querySelector("#available-offices");
     if (element) {
@@ -94,7 +110,7 @@ function PumpIt() {
 
   return (
     <div className="bg-black py-20 ">
-      <div className=" mb-12 max-w-[1280px] mx-auto px-6 md:px-8">
+      <div className=" mb-12 max-w-[1280px] mx-auto px-4 md:px-8">
         <h2 className="text-[#fff] text-left  mb-4">
           PUMP IT. RUN IT. LIFT IT. LOVE IT.
         </h2>
@@ -103,7 +119,7 @@ function PumpIt() {
         </h4>
       </div>
 
-      <div className="relative w-full max-w-[1280px] mx-auto px-6 md:px-7">
+      <div className="relative w-full max-w-[1280px] mx-auto px-4 md:px-7">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex ">
             {gymZones.map((pro, idx) => (
@@ -136,37 +152,184 @@ function PumpIt() {
         <div className="absolute -top-1/6 -translate-y-1/2 left-[90%] z-10 max-md:hidden">
           <button
             onClick={scrollPrev}
-            className="bg-[#000] p-2 rounded-full border border-[#fff] text-[#fff] cursor-pointer hover:bg-[#fff] hover:text-[#000]"
+            className="bg-[#000] h-[45px] w-[45px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
           >
-            <ArrowLeft className="w-6 h-6" />
+             <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="17"
+                viewBox="0 0 19 17"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_9239_971)">
+                  <path
+                    d="M8.76871 0.927734L1.5625 8.49601L8.76871 16.0643"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                  <path
+                    d="M18.2108 8.49805H1.94531"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_9239_971">
+                    <rect
+                      width="18.1639"
+                      height="16.6502"
+                      fill="white"
+                      transform="translate(0.804688 0.169922)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
           </button>
         </div>
         <div className="absolute -top-1/6 -translate-y-1/2 right-[2%] z-10 max-md:hidden">
           <button
             onClick={scrollNext}
-            className="bg-[#000] p-2 rounded-full border border-[#fff] text-[#fff] cursor-pointer hover:bg-[#fff] hover:text-[#000]"
+            className="bg-[#000] h-[45px] w-[45px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
           >
-            <ArrowRight className="w-6 h-6" />
+             <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="17"
+                viewBox="0 0 19 17"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_9239_976)">
+                  <path
+                    d="M10.4141 0.927734L17.6203 8.49601L10.4141 16.0643"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                  <path
+                    d="M0.96875 8.49805H17.2343"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_9239_976">
+                    <rect
+                      width="18.1639"
+                      height="16.6502"
+                      fill="white"
+                      transform="translate(0.210938 0.169922)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
           </button>
         </div>
 
-        <div
-          className="md:hidden pt-6 max-md:flex justify-center items-center space-x-2"
-        >
-          <div className=" ">
+        <div className="md:hidden pt-6 max-md:flex justify-center items-center space-x-4">
+          <div>
             <button
               onClick={scrollPrev}
-              className="bg-[#000] p-2 rounded-full border border-[#fff] text-[#fff] cursor-pointer hover:bg-[#fff] hover:text-[#000]"
+              className="bg-[#000] h-[35px] w-[35px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
             >
-              <ArrowLeft className="w-6 h-6" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="17"
+                viewBox="0 0 19 17"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_9239_971)">
+                  <path
+                    d="M8.76871 0.927734L1.5625 8.49601L8.76871 16.0643"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                  <path
+                    d="M18.2108 8.49805H1.94531"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_9239_971">
+                    <rect
+                      width="18.1639"
+                      height="16.6502"
+                      fill="white"
+                      transform="translate(0.804688 0.169922)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
             </button>
           </div>
-          <div className=" ">
+
+          {/* Pagination Dots */}
+          <div className="flex gap-2">
+            {scrollSnaps.map((_, index) => (
+              <button
+                key={index}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === selectedIndex
+                    ? "bg-white"
+                    : "bg-white/30"
+                }`}
+                onClick={() => emblaApi?.scrollTo(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          <div>
             <button
               onClick={scrollNext}
-              className="bg-[#000] p-2 rounded-full border border-[#fff] text-[#fff] cursor-pointer hover:bg-[#fff] hover:text-[#000]"
+              className="bg-[#000] h-[35px] w-[35px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
             >
-              <ArrowRight className="w-6 h-6" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="17"
+                viewBox="0 0 19 17"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_9239_976)">
+                  <path
+                    d="M10.4141 0.927734L17.6203 8.49601L10.4141 16.0643"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                  <path
+                    d="M0.96875 8.49805H17.2343"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_9239_976">
+                    <rect
+                      width="18.1639"
+                      height="16.6502"
+                      fill="white"
+                      transform="translate(0.210938 0.169922)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
             </button>
           </div>
         </div>
