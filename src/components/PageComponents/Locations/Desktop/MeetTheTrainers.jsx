@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
-import { getTrainersByLocation } from "@/constants/trainerData";
+import { fetchAllTrainers, getTrainersByLocation } from "@/services/trainerApi";
 import TrainerDetails from "@/components/PageComponents/Explore/Desktop/components/shared/TrainerDetails";
 import downicon from "@/assets/images/Locations/icon_down.svg";
 import { Link } from "react-router-dom";
@@ -15,6 +15,39 @@ const MeetTheTrainers = ({ location = "" }) => {
   });
 
   const [selectedTrainer, setSelectedTrainer] = useState(null);
+  const [trainers, setTrainers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch trainers from API
+  useEffect(() => {
+    const loadTrainers = async () => {
+      try {
+        setLoading(true);
+        const allTrainers = await fetchAllTrainers();
+
+        // Filter by location and role (checks ALL roles)
+        const locationTrainers = getTrainersByLocation(allTrainers, location);
+        const personalTrainers = locationTrainers.filter((trainer) => {
+          const roles = trainer.roles || [trainer.role || ""];
+          // Check if ANY role includes "Personal Trainer"
+          return roles.some((role) =>
+            role.toLowerCase().includes("personal trainer")
+          );
+        });
+
+        setTrainers(personalTrainers);
+      } catch (error) {
+        console.error("Error loading trainers:", error);
+        setTrainers([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (location) {
+      loadTrainers();
+    }
+  }, [location]);
 
   // Close details when carousel navigation changes (swipe, drag, etc.)
   useEffect(() => {
@@ -34,7 +67,6 @@ const MeetTheTrainers = ({ location = "" }) => {
   const scrollPrev = () => {
     if (emblaApi) {
       emblaApi.scrollPrev();
-      // Close details when navigating carousel
       setSelectedTrainer(null);
     }
   };
@@ -42,7 +74,6 @@ const MeetTheTrainers = ({ location = "" }) => {
   const scrollNext = () => {
     if (emblaApi) {
       emblaApi.scrollNext();
-      // Close details when navigating carousel
       setSelectedTrainer(null);
     }
   };
@@ -72,35 +103,20 @@ const MeetTheTrainers = ({ location = "" }) => {
   // Get location-specific tour URL
   const getTourUrl = (locationKey) => {
     const tourUrls = {
-      "vancouver-post":
-        "/book-a-tour/?location=40327",
-      "burnaby-brentwood":
-        "/book-a-tour/?location=40248",
-      "calgary-seton":
-        "/book-a-tour/?location=40097",
-      "calgary-royal-oak":
-        "/book-a-tour/?location=40142",
-      "calgary-sunridge":
-        "/book-a-tour/?location=06973",
-      "edmonton-south":
-        "/book-a-tour/?location=06962",
-      "edmonton-downtown":
-        "/book-a-tour/?location=06967",
-      "edmonton-north":
-        "/book-a-tour/?location=06964",
+      "vancouver-post": "/book-a-tour/?location=40327",
+      "burnaby-brentwood": "/book-a-tour/?location=40248",
+      "calgary-seton": "/book-a-tour/?location=40097",
+      "calgary-royal-oak": "/book-a-tour/?location=40142",
+      "calgary-sunridge": "/book-a-tour/?location=06973",
+      "edmonton-south": "/book-a-tour/?location=06962",
+      "edmonton-downtown": "/book-a-tour/?location=06967",
+      "edmonton-north": "/book-a-tour/?location=06964",
     };
 
     return tourUrls[locationKey] || "/book-a-tour/";
   };
 
   const tourUrl = getTourUrl(locationKey);
-
-  // Get trainers for the specified location and filter for Personal Trainers only
-  const allTrainers = getTrainersByLocation(location);
-  const trainers = allTrainers.filter(
-    (trainer) =>
-      trainer.role && trainer.role.toLowerCase().includes("personal trainer")
-  );
 
   // Get location display name (remove underscores and format nicely)
   const getLocationDisplayName = (locationName) => {
@@ -135,6 +151,18 @@ const MeetTheTrainers = ({ location = "" }) => {
       };
     };
   }, []);
+
+  // Loading state
+  if (loading) {
+    return (
+      <section className="md:mb-12.5 mb-20 bg-[#FFFFFF]">
+        <div className="max-w-[1280px] mx-auto md:px-8 px-4 flex flex-col items-center justify-center py-20">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mb-4"></div>
+          <p className="text-gray-600">Loading trainers...</p>
+        </div>
+      </section>
+    );
+  }
 
   // If no trainers found, show a message
   if (trainers.length === 0) {
