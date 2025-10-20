@@ -4,7 +4,6 @@
 import {
   TRAINER_IDS,
   getTrainersByLocation,
-  getTrainersByIds,
   getAvailableLocations,
 } from "./trainerData.js";
 
@@ -31,7 +30,7 @@ import southHero from "../assets/images/Locations/location-hero/south.webp";
 import northHero from "../assets/images/Locations/location-hero/north.webp";
 import royalOakHero from "../assets/images/Locations/location-hero/royal-oak.webp";
 import downtownHero from "../assets/images/Locations/location-hero/downtown.webp";
-import sunridgeHero from "../assets/images/Locations/location-hero/sunridge.webp";
+// import sunridgeHero from "../assets/images/Locations/location-hero/sunridge.webp";
 import brentwoodHero from "../assets/images/Locations/location-hero/brentwood.webp";
 import postHero from "../assets/images/Locations/location-hero/post.webp";
 import setonHero from "../assets/images/Locations/location-hero/seton.webp";
@@ -83,8 +82,7 @@ export const EXPLORE_DATA = [
         city: "VANCOUVER",
         branch: "POST",
         locationTitle: "VANCOUVER POST",
-        statelink:
-          "/join-now/membership-type?location=Vancouver,%20The%20Post",
+        statelink: "/join-now/membership-type?location=Vancouver,%20The%20Post",
         heroImage: postHero,
         details: "Details for VANCOUVER POST",
         services: [
@@ -151,8 +149,7 @@ export const EXPLORE_DATA = [
         city: "BURNABY",
         branch: "BRENTWOOD",
         locationTitle: "BURNABY BRENTWOOD",
-        statelink:
-          "/join-now/membership-type?location=Burnaby%20Brentwood",
+        statelink: "/join-now/membership-type?location=Burnaby%20Brentwood",
         heroImage: brentwoodHero,
         details: "Details for BURNABY BRENTWOOD",
         services: [
@@ -219,8 +216,7 @@ export const EXPLORE_DATA = [
         city: "CALGARY",
         branch: "SETON",
         locationTitle: "CALGARY SETON",
-        statelink:
-          "/join-now/membership-type?location=Calgary%20Seton",
+        statelink: "/join-now/membership-type?location=Calgary%20Seton",
         heroImage: setonHero,
         details: "Details for CALGARY SETON",
         services: [
@@ -287,8 +283,7 @@ export const EXPLORE_DATA = [
         city: "CALGARY",
         branch: "ROYAL OAK",
         locationTitle: "CALGARY ROYAL OAK",
-        statelink:
-          "/join-now/membership-type?location=Calgary%20Royal%20Oak",
+        statelink: "/join-now/membership-type?location=Calgary%20Royal%20Oak",
         heroImage: royalOakHero,
         details: "Details for CALGARY ROYAL OAK",
         services: [
@@ -423,8 +418,7 @@ export const EXPLORE_DATA = [
         city: "EDMONTON",
         branch: "SOUTH",
         locationTitle: "EDMONTON SOUTH",
-        statelink:
-          "/join-now/membership-type?location=Edmonton%20South",
+        statelink: "/join-now/membership-type?location=Edmonton%20South",
         heroImage: southHero,
         details: "Details for EDMONTON SOUTH",
         services: [
@@ -491,8 +485,7 @@ export const EXPLORE_DATA = [
         city: "EDMONTON",
         branch: "DOWNTOWN",
         locationTitle: "EDMONTON DOWNTOWN",
-        statelink:
-          "/join-now/membership-type?location=Edmonton%20Downtown",
+        statelink: "/join-now/membership-type?location=Edmonton%20Downtown",
         heroImage: downtownHero,
         details: "Details for EDMONTON DOWNTOWN",
         services: [
@@ -559,8 +552,7 @@ export const EXPLORE_DATA = [
         city: "EDMONTON",
         branch: "NORTH",
         locationTitle: "EDMONTON NORTH",
-        statelink:
-          "/join-now/membership-type?location=Edmonton%20North",
+        statelink: "/join-now/membership-type?location=Edmonton%20North",
         heroImage: northHero,
         details: "Details for EDMONTON NORTH",
         services: [
@@ -715,13 +707,38 @@ export const getWellnessServiceById = (serviceId) => {
 export const getTrainersForLocation = (locationId) => {
   const location = getLocationById(locationId);
   if (!location) return [];
-  return getTrainersByIds(location.trainerIds);
+
+  // Get trainers dynamically from the location name
+  const locationName = location.locationTitle;
+  return getTrainersByLocation(locationName);
 };
 
 export const getTrainersForWellnessService = (serviceId) => {
   const service = getWellnessServiceById(serviceId);
   if (!service) return [];
-  return getTrainersByIds(service.trainerIds);
+
+  // Get trainers dynamically by filtering all trainers by role
+  const wellnessRoleMap = {
+    "wellness-esthetician": "Esthetician",
+    "wellness-chiropractic-care": "Chiropractor",
+    "wellness-physiotherapy": "Physiotherapist",
+    "wellness-massage-therapy": "Massage Therapist",
+    "wellness-acupuncture": "Acupuncturist",
+    "wellness-dietitian-services": "Dietitian",
+    "wellness-osteopathy": "Osteopath",
+    "wellness-laser-therapy": "Laser Therapist",
+    "wellness-mental-health": "Mental Health Professional",
+  };
+
+  const roleToFilter = wellnessRoleMap[serviceId];
+  if (!roleToFilter) return [];
+
+  const allTrainers = getAllTrainers();
+  return allTrainers.filter(
+    (trainer) =>
+      trainer.role &&
+      trainer.role.toLowerCase().includes(roleToFilter.toLowerCase())
+  );
 };
 
 // Get trainers for a specific service in a specific location
@@ -747,8 +764,11 @@ export const getTrainersForLocationService = (locationId, serviceId) => {
   const roleToFilter = serviceToRoleMap[serviceId];
   if (!roleToFilter) return [];
 
+  // Get trainers dynamically from the location
+  const locationName = location.locationTitle;
+  const allLocationTrainers = getTrainersByLocation(locationName);
+
   // Filter trainers by role
-  const allLocationTrainers = getTrainersByIds(location.trainerIds);
   return allLocationTrainers.filter(
     (trainer) =>
       trainer.role &&
@@ -815,12 +835,16 @@ export const getLocationTitle = (locationId) => {
 
 // Get all trainers from all locations
 export const getAllTrainers = () => {
-  const locationsData =
-    EXPLORE_DATA.find((item) => item.id === "LOCATIONS")?.data || [];
-  const allTrainerIds = locationsData.flatMap(
-    (location) => location.trainerIds
-  );
-  return getTrainersByIds(allTrainerIds);
+  // Get trainers directly from all locations instead of using static trainerIds
+  const locations = getAvailableLocations();
+  const allTrainers = [];
+
+  locations.forEach((location) => {
+    const trainers = getTrainersByLocation(location);
+    allTrainers.push(...trainers);
+  });
+
+  return allTrainers;
 };
 
 // Get today's date for new trainers filter
