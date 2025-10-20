@@ -62,36 +62,41 @@ function WellnessView() {
   const computeFilteredTrainers = () => {
     let filtered = [...trainers];
 
-    // Filter out Personal Trainers - only show wellness professionals
+    // Filter to show only wellness professionals (checks ALL roles)
     filtered = filtered.filter((trainer) => {
-      const role = (trainer.role || "").toLowerCase();
-      // Include if NOT a personal trainer
-      // AND either matches a specific wellness role OR is a generic "Wellness Expert"
-      return (
-        !role.includes("personal trainer") &&
-        (role.includes("chiropractor") ||
-          role.includes("massage") ||
-          role.includes("physiotherapist") ||
-          role.includes("acupuncturist") ||
-          role.includes("dietitian") ||
-          role.includes("osteopath") ||
-          role.includes("laser therapist") ||
-          role.includes("mental health") ||
-          role.includes("esthetician") ||
-          role.includes("wellness expert") ||
-          role === "wellness expert")
-      );
+      const roles = trainer.roles || [trainer.role || ""];
+
+      // Check if ANY role is a wellness role
+      return roles.some((role) => {
+        const roleLower = role.toLowerCase();
+        return (
+          roleLower.includes("chiropractor") ||
+          roleLower.includes("massage") ||
+          roleLower.includes("physiotherapist") ||
+          roleLower.includes("acupuncturist") ||
+          roleLower.includes("dietitian") ||
+          roleLower.includes("osteopath") ||
+          roleLower.includes("laser therapist") ||
+          roleLower.includes("mental health") ||
+          roleLower.includes("esthetician") ||
+          roleLower.includes("wellness expert") ||
+          roleLower === "wellness expert"
+        );
+      });
     });
 
     // If specific services are selected, filter by those
     if (selectedServiceIds.length > 0) {
       filtered = filtered.filter((trainer) => {
-        const role = (trainer.role || "").toLowerCase();
+        const roles = trainer.roles || [trainer.role || ""];
+
         return selectedServiceIds.some((serviceId) => {
           const service = WELLNESS_SERVICES.find((s) => s.id === serviceId);
           if (!service) return false;
           const serviceRole = service.role.toLowerCase();
-          return role.includes(serviceRole);
+
+          // Check if ANY of the trainer's roles matches this service
+          return roles.some((role) => role.toLowerCase().includes(serviceRole));
         });
       });
     }

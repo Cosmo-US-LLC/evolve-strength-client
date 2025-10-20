@@ -25,13 +25,15 @@ const MeetTheTrainers = ({ location = "" }) => {
         setLoading(true);
         const allTrainers = await fetchAllTrainers();
 
-        // Filter by location and role
+        // Filter by location and role (checks ALL roles)
         const locationTrainers = getTrainersByLocation(allTrainers, location);
-        const personalTrainers = locationTrainers.filter(
-          (trainer) =>
-            trainer.role &&
-            trainer.role.toLowerCase().includes("personal trainer")
-        );
+        const personalTrainers = locationTrainers.filter((trainer) => {
+          const roles = trainer.roles || [trainer.role || ""];
+          // Check if ANY role includes "Personal Trainer"
+          return roles.some((role) =>
+            role.toLowerCase().includes("personal trainer")
+          );
+        });
 
         setTrainers(personalTrainers);
       } catch (error) {
