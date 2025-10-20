@@ -1,27 +1,37 @@
 import React, { useState } from "react";
+import { useTrainerData } from "@/contexts/TrainerDataContext";
 import {
-  getDataByCategory,
-  getTrainersForLocation,
-  getTrainersForLocationService,
-} from "../../../../../../constants/exploreDataWithTrainer";
+  LOCATION_CONFIG,
+  getTrainersByLocation,
+  getTrainersByLocationAndRole,
+} from "@/services/trainerApi";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
-import { ArrowUpCircle, ChevronDown, CircleChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
+import { CircleChevronDown } from "lucide-react";
+
+// Service name to role mapping
+const SERVICE_ROLE_MAP = {
+  "Personal Trainer": "Personal Trainer",
+  Esthetician: "Esthetician",
+  Chiropractor: "Chiropractor",
+  "Massage Therapist": "Massage Therapist",
+  Physiotherapist: "Physiotherapist",
+  Acupuncturist: "Acupuncturist",
+  Dietitian: "Dietitian",
+  Osteopath: "Osteopath",
+  "Laser Therapist": "Laser Therapist",
+  "Mental Health Professional": "Mental Health Professional",
+};
 
 function LocationsView() {
-  const [expandedLocation, setExpandedLocation] = useState(null); // Only one location can be expanded
-  const [serviceTabs, setServiceTabs] = useState({}); // { [locKey]: selectedServiceName }
-  const [selectedTrainer, setSelectedTrainer] = useState({}); // { [locKey_service]: trainerIdx }
-  const [currentCarouselIndex, setCurrentCarouselIndex] = useState({}); // { [locKey_service]: currentIndex }
-
-  const locationsData = getDataByCategory("LOCATIONS")?.data || [];
+  const { trainers } = useTrainerData();
+  const [expandedLocation, setExpandedLocation] = useState(null);
+  const [serviceTabs, setServiceTabs] = useState({});
+  const [selectedTrainer, setSelectedTrainer] = useState({});
+  const [currentCarouselIndex, setCurrentCarouselIndex] = useState({});
 
   const handleToggle = (locKey) => {
-    // Accordion behavior: if clicking the same location, close it; if clicking different location, close previous and open new one
     setExpandedLocation(expandedLocation === locKey ? null : locKey);
-
-    // Reset trainer selection when changing locations
     setSelectedTrainer({});
     setCurrentCarouselIndex({});
   };
@@ -31,14 +41,13 @@ function LocationsView() {
     setSelectedTrainer((prev) => ({
       ...prev,
       [`${locKey}_${serviceName}`]: null,
-    })); // reset trainer selection on tab change
+    }));
     setCurrentCarouselIndex((prev) => ({
       ...prev,
       [`${locKey}_${serviceName}`]: 0,
-    })); // reset carousel index on tab change
+    }));
   };
 
-  // Helper function to transform trainer data for display
   const transformTrainerData = (trainer) => {
     return {
       ...trainer,
@@ -51,55 +60,56 @@ function LocationsView() {
     };
   };
 
-  // Helper function to get available services (services with trainers)
+  // Get available services for a location (services with trainers)
   const getAvailableServices = (location) => {
-    if (!location.services) return [];
+    const locationTrainers = getTrainersByLocation(trainers, location.name);
 
-    return location.services.filter((service) => {
-      if (service.name === "All") return true; // Always show "All" service
+    return ["All", ...location.services].filter((serviceName) => {
+      if (serviceName === "All") return true;
 
-      const serviceId = service.id;
-      const trainersForService = getTrainersForLocationService(
-        location.id,
-        serviceId
+      const role = SERVICE_ROLE_MAP[serviceName];
+      if (!role) return false;
+
+      return locationTrainers.some(
+        (trainer) =>
+          trainer.role &&
+          trainer.role.toLowerCase().includes(role.toLowerCase())
       );
-      return trainersForService.length > 0;
     });
+  };
+
+  // Get trainers for a specific location and service
+  const getTrainersForLocationService = (locationName, serviceName) => {
+    if (serviceName === "All") {
+      return getTrainersByLocation(trainers, locationName);
+    }
+
+    const role = SERVICE_ROLE_MAP[serviceName];
+    if (!role) return [];
+
+    return getTrainersByLocationAndRole(trainers, locationName, role);
   };
 
   return (
     <div className="w-full bg-white pt-4 md:pt-6 pb-8 md:pb-16">
-      {/* Location List */}
       <div className="space-y-0">
-        {locationsData.map((loc, index) => {
+        {LOCATION_CONFIG.map((loc, index) => {
           const locKey = `${loc.city} ${loc.branch}`;
           const isOpen = expandedLocation === locKey;
           const availableServices = getAvailableServices(loc);
 
-          // Ensure selected service is available, default to "All" if not
           let selectedService = serviceTabs[locKey] || "All";
-          if (
-            !availableServices.find(
-              (service) => service.name === selectedService
-            )
-          ) {
+          if (!availableServices.includes(selectedService)) {
             selectedService = "All";
-            // Update the service tabs state to reflect this change
             if (serviceTabs[locKey] !== "All") {
               setServiceTabs((prev) => ({ ...prev, [locKey]: "All" }));
             }
           }
 
-          // Get trainers for this location and service
-          const serviceId =
-            loc.services.find((s) => s.name === selectedService)?.id || "";
-
-          const filteredTrainers =
-            selectedService === "All"
-              ? getTrainersForLocation(loc.id)
-              : getTrainersForLocationService(loc.id, serviceId);
-
-          // Transform trainer data for display
+          const filteredTrainers = getTrainersForLocationService(
+            loc.name,
+            selectedService
+          );
           const transformedTrainers =
             filteredTrainers.map(transformTrainerData);
 
@@ -130,7 +140,9 @@ function LocationsView() {
                   />
                 </div>
                 <a
-                  href={loc?.statelink}
+                  href={`/join-now/membership-type?location=${encodeURIComponent(
+                    loc.name
+                  )}`}
                   className="uppercase text-[16px] md:text-[20px] font-[400] leading-[20px] font-[kanit] text-[#4AB04A] hover:text-[#000] underline transition-colors duration-300"
                   onClick={(e) => e.stopPropagation()}
                 >
@@ -138,7 +150,7 @@ function LocationsView() {
                 </a>
               </div>
 
-              {/* Accordion Content with Smooth Animation */}
+              {/* Accordion Content */}
               <div
                 className={`
                   bg-[#fff] overflow-hidden transition-all duration-500 ease-in-out
@@ -154,28 +166,23 @@ function LocationsView() {
                   {/* Mobile: Horizontal Scrollable Services */}
                   <div className="md:hidden py-6">
                     <div className="flex gap-3 overflow-x-auto scrollbar-hide py-2">
-                      {getAvailableServices(loc).map((service) => (
+                      {availableServices.map((serviceName) => (
                         <button
-                          key={service.name}
+                          key={serviceName}
                           onClick={(e) => {
                             e.stopPropagation();
-                            handleServiceSelect(locKey, service.name);
+                            handleServiceSelect(locKey, serviceName);
                           }}
                           className={`
-                            flex items-center justify-center gap-2 flex-shrink-0  px-4 h-[48px] rounded-[6px] text-[16px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform 
+                            flex items-center justify-center gap-2 flex-shrink-0 px-4 h-[48px] rounded-[6px] text-[16px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform 
                             ${
-                              selectedService === service.name
+                              selectedService === serviceName
                                 ? "bg-[#000] text-white shadow-lg"
                                 : "bg-[#fff] border border-[#CCCCCC] hover:bg-green-50 hover:border-green-300"
                             }
                           `}
                         >
-                          <img
-                            src={service.icon}
-                            alt={service.name}
-                            className="w-5 h-5 transition-transform duration-300"
-                          />
-                          {service.name}
+                          {serviceName}
                         </button>
                       ))}
                     </div>
@@ -183,29 +190,24 @@ function LocationsView() {
 
                   {/* Desktop: Flex Wrap Services */}
                   <div className="hidden md:block">
-                    <div className="flex flex-wrap   gap-3 py-10">
-                      {getAvailableServices(loc).map((service) => (
+                    <div className="flex flex-wrap gap-3 py-10">
+                      {availableServices.map((serviceName) => (
                         <button
-                          key={service.name}
+                          key={serviceName}
                           onClick={(e) => {
                             e.stopPropagation();
-                            handleServiceSelect(locKey, service.name);
+                            handleServiceSelect(locKey, serviceName);
                           }}
                           className={`
                             flex items-center justify-center gap-2 w-[294px] h-[52px] rounded-[6px] text-[18px] font-[400] leading-[20px] font-[kanit] capitalize cursor-pointer transition-all duration-300 ease-in-out transform
                             ${
-                              selectedService === service.name
+                              selectedService === serviceName
                                 ? "bg-[#000] text-white shadow-lg"
                                 : "bg-[#fff] border border-[#CCCCCC] hover:bg-green-50 hover:border-green-300"
                             }
                           `}
                         >
-                          <img
-                            src={service.icon}
-                            alt={service.name}
-                            className="w-6 h-6 transition-transform duration-300"
-                          />
-                          {service.name}
+                          {serviceName}
                         </button>
                       ))}
                     </div>
@@ -225,14 +227,12 @@ function LocationsView() {
                               ...prev,
                               [trainerKey]: newIndex,
                             }));
-                            // Close details when navigating carousel
                             setSelectedTrainer((prev) => ({
                               ...prev,
                               [trainerKey]: null,
                             }));
                           }}
                           onSwipeDetected={() => {
-                            // Close trainer details when user manually swipes
                             setSelectedTrainer((prev) => ({
                               ...prev,
                               [trainerKey]: null,
@@ -256,7 +256,6 @@ function LocationsView() {
 
                       {/* Desktop: Trainer Grid */}
                       <div className="hidden md:block">
-                        {/* Organize trainers into rows of 4 */}
                         {(() => {
                           const columns = 4;
                           const rows = [];
