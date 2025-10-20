@@ -58,17 +58,28 @@ const WhatsMakeEvolveDiff = () => {
       if (idx !== selectedIndex) {
         setPreviousIndex(selectedIndex);
         setSelectedIndex(idx);
+        // Reset video ready state after a short delay
+        setTimeout(() => {
+          setNextVideoReady(true);
+        }, 100);
       }
     };
 
+    const onSettle = () => {
+      setNextVideoReady(true);
+    };
+
     emblaApi.on("select", onSelect);
+    emblaApi.on("settle", onSettle);
 
     // Set initial index
     const initialIdx = emblaApi.selectedScrollSnap();
     setSelectedIndex(initialIdx);
+    setNextVideoReady(true);
 
     return () => {
       emblaApi.off("select", onSelect);
+      emblaApi.off("settle", onSettle);
     };
   }, [emblaApi, selectedIndex]);
 
@@ -190,11 +201,13 @@ const WhatsMakeEvolveDiff = () => {
                       key={index}
                       className="flex-[0_0_75vw] min-w-0 px-3 py-4"
                       onClick={() => {
-                        if (emblaApi && nextVideoReady) {
-                          setNextVideoReady(false);
+                        if (emblaApi) {
+                          // Force enable clicking even if video isn't ready
                           emblaApi.scrollTo(index);
                           setPreviousIndex(selectedIndex);
                           setSelectedIndex(index);
+                          // Reset video ready state immediately for better response
+                          setNextVideoReady(false);
                         }
                       }}
                     >
