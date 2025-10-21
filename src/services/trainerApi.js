@@ -5,8 +5,13 @@
 
 const API_URL = "https://esuite-api.evolvestrength.ca/v1/trainers/public";
 
+// Simple in-flight and cache maps to prevent duplicate network requests
+const inFlightRequests = new Map(); // key -> Promise
+const responseCache = new Map(); // key -> data array
+let currentController = null; // Abort previous request when a new one starts
+
 // Franchise ID to Location Name mapping
-const FRANCHISE_MAP = {
+export const FRANCHISE_MAP = {
   7: "EDMONTON DOWNTOWN",
   8: "EDMONTON SOUTH",
   9: "EDMONTON NORTH",
@@ -15,6 +20,26 @@ const FRANCHISE_MAP = {
   12: "BURNABY BRENTWOOD",
   13: "VANCOUVER POST",
   14: "CALGARY SUNRIDGE",
+};
+
+export const FRANCHISE_OPTIONS = Object.entries(FRANCHISE_MAP)
+  .map(([id, name]) => ({
+    id: Number(id),
+    name: name,
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+export const FRANCHISE_ID_BY_NAME = Object.entries(FRANCHISE_MAP).reduce(
+  (acc, [id, name]) => {
+    acc[name] = Number(id);
+    return acc;
+  },
+  {}
+);
+
+export const TRAINER_ROLE_IDS = {
+  PERSONAL_TRAINER: 16,
+  WELLNESS_EXPERT: 17,
 };
 
 /**
@@ -82,18 +107,99 @@ export const transformTrainer = (apiTrainer) => {
 /**
  * Fetch all trainers from API
  */
-export const fetchAllTrainers = async (params = "") => {
-  try {
-    const response = await fetch(`${API_URL}${params}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    return data.map(transformTrainer);
-  } catch (error) {
-    console.error("❌ Error fetching trainers:", error);
-    throw error;
+const buildQueryString = (filters = {}) => {
+  if (typeof filters === "string") {
+    return filters;
   }
+
+  const params = new URLSearchParams();
+
+  if (filters.franchise) {
+    params.append("franchise", String(filters.franchise));
+  }
+
+  if (filters.trainerRole) {
+    params.append("trainer-role", String(filters.trainerRole));
+  }
+
+  if (filters.areaOfFocus) {
+    const areas = Array.isArray(filters.areaOfFocus)
+      ? filters.areaOfFocus
+      : [filters.areaOfFocus];
+    areas
+      .filter(Boolean)
+      .forEach((area) => params.append("area-of-focus", area));
+  }
+
+  if (filters.service) {
+    const services = Array.isArray(filters.service)
+      ? filters.service
+      : [filters.service];
+    services
+      .filter(Boolean)
+      .forEach((service) => params.append("service", service));
+  }
+
+  const queryString = params.toString();
+  return queryString ? `?${queryString}` : "";
+};
+
+export const fetchAllTrainers = async (params = "") => {
+  const queryString = buildQueryString(params);
+
+  // Serve from cache if available
+  if (responseCache.has(queryString)) {
+    return responseCache.get(queryString);
+  }
+
+  // If an identical request is already in flight, return the same promise
+  if (inFlightRequests.has(queryString)) {
+    return inFlightRequests.get(queryString);
+  }
+
+  // Start a new request and store the promise to dedupe callers
+  // Abort any previous request (we only care about the latest query)
+  if (currentController) {
+    try {
+      currentController.abort();
+    } catch (_) {
+      // ignore
+    }
+  }
+
+  const controller = new AbortController();
+  currentController = controller;
+  const signal = controller.signal;
+
+  const requestPromise = (async () => {
+    try {
+      const response = await fetch(`${API_URL}${queryString}`, { signal });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      const transformed = data.map(transformTrainer);
+      // Cache successful responses by query key
+      responseCache.set(queryString, transformed);
+      return transformed;
+    } catch (error) {
+      // If aborted or failed, make sure not to cache the failure
+      if (error?.name !== "AbortError") {
+        console.error("❌ Error fetching trainers:", error);
+      }
+      throw error;
+    } finally {
+      // Clear in-flight record
+      inFlightRequests.delete(queryString);
+      // Clear controller if this is the latest
+      if (currentController === controller) {
+        currentController = null;
+      }
+    }
+  })();
+
+  inFlightRequests.set(queryString, requestPromise);
+  return requestPromise;
 };
 
 /**

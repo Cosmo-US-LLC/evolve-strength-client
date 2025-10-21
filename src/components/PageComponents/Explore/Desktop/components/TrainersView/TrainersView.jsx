@@ -1,17 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useTrainerData } from "@/contexts/TrainerDataContext";
 import {
-  getAllLocations,
   getAllAreasOfFocus,
-  filterTrainers,
+  FRANCHISE_OPTIONS,
+  FRANCHISE_ID_BY_NAME,
+  TRAINER_ROLE_IDS,
 } from "@/services/trainerApi";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
 import { Check, ChevronDown, X, ArrowUpRight } from "lucide-react";
 
 function TrainersView() {
-  const { trainers } = useTrainerData();
+  const { trainers, loading, error, fetchTrainers } = useTrainerData();
   const [selectedTab, setSelectedTab] = useState("All");
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
   const [showAreasDropdown, setShowAreasDropdown] = useState(false);
@@ -24,13 +25,30 @@ function TrainersView() {
   const locationDropdownRef = useRef(null);
   const areasDropdownRef = useRef(null);
 
-  const allLocations = getAllLocations(trainers);
+  const allLocations = useMemo(
+    () => FRANCHISE_OPTIONS.map((option) => option.name),
+    []
+  );
   const allAreasOfFocus = getAllAreasOfFocus(); // ✅ Now uses predefined list
 
   useEffect(() => {
     setSelectedTrainerIdx(null);
     setCarouselCurrentIndex(0);
   }, [selectedTab, selectedLocation, selectedAreasOfFocus]);
+
+  useEffect(() => {
+    const franchiseId = selectedLocation
+      ? FRANCHISE_ID_BY_NAME[selectedLocation]
+      : undefined;
+
+    const areas = selectedAreasOfFocus.filter(Boolean);
+
+    fetchTrainers({
+      trainerRole: TRAINER_ROLE_IDS.PERSONAL_TRAINER,
+      ...(franchiseId ? { franchise: franchiseId } : {}),
+      ...(areas.length > 0 ? { areaOfFocus: areas } : {}),
+    });
+  }, [selectedLocation, selectedAreasOfFocus, fetchTrainers]);
 
   useEffect(() => {
     return () => {
@@ -62,6 +80,11 @@ function TrainersView() {
     };
   }, []);
 
+  useEffect(() => {
+    setSelectedTrainerIdx(null);
+    setCarouselCurrentIndex(0);
+  }, [trainers]);
+
   const transformTrainerData = (trainer) => {
     return {
       ...trainer,
@@ -74,21 +97,23 @@ function TrainersView() {
     };
   };
 
-  // Filter trainers - Only show Personal Trainers (exclude wellness experts)
-  let filteredTrainers = filterTrainers(trainers, {
-    location: selectedLocation,
-    areasOfFocus: selectedAreasOfFocus,
-    role: "Personal Trainer", // Only show Personal Trainers, not wellness experts
-  });
+  const uniqueTrainers = useMemo(() => {
+    const map = new Map();
+    trainers.forEach((trainer) => {
+      if (!map.has(trainer.id)) {
+        map.set(trainer.id, trainer);
+      }
+    });
+    return Array.from(map.values());
+  }, [trainers]);
 
-  // Apply sorting if needed
+  let transformedTrainers = uniqueTrainers.map(transformTrainerData);
+
   if (selectedTab === "Alphabetical") {
-    filteredTrainers = [...filteredTrainers].sort((a, b) =>
+    transformedTrainers = [...transformedTrainers].sort((a, b) =>
       (a.trainerName || a.name).localeCompare(b.trainerName || b.name)
     );
   }
-
-  const transformedTrainers = filteredTrainers.map(transformTrainerData);
 
   // 4 columns per row
   const columns = 4;
@@ -180,7 +205,7 @@ function TrainersView() {
                     }}
                   >
                     <span className="text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                      {location}
+                      {location?.toLowerCase()}
                     </span>
                   </div>
                 ))}
@@ -308,7 +333,19 @@ function TrainersView() {
 
       {/* Trainer Display */}
       <div className="w-full mb-8 md:mb-12">
-        {transformedTrainers && transformedTrainers.length > 0 && (
+        {loading ? (
+          <div className="flex items-center justify-center py-12">
+            <div className="text-center">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mb-4"></div>
+              <p className="text-gray-600 text-base md:text-lg">Loading personal trainers...</p>
+            </div>
+          </div>
+        ) : error ? (
+          <div className="text-center text-red-600 py-6 md:py-8 px-4 md:px-0">
+            <p className="text-base md:text-lg font-semibold mb-2">Failed to load trainers.</p>
+            <p className="text-sm md:text-base">{error}</p>
+          </div>
+        ) : transformedTrainers && transformedTrainers.length > 0 ? (
           <>
             {/* Mobile: Trainer Carousel */}
             <div className="md:hidden bg-[#F6F6F6] px-4 py-6 rounded-t-[5px]">
@@ -395,10 +432,7 @@ function TrainersView() {
                 </div>
               )}
           </>
-        )}
-
-        {/* No Trainers Found */}
-        {transformedTrainers && transformedTrainers.length === 0 && (
+        ) : (
           <div className="text-center text-gray-500 py-6 md:py-8 px-4 md:px-0 transition-all duration-300 ease-in-out">
             <p className="text-base md:text-lg font-medium mb-2">
               No trainers found for the selected criteria.
