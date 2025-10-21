@@ -172,7 +172,7 @@ function WellnessView() {
                     setShowLocationDropdown(false);
                   }}
                 >
-                  <span className="text-[#000] text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
+                  <span className="text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
                     All Locations
                   </span>
                 </div>
@@ -182,7 +182,7 @@ function WellnessView() {
                     key={idx}
                     className={`px-3 md:px-4 py-2 md:py-3 cursor-pointer last:rounded-b-lg ${
                       selectedLocation === location
-                        ? "bg-[#4AB04A] text-white"
+                        ? "bg-[#4AB04A] !text-white"
                         : "hover:bg-gray-50 text-black"
                     }`}
                     onClick={() => {
@@ -191,7 +191,7 @@ function WellnessView() {
                     }}
                   >
                     <span className="text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                      {location}
+                      {location?.toLowerCase()}
                     </span>
                   </div>
                 ))}

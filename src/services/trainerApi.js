@@ -5,6 +5,11 @@
 
 const API_URL = "https://esuite-api.evolvestrength.ca/v1/trainers/public";
 
+// Simple in-flight and cache maps to prevent duplicate network requests
+const inFlightRequests = new Map(); // key -> Promise
+const responseCache = new Map(); // key -> data array
+let currentController = null; // Abort previous request when a new one starts
+
 // Franchise ID to Location Name mapping
 export const FRANCHISE_MAP = {
   7: "EDMONTON DOWNTOWN",
@@ -20,7 +25,7 @@ export const FRANCHISE_MAP = {
 export const FRANCHISE_OPTIONS = Object.entries(FRANCHISE_MAP)
   .map(([id, name]) => ({
     id: Number(id),
-    name,
+    name: name,
   }))
   .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -140,18 +145,61 @@ const buildQueryString = (filters = {}) => {
 };
 
 export const fetchAllTrainers = async (params = "") => {
-  try {
-    const queryString = buildQueryString(params);
-    const response = await fetch(`${API_URL}${queryString}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    return data.map(transformTrainer);
-  } catch (error) {
-    console.error("❌ Error fetching trainers:", error);
-    throw error;
+  const queryString = buildQueryString(params);
+
+  // Serve from cache if available
+  if (responseCache.has(queryString)) {
+    return responseCache.get(queryString);
   }
+
+  // If an identical request is already in flight, return the same promise
+  if (inFlightRequests.has(queryString)) {
+    return inFlightRequests.get(queryString);
+  }
+
+  // Start a new request and store the promise to dedupe callers
+  // Abort any previous request (we only care about the latest query)
+  if (currentController) {
+    try {
+      currentController.abort();
+    } catch (_) {
+      // ignore
+    }
+  }
+
+  const controller = new AbortController();
+  currentController = controller;
+  const signal = controller.signal;
+
+  const requestPromise = (async () => {
+    try {
+      const response = await fetch(`${API_URL}${queryString}`, { signal });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      const transformed = data.map(transformTrainer);
+      // Cache successful responses by query key
+      responseCache.set(queryString, transformed);
+      return transformed;
+    } catch (error) {
+      // If aborted or failed, make sure not to cache the failure
+      if (error?.name !== "AbortError") {
+        console.error("❌ Error fetching trainers:", error);
+      }
+      throw error;
+    } finally {
+      // Clear in-flight record
+      inFlightRequests.delete(queryString);
+      // Clear controller if this is the latest
+      if (currentController === controller) {
+        currentController = null;
+      }
+    }
+  })();
+
+  inFlightRequests.set(queryString, requestPromise);
+  return requestPromise;
 };
 
 /**

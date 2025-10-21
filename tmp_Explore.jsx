@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+﻿import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import DiscoverEvolve from "@/components/PageComponents/Explore/Desktop/DiscoverEvolve";
 import MetaTags from "@/components/Metatags/Meta";
@@ -23,11 +23,7 @@ function Explore() {
       setTrainers(data);
       setActiveFilters(filters);
     } catch (err) {
-      // Ignore abort errors silently to avoid flashing errors on rapid changes
-      if (err?.name === "AbortError") {
-        return;
-      }
-      console.error("❌ Error loading trainers:", err);
+      console.error("âŒ Error loading trainers:", err);
       setError(err.message);
       setTrainers([]);
     } finally {
@@ -105,9 +101,36 @@ function Explore() {
       />
       <div>
         {/* <ExploreHero /> */}
-        <TrainerDataContext.Provider value={contextValue}>
-          <DiscoverEvolve selected={selected} onSelect={handleCategorySelect} />
-        </TrainerDataContext.Provider>
+        {loading ? (
+          <div className="flex items-center justify-center min-h-[400px]">
+            <div className="text-center">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mb-4"></div>
+              <p className="text-gray-600 text-lg">Loading trainers...</p>
+            </div>
+          </div>
+        ) : error ? (
+          <div className="flex items-center justify-center min-h-[400px]">
+            <div className="text-center text-red-600">
+              <p className="text-lg font-semibold mb-2">
+                Failed to load trainers
+              </p>
+              <p className="text-sm">{error}</p>
+              <button
+                onClick={() => window.location.reload()}
+                className="mt-4 px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800"
+              >
+                Retry
+              </button>
+            </div>
+          </div>
+        ) : (
+          <TrainerDataContext.Provider value={contextValue}>
+            <DiscoverEvolve
+              selected={selected}
+              onSelect={handleCategorySelect}
+            />
+          </TrainerDataContext.Provider>
+        )}
       </div>
     </>
   );

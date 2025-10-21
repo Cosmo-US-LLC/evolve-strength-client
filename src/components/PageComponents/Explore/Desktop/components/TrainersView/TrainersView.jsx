@@ -205,7 +205,7 @@ function TrainersView() {
                     }}
                   >
                     <span className="text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                      {location}
+                      {location?.toLowerCase()}
                     </span>
                   </div>
                 ))}
