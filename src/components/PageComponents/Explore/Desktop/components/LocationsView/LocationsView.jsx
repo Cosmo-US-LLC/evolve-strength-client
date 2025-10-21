@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTrainerData } from "@/contexts/TrainerDataContext";
 import {
   LOCATION_CONFIG,
   getTrainersByLocation,
   getTrainersByLocationAndRole,
+  transformTrainer,
 } from "@/services/trainerApi";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
@@ -24,11 +25,37 @@ const SERVICE_ROLE_MAP = {
 };
 
 function LocationsView() {
-  const { trainers } = useTrainerData();
+  // const { trainers } = useTrainerData();
+  const [trainers, setTrainers] = useState([]);
   const [expandedLocation, setExpandedLocation] = useState(null);
   const [serviceTabs, setServiceTabs] = useState({});
   const [selectedTrainer, setSelectedTrainer] = useState({});
   const [currentCarouselIndex, setCurrentCarouselIndex] = useState({});
+
+  async function getTrainers() {
+    try {
+      const response = await fetch(
+        `https://esuite-api.evolvestrength.ca/v1/trainers/public`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      const transformed = data.map(transformTrainer);
+      // return transformed;
+      console.log(transformed);
+      setTrainers(transformed)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    getTrainers();
+  }, []);
 
   const handleToggle = (locKey) => {
     setExpandedLocation(expandedLocation === locKey ? null : locKey);
