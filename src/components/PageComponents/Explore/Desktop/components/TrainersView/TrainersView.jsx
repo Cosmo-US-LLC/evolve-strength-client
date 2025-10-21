@@ -1,21 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useTrainerData } from "@/contexts/TrainerDataContext";
 import {
-  getAllTrainers,
   getAllLocations,
   getAllAreasOfFocus,
-} from "../../../../../../constants/exploreDataWithTrainer";
+  filterTrainers,
+} from "@/services/trainerApi";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
-import {
-  ArrowUpCircle,
-  Check,
-  ChevronDown,
-  X,
-  ArrowUpRight,
-} from "lucide-react";
+import { Check, ChevronDown, X, ArrowUpRight } from "lucide-react";
 
 function TrainersView() {
+  const { trainers } = useTrainerData();
   const [selectedTab, setSelectedTab] = useState("All");
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
   const [showAreasDropdown, setShowAreasDropdown] = useState(false);
@@ -25,21 +21,17 @@ function TrainersView() {
   const [carouselCurrentIndex, setCarouselCurrentIndex] = useState(0);
   const navigationTimeoutRef = useRef(null);
 
-  // Refs for dropdown containers
   const locationDropdownRef = useRef(null);
   const areasDropdownRef = useRef(null);
 
-  const allTrainers = getAllTrainers();
-  const allLocations = getAllLocations();
-  const allAreasOfFocus = getAllAreasOfFocus();
+  const allLocations = getAllLocations(trainers);
+  const allAreasOfFocus = getAllAreasOfFocus(); // ✅ Now uses predefined list
 
   useEffect(() => {
-    console.log("Filters changed, resetting trainer selection");
     setSelectedTrainerIdx(null);
     setCarouselCurrentIndex(0);
   }, [selectedTab, selectedLocation, selectedAreasOfFocus]);
 
-  // Cleanup navigation timeout on unmount
   useEffect(() => {
     return () => {
       if (navigationTimeoutRef.current) {
@@ -48,7 +40,6 @@ function TrainersView() {
     };
   }, []);
 
-  // Handle click outside dropdowns
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -71,7 +62,6 @@ function TrainersView() {
     };
   }, []);
 
-  // Helper function to transform trainer data for display
   const transformTrainerData = (trainer) => {
     return {
       ...trainer,
@@ -84,27 +74,12 @@ function TrainersView() {
     };
   };
 
-  let filteredTrainers = allTrainers;
-
-  // Apply multiple filters simultaneously
-  if (selectedLocation) {
-    filteredTrainers = filteredTrainers.filter(
-      (trainer) => trainer.location === selectedLocation
-    );
-  }
-
-  if (selectedAreasOfFocus.length > 0) {
-    filteredTrainers = filteredTrainers.filter(
-      (trainer) =>
-        trainer.areas_of_focus &&
-        selectedAreasOfFocus.some((selectedArea) => {
-          const trainerAreas = trainer.areas_of_focus.toLowerCase();
-          const searchArea = selectedArea.toLowerCase();
-          // Check if the area is mentioned in the trainer's areas of focus
-          return trainerAreas.includes(searchArea);
-        })
-    );
-  }
+  // Filter trainers - Only show Personal Trainers (exclude wellness experts)
+  let filteredTrainers = filterTrainers(trainers, {
+    location: selectedLocation,
+    areasOfFocus: selectedAreasOfFocus,
+    role: "Personal Trainer", // Only show Personal Trainers, not wellness experts
+  });
 
   // Apply sorting if needed
   if (selectedTab === "Alphabetical") {
@@ -113,7 +88,6 @@ function TrainersView() {
     );
   }
 
-  // Transform trainer data for display
   const transformedTrainers = filteredTrainers.map(transformTrainerData);
 
   // 4 columns per row
@@ -138,11 +112,10 @@ function TrainersView() {
 
       {/* Responsive Filter Tabs */}
       <div className="mb-6">
-        {/* Filter Buttons - Single Row Layout */}
         <div className="flex flex-row gap-1 md:gap-3 py-2 overflow-y-visible">
-          {/* All Button - Compact on mobile */}
+          {/* All Button */}
           <button
-            className={` border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-3 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[14px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
+            className={`border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-3 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[14px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
               selectedTab === "All" &&
               !selectedLocation &&
               selectedAreasOfFocus.length === 0
@@ -157,28 +130,16 @@ function TrainersView() {
           >
             All
           </button>
-          {/* <button
-            className={`max-w-full border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-2 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[16px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
-              selectedTab === "Alphabetical"
-                ? "bg-[#000] text-[#FFF]"
-                : "bg-[#fff] text-[#000] hover:bg-gray-50"
-            }`}
-            onClick={() => {
-              setSelectedTab("Alphabetical");
-            }}
-          >
-            Alphabetical (A-Z)
-          </button> */}
-          <div className="relative " ref={locationDropdownRef}>
+
+          {/* Location Dropdown */}
+          <div className="relative" ref={locationDropdownRef}>
             <button
               className={`w-full border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-3 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[14px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
                 selectedLocation
                   ? "bg-[#000] text-[#FFF]"
                   : "bg-[#fff] text-[#000] hover:bg-gray-50"
               }`}
-              onClick={() => {
-                setShowLocationDropdown((v) => !v);
-              }}
+              onClick={() => setShowLocationDropdown((v) => !v)}
             >
               <div className="flex items-center gap-1 md:gap-2">
                 <span>Locations</span>
@@ -205,22 +166,21 @@ function TrainersView() {
                   <span className="text-base font-medium">All Locations</span>
                 </div>
 
-                {/* Individual Location Options */}
                 {allLocations.map((location, idx) => (
                   <div
                     key={idx}
                     className={`px-4 py-3 cursor-pointer last:rounded-b-lg ${
-                      selectedLocation === location.name
+                      selectedLocation === location
                         ? "bg-[#4AB04A] text-white"
                         : "hover:bg-gray-50 text-black"
                     }`}
                     onClick={() => {
-                      setSelectedLocation(location.name);
+                      setSelectedLocation(location);
                       setShowLocationDropdown(false);
                     }}
                   >
                     <span className="text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                      {location.name}
+                      {location}
                     </span>
                   </div>
                 ))}
@@ -228,6 +188,7 @@ function TrainersView() {
             )}
           </div>
 
+          {/* Areas of Focus Dropdown */}
           <div className="relative" ref={areasDropdownRef}>
             <button
               className={`w-full border border-[#CCCCCC] font-[Kanit] rounded-[8px] px-2 md:px-7 py-2 md:py-3 font-[300] leading-[20px] capitalize text-[14px] md:text-[18px] cursor-pointer outline-none transition-all duration-200 ${
@@ -235,9 +196,7 @@ function TrainersView() {
                   ? "bg-[#000] text-[#FFF]"
                   : "bg-[#fff] text-[#000] hover:bg-gray-50"
               }`}
-              onClick={() => {
-                setShowAreasDropdown((v) => !v);
-              }}
+              onClick={() => setShowAreasDropdown((v) => !v)}
             >
               <div className="flex items-center gap-1 md:gap-2">
                 <span>Areas of Focus</span>
@@ -273,37 +232,36 @@ function TrainersView() {
                   </span>
                 </div>
 
-                {/* Individual Areas of Focus Options */}
                 {allAreasOfFocus.map((area, idx) => (
                   <div
                     key={idx}
                     className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-gray-50 last:rounded-b-lg"
                     onClick={() => {
-                      if (selectedAreasOfFocus.includes(area.name)) {
+                      if (selectedAreasOfFocus.includes(area)) {
                         setSelectedAreasOfFocus(
-                          selectedAreasOfFocus.filter((a) => a !== area.name)
+                          selectedAreasOfFocus.filter((a) => a !== area)
                         );
                       } else {
                         setSelectedAreasOfFocus([
                           ...selectedAreasOfFocus,
-                          area.name,
+                          area,
                         ]);
                       }
                     }}
                   >
                     <div
                       className={`w-4 h-4 border-2 rounded flex items-center justify-center ${
-                        selectedAreasOfFocus.includes(area.name)
+                        selectedAreasOfFocus.includes(area)
                           ? "bg-[#4AB04A] border-[#4AB04A]"
                           : "border-[#CCCCCC]"
                       }`}
                     >
-                      {selectedAreasOfFocus.includes(area.name) && (
+                      {selectedAreasOfFocus.includes(area) && (
                         <Check className="w-3 h-3 text-white" />
                       )}
                     </div>
                     <span className="text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                      {area.name}
+                      {area}
                     </span>
                   </div>
                 ))}
@@ -313,7 +271,7 @@ function TrainersView() {
         </div>
       </div>
 
-      {/* Selected Filters Display - Responsive */}
+      {/* Selected Filters Display */}
       <div className="mb-4 md:mb-6">
         <div className="flex flex-wrap gap-2 md:gap-3">
           {selectedLocation && (
@@ -360,15 +318,6 @@ function TrainersView() {
                 selectedTrainer={selectedTrainerIdx}
                 currentIndex={carouselCurrentIndex}
                 onTrainerSelect={(index) => {
-                  console.log(
-                    "Trainer selected:",
-                    index,
-                    "Current selected:",
-                    selectedTrainerIdx,
-                    "Carousel position:",
-                    carouselCurrentIndex
-                  );
-                  // Use the actual clicked trainer index for selection
                   if (selectedTrainerIdx === index) {
                     setSelectedTrainerIdx(null);
                   } else {
@@ -376,26 +325,16 @@ function TrainersView() {
                   }
                 }}
                 onCarouselNavigate={(newIndex) => {
-                  console.log("Carousel navigated to:", newIndex);
-
-                  // Clear any existing timeout
                   if (navigationTimeoutRef.current) {
                     clearTimeout(navigationTimeoutRef.current);
                   }
 
-                  // Debounce the navigation update to prevent rapid switching
                   navigationTimeoutRef.current = setTimeout(() => {
-                    console.log(
-                      "Actually updating carousel index to:",
-                      newIndex
-                    );
                     setCarouselCurrentIndex(newIndex);
-                    // Close details when navigating with arrows
                     setSelectedTrainerIdx(null);
-                  }, 100); // 100ms debounce
+                  }, 100);
                 }}
                 onSwipeDetected={() => {
-                  // Close trainer details when user manually swipes
                   setSelectedTrainerIdx(null);
                 }}
               />

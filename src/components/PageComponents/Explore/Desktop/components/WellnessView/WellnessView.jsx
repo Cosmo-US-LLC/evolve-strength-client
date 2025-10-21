@@ -1,29 +1,25 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import {
-  getDataByCategory,
-  getAllLocations,
-  getTrainersForWellnessService,
-} from "../../../../../../constants/exploreDataWithTrainer";
+import { useTrainerData } from "@/contexts/TrainerDataContext";
+import { getAllLocations, WELLNESS_SERVICES } from "@/services/trainerApi";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
 import { ChevronDown, X, Check, ArrowUpRight } from "lucide-react";
 
 function WellnessView() {
+  const { trainers } = useTrainerData();
   const [selectedTrainerIdx, setSelectedTrainerIdx] = useState(null);
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
   const [showServiceDropdown, setShowServiceDropdown] = useState(false);
-  const [selectedLocation, setSelectedLocation] = useState(""); // Start with no location selected to show all trainers
-  const [selectedServiceIds, setSelectedServiceIds] = useState([]); // Multi-select services
-  const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0); // For mobile carousel navigation
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const [selectedServiceIds, setSelectedServiceIds] = useState([]);
+  const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
 
   const dropdownRef = useRef(null);
   const serviceDropdownRef = useRef(null);
 
-  const wellnessData = getDataByCategory("WELLNESS")?.data || [];
-  const allLocations = getAllLocations();
+  const allLocations = getAllLocations(trainers);
 
-  // Handle click outside dropdowns to close them
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -47,12 +43,10 @@ function WellnessView() {
     setSelectedTrainerIdx(null);
   }, [selectedServiceIds, selectedLocation]);
 
-  // Close details when carousel navigation changes (for button navigation)
   useEffect(() => {
     setSelectedTrainerIdx(null);
   }, [currentCarouselIndex]);
 
-  // Helper function to transform trainer data for display
   const transformTrainerData = (trainer) => {
     return {
       ...trainer,
@@ -66,19 +60,57 @@ function WellnessView() {
   };
 
   const computeFilteredTrainers = () => {
-    const activeServiceIds =
-      selectedServiceIds.length > 0
-        ? selectedServiceIds
-        : wellnessData.map((s) => s.id);
+    let filtered = [...trainers];
 
-    let list = activeServiceIds.flatMap(
-      (sid) => getTrainersForWellnessService(sid) || []
-    );
-    if (selectedLocation) {
-      list = list.filter((t) => t.location && t.location === selectedLocation);
+    // Filter to show only wellness professionals (checks ALL roles)
+    filtered = filtered.filter((trainer) => {
+      const roles = trainer.roles || [trainer.role || ""];
+
+      // Check if ANY role is a wellness role
+      return roles.some((role) => {
+        const roleLower = role.toLowerCase();
+        return (
+          roleLower.includes("chiropractor") ||
+          roleLower.includes("massage") ||
+          roleLower.includes("physiotherapist") ||
+          roleLower.includes("acupuncturist") ||
+          roleLower.includes("dietitian") ||
+          roleLower.includes("osteopath") ||
+          roleLower.includes("laser therapist") ||
+          roleLower.includes("mental health") ||
+          roleLower.includes("esthetician") ||
+          roleLower.includes("wellness expert") ||
+          roleLower === "wellness expert"
+        );
+      });
+    });
+
+    // If specific services are selected, filter by those
+    if (selectedServiceIds.length > 0) {
+      filtered = filtered.filter((trainer) => {
+        const roles = trainer.roles || [trainer.role || ""];
+
+        return selectedServiceIds.some((serviceId) => {
+          const service = WELLNESS_SERVICES.find((s) => s.id === serviceId);
+          if (!service) return false;
+          const serviceRole = service.role.toLowerCase();
+
+          // Check if ANY of the trainer's roles matches this service
+          return roles.some((role) => role.toLowerCase().includes(serviceRole));
+        });
+      });
     }
 
-    return list.map(transformTrainerData);
+    // Filter by location if selected
+    if (selectedLocation) {
+      filtered = filtered.filter(
+        (t) =>
+          t.location &&
+          t.location.toUpperCase() === selectedLocation.toUpperCase()
+      );
+    }
+
+    return filtered.map(transformTrainerData);
   };
 
   const transformedTrainers = computeFilteredTrainers();
@@ -162,17 +194,17 @@ function WellnessView() {
                   <div
                     key={idx}
                     className={`px-3 md:px-4 py-2 md:py-3 cursor-pointer last:rounded-b-lg ${
-                      selectedLocation === location.name
+                      selectedLocation === location
                         ? "bg-[#4AB04A] text-white"
                         : "hover:bg-gray-50 text-black"
                     }`}
                     onClick={() => {
-                      setSelectedLocation(location.name);
+                      setSelectedLocation(location);
                       setShowLocationDropdown(false);
                     }}
                   >
                     <span className="text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                      {location.name}
+                      {location}
                     </span>
                   </div>
                 ))}
@@ -238,7 +270,7 @@ function WellnessView() {
                   </span>
                 </div>
 
-                {wellnessData.map((service) => {
+                {WELLNESS_SERVICES.map((service) => {
                   const checked = selectedServiceIds.includes(service.id);
                   return (
                     <div
@@ -270,10 +302,9 @@ function WellnessView() {
               </div>
             )}
           </div>
-
-          {/* Selected Filters Display */}
         </div>
 
+        {/* Selected Filters Display */}
         {(selectedLocation || selectedServiceIds.length > 0) && (
           <div className="mt-2 mb-8">
             <div className="flex flex-wrap gap-2 md:gap-3">
@@ -289,7 +320,7 @@ function WellnessView() {
                 </div>
               )}
               {selectedServiceIds.map((sid) => {
-                const s = wellnessData.find((w) => w.id === sid);
+                const s = WELLNESS_SERVICES.find((w) => w.id === sid);
                 if (!s) return null;
                 return (
                   <div
@@ -327,7 +358,6 @@ function WellnessView() {
                   currentIndex={currentCarouselIndex}
                   onCarouselNavigate={setCurrentCarouselIndex}
                   onSwipeDetected={() => {
-                    // Close trainer details when user manually swipes
                     setSelectedTrainerIdx(null);
                   }}
                   onTrainerSelect={(index) => {
@@ -400,7 +430,7 @@ function WellnessView() {
           {transformedTrainers && transformedTrainers.length === 0 && (
             <div className="text-center text-gray-500 py-6 md:py-8 px-4 md:px-0 transition-all duration-300 ease-in-out">
               <p className="text-base md:text-lg font-medium mb-2">
-                No trainers available for the selected filters.
+                No wellness professionals available for the selected filters.
               </p>
               <p className="text-sm md:text-base">
                 Try selecting different filters or contact us for availability.
