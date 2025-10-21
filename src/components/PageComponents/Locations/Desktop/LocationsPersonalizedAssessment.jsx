@@ -26,14 +26,22 @@ function LocationsPersonalizedAssessment() {
   // Location-specific tour URLs
   const getTourUrl = (locationKey) => {
     const tourUrls = {
-      "vancouver-post": "/book-a-tour/?location=40327",
-      "burnaby-brentwood": "/book-a-tour/?location=40248",
-      "calgary-seton": "/book-a-tour/?location=40097",
-      "calgary-royal-oak": "/book-a-tour/?location=40142",
+      "vancouver-post": "/join-now/membership-type?location=Vancouver,%20The%20Post",
+      "burnaby-brentwood": "/join-now/membership-type?location=Burnaby%20Brentwood",
+      "calgary-seton": "/join-now/membership-type?location=Calgary%20Seton",
+      "calgary-royal-oak": "/join-now/membership-type?location=Calgary%20Royal%20Oak",
       "calgary-sunridge": "/book-a-tour/?location=06973",
-      "edmonton-south": "/book-a-tour/?location=06962",
-      "edmonton-downtown": "/book-a-tour/?location=06967",
-      "edmonton-north": "/book-a-tour/?location=06964",
+      "edmonton-south": "/join-now/membership-type?location=Edmonton%20South",
+      "edmonton-downtown": "/join-now/membership-type?location=Edmonton%20Downtown",
+      "edmonton-north": "/join-now/membership-type?location=Edmonton%20North",
+      // "vancouver-post": "/book-a-tour/?location=40327",
+      // "burnaby-brentwood": "/book-a-tour/?location=40248",
+      // "calgary-seton": "/book-a-tour/?location=40097",
+      // "calgary-royal-oak": "/book-a-tour/?location=40142",
+      // "calgary-sunridge": "/book-a-tour/?location=06973",
+      // "edmonton-south": "/book-a-tour/?location=06962",
+      // "edmonton-downtown": "/book-a-tour/?location=06967",
+      // "edmonton-north": "/book-a-tour/?location=06964",
     };
 
     return tourUrls[locationKey] || "/book-a-tour/";
