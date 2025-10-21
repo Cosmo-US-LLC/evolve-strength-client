@@ -14,7 +14,7 @@ function Explore() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Load trainer data from API on mount
+  // TODO: Add logic to send search params to fetchAllTrainers API function based on filters etc
   useEffect(() => {
     const loadTrainers = async () => {
       try {
@@ -22,7 +22,7 @@ function Explore() {
         setError(null);
         console.log("🔄 Loading trainers from API...");
 
-        const data = await fetchAllTrainers();
+        const data = await fetchAllTrainers("");
 
         console.log("✅ Trainers loaded successfully!");
         console.log("📊 Total trainers:", data.length);

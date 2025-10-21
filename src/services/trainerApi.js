@@ -82,9 +82,9 @@ export const transformTrainer = (apiTrainer) => {
 /**
  * Fetch all trainers from API
  */
-export const fetchAllTrainers = async () => {
+export const fetchAllTrainers = async (params = "") => {
   try {
-    const response = await fetch(API_URL);
+    const response = await fetch(`${API_URL}${params}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
