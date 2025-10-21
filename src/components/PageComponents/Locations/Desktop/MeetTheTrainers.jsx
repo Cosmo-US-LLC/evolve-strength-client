@@ -250,7 +250,7 @@ const MeetTheTrainers = ({ location = "" }) => {
                             : "text-[#000]"
                         }`}
                       >
-                        {trainer.role}
+                        {trainer.specialty || trainer.role}
                       </p>
                       <div
                         className={`flex gap-1 items-center text-sm mt-2 font-[500] leading-[16px] text-[16px] ${

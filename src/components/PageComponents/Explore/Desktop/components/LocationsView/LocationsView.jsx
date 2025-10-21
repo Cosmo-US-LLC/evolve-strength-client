@@ -52,7 +52,7 @@ function LocationsView() {
     return {
       ...trainer,
       name: trainer.trainerName || trainer.name,
-      title: trainer.role,
+      title: trainer.specialty || trainer.role,
       about: trainer.bio,
       areasOfFocus: trainer.areas_of_focus
         ? trainer.areas_of_focus.split(", ")
@@ -64,16 +64,35 @@ function LocationsView() {
   const getAvailableServices = (location) => {
     const locationTrainers = getTrainersByLocation(trainers, location.name);
 
-    return ["All", ...location.services].filter((serviceName) => {
+    // Check presence of exact roles from trainer_roles (via roles array)
+    const hasPersonalTrainer = locationTrainers.some((t) =>
+      (t.roles || []).some((r) => r.toLowerCase() === "personal trainer")
+    );
+    const hasWellnessExpert = locationTrainers.some((t) =>
+      (t.roles || []).some((r) => r.toLowerCase() === "wellness expert")
+    );
+
+    // Start with All; add special tabs only if present
+    const base = ["All"];
+    if (hasPersonalTrainer) base.push("Personal Trainer");
+    if (hasWellnessExpert) base.push("Wellness Expert");
+
+    // Keep other services from config, excluding special ones
+    const otherServices = location.services.filter(
+      (s) => s !== "Personal Trainer" && s !== "Wellness Expert"
+    );
+
+    return [...base, ...otherServices].filter((serviceName) => {
       if (serviceName === "All") return true;
+      if (serviceName === "Personal Trainer") return hasPersonalTrainer;
+      if (serviceName === "Wellness Expert") return hasWellnessExpert;
 
       const role = SERVICE_ROLE_MAP[serviceName];
       if (!role) return false;
 
-      return locationTrainers.some(
-        (trainer) =>
-          trainer.role &&
-          trainer.role.toLowerCase().includes(role.toLowerCase())
+      // Only show if at least one trainer at the location has this exact role
+      return locationTrainers.some((t) =>
+        (t.roles || []).some((r) => r.toLowerCase() === role.toLowerCase())
       );
     });
   };
@@ -83,11 +102,26 @@ function LocationsView() {
     if (serviceName === "All") {
       return getTrainersByLocation(trainers, locationName);
     }
+    const locTrainers = getTrainersByLocation(trainers, locationName);
+
+    if (serviceName === "Personal Trainer") {
+      return locTrainers.filter((t) =>
+        (t.roles || []).some((r) => r.toLowerCase() === "personal trainer")
+      );
+    }
+
+    if (serviceName === "Wellness Expert") {
+      return locTrainers.filter((t) =>
+        (t.roles || []).some((r) => r.toLowerCase() === "wellness expert")
+      );
+    }
 
     const role = SERVICE_ROLE_MAP[serviceName];
     if (!role) return [];
 
-    return getTrainersByLocationAndRole(trainers, locationName, role);
+    return locTrainers.filter((t) =>
+      (t.roles || []).some((r) => r.toLowerCase() === role.toLowerCase())
+    );
   };
 
   return (

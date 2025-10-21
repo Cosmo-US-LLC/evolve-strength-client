@@ -82,7 +82,7 @@ function WellnessView() {
     return {
       ...trainer,
       name: trainer.trainerName || trainer.name,
-      title: trainer.role,
+      title: trainer.specialty || trainer.role,
       about: trainer.bio,
       areasOfFocus: trainer.areas_of_focus
         ? trainer.areas_of_focus.split(", ")

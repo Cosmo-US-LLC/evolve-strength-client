@@ -93,6 +93,7 @@ export const transformTrainer = (apiTrainer) => {
     name: apiTrainer.name,
     role: roleDisplay, // ALL roles for display (comma-separated)
     roles: roles, // All roles array for filtering
+    specialty: apiTrainer.specialty || null,
     image: apiTrainer.photo_url,
     bio: apiTrainer.bio || "",
     areas_of_focus: areasOfFocus,
@@ -107,54 +108,50 @@ export const transformTrainer = (apiTrainer) => {
 /**
  * Fetch all trainers from API
  */
-const buildQueryString = (filters = {}) => {
-  if (typeof filters === "string") {
-    return filters;
+const buildRequestBody = (filters = {}) => {
+  if (!filters || typeof filters === "string") {
+    return {};
   }
 
-  const params = new URLSearchParams();
+  const body = {};
 
   if (filters.franchise) {
-    params.append("franchise", String(filters.franchise));
+    body["franchise"] = Number(filters.franchise);
   }
 
   if (filters.trainerRole) {
-    params.append("trainer-role", String(filters.trainerRole));
+    body["trainer-role"] = Number(filters.trainerRole);
   }
 
   if (filters.areaOfFocus) {
     const areas = Array.isArray(filters.areaOfFocus)
       ? filters.areaOfFocus
       : [filters.areaOfFocus];
-    areas
-      .filter(Boolean)
-      .forEach((area) => params.append("area-of-focus", area));
+    body["area-of-focus"] = areas.filter(Boolean).map(String);
   }
 
   if (filters.service) {
     const services = Array.isArray(filters.service)
       ? filters.service
       : [filters.service];
-    services
-      .filter(Boolean)
-      .forEach((service) => params.append("service", service));
+    body["service"] = services.filter(Boolean).map(String);
   }
 
-  const queryString = params.toString();
-  return queryString ? `?${queryString}` : "";
+  return body;
 };
 
 export const fetchAllTrainers = async (params = "") => {
-  const queryString = buildQueryString(params);
+  const body = buildRequestBody(params);
+  const cacheKey = JSON.stringify(body);
 
   // Serve from cache if available
-  if (responseCache.has(queryString)) {
-    return responseCache.get(queryString);
+  if (responseCache.has(cacheKey)) {
+    return responseCache.get(cacheKey);
   }
 
   // If an identical request is already in flight, return the same promise
-  if (inFlightRequests.has(queryString)) {
-    return inFlightRequests.get(queryString);
+  if (inFlightRequests.has(cacheKey)) {
+    return inFlightRequests.get(cacheKey);
   }
 
   // Start a new request and store the promise to dedupe callers
@@ -173,14 +170,19 @@ export const fetchAllTrainers = async (params = "") => {
 
   const requestPromise = (async () => {
     try {
-      const response = await fetch(`${API_URL}${queryString}`, { signal });
+      const response = await fetch(`${API_URL}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+        signal,
+      });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
       const transformed = data.map(transformTrainer);
-      // Cache successful responses by query key
-      responseCache.set(queryString, transformed);
+      // Cache successful responses by request body
+      responseCache.set(cacheKey, transformed);
       return transformed;
     } catch (error) {
       // If aborted or failed, make sure not to cache the failure
@@ -190,7 +192,7 @@ export const fetchAllTrainers = async (params = "") => {
       throw error;
     } finally {
       // Clear in-flight record
-      inFlightRequests.delete(queryString);
+      inFlightRequests.delete(cacheKey);
       // Clear controller if this is the latest
       if (currentController === controller) {
         currentController = null;
@@ -198,7 +200,7 @@ export const fetchAllTrainers = async (params = "") => {
     }
   })();
 
-  inFlightRequests.set(queryString, requestPromise);
+  inFlightRequests.set(cacheKey, requestPromise);
   return requestPromise;
 };
 

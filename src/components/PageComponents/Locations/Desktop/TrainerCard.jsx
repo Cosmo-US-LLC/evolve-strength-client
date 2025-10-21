@@ -14,7 +14,7 @@ const TrainerCard = ({ trainer, index, onTrainerClick }) => {
           {/* Left: Name + Description */}
           <div className="flex flex-col w-[full]">
             <h3 className="text-[#000] leading-tight">{trainer.name}</h3>
-            <p className="text-[#767676]">{trainer.role}</p>
+            <p className="text-[#767676]">{trainer.specialty || trainer.role}</p>
           </div>
 
           {/* Right: Down Button */}
