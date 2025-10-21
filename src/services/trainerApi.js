@@ -141,67 +141,97 @@ const buildRequestBody = (filters = {}) => {
 };
 
 export const fetchAllTrainers = async (params = "") => {
-  const body = buildRequestBody(params);
-  const cacheKey = JSON.stringify(body);
-
-  // Serve from cache if available
-  if (responseCache.has(cacheKey)) {
-    return responseCache.get(cacheKey);
-  }
-
-  // If an identical request is already in flight, return the same promise
-  if (inFlightRequests.has(cacheKey)) {
-    return inFlightRequests.get(cacheKey);
-  }
-
-  // Start a new request and store the promise to dedupe callers
-  // Abort any previous request (we only care about the latest query)
-  if (currentController) {
-    try {
-      currentController.abort();
-    } catch (_) {
-      // ignore
+  try {
+    const body = buildRequestBody(params);
+    const response = await fetch(`${API_URL}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+      // signal,
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-  }
-
-  const controller = new AbortController();
-  currentController = controller;
-  const signal = controller.signal;
-
-  const requestPromise = (async () => {
-    try {
-      const response = await fetch(`${API_URL}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-        signal,
-      });
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      const transformed = data.map(transformTrainer);
-      // Cache successful responses by request body
-      responseCache.set(cacheKey, transformed);
-      return transformed;
-    } catch (error) {
-      // If aborted or failed, make sure not to cache the failure
-      if (error?.name !== "AbortError") {
-        console.error("❌ Error fetching trainers:", error);
-      }
-      throw error;
-    } finally {
-      // Clear in-flight record
-      inFlightRequests.delete(cacheKey);
-      // Clear controller if this is the latest
-      if (currentController === controller) {
-        currentController = null;
-      }
+    const data = await response.json();
+    const transformed = data.map(transformTrainer);
+    // Cache successful responses by request body
+    // responseCache.set(cacheKey, transformed);
+    return transformed;
+  } catch (error) {
+    // If aborted or failed, make sure not to cache the failure
+    if (error?.name !== "AbortError") {
+      console.error("❌ Error fetching trainers:", error);
     }
-  })();
+    throw error;
+    // } finally {
+    // Clear in-flight record
+    // inFlightRequests.delete(cacheKey);
+    // Clear controller if this is the latest
+    // if (currentController === controller) {
+    //   currentController = null;
+    // }
+  }
+  // const body = buildRequestBody(params);
+  // const cacheKey = JSON.stringify(body);
 
-  inFlightRequests.set(cacheKey, requestPromise);
-  return requestPromise;
+  // // Serve from cache if available
+  // if (responseCache.has(cacheKey)) {
+  //   return responseCache.get(cacheKey);
+  // }
+
+  // // If an identical request is already in flight, return the same promise
+  // if (inFlightRequests.has(cacheKey)) {
+  //   return inFlightRequests.get(cacheKey);
+  // }
+
+  // // Start a new request and store the promise to dedupe callers
+  // // Abort any previous request (we only care about the latest query)
+  // if (currentController) {
+  //   try {
+  //     currentController.abort();
+  //   } catch (_) {
+  //     // ignore
+  //   }
+  // }
+
+  // const controller = new AbortController();
+  // currentController = controller;
+  // // const signal = controller.signal;
+
+  // const requestPromise = (async () => {
+  //   try {
+  //     const response = await fetch(`${API_URL}`, {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(body),
+  //       // signal,
+  //     });
+  //     if (!response.ok) {
+  //       throw new Error(`HTTP error! status: ${response.status}`);
+  //     }
+  //     const data = await response.json();
+  //     const transformed = data.map(transformTrainer);
+  //     // Cache successful responses by request body
+  //     // responseCache.set(cacheKey, transformed);
+  //     return transformed;
+  //   } catch (error) {
+  //     // If aborted or failed, make sure not to cache the failure
+  //     if (error?.name !== "AbortError") {
+  //       console.error("❌ Error fetching trainers:", error);
+  //     }
+  //     throw error;
+  //   } finally {
+  //     // Clear in-flight record
+  //     inFlightRequests.delete(cacheKey);
+  //     // Clear controller if this is the latest
+  //     if (currentController === controller) {
+  //       currentController = null;
+  //     }
+  //   }
+  // })();
+
+  // inFlightRequests.set(cacheKey, requestPromise);
+  // return requestPromise;
 };
 
 /**

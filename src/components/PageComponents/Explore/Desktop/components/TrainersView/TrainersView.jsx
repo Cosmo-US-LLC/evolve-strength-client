@@ -43,6 +43,7 @@ function TrainersView() {
 
     const areas = selectedAreasOfFocus.filter(Boolean);
 
+    console.log("switch")
     fetchTrainers({
       trainerRole: TRAINER_ROLE_IDS.PERSONAL_TRAINER,
       ...(franchiseId ? { franchise: franchiseId } : {}),
