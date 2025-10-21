@@ -6,7 +6,7 @@
 const API_URL = "https://esuite-api.evolvestrength.ca/v1/trainers/public";
 
 // Franchise ID to Location Name mapping
-const FRANCHISE_MAP = {
+export const FRANCHISE_MAP = {
   7: "EDMONTON DOWNTOWN",
   8: "EDMONTON SOUTH",
   9: "EDMONTON NORTH",
@@ -15,6 +15,26 @@ const FRANCHISE_MAP = {
   12: "BURNABY BRENTWOOD",
   13: "VANCOUVER POST",
   14: "CALGARY SUNRIDGE",
+};
+
+export const FRANCHISE_OPTIONS = Object.entries(FRANCHISE_MAP)
+  .map(([id, name]) => ({
+    id: Number(id),
+    name,
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+export const FRANCHISE_ID_BY_NAME = Object.entries(FRANCHISE_MAP).reduce(
+  (acc, [id, name]) => {
+    acc[name] = Number(id);
+    return acc;
+  },
+  {}
+);
+
+export const TRAINER_ROLE_IDS = {
+  PERSONAL_TRAINER: 16,
+  WELLNESS_EXPERT: 17,
 };
 
 /**
@@ -82,9 +102,47 @@ export const transformTrainer = (apiTrainer) => {
 /**
  * Fetch all trainers from API
  */
+const buildQueryString = (filters = {}) => {
+  if (typeof filters === "string") {
+    return filters;
+  }
+
+  const params = new URLSearchParams();
+
+  if (filters.franchise) {
+    params.append("franchise", String(filters.franchise));
+  }
+
+  if (filters.trainerRole) {
+    params.append("trainer-role", String(filters.trainerRole));
+  }
+
+  if (filters.areaOfFocus) {
+    const areas = Array.isArray(filters.areaOfFocus)
+      ? filters.areaOfFocus
+      : [filters.areaOfFocus];
+    areas
+      .filter(Boolean)
+      .forEach((area) => params.append("area-of-focus", area));
+  }
+
+  if (filters.service) {
+    const services = Array.isArray(filters.service)
+      ? filters.service
+      : [filters.service];
+    services
+      .filter(Boolean)
+      .forEach((service) => params.append("service", service));
+  }
+
+  const queryString = params.toString();
+  return queryString ? `?${queryString}` : "";
+};
+
 export const fetchAllTrainers = async (params = "") => {
   try {
-    const response = await fetch(`${API_URL}${params}`);
+    const queryString = buildQueryString(params);
+    const response = await fetch(`${API_URL}${queryString}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }

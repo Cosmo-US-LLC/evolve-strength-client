@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import ExploreHero from "@/components/PageComponents/Explore/Desktop/ExploreHero";
 import DiscoverEvolve from "@/components/PageComponents/Explore/Desktop/DiscoverEvolve";
 import MetaTags from "@/components/Metatags/Meta";
 import { fetchAllTrainers } from "@/services/trainerApi";
@@ -11,32 +10,40 @@ function Explore() {
   const [trainers, setTrainers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [activeFilters, setActiveFilters] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
 
-  // TODO: Add logic to send search params to fetchAllTrainers API function based on filters etc
-  useEffect(() => {
-    const loadTrainers = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        console.log("🔄 Loading trainers from API...");
-
-        const data = await fetchAllTrainers("");
-
-        console.log("✅ Trainers loaded successfully!");
-        console.log("📊 Total trainers:", data.length);
-        setTrainers(data);
-      } catch (err) {
-        console.error("❌ Error loading trainers:", err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadTrainers();
+  const loadTrainers = useCallback(async (filters = {}) => {
+    try {
+      setLoading(true);
+      setError(null);
+      const data = await fetchAllTrainers(filters);
+      setTrainers(data);
+      setActiveFilters(filters);
+    } catch (err) {
+      console.error("❌ Error loading trainers:", err);
+      setError(err.message);
+      setTrainers([]);
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    loadTrainers();
+  }, [loadTrainers]);
+
+  const contextValue = useMemo(
+    () => ({
+      trainers,
+      loading,
+      error,
+      filters: activeFilters,
+      fetchTrainers: loadTrainers,
+    }),
+    [trainers, loading, error, activeFilters, loadTrainers]
+  );
 
   // Handle URL parameters on component mount
   useEffect(() => {
@@ -107,7 +114,7 @@ function Explore() {
             </div>
           </div>
         ) : (
-          <TrainerDataContext.Provider value={{ trainers }}>
+          <TrainerDataContext.Provider value={contextValue}>
             <DiscoverEvolve
               selected={selected}
               onSelect={handleCategorySelect}
