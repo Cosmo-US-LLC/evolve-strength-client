@@ -335,7 +335,7 @@ function LocationsView() {
 
                             return (
                               <div key={rowIdx} className="overflow-hidden">
-                                <div className="flex gap-6 bg-[#F6F6F6] px-12 pt-12 pb-6">
+                                <div className="grid gap-6 max-lg:grid-cols-2 grid-cols-4 bg-[#F6F6F6] px-12 pt-12 pb-6">
                                   {row.map((trainer, colIdx) => {
                                     const globalIdx = startIdx + colIdx;
 
