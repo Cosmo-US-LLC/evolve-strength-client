@@ -59,7 +59,8 @@ function TrainerDetails({ trainer }) {
   // Helper function to get social media handle from URL
   const getSocialHandle = (url) => {
     try {
-      const urlObj = new URL(url);
+      console.log(url)
+      const urlObj = new URL((url?.includes("https://") || url?.includes("http://")) ? url : `https://${url}`);
       const pathname = urlObj.pathname;
       const lowerUrl = url.toLowerCase();
 
@@ -83,7 +84,8 @@ function TrainerDetails({ trainer }) {
       }
       // For website URLs, return the domain name
       return urlObj.hostname.replace("www.", "");
-    } catch {
+    } catch (error) {
+      console.log(error)
       return "Website";
     }
   };
@@ -198,7 +200,7 @@ function TrainerDetails({ trainer }) {
               return (
                 <a
                   key={index}
-                  href={link}
+                  href={new URL(link?.includes("https://") ? link : `https://${link}`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-2 md:px-3 py-3 flex font-[Vazirmatn] items-center gap-2 bg-[#F6F6F6] text-[#000] rounded-[5px] text-[14px] md:text-[16px] hover:bg-[#E6E6E6] transition-colors"
