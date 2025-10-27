@@ -328,7 +328,7 @@ function TrainerCard({
         <img
           src={trainer.image}
           alt={trainer.name}
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full aspect-trainer object-cover object-center"
         />
       </div>
 
