@@ -342,7 +342,7 @@ function LocationsView() {
                                     return (
                                       <div
                                         key={globalIdx}
-                                        className="w-1/4 transition-all duration-300 ease-in-out transform hover:scale-105"
+                                        className="transition-all duration-300 ease-in-out transform hover:scale-105"
                                       >
                                         <TrainerCard
                                           trainer={trainer}
