@@ -200,7 +200,7 @@ function TrainerDetails({ trainer }) {
               return (
                 <a
                   key={index}
-                  href={new URL(link?.includes("https://") ? link : `https://${link}`)}
+                  href={new URL((link?.includes("https://") || link?.includes("http://")) ? link : `https://${link}`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-2 md:px-3 py-3 flex font-[Vazirmatn] items-center gap-2 bg-[#F6F6F6] text-[#000] rounded-[5px] text-[14px] md:text-[16px] hover:bg-[#E6E6E6] transition-colors"
