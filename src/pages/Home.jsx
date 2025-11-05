@@ -34,7 +34,7 @@ function Home() {
         <Hero />
         {/* <GymZones />
         <WhatMakesEvolve /> */}
-        <PumpIt />
+        <PumpIt sliderDotsColor='bg-[#4AB04A]' />
         <WhatMakesEvolve />
         <MarqueeSection />
         {/* <GymTrainingCategories /> */}

@@ -3,7 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-function PumpIt() {
+function PumpIt({sliderDotsColor = "sliderDotsColor"}) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState([]);
 
@@ -282,7 +282,7 @@ function PumpIt() {
                 key={index}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   index === selectedIndex
-                    ? "bg-white"
+                    ? sliderDotsColor
                     : "bg-white/30"
                 }`}
                 onClick={() => emblaApi?.scrollTo(index)}
