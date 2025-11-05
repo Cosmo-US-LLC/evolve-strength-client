@@ -15,7 +15,7 @@ function GrassIsIndeed() {
             Built for lunges, pushes, pulls, and everything in between.
           </h4>
           <div className="flex gap-6">
-            <ul className="list-disc pl-4 font-Kanit !text-[#fff]">
+            <ul className="list-disc pl-7 font-Kanit !text-[#fff]">
               <li>
                 <h4>
                   <span>Longer, Thicker, and Durable</span>

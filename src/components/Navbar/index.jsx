@@ -46,7 +46,7 @@ function Navbar() {
   const navigationLinks = [
     { to: "/explore", label: "Explore" },
     { to: "/locations", label: "Our Locations" },
-    // { to: "/gym", label: "Gym" },
+    { to: "/gym", label: "Gym" },
     {
       label: "Training & Services",
       dropdown: [
@@ -110,7 +110,7 @@ function Navbar() {
 
                     return (
                       <React.Fragment key={link.label}>
-                        {index === 2 && (
+                        {index === 3 && (
                           <div className="w-[1.5px] font-[vazirmatn] h-4 bg-[#F8F8F8]" />
                         )}
                         <div className="relative z-[9999] dropdown-container">
