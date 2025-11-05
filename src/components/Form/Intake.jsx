@@ -320,6 +320,10 @@ function Intake() {
                 onSubmit={handleSubmit}
                 noValidate
               >
+                <p className="text-[14px] text-center md:text-[15px] font-[400] opacity-90">
+                  We require details so we can better assist you.
+                </p>
+
                 <h3>Personal Information</h3>
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="flex-1 flex flex-col">
