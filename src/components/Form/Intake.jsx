@@ -20,7 +20,6 @@ function Intake() {
     consent: false,
   });
 
-  const [selectedLocation, setSelectedLocation] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -94,10 +93,6 @@ function Intake() {
     else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(formData.email))
       newErrors.email = "Invalid email format";
     if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
-    if (!formData.eventName.trim())
-      newErrors.eventName = "Event name is required";
-    if (!selectedLocation || selectedLocation === "Select Location")
-      newErrors.location = "Location is required";
     if (!formData.consent) newErrors.consent = "You must agree to be contacted";
 
     return newErrors;
@@ -114,13 +109,7 @@ function Intake() {
     if (Object.keys(validationErrors).length > 0) {
       // Focus on first error field
       const firstErrorField = Object.keys(validationErrors)[0];
-      if (firstErrorField === "location") {
-        document
-          .querySelector('select[value="' + selectedLocation + '"]')
-          ?.focus();
-      } else {
-        document.querySelector(`[name="${firstErrorField}"]`)?.focus();
-      }
+      document.querySelector(`[name="${firstErrorField}"]`)?.focus();
       return;
     }
 
@@ -153,20 +142,11 @@ function Intake() {
 
       const hubspotFormData = {
         fields: [
-          { name: "location", value: selectedLocation || "" },
+          { name: "location", value: displayLocationName },
           { name: "firstname", value: formData.firstName },
           { name: "lastname", value: formData.lastName },
           { name: "email", value: formData.email },
           { name: "phone", value: formData.phone },
-          { name: "event_name", value: formData.eventName },
-          {
-            name: "preferred_contact_method",
-            value: formData.preferredContact,
-          },
-          {
-            name: "intake_additional_comments_or_questions",
-            value: formData.comments,
-          },
           {
             name: "intake_agree_checkbox",
             value: formData.consent ? "Yes" : "No",
@@ -199,7 +179,7 @@ function Intake() {
 
       console.log("Form submitted successfully:", {
         ...formData,
-        location: selectedLocation,
+        location: displayLocationName,
       });
 
       // Show success screen
@@ -216,7 +196,6 @@ function Intake() {
         comments: "",
         consent: false,
       });
-      setSelectedLocation("");
     } catch (error) {
       console.error("Form submission error:", error);
       alert("There was an error submitting your form. Please try again.");
