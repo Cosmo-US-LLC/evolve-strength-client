@@ -155,7 +155,7 @@ function App() {
         <Route path="/loader" element={<Loader />} />
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/trainer-form" element={<TrainerForm />} />
-        <Route path="/intake" element={<Intake />} />
+        <Route path="/intake/:locationSlug" element={<Intake />} />
       </Routes>
     </>
   );
