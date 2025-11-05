@@ -216,13 +216,12 @@ const WhatMakesEvolve = () => {
                           ${isSelected ? "" : ""}
                         `}
                       >
-                        <div className="absolute inset-0 z-0 bg-[#ffffff] " />
-
+                        <div className={`absolute inset-0 z-0  ${isSelected ? "bg-[#ffffff]" : ""} `} />
                         <div className="relative z-10 transition-colors duration-75 w-full">
-                          <h3 className="uppercase mb-[12px] !text-[20px] text-[#1C1C1C] !font-[600]">
+                          <h3 className={`uppercase mb-[12px] !text-[20px]  !font-[600] ${isSelected ? "text-[#1C1C1C]" : "text-white"}`}>
                             {card.title}
                           </h3>
-                          <p className="description leading-[24px] md:leading-[26px] !text-[16px] text-[#000]">
+                          <p className={`description leading-[24px] md:leading-[26px] !text-[16px]  ${isSelected ? "text-[#000]" : "text-white"}`}>
                             {card.description}
                           </p>
                         </div>
