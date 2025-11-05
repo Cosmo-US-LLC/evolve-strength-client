@@ -22,7 +22,7 @@ function Gym() {
       <GymTrainingCategories />
       <GrassIsIndeed />
       <TrustedEquipmentBrands />
-      <Evolvegallery />
+      <Evolvegallery imageRadious="10px"  slidesGap="0.75" />
       <TimeToEvolve />
     </>
   );

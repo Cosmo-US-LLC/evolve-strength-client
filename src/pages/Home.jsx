@@ -12,6 +12,17 @@ import MembershipBenefits from "@/components/PageComponents/Home/Desktop/Members
 import FacilityShowcase from "@/components/PageComponents/Home/Desktop/FacilityShowcase";
 import MetaTags from "@/components/Metatags/Meta";
 import SomeThinkNew from "@/components/PageComponents/Home/Desktop/SomeThinkNew";
+import WhatsMakeEvolveDiff from "@/components/PageComponents/Gym/WhatsMakeEvolveDiff";
+import PumpIt from "@/components/PageComponents/Gym/PumpIt";
+import MarqueeSection from "@/components/PageComponents/Home/Desktop/MarqueeSection";
+import GymTrainingCategories from "@/components/PageComponents/Gym/GymTrainingCategories";
+import GrassIsIndeed from "@/components/PageComponents/Gym/GrassIsIndeed";
+import TrustedEquipmentBrands from "@/components/PageComponents/Gym/TrustedEquipmentBrands";
+import Evolvegallery from "@/components/PageComponents/Gym/Evolvegallery";
+import TimeToEvolve from "@/components/PageComponents/Gym/TimeToEvolve";
+import WhatMakesEvolve from "@/components/PageComponents/Home/Desktop/WhatMakesEvolve";
+import HomeEvolvegallery from "@/components/PageComponents/Home/Desktop/HomeEvolvegallery";
+import HomeTrustedEquipmentBrands from "@/components/PageComponents/Home/Desktop/HomeTrust";
 
 function Home() {
   return (
@@ -20,9 +31,19 @@ function Home() {
         title="Evolve Strength | Canada’s Best Fitness & Wellness Hub"
         description="Train, recover, and grow at Evolve, Canada’s largest gym with locations in Edmonton, Calgary, Burnaby, and Vancouver. One membership includes premium fitness and integrated wellness."
       />
-      <div className="overflow-hidden">
+      <div className="overflow-hidden ">
         <Hero />
-        <WellnessHub />
+        {/* <GymZones />
+        <WhatMakesEvolve /> */}
+        <PumpIt sliderDotsColor='bg-[#4AB04A]' />
+        <WhatMakesEvolve />
+        <MarqueeSection />
+        {/* <GymTrainingCategories /> */}
+        <GrassIsIndeed />
+        <HomeTrustedEquipmentBrands />
+        <HomeEvolvegallery  />
+        <TimeToEvolve />
+        {/* <WellnessHub />
         <GymExperience />
         <MembershipBenefits />
         <TrainerCallout />
@@ -31,7 +52,7 @@ function Home() {
         <FacilityShowcase />
         <SomeThinkNew />
         <CareerWithEvolve />
-        <BusinessOpportunities />
+        <BusinessOpportunities /> */}
       </div>
     </>
   );

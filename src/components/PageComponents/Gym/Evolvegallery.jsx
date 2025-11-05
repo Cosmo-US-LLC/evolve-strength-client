@@ -42,7 +42,7 @@ const TWEEN_FACTOR_BASE = 0.52;
 const numberWithinRange = (number, min, max) =>
   Math.min(Math.max(number, min), max);
 
-const Evolvegallery = () => {
+const Evolvegallery = ({imageRadious , slidesGap , buttonsTop , slides}) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState([]);
   
@@ -107,7 +107,7 @@ const Evolvegallery = () => {
         }
 
         const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor.current);
-        const scale = numberWithinRange(tweenValue, 0.75, 1).toString();
+        const scale = numberWithinRange(tweenValue, slidesGap, 1).toString();
         const tweenNode = tweenNodes.current[slideIndex];
         if (tweenNode) {
           tweenNode.style.transform = `scale(${scale})`;
@@ -195,17 +195,17 @@ const Evolvegallery = () => {
         <div className="relative flex flex-col items-center">
           <div className="overflow-hidden w-full max-w-full" ref={emblaRef}>
             <div className="flex">
-              {professionals.map((pro, idx) => (
+              {(slides ? slides : professionals).map((pro, idx) => (
                 <div
                   key={idx}
                   className="flex-[0_0_73%] md:flex-[0_0_73%] min-w-0 pl-0 md:pl-4 first:pl-0"
                 >
                   <div className="embla__slide w-full">
-                    <div className="embla__slide__content bg-white rounded-[10px] shadow-md md:h-[450px] h-[180px] flex items-center justify-center overflow-hidden mx-1 md:mx-2">
+                    <div className={`embla__slide__content bg-white shadow-md md:h-[600px] h-[180px] flex items-center justify-center overflow-hidden mx-1 md:mx-2`} style={{borderRadius : imageRadious}}>
                       <img
                         src={pro.image}
                         alt={pro.title}
-                        className="w-full h-full object-cover rounded-[10px]"
+                        className={`w-full h-full object-cover`}
                         loading="lazy"
                       />
                     </div>
@@ -216,7 +216,7 @@ const Evolvegallery = () => {
           </div>
 
           {/* Navigation Arrows */}
-          <div className="flex items-center justify-center gap-4 md:gap-6 mt-6 md:mt-8">
+          <div className={`flex items-center justify-center gap-4 md:gap-6 mt-6 md:mt-8 ${buttonsTop}`}>
             <button
               onClick={scrollPrev}
               className="w-10 h-10 cursor-pointer md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full border-[1px] border-[#000]"
