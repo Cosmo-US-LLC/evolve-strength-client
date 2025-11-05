@@ -22,6 +22,7 @@ import Evolvegallery from "@/components/PageComponents/Gym/Evolvegallery";
 import TimeToEvolve from "@/components/PageComponents/Gym/TimeToEvolve";
 import WhatMakesEvolve from "@/components/PageComponents/Home/Desktop/WhatMakesEvolve";
 import HomeEvolvegallery from "@/components/PageComponents/Home/Desktop/HomeEvolvegallery";
+import HomeTrustedEquipmentBrands from "@/components/PageComponents/Home/Desktop/HomeTrust";
 
 function Home() {
   return (
@@ -39,7 +40,7 @@ function Home() {
         <MarqueeSection />
         {/* <GymTrainingCategories /> */}
         <GrassIsIndeed />
-        <TrustedEquipmentBrands />
+        <HomeTrustedEquipmentBrands />
         <HomeEvolvegallery  />
         <TimeToEvolve />
         {/* <WellnessHub />
