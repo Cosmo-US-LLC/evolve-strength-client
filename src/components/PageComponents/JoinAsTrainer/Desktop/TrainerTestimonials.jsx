@@ -60,7 +60,7 @@ function TrainerTestimonials() {
     return (
         <div className="bg-black w-full">
             <div className="max-w-[1280px] md:px-8 px-4 mx-auto w-full py-[64px] md:py-[100px]">
-                <h2 className="text-white uppercase md:text-center !text-[28px] md:!text-[40px] leading-[32px] md:leading-[39px] mb-6">
+                <h2 className="text-white uppercase md:text-center !text-[28px] md:!text-[40px] leading-[32px] md:leading-[39px] mb-12">
                     What Trainers Are Saying
                 </h2>
 
