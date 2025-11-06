@@ -10,9 +10,8 @@ function CategorySelector({ selected, onSelect }) {
   const desktopCategoryCardsRef = useRef(null);
   const isScrollingRef = useRef(false);
 
-  // Helper function to scroll to category cards
   const scrollToCategoryCards = useCallback(() => {
-    // Prevent multiple scroll triggers
+ 
     if (isScrollingRef.current) {
       return;
     }
@@ -22,7 +21,7 @@ function CategorySelector({ selected, onSelect }) {
     const isMobile = window.innerWidth <= 768;
 
     if (isMobile) {
-      // On mobile, scroll to the specific selected card
+       
       const selectedCardElement = document.querySelector(
         `[data-card-id="${selected}"]`
       );
