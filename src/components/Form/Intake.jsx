@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import FormsHeader from "../ui/FormsHeader";
 import SuccessFullScreen from "../ui/SuccessFullScreen";
 import MetaTags from "../Metatags/Meta";
+import NotFoundPage from "@/pages/PageNotFound";
 
 function Intake() {
+  const { locationSlug } = useParams();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -17,7 +20,6 @@ function Intake() {
     consent: false,
   });
 
-  const [selectedLocation, setSelectedLocation] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,6 +34,31 @@ function Intake() {
     "Burnaby Brentwood",
     "Vancouver Post",
   ];
+
+  const validLocations = [
+    "calgary-seton",
+    "edmonton-south",
+    "edmonton-north",
+    "edmonton-downtown",
+    "calgary-royal-oak",
+    "burnaby-brentwood",
+    "vancouver-post",
+  ];
+
+  // Convert slug to display format (e.g., "calgary-seton" -> "Calgary Seton")
+  const formatLocationName = (slug) => {
+    if (!slug) return "";
+    return slug
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
+
+  if (!validLocations.includes(locationSlug)) {
+    return <NotFoundPage />;
+  }
+
+  const displayLocationName = formatLocationName(locationSlug);
 
   const contactMethods = [
     "Select preference",
@@ -66,10 +93,6 @@ function Intake() {
     else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(formData.email))
       newErrors.email = "Invalid email format";
     if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
-    if (!formData.eventName.trim())
-      newErrors.eventName = "Event name is required";
-    if (!selectedLocation || selectedLocation === "Select Location")
-      newErrors.location = "Location is required";
     if (!formData.consent) newErrors.consent = "You must agree to be contacted";
 
     return newErrors;
@@ -86,13 +109,7 @@ function Intake() {
     if (Object.keys(validationErrors).length > 0) {
       // Focus on first error field
       const firstErrorField = Object.keys(validationErrors)[0];
-      if (firstErrorField === "location") {
-        document
-          .querySelector('select[value="' + selectedLocation + '"]')
-          ?.focus();
-      } else {
-        document.querySelector(`[name="${firstErrorField}"]`)?.focus();
-      }
+      document.querySelector(`[name="${firstErrorField}"]`)?.focus();
       return;
     }
 
@@ -125,20 +142,11 @@ function Intake() {
 
       const hubspotFormData = {
         fields: [
-          { name: "location", value: selectedLocation || "" },
+          { name: "location", value: displayLocationName },
           { name: "firstname", value: formData.firstName },
           { name: "lastname", value: formData.lastName },
           { name: "email", value: formData.email },
           { name: "phone", value: formData.phone },
-          { name: "event_name", value: formData.eventName },
-          {
-            name: "preferred_contact_method",
-            value: formData.preferredContact,
-          },
-          {
-            name: "intake_additional_comments_or_questions",
-            value: formData.comments,
-          },
           {
             name: "intake_agree_checkbox",
             value: formData.consent ? "Yes" : "No",
@@ -171,7 +179,7 @@ function Intake() {
 
       console.log("Form submitted successfully:", {
         ...formData,
-        location: selectedLocation,
+        location: displayLocationName,
       });
 
       // Show success screen
@@ -188,7 +196,6 @@ function Intake() {
         comments: "",
         consent: false,
       });
-      setSelectedLocation("");
     } catch (error) {
       console.error("Form submission error:", error);
       alert("There was an error submitting your form. Please try again.");
@@ -232,7 +239,7 @@ function Intake() {
 
           {/* Right side - Form */}
           <div className="w-full lg:w-1/2 px-0 md:px-10 bg-white rounded-lg lg:rounded-r-lg">
-            <Link
+            {/* <Link
               to="/"
               className="flex items-center gap-2 text-gray-600 hover:text-gray-800 text-base mb-5 transition-colors duration-200 cursor-pointer"
             >
@@ -240,19 +247,22 @@ function Intake() {
                 <ArrowLeft size={16} />
               </div>
               Back
-            </Link>
+            </Link> */}
 
             <div className="bg-gray-800 text-white p-4 md:p-5 rounded-t-lg">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
+              <div className="flex flex-col md:flex-row md:justify-center md:items-center gap-2">
                 <div>
-                  <h1 className="!text-[16px] md:text-[18px] font-[400] uppercase">
-                    QUICK INFO FORM
+                  <h1 className="!text-[16px] text-center md:!text-[24px] font-[400] uppercase">
+                    Quick Info Form{" "}
+                    <span className="text-[#4AB04A]">
+                      {displayLocationName}
+                    </span>
                   </h1>
-                  <p className="text-[14px] md:text-[15px] font-[400] opacity-90">
+                  {/* <p className="text-[14px] md:text-[15px] font-[400] opacity-90">
                     We require details so we can better assist you.
-                  </p>
+                  </p> */}
                 </div>
-                <div className="w-full md:w-auto md:max-w-[160px]">
+                {/* <div className="w-full md:w-auto md:max-w-[160px]">
                   <select
                     value={selectedLocation}
                     onChange={(e) => {
@@ -279,7 +289,7 @@ function Intake() {
                       {errors.location}
                     </p>
                   )}
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -289,6 +299,10 @@ function Intake() {
                 onSubmit={handleSubmit}
                 noValidate
               >
+                <p className="text-[14px] text-center md:text-[15px] font-[400] opacity-90">
+                  We require details so we can better assist you.
+                </p>
+
                 <h3>Personal Information</h3>
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="flex-1 flex flex-col">
@@ -387,7 +401,7 @@ function Intake() {
                   </div>
                 </div>
 
-                <div className="flex flex-col">
+                {/* <div className="flex flex-col">
                   <label htmlFor="eventName" className="block form-label mb-1">
                     Event Name *
                   </label>
@@ -408,9 +422,9 @@ function Intake() {
                       {errors.eventName}
                     </p>
                   )}
-                </div>
+                </div> */}
 
-                <h3>Contact Preferences</h3>
+                {/* <h3>Contact Preferences</h3>
 
                 <div className="flex flex-col">
                   <label
@@ -432,9 +446,9 @@ function Intake() {
                       </option>
                     ))}
                   </select>
-                </div>
+                </div> */}
 
-                <div className="flex flex-col">
+                {/* <div className="flex flex-col">
                   <label htmlFor="comments" className="block form-label mb-1">
                     Additional Comments or questions
                   </label>
@@ -447,7 +461,7 @@ function Intake() {
                     rows={3}
                     className="w-full px-3 py-2 form-placeholder border border-[#D4D4D4] rounded-[5px] resize-none"
                   />
-                </div>
+                </div> */}
 
                 <div className="flex items-start gap-3">
                   <input
@@ -460,9 +474,9 @@ function Intake() {
                   />
                   <span className="text-sm font-[kanit] text-[#000]">
                     I agree to be contacted by{" "}
-                    <strong>{selectedLocation || "Location"}</strong> regarding
-                    membership information and fitness programs. I understand I
-                    can opt out at any time.
+                    <strong>{displayLocationName}</strong> regarding membership
+                    information and fitness programs. I understand I can opt out
+                    at any time.
                   </span>
                 </div>
                 {errors.consent && (

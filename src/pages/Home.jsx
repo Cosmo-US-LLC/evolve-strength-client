@@ -12,6 +12,11 @@ import MembershipBenefits from "@/components/PageComponents/Home/Desktop/Members
 import FacilityShowcase from "@/components/PageComponents/Home/Desktop/FacilityShowcase";
 import MetaTags from "@/components/Metatags/Meta";
 import SomeThinkNew from "@/components/PageComponents/Home/Desktop/SomeThinkNew";
+import WhatsMakeEvolveDiff from "@/components/PageComponents/Gym/WhatsMakeEvolveDiff";
+import PumpIt from "@/components/PageComponents/Gym/PumpIt";
+import MarqueeSection from "@/components/PageComponents/Home/Desktop/MarqueeSection";
+import WhatMakesEvolve from "@/components/PageComponents/Home/Desktop/WhatMakesEvolve";
+import GymZones from "@/components/PageComponents/Home/Desktop/GymZones";
 
 function Home() {
   return (
@@ -21,7 +26,12 @@ function Home() {
         description="Train, recover, and grow at Evolve, Canada’s largest gym with locations in Edmonton, Calgary, Burnaby, and Vancouver. One membership includes premium fitness and integrated wellness."
       />
       <div className="overflow-hidden">
-        <Hero />
+        <Hero title={"The Standard <br /> of Health."} />
+        {/* <GymZones /> */}
+        {/* <WhatMakesEvolve /> */}
+        {/* <PumpIt /> */}
+        {/* <WhatsMakeEvolveDiff /> */}
+        {/* <MarqueeSection /> */}
         <WellnessHub />
         <GymExperience />
         <MembershipBenefits />
