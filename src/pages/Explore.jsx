@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import ExploreHero from "@/components/PageComponents/Explore/Desktop/ExploreHero";
 import DiscoverEvolve from "@/components/PageComponents/Explore/Desktop/DiscoverEvolve";
 import MetaTags from "@/components/Metatags/Meta";
 import { fetchAllTrainers } from "@/services/trainerApi";
@@ -9,36 +8,34 @@ import { TrainerDataContext } from "@/contexts/TrainerDataContext";
 function Explore() {
   const [selected, setSelected] = useState(null);
   const [trainers, setTrainers] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // Start with not loading; we'll trigger loading only when we actually fetch
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [activeFilters, setActiveFilters] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Load trainer data from API on mount
-  useEffect(() => {
-    const loadTrainers = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        console.log("🔄 Loading trainers from API...");
-
-        const data = await fetchAllTrainers();
-
-        console.log("✅ Trainers loaded successfully!");
-        console.log("📊 Total trainers:", data.length);
-        setTrainers(data);
-      } catch (err) {
-        console.error("❌ Error loading trainers:", err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
+  const loadTrainers = useCallback(async (filters = {}) => {
+    try {
+      setLoading(true);
+      setError(null);
+      const data = await fetchAllTrainers(filters);
+      setTrainers(data);
+      setActiveFilters(filters);
+    } catch (err) {
+      // Ignore abort errors silently to avoid flashing errors on rapid changes
+      if (err?.name === "AbortError") {
+        return;
       }
-    };
-
-    loadTrainers();
+      console.error("❌ Error loading trainers:", err);
+      setError(err.message);
+      setTrainers([]);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-  // Handle URL parameters on component mount
+  // Handle URL parameters on component mount and decide initial data fetch
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const categoryParam = urlParams.get("category");
@@ -53,9 +50,28 @@ function Explore() {
       const categoryId = categoryMap[categoryParam.toLowerCase()];
       if (categoryId) {
         setSelected(categoryId);
+
+        // If Locations is selected via URL, fetch all trainers once
+        if (categoryId === "LOCATIONS" && trainers.length === 0) {
+          loadTrainers();
+        }
       }
     }
-  }, [location.search]);
+  }, [location.search, loadTrainers, trainers.length]);
+
+  const contextValue = useMemo(
+    () => ({
+      trainers,
+      loading,
+      error,
+      filters: activeFilters,
+      fetchTrainers: loadTrainers,
+    }),
+    [trainers, loading, error, activeFilters, loadTrainers]
+  );
+
+  // Note: initial fetch is handled above based on URL; otherwise we defer fetching
+  // to child views (Trainers/Wellness) or when Locations is selected.
 
   const handleCategorySelect = (categoryId) => {
     setSelected(categoryId);
@@ -71,6 +87,11 @@ function Explore() {
       if (categoryParam) {
         navigate(`/explore?category=${categoryParam}`, { replace: true });
       }
+
+      // When selecting Locations, ensure we have the full dataset
+      if (categoryId === "LOCATIONS" && trainers.length === 0 && !loading) {
+        loadTrainers();
+      }
     } else {
       navigate("/explore", { replace: true });
     }
@@ -84,36 +105,9 @@ function Explore() {
       />
       <div>
         {/* <ExploreHero /> */}
-        {loading ? (
-          <div className="flex items-center justify-center min-h-[400px]">
-            <div className="text-center">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mb-4"></div>
-              <p className="text-gray-600 text-lg">Loading trainers...</p>
-            </div>
-          </div>
-        ) : error ? (
-          <div className="flex items-center justify-center min-h-[400px]">
-            <div className="text-center text-red-600">
-              <p className="text-lg font-semibold mb-2">
-                Failed to load trainers
-              </p>
-              <p className="text-sm">{error}</p>
-              <button
-                onClick={() => window.location.reload()}
-                className="mt-4 px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800"
-              >
-                Retry
-              </button>
-            </div>
-          </div>
-        ) : (
-          <TrainerDataContext.Provider value={{ trainers }}>
-            <DiscoverEvolve
-              selected={selected}
-              onSelect={handleCategorySelect}
-            />
-          </TrainerDataContext.Provider>
-        )}
+        <TrainerDataContext.Provider value={contextValue}>
+          <DiscoverEvolve selected={selected} onSelect={handleCategorySelect} />
+        </TrainerDataContext.Provider>
       </div>
     </>
   );

@@ -547,3 +547,68 @@ select {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: scale(.98); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.card-fadeIn {
+  animation: cardFadeIn .5s ease-out forwards;
+}
+
+/* Range slider thumb with white border (Figma style) */
+.range-evolve {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+}
+
+.range-evolve::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.range-evolve::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #4AB04A;
+  border: 2px solid #FFFFFF;
+  margin-top: -8px; /* centers on 4px track */
+  cursor: pointer;
+}
+
+.range-evolve::-moz-range-track {
+  height: 4px;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.range-evolve::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #4AB04A;
+  border: 2px solid #FFFFFF;
+  cursor: pointer;
+}
+
+.range-evolve::-ms-track {
+  height: 4px;
+  border-color: transparent;
+  color: transparent;
+  background: transparent;
+}
+
+.range-evolve::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #4AB04A;
+  border: 2px solid #FFFFFF;
+}
+

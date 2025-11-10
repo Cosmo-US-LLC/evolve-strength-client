@@ -5,8 +5,13 @@
 
 const API_URL = "https://esuite-api.evolvestrength.ca/v1/trainers/public";
 
+// Simple in-flight and cache maps to prevent duplicate network requests
+const inFlightRequests = new Map(); // key -> Promise
+const responseCache = new Map(); // key -> data array
+let currentController = null; // Abort previous request when a new one starts
+
 // Franchise ID to Location Name mapping
-const FRANCHISE_MAP = {
+export const FRANCHISE_MAP = {
   7: "EDMONTON DOWNTOWN",
   8: "EDMONTON SOUTH",
   9: "EDMONTON NORTH",
@@ -15,6 +20,26 @@ const FRANCHISE_MAP = {
   12: "BURNABY BRENTWOOD",
   13: "VANCOUVER POST",
   14: "CALGARY SUNRIDGE",
+};
+
+export const FRANCHISE_OPTIONS = Object.entries(FRANCHISE_MAP)
+  .map(([id, name]) => ({
+    id: Number(id),
+    name: name,
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+export const FRANCHISE_ID_BY_NAME = Object.entries(FRANCHISE_MAP).reduce(
+  (acc, [id, name]) => {
+    acc[name] = Number(id);
+    return acc;
+  },
+  {}
+);
+
+export const TRAINER_ROLE_IDS = {
+  PERSONAL_TRAINER: 16,
+  WELLNESS_EXPERT: 17,
 };
 
 /**
@@ -68,6 +93,7 @@ export const transformTrainer = (apiTrainer) => {
     name: apiTrainer.name,
     role: roleDisplay, // ALL roles for display (comma-separated)
     roles: roles, // All roles array for filtering
+    specialty: apiTrainer.specialty || null,
     image: apiTrainer.photo_url,
     bio: apiTrainer.bio || "",
     areas_of_focus: areasOfFocus,
@@ -82,18 +108,130 @@ export const transformTrainer = (apiTrainer) => {
 /**
  * Fetch all trainers from API
  */
-export const fetchAllTrainers = async () => {
+const buildRequestBody = (filters = {}) => {
+  if (!filters || typeof filters === "string") {
+    return {};
+  }
+
+  const body = {};
+
+  if (filters.franchise) {
+    body["franchise"] = Number(filters.franchise);
+  }
+
+  if (filters.trainerRole) {
+    body["trainer-role"] = Number(filters.trainerRole);
+  }
+
+  if (filters.areaOfFocus) {
+    const areas = Array.isArray(filters.areaOfFocus)
+      ? filters.areaOfFocus
+      : [filters.areaOfFocus];
+    body["area-of-focus"] = areas.filter(Boolean).map(String);
+  }
+
+  if (filters.service) {
+    const services = Array.isArray(filters.service)
+      ? filters.service
+      : [filters.service];
+    body["service"] = services.filter(Boolean).map(String);
+  }
+
+  return body;
+};
+
+export const fetchAllTrainers = async (params = "") => {
   try {
-    const response = await fetch(API_URL);
+    const body = buildRequestBody(params);
+    const response = await fetch(`${API_URL}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+      // signal,
+    });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    return data.map(transformTrainer);
+    const transformed = data.map(transformTrainer);
+    // Cache successful responses by request body
+    // responseCache.set(cacheKey, transformed);
+    return transformed;
   } catch (error) {
-    console.error("❌ Error fetching trainers:", error);
+    // If aborted or failed, make sure not to cache the failure
+    if (error?.name !== "AbortError") {
+      console.error("❌ Error fetching trainers:", error);
+    }
     throw error;
+    // } finally {
+    // Clear in-flight record
+    // inFlightRequests.delete(cacheKey);
+    // Clear controller if this is the latest
+    // if (currentController === controller) {
+    //   currentController = null;
+    // }
   }
+  // const body = buildRequestBody(params);
+  // const cacheKey = JSON.stringify(body);
+
+  // // Serve from cache if available
+  // if (responseCache.has(cacheKey)) {
+  //   return responseCache.get(cacheKey);
+  // }
+
+  // // If an identical request is already in flight, return the same promise
+  // if (inFlightRequests.has(cacheKey)) {
+  //   return inFlightRequests.get(cacheKey);
+  // }
+
+  // // Start a new request and store the promise to dedupe callers
+  // // Abort any previous request (we only care about the latest query)
+  // if (currentController) {
+  //   try {
+  //     currentController.abort();
+  //   } catch (_) {
+  //     // ignore
+  //   }
+  // }
+
+  // const controller = new AbortController();
+  // currentController = controller;
+  // // const signal = controller.signal;
+
+  // const requestPromise = (async () => {
+  //   try {
+  //     const response = await fetch(`${API_URL}`, {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(body),
+  //       // signal,
+  //     });
+  //     if (!response.ok) {
+  //       throw new Error(`HTTP error! status: ${response.status}`);
+  //     }
+  //     const data = await response.json();
+  //     const transformed = data.map(transformTrainer);
+  //     // Cache successful responses by request body
+  //     // responseCache.set(cacheKey, transformed);
+  //     return transformed;
+  //   } catch (error) {
+  //     // If aborted or failed, make sure not to cache the failure
+  //     if (error?.name !== "AbortError") {
+  //       console.error("❌ Error fetching trainers:", error);
+  //     }
+  //     throw error;
+  //   } finally {
+  //     // Clear in-flight record
+  //     inFlightRequests.delete(cacheKey);
+  //     // Clear controller if this is the latest
+  //     if (currentController === controller) {
+  //       currentController = null;
+  //     }
+  //   }
+  // })();
+
+  // inFlightRequests.set(cacheKey, requestPromise);
+  // return requestPromise;
 };
 
 /**

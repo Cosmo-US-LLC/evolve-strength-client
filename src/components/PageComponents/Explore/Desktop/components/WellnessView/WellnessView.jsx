@@ -1,13 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useTrainerData } from "@/contexts/TrainerDataContext";
-import { getAllLocations, WELLNESS_SERVICES } from "@/services/trainerApi";
+import {
+  WELLNESS_SERVICES,
+  FRANCHISE_OPTIONS,
+  FRANCHISE_ID_BY_NAME,
+  TRAINER_ROLE_IDS,
+} from "@/services/trainerApi";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
 import { ChevronDown, X, Check, ArrowUpRight } from "lucide-react";
 
 function WellnessView() {
-  const { trainers } = useTrainerData();
+  const { trainers, loading, error, fetchTrainers } = useTrainerData();
   const [selectedTrainerIdx, setSelectedTrainerIdx] = useState(null);
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
   const [showServiceDropdown, setShowServiceDropdown] = useState(false);
@@ -18,7 +23,28 @@ function WellnessView() {
   const dropdownRef = useRef(null);
   const serviceDropdownRef = useRef(null);
 
-  const allLocations = getAllLocations(trainers);
+  const allLocations = useMemo(
+    () => FRANCHISE_OPTIONS.map((option) => option.name),
+    []
+  );
+
+  useEffect(() => {
+    const franchiseId = selectedLocation
+      ? FRANCHISE_ID_BY_NAME[selectedLocation]
+      : undefined;
+
+    const serviceFilters = selectedServiceIds
+      .map((serviceId) =>
+        WELLNESS_SERVICES.find((service) => service.id === serviceId)?.role
+      )
+      .filter(Boolean);
+
+    fetchTrainers({
+      trainerRole: TRAINER_ROLE_IDS.WELLNESS_EXPERT,
+      ...(franchiseId ? { franchise: franchiseId } : {}),
+      ...(serviceFilters.length > 0 ? { service: serviceFilters } : {}),
+    });
+  }, [selectedLocation, selectedServiceIds, fetchTrainers]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -47,11 +73,16 @@ function WellnessView() {
     setSelectedTrainerIdx(null);
   }, [currentCarouselIndex]);
 
+  useEffect(() => {
+    setSelectedTrainerIdx(null);
+    setCurrentCarouselIndex(0);
+  }, [trainers]);
+
   const transformTrainerData = (trainer) => {
     return {
       ...trainer,
       name: trainer.trainerName || trainer.name,
-      title: trainer.role,
+      title: trainer.specialty || trainer.role,
       about: trainer.bio,
       areasOfFocus: trainer.areas_of_focus
         ? trainer.areas_of_focus.split(", ")
@@ -59,61 +90,17 @@ function WellnessView() {
     };
   };
 
-  const computeFilteredTrainers = () => {
-    let filtered = [...trainers];
-
-    // Filter to show only wellness professionals (checks ALL roles)
-    filtered = filtered.filter((trainer) => {
-      const roles = trainer.roles || [trainer.role || ""];
-
-      // Check if ANY role is a wellness role
-      return roles.some((role) => {
-        const roleLower = role.toLowerCase();
-        return (
-          roleLower.includes("chiropractor") ||
-          roleLower.includes("massage") ||
-          roleLower.includes("physiotherapist") ||
-          roleLower.includes("acupuncturist") ||
-          roleLower.includes("dietitian") ||
-          roleLower.includes("osteopath") ||
-          roleLower.includes("laser therapist") ||
-          roleLower.includes("mental health") ||
-          roleLower.includes("esthetician") ||
-          roleLower.includes("wellness expert") ||
-          roleLower === "wellness expert"
-        );
-      });
+  const uniqueTrainers = useMemo(() => {
+    const map = new Map();
+    trainers.forEach((trainer) => {
+      if (!map.has(trainer.id)) {
+        map.set(trainer.id, trainer);
+      }
     });
+    return Array.from(map.values());
+  }, [trainers]);
 
-    // If specific services are selected, filter by those
-    if (selectedServiceIds.length > 0) {
-      filtered = filtered.filter((trainer) => {
-        const roles = trainer.roles || [trainer.role || ""];
-
-        return selectedServiceIds.some((serviceId) => {
-          const service = WELLNESS_SERVICES.find((s) => s.id === serviceId);
-          if (!service) return false;
-          const serviceRole = service.role.toLowerCase();
-
-          // Check if ANY of the trainer's roles matches this service
-          return roles.some((role) => role.toLowerCase().includes(serviceRole));
-        });
-      });
-    }
-
-    // Filter by location if selected
-    if (selectedLocation) {
-      filtered = filtered.filter(
-        (t) =>
-          t.location &&
-          t.location.toUpperCase() === selectedLocation.toUpperCase()
-      );
-    }
-
-    return filtered.map(transformTrainerData);
-  };
-
-  const transformedTrainers = computeFilteredTrainers();
+  const transformedTrainers = uniqueTrainers.map(transformTrainerData);
   const columns = 4;
   const rows = [];
   for (let i = 0; i < transformedTrainers.length; i += columns) {
@@ -185,7 +172,7 @@ function WellnessView() {
                     setShowLocationDropdown(false);
                   }}
                 >
-                  <span className="text-[#000] text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
+                  <span className="text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
                     All Locations
                   </span>
                 </div>
@@ -195,7 +182,7 @@ function WellnessView() {
                     key={idx}
                     className={`px-3 md:px-4 py-2 md:py-3 cursor-pointer last:rounded-b-lg ${
                       selectedLocation === location
-                        ? "bg-[#4AB04A] text-white"
+                        ? "bg-[#4AB04A] !text-white"
                         : "hover:bg-gray-50 text-black"
                     }`}
                     onClick={() => {
@@ -204,7 +191,7 @@ function WellnessView() {
                     }}
                   >
                     <span className="text-[16px] md:text-[18px] font-[Kanit] font-[300] leading-[20px] capitalize">
-                      {location}
+                      {location?.toLowerCase()}
                     </span>
                   </div>
                 ))}
@@ -347,7 +334,23 @@ function WellnessView() {
 
         {/* Trainer Display */}
         <div className="w-full">
-          {transformedTrainers && transformedTrainers.length > 0 && (
+          {loading ? (
+            <div className="flex items-center justify-center py-12">
+              <div className="text-center">
+                <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mb-4"></div>
+                <p className="text-gray-600 text-base md:text-lg">
+                  Loading wellness professionals...
+                </p>
+              </div>
+            </div>
+          ) : error ? (
+            <div className="text-center text-red-600 py-6 md:py-8 px-4 md:px-0">
+              <p className="text-base md:text-lg font-semibold mb-2">
+                Failed to load wellness professionals.
+              </p>
+              <p className="text-sm md:text-base">{error}</p>
+            </div>
+          ) : transformedTrainers && transformedTrainers.length > 0 ? (
             <>
               {/* Mobile: Carousel */}
               <div className="md:hidden bg-[#F6F6F6] px-4 py-6 rounded-t-[5px]">
@@ -377,7 +380,7 @@ function WellnessView() {
 
                   return (
                     <div key={rowIdx}>
-                      <div className="flex gap-6 flex-wrap bg-[#F6F6F6] px-12 pt-12">
+                      <div className="grid gap-6 max-lg:grid-cols-2 grid-cols-4 bg-[#F6F6F6] px-12 pt-12">
                         {row.map((trainer, idx) => {
                           const globalIdx = startIdx + idx;
 
@@ -425,12 +428,10 @@ function WellnessView() {
                   </div>
                 )}
             </>
-          )}
-
-          {transformedTrainers && transformedTrainers.length === 0 && (
+          ) : (
             <div className="text-center text-gray-500 py-6 md:py-8 px-4 md:px-0 transition-all duration-300 ease-in-out">
               <p className="text-base md:text-lg font-medium mb-2">
-                No wellness professionals available for the selected filters.
+                No wellness professionals found for the selected criteria.
               </p>
               <p className="text-sm md:text-base">
                 Try selecting different filters or contact us for availability.

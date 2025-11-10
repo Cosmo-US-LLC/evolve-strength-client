@@ -380,3 +380,7 @@ h5 {
     @apply bg-background text-foreground;
   }
 }
+
+@theme {
+  --aspect-trainer: 65 / 54; 
+}
