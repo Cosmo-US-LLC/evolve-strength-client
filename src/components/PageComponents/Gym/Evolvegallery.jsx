@@ -219,7 +219,7 @@ const Evolvegallery = ({imageRadious , slidesGap , buttonsTop , slides}) => {
           <div className={`flex items-center justify-center gap-4 md:gap-6 mt-6 md:mt-8 ${buttonsTop}`}>
             <button
               onClick={scrollPrev}
-              className="w-10 h-10 cursor-pointer md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full border-[1px] border-[#000]"
+              className="w-10 h-10 max-md:w-[40px] max-md:h-[40px] cursor-pointer md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full border-[1px] border-[#000]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -258,7 +258,7 @@ const Evolvegallery = ({imageRadious , slidesGap , buttonsTop , slides}) => {
             </button>
             
             {/* Pagination Dots */}
-            <div className="flex gap-2 md:hidden">
+            {/* <div className="flex gap-2 md:hidden">
               {scrollSnaps.map((_, index) => (
                 <button
                   key={index}
@@ -270,11 +270,11 @@ const Evolvegallery = ({imageRadious , slidesGap , buttonsTop , slides}) => {
                   onClick={() => emblaApi?.scrollTo(index)}
                 />
               ))}
-            </div>
+            </div> */}
 
             <button
               onClick={scrollNext}
-              className="w-10 h-10 cursor-pointer md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full border-[1px] border-[#000]"
+              className="w-10 h-10 max-md:w-[40px] max-md:h-[40px] cursor-pointer md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full border-[1px] border-[#000]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
