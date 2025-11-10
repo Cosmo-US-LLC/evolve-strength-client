@@ -20,7 +20,7 @@ function JoinAsTrainer() {
         description={"op building someone else’s dream. At Evolve you’re not an employee you’re an entrepreneur. Build your brand, grow your client base, and create a business that’s truly yours"}
         buttonTitle={""}
         buttonLink="#"
-        imagePosition = "right"
+        imagePosition = "center"
         backgroundImage={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762436244608-c3da81dd-6405-4c5c-a434-4f33239dbd6c.webp"}
         height={800}
       />

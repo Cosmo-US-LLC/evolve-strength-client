@@ -31,7 +31,7 @@ function ContentCard({
           className={`absolute top-0 h-full w-[1203px] ${isImageRight ? "right-[-165px]" : "left-[-165px]"
             }`}
         >
-          <img src={backgroundImage} alt="" className="absolute inset-0 w-full h-full bg-cover" />
+          <img src={backgroundImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
 
           <div
             className="absolute inset-0 z-10"

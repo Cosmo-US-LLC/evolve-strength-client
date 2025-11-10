@@ -125,7 +125,7 @@ function PumpIt({sliderDotsColor = "sliderDotsColor"}) {
             {gymZones.map((pro, idx) => (
               <div
                 key={idx}
-                className="pl-0.5 md:pl-2.5 w-fit basis-full md:basis-[28.57%] flex-shrink-0"
+                className="pl-2 md:pl-2.5 w-fit basis-[80.57%] md:basis-[28.57%] flex-shrink-0"
               >
                 <div className="flex relative rounded-lg overflow-hidden">
                   {/* Desktop Image */}
@@ -236,7 +236,7 @@ function PumpIt({sliderDotsColor = "sliderDotsColor"}) {
           <div>
             <button
               onClick={scrollPrev}
-              className="bg-[#000] h-[35px] w-[35px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
+              className="bg-[#000] h-[40px] w-[40px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -274,27 +274,10 @@ function PumpIt({sliderDotsColor = "sliderDotsColor"}) {
               </svg>
             </button>
           </div>
-
-          {/* Pagination Dots */}
-          <div className="flex gap-2">
-            {scrollSnaps.map((_, index) => (
-              <button
-                key={index}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === selectedIndex
-                    ? sliderDotsColor
-                    : "bg-white/30"
-                }`}
-                onClick={() => emblaApi?.scrollTo(index)}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-
           <div>
             <button
               onClick={scrollNext}
-              className="bg-[#000] h-[35px] w-[35px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
+              className="bg-[#000] h-[40px] w-[40px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

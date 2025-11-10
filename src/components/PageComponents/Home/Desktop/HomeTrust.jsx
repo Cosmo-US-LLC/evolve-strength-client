@@ -112,18 +112,18 @@ function HomeTrustedEquipmentBrands() {
         {isMobile ? (
 
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-4 py-4">
+            <div className="flex  py-4 ">
               {equipmentImages.map((image, index) => {
                 const brand = brandLogos[index];
                 return (
-                  <div key={image.id} className="w-[250px] h-[366px] flex-shrink-0">
+                  <div key={image.id} className="w-[80%] px-2 h-[100%] flex-shrink-0">
                     <div className="bg-white rounded-lg transition-all duration-300 hover:-translate-y-1 group overflow-hidden">
 
                       <div className="relative rounded-lg overflow-hidden">
                         <img
                           src={image.src}
                           alt={image.alt}
-                          className="w-[220px] h-[320px] rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
+                          className="w-[100%] h-[100%] rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
                           loading="lazy"
                         />
                       </div>
