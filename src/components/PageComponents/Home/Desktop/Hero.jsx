@@ -10,7 +10,21 @@ function Hero({ title }) {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute block md:hidden inset-0 w-full h-full object-cover"
+          style={{ objectFit: "cover", objectPosition: "bottom" }}
+        >
+          <source
+            src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1762846602227-a5869dbd-23be-4334-b1bb-4672b2426232.mp4"
+            type="/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+         <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute block max-md:hidden inset-0 w-full h-full object-cover"
           style={{ objectFit: "cover", objectPosition: "bottom" }}
         >
           <source
