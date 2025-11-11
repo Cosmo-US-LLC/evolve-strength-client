@@ -93,13 +93,13 @@ function ContentCard({
               className="absolute h-full w-full object-cover top-[-3.13%]"
             />
           </div>
-          <div
+          {/* <div
             className="absolute inset-0"
             style={{
-              backgroundImage:
+              backgroundImageMob:
                 "linear-gradient(-0.963253deg, rgba(0,0,0,0) 73.399%, rgba(0,0,0,1) 93.127%)",
             }}
-          />
+          /> */}
         </div>
 
         <div className="absolute left-[16px] max-md:right-[16px] top-[50px] flex flex-col gap-[16px] items-start text-white">

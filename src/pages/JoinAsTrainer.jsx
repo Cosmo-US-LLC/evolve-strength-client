@@ -22,7 +22,7 @@ function JoinAsTrainer() {
         buttonLink="#"
         imagePosition = "right"
         backgroundImage={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762849982165-1e9cc425-dad0-480f-a9b3-a75d4b397d9a.webp"}
-        backgroundImageMob={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762851937674-11fa3541-3352-411b-a634-266d162492ac.webp"}
+        backgroundImageMob={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762868164268-b44a6115-356e-4147-a5f8-e6f7bb291c84.webp"}
         height={800}
       />
       <ContentCard
