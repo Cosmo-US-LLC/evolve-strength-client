@@ -20,8 +20,9 @@ function JoinAsTrainer() {
         description={"op building someone else’s dream. At Evolve you’re not an employee you’re an entrepreneur. Build your brand, grow your client base, and create a business that’s truly yours"}
         buttonTitle={""}
         buttonLink="#"
-        imagePosition = "center"
-        backgroundImage={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762436244608-c3da81dd-6405-4c5c-a434-4f33239dbd6c.webp"}
+        imagePosition = "right"
+        backgroundImage={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762849982165-1e9cc425-dad0-480f-a9b3-a75d4b397d9a.webp"}
+        backgroundImageMob={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762851937674-11fa3541-3352-411b-a634-266d162492ac.webp"}
         height={800}
       />
       <ContentCard
@@ -30,12 +31,13 @@ function JoinAsTrainer() {
         buttonTitle={""}
         buttonLink="#"
         imagePosition = "left"
-        backgroundImage={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762436549473-24dd5bcf-16c5-4836-8067-258d09c5bdf0.webp"}
+        backgroundImage={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762850375875-93e3b1e9-542e-40d0-ac4f-9c1e4176e839.webp"}
+         backgroundImageMob={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762851957642-85e47bed-980b-42f2-9111-672badc6579d.webp"}
         height={800}
       />
       <JoinAsTrainerHero />
-      <TrainerTestimonials />
       <WhyChooseEvolveProgress />
+      <TrainerTestimonials />
       {/* <BuildYourCareer /> */}
       {/* <WhyChooseEvolve /> */}
       {/* <WhatTrainersAre /> */}
@@ -46,7 +48,8 @@ function JoinAsTrainer() {
         buttonTitle={"START TODAY"}
         buttonLink="#"
         imagePosition = "right"
-        backgroundImage={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762436142902-232e5488-5211-42a9-bb96-ec39e331f591.webp"}
+        backgroundImage={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762851098170-0165b620-0939-4da4-8806-51236f565a5d.webp"}
+        backgroundImageMob={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762851986658-3d3b9cab-583a-4500-8994-4acedf661cdd.webp"}
         height={800}
       />
       
