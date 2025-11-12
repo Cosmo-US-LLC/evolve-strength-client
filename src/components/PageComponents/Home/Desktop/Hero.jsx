@@ -10,6 +10,7 @@ function Hero({ title }) {
           muted
           loop
           playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectFit: "cover", objectPosition: "bottom" }}
         >

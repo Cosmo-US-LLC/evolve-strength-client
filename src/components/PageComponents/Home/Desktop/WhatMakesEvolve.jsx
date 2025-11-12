@@ -6,22 +6,28 @@ const gymCards = [
     title: "Premium Equipment",
     description:
       "Train on top-of-the-line machines and free weights, all expertly maintained for smarter lifts and faster results.",
-    video: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703686095-2b7f5707-b22c-41ab-b746-a1a23c6fa234.webm",
-    videomobile:"https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632418364-2ae4dfc4-dbf7-4a7e-b6bf-514a32eadcba.mp4",
+    video:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703686095-2b7f5707-b22c-41ab-b746-a1a23c6fa234.webm",
+    videomobile:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632418364-2ae4dfc4-dbf7-4a7e-b6bf-514a32eadcba.mp4",
   },
   {
     title: "Room to Move",
     description:
       "Spacious, open training zones give you freedom to focus, move freely, and challenge your limits.",
-    video: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703608053-568cac3d-912b-4505-99bb-84a94b9b79a6.webm",
-     videomobile:"https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632354725-62c014a5-4988-4976-a834-89d492aa8c6b.mp4",
+    video:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703608053-568cac3d-912b-4505-99bb-84a94b9b79a6.webm",
+    videomobile:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632354725-62c014a5-4988-4976-a834-89d492aa8c6b.mp4",
   },
   {
     title: "Atmosphere",
     description:
       "Stay motivated in a vibrant, inspiring space designed to energize and elevate every workout experience.",
-    video: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703643796-bfad9aab-51e1-4ed5-af09-1f804aff883b.webm",
-     videomobile:"https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632574411-b43edd39-e64a-46cc-8401-2b10f516aa6f.mp4",
+    video:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703643796-bfad9aab-51e1-4ed5-af09-1f804aff883b.webm",
+    videomobile:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632574411-b43edd39-e64a-46cc-8401-2b10f516aa6f.mp4",
   },
 ];
 
@@ -41,13 +47,7 @@ const WhatMakesEvolve = () => {
     containScroll: "trimSnaps",
   });
 
-  // Preload images
-  useEffect(() => {
-    gymCards.forEach((card) => {
-      const img = new Image();
-      img.src = card.bgImage;
-    });
-  }, []);
+  // Removed unnecessary image preloading - reduces initial network load
 
   // Handle mobile carousel selection with crossfade
   useEffect(() => {
@@ -86,7 +86,9 @@ const WhatMakesEvolve = () => {
   return (
     <div>
       <div className="space-y-[20px] py-12 text-center relative z-[9] max-w-[1280px] mx-auto flex flex-col justify-center items-center  h-full  px-4 md:px-8">
-        <h2 className="!text-[#000] uppercase md:text-center text-left">What Makes Evolve Different</h2>
+        <h2 className="!text-[#000] uppercase md:text-center text-left">
+          What Makes Evolve Different
+        </h2>
         <h4 className="!text-[#000] leading-[25px] md:text-center text-left max-w-[593px]">
           Evolve excels with its user-focused design and advanced technology,
           enhancing productivity and fostering teamwork in dynamic settings.
@@ -94,25 +96,25 @@ const WhatMakesEvolve = () => {
       </div>
       <div className="relative w-full overflow-hidden max-md:hidden">
         <div className="absolute inset-0 z-0 overflow-hidden">
-          {gymCards.map((card, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-500 ${
-                activeIndex === index ? 'opacity-100' : 'opacity-0'
-              }`}
-            >
-              <video
-                className="absolute inset-0 w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                key={card.video}
-              >
-                <source src={card.video} type="video/webm" />
-              </video>
-            </div>
-          ))}
+          {/* Only render the active video to prevent loading all videos */}
+          {gymCards.map(
+            (card, index) =>
+              activeIndex === index && (
+                <div key={index} className="absolute inset-0">
+                  <video
+                    className="absolute inset-0 w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    key={card.video}
+                  >
+                    <source src={card.video} type="video/webm" />
+                  </video>
+                </div>
+              )
+          )}
           <div className="absolute inset-0 bg-black/20 pointer-events-none" />
         </div>
 
@@ -165,29 +167,29 @@ const WhatMakesEvolve = () => {
 
       {/* Mobile Carousel - Simplified like PersonalGymExperience */}
       <div className="md:hidden">
-        
         <div className="relative w-full overflow-hidden min-h-[512px] flex flex-col">
-         <div className="absolute inset-0 z-0 overflow-hidden">
-            {gymCards.map((card, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 ${index === selectedIndex ? 'block' : 'hidden'}`}
-              >
-                <video
-                  className="absolute inset-0 w-full h-full object-cover"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="auto"
-                  onCanPlay={() => setNextVideoReady(true)}
-                >
-                  <source src={card.videomobile} type="video/mp4" />
-                </video>
-              </div>
-            ))}
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            {/* Only render the active video to prevent loading all videos */}
+            {gymCards.map(
+              (card, index) =>
+                index === selectedIndex && (
+                  <div key={index} className="absolute inset-0">
+                    <video
+                      className="absolute inset-0 w-full h-full object-cover"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      onCanPlay={() => setNextVideoReady(true)}
+                    >
+                      <source src={card.videomobile} type="video/mp4" />
+                    </video>
+                  </div>
+                )
+            )}
             <div className="absolute inset-0 bg-black/20 pointer-events-none" />
-        </div>
+          </div>
 
           <div className="flex-1" />
 
@@ -216,12 +218,24 @@ const WhatMakesEvolve = () => {
                           ${isSelected ? "" : ""}
                         `}
                       >
-                        <div className={`absolute inset-0 z-0  ${isSelected ? "bg-[#ffffff]" : ""} `} />
+                        <div
+                          className={`absolute inset-0 z-0  ${
+                            isSelected ? "bg-[#ffffff]" : ""
+                          } `}
+                        />
                         <div className="relative z-10 transition-colors duration-75 w-full">
-                          <h3 className={`uppercase mb-[12px] !text-[20px]  !font-[600] ${isSelected ? "text-[#1C1C1C]" : "text-white"}`}>
+                          <h3
+                            className={`uppercase mb-[12px] !text-[20px]  !font-[600] ${
+                              isSelected ? "text-[#1C1C1C]" : "text-white"
+                            }`}
+                          >
                             {card.title}
                           </h3>
-                          <p className={`description leading-[24px] md:leading-[26px] !text-[16px]  ${isSelected ? "text-[#000]" : "text-white"}`}>
+                          <p
+                            className={`description leading-[24px] md:leading-[26px] !text-[16px]  ${
+                              isSelected ? "text-[#000]" : "text-white"
+                            }`}
+                          >
                             {card.description}
                           </p>
                         </div>

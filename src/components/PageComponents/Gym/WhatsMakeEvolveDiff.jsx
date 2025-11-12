@@ -41,13 +41,7 @@ const WhatsMakeEvolveDiff = () => {
     containScroll: "trimSnaps",
   });
 
-  // Preload images
-  useEffect(() => {
-    gymCards.forEach((card) => {
-      const img = new Image();
-      img.src = card.bgImage;
-    });
-  }, []);
+  // Removed unnecessary image preloading - reduces initial network load
 
   // Handle mobile carousel selection with crossfade
   useEffect(() => {
@@ -179,7 +173,7 @@ const WhatsMakeEvolveDiff = () => {
                   muted
                   loop
                   playsInline
-                  preload="auto"
+                  preload="metadata"
                   onCanPlay={() => setNextVideoReady(true)}
                 >
                   <source src={card.videomobile} type="video/mp4" />
