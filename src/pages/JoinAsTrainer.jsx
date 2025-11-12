@@ -17,7 +17,7 @@ function JoinAsTrainer() {
       <MiddleTextHero title={"More Clients.<br />  More Income.<br />  More Freedom"} />
       <ContentCard
         title={"WRITE YOUR OWN <br /> STORY"}
-        description={"Stop building someone else’s dream. At Evolve you’re not an employee you’re an entrepreneur. Build your brand, grow your client base, and create a business that’s truly yours"}
+        description={"Stop building someone else’s dream. At Evolve you’re not an employee you’re an entrepreneur. Build your brand, grow your client base, and create a business that’s truly yours."}
         buttonTitle={""}
         buttonLink="#"
         imagePosition = "right"
@@ -27,7 +27,7 @@ function JoinAsTrainer() {
       />
       <ContentCard
         title={"KEEP WHAT YOUR EARN"}
-        description={"Stop splitting your income and chasing quotas. 100% of what you make is yours. You set your rates, choose your clients, and decide how much you want to grow. Freedom isn’t just about time it’s about financial control"}
+        description={"Stop splitting your income and chasing quotas. 100% of what you make is yours. You set your rates, choose your clients, and decide how much you want to grow. Freedom isn’t just about time it’s about financial control."}
         buttonTitle={""}
         buttonLink="#"
         imagePosition = "left"
