@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const professionals = [
@@ -42,10 +42,10 @@ const TWEEN_FACTOR_BASE = 0.52;
 const numberWithinRange = (number, min, max) =>
   Math.min(Math.max(number, min), max);
 
-const Evolvegallery = ({imageRadious , slidesGap , buttonsTop , slides}) => {
+const Evolvegallery = ({ imageRadious, slidesGap, buttonsTop, slides }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState([]);
-  
+
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
@@ -127,12 +127,12 @@ const Evolvegallery = ({imageRadious , slidesGap , buttonsTop , slides}) => {
     setTweenNodes(emblaApi);
     setTweenFactor(emblaApi);
     tweenScale(emblaApi);
-    
+
     // Set up scroll snaps for pagination
     setScrollSnaps(emblaApi.scrollSnapList());
     onSelect();
 
-    emblaApi.on('select', onSelect);
+    emblaApi.on("select", onSelect);
 
     emblaApi
       .on("reInit", setTweenNodes)
@@ -201,7 +201,10 @@ const Evolvegallery = ({imageRadious , slidesGap , buttonsTop , slides}) => {
                   className="flex-[0_0_73%] md:flex-[0_0_73%] min-w-0 pl-0 md:pl-4 first:pl-0"
                 >
                   <div className="embla__slide w-full">
-                    <div className={`embla__slide__content bg-white shadow-md md:h-[600px] h-[180px] flex items-center justify-center overflow-hidden mx-1 md:mx-2`} style={{borderRadius : imageRadious}}>
+                    <div
+                      className={`embla__slide__content bg-white shadow-md md:h-[600px] h-[180px] flex items-center justify-center overflow-hidden mx-1 md:mx-2`}
+                      style={{ borderRadius: imageRadious }}
+                    >
                       <img
                         src={pro.image}
                         alt={pro.title}
@@ -216,47 +219,16 @@ const Evolvegallery = ({imageRadious , slidesGap , buttonsTop , slides}) => {
           </div>
 
           {/* Navigation Arrows */}
-          <div className={`flex items-center justify-center gap-4 md:gap-6 mt-6 md:mt-8 ${buttonsTop}`}>
+          <div
+            className={`flex items-center justify-center gap-4 md:gap-6 mt-6 md:mt-8 ${buttonsTop}`}
+          >
             <button
               onClick={scrollPrev}
-              className="w-10 h-10 max-md:w-[40px] max-md:h-[40px] cursor-pointer md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full border-[1px] border-[#000]"
+              className="w-10 h-10 max-md:w-[40px] max-md:h-[40px] cursor-pointer md:w-12 md:h-12 flex items-center justify-center bg-white hover:bg-[#000] text-black hover:text-white rounded-full border-[1px] border-[#000] transition-colors duration-200"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="17"
-                viewBox="0 0 18 17"
-                fill="none"
-              >
-                <g clip-path="url(#clip0_9277_762)">
-                  <path
-                    d="M7.96981 1.48828L1.30469 8.48828L7.96981 15.4883"
-                    stroke="black"
-                    stroke-width="0.7"
-                    stroke-miterlimit="10"
-                    stroke-linecap="square"
-                  />
-                  <path
-                    d="M16.7004 8.48828H1.65625"
-                    stroke="black"
-                    stroke-width="0.7"
-                    stroke-miterlimit="10"
-                    stroke-linecap="square"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_9277_762">
-                    <rect
-                      width="16.8"
-                      height="15.4"
-                      fill="white"
-                      transform="translate(0.601562 0.789062)"
-                    />
-                  </clipPath>
-                </defs>
-              </svg>
+              <ArrowLeft size={18} className="stroke-current" />
             </button>
-            
+
             {/* Pagination Dots */}
             {/* <div className="flex gap-2 md:hidden">
               {scrollSnaps.map((_, index) => (
@@ -274,42 +246,9 @@ const Evolvegallery = ({imageRadious , slidesGap , buttonsTop , slides}) => {
 
             <button
               onClick={scrollNext}
-              className="w-10 h-10 max-md:w-[40px] max-md:h-[40px] cursor-pointer md:w-12 md:h-12 flex items-center justify-center bg-white rounded-full border-[1px] border-[#000]"
+              className="w-10 h-10 max-md:w-[40px] max-md:h-[40px] cursor-pointer md:w-12 md:h-12 flex items-center justify-center bg-white hover:bg-[#000] text-black hover:text-white rounded-full border-[1px] border-[#000] transition-colors duration-200"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="17"
-                viewBox="0 0 18 17"
-                fill="none"
-              >
-                <g clip-path="url(#clip0_9277_773)">
-                  <path
-                    d="M10.0391 1.48828L16.7042 8.48828L10.0391 15.4883"
-                    stroke="black"
-                    stroke-width="0.7"
-                    stroke-miterlimit="10"
-                    stroke-linecap="square"
-                  />
-                  <path
-                    d="M1.30469 8.48828H16.3489"
-                    stroke="black"
-                    stroke-width="0.7"
-                    stroke-miterlimit="10"
-                    stroke-linecap="square"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_9277_773">
-                    <rect
-                      width="16.8"
-                      height="15.4"
-                      fill="white"
-                      transform="translate(0.601562 0.789062)"
-                    />
-                  </clipPath>
-                </defs>
-              </svg>
+              <ArrowRight size={18} className="stroke-current" />
             </button>
           </div>
         </div>
