@@ -13,7 +13,6 @@ const MiddleTextHero = ({ title }) => {
         <video
           autoPlay
           loop
-          muted
           playsInline
           className="absolute hidden md:block  inset-0 w-full h-full object-cover"
           style={{ objectFit: "", objectPosition: "" }}
@@ -26,7 +25,6 @@ const MiddleTextHero = ({ title }) => {
         </video>
         <video
           autoPlay
-          muted
           loop
           playsInline
           className="absolute block md:hidden inset-0 w-full h-full object-cover"
