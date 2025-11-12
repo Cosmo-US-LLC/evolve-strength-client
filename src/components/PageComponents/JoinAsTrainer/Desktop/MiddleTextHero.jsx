@@ -76,9 +76,9 @@ const MiddleTextHero = ({ title }) => {
         className="absolute cursor-pointer bottom-4 right-4 bg-black bg-opacity-50 p-3 rounded-full z-20 flex items-center justify-center"
       >
         {isMuted ? (
-          <VolumeX className="text-white w-6 h-6" />
+          <img src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1762947885089-39ed7dd3-56dc-4080-aacd-a47d9d4104c2.webp" alt="mute" className="text-white w-7 h-7" />
         ) : (
-          <Volume className="text-white w-6 h-6" />
+          <img src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1762947770730-7b53fa06-f726-4f51-b34f-578b9e2ed7d3.svg" alt="unmute" className="text-white w-7 h-7" />
         )}
       </button>
       </div>
