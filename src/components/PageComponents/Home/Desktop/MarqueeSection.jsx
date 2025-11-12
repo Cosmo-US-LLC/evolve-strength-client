@@ -76,7 +76,7 @@ const MarqueeSection = () => {
         {/* Header Section */}
         <div className="flex flex-col gap-4 md:items-center md:text-center max-w-[800px] mb-12">
           <h2 className="text-[#1c1c1c] uppercase text-[40px]">
-            205+ World- <br className="md:hidden" /> Class Personal Trainers
+            205+ World-<br className="md:hidden" />Class Personal Trainers
           </h2>
           <h4 className="text-black max-w-[611px] leading-[26px]">
             No matter where you're starting or what your goal is, you'll find a
