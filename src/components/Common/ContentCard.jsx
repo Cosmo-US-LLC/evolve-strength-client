@@ -90,7 +90,7 @@ function ContentCard({
             <img
               src={backgroundImageMob}
               alt=""
-              className="absolute h-full w-full object-cover top-[-3.13%]"
+              className="absolute h-full w-full object-cover top-[4.13%]"
             />
           </div>
           {/* <div

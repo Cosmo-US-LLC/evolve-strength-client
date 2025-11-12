@@ -88,14 +88,14 @@ function HomeTrustedEquipmentBrands() {
   ];
 
   return (
-    <section className="bg-white py-12 w-full">
+    <section className="bg-white py-12 max-md:pb-0 w-full">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col gap-8">
         {/* Header Section */}
 
         <div className="w-full flex flex-col md:flex-row md:gap-8 gap-1">
           <div className="w-[100%] md:w-[50%]">
             <h2 className="max-w-[500px] !leading-[39px] text-left font-bold text-[#000] mb-3">
-              TRUSTED <br className="sm:hidden" /> EQUIPMENT <br className="sm:hidden" /> BRANDS
+              TRUSTED <br className="max-md:hidden" /> EQUIPMENT <br className="max-md:hidden" /> BRANDS
             </h2>
           </div>
           <div className="w-[100%] md:w-[50%]">

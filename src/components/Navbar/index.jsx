@@ -75,7 +75,6 @@ function Navbar() {
               currentPath.includes("terms-and-conditions") ||
               currentPath.includes("faqs") ||
               currentPath.includes("franchise") ||
-              currentPath.includes("join-as-trainer") ||
               currentPath.includes("join-the-Movement") ||
               currentPath.includes("corporate-membership") ||
               currentPath.includes("about-us") ||

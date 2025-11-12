@@ -11,12 +11,12 @@ import Autoplay from "embla-carousel-autoplay";
 
 const testimonials = [
   {
-    name: "Linda Lewis",
+    name: "Spencer Snashall",
     role: "Personal Trainer",
     avatar:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762427321107-95b46183-ebc7-4df6-b273-36e06d6601e2.png",
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762935143395-41d3fb7f-7e0c-4edd-8031-4beedb7b8cc8.png",
     rating: 5,
-    text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    text: "Operating Form Fitness out of Evolve Strength @ The Post has been a great experience. The space is modern, spacious, and fully equipped, making it easy to deliver high-quality sessions. I value being able to run my business independently while sharing the gym with a community of passionate trainers and business owners who are equally committed to their craft.",
   },
   {
     name: "Linda Lewis",
