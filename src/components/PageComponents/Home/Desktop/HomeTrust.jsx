@@ -95,7 +95,7 @@ function HomeTrustedEquipmentBrands() {
         <div className="w-full flex flex-col md:flex-row md:gap-8 gap-1">
           <div className="w-[100%] md:w-[50%]">
             <h2 className="max-w-[500px] !leading-[39px] text-left font-bold text-[#000] mb-3">
-              TRUSTED <br className="max-md:hidden" /> EQUIPMENT <br className="max-md:hidden" /> BRANDS
+              TRUSTED  EQUIPMENT <br className="max-md:hidden" /> BRANDS
             </h2>
           </div>
           <div className="w-[100%] md:w-[50%]">
