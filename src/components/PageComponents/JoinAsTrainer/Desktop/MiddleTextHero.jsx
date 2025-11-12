@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import { Volume, VolumeX } from "lucide-react";
 
 const MiddleTextHero = ({ title }) => {
+    const [isMuted, setIsMuted] = useState(true);
+  const videoRefDesktop = useRef(null);
+  const videoRefMobile = useRef(null);
+   const toggleMute = () => {
+    setIsMuted((prev) => {
+      const newMute = !prev;
+      if (videoRefDesktop.current) videoRefDesktop.current.muted = newMute;
+      if (videoRefMobile.current) videoRefMobile.current.muted = newMute;
+      return newMute;
+    });
+  };
   return (
     <div>
       {/* <div className="relative overflow-hidden w-full h-[70vh] md:h-[100vh]"  */}
@@ -11,8 +23,10 @@ const MiddleTextHero = ({ title }) => {
         // }}
       >
         <video
+          ref={videoRefDesktop}
           autoPlay
           loop
+          muted={isMuted}
           playsInline
           className="absolute hidden md:block  inset-0 w-full h-full object-cover"
           style={{ objectFit: "", objectPosition: "" }}
@@ -25,8 +39,10 @@ const MiddleTextHero = ({ title }) => {
         </video>
         <video
           autoPlay
+          ref={videoRefMobile}
           loop
           playsInline
+          muted={isMuted}
           className="absolute block md:hidden inset-0 w-full h-full object-cover"
           style={{ objectFit: "", objectPosition: "" }}
         >
@@ -55,6 +71,16 @@ const MiddleTextHero = ({ title }) => {
                 </div> */}
           </div>
         </div>
+      <button
+        onClick={toggleMute}
+        className="absolute cursor-pointer bottom-4 right-4 bg-black bg-opacity-50 p-3 rounded-full z-20 flex items-center justify-center"
+      >
+        {isMuted ? (
+          <VolumeX className="text-white w-6 h-6" />
+        ) : (
+          <Volume className="text-white w-6 h-6" />
+        )}
+      </button>
       </div>
     </div>
   );
