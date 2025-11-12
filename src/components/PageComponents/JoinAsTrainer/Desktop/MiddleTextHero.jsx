@@ -12,11 +12,11 @@ const MiddleTextHero = ({ title }) => {
       >
         <video
           autoPlay
-          muted
           loop
+          muted
           playsInline
           className="absolute hidden md:block  inset-0 w-full h-full object-cover"
-          style={{ objectFit: "cover", objectPosition: "bottom" }}
+          style={{ objectFit: "", objectPosition: "" }}
         >
           <source
             src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/gym-vid-desktop.mp4"
@@ -30,7 +30,7 @@ const MiddleTextHero = ({ title }) => {
           loop
           playsInline
           className="absolute block md:hidden inset-0 w-full h-full object-cover"
-          style={{ objectFit: "cover", objectPosition: "bottom" }}
+          style={{ objectFit: "", objectPosition: "" }}
         >
           <source
             src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/gym-vid-mobile.mp4"
@@ -45,6 +45,7 @@ const MiddleTextHero = ({ title }) => {
               className="text-[#FFFFFF] !text-[36px] md:!text-[70px] leading-[32px] md:leading-[59px] max-w-[740px] uppercase "
               dangerouslySetInnerHTML={{ __html: title }}
             />
+            
 
             {/* <div className="flex gap-4">
                   <a href="/book-a-tour">

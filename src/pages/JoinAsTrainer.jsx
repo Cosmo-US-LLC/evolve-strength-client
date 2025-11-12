@@ -37,7 +37,7 @@ function JoinAsTrainer() {
       />
       <JoinAsTrainerHero />
       <WhyChooseEvolveProgress />
-      <TrainerTestimonials />
+      {/* <TrainerTestimonials /> */}
       {/* <BuildYourCareer /> */}
       {/* <WhyChooseEvolve /> */}
       {/* <WhatTrainersAre /> */}
@@ -46,7 +46,7 @@ function JoinAsTrainer() {
         title={"TOUR OUR FITNESS<br />FACILITIES"}
         description={"Come see the space for yourself. Our training floors are one of the largest in Canada, built to support serious trainers like you."}
         buttonTitle={"START TODAY"}
-        buttonLink="#"
+        buttonLink="/trainer-form"
         imagePosition = "right"
         backgroundImage={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762851098170-0165b620-0939-4da4-8806-51236f565a5d.webp"}
         backgroundImageMob={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762851986658-3d3b9cab-583a-4500-8994-4acedf661cdd.webp"}
