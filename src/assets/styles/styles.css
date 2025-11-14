@@ -316,12 +316,12 @@
 }
 
 .TourOurFitness {
-  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/TourOurFitness/TourOurFitness_bg.webp");
+  background-image: url("https://evolve-strength.tor1.digitaloceanspaces.com/media/1763109300250-47d31d1b-6bdd-452f-bb33-6c334d55644d.webp");
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  height: 666px;
+  height: 766px;
 }
 
 .employeePlanBG {
@@ -549,12 +549,18 @@ select {
 }
 
 @keyframes cardFadeIn {
-  from { opacity: 0; transform: scale(.98); }
-  to   { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .card-fadeIn {
-  animation: cardFadeIn .5s ease-out forwards;
+  animation: cardFadeIn 0.5s ease-out forwards;
 }
 
 /* Range slider thumb with white border (Figma style) */
@@ -576,8 +582,8 @@ select {
   width: 20px;
   height: 20px;
   border-radius: 9999px;
-  background: #4AB04A;
-  border: 2px solid #FFFFFF;
+  background: #4ab04a;
+  border: 2px solid #ffffff;
   margin-top: -8px; /* centers on 4px track */
   cursor: pointer;
 }
@@ -592,8 +598,8 @@ select {
   width: 20px;
   height: 20px;
   border-radius: 9999px;
-  background: #4AB04A;
-  border: 2px solid #FFFFFF;
+  background: #4ab04a;
+  border: 2px solid #ffffff;
   cursor: pointer;
 }
 
@@ -608,7 +614,6 @@ select {
   width: 20px;
   height: 20px;
   border-radius: 9999px;
-  background: #4AB04A;
-  border: 2px solid #FFFFFF;
+  background: #4ab04a;
+  border: 2px solid #ffffff;
 }
-
