@@ -41,11 +41,10 @@ function ContentCard({
             className="absolute inset-0 w-full h-full object-cover"
           />
 
-
           <div
             className="absolute inset-0 z-10 hidden md:block"
             style={{
-              backgroundImage: sideGradient, 
+              backgroundImage: sideGradient,
             }}
           />
         </div>

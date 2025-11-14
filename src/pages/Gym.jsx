@@ -27,7 +27,6 @@
 
 // export default Gym;
 
-
 import React from "react";
 import Hero from "../components/PageComponents/Home/Desktop/Hero";
 
@@ -39,9 +38,9 @@ import TimeToEvolve from "@/components/PageComponents/Gym/TimeToEvolve";
 import WhatMakesEvolve from "@/components/PageComponents/Home/Desktop/WhatMakesEvolve";
 import HomeEvolvegallery from "@/components/PageComponents/Home/Desktop/HomeEvolvegallery";
 import HomeTrustedEquipmentBrands from "@/components/PageComponents/Home/Desktop/HomeTrust";
+import GymHero from "@/components/PageComponents/Gym/GymHero";
 
 function Gym() {
-
   return (
     <>
       <MetaTags
@@ -49,10 +48,11 @@ function Gym() {
         description="Evolve Strength sets the standard for fitness in Canada. Train with Olympic-grade gear, dynamic turf zones, and a community built to elevate your results."
       />
       <div className="overflow-hidden ">
-        <Hero title={"Evolve <br /> Gym Experience"} />
+        <GymHero />
+        {/* <Hero title={"Evolve <br /> Gym Experience"} /> */}
         {/* <GymZones />
         <WhatMakesEvolve /> */}
-        <PumpIt sliderDotsColor='bg-[#4AB04A]' />
+        <PumpIt sliderDotsColor="bg-[#4AB04A]" />
         <WhatMakesEvolve />
         <MarqueeSection />
         {/* <GymTrainingCategories /> */}
