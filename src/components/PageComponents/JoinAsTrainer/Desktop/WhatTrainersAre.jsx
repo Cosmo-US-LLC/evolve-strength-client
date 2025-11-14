@@ -33,27 +33,27 @@ function WhatTrainersAre() {
       testimonial:
         "Evolve has allowed me to build my business the way I see fit, in a welcoming environment surrounded by like-minded trainers and coaches. Evolve has provided a space for me and my clients that has everything we need. I would recommend working at Evolve to any trainer who wants to grow and truly control their own business.",
     },
-    {
-      name: "Jason M.",
-      role: "Personal Trainer",
-      image: michelleImage,
-      testimonial:
-        "I used to work at a gym that took a cut from every session. Sometimes it was almost half. At Evolve, I just pay a flat fee each month. That's it. No surprises, no percentages. And I actually get to keep what I earn. It's made a big difference. I can plan better and take on more clients without worrying about losing a chunk of my income.",
-    },
-    {
-      name: "Sarah K.",
-      role: "Nutrition Coach",
-      image: spencerImage,
-      testimonial:
-        "The community at Evolve is incredible. I've been able to build a thriving nutrition coaching business while being surrounded by other wellness professionals. The facility is top-notch, and the support from the Evolve team has been amazing. I love that I can focus on my clients without worrying about facility management or unexpected costs.",
-    },
-    {
-      name: "Mike R.",
-      role: "Fitness Trainer",
-      image: baileyImage,
-      testimonial:
-        "Switching to Evolve was the best decision I made for my business. The all-inclusive pricing means I know exactly what I'm paying each month, and the amenities are fantastic. My clients love the space, and I love that I can grow my business without the usual overhead headaches.",
-    },
+    // {
+    //   name: "Jason M.",
+    //   role: "Personal Trainer",
+    //   image: michelleImage,
+    //   testimonial:
+    //     "I used to work at a gym that took a cut from every session. Sometimes it was almost half. At Evolve, I just pay a flat fee each month. That's it. No surprises, no percentages. And I actually get to keep what I earn. It's made a big difference. I can plan better and take on more clients without worrying about losing a chunk of my income.",
+    // },
+    // {
+    //   name: "Sarah K.",
+    //   role: "Nutrition Coach",
+    //   image: spencerImage,
+    //   testimonial:
+    //     "The community at Evolve is incredible. I've been able to build a thriving nutrition coaching business while being surrounded by other wellness professionals. The facility is top-notch, and the support from the Evolve team has been amazing. I love that I can focus on my clients without worrying about facility management or unexpected costs.",
+    // },
+    // {
+    //   name: "Mike R.",
+    //   role: "Fitness Trainer",
+    //   image: baileyImage,
+    //   testimonial:
+    //     "Switching to Evolve was the best decision I made for my business. The all-inclusive pricing means I know exactly what I'm paying each month, and the amenities are fantastic. My clients love the space, and I love that I can grow my business without the usual overhead headaches.",
+    // },
   ];
 
   const StarRating = () => (

@@ -92,27 +92,39 @@ const MarqueeSection = () => {
         {/* Header Section */}
         <div className="flex flex-col gap-4 md:items-center md:text-center max-w-[800px] mb-12">
           <h2 className="text-[#1c1c1c] uppercase text-[40px]">
-            Elite Machines. Infinite Possibilities.
+            205+ World-Class Personal Trainers
+            {/* Elite Machines. Infinite Possibilities. */}
           </h2>
           <h4 className="text-black max-w-[621px] leading-[26px]">
-            From free weights to cutting-edge equipment, Evolve provides
+            {/* From free weights to cutting-edge equipment, Evolve provides
             everything you need to stay active. Whether you are lifting,
             sprinting, or stretching, our world-class machines and supportive
-            atmosphere keep you moving at your best.
+            atmosphere keep you moving at your best. */}
+            No matter where you’re starting or what your goal is, you’ll find a
+            trainer at Evolve who understands your journey and knows how to
+            deliver results.
           </h4>
         </div>
 
         {/* Two reusable marquees with opposite directions */}
-        <EquipmentCardsMarquee
-          items={equipmentCards.slice(0, 8)}
-          direction="left"
-          speed={40}
-        />
-        <EquipmentCardsMarquee
-          items={equipmentCards.slice(8)}
-          direction="right"
-          speed={40}
-        />
+        {/* <div className="max-lg:hidden grid grid-cols-8 grid-rows-3 gap-1.5">
+            <div className="border flex items-end justify-center px-2 py-1.5 rounded-[7px] relative">
+              <div></div>
+            </div>
+        </div> */}
+
+        {/* <div className="lg:hidden"> */}
+          <EquipmentCardsMarquee
+            items={equipmentCards.slice(0, 8)}
+            direction="left"
+            speed={40}
+          />
+          <EquipmentCardsMarquee
+            items={equipmentCards.slice(8)}
+            direction="right"
+            speed={40}
+          />
+        {/* </div> */}
       </div>
     </section>
   );

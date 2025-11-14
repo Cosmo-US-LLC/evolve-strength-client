@@ -77,7 +77,7 @@ function WhyChooseEvolveProgress({
 
   const handleCardClick = (index) => {
     // Only allow clicking on desktop
-    if (window.innerWidth >= 768) {
+    // if (window.innerWidth >= 768) {
       // Cancel any existing animation
       if (timerRef.current) {
         cancelAnimationFrame(timerRef.current);
@@ -85,7 +85,7 @@ function WhyChooseEvolveProgress({
       // Reset progress and set new active index
       setProgress(0);
       setActiveIndex(index);
-    }
+    // }
   };
 
   const renderBar = (index) => {
