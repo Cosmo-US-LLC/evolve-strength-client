@@ -7,6 +7,7 @@ import ContentCard from "@/components/Common/ContentCard";
 import TrainerTestimonials from "@/components/PageComponents/JoinAsTrainer/Desktop/TrainerTestimonials";
 import WhyChooseEvolveProgress from "@/components/PageComponents/JoinAsTrainer/Desktop/WhyChooseEvolveProgress";
 import TourOurFitness from "@/components/PageComponents/JoinAsTrainer/Desktop/TourOurFitness";
+import WhatTrainersAre from "@/components/PageComponents/JoinAsTrainer/Desktop/WhatTrainersAre";
 
 function JoinAsTrainer() {
   return (
@@ -56,7 +57,7 @@ function JoinAsTrainer() {
       {/* <TrainerTestimonials /> */}
       {/* <BuildYourCareer /> */}
       {/* <WhyChooseEvolve /> */}
-      {/* <WhatTrainersAre /> */}
+      <WhatTrainersAre />
       {/* <TourOurFitness /> */}
       <ContentCard
         title={"TOUR OUR FITNESS<br />FACILITIES"}
