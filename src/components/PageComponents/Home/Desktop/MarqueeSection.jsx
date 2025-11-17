@@ -154,8 +154,8 @@ const MarqueeSection = () => {
     // Only run on mobile screens (below lg breakpoint)
     const isMobile = window.innerWidth < 1024;
     if (!emblaApi || !isMobile) return;
-    const duration = 8000; // 5 seconds
-    const interval = 10; // Update every 16ms for smooth animation
+    const duration = 7000; // 5 seconds
+    const interval = 15; // Update every 16ms for smooth animation
     const increment = (100 / duration) * interval; // Progress increment per interval
     // Initialize progress at 0
     setProgress(0);
