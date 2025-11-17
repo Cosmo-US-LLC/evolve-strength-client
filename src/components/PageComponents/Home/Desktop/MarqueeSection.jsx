@@ -131,7 +131,7 @@
 // };
 
 // export default MarqueeSection;
-import React, {useState, useEffect } from "react";
+import React, {useState, useEffect, useRef  } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import img1 from "@/assets/images/gym/World-Class/world_class (12).png";
 import img2 from "@/assets/images/gym/World-Class/world_class (6).png";
@@ -269,8 +269,8 @@ const equipmentCards = [
   // },
 ];
 const MarqueeSection = () => {
-
-    const [emblaRef, emblaApi] = useEmblaCarousel({
+// Mobile carousel state
+  const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: true,
     slidesToScroll: 1,
@@ -278,26 +278,29 @@ const MarqueeSection = () => {
     draggable: false, // Disable drag/swipe - auto-play only
   });
   const [progress, setProgress] = useState(0);
-  // Auto-play progress bar: fills 0-100% in 3 seconds, then slides to next card
+  const progressIntervalRef = useRef(null);
+  // Auto-play progress bar: fills 0-100% in 3 seconds, then slides to next card (mobile only)
   useEffect(() => {
-    if (!emblaApi) return;
-    const duration = 500; // 3 seconds
+    // Only run on mobile screens (below lg breakpoint)
+    const isMobile = window.innerWidth < 1024;
+    if (!emblaApi || !isMobile) return;
+    const duration = 5000; // 5 seconds
     const interval = 16; // Update every 16ms for smooth animation
     const increment = (100 / duration) * interval; // Progress increment per interval
     // Initialize progress at 0
     setProgress(0);
     let currentProgress = 0;
-    let progressInterval = null;
     const startProgressCycle = () => {
       // Reset to 0
       currentProgress = 0;
       setProgress(0);
       // Clear any existing interval
-      if (progressInterval) {
-        clearInterval(progressInterval);
+      if (progressIntervalRef.current) {
+        clearInterval(progressIntervalRef.current);
+        progressIntervalRef.current = null;
       }
       // Start new progress cycle
-      progressInterval = setInterval(() => {
+      progressIntervalRef.current = setInterval(() => {
         currentProgress = Math.min(100, currentProgress + increment);
         setProgress(currentProgress);
         if (currentProgress >= 100) {
@@ -316,29 +319,32 @@ const MarqueeSection = () => {
     };
     emblaApi.on("select", handleSlideChange);
     return () => {
-      if (progressInterval) {
-        clearInterval(progressInterval);
+      if (progressIntervalRef.current) {
+        clearInterval(progressIntervalRef.current);
+        progressIntervalRef.current = null;
       }
-      emblaApi.off("select", handleSlideChange);
+      if (emblaApi) {
+        emblaApi.off("select", handleSlideChange);
+      }
     };
   }, [emblaApi]);
 
 
-const MobileEquipmentCard = ({ card, className = "" }) => {
+  const MobileEquipmentCard = ({ card, className = "" }) => {
     return (
-      <div className={`flex-shrink-0 w-[80%] sm:w-[70%] p-1 ${className}`}
-      >
-        <div className="bg-white rounded-[8px] overflow-hidden p-2 border-[1px] border-transparent h-full flex flex-col"
-         style={{ boxShadow:"0 0 0 0.894px rgba(74, 176, 74, 0.12), 0 2.682px 2.682px -1.341px rgba(74, 176, 74, 0.04), 0 5.364px 5.364px -2.682px rgba(74, 176, 74, 0.04), 0 0.894px 0.894px -0.447px rgba(74, 176, 74, 0.04), 0 10.728px 10.728px -5.364px rgba(74, 176, 74, 0.04)"}}
+      <div className={`flex-shrink-0 w-[80%] sm:w-[70%] p-2 ${className}`}>
+        <div className="bg-white rounded-[7px] overflow-hidden p-2  border-[1px] border-transparent h-full flex flex-col"
+        style={{ boxShadow:"0 0 0 0.894px rgba(74, 176, 74, 0.12), 0 2.682px 2.682px -1.341px rgba(74, 176, 74, 0.04), 0 5.364px 5.364px -2.682px rgba(74, 176, 74, 0.04), 0 0.894px 0.894px -0.447px rgba(74, 176, 74, 0.04), 0 10.728px 10.728px -5.364px rgba(74, 176, 74, 0.04)"}}
         >
           <div className="w-full relative rounded-[6px] overflow-hidden flex-shrink-0">
             <img
               alt={card.label}
               src={card.mobimg}
-              className="w-full h-full object-cover object-center rounded-[6px] block"
+              className="w-full object-cover object-center rounded-[6px] block"
               loading="lazy"
             />
           </div>
+          {/* Label below image for mobile */}
           <div className="p-3 bg-white flex-shrink-0">
             <p className="text-[#1C1C1C] font-Kanit font-[400] text-[14px] leading-[20px] text-center">
               {card.label}
@@ -350,37 +356,64 @@ const MobileEquipmentCard = ({ card, className = "" }) => {
   };
 
   // Equipment Card Component
-  const EquipmentCard = ({ card, className = "" }) => {
-    const baseClasses = "group bg-white overflow-hidden rounded-[7px] relative transition-all duration-300 border-[1px] border-transparent hover:border-[#4AB04A]";
-   
-    return (
+const EquipmentCard = ({ card, className = "" }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const baseClasses = "bg-white overflow-hidden rounded-[7px] relative transition-all duration-300 border-[1px]";
+  const borderClass = isHovered ? "border-[#4AB04A]" : "border-transparent";
+  return (
     <div
-      className={`${baseClasses} ${className}`}
+      className={`${baseClasses} ${borderClass} ${className}`}
+      onMouseEnter={() => {
+        setIsHovered(true);
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+      }}
+      style={{ cursor: 'pointer' }}
     >
       <div className="w-full relative rounded-[6px] overflow-hidden">
-        <img
-          alt={card.label}
-          src={card.image}
-          className="w-full h-auto object-cover object-center rounded-[6px] transition-opacity duration-300 group-hover:opacity-0 block"
-          loading="lazy"
-        />
-        {/* Default Label - Bottom Left (always visible) */}
-        <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent rounded-b-[6px]">
-          <p className="text-white font-Kanit font-[400] text-[14px] leading-[20px] group-hover:opacity-0 transition-opacity duration-300">
-            {card.label}
-          </p>
-        </div>
-        {/* Hover Overlay with White Background, Icon and Label */}
-        <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 rounded-[6px]">
-          <img src={card.icon} alt={card.label} className="object-contain" />
-          <p className="text-[#1C1C1C] font-Kanit font-[400] text-[16px] leading-[24px] text-center px-4">
-            {card.label}
-          </p>
+        {/* Image Container */}
+        <div className="relative w-full">
+          <img
+            alt={card.label}
+            src={card.image}
+            className="w-full h-auto object-cover object-center rounded-[6px] block"
+            loading="eager"
+          />
+          {/* Default Label - Bottom Left (always visible) */}
+          <div
+            className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent rounded-b-[6px] pointer-events-none transition-opacity duration-300 ease-in-out"
+            style={{
+              opacity: isHovered ? 0 : 1,
+              zIndex: 10
+            }}
+          >
+            <p className="text-white font-Kanit font-[400] text-[14px] leading-[20px]">
+              {card.label}
+            </p>
+          </div>
+          {/* Hover Overlay with White Background, Icon and Label */}
+          <div
+            className="absolute top-0 left-0 right-0 bottom-0 bg-white transition-opacity duration-300 ease-in-out flex flex-col items-center justify-center gap-3 rounded-[6px] pointer-events-none"
+            style={{
+              opacity: isHovered ? 1 : 0,
+              zIndex: 20
+            }}
+          >
+            {card.icon && card.icon.trim() !== "" ? (
+              <img src={card.icon} alt={`${card.label} icon`} className="w-8 h-8 object-contain" />
+            ) : null}
+            <p className="text-[#1C1C1C] font-Kanit font-[400] text-[16px] leading-[24px] text-center px-4">
+              {card.label}
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    );
-  };
+  );
+};
+
+
   return (
     <section className="bg-white w-full py-12 md:py-20">
       <div className="w-full max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col items-center">
