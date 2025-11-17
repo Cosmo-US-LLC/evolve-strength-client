@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function JoinAsTrainerHero(onSelectOption) {
-  
   const [valueHourly, setValueHourly] = useState(50);
   const [sessions, setSessions] = useState(20);
   const [gymSplit, setGymSplit] = useState(30);
@@ -31,16 +30,20 @@ function JoinAsTrainerHero(onSelectOption) {
     <div className="w-full pb-12 pt-24 md:pt-[120px] bg-black">
       <div className="w-full max-w-[1280px] px-4 sm:px-8 mx-auto flex flex-col gap-12">
         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-10">
-          <div className="w-full md:w-[70%] md:space-y-[24px] space-y-[12px] text-left relative">
-            <h2 className="md:max-w-[707px] text-4xl md:text-[70px] leading-[52px]  md:leading-[56px] uppercase text-white">
-            Evolve Your Career, Keep Your Earnings.
+          <div className="w-full md:w-[60%] md:space-y-[24px] space-y-[12px] text-left relative">
+            <h2 className="md:max-w-[707px] !text-[40px] md:!text-[70px] leading-[56px] md:!leading-[56px] uppercase text-[#fff]">
+              Evolve Your Career, Keep Your Earnings.
             </h2>
-            <p className="text-white leading-[24px] font-[400] w-full md:max-w-[505px]">
-               You’ve worked too hard to give up a piece of every session. <br /> Use our calculator to find out how much more you could be making with Evolve. 
-            </p>
-            <p className="text-white leading-[24px] font-[400] w-full md:w-[585px]">Flat rates. No cuts. Total freedom.</p>
+            <h3 className="text-white leading-[24px] !font-[300] w-full md:max-w-[520px]">
+              You’ve worked too hard to give up a piece of every session Use our
+              calculator to find out how much more you could be making with
+              Evolve.
+            </h3>
+            <h3 className="text-white !font-[300] leading-[24px] w-full md:w-[585px]">
+              Flat rates. No cuts. Total freedom.
+            </h3>
             <div className="flex md:flex-row flex-col w-full items-start md:justify-between">
-              <h3 className="text-white md:leading-[39px] !text-[16px] md:!text-[24px] uppercase !font-[700]">
+              <h3 className="text-white md:leading-[39px] !text-[16px] md:!text-[22px] uppercase !font-[700]">
                 You’re Losing Money at Your Current Gym
               </h3>
               <img
@@ -51,19 +54,19 @@ function JoinAsTrainerHero(onSelectOption) {
               <img
                 src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1762430416767-8aad447b-4802-4e62-ace8-1760aab6a6f6.png"
                 alt="Animated graphic"
-                className="max-md:hidden   transform scale-y-[-1] md:scale-y-[1] origin-center"
+                className="max-md:hidden   transform scale-y-[-1] md:scale-y-[1.2] origin-center"
               />
             </div>
           </div>
-          <div className="w-full md:max-w-[352px] rounded-[10px] border-[1px] bg-[#1a1a1a] border-[#2e2e2e]">
-            <div className="py-[12px] rounded-t-[10px] bg-[#2e2e2e]">
-              <h3 className="text-white text-center leading-[26px]  !font-[500] uppercase">
+          <div className="w-full md:w-[40%]   rounded-[10px] border-[1px] bg-[#1a1a1a] border-[#2e2e2e]">
+            <div className="py-[18px] rounded-t-[10px] bg-[#2e2e2e]">
+              <h2 className="text-white text-center leading-[26px]  !font-[500] uppercase">
                 Calculation
-              </h3>
+              </h2>
             </div>
             <div className="px-[32px] space-y-[16px] pt-[24px] pb-[32px]">
               <div className="space-y-[5px]">
-                <p className="text-white text-[16px] font-[400] font-[kanit]">Your hourly rate</p>
+                <h3 className="text-[#fff]">Your hourly rate</h3>
                 <input
                   min="1"
                   max="200"
@@ -72,18 +75,19 @@ function JoinAsTrainerHero(onSelectOption) {
                   value={valueHourly}
                   onChange={handleChange}
                   style={{
-                    background: `linear-gradient(to right, #4AB04A 0%, #4AB04A ${((valueHourly - 1) / 199) * 100
-                      }%, #ccc ${((valueHourly - 1) / 199) * 100}%, #ccc 100%)`,
+                    background: `linear-gradient(to right, #4AB04A 0%, #4AB04A ${
+                      ((valueHourly - 1) / 199) * 100
+                    }%, #ccc ${((valueHourly - 1) / 199) * 100}%, #ccc 100%)`,
                     borderRadius: "8px",
                   }}
                 />
                 <div className="flex justify-between">
-                  <p className="text-white text-[16px] font-[kanit] font-[500]">{valueHourly}</p>
-                  <p className="text-white text-[16px] font-[kanit] font-[500]">200</p>
+                  <h3 className="text-[#fff]">{valueHourly}</h3>
+                  <h3 className="text-[#fff]">200</h3>
                 </div>
               </div>
               <div className="space-y-[5px] ">
-                <p className="text-white text-[16px] font-[400] font-[kanit]">Number of sessions per month</p>
+                <h3 className="text-[#fff]">Number of sessions per month</h3>
                 <input
                   min="1"
                   max="200"
@@ -92,27 +96,29 @@ function JoinAsTrainerHero(onSelectOption) {
                   value={sessions}
                   onChange={handleChangeSessions}
                   style={{
-                    background: `linear-gradient(to right, #4AB04A 0%, #4AB04A ${((sessions - 1) / 199) * 100
-                      }%, #ccc ${((sessions - 1) / 199) * 100}%, #ccc 100%)`,
+                    background: `linear-gradient(to right, #4AB04A 0%, #4AB04A ${
+                      ((sessions - 1) / 199) * 100
+                    }%, #ccc ${((sessions - 1) / 199) * 100}%, #ccc 100%)`,
                     borderRadius: "8px",
                   }}
                 />
                 <div className="flex justify-between">
-                  <p className="text-white text-[16px] font-[kanit] font-[500]">{sessions}</p>
-                  <p className="text-white text-[16px] font-[kanit] font-[500]">200</p>
+                  <h3 className="text-[#fff]">{sessions}</h3>
+                  <h3 className="text-[#fff]">200</h3>
                 </div>
               </div>
               <div className="space-y-[5px]">
-                <p className="text-white text-[16px] font-[400] font-[kanit]">Your current gym split %</p>
+                <h3 className="text-[#fff]">Your current gym split %</h3>
                 <div className="flex justify-between space-x-[1px] items-center">
                   {gymSplitOptions.map((option) => (
                     <button
                       key={option}
                       onClick={() => setGymSplit(option)}
-                      className={`!py-[8px] !px-[10px] !rounded-[10px] text-[14px] font-[400] ${gymSplit === option
+                      className={`md:!py-[14px] !py-[8px] md:!px-[16px] !px-[10px] !rounded-[10px] md:text-[20px] text-[16px] font-[500] ${
+                        gymSplit === option
                           ? "!bg-[#4AB04A] !text-white"
                           : "!border-[1px] !border-[#9D9D9D] !bg-[#1a1a1a] !text-[#9D9D9D]"
-                        }`}
+                      }`}
                     >
                       {option}%
                     </button>
@@ -120,22 +126,25 @@ function JoinAsTrainerHero(onSelectOption) {
                 </div>
               </div>
               <div className="pt-[8px]">
-                <h5 className="!font-[300] text-center !text-[14px] text-white leading-[26px]">
+                <h5 className="!font-[300] text-center !text-[16px] text-white leading-[26px]">
                   You’re losing
                 </h5>
                 <h3 className="!font-[700] leading-[26px] text-center text-white">
-                  ${monthlyLoss.toLocaleString(undefined, {
+                  $
+                  {monthlyLoss.toLocaleString(undefined, {
                     minimumFractionDigits: 0,
                     maximumFractionDigits: 0,
-                  })}/month
+                  })}
+                  /month
                 </h3>
-                <h5 className="!font-[300] !text-[12px] text-white text-center leading-[26px]">
+                <h5 className="!font-[300] !text-[14px] text-white text-center leading-[26px]">
                   by staying at your current gym.
                 </h5>
-                <h5 className="!font-[300] !text-[12px] text-white text-center leading-[12px]">
+                <h5 className="!font-[300] !text-[14px] text-white text-center leading-[12px]">
                   That’s{" "}
-                  <span className="text-white text-[14px] font-[500] font-[kanit]">
-                    ${yearlyLoss.toLocaleString(undefined, {
+                  <span className="text-white text-[16px] font-[500] font-[kanit]">
+                    $
+                    {yearlyLoss.toLocaleString(undefined, {
                       minimumFractionDigits: 0,
                       maximumFractionDigits: 0,
                     })}
@@ -144,10 +153,11 @@ function JoinAsTrainerHero(onSelectOption) {
                 </h5>
               </div>
               <div className="flex justify-center pt-[8px]">
-
-
                 <Link to="/trainer-form">
-                  <button className="btnPrimary bg-[#4AB04A] hover:brightness-110 text-white" onClick={() => onSelectOption("apply")}>
+                  <button
+                    className="btnPrimary bg-[#4AB04A] hover:brightness-110 text-white"
+                    onClick={() => onSelectOption("apply")}
+                  >
                     Start Saving
                   </button>
                 </Link>

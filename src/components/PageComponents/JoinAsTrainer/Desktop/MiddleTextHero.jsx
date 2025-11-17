@@ -32,7 +32,8 @@ const MiddleTextHero = ({ title }) => {
           style={{ objectFit: "", objectPosition: "" }}
         >
           <source
-            src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/gym-vid-desktop.mp4"
+            // src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/gym-vid-desktop.mp4"
+            src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/jat-desk.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
@@ -47,7 +48,8 @@ const MiddleTextHero = ({ title }) => {
           style={{ objectFit: "", objectPosition: "" }}
         >
           <source
-            src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/gym-vid-mobile.mp4"
+            // src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/gym-vid-mobile.mp4"
+            src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/jat-mob.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
