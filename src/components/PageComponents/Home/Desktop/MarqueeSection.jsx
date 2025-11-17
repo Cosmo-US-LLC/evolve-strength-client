@@ -1,5 +1,4 @@
-
-import React, {useState, useEffect, useRef  } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import img1 from "@/assets/images/gym/World-Class/world_class (12).png";
 import img2 from "@/assets/images/gym/World-Class/world_class (6).png";
@@ -15,7 +14,6 @@ import img11 from "@/assets/images/gym/World-Class/world_class (2).png";
 import img12 from "@/assets/images/gym/World-Class/world_class (13).png";
 import img13 from "@/assets/images/gym/World-Class/world_class (7).png";
 import img14 from "@/assets/images/gym/World-Class/world_class (1).png";
-
 
 import card_icon1 from "@/assets/images/gym/World-Class/world_card_icons (7).svg";
 import card_icon2 from "@/assets/images/gym/World-Class/world_card_icons (1).svg";
@@ -85,7 +83,7 @@ const equipmentCards = [
   {
     image: img6,
     label: "Power Rack",
-    mob_label:"Eleiko Pulley Station",
+    mob_label: "Eleiko Pulley Station",
     icon: card_icon6,
     mobimg: card_mob6,
   },
@@ -138,7 +136,6 @@ const equipmentCards = [
     mobimg: card_mob13,
     mob_label: "Dual Cable Pulldown",
   },
-
 ];
 const MarqueeSection = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -146,18 +143,18 @@ const MarqueeSection = () => {
     loop: true,
     slidesToScroll: 1,
     containScroll: "trimSnaps",
-    draggable: false, 
+    draggable: false,
   });
   const [progress, setProgress] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const progressIntervalRef = useRef(null);
   useEffect(() => {
     // Only run on mobile screens (below lg breakpoint)
     const isMobile = window.innerWidth < 1024;
     if (!emblaApi || !isMobile) return;
-    const duration = 7000; // 5 seconds
+    const duration = 3000; // 5 seconds
     const interval = 15; // Update every 16ms for smooth animation
-    const increment = (100 / duration) * interval; // Progress increment per interval
-    // Initialize progress at 0
+    const increment = (100 / duration) * interval; 
     setProgress(0);
     let currentProgress = 0;
     const startProgressCycle = () => {
@@ -185,6 +182,10 @@ const MarqueeSection = () => {
     startProgressCycle();
     // Reset when slide changes
     const handleSlideChange = () => {
+      if (!emblaApi) return;
+
+      const slide = emblaApi.selectedScrollSnap();
+      setActiveIndex(slide);
       startProgressCycle();
     };
     emblaApi.on("select", handleSlideChange);
@@ -199,12 +200,30 @@ const MarqueeSection = () => {
     };
   }, [emblaApi]);
 
+  // Render TikTok-style Progress Bar
+  // state = 1 (done), progress (current slide), or 0 (not started)
+  const renderBar = () => {
+    return (
+      <div className="w-full">
+        <div className="bg-[rgba(0,0,0,0.2)] h-[6px] rounded-full w-full overflow-hidden">
+          <div
+            className="h-full rounded-full bg-[#4ab04a]"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      </div>
+    );
+  };
 
   const MobileEquipmentCard = ({ card, className = "" }) => {
     return (
       <div className={`flex-shrink-0 w-[80%] sm:w-[70%] p-2 ${className}`}>
-        <div className="bg-white rounded-[7px] overflow-hidden p-2  border-[1px] border-transparent h-full flex flex-col"
-        style={{ boxShadow:"0 0 0 0.894px rgba(74, 176, 74, 0.12), 0 2.682px 2.682px -1.341px rgba(74, 176, 74, 0.04), 0 5.364px 5.364px -2.682px rgba(74, 176, 74, 0.04), 0 0.894px 0.894px -0.447px rgba(74, 176, 74, 0.04), 0 10.728px 10.728px -5.364px rgba(74, 176, 74, 0.04)"}}
+        <div
+          className="bg-white rounded-[7px] overflow-hidden p-2  border-[1px] border-transparent h-full flex flex-col"
+          style={{
+            boxShadow:
+              "0 0 0 0.894px rgba(74, 176, 74, 0.12), 0 2.682px 2.682px -1.341px rgba(74, 176, 74, 0.04), 0 5.364px 5.364px -2.682px rgba(74, 176, 74, 0.04), 0 0.894px 0.894px -0.447px rgba(74, 176, 74, 0.04), 0 10.728px 10.728px -5.364px rgba(74, 176, 74, 0.04)",
+          }}
         >
           <div className="w-full relative rounded-[6px] overflow-hidden flex-shrink-0">
             <img
@@ -224,63 +243,67 @@ const MarqueeSection = () => {
     );
   };
 
-const EquipmentCard = ({ card, className = "" }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const baseClasses = "bg-white overflow-hidden rounded-[7px] relative transition-all duration-300 border-[1px]";
-  const borderClass = isHovered ? "border-[#4AB04A]" : "border-transparent";
-  return (
-    <div
-      className={`${baseClasses} ${borderClass} ${className}`}
-      onMouseEnter={() => {
-        setIsHovered(true);
-      }}
-      onMouseLeave={() => {
-        setIsHovered(false);
-      }}
-      style={{ cursor: 'pointer' }}
-    >
-      <div className="w-full relative rounded-[6px] overflow-hidden">
-        {/* Image Container */}
-        <div className="relative w-full">
-          <img
-            alt={card.label}
-            src={card.image}
-            className="w-full h-auto object-cover object-center rounded-[6px] block"
-            loading="eager"
-          />
-          {/* Default Label - Bottom Left (always visible) */}
-          <div
-            className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent rounded-b-[6px] pointer-events-none transition-opacity duration-300 ease-in-out"
-            style={{
-              opacity: isHovered ? 0 : 1,
-              zIndex: 10
-            }}
-          >
-            <p className="text-white font-Kanit font-[400] text-[14px] leading-[20px]">
-              {card.label}
-            </p>
-          </div>
-          {/* Hover Overlay with White Background, Icon and Label */}
-          <div
-            className="absolute top-0 left-0 right-0 bottom-0 bg-white transition-opacity duration-300 ease-in-out flex flex-col items-center justify-center gap-3 rounded-[6px] pointer-events-none"
-            style={{
-              opacity: isHovered ? 1 : 0,
-              zIndex: 20
-            }}
-          >
-            {card.icon && card.icon.trim() !== "" ? (
-              <img src={card.icon} alt={`${card.label} icon`} className="w-12 h-12 object-contain" />
-            ) : null}
-            <p className="text-[#1C1C1C] font-[Kanit] font-[400] text-[16px] leading-[120%] text-center px-4">
-              {card.label}
-            </p>
+  const EquipmentCard = ({ card, className = "" }) => {
+    const [isHovered, setIsHovered] = useState(false);
+    const baseClasses =
+      "bg-white overflow-hidden rounded-[7px] relative transition-all duration-300 border-[1px]";
+    const borderClass = isHovered ? "border-[#4AB04A]" : "border-transparent";
+    return (
+      <div
+        className={`${baseClasses} ${borderClass} ${className}`}
+        onMouseEnter={() => {
+          setIsHovered(true);
+        }}
+        onMouseLeave={() => {
+          setIsHovered(false);
+        }}
+        style={{ cursor: "pointer" }}
+      >
+        <div className="w-full relative rounded-[6px] overflow-hidden">
+          {/* Image Container */}
+          <div className="relative w-full">
+            <img
+              alt={card.label}
+              src={card.image}
+              className="w-full h-auto object-cover object-center rounded-[6px] block"
+              loading="eager"
+            />
+            {/* Default Label - Bottom Left (always visible) */}
+            <div
+              className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent rounded-b-[6px] pointer-events-none transition-opacity duration-300 ease-in-out"
+              style={{
+                opacity: isHovered ? 0 : 1,
+                zIndex: 10,
+              }}
+            >
+              <p className="text-white font-Kanit font-[400] text-[14px] leading-[20px]">
+                {card.label}
+              </p>
+            </div>
+            {/* Hover Overlay with White Background, Icon and Label */}
+            <div
+              className="absolute top-0 left-0 right-0 bottom-0 bg-white transition-opacity duration-300 ease-in-out flex flex-col items-center justify-center gap-3 rounded-[6px] pointer-events-none"
+              style={{
+                opacity: isHovered ? 1 : 0,
+                zIndex: 20,
+              }}
+            >
+              {card.icon && card.icon.trim() !== "" ? (
+                <img
+                  src={card.icon}
+                  alt={`${card.label} icon`}
+                  className="w-12 h-12 object-contain"
+                />
+              ) : null}
+              <p className="text-[#1C1C1C] font-[Kanit] font-[400] text-[16px] leading-[120%] text-center px-4">
+                {card.label}
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
-
+    );
+  };
 
   return (
     <section className="bg-white w-full py-12 md:py-20">
@@ -343,29 +366,22 @@ const EquipmentCard = ({ card, className = "" }) => {
             {equipmentCards[13] && <EquipmentCard card={equipmentCards[13]} />}
           </div>
         </div>
-    
+
         <div className="w-full lg:hidden mb-2">
-          <div className="overflow-hidden" ref={emblaRef} style={{ touchAction: 'none', userSelect: 'none' }}>
+          <div
+            className="overflow-hidden"
+            ref={emblaRef}
+            style={{ touchAction: "none", userSelect: "none" }}
+          >
             <div className="flex gap-2">
               {equipmentCards.map((card, idx) => (
-                <MobileEquipmentCard
-                  key={idx}
-                  card={card}
-                />
+                <MobileEquipmentCard key={idx} card={card} />
               ))}
             </div>
           </div>
           {/* Progress Bar - Auto-play: 0-100% in 3 seconds */}
-          <div className="mt-4 px-4 pointer-events-none">
-            <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-[#4AB04A]"
-                style={{
-                  width: `${Math.max(0, Math.min(100, progress))}%`,
-                  transition: "width 0.1s linear",
-                }}
-              />
-            </div>
+          <div className="flex gap-2 mt-4 px-4 pointer-events-none">
+            {renderBar()}
           </div>
         </div>
       </div>
@@ -373,4 +389,3 @@ const EquipmentCard = ({ card, className = "" }) => {
   );
 };
 export default MarqueeSection;
-
