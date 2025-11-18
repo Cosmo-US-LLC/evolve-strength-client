@@ -157,7 +157,6 @@ const MarqueeSection = () => {
 
     emblaApi.scrollPrev();
 
-    // Restart autoplay
     autoplay.current.reset();
   };
 
@@ -166,7 +165,6 @@ const MarqueeSection = () => {
 
     emblaApi.scrollNext();
 
-    // Restart autoplay
     autoplay.current.reset();
   };
 
