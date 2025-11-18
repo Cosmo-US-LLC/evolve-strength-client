@@ -10,32 +10,32 @@ const professionals = [
     {
         title: "Pilates",
         image:
-            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762342035705-755f9b55-5541-4451-8abf-4cc3acccd62a.jpg",
+            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763474759882-4c68e765-bb27-4488-a342-1d868c71d889.jpg",
     },
     {
         title: "Massage Therapy",
         image:
-            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762341943044-ed4cb1d8-5f44-4573-ab97-f98dc119b71b.jpg",
+            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763474576825-d1b88703-88ee-4ddc-aace-9fe4848f0af5.jpg",
     },
     {
       title: "Chiropractic Care",
       image:
-        "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762341927038-24b6250a-81ed-4ab8-b3d2-1503b5a55705.jpg",
+        "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763474667677-723c8ae2-b271-45cf-a802-73c26a158b41.jpg",
     },
     {
         title: "Acupuncture",
         image:
-            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762341913283-ce90ff6d-ee9f-4c44-b376-5aed3c1f857c.jpg",
+            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763474501189-f8667bd9-6dab-4e6b-bf9e-3831041c30f6.jpg",
     },
     {
         title: "Dietitian Services",
         image:
-            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762341887500-967db459-6bc2-4122-9bc8-e21027702002.jpg",
+            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763474277293-14210d72-746f-4628-8179-be457bf4ea2f.webp",
     },
     {
         title: "Dietitian Services",
         image:
-            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762341873237-a3472ea7-7e15-4ee3-a87a-0b64f2e6b954.jpg",
+            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763473996618-9a7938a2-4527-4486-8fa0-89acbddff5c2.webp",
     },
 ];
 
