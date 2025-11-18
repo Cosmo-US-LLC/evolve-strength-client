@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
-import { Volume, VolumeX } from "lucide-react";
+import { Volume2, VolumeOff } from "lucide-react";
 
 const MiddleTextHero = ({ title }) => {
-    const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
   const videoRefDesktop = useRef(null);
   const videoRefMobile = useRef(null);
-   const toggleMute = () => {
+  const toggleMute = () => {
     setIsMuted((prev) => {
       const newMute = !prev;
       if (videoRefDesktop.current) videoRefDesktop.current.muted = newMute;
@@ -61,7 +61,6 @@ const MiddleTextHero = ({ title }) => {
               className="text-[#FFFFFF] !text-[36px] md:!text-[70px] leading-[32px] md:leading-[59px] max-w-[740px] uppercase "
               dangerouslySetInnerHTML={{ __html: title }}
             />
-            
 
             {/* <div className="flex gap-4">
                   <a href="/book-a-tour">
@@ -73,16 +72,16 @@ const MiddleTextHero = ({ title }) => {
                 </div> */}
           </div>
         </div>
-      <button
-        onClick={toggleMute}
-        className="absolute cursor-pointer bottom-4 right-4 bg-black bg-opacity-50 p-3 rounded-full z-20 flex items-center justify-center"
-      >
-        {isMuted ? (
-          <img src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1762947885089-39ed7dd3-56dc-4080-aacd-a47d9d4104c2.webp" alt="mute" className="text-white w-7 h-7" />
-        ) : (
-          <img src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1762947770730-7b53fa06-f726-4f51-b34f-578b9e2ed7d3.svg" alt="unmute" className="text-white w-7 h-7" />
-        )}
-      </button>
+        <button
+          onClick={toggleMute}
+          className="absolute cursor-pointer bottom-4 right-4 bg-black bg-opacity-50 p-3 rounded-full z-20 flex items-center justify-center"
+        >
+          {isMuted ? (
+            <VolumeOff className="h-7 w-7 text-[#fff]" />
+          ) : (
+            <Volume2 className="h-7 w-7 text-[#fff]" />
+          )}
+        </button>
       </div>
     </div>
   );

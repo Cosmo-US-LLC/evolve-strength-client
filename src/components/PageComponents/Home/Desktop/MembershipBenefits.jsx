@@ -40,7 +40,7 @@ const benefitItems = [
     label: "SPACIOUS LAYOUTS",
     icon: (
       <img
-        src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/MembershipBenefits/image_5_logo.svg"
+        src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1763469251596-da330011-a2b7-4024-bd50-b49f97e363d6.webp"
         alt="Shower Head Icon"
         className="w-5 h-5"
       />

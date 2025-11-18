@@ -81,8 +81,8 @@ function ContentCard({
 
       {/* Mobile stays same always text top + image bottom */}
       <div
-        className="relative w-full bg-black overflow-hidden md:hidden"
-        style={{ height: `${mobileHeight}px` }}
+        className="relative w-full bg-black !min-h-[600px] pt-[48px] h-[100%] overflow-hidden md:hidden"
+        style={{ minHeightheight: `500px` }}
       >
         <div className="absolute bottom-0 right-0 w-full min-h-[370px]">
           <div className="absolute inset-0 overflow-hidden">

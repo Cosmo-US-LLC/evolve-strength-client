@@ -140,8 +140,8 @@ function WhyChooseEvolveProgress({
   };
   return (
     <div className="bg-black w-full">
-      <div className="max-w-[1280px] md:px-8 px-4 mx-auto w-full py-[64px] md:py-[100px]">
-        <h2 className="text-white uppercase text-center !text-[28px] md:!text-[40px] leading-[32px] md:leading-[39px] mb-6">
+      <div className="max-w-[1280px] md:px-8 px-4 mx-auto w-full py-[48px] md:py-[100px]">
+        <h2 className="text-white uppercase md:text-center text-start !text-[28px] md:!text-[40px] leading-[32px] md:leading-[39px] mb-6">
           Why Choose Evolve
         </h2>
         {/* DESKTOP IMAGE */}
