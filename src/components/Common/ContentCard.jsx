@@ -62,7 +62,7 @@ function ContentCard({
                 dangerouslySetInnerHTML={{ __html: title }}
               />
               {description && (
-                <p className="!text-[18px] leading-[26px] text-white opacity-95">
+                <p className="!text-[18px] font-[Kanit] font-[300] leading-[26px] text-white opacity-95">
                   {description}
                 </p>
               )}
@@ -107,7 +107,7 @@ function ContentCard({
             dangerouslySetInnerHTML={{ __html: title }}
           />
           {description && (
-            <p className="!text-[16px] leading-[24px]">{description}</p>
+            <p className="!text-[16px] font-[Kanit] font-[300] leading-[24px]">{description}</p>
           )}
 
           {hasButton && (

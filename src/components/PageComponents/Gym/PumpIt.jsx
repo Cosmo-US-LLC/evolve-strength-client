@@ -152,7 +152,7 @@ function PumpIt({sliderDotsColor = "sliderDotsColor"}) {
         <div className="absolute -top-1/6 -translate-y-1/2 left-[90%] z-10 max-md:hidden">
           <button
             onClick={scrollPrev}
-            className="bg-[#000] h-[45px] w-[45px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
+            className="bg-[#000] group  h-[45px] w-[45px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer  transition-all duration-200 hover:bg-white hover:text-black "
           >
              <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -160,6 +160,7 @@ function PumpIt({sliderDotsColor = "sliderDotsColor"}) {
                 height="17"
                 viewBox="0 0 19 17"
                 fill="none"
+                 className="[&_*]:transition-all [&>g>path]:stroke-white group-hover:[&>g>path]:stroke-black"
               >
                 <g clip-path="url(#clip0_9239_971)">
                   <path
@@ -193,7 +194,9 @@ function PumpIt({sliderDotsColor = "sliderDotsColor"}) {
         <div className="absolute -top-1/6 -translate-y-1/2 right-[2%] z-10 max-md:hidden">
           <button
             onClick={scrollNext}
-            className="bg-[#000] h-[45px] w-[45px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
+            className="group bg-[#000] h-[45px] w-[45px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer 
+               transition-all duration-200 
+               hover:bg-white hover:text-black"
           >
              <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -201,6 +204,7 @@ function PumpIt({sliderDotsColor = "sliderDotsColor"}) {
                 height="17"
                 viewBox="0 0 19 17"
                 fill="none"
+                 className="[&_*]:transition-all [&>g>path]:stroke-white group-hover:[&>g>path]:stroke-black"
               >
                 <g clip-path="url(#clip0_9239_976)">
                   <path
@@ -236,7 +240,9 @@ function PumpIt({sliderDotsColor = "sliderDotsColor"}) {
           <div>
             <button
               onClick={scrollPrev}
-              className="bg-[#000] h-[40px] w-[40px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
+              className="bg-[#000] h-[40px] w-[40px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer group cursor-pointer 
+               transition-all duration-200 
+               hover:bg-white hover:text-black"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -244,6 +250,7 @@ function PumpIt({sliderDotsColor = "sliderDotsColor"}) {
                 height="17"
                 viewBox="0 0 19 17"
                 fill="none"
+                 className="[&_*]:transition-all [&>g>path]:stroke-white group-hover:[&>g>path]:stroke-black"
               >
                 <g clip-path="url(#clip0_9239_971)">
                   <path
@@ -277,7 +284,9 @@ function PumpIt({sliderDotsColor = "sliderDotsColor"}) {
           <div>
             <button
               onClick={scrollNext}
-              className="bg-[#000] h-[40px] w-[40px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
+              className="bg-[#000] h-[40px] w-[40px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] group cursor-pointer 
+               transition-all duration-200 
+               hover:bg-white hover:text-black "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -285,6 +294,7 @@ function PumpIt({sliderDotsColor = "sliderDotsColor"}) {
                 height="17"
                 viewBox="0 0 19 17"
                 fill="none"
+                 className="[&_*]:transition-all [&>g>path]:stroke-white group-hover:[&>g>path]:stroke-black"
               >
                 <g clip-path="url(#clip0_9239_976)">
                   <path

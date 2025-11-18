@@ -30,7 +30,7 @@ function GymHero() {
             Evolve Gym Experience
           </h1>
 
-          <div className="flex flex-row gap-3">
+          <div className="flex flex-row gap-x-[24px]">
             <Link to="/book-a-tour/">
               <button className="btnPrimary">Book a Free Tour</button>
             </Link>

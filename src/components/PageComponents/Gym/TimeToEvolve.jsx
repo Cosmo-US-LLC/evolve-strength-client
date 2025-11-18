@@ -12,7 +12,7 @@ function TimeToEvolve() {
           <h4 className="!text-[#fff] leading-[25px] max-w-[593px] !font-[400] md:!font-[300]">
             Feel the energy, ride the momentum, and crush your next workout.
           </h4>
-          <div className="flex gap-6">
+          <div className="flex gap-x-[24px]">
             <a href="/book-a-tour/">
               <button className="btnPrimary">BOOK A FREE TOUR</button>
             </a>

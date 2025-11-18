@@ -232,7 +232,7 @@ const WhatMakesEvolve = () => {
                             {card.title}
                           </h3>
                           <p
-                            className={`description leading-[24px] md:leading-[26px] !text-[16px]  ${
+                            className={`font-[Kanit] !font-[300] md:text-[18px] leading-[24px] md:leading-[26px] !text-[16px]  ${
                               isSelected ? "text-[#000]" : "text-white"
                             }`}
                           >
