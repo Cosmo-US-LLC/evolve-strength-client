@@ -28,7 +28,7 @@ const MiddleTextHero = ({ title }) => {
           loop
           muted={isMuted}
           playsInline
-          className="absolute hidden md:block  inset-0 w-full h-full object-cover"
+          className="absolute hidden md:block inset-0 w-full h-full object-cover"
           style={{ objectFit: "", objectPosition: "" }}
         >
           <source

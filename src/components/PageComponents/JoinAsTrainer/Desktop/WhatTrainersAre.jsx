@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useCallback} from "react";
 import Autoplay from "embla-carousel-autoplay";
+import useEmblaCarousel from "embla-carousel-react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+
 import starIcon from "../../../../assets/images/JoinAsTrainer/WhatTrainersAre/star.webp";
 import michelleImage from "../../../../assets/images/JoinAsTrainer/WhatTrainersAre/what_trainer_img1.webp";
 import spencerImage from "../../../../assets/images/JoinAsTrainer/WhatTrainersAre/what_trainer_img2.webp";
@@ -56,6 +58,18 @@ function WhatTrainersAre() {
     // },
   ];
 
+  const [api, setApi] = React.useState(null);
+
+ const scrollPrev = () => {
+  if (!api) return;
+  api.scrollPrev();
+};
+
+const scrollNext = () => {
+  if (!api) return;
+  api.scrollNext();
+};
+
   const StarRating = () => (
     <div className="flex items-start">
       {[...Array(5)].map((_, i) => (
@@ -84,8 +98,9 @@ function WhatTrainersAre() {
               align: "start",
               loop: true,
             }}
+            setApi={setApi}
             plugins={[Autoplay({ delay: 4000, stopOnInteraction: false })]}
-            className="w-full"
+            className="w-full relative"
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {testimonialData.map((testimonial, index) => (
@@ -125,6 +140,92 @@ function WhatTrainersAre() {
                 </CarouselItem>
               ))}
             </CarouselContent>
+          <div>
+              <div className="md:hidden pt-6 max-md:flex justify-center items-center space-x-4">
+          <div>
+            <button
+              onClick={scrollPrev}
+              className="bg-[#000] h-[40px] w-[40px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="17"
+                viewBox="0 0 19 17"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_9239_971)">
+                  <path
+                    d="M8.76871 0.927734L1.5625 8.49601L8.76871 16.0643"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                  <path
+                    d="M18.2108 8.49805H1.94531"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_9239_971">
+                    <rect
+                      width="18.1639"
+                      height="16.6502"
+                      fill="white"
+                      transform="translate(0.804688 0.169922)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+          </div>
+          <div>
+            <button
+              onClick={scrollNext}
+              className="bg-[#000] h-[40px] w-[40px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="17"
+                viewBox="0 0 19 17"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_9239_976)">
+                  <path
+                    d="M10.4141 0.927734L17.6203 8.49601L10.4141 16.0643"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                  <path
+                    d="M0.96875 8.49805H17.2343"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_9239_976">
+                    <rect
+                      width="18.1639"
+                      height="16.6502"
+                      fill="white"
+                      transform="translate(0.210938 0.169922)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+          </div>
+        </div>
+          </div>
           </Carousel>
         </div>
       </div>

@@ -7,6 +7,7 @@ const DEFAULT_STEPS = [
       "Set your own prices and keep every dollar. We charge a simple flat fee for space. No cuts, no percentages.",
     image:
       "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762433209383-7ec3d881-bf94-44b0-95a0-cabbb0f5cca7.webp",
+      image_mob:"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762433209383-7ec3d881-bf94-44b0-95a0-cabbb0f5cca7.webp",
     durationMs: 3500,
   },
   {
@@ -16,6 +17,7 @@ const DEFAULT_STEPS = [
       "Your clients stay fully yours. We never interfere, share, or manage them on your behalf.",
     image:
       "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762433458101-71922c48-efe5-4316-8819-cd9ab672915f.webp",
+      image_mob:"https://evolve-strength.tor1.digitaloceanspaces.com/media/1763452791053-81ef6470-60be-493c-9866-60f47bcab389.webp",
     durationMs: 3500,
   },
   {
@@ -25,6 +27,7 @@ const DEFAULT_STEPS = [
       "Choose your hours, training style, and schedule. Build a business that fits your lifestyle.",
     image:
       "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762433190127-7fe3d82a-da37-42f3-816c-ced00e592b31.webp",
+       image_mob:"https://evolve-strength.tor1.digitaloceanspaces.com/media/1762433190127-7fe3d82a-da37-42f3-816c-ced00e592b31.webp",
     durationMs: 3500,
   },
   {
@@ -34,6 +37,7 @@ const DEFAULT_STEPS = [
       "Our leadership team started as trainers and business professionals.",
     image:
       "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763109275796-6d568ae9-f44c-4e21-8c35-23aa41b58318.webp",
+       image_mob:"https://evolve-strength.tor1.digitaloceanspaces.com/media/1763109275796-6d568ae9-f44c-4e21-8c35-23aa41b58318.webp",
     durationMs: 3500,
   },
 ];
@@ -231,7 +235,13 @@ function WhyChooseEvolveProgress({
                             key={step.image}
                             src={step.image}
                             alt={step.title}
-                            className="rounded-[10px] object-cover w-full max-w-[340px] shadow"
+                            className="rounded-[10px] max-md:hidden object-cover w-full max-w-[340px] shadow"
+                          />
+                            <img
+                            key={step.image}
+                            src={step.image_mob}
+                            alt={step.title}
+                            className="rounded-[10px] md:hidden object-cover w-full max-w-[340px] shadow"
                           />
                         </div>
                       )}

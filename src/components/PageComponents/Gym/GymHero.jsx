@@ -11,7 +11,7 @@ function GymHero() {
         loop
         playsInline
         preload="metadata"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute bg-black inset-0 w-full h-full object-cover"
         style={{ objectFit: "cover", objectPosition: "bottom" }}
       >
         <source
