@@ -133,7 +133,7 @@ const equipmentCards = [
   },
   {
     image: img14,
-    label: "Olympic Plates",
+    label: "seal row bench",
     icon: card_icon13,
     mobimg: card_mob13,
     mob_label: "Dual Cable Pulldown",
@@ -263,12 +263,10 @@ const MarqueeSection = () => {
       <div className="w-full max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col items-center">
         <div className="flex flex-col gap-4 md:items-center md:text-center max-w-[800px] mb-10">
           <h2 className="text-[#1C1C1C] uppercase text-[40px]">
-            205+ World-Class Personal Trainers
+            Elite Machines. Infinite Possibilities.
           </h2>
           <h4 className="text-black max-w-[621px] leading-[26px]">
-            No matter where you're starting or what your goal is, you'll find a
-            trainer at Evolve who understands your journey and knows how to
-            deliver results.
+            From free weights to cutting-edge equipment, Evolve provides everything you need to stay active. Whether you are lifting, sprinting, or stretching, our world-class machines and supportive atmosphere keep you moving at your best.
           </h4>
         </div>
         <div className="w-full hidden lg:flex justify-between gap-1">

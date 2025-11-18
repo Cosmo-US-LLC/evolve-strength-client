@@ -23,8 +23,7 @@ function TourOurFitness() {
         </div>
       </div>
     </div>
-<div className="relative md:hidden bg-[#000] ">
-      <div className="absolute inset-0 bg-black/40 md:bg-black/20 z-0"></div>
+<div className="relative md:hidden bg-[#000] pt-[48px]">
       <div className="max-w-[1280px] px-4 pb-[40px] md:px-8 md:pb-[80px] mx-auto w-full h-full">
         <div className="relative z-2 flex  flex-col items-end justify-center h-full">
           <div>

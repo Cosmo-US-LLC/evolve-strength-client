@@ -27,7 +27,7 @@ function JoinAsTrainerHero(onSelectOption) {
   const gymSplitOptions = [30, 40, 50, 60, 70];
 
   return (
-    <div className="w-full pb-12 pt-24 md:pt-[120px] bg-black">
+    <div className="w-full md:pb-12 max-md:pb-[16px] md:pt-24 pt-[48px] md:pt-[120px] bg-black">
       <div className="w-full max-w-[1280px] px-4 sm:px-8 mx-auto flex flex-col gap-12">
         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-10">
           <div className="w-full md:w-[60%] md:space-y-[24px] space-y-[12px] text-left relative">
@@ -47,7 +47,7 @@ function JoinAsTrainerHero(onSelectOption) {
                 You’re Losing Money at Your Current Gym
               </h3>
               <img
-                src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1762430579613-b68b0393-698b-46a0-9e7d-225cd5dbf940.svg"
+                src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1763469266624-2e0a80b7-6cd3-467b-87ef-7e6998d07df7.webp"
                 alt="Animated graphic"
                 className="md:hidden w-[31px]  ml-[48px] mt-[14px]"
               />

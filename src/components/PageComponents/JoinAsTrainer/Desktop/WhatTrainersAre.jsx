@@ -79,11 +79,11 @@ const scrollNext = () => {
   );
 
   return (
-    <div className="bg-black w-full py-12 md:py-10">
+    <div className="bg-black w-full py-[48px] md:py-10">
       <div className="w-full max-w-[1280px] mx-auto flex flex-col gap-8 md:gap-[48px] items-center px-4 md:px-8">
         {/* Title */}
-        <div className="flex flex-col gap-4 items-center justify-center w-full max-w-[576px]">
-          <h2 className="md:hidden text-[#fff] uppercase text-center">
+        <div className="flex flex-col gap-4 md:items-center justify-center w-full md:max-w-[576px]">
+          <h2 className="md:hidden md:text-center text-start text-[#fff] uppercase ">
             What Trainers <br /> Are Saying
           </h2>
           <h2 className="max-md:hidden text-[#fff] uppercase text-center">
