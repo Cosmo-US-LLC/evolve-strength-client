@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import img1 from "@/assets/images/gym/World-Class/world_class (12).png";
 import img2 from "@/assets/images/gym/World-Class/world_class (6).png";
@@ -139,37 +140,35 @@ const equipmentCards = [
   },
 ];
 const MarqueeSection = () => {
-const autoplay = useRef(Autoplay({ delay: 3000, stopOnInteraction: false }));
+  const autoplay = useRef(Autoplay({ delay: 3000, stopOnInteraction: false }));
 
-const [emblaRef, emblaApi] = useEmblaCarousel(
-  {
-    align: "start",
-    loop: true,
-    draggable: true,
-    slidesToScroll: 1,
-  },
-  [autoplay.current]
-);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      align: "start",
+      loop: true,
+      draggable: true,
+      slidesToScroll: 1,
+    },
+    [autoplay.current]
+  );
 
-const scrollPrevBtn = () => {
-  if (!emblaApi) return;
+  const scrollPrevBtn = () => {
+    if (!emblaApi) return;
 
-  emblaApi.scrollPrev();
+    emblaApi.scrollPrev();
 
-  // Restart autoplay
-  autoplay.current.reset();
-};
+    // Restart autoplay
+    autoplay.current.reset();
+  };
 
-const scrollNextBtn = () => {
-  if (!emblaApi) return;
+  const scrollNextBtn = () => {
+    if (!emblaApi) return;
 
-  emblaApi.scrollNext();
+    emblaApi.scrollNext();
 
-  // Restart autoplay
-  autoplay.current.reset();
-};
-
-
+    // Restart autoplay
+    autoplay.current.reset();
+  };
 
   const MobileEquipmentCard = ({ card, className = "" }) => {
     return (
@@ -264,7 +263,6 @@ const scrollNextBtn = () => {
   return (
     <section className="bg-white w-full py-12 md:py-20">
       <div className="w-full max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col items-center">
-       
         <div className="flex flex-col gap-4 md:items-center md:text-center max-w-[800px] mb-10">
           <h2 className="text-[#1C1C1C] uppercase text-[40px]">
             205+ World-Class Personal Trainers
@@ -293,13 +291,13 @@ const scrollNextBtn = () => {
                 <EquipmentCard card={equipmentCards[7]} className="w-full" />
               )}
             </div>
-        
+
             <div>
               {equipmentCards[5] && (
                 <EquipmentCard card={equipmentCards[5]} className="w-[100%]" />
               )}
             </div>
-            
+
             <div className="gap-1 flex justify-between">
               {equipmentCards[6] && (
                 <EquipmentCard card={equipmentCards[6]} className="w-full" />
@@ -309,12 +307,12 @@ const scrollNextBtn = () => {
               )}
             </div>
           </div>
-          
+
           <div className="gap-1 flex flex-col w-[18%]">
             {equipmentCards[9] && <EquipmentCard card={equipmentCards[9]} />}
             {equipmentCards[10] && <EquipmentCard card={equipmentCards[10]} />}
           </div>
-         
+
           <div className="gap-1 flex flex-col w-[18%]">
             {equipmentCards[11] && <EquipmentCard card={equipmentCards[11]} />}
             {equipmentCards[12] && <EquipmentCard card={equipmentCards[12]} />}
@@ -322,7 +320,7 @@ const scrollNextBtn = () => {
           </div>
         </div>
 
-        <div className="w-full lg:hidden mb-14 relative">
+        <div className="w-full lg:hidden mb-0 relative">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-2">
               {equipmentCards.map((card, idx) => (
@@ -331,39 +329,23 @@ const scrollNextBtn = () => {
             </div>
           </div>
 
-        <div className="flex justify-center absolute -bottom-20 left-[36%] items-center space-x-3 mt-8">
-            <div className=" -translate-y-1/2  z-10 md:hidden">
+          <div
+            className={`flex items-center justify-center gap-4 md:gap-6 mt-6 md:mt-8}`}
+          >
             <button
-                onClick={scrollPrevBtn}
-              className="bg-black/80 h-[40px] w-[40px] flex justify-center items-center rounded-full  text-white"
+              onClick={scrollPrevBtn}
+              className="w-10 h-10 max-md:w-[40px] max-md:h-[40px] cursor-pointer md:w-12 md:h-12 flex items-center justify-center bg-white hover:bg-[#000] text-black hover:text-white rounded-full border-[1px] border-[#000] transition-colors duration-200"
             >
-              <svg width="18" height="16" viewBox="0 0 19 17" fill="none">
-                <path
-                  d="M8.7 1L1.5 8.5L8.7 16"
-                  stroke="white"
-                  strokeWidth="1.2"
-                />
-                <path d="M18 8.5H1.8" stroke="white" strokeWidth="1.2" />
-              </svg>
+              <ArrowLeft size={18} className="stroke-current" />
             </button>
-          </div>
 
-          <div className=" -translate-y-1/2  z-10 md:hidden">
             <button
               onClick={scrollNextBtn}
-              className="bg-black/80 h-[40px] w-[40px] flex justify-center items-center rounded-full  text-white"
+              className="w-10 h-10 max-md:w-[40px] max-md:h-[40px] cursor-pointer md:w-12 md:h-12 flex items-center justify-center bg-white hover:bg-[#000] text-black hover:text-white rounded-full border-[1px] border-[#000] transition-colors duration-200"
             >
-              <svg width="18" height="16" viewBox="0 0 19 17" fill="none">
-                <path
-                  d="M10.4 1L17.6 8.5L10.4 16"
-                  stroke="white"
-                  strokeWidth="1.2"
-                />
-                <path d="M0.9 8.5H17.2" stroke="white" strokeWidth="1.2" />
-              </svg>
+              <ArrowRight size={18} className="stroke-current" />
             </button>
           </div>
-        </div>
         </div>
       </div>
     </section>
