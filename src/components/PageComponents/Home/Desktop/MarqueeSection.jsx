@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useCallback, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import img1 from "@/assets/images/gym/World-Class/world_class (12).png";
 import img2 from "@/assets/images/gym/World-Class/world_class (6).png";
 import img3 from "@/assets/images/gym/World-Class/world_class (11).png";
@@ -138,86 +139,41 @@ const equipmentCards = [
   },
 ];
 const MarqueeSection = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
+const autoplay = useRef(Autoplay({ delay: 3000, stopOnInteraction: false }));
+
+const [emblaRef, emblaApi] = useEmblaCarousel(
+  {
     align: "start",
     loop: true,
+    draggable: true,
     slidesToScroll: 1,
-    containScroll: "trimSnaps",
-    draggable: false,
-  });
-  const [progress, setProgress] = useState(0);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const progressIntervalRef = useRef(null);
-  useEffect(() => {
-    // Only run on mobile screens (below lg breakpoint)
-    const isMobile = window.innerWidth < 1024;
-    if (!emblaApi || !isMobile) return;
-    const duration = 3000; // 5 seconds
-    const interval = 15; // Update every 16ms for smooth animation
-    const increment = (100 / duration) * interval; 
-    setProgress(0);
-    let currentProgress = 0;
-    const startProgressCycle = () => {
-      // Reset to 0
-      currentProgress = 0;
-      setProgress(0);
-      // Clear any existing interval
-      if (progressIntervalRef.current) {
-        clearInterval(progressIntervalRef.current);
-        progressIntervalRef.current = null;
-      }
-      // Start new progress cycle
-      progressIntervalRef.current = setInterval(() => {
-        currentProgress = Math.min(100, currentProgress + increment);
-        setProgress(currentProgress);
-        if (currentProgress >= 100) {
-          // Progress complete - automatically advance to next slide
-          emblaApi.scrollNext();
-          // Reset and start new cycle
-          startProgressCycle();
-        }
-      }, interval);
-    };
-    // Start the progress cycle automatically
-    startProgressCycle();
-    // Reset when slide changes
-    const handleSlideChange = () => {
-      if (!emblaApi) return;
+  },
+  [autoplay.current]
+);
 
-      const slide = emblaApi.selectedScrollSnap();
-      setActiveIndex(slide);
-      startProgressCycle();
-    };
-    emblaApi.on("select", handleSlideChange);
-    return () => {
-      if (progressIntervalRef.current) {
-        clearInterval(progressIntervalRef.current);
-        progressIntervalRef.current = null;
-      }
-      if (emblaApi) {
-        emblaApi.off("select", handleSlideChange);
-      }
-    };
-  }, [emblaApi]);
+const scrollPrevBtn = () => {
+  if (!emblaApi) return;
 
-  // Render TikTok-style Progress Bar
-  // state = 1 (done), progress (current slide), or 0 (not started)
-  const renderBar = () => {
-    return (
-      <div className="w-full">
-        <div className="bg-[rgba(0,0,0,0.2)] h-[6px] rounded-full w-full overflow-hidden">
-          <div
-            className="h-full rounded-full bg-[#4ab04a]"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-      </div>
-    );
-  };
+  emblaApi.scrollPrev();
+
+  // Restart autoplay
+  autoplay.current.reset();
+};
+
+const scrollNextBtn = () => {
+  if (!emblaApi) return;
+
+  emblaApi.scrollNext();
+
+  // Restart autoplay
+  autoplay.current.reset();
+};
+
+
 
   const MobileEquipmentCard = ({ card, className = "" }) => {
     return (
-      <div className={`flex-shrink-0 w-[80%] sm:w-[70%] p-2 ${className}`}>
+      <div className={`flex-shrink-0 w-[80%] sm:w-[70%] p-1 ${className}`}>
         <div
           className="bg-white rounded-[7px] overflow-hidden p-2  border-[1px] border-transparent h-full flex flex-col"
           style={{
@@ -308,7 +264,7 @@ const MarqueeSection = () => {
   return (
     <section className="bg-white w-full py-12 md:py-20">
       <div className="w-full max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col items-center">
-        {/* Header Section */}
+       
         <div className="flex flex-col gap-4 md:items-center md:text-center max-w-[800px] mb-10">
           <h2 className="text-[#1C1C1C] uppercase text-[40px]">
             205+ World-Class Personal Trainers
@@ -319,7 +275,6 @@ const MarqueeSection = () => {
             deliver results.
           </h4>
         </div>
-        {/* Custom Masonry Layout - Desktop */}
         <div className="w-full hidden lg:flex justify-between gap-1">
           <div className="gap-1 flex flex-col w-[18%]">
             {equipmentCards[0] && <EquipmentCard card={equipmentCards[0]} />}
@@ -338,13 +293,13 @@ const MarqueeSection = () => {
                 <EquipmentCard card={equipmentCards[7]} className="w-full" />
               )}
             </div>
-            {/* Center: wide image spanning full width (6th image - Eleiko Pulley Station) */}
+        
             <div>
               {equipmentCards[5] && (
                 <EquipmentCard card={equipmentCards[5]} className="w-[100%]" />
               )}
             </div>
-            {/* Bottom row: two images side by side */}
+            
             <div className="gap-1 flex justify-between">
               {equipmentCards[6] && (
                 <EquipmentCard card={equipmentCards[6]} className="w-full" />
@@ -354,12 +309,12 @@ const MarqueeSection = () => {
               )}
             </div>
           </div>
-          {/* Column 4 - 18% width */}
+          
           <div className="gap-1 flex flex-col w-[18%]">
             {equipmentCards[9] && <EquipmentCard card={equipmentCards[9]} />}
             {equipmentCards[10] && <EquipmentCard card={equipmentCards[10]} />}
           </div>
-          {/* Column 5 - 18% width */}
+         
           <div className="gap-1 flex flex-col w-[18%]">
             {equipmentCards[11] && <EquipmentCard card={equipmentCards[11]} />}
             {equipmentCards[12] && <EquipmentCard card={equipmentCards[12]} />}
@@ -367,22 +322,48 @@ const MarqueeSection = () => {
           </div>
         </div>
 
-        <div className="w-full lg:hidden mb-2">
-          <div
-            className="overflow-hidden"
-            ref={emblaRef}
-            style={{ touchAction: "none", userSelect: "none" }}
-          >
+        <div className="w-full lg:hidden mb-14 relative">
+          <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-2">
               {equipmentCards.map((card, idx) => (
                 <MobileEquipmentCard key={idx} card={card} />
               ))}
             </div>
           </div>
-          {/* Progress Bar - Auto-play: 0-100% in 3 seconds */}
-          <div className="flex gap-2 mt-4 px-4 pointer-events-none">
-            {renderBar()}
+
+        <div className="flex justify-center absolute -bottom-20 left-[36%] items-center space-x-3 mt-8">
+            <div className=" -translate-y-1/2  z-10 md:hidden">
+            <button
+                onClick={scrollPrevBtn}
+              className="bg-black/80 h-[40px] w-[40px] flex justify-center items-center rounded-full  text-white"
+            >
+              <svg width="18" height="16" viewBox="0 0 19 17" fill="none">
+                <path
+                  d="M8.7 1L1.5 8.5L8.7 16"
+                  stroke="white"
+                  strokeWidth="1.2"
+                />
+                <path d="M18 8.5H1.8" stroke="white" strokeWidth="1.2" />
+              </svg>
+            </button>
           </div>
+
+          <div className=" -translate-y-1/2  z-10 md:hidden">
+            <button
+              onClick={scrollNextBtn}
+              className="bg-black/80 h-[40px] w-[40px] flex justify-center items-center rounded-full  text-white"
+            >
+              <svg width="18" height="16" viewBox="0 0 19 17" fill="none">
+                <path
+                  d="M10.4 1L17.6 8.5L10.4 16"
+                  stroke="white"
+                  strokeWidth="1.2"
+                />
+                <path d="M0.9 8.5H17.2" stroke="white" strokeWidth="1.2" />
+              </svg>
+            </button>
+          </div>
+        </div>
         </div>
       </div>
     </section>
