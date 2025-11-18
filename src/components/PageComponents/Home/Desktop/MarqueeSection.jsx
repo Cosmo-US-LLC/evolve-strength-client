@@ -2,20 +2,7 @@ import React, { useState, useCallback, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
-import img1 from "@/assets/images/gym/World-Class/world_class (12).png";
-import img2 from "@/assets/images/gym/World-Class/world_class (6).png";
-import img3 from "@/assets/images/gym/World-Class/world_class (11).png";
-import img4 from "@/assets/images/gym/World-Class/world_class (14).png";
-import img5 from "@/assets/images/gym/World-Class/world_class (10).png";
-import img6 from "@/assets/images/gym/World-Class/world_class (5).png";
-import img7 from "@/assets/images/gym/World-Class/world_class (4).png";
-import img8 from "@/assets/images/gym/World-Class/world_class (9).png";
-import img9 from "@/assets/images/gym/World-Class/world_class (3).png";
-import img10 from "@/assets/images/gym/World-Class/world_class (8).png";
-import img11 from "@/assets/images/gym/World-Class/world_class (2).png";
-import img12 from "@/assets/images/gym/World-Class/world_class (13).png";
-import img13 from "@/assets/images/gym/World-Class/world_class (7).png";
-import img14 from "@/assets/images/gym/World-Class/world_class (1).png";
+
 
 import card_icon1 from "@/assets/images/gym/World-Class/world_card_icons (7).svg";
 import card_icon2 from "@/assets/images/gym/World-Class/world_card_icons (1).svg";
@@ -31,111 +18,98 @@ import card_icon11 from "@/assets/images/gym/World-Class/world_card_icons (10).s
 import card_icon12 from "@/assets/images/gym/World-Class/world_card_icons (2).svg";
 import card_icon13 from "@/assets/images/gym/World-Class/world_card_icons (9).svg";
 
-import card_mob1 from "@/assets/images/gym/World-Class/card_mob (11).png";
-import card_mob2 from "@/assets/images/gym/World-Class/card_mob (14).png";
-import card_mob3 from "@/assets/images/gym/World-Class/card_mob (10).png";
-import card_mob4 from "@/assets/images/gym/World-Class/card_mob (9).png";
-import card_mob5 from "@/assets/images/gym/World-Class/card_mob (8).png";
-import card_mob6 from "@/assets/images/gym/World-Class/card_mob (7).png";
-import card_mob7 from "@/assets/images/gym/World-Class/card_mob (6).png";
-import card_mob8 from "@/assets/images/gym/World-Class/card_mob (5).png";
-import card_mob9 from "@/assets/images/gym/World-Class/card_mob (4).png";
-import card_mob10 from "@/assets/images/gym/World-Class/card_mob (3).png";
-import card_mob11 from "@/assets/images/gym/World-Class/card_mob (2).png";
-import card_mob12 from "@/assets/images/gym/World-Class/card_mob (1).png";
-import card_mob13 from "@/assets/images/gym/World-Class/card_mob (13).png";
 
 // Equipment cards data - images from Figma
 const equipmentCards = [
   {
-    image: img1,
+    image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763475792736-71352cf3-5d99-4274-b56d-0fb7df4b52df.png",
     label: "Eleiko Olympic Barbel",
     mob_label: "Cycle Machines",
     icon: card_icon1,
-    mobimg: card_mob1,
+    mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763476403428-e4fc582c-944b-4049-b939-e2abb991247a.png",
   },
   {
-    image: img2,
+    image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763475686412-1dd5f72b-5055-40f1-9372-1e7682aae443.png",
     label: "Eleiko Pulley Station",
     mob_label: "Power Rack",
     icon: card_icon2,
-    mobimg: card_mob2,
+    mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763476462532-fcb8f65c-a3e8-44dd-a3be-8ebabc15ea08.png",
   },
   {
-    image: img3,
+    image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763475746742-8ad065dd-6d3e-4cb4-82dc-279394f9445c.png",
     label: "Medicine Ball Rack",
     mob_label: "Medicine Ball Rack",
     icon: card_icon3,
-    mobimg: card_mob3,
+    mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763476365592-8c1b7305-d598-422a-88b1-d55a8c092a5b.png",
   },
   {
-    image: img4,
+    image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763475810851-b8bd92fb-73f1-48fa-9d47-119b7ad3f1ce.png",
     label: "Sprint/Sled Track",
     mob_label: "Sprint/Sled Track",
     icon: card_icon4,
-    mobimg: card_mob4,
+    mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763476352770-29b366ac-efed-4b8e-969a-6ce2e6602452.png",
   },
   {
-    image: img5,
+    image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763475728885-257c4967-a1b8-46c7-b31a-108b9c19cc02.png",
     label: "Olympic Plates",
     mob_label: "Crossover Machine",
     icon: card_icon5,
-    mobimg: card_mob5,
+    mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763476335551-f808a7b3-338b-41cb-a134-938e9f92ec3d.png",
   },
   {
-    image: img6,
+    image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763475667086-14bfcfdd-3100-40f6-ba00-ceb58e2c359e.png",
     label: "Power Rack",
     mob_label: "Eleiko Pulley Station",
     icon: card_icon6,
-    mobimg: card_mob6,
+    mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763476327207-8ed1c6d3-78f3-41b1-b3d6-5a5fbb372540.png",
   },
   {
-    image: img7,
+    image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763475652507-cf0d78dd-b8c5-419d-8efc-589bebbcb59a.png",
     label: " SkiErgs & RowErgs",
     icon: card_icon7,
-    mobimg: card_mob7,
+    mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763476316702-3c0537b1-c643-4d60-bf59-fca96d10f48a.png",
     mob_label: "Eleiko Dumbbell Rack",
   },
   {
-    image: img8,
+    image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763475766737-a58111e6-5b2c-4117-be28-045503ce8df0.png",
     label: "Cycle Machines",
     mob_label: "AirBike",
     icon: card_icon8,
-    mobimg: card_mob8,
+    mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763476307381-54d223ae-404d-4208-8ad2-580053bc6e73.png",
   },
   {
-    image: img9,
+    image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763475635232-bf01088e-4f25-4d44-bae1-78070793cf60.png",
     label: "Leg Press Machine",
     mob_label: "Hip Thrust Machine",
     icon: card_icon9,
-    mobimg: card_mob9,
+    mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763476298346-90c38ef1-118a-461a-819c-bd2437425b02.png",
   },
   {
-    image: img10,
+    image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763475713646-1c3c1dba-5130-49b1-89a1-6f8c8ebe4337.png",
     label: "Elliptical Trainer",
     mob_label: "Dual Cable Crossover",
     icon: card_icon10,
-    mobimg: card_mob10,
+    mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763476289200-c7e6b2cd-461f-48fd-a54e-85487fd195d5.png",
   },
   {
-    image: img11,
+    image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763475619099-02a8e609-fb03-45ec-b038-467fce5558d1.png",
     label: "AirBike",
     mob_label: "SkiErgs & RowErgs",
     icon: card_icon11,
-    mobimg: card_mob11,
+    mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763476278432-706fac5e-c363-444c-8a8a-d7206faa2e81.png",
   },
   {
-    image: img13,
+    image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763475700749-6b8a4803-155a-474a-995a-8daff781769a.png",
     label: "Hip Thrust Machine",
     icon: card_icon12,
-    mobimg: card_mob12,
+    mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763476265380-24cf2276-2933-4c21-b050-0be5bbf8a34d.png",
     mob_label: "Olympic Plates",
   },
   {
-    image: img14,
+    image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763475595156-4b97875e-7188-461f-a76b-d74d6d49ff7d.png",
     label: "seal row bench",
     icon: card_icon13,
-    mobimg: card_mob13,
+    mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763476433252-72d5649e-2f1e-4d4d-ae1b-461c46d8d417.png",
     mob_label: "Dual Cable Pulldown",
   },
 ];
