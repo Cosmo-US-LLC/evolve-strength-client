@@ -22,11 +22,11 @@ import card_icon3 from "@/assets/images/gym/World-Class/world_card_icons (6).svg
 import card_icon4 from "@/assets/images/gym/World-Class/world_card_icons (8).svg";
 import card_icon5 from "@/assets/images/gym/World-Class/world_card_icons (5).svg";
 import card_icon6 from "@/assets/images/gym/World-Class/world_card_icons (13).svg";
-import card_icon7 from "@/assets/images/gym/World-Class/world_card_icons (10).svg";
-import card_icon8 from "@/assets/images/gym/World-Class/world_card_icons (10).svg";
+import card_icon7 from "@/assets/images/gym/World-Class/world_card_icons (12).svg";
+import card_icon8 from "@/assets/images/gym/World-Class/world_card_icons (4).svg";
 import card_icon9 from "@/assets/images/gym/World-Class/world_card_icons (11).svg";
 import card_icon10 from "@/assets/images/gym/World-Class/world_card_icons (3).svg";
-import card_icon11 from "@/assets/images/gym/World-Class/world_card_icons (4).svg";
+import card_icon11 from "@/assets/images/gym/World-Class/world_card_icons (10).svg";
 import card_icon12 from "@/assets/images/gym/World-Class/world_card_icons (2).svg";
 import card_icon13 from "@/assets/images/gym/World-Class/world_card_icons (9).svg";
 
