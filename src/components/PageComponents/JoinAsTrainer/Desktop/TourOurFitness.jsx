@@ -13,7 +13,7 @@ function TourOurFitness() {
             <h2 className="text-[#FFFFFF] uppercase max-w-[560px] !font-[700] leading-[39px] mb-5">
               KEEP WHAT YOUR EARN
             </h2>
-            <h4 className="text-[#FFFFFF] !font-[400] md:!font-[300] max-w-[542px] leading-[24px] mb-6">
+            <h4 className="text-[#FFFFFF] !font-[300] max-w-[542px] leading-[24px] mb-6 opacity-95">
               Stop splitting your income and chasing quotas. 100% of what you
               make is yours. You set your rates, choose your clients, and decide
               how much you want to grow. Freedom isn’t just about time it’s
@@ -31,7 +31,7 @@ function TourOurFitness() {
             <h2 className="text-[#FFFFFF] uppercase max-w-[560px] !font-[700] leading-[39px] mb-5">
               KEEP WHAT YOUR EARN
             </h2>
-            <h4 className="text-[#FFFFFF] !font-[400] md:!font-[300] max-w-[542px] leading-[24px] ">
+            <h4 className="text-[#FFF] !font-[300] max-w-[542px] leading-[24px] ">
               Stop splitting your income and chasing quotas. 100% of what you
               make is yours. You set your rates, choose your clients, and decide
               how much you want to grow. Freedom isn’t just about time it’s
