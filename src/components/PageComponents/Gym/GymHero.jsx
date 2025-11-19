@@ -31,12 +31,12 @@ function GymHero() {
           </h1>
 
           <div className="flex flex-row gap-x-[24px]">
-            <Link to="/book-a-tour/">
+            <a href="/book-a-tour/">
               <button className="btnPrimary">Book a Free Tour</button>
-            </Link>
-            <Link to="/join-now/">
+            </a>
+            <a href="/join-now/">
               <button className="btnSecondary">join now</button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
