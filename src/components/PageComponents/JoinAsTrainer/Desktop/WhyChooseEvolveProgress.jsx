@@ -162,7 +162,7 @@ function WhyChooseEvolveProgress({
                 i !== activeIndex ? "opacity-50" : ""
               } cursor-pointer hover:opacity-75 transition-opacity duration-200`}
             >
-              {renderBar(i)}
+              {/* {renderBar(i)} */}
               <div className="text-white">
                 <h3 className="!text-[20px] leading-[24px] font-semibold">
                   {step.title}
