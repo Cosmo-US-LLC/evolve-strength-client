@@ -88,14 +88,14 @@ function HomeTrustedEquipmentBrands() {
   ];
 
   return (
-    <section className="bg-white py-12 w-full">
+    <section className="bg-white py-12 max-md:pb-0 w-full">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col gap-8">
         {/* Header Section */}
 
         <div className="w-full flex flex-col md:flex-row md:gap-8 gap-1">
           <div className="w-[100%] md:w-[50%]">
             <h2 className="max-w-[500px] !leading-[39px] text-left font-bold text-[#000] mb-3">
-              TRUSTED <br className="sm:hidden" /> EQUIPMENT <br className="sm:hidden" /> BRANDS
+              TRUSTED  EQUIPMENT <br className="max-md:hidden" /> BRANDS
             </h2>
           </div>
           <div className="w-[100%] md:w-[50%]">
@@ -112,18 +112,18 @@ function HomeTrustedEquipmentBrands() {
         {isMobile ? (
 
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-4 py-4">
+            <div className="flex  py-4 ">
               {equipmentImages.map((image, index) => {
                 const brand = brandLogos[index];
                 return (
-                  <div key={image.id} className="w-[250px] h-[366px] flex-shrink-0">
+                  <div key={image.id} className="w-[80%] px-2 h-[100%] flex-shrink-0">
                     <div className="bg-white rounded-lg transition-all duration-300 hover:-translate-y-1 group overflow-hidden">
 
                       <div className="relative rounded-lg overflow-hidden">
                         <img
                           src={image.src}
                           alt={image.alt}
-                          className="w-[220px] h-[320px] rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
+                          className="w-[100%] h-[100%] rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
                           loading="lazy"
                         />
                       </div>

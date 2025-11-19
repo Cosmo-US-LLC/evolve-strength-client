@@ -1,132 +1,227 @@
-import React, { useCallback } from "react";
-import useEmblaCarousel from "embla-carousel-react";
+import React, {useCallback} from "react";
 import Autoplay from "embla-carousel-autoplay";
-import LeftArrowIcon from "@/assets/images/JoinAsTrainer/WhatTrainersAre/left-arrow.svg";
-import RightArrowIcon from "@/assets/images/JoinAsTrainer/WhatTrainersAre/right-arrow.svg";
-import Client from "@/assets/images/JoinAsTrainer/WhatTrainersAre/client.webp";
+import useEmblaCarousel from "embla-carousel-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 function WhatTrainersAre() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 4000, stopOnInteraction: true }),
-  ]);
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) {
-      emblaApi.scrollPrev();
-      // Reset autoplay after manual interaction
-      const autoplay = emblaApi.plugins().autoplay;
-      if (autoplay) {
-        autoplay.stop();
-        autoplay.play();
-      }
-    }
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) {
-      emblaApi.scrollNext();
-      // Reset autoplay after manual interaction
-      const autoplay = emblaApi.plugins().autoplay;
-      if (autoplay) {
-        autoplay.stop();
-        autoplay.play();
-      }
-    }
-  }, [emblaApi]);
-
   const testimonialData = [
     {
-      name: "Jason M.",
+      name: "Michelle Moen",
       role: "Personal Trainer",
-      image: Client,
+      image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763534076893-64e82bc5-74f9-415f-b808-7684205b85a8.webp",
       testimonial:
-        "I used to work at a gym that took a cut from every session. Sometimes it was almost half. At Evolve, I just pay a flat fee each month. That's it. No surprises, no percentages. And I actually get to keep what I earn. It's made a big difference. I can plan better and take on more clients without worrying about losing a chunk of my income. And the best part is I run things my way. I set my own hours, my own prices, and no one's telling me how to train.",
+        "Working at Evolve Strength has been the best decision for my business. They support you running your business however you see fit, from programming styles to work hours. They have all the gym equipment I need for my client's success, ranging from hypertrophy to powerlifting. The support and collaboration I've also experienced from the other trainers has been immensely helpful. I couldn't imagine running my business anywhere else!",
     },
     {
-      name: "Sarah K.",
-      role: "Nutrition Coach",
-      image: Client,
+      name: "Spencer Snashall",
+      role: "Personal Trainer",
+      image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763534093871-9406ebe5-3de7-40f2-bd90-2c107b40564f.webp",
       testimonial:
-        "The community at Evolve is incredible. I've been able to build a thriving nutrition coaching business while being surrounded by other wellness professionals. The facility is top-notch, and the support from the Evolve team has been amazing. I love that I can focus on my clients without worrying about facility management or unexpected costs.",
+        "Operating Form Fitness out of Evolve Strength @ The Post has been a great experience. The space is modern, spacious, and fully equipped, making it easy to deliver high-quality sessions. I value being able to run my business independently while sharing the gym with a community of passionate trainers and business owners who are equally committed to their craft.",
     },
     {
-      name: "Mike R.",
-      role: "Fitness Trainer",
-      image: Client,
+      name: "Bailey Lau",
+      role: "Personal Trainer",
+      image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763534137537-73ae684e-f7ed-4ba3-9b77-9b93668bb1e0.webp",
       testimonial:
-        "Switching to Evolve was the best decision I made for my business. The all-inclusive pricing means I know exactly what I'm paying each month, and the amenities are fantastic. My clients love the space, and I love that I can grow my business without the usual overhead headaches. The built-in community has also helped me expand my client base through referrals.",
+        "Evolve has allowed me to build my business the way I see fit, in a welcoming environment surrounded by like-minded trainers and coaches. Evolve has provided a space for me and my clients that has everything we need. I would recommend working at Evolve to any trainer who wants to grow and truly control their own business.",
     },
-    {
-      name: "Lisa T.",
-      role: "Wellness Coach",
-      image: Client,
-      testimonial:
-        "What sets Evolve apart is the genuine support for entrepreneurs. They understand that we're building businesses, not just renting space. The worry-free approach to facility management allows me to focus entirely on my clients and growing my practice. The community aspect has been invaluable for networking and professional development.",
-    },
+    // {
+    //   name: "Jason M.",
+    //   role: "Personal Trainer",
+    //   image: michelleImage,
+    //   testimonial:
+    //     "I used to work at a gym that took a cut from every session. Sometimes it was almost half. At Evolve, I just pay a flat fee each month. That's it. No surprises, no percentages. And I actually get to keep what I earn. It's made a big difference. I can plan better and take on more clients without worrying about losing a chunk of my income.",
+    // },
+    // {
+    //   name: "Sarah K.",
+    //   role: "Nutrition Coach",
+    //   image: spencerImage,
+    //   testimonial:
+    //     "The community at Evolve is incredible. I've been able to build a thriving nutrition coaching business while being surrounded by other wellness professionals. The facility is top-notch, and the support from the Evolve team has been amazing. I love that I can focus on my clients without worrying about facility management or unexpected costs.",
+    // },
+    // {
+    //   name: "Mike R.",
+    //   role: "Fitness Trainer",
+    //   image: baileyImage,
+    //   testimonial:
+    //     "Switching to Evolve was the best decision I made for my business. The all-inclusive pricing means I know exactly what I'm paying each month, and the amenities are fantastic. My clients love the space, and I love that I can grow my business without the usual overhead headaches.",
+    // },
   ];
 
+  const [api, setApi] = React.useState(null);
+
+ const scrollPrev = () => {
+  if (!api) return;
+  api.scrollPrev();
+};
+
+const scrollNext = () => {
+  if (!api) return;
+  api.scrollNext();
+};
+
+  const StarRating = () => (
+    <div className="flex items-start">
+      {[...Array(5)].map((_, i) => (
+        <img key={i} src={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1763534481120-e82e9280-83df-4586-a1ef-2ab02000a801.webp"} alt="star" className="w-8 h-8" />
+      ))}
+    </div>
+  );
+
   return (
-    <div className="w-full pb-[70px] pt-[82px]">
-      <div className="w-full max-w-[1280px] px-4 sm:px-8 mx-auto flex flex-col gap-12">
-        <div className="text-left">
-          <h2 className="!text-[#1C1C1C] uppercase text-3xl md:text-4xl leading-tight md:leading-[39px] font-[700]">
-            What Our Franchisees Say
+    <div className="bg-black w-full py-[48px] md:py-10">
+      <div className="w-full max-w-[1280px] mx-auto flex flex-col gap-8 md:gap-[48px] items-center px-4 md:px-8">
+        {/* Title */}
+        <div className="flex flex-col gap-4 md:items-center justify-center w-full md:max-w-[576px]">
+          <h2 className="md:hidden md:text-center text-start text-[#fff] uppercase ">
+            What Trainers <br /> Are Saying
+          </h2>
+          <h2 className="max-md:hidden text-[#fff] uppercase text-center">
+            What Trainers Are Saying
           </h2>
         </div>
-        <div className="relative w-full">
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">
+
+        {/* Testimonials Carousel */}
+        <div className="w-full">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            setApi={setApi}
+            plugins={[Autoplay({ delay: 4000, stopOnInteraction: false })]}
+            className="w-full relative"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
               {testimonialData.map((testimonial, index) => (
-                <div key={index} className="flex-[0_0_100%] min-w-0">
-                  <div className="px-4 md:px-[50px] relative flex flex-col md:flex-row justify-between py-0 pt-4 md:py-[35px] bg-[#EEE] rounded-[10px] h-[400px] md:h-[350px]">
-                    <div className="w-full md:max-w-[642px] flex flex-col justify-center h-full">
-                      <div className="pb-4 md:pb-[22px]">
-                        <h3 className="font-[700] text-[#000] text-xl md:text-2xl leading-[20px]">
-                          {testimonial.name}
-                        </h3>
-                        <h5 className="!text-[#4AB04A] !text-lg !font-vazirmatn leading-[20px]">
-                          {testimonial.role}
-                        </h5>
-                      </div>
-                      <p className="h4 !font-[300] text-base md:text-lg leading-[26px] text-[#000] overflow-y-auto max-h-[200px] md:max-h-[180px] pr-2">
-                        {testimonial.testimonial}
-                      </p>
-                    </div>
-                    <div className="mt-0 flex justify-center">
+                <CarouselItem
+                  key={index}
+                  className="pl-2 md:pl-4 basis-full md:basis-1/3"
+                >
+                  <div className="bg-[rgba(33,32,32,0.5)] flex flex-col items-start overflow-hidden rounded-[16px] w-full relative">
+                    {/* Image Section */}
+                    <div className="h-[280px] relative w-full overflow-hidden">
                       <img
                         src={testimonial.image}
                         alt={`${testimonial.name} - ${testimonial.role}`}
-                        className="w-full h-auto max-w-[300px] md:max-w-[470px] md:h-[277px] object-cover rounded-lg md:absolute md:right-[-1%] md:bottom-0"
+                        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                       />
                     </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          <div className="flex justify-center md:justify-start gap-4 mt-6 md:absolute md:left-[85%] md:-top-[28%] md:-translate-y-1/2">
+                    {/* Content Section */}
+                    <div className="flex flex-col gap-6 items-start p-6 w-full">
+                      {/* Stars and Testimonial */}
+                      <div className="flex flex-col gap-3 items-start w-full">
+                        <StarRating />
+                        <h4 className="text-white text-base leading-[24px] h-[260px] font-light">
+                          {testimonial.testimonial}
+                        </h4>
+                      </div>
+
+                      {/* Name and Role */}
+                      <div className="flex flex-col items-start w-full">
+                        <h4 className="text-[#fff]">{testimonial.name}</h4>
+                        <p className="text-[#808080] text-[16px] leading-normal font-normal">
+                          {testimonial.role}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          <div>
+              <div className="md:hidden pt-6 max-md:flex justify-center items-center space-x-4">
+          <div>
             <button
               onClick={scrollPrev}
-              className="h-12 w-12 bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer transition-colors duration-200"
+              className="bg-[#000] h-[40px] w-[40px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
             >
-              <img
-                src={LeftArrowIcon}
-                alt="Previous"
-                className="h-5 w-5 text-[#00000060] cursor-pointer"
-              />
-            </button>
-            <button
-              onClick={scrollNext}
-              className="h-12 w-12 bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer transition-colors duration-200"
-            >
-              <img
-                src={RightArrowIcon}
-                alt="Next"
-                className="h-5 w-5 text-[#00000060] cursor-pointer"
-              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="17"
+                viewBox="0 0 19 17"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_9239_971)">
+                  <path
+                    d="M8.76871 0.927734L1.5625 8.49601L8.76871 16.0643"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                  <path
+                    d="M18.2108 8.49805H1.94531"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_9239_971">
+                    <rect
+                      width="18.1639"
+                      height="16.6502"
+                      fill="white"
+                      transform="translate(0.804688 0.169922)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
             </button>
           </div>
+          <div>
+            <button
+              onClick={scrollNext}
+              className="bg-[#000] h-[40px] w-[40px] flex justify-center items-center rounded-full border-[1px] border-[#fff] text-[#fff] cursor-pointer "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="17"
+                viewBox="0 0 19 17"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_9239_976)">
+                  <path
+                    d="M10.4141 0.927734L17.6203 8.49601L10.4141 16.0643"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                  <path
+                    d="M0.96875 8.49805H17.2343"
+                    stroke="white"
+                    stroke-width="0.756828"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_9239_976">
+                    <rect
+                      width="18.1639"
+                      height="16.6502"
+                      fill="white"
+                      transform="translate(0.210938 0.169922)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+          </div>
+        </div>
+          </div>
+          </Carousel>
         </div>
       </div>
     </div>

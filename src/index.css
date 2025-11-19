@@ -239,6 +239,10 @@ h5 {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+.embla__slide__content {
+  transition: transform 0.4s ease-out !important;
+  will-change: transform !important;
+}
 
 .btnSecondary:hover {
   background-color: rgba(255, 255, 255, 0.1);

@@ -46,7 +46,8 @@ function Navbar() {
   const navigationLinks = [
     { to: "/explore", label: "Explore" },
     { to: "/locations", label: "Our Locations" },
-    { to: "", label: "" },
+    { to: "/gym", label: "Gym" },
+    // { to: "", label: "" },
     {
       label: "Training & Services",
       dropdown: [
@@ -74,7 +75,6 @@ function Navbar() {
               currentPath.includes("terms-and-conditions") ||
               currentPath.includes("faqs") ||
               currentPath.includes("franchise") ||
-              currentPath.includes("join-as-trainer") ||
               currentPath.includes("join-the-Movement") ||
               currentPath.includes("corporate-membership") ||
               currentPath.includes("about-us") ||

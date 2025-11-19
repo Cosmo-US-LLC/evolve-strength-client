@@ -5,11 +5,12 @@ function Hero({ title }) {
   return (
     <div>
       <div className="relative overflow-hidden w-full h-[70vh] md:h-[100vh]">
-        <video
+         <video
           autoPlay
           muted
           loop
           playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectFit: "cover", objectPosition: "bottom" }}
         >

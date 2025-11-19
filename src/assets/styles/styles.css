@@ -137,7 +137,7 @@
 }
 
 .grassIsIndeed {
-  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/gym/truf_that_last_bg.webp");
+  background-image: url("https://evolve-strength.tor1.digitaloceanspaces.com/media/1763537295185-036db5c1-3bc0-4859-ace4-8ad0f62fd8ce.webp");
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -316,12 +316,12 @@
 }
 
 .TourOurFitness {
-  background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/TourOurFitness/TourOurFitness_bg.webp");
+  background-image: url("https://evolve-strength.tor1.digitaloceanspaces.com/media/1763109300250-47d31d1b-6bdd-452f-bb33-6c334d55644d.webp");
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  height: 666px;
+  height: 766px;
 }
 
 .employeePlanBG {
@@ -494,7 +494,7 @@
     background-image: url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/LoAssesment.webp");
   }
   .TourOurFitness {
-    background-image: url("@/assets/images/JoinAsTrainer/TourOurFitness/TourOurFitnessMob.webp");
+    background-image: url("https://evolve-strength.tor1.digitaloceanspaces.com/media/1762851957642-85e47bed-980b-42f2-9111-672badc6579d.webp");
     height: 478px;
   }
 
@@ -546,4 +546,74 @@ select::-webkit-scrollbar {
 select {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card-fadeIn {
+  animation: cardFadeIn 0.5s ease-out forwards;
+}
+
+/* Range slider thumb with white border (Figma style) */
+.range-evolve {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+}
+
+.range-evolve::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.range-evolve::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #4ab04a;
+  border: 2px solid #ffffff;
+  margin-top: -8px; /* centers on 4px track */
+  cursor: pointer;
+}
+
+.range-evolve::-moz-range-track {
+  height: 4px;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.range-evolve::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #4ab04a;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+}
+
+.range-evolve::-ms-track {
+  height: 4px;
+  border-color: transparent;
+  color: transparent;
+  background: transparent;
+}
+
+.range-evolve::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #4ab04a;
+  border: 2px solid #ffffff;
 }

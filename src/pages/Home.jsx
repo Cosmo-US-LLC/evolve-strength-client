@@ -27,11 +27,6 @@ function Home() {
       />
       <div className="overflow-hidden">
         <Hero title={"The Standard <br /> of Health."} />
-        {/* <GymZones /> */}
-        {/* <WhatMakesEvolve /> */}
-        {/* <PumpIt /> */}
-        {/* <WhatsMakeEvolveDiff /> */}
-        {/* <MarqueeSection /> */}
         <WellnessHub />
         <GymExperience />
         <MembershipBenefits />
