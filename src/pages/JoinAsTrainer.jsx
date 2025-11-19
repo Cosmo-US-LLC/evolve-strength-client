@@ -28,10 +28,10 @@ function JoinAsTrainer() {
         buttonLink="#"
         imagePosition="right"
         backgroundImage={
-          "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762849982165-1e9cc425-dad0-480f-a9b3-a75d4b397d9a.webp"
+          "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763533871016-5adfd366-8cf6-4d52-b82a-14ce6c0db3cb.webp"
         }
         backgroundImageMob={
-          "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762868164268-b44a6115-356e-4147-a5f8-e6f7bb291c84.webp"
+          "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763533740489-55290d51-538f-4373-b5de-73c5333cd8da.webp"
         }
         height={800}
       />

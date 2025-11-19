@@ -7,31 +7,26 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 
-import starIcon from "../../../../assets/images/JoinAsTrainer/WhatTrainersAre/star.webp";
-import michelleImage from "../../../../assets/images/JoinAsTrainer/WhatTrainersAre/what_trainer_img1.webp";
-import spencerImage from "../../../../assets/images/JoinAsTrainer/WhatTrainersAre/what_trainer_img2.webp";
-import baileyImage from "../../../../assets/images/JoinAsTrainer/WhatTrainersAre/what_trainer_img3.webp";
-
 function WhatTrainersAre() {
   const testimonialData = [
     {
       name: "Michelle Moen",
       role: "Personal Trainer",
-      image: michelleImage,
+      image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763534076893-64e82bc5-74f9-415f-b808-7684205b85a8.webp",
       testimonial:
         "Working at Evolve Strength has been the best decision for my business. They support you running your business however you see fit, from programming styles to work hours. They have all the gym equipment I need for my client's success, ranging from hypertrophy to powerlifting. The support and collaboration I've also experienced from the other trainers has been immensely helpful. I couldn't imagine running my business anywhere else!",
     },
     {
       name: "Spencer Snashall",
       role: "Personal Trainer",
-      image: spencerImage,
+      image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763534093871-9406ebe5-3de7-40f2-bd90-2c107b40564f.webp",
       testimonial:
         "Operating Form Fitness out of Evolve Strength @ The Post has been a great experience. The space is modern, spacious, and fully equipped, making it easy to deliver high-quality sessions. I value being able to run my business independently while sharing the gym with a community of passionate trainers and business owners who are equally committed to their craft.",
     },
     {
       name: "Bailey Lau",
       role: "Personal Trainer",
-      image: baileyImage,
+      image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763534137537-73ae684e-f7ed-4ba3-9b77-9b93668bb1e0.webp",
       testimonial:
         "Evolve has allowed me to build my business the way I see fit, in a welcoming environment surrounded by like-minded trainers and coaches. Evolve has provided a space for me and my clients that has everything we need. I would recommend working at Evolve to any trainer who wants to grow and truly control their own business.",
     },
@@ -73,7 +68,7 @@ const scrollNext = () => {
   const StarRating = () => (
     <div className="flex items-start">
       {[...Array(5)].map((_, i) => (
-        <img key={i} src={starIcon} alt="star" className="w-8 h-8" />
+        <img key={i} src={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1763534481120-e82e9280-83df-4586-a1ef-2ab02000a801.webp"} alt="star" className="w-8 h-8" />
       ))}
     </div>
   );
