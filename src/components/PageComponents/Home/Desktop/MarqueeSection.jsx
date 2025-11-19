@@ -26,7 +26,7 @@ const equipmentCards = [
     label: "Eleiko Olympic Barbel",
     mob_label: "Cycle Machines",
     icon: card_icon1,
-    mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763476403428-e4fc582c-944b-4049-b939-e2abb991247a.png",
+    mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763543624870-7a9c8c0d-b3a6-4920-9af4-60171be27492.png",
   },
   {
     image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763475686412-1dd5f72b-5055-40f1-9372-1e7682aae443.png",
@@ -162,7 +162,7 @@ const MarqueeSection = () => {
           </div>
           <div className="p-3 bg-white flex-shrink-0">
             <p className="text-[#1C1C1C] font-[Kanit] font-[400] text-[16px]  leading-[120%] text-center">
-              {card.label}
+              {card.mob_label}
             </p>
           </div>
         </div>
