@@ -5,7 +5,7 @@ const professionals = [
     {
         title: "Physiotherapy",
         image:
-            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762342061279-5f66b532-2afb-40ff-a3ce-2a9c5f0168c3.jpg",
+            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763537199031-65a3df40-d592-4dad-862b-7a3835f6137b.webp",
     },
     {
         title: "Pilates",

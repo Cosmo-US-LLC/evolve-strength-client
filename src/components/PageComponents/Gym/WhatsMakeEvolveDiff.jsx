@@ -6,22 +6,28 @@ const gymCards = [
     title: "Premium Equipment",
     description:
       "Train on top-of-the-line machines and free weights, all expertly maintained for smarter lifts and faster results.",
-    video: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703686095-2b7f5707-b22c-41ab-b746-a1a23c6fa234.webm",
-    videomobile:"https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632418364-2ae4dfc4-dbf7-4a7e-b6bf-514a32eadcba.mp4",
+    video:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703686095-2b7f5707-b22c-41ab-b746-a1a23c6fa234.webm",
+    videomobile:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632418364-2ae4dfc4-dbf7-4a7e-b6bf-514a32eadcba.mp4",
   },
   {
     title: "Room to Move",
     description:
       "Spacious, open training zones give you freedom to focus, move freely, and challenge your limits.",
-    video: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703608053-568cac3d-912b-4505-99bb-84a94b9b79a6.webm",
-     videomobile:"https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632354725-62c014a5-4988-4976-a834-89d492aa8c6b.mp4",
+    video:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703608053-568cac3d-912b-4505-99bb-84a94b9b79a6.webm",
+    videomobile:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632354725-62c014a5-4988-4976-a834-89d492aa8c6b.mp4",
   },
   {
     title: "Atmosphere",
     description:
       "Stay motivated in a vibrant, inspiring space designed to energize and elevate every workout experience.",
-    video: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703643796-bfad9aab-51e1-4ed5-af09-1f804aff883b.webm",
-     videomobile:"https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632574411-b43edd39-e64a-46cc-8401-2b10f516aa6f.mp4",
+    video:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703643796-bfad9aab-51e1-4ed5-af09-1f804aff883b.webm",
+    videomobile:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632574411-b43edd39-e64a-46cc-8401-2b10f516aa6f.mp4",
   },
 ];
 
@@ -80,7 +86,9 @@ const WhatsMakeEvolveDiff = () => {
   return (
     <div>
       <div className="space-y-[20px] py-12 text-center relative z-[9] max-w-[1280px] mx-auto flex flex-col justify-center items-center  h-full  px-4 md:px-8">
-        <h2 className="!text-[#000] uppercase md:text-center text-left">What Makes Evolve Different</h2>
+        <h2 className="!text-[#000] uppercase md:text-center text-left">
+          What Makes Evolve Different
+        </h2>
         <h4 className="!text-[#000] leading-[25px] md:text-center text-left max-w-[593px]">
           Evolve excels with its user-focused design and advanced technology,
           enhancing productivity and fostering teamwork in dynamic settings.
@@ -88,7 +96,7 @@ const WhatsMakeEvolveDiff = () => {
       </div>
       <div className="relative w-full overflow-hidden max-md:hidden">
         <div className="absolute inset-0 z-0 overflow-hidden">
-          {gymCards.map((card, index) => (
+          {/* {gymCards.map((card, index) => (
             <div
               key={index}
               className={`absolute inset-0 transition-opacity duration-500 ${
@@ -106,7 +114,27 @@ const WhatsMakeEvolveDiff = () => {
                 <source src={card.video} type="video/webm" />
               </video>
             </div>
+          ))} */}
+          {gymCards.map((card, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-500 ${
+                activeIndex === index ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+              >
+                <source src={card.video} type="video/webm" />
+              </video>
+            </div>
           ))}
+
           <div className="absolute inset-0 bg-black/20 pointer-events-none" />
         </div>
 
@@ -159,10 +187,9 @@ const WhatsMakeEvolveDiff = () => {
 
       {/* Mobile Carousel - Simplified like PersonalGymExperience */}
       <div className="md:hidden">
-        
         <div className="relative w-full overflow-hidden min-h-[512px] flex flex-col">
-         <div className="absolute inset-0 z-0 overflow-hidden">
-            {gymCards.map((card, index) => (
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            {/* {gymCards.map((card, index) => (
               <div
                 key={index}
                 className={`absolute inset-0 ${index === selectedIndex ? 'block' : 'hidden'}`}
@@ -179,9 +206,29 @@ const WhatsMakeEvolveDiff = () => {
                   <source src={card.videomobile} type="video/mp4" />
                 </video>
               </div>
+            ))} */}
+            {gymCards.map((card, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-opacity duration-500 ${
+                  selectedIndex === index ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <video
+                  className="absolute inset-0 w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                >
+                  <source src={card.videomobile} type="video/mp4" />
+                </video>
+              </div>
             ))}
+
             <div className="absolute inset-0 bg-black/20 pointer-events-none" />
-        </div>
+          </div>
 
           <div className="flex-1" />
 
