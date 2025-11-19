@@ -107,7 +107,7 @@ const equipmentCards = [
   },
   {
     image: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763475595156-4b97875e-7188-461f-a76b-d74d6d49ff7d.png",
-    label: "seal row bench",
+    label: "Seal Row Bench",
     icon: card_icon13,
     mobimg: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763476433252-72d5649e-2f1e-4d4d-ae1b-461c46d8d417.png",
     mob_label: "Dual Cable Pulldown",
