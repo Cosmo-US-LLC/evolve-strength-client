@@ -54,51 +54,51 @@ function LocationsPersonalizedAssessment() {
     const backgroundImages = {
       "vancouver-post": {
         desktop:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/assessment_post.webp",
+          "/assets/images/Locations/assesment/assessment_post.webp",
         mobile:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/assessment_post_mob.webp",
+          "/assets/images/Locations/assesment/assessment_post_mob.webp",
       },
       "burnaby-brentwood": {
         desktop:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/assessment_brentwood.webp",
+          "/assets/images/Locations/assesment/assessment_brentwood.webp",
         mobile:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/assessment_brentwood_mob.webp",
+          "/assets/images/Locations/assesment/assessment_brentwood_mob.webp",
       },
       "calgary-seton": {
         desktop:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/assessment_seten.webp",
+          "/assets/images/Locations/assesment/assessment_seten.webp",
         mobile:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/assessment_seten_mob.webp",
+          "/assets/images/Locations/assesment/assessment_seten_mob.webp",
       },
       "calgary-royal-oak": {
         desktop:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/assessment_royal_oak.webp",
+          "/assets/images/Locations/assesment/assessment_royal_oak.webp",
         mobile:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/assessment_royal_oak_mob.webp",
+          "/assets/images/Locations/assesment/assessment_royal_oak_mob.webp",
       },
       "calgary-sunridge": {
         desktop:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/Assesment.webp",
+          "/assets/images/Locations/assesment/Assesment.webp",
         mobile:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/LoAssesment.webp",
+          "/assets/images/Locations/assesment/LoAssesment.webp",
       },
       "edmonton-south": {
         desktop:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/Assesment.webp",
+          "/assets/images/Locations/assesment/Assesment.webp",
         mobile:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/LoAssesment.webp",
+          "/assets/images/Locations/assesment/LoAssesment.webp",
       },
       "edmonton-downtown": {
         desktop:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/assessment_downtown.webp",
+          "/assets/images/Locations/assesment/assessment_downtown.webp",
         mobile:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/assessment_downtown_mob.webp",
+          "/assets/images/Locations/assesment/assessment_downtown_mob.webp",
       },
       "edmonton-north": {
         desktop:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/Assesment.webp",
+          "/assets/images/Locations/assesment/Assesment.webp",
         mobile:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/assesment/LoAssesment.webp",
+          "/assets/images/Locations/assesment/LoAssesment.webp",
       },
     };
 

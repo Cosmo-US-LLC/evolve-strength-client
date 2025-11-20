@@ -10,13 +10,13 @@ export const FLOOR_PLAN_SLIDES = {
       {
         id: 1,
         image:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveFloorPlan/slide1.webp",
+          "/assets/images/franchise/EvolveFloorPlan/slide1.webp",
         alt: "Evolve Strength franchise floor plan - Vancouver Post location",
       },
       {
         id: 2,
         image:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveFloorPlan/slide2.webp",
+          "/assets/images/franchise/EvolveFloorPlan/slide2.webp",
         alt: "Evolve Strength franchise floor plan - Brentwood location",
       },
     ],
@@ -31,7 +31,7 @@ export const FLOOR_PLAN_SLIDES = {
       {
         id: 1,
         image:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveFloorPlan/slide2.webp",
+          "/assets/images/franchise/EvolveFloorPlan/slide2.webp",
         alt: "Evolve Strength Brentwood floor plan",
       },
     ],
@@ -46,7 +46,7 @@ export const FLOOR_PLAN_SLIDES = {
       {
         id: 1,
         image:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveFloorPlan/slide1.webp",
+          "/assets/images/franchise/EvolveFloorPlan/slide1.webp",
         alt: "Evolve Strength Vancouver Post floor plan",
       },
     ],
@@ -61,7 +61,7 @@ export const FLOOR_PLAN_SLIDES = {
       {
         id: 1,
         image:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveFloorPlan/slide1.webp",
+          "/assets/images/franchise/EvolveFloorPlan/slide1.webp",
         alt: "Evolve Strength Calgary Royal Oak floor plan",
       },
     ],
@@ -76,7 +76,7 @@ export const FLOOR_PLAN_SLIDES = {
       {
         id: 1,
         image:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveFloorPlan/slide2.webp",
+          "/assets/images/franchise/EvolveFloorPlan/slide2.webp",
         alt: "Evolve Strength Calgary Seton floor plan",
       },
     ],
@@ -91,7 +91,7 @@ export const FLOOR_PLAN_SLIDES = {
       {
         id: 1,
         image:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveFloorPlan/slide2.webp",
+          "/assets/images/franchise/EvolveFloorPlan/slide2.webp",
         alt: "Evolve Strength Edmonton Downtown floor plan",
       },
     ],
@@ -106,7 +106,7 @@ export const FLOOR_PLAN_SLIDES = {
       {
         id: 1,
         image:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveFloorPlan/slide1.webp",
+          "/assets/images/franchise/EvolveFloorPlan/slide1.webp",
         alt: "Evolve Strength Edmonton North floor plan",
       },
     ],
@@ -121,7 +121,7 @@ export const FLOOR_PLAN_SLIDES = {
       {
         id: 1,
         image:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveFloorPlan/slide2.webp",
+          "/assets/images/franchise/EvolveFloorPlan/slide2.webp",
         alt: "Evolve Strength Edmonton South floor plan",
       },
     ],
@@ -136,7 +136,7 @@ export const FLOOR_PLAN_SLIDES = {
       {
         id: 1,
         image:
-          "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/EvolveFloorPlan/slide1.webp",
+          "/assets/images/franchise/EvolveFloorPlan/slide1.webp",
         alt: "Evolve Strength Edmonton South Common floor plan",
       },
     ],

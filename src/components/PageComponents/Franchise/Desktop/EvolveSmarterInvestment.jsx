@@ -11,7 +11,7 @@ const benefitItems = [
     description:
       "Memberships, rentals, personal training, and healthcare subleasing",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/evolveSmarterInvestment/step-0.webp",
+      "/assets/images/franchise/evolveSmarterInvestment/step-0.webp",
   },
   {
     key: "experience",
@@ -27,7 +27,7 @@ const benefitItems = [
     description:
       "Standardized systems, national partnerships, and streamlined operations.",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/evolveSmarterInvestment/step-2.webp",
+      "/assets/images/franchise/evolveSmarterInvestment/step-2.webp",
   },
   {
     key: "ebitda",
@@ -35,7 +35,7 @@ const benefitItems = [
     description:
       "Our business model delivers healthy margins, with EBITDA reaching 22% to 28% by year three.",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/evolveSmarterInvestment/step-3.webp",
+      "/assets/images/franchise/evolveSmarterInvestment/step-3.webp",
   },
 ];
 

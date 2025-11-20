@@ -8,32 +8,32 @@ const professionals = [
   {
     title: "Strength Training",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Strenght_Training.webp",
+      "/assets/images/AboutUs/AboutUs_Trainers/Strenght_Training.webp",
   },
   {
     title: "Body Weight Training",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Weight_Training.webp",
+      "/assets/images/AboutUs/AboutUs_Trainers/Weight_Training.webp",
   },
   {
     title: "Cardio",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Cardio.webp",
+      "/assets/images/AboutUs/AboutUs_Trainers/Cardio.webp",
   },
   {
     title: "Turf Workout",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Turf_Workout.webp",
+      "/assets/images/AboutUs/AboutUs_Trainers/Turf_Workout.webp",
   },
   {
     title: "Olympic Lifting",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Olympic_Lifting.webp",
+      "/assets/images/AboutUs/AboutUs_Trainers/Olympic_Lifting.webp",
   },
   {
     title: "Yoga",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/AboutUs/AboutUs_Trainers/Yoga.webp",
+      "/assets/images/AboutUs/AboutUs_Trainers/Yoga.webp",
   },
 ];
 

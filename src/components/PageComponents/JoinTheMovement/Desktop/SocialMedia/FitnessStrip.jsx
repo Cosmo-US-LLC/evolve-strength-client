@@ -8,7 +8,7 @@ function FitnessStrip() {
       <div className="w-7 h-7 rounded-full bg-[#4AB04A] flex items-center justify-center">
         
         <div className=""></div>
-        <img src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/SocialMedia/fitnessstrip/Fitness_Logo.svg" alt="Fitness Logo" className='w-4 h-4' />
+        <img src="/assets/images/JoinTheMovement/SocialMedia/fitnessstrip/Fitness_Logo.svg" alt="Fitness Logo" className='w-4 h-4' />
       </div>
 
       <span className="text-[#4AB04A] font-medium text-sm">#fitness</span>

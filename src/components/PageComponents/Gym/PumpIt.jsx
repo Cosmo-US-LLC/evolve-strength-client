@@ -12,35 +12,35 @@ function PumpIt({sliderDotsColor = "sliderDotsColor"}) {
       id: "machines",
       title: "Machines Section",
       image:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/gym/machines_bg.webp",
+        "/assets/images/gym/machines_bg.webp",
       description: "State-of-the-art selectorized equipment",
     },
     {
       id: "strength",
       title: "Strength Training",
       image:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/gym/strength_training_bg.webp",
+        "/assets/images/gym/strength_training_bg.webp",
       description: "Power racks, squat cages, and free weights",
     },
     {
       id: "olympic",
       title: "Olympic Lifting",
       image:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/gym/olympic_lifting_bg.webp",
+        "/assets/images/gym/olympic_lifting_bg.webp",
       description: "Dedicated platforms for Olympic lifts",
     },
     {
       id: "cardio",
       title: "Cardio Zone",
       image:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/gym/cardio_zone_bg.webp",
+        "/assets/images/gym/cardio_zone_bg.webp",
       description: "Treadmills, bikes, and rowing machines",
     },
     {
       id: "turf",
       title: "Turf Area",
       image:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/gym/truf_area_bg.webp",
+        "/assets/images/gym/truf_area_bg.webp",
       description: "Functional training and agility work",
     },
   ];

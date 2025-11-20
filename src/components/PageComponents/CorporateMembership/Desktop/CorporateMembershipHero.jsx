@@ -28,11 +28,11 @@ function CorporateMembershipHero() {
         <div className="flex flex-col items-center justify-center">
           <picture>
             <source
-              srcSet="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/corporateMemberHero/corporrate_hero.webp"
+              srcSet="/assets/images/corporateMembership/corporateMemberHero/corporrate_hero.webp"
               media="(min-width: 768px)"
             />
             <img
-              src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/corporateMemberHero/corporate_hero_mob.webp"
+              src="/assets/images/corporateMembership/corporateMemberHero/corporate_hero_mob.webp"
               alt="Corporate Membership Hero"
             />
           </picture>

@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 const LOCATION_HERO_DATA = {
   "calgary-seton": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_seten.webp",
+      "/assets/images/Locations/location-hero/hero_seten.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_seten_mob.webp",
+      "/assets/images/Locations/location-hero/hero_seten_mob.webp",
     locationTitle: "SETON",
     city: "CALGARY",
     fullTitle: "SETON's Premier Fitness and Wellness Club",
@@ -17,9 +17,9 @@ const LOCATION_HERO_DATA = {
   },
   "calgary-royal-oak": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_royal_oak.webp",
+      "/assets/images/Locations/location-hero/hero_royal_oak.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_royal_oak_mob.webp",
+      "/assets/images/Locations/location-hero/hero_royal_oak_mob.webp",
     locationTitle: "ROYAL OAK",
     city: "CALGARY",
     fullTitle: "ROYAL OAK's Premier Fitness and Wellness Club",
@@ -29,9 +29,9 @@ const LOCATION_HERO_DATA = {
   },
   "calgary-sunridge": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/sunridge.webp",
+      "/assets/images/Locations/location-hero/sunridge.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/sunridgeMob.webp",
+      "/assets/images/Locations/location-hero/sunridgeMob.webp",
     locationTitle: "SUNRIDGE",
     city: "CALGARY",
     fullTitle: "SUNRIDGE's Premier Fitness and Wellness Club",
@@ -41,9 +41,9 @@ const LOCATION_HERO_DATA = {
   },
   "edmonton-south": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/south.webp",
+      "/assets/images/Locations/location-hero/south.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/southMob.webp",
+      "/assets/images/Locations/location-hero/southMob.webp",
     locationTitle: "SOUTH",
     city: "EDMONTON",
     fullTitle: "Edmonton South's Premier Fitness and Wellness Club",
@@ -53,9 +53,9 @@ const LOCATION_HERO_DATA = {
   },
   "edmonton-north": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/north.webp",
+      "/assets/images/Locations/location-hero/north.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/northMob.webp",
+      "/assets/images/Locations/location-hero/northMob.webp",
     locationTitle: "NORTH",
     city: "EDMONTON",
     fullTitle: "Edmonton North's Premier Fitness and Wellness Club",
@@ -65,9 +65,9 @@ const LOCATION_HERO_DATA = {
   },
   "edmonton-downtown": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_downtown.webp",
+      "/assets/images/Locations/location-hero/hero_downtown.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_downtown_mob.webp",
+      "/assets/images/Locations/location-hero/hero_downtown_mob.webp",
     locationTitle: "DOWNTOWN",
     city: "EDMONTON",
     fullTitle: "DOWNTOWN's Premier Fitness and Wellness Club",
@@ -77,9 +77,9 @@ const LOCATION_HERO_DATA = {
   },
   "burnaby-brentwood": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_brentwood.webp",
+      "/assets/images/Locations/location-hero/hero_brentwood.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_brentwood_mob.webp",
+      "/assets/images/Locations/location-hero/hero_brentwood_mob.webp",
     locationTitle: "BRENTWOOD",
     city: "BURNABY",
     fullTitle: "BRENTWOOD's Premier Fitness and Wellness Club",
@@ -89,9 +89,9 @@ const LOCATION_HERO_DATA = {
   },
   "vancouver-post": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_post.webp",
+      "/assets/images/Locations/location-hero/hero_post.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/location-hero/hero_post_mob.webp",
+      "/assets/images/Locations/location-hero/hero_post_mob.webp",
     locationTitle: "THE POST",
     city: "VANCOUVER",
     fullTitle: "Vancouver's Premier Fitness and Wellness Club",

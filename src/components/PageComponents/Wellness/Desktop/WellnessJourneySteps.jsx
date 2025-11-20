@@ -15,7 +15,7 @@ const steps = [
     description:
       "Get the care and guidance you need directly from your chosen specialist.",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessJourneySteps/step_2.webp",
+      "/assets/images/wellness/WellnessJourneySteps/step_2.webp",
     icon: <CalendarCheck2 className="w-5 h-5 text-white" />,
   },
   {
@@ -23,14 +23,14 @@ const steps = [
     description:
       "Follow a personalized approach designed to support your health and well-being.",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessJourneySteps/step_3.webp",
+      "/assets/images/wellness/WellnessJourneySteps/step_3.webp",
     icon: <PersonStanding className="w-5 h-5 text-white" />,
   },
   {
     title: "Step 4: Feel the Difference",
     description: "Enjoy improved balance, recovery, and overall wellness.",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessJourneySteps/step_4.webp",
+      "/assets/images/wellness/WellnessJourneySteps/step_4.webp",
     icon: <Smile className="w-5 h-5 text-white" />,
   },
 ];

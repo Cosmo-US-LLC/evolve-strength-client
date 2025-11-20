@@ -28,7 +28,7 @@ const allOffices = [
   //   title: "Executive Office",
   //   location: "Calgary Royal Oak",
   //   image:
-  //     "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
+  //     "/assets/images/spaces/AvailableOffices/royal_E.webp",
   //   size: "Starting at 130 sq/ft",
   //   roomStatus: "Unfurnished | With or Without a Sink",
   // },
@@ -36,14 +36,14 @@ const allOffices = [
     title: "Premium Office Suite",
     location: "Calgary Royal Oak",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_P.webp",
+      "/assets/images/spaces/AvailableOffices/royal_P.webp",
     size: "170 sq/ft",
     roomStatus: "Unfurnished | without a sink",
   },
   // {
   //   title: "Anchor",
   //   location: "Calgary Royal Oak",
-  //   image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_A.webp",
+  //   image: "/assets/images/spaces/AvailableOffices/royal_A.webp",
   //   size: "Starting at 1170 sq/ft",
   //   roomStatus:"Unfurnished | With or Without a Sink"
 
@@ -52,7 +52,7 @@ const allOffices = [
     title: "Executive Office",
     location: "Edmonton North",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
+      "/assets/images/spaces/AvailableOffices/royal_E.webp",
     size: "Starting at 112 sq/ft",
     roomStatus: "Unfurnished | Without a Sink",
   },
@@ -60,7 +60,7 @@ const allOffices = [
     title: "Executive Office",
     location: "Edmonton North",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_P.webp",
+      "/assets/images/spaces/AvailableOffices/royal_P.webp",
     size: "Starting at 114 sq/ft",
     roomStatus: "Unfurnished | Without a Sink",
   },
@@ -68,14 +68,14 @@ const allOffices = [
   //   title: "Executive Office",
   //   location: "Edmonton Downtown",
   //   image:
-  //     "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_E.webp",
+  //     "/assets/images/spaces/AvailableOffices/royal_E.webp",
   //   size: "Starting at 120 sq/ft",
   //   roomStatus: "Unfurnished | Without a Sink",
   // },
   // {
   //   title: "Premium Office Suite",
   //   location: "Edmonton Downtown",
-  //   image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/royal_P.webp",
+  //   image: "/assets/images/spaces/AvailableOffices/royal_P.webp",
   //   size: "Starting at 170 sq/ft",
   //   roomStatus:"Unfurnished | With or Without a Sink"
   // },
@@ -83,7 +83,7 @@ const allOffices = [
   //   title: "Executive Office",
   //   location: "Calgary Sunridge",
   //   image:
-  //     "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/CSSlides_1.webp",
+  //     "/assets/images/spaces/AvailableOffices/CSSlides_1.webp",
   //   size: "Starting at 121 sq/ft",
   //   roomStatus: "Unfurnished | Without a Sink",
   // },
@@ -91,7 +91,7 @@ const allOffices = [
   //   title: "Executive Office",
   //   location: "Calgary Sunridge",
   //   image:
-  //     "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/AvailableOffices/CSSlides_1.webp",
+  //     "/assets/images/spaces/AvailableOffices/CSSlides_1.webp",
   //   size: "Starting at 121 sq/ft",
   //   roomStatus: "Unfurnished | Without a Sink",
   // },

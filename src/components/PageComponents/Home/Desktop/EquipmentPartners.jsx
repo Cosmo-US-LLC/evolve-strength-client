@@ -1,26 +1,32 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 
+import brand_logo1 from '../../../../assets/images/home/EquipmentPartners/eleiko.svg';
+import brand_logo2 from '../../../../assets/images/home/EquipmentPartners/peocor.svg';
+import brand_logo3 from '../../../../assets/images/home/EquipmentPartners/NewTech_logo.svg';
+import brand_logo4 from '../../../../assets/images/home/EquipmentPartners/Techno_gym_logo.svg';
+import brand_logo5 from '../../../../assets/images/home/EquipmentPartners/Atlantis_logo.svg';
+
 const partnerLogos = [
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/EquipmentPartners/Eleiko_logo.svg",
+    src: brand_logo1,
     alt: "Eleiko",
   },
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/EquipmentPartners/Eprecor_logo.svg",
+    src: brand_logo2,
     alt: "Precor",
   },
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/EquipmentPartners/NewTech_logo.svg",
+    src: brand_logo3,
     alt: "Rogue",
   },
-  // { src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/EquipmentPartners/rogue.svg", alt: "rogueLogo" },
+  // { src: "/assets/images/home/EquipmentPartners/rogue.svg", alt: "rogueLogo" },
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/EquipmentPartners/Techno_gym_logo.svg",
+    src: brand_logo4,
     alt: "Technogym",
   },
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/EquipmentPartners/Atlantis_logo.svg",
+    src: brand_logo5,
     alt: "Atlantis",
   },
 ];

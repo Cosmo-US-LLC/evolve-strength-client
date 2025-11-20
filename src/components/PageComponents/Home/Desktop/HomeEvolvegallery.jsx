@@ -1,53 +1,56 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import Evolvegallery from "../../Gym/Evolvegallery";
 
+import img_1 from "../../../../assets/images/gym/gym_gallery/img_1.webp";
+import img_2 from "../../../../assets/images/gym/gym_gallery/img_2.webp";
+import img_3 from "../../../../assets/images/gym/gym_gallery/img_3.webp";
+import img_4 from "../../../../assets/images/gym/gym_gallery/img_4.webp";
+import img_5 from "../../../../assets/images/gym/gym_gallery/img_5.webp";
+import img_6 from "../../../../assets/images/gym/gym_gallery/img_6.webp";
+import img_7 from "../../../../assets/images/gym/gym_gallery/img_7.webp";
+
 const professionals = [
-    {
-        title: "Physiotherapy",
-        image:
-            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763537199031-65a3df40-d592-4dad-862b-7a3835f6137b.webp",
-    },
-    {
-        title: "Pilates",
-        image:
-            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763474759882-4c68e765-bb27-4488-a342-1d868c71d889.jpg",
-    },
-    {
-        title: "Massage Therapy",
-        image:
-            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763474576825-d1b88703-88ee-4ddc-aace-9fe4848f0af5.jpg",
-    },
-    {
-      title: "Chiropractic Care",
-      image:
-        "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763474667677-723c8ae2-b271-45cf-a802-73c26a158b41.jpg",
-    },
-    {
-        title: "Acupuncture",
-        image:
-            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763474501189-f8667bd9-6dab-4e6b-bf9e-3831041c30f6.jpg",
-    },
-    {
-        title: "Dietitian Services",
-        image:
-            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763474277293-14210d72-746f-4628-8179-be457bf4ea2f.webp",
-    },
-    {
-        title: "Dietitian Services",
-        image:
-            "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763473996618-9a7938a2-4527-4486-8fa0-89acbddff5c2.webp",
-    },
+  {
+    title: "Physiotherapy",
+    image: img_1,
+  },
+  {
+    title: "Pilates",
+    image: img_2,
+  },
+  {
+    title: "Massage Therapy",
+    image: img_3,
+  },
+  {
+    title: "Chiropractic Care",
+    image: img_4,
+  },
+  {
+    title: "Acupuncture",
+    image: img_5,
+  },
+  {
+    title: "Dietitian Services",
+    image: img_6,
+  },
+  {
+    title: "Dietitian Services",
+    image: img_7,
+  },
 ];
 
-
 const HomeEvolvegallery = () => {
-
-
-    return (
-        <>
-            <Evolvegallery imageRadious="5px"  slidesGap="0.85" buttonsTop="mt-6 md:mt-16" slides = {professionals} />
-        </>
-    );
+  return (
+    <>
+      <Evolvegallery
+        imageRadious="5px"
+        slidesGap="0.85"
+        buttonsTop="mt-6 md:mt-16"
+        slides={professionals}
+      />
+    </>
+  );
 };
 
 export default HomeEvolvegallery;

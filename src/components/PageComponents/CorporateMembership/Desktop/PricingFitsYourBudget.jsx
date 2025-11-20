@@ -20,7 +20,7 @@ function PricingFitsYourBudget() {
       </div>
       <div className="w-[100%] md:w-[50%] rounded-[10px]">
         <img
-          src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/PricingFitsYourBudget/pricingFits.webp"
+          src="/assets/images/corporateMembership/PricingFitsYourBudget/pricingFits.webp"
           alt="Join the Movement"
           className="w-full h-full object-cover"
         />

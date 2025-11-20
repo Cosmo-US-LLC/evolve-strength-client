@@ -32,7 +32,7 @@ function EdmontonSouthCommonWaitlist() {
           }}
         >
           <source
-            src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/ES_waitlist_desktop.webm"
+            src="/assets/videos/ES_waitlist_desktop.webm"
             type="video/webm"
           />
           Your browser does not support the video tag.
@@ -51,7 +51,7 @@ function EdmontonSouthCommonWaitlist() {
           }}
         >
           <source
-            src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/ES_waitlist_mobile.webm"
+            src="/assets/videos/ES_waitlist_mobile.webm"
             type="video/webm"
           />
           Your browser does not support the video tag.

@@ -13,7 +13,7 @@ const gymCards = [
     description:
       "Employees can train, recover, and get healthcare support without leaving the facility. No need to travel between appointments.",
     bgImage:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/everyThinkOnePlace.webp",
+      "/assets/images/corporateMembership/whyChoose/everyThinkOnePlace.webp",
     icon: OnePlaceIcon,
   },
   {
@@ -22,7 +22,7 @@ const gymCards = [
     description:
       "Each location offers physiotherapy, massage, chiropractic, acupuncture, and more. Plus steam rooms, saunas and showers.",
     bgImage:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/gym_equipment.webp",
+      "/assets/images/corporateMembership/whyChoose/gym_equipment.webp",
     icon: TopTierIcon,
   },
   {
@@ -31,7 +31,7 @@ const gymCards = [
     description:
       "Our spaces feature Precor, Rogue, Eleiko, and Atlantis gear. That includes strength platforms, cardio machines, and turf zones.",
     bgImage:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/wellness_support.webp",
+      "/assets/images/corporateMembership/whyChoose/wellness_support.webp",
     icon: WellnessSupportIcon,
   },
   {
@@ -40,7 +40,7 @@ const gymCards = [
     description:
       "When employees use their benefits, they feel better, get injured less, and take fewer sick days. That improves productivity and morale.",
     bgImage:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/whyChoose/better_outcomes.webp",
+      "/assets/images/corporateMembership/whyChoose/better_outcomes.webp",
     icon: BetterOutcomesIcon,
   },
 ];

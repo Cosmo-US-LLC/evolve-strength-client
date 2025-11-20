@@ -8,32 +8,32 @@ const professionals = [
   {
     title: "Physiotherapy",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_1.webp",
+      "/assets/images/franchise/Evolvelooklike/image_1.webp",
   },
   {
     title: "Pilates",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_2.webp",
+      "/assets/images/franchise/Evolvelooklike/image_2.webp",
   },
   {
     title: "Massage Therapy",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_3.webp",
+      "/assets/images/franchise/Evolvelooklike/image_3.webp",
   },
   // {
   //   title: "Chiropractic Care",
   //   image:
-  //     "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_4.webp",
+  //     "/assets/images/franchise/Evolvelooklike/image_4.webp",
   // },
   {
     title: "Acupuncture",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_5.webp",
+      "/assets/images/franchise/Evolvelooklike/image_5.webp",
   },
   {
     title: "Dietitian Services",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/Evolvelooklike/image_6.webp",
+      "/assets/images/franchise/Evolvelooklike/image_6.webp",
   },
 ];
 
