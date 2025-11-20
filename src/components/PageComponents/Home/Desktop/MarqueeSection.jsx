@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
@@ -27,7 +27,7 @@ import img_7 from "../../../../assets/images/gym/World-Class/img_7.webp";
 import img_8 from "../../../../assets/images/gym/World-Class/img_8.webp";
 import img_9 from "../../../../assets/images/gym/World-Class/img_9.webp";
 import img_10 from "../../../../assets/images/gym/World-Class/img_10.webp";
-import img_11 from "../../../../assets/images/gym/World-Class/img_11.webp";
+import img_11 from "../../../../assets/images/gym/World-Class//airbike.webp";
 import img_12 from "../../../../assets/images/gym/World-Class/img_12.webp";
 import img_13 from "../../../../assets/images/gym/World-Class/img_13.webp";
 
@@ -48,41 +48,41 @@ const equipmentCards = [
     label: "Precor FTS Glide",
     mob_label: "Precor FTS Glide",
     icon: card_icon2,
-    mobimg: img_2,
+    mobimg: img_7,
   },
   {
     image: "/media/1763475746742-8ad065dd-6d3e-4cb4-82dc-279394f9445c.png",
     label: "Medicine Ball Rack",
     mob_label: "Medicine Ball Rack",
     icon: card_icon3,
-    mobimg: img_3,
+    mobimg: img_2,
   },
   {
     image: "/media/1763475810851-b8bd92fb-73f1-48fa-9d47-119b7ad3f1ce.png",
     label: "Turf",
     mob_label: "Turf",
     icon: card_icon4,
-    mobimg: img_4,
+    mobimg: img_10,
   },
   {
     image: olympic_plates,
     label: "Olympic Plates",
     mob_label: "Olympic Plates",
     icon: card_icon5,
-    mobimg: img_5,
+    mobimg: img_3,
   },
   {
     image: "/media/1763475667086-14bfcfdd-3100-40f6-ba00-ceb58e2c359e.png",
     label: "half rack",
     mob_label: "half rack",
     icon: card_icon6,
-    mobimg: img_6,
+    mobimg: img_8,
   },
   {
     image: "/media/1763475652507-cf0d78dd-b8c5-419d-8efc-589bebbcb59a.png",
     label: "SkiErgs & RowErgs",
     icon: card_icon7,
-    mobimg: img_7,
+    mobimg: "/media/1763475652507-cf0d78dd-b8c5-419d-8efc-589bebbcb59a.png",
     mob_label: "SkiErgs & RowErgs",
   },
   {
@@ -90,34 +90,34 @@ const equipmentCards = [
     label: "Excite Synchro",
     mob_label: "Excite Synchro",
     icon: card_icon8,
-    mobimg: img_8,
+    mobimg: img_4,
   },
   {
     image: "/media/1763475635232-bf01088e-4f25-4d44-bae1-78070793cf60.png",
     label: "Incline Chest Press",
     mob_label: "Incline Chest Press",
     icon: card_icon9,
-    mobimg: img_9,
+    mobimg: img_12,
   },
   {
     image: "/media/1763475713646-1c3c1dba-5130-49b1-89a1-6f8c8ebe4337.png",
     label: "Treadmill",
     mob_label: "Treadmill",
     icon: card_icon10,
-    mobimg: img_10,
+    mobimg: img_5,
   },
   {
     image: airbike,
     label: "AirBike",
     mob_label: "AirBike",
     icon: card_icon11,
-    mobimg: img_11,
+    mobimg: img_9,
   },
   {
     image: "/media/1763475700749-6b8a4803-155a-474a-995a-8daff781769a.png",
     label: "standing abductor",
     icon: card_icon12,
-    mobimg: img_12,
+    mobimg: img_6,
     mob_label: "standing abductor",
   },
   {
@@ -177,7 +177,7 @@ const MarqueeSection = () => {
           </div>
           <div className="p-3 bg-white flex-shrink-0">
             <p className="text-[#1C1C1C] font-[Kanit] font-[400] text-[16px]  leading-[120%] text-center">
-              {card.mob_label}
+              {card.label}
             </p>
           </div>
         </div>
@@ -218,7 +218,7 @@ const MarqueeSection = () => {
                 zIndex: 10,
               }}
             >
-              <p className="text-white font-Kanit capitalize font-[400] text-[14px] leading-[20px]">
+              <p className="text-white font-[Kanit] capitalize font-[400] text-[14px] leading-[20px]">
                 {card.label}
               </p>
             </div>
