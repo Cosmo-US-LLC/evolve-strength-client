@@ -5,32 +5,32 @@ const amenities = [
   {
     title: "On-Site Parking",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/PremiumAmenities/onSite_parking.webp",
+      "/assets/images/spaces/PremiumAmenities/onSite_parking.webp",
   },
   {
     title: "Locker Rooms",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/PremiumAmenities/locker_rooms.webp",
+      "/assets/images/spaces/PremiumAmenities/locker_rooms.webp",
   },
   {
     title: "Showers",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/PremiumAmenities/showers_room.webp",
+      "/assets/images/spaces/PremiumAmenities/showers_room.webp",
   },
   {
     title: "Steam Rooms and Saunas",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/PremiumAmenities/steam_area.webp",
+      "/assets/images/spaces/PremiumAmenities/steam_area.webp",
   },
   {
     title: "Premium Waiting Area",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/PremiumAmenities/waiting_area.webp",
+      "/assets/images/spaces/PremiumAmenities/waiting_area.webp",
   },
   {
     title: "Full Commercial Gym Access",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/PremiumAmenities/gym_area.webp",
+      "/assets/images/spaces/PremiumAmenities/gym_area.webp",
   },
 ];
 

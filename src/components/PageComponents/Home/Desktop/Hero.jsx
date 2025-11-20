@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import heroVideo from "../../../../assets/videos/ExplorePages.webm";
 
 function Hero({ title }) {
   return (
@@ -15,7 +16,7 @@ function Hero({ title }) {
           style={{ objectFit: "cover", objectPosition: "bottom" }}
         >
           <source
-            src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/ExplorePages.webm"
+            src={heroVideo}
             type="video/webm"
           />
           Your browser does not support the video tag.

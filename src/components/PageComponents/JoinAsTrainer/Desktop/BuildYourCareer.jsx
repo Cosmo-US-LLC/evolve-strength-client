@@ -24,7 +24,7 @@ function BuildYourCareer() {
               <div className="hidden md:grid grid-cols-9 gap-[12px] items-start">
   <div className="flex flex-col gap-[12px] mt-[60px]">
     <img
-      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(2).webp"
+      src="/assets/images/JoinAsTrainer/BuildYour/build_your%20(2).webp"
       alt="Bearded man"
       className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
                  transform transition-all duration-500 ease-in-out 
@@ -32,7 +32,7 @@ function BuildYourCareer() {
                  hover:brightness-110 cursor-pointer"
     />
     <img
-      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(1).webp"
+      src="/assets/images/JoinAsTrainer/BuildYour/build_your%20(1).webp"
       alt="Woman with trophy"
       className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
                  transform transition-all duration-500 ease-in-out 
@@ -42,7 +42,7 @@ function BuildYourCareer() {
   </div>
   <div className="flex flex-col justify-center gap-[12px] ">
     <img
-      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(3).webp"
+      src="/assets/images/JoinAsTrainer/BuildYour/build_your%20(3).webp"
       alt="Woman in green polka dot"
       className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
                  transform transition-all duration-500 ease-in-out 
@@ -50,7 +50,7 @@ function BuildYourCareer() {
                  hover:brightness-110 cursor-pointer"
     />
     <img
-      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(4).webp"
+      src="/assets/images/JoinAsTrainer/BuildYour/build_your%20(4).webp"
       alt="Gym scene"
       className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
                  transform transition-all duration-500 ease-in-out 
@@ -60,7 +60,7 @@ function BuildYourCareer() {
   </div>
   <div className="mt-[100px]">
     <img
-      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(5).webp"
+      src="/assets/images/JoinAsTrainer/BuildYour/build_your%20(5).webp"
       alt="Gym equipment"
       className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
                  transform transition-all duration-500 ease-in-out 
@@ -70,7 +70,7 @@ function BuildYourCareer() {
   </div>
   <div>
     <img
-      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(6).webp"
+      src="/assets/images/JoinAsTrainer/BuildYour/build_your%20(6).webp"
       alt="Blonde woman"
       className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
                  transform transition-all duration-500 ease-in-out 
@@ -80,7 +80,7 @@ function BuildYourCareer() {
   </div>
   <div className="mt-[60px]">
     <img
-      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(7).webp"
+      src="/assets/images/JoinAsTrainer/BuildYour/build_your%20(7).webp"
       alt="Man with equipment"
       className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
                  transform transition-all duration-500 ease-in-out 
@@ -90,7 +90,7 @@ function BuildYourCareer() {
   </div>
   <div>
     <img
-      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(8).webp"
+      src="/assets/images/JoinAsTrainer/BuildYour/build_your%20(8).webp"
       alt="Woman in green workout"
       className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
                  transform transition-all duration-500 ease-in-out 
@@ -100,7 +100,7 @@ function BuildYourCareer() {
   </div>
   <div className="mt-[90px]">
     <img
-      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(9).webp"
+      src="/assets/images/JoinAsTrainer/BuildYour/build_your%20(9).webp"
       alt="Man working out"
       className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
                  transform transition-all duration-500 ease-in-out 
@@ -110,7 +110,7 @@ function BuildYourCareer() {
   </div>
   <div className="flex flex-col gap-[12px]">
     <img
-      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(10).webp"
+      src="/assets/images/JoinAsTrainer/BuildYour/build_your%20(10).webp"
       alt="Woman in workout clothes"
       className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
                  transform transition-all duration-500 ease-in-out 
@@ -118,7 +118,7 @@ function BuildYourCareer() {
                  hover:brightness-110 cursor-pointer"
     />
     <img
-      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(11).webp"
+      src="/assets/images/JoinAsTrainer/BuildYour/build_your%20(11).webp"
       alt="Brunette woman"
       className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
                  transform transition-all duration-500 ease-in-out 
@@ -128,7 +128,7 @@ function BuildYourCareer() {
   </div>
   <div className="flex flex-col gap-[12px] mt-[60px]">
     <img
-      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(12).webp"
+      src="/assets/images/JoinAsTrainer/BuildYour/build_your%20(12).webp"
       alt="Man exercising"
       className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
                  transform transition-all duration-500 ease-in-out 
@@ -136,7 +136,7 @@ function BuildYourCareer() {
                  hover:brightness-110 cursor-pointer"
     />
     <img
-      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinAsTrainer/BuildYour/build_your%20(13).webp"
+      src="/assets/images/JoinAsTrainer/BuildYour/build_your%20(13).webp"
       alt="Woman close-up"
       className="w-[149.212px] h-[177px] rounded-lg object-cover shadow-md 
                  transform transition-all duration-500 ease-in-out 

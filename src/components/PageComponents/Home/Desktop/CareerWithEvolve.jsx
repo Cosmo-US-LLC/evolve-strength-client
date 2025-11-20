@@ -8,9 +8,9 @@ const tabData = {
 
     image: {
       desktop:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/CareerWithEvolve/career_1.webp",
+        "/assets/images/home/CareerWithEvolve/career_1.webp",
       mobile:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/CareerWithEvolve/career_mob_1.webp",
+        "/assets/images/home/CareerWithEvolve/career_mob_1.webp",
     },
     description:
       "Build your own personal training business inside Canada's most advanced fitness facility.",
@@ -27,9 +27,9 @@ const tabData = {
 
     image: {
       desktop:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/CareerWithEvolve/career_2.webp",
+        "/assets/images/home/CareerWithEvolve/career_2.webp",
       mobile:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/CareerWithEvolve/career_mob_2.webp",
+        "/assets/images/home/CareerWithEvolve/career_mob_2.webp",
     },
     description:
       "Flexible workspace for wellness professionals inside Canada’s top fitness facilities.",

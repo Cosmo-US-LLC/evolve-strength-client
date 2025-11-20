@@ -10,7 +10,7 @@ function Facebook() {
         </p>
 
         <div className="rounded-full">
-          <img src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/SocialMedia/facebook/facebook_logo.svg" alt="Facebook logo" />
+          <img src="/assets/images/JoinTheMovement/SocialMedia/facebook/facebook_logo.svg" alt="Facebook logo" />
         </div>
       </div>
 

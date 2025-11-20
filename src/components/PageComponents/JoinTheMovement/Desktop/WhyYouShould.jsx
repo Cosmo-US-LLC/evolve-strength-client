@@ -4,35 +4,35 @@ import React from "react";
 function WhyYouShould() {
   const cardData = [
   {
-    img: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/WhyYouShould/why_should_card%20_icon%20(1).svg",
+    img: "/assets/images/JoinTheMovement/WhyYouShould/why_should_card%20_icon%20(1).svg",
     title: "Build Your Audience Faster",
     description:
       "We tag every creator. Our community sees and engages with your content",
   },
   {
-    img: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/WhyYouShould/why_should_card%20_icon%20(2).svg",
+    img: "/assets/images/JoinTheMovement/WhyYouShould/why_should_card%20_icon%20(2).svg",
     title: "Reach More People",
     description: "Evolve gets over 800,000 views a month across Instagram and TikTok",
   },
   {
-    img: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/WhyYouShould/why_should_card%20_icon%20(3).svg",
+    img: "/assets/images/JoinTheMovement/WhyYouShould/why_should_card%20_icon%20(3).svg",
     title: "Stay Authentic",
     description:
       "No scripts. No staged shoots. Just your real gym moments",
   },
   {
-    img: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/WhyYouShould/why_should_card%20_icon%20(4).svg",
+    img: "/assets/images/JoinTheMovement/WhyYouShould/why_should_card%20_icon%20(4).svg",
     title: "Get 50% Off Your Next Membership",
     description:
       "If your content is selected, you get half off your next renewal",
   },
   {
-    img: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/WhyYouShould/why_should_card%20_icon%20(5).svg",
+    img: "/assets/images/JoinTheMovement/WhyYouShould/why_should_card%20_icon%20(5).svg",
     title: "Free Access to Film Inside Evolve",
     description: "You’ll get a special creator pass to shoot content in the gym without hassle",
   },
   {
-    img: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/WhyYouShould/why_should_card%20_icon%20(6).svg",
+    img: "/assets/images/JoinTheMovement/WhyYouShould/why_should_card%20_icon%20(6).svg",
     title: "Be Part of Something Bigger",
     description: "Join a growing group of creators who train and grow together",
   },

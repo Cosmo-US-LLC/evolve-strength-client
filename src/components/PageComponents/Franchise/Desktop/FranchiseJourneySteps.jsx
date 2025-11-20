@@ -16,13 +16,13 @@ const steps = [
         Wellness Providers
       </p>
     ),
-    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/FranchiseJourneySteps/step_1.webp",
+    image: "/assets/images/franchise/FranchiseJourneySteps/step_1.webp",
     icon: <GymIcon />,
   },
   {
     title: "205+",
     description: <p>Certified Trainers</p>,
-    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/FranchiseJourneySteps/step_2.webp",
+    image: "/assets/images/franchise/FranchiseJourneySteps/step_2.webp",
     icon: <ActiveMembersIcon />,
   },
   {
@@ -32,7 +32,7 @@ const steps = [
        Member Retention Rate
       </p>
     ),
-    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/FranchiseJourneySteps/step_3.webp",
+    image: "/assets/images/franchise/FranchiseJourneySteps/step_3.webp",
     icon: <RetentionIcon />,
   },
   {
@@ -42,7 +42,7 @@ const steps = [
         Partnered Businesses
       </p>
     ),
-    image: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/franchise/FranchiseJourneySteps/step_4.webp",
+    image: "/assets/images/franchise/FranchiseJourneySteps/step_4.webp",
     icon: <ExpertIcon />,
   },
 ];

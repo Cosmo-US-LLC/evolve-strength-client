@@ -247,7 +247,7 @@ export default function WellnessInquiryForm() {
         <div className="w-full max-w-[40%] flex-shrink-0 flex flex-col max-md:hidden">
           <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white relative">
             <img
-              src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/YogaAndRecoveryRoom/wellness_form.webp"
+              src="/assets/images/wellness/YogaAndRecoveryRoom/wellness_form.webp"
               alt="Wellness Therapy Session"
               className="object-cover w-full h-[710px]"
             />

@@ -30,9 +30,9 @@ const gymCards = [
     description: "",
     bgImage: {
       desktop:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/fitness.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/fitness.webp",
       mobile:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/fitnessMob.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/fitnessMob.webp",
     },
   },
   {
@@ -41,9 +41,9 @@ const gymCards = [
     description: "",
     bgImage: {
       desktop:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_training.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_training.webp",
       mobile:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_trainingMob.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_trainingMob.webp",
     },
   },
   {
@@ -56,9 +56,9 @@ const gymCards = [
     description: "",
     bgImage: {
       desktop:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/cardio.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/cardio.webp",
       mobile:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/cardioMob.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/cardioMob.webp",
     },
   },
   {
@@ -71,9 +71,9 @@ const gymCards = [
     description: "",
     bgImage: {
       desktop:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/turf_workouts.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/turf_workouts.webp",
       mobile:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/turf_workoutsMob.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/turf_workoutsMob.webp",
     },
   },
   {
@@ -86,9 +86,9 @@ const gymCards = [
     description: "",
     bgImage: {
       desktop:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/olympic_lifting.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/olympic_lifting.webp",
       mobile:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/olympic_liftingMob.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/olympic_liftingMob.webp",
     },
   },
   {
@@ -97,9 +97,9 @@ const gymCards = [
     description: "",
     bgImage: {
       desktop:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp",
       mobile:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp",
     },
   },
 ];

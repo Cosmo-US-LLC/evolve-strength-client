@@ -1,21 +1,32 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Dumbbell, Flame } from "lucide-react";
+
+import active_card_1 from "../../../../assets/images/home/MembershipBenefits/image_1.webp";
+import active_card_2 from "../../../../assets/images/home/MembershipBenefits/image_2.webp";
+import active_card_3 from "../../../../assets/images/home/MembershipBenefits/image_3.webp";
+import active_card_4 from "../../../../assets/images/home/MembershipBenefits/image_4.webp";
+import active_card_5 from "../../../../assets/images/home/MembershipBenefits/image_5.webp";
+
+import active_card_logo1 from "../../../../assets/images/home/MembershipBenefits/image_1_logo.svg";
+import active_card_logo4 from "../../../../assets/images/home/MembershipBenefits/image_5_logo.svg";
+import active_card_logo5 from "../../../../assets/images/home/MembershipBenefits/image_4_logo.svg";
+
+
 const benefitItems = [
   {
     key: "wellness",
     label: "WELLNESS SERVICES",
     icon: (
       <img
-        src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/MembershipBenefits/image_1_logo.svg"
+        src={active_card_logo1}
         alt="Shower Head Icon"
         className="w-5 h-5"
       />
     ),
     description:
       "Supported recovery through massage, physiotherapy, and more at Evolve Strength.",
-    image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/MembershipBenefits/image_1.webp",
+    image: active_card_1,
   },
   {
     key: "equipment",
@@ -23,8 +34,7 @@ const benefitItems = [
     icon: <Dumbbell className="w-5 h-5" />,
     description:
       "Train with industry-leading machines at every Evolve location, engineered for performance across every fitness style.",
-    image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/MembershipBenefits/image_2.webp",
+    image: active_card_2,
   },
   {
     key: "steam",
@@ -32,38 +42,35 @@ const benefitItems = [
     icon: <Flame className="w-5 h-5" />,
     description:
       "Recover and recharge in calming steam and sauna rooms, designed to support deep relaxation and muscle recovery.",
-    image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/MembershipBenefits/image_3.webp",
+    image: active_card_3,
   },
   {
     key: "layout",
     label: "SPACIOUS LAYOUTS",
     icon: (
       <img
-        src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1763469251596-da330011-a2b7-4024-bd50-b49f97e363d6.webp"
+        src={active_card_logo4}
         alt="Shower Head Icon"
         className="w-5 h-5"
       />
     ),
     description:
       "Move freely through open, thoughtfully designed training areas that give you room to breathe, lift, and grow.",
-    image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/MembershipBenefits/image_4.webp",
+    image: active_card_4,
   },
   {
     key: "amenities",
     label: "PREMIUM AMENITIES",
     icon: (
       <img
-        src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/MembershipBenefits/image_4_logo.svg"
+        src={active_card_logo5}
         alt="Shower Head Icon"
         className="w-5 h-5"
       />
     ),
     description:
       "Enjoy elevated comforts like luxury showers and curated locker spaces that enhance every part of your fitness experience.",
-    image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/MembershipBenefits/image_5.webp",
+    image: active_card_5,
   },
 ];
 const MembershipBenefits = () => {

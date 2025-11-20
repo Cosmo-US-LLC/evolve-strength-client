@@ -13,9 +13,9 @@ const gymCards = [
     ),
     description: "",
     bgImage:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide6.webp",
+      "/assets/images/corporateMembership/OneMembershipFullAccess/slide6.webp",
     bgImageMobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide6.webp",
+      "/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide6.webp",
   },
   {
     count: "",
@@ -26,9 +26,9 @@ const gymCards = [
     ),
     description: "",
     bgImage:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide7.webp",
+      "/assets/images/corporateMembership/OneMembershipFullAccess/slide7.webp",
     bgImageMobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide7.webp",
+      "/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide7.webp",
   },
   {
     count: "",
@@ -39,9 +39,9 @@ const gymCards = [
     ),
     description: "",
     bgImage:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp",
+      "/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp",
     bgImageMobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide8.webp",
+      "/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide8.webp",
   },
   {
     count: "",
@@ -52,9 +52,9 @@ const gymCards = [
     ),
     description: "",
     bgImage:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide9.webp",
+      "/assets/images/corporateMembership/OneMembershipFullAccess/slide9.webp",
     bgImageMobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide9.webp",
+      "/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide9.webp",
   },
   {
     count: "",
@@ -65,9 +65,9 @@ const gymCards = [
     ),
     description: "",
     bgImage:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/slide10.webp",
+      "/assets/images/corporateMembership/OneMembershipFullAccess/slide10.webp",
     bgImageMobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide10.webp",
+      "/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide10.webp",
   },
 ];
 

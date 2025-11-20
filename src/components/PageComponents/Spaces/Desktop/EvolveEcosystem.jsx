@@ -19,13 +19,13 @@ function EvolveEcosystem() {
         <div
           className=" relative bg-cover bg-center min-h-[600px] flex flex-col max-md:px-[16px] justify-between md:px-[76px]  md:py-16 max-md:py-[24px]  items-start text-left md:rounded-xl overflow-hidden shadow-lg"
           style={{
-            backgroundImage: `url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/EvolveEcosystem/EvolveEcosystemBG.webp")`,
+            backgroundImage: `url("/assets/images/spaces/EvolveEcosystem/EvolveEcosystemBG.webp")`,
           }}
         >
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
             style={{
-              backgroundImage: `url("https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/spaces/EvolveEcosystem/EvolveEcosystemMob.webp")`,
+              backgroundImage: `url("/assets/images/spaces/EvolveEcosystem/EvolveEcosystemMob.webp")`,
             }}
           />
           {/* <div className="absolute inset-0 bg-black/40 z-0" /> */}

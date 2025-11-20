@@ -7,7 +7,7 @@ function GymCommunity() {
   <div className="flex flex-col items-center">
     <div className="md:w-[64px] md:h-[64px] w-[50px] h-[50px]">
       <img
-        src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/SocialMedia/GymCommunity/Gym_logo.svg"
+        src="/assets/images/JoinTheMovement/SocialMedia/GymCommunity/Gym_logo.svg"
         alt=""
         className="w-full h-full"
       />
@@ -19,7 +19,7 @@ function GymCommunity() {
       <div className="w-4 h-4 md:w-7 md:h-7 bg-white rounded-full flex items-center justify-center">
         <div className=""></div>
         <img
-          src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/SocialMedia/GymCommunity/People_logo.svg"
+          src="/assets/images/JoinTheMovement/SocialMedia/GymCommunity/People_logo.svg"
           alt=""
           className="w-3 h-3 md:w-4 md:h-4"
         />

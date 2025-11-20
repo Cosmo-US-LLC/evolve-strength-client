@@ -15,7 +15,7 @@ function GymHero() {
         style={{ objectFit: "cover", objectPosition: "bottom" }}
       >
         <source
-          src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/ExplorePages.webm"
+          src="/assets/videos/ExplorePages.webm"
           type="video/webm"
         />
         Your browser does not support the video tag.

@@ -28,10 +28,10 @@ function JoinAsTrainer() {
         buttonLink="#"
         imagePosition="right"
         backgroundImage={
-          "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763533871016-5adfd366-8cf6-4d52-b82a-14ce6c0db3cb.webp"
+          "/media/1763533871016-5adfd366-8cf6-4d52-b82a-14ce6c0db3cb.webp"
         }
         backgroundImageMob={
-          "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763533740489-55290d51-538f-4373-b5de-73c5333cd8da.webp"
+          "/media/1763533740489-55290d51-538f-4373-b5de-73c5333cd8da.webp"
         }
         height={800}
       />
@@ -45,10 +45,10 @@ function JoinAsTrainer() {
         buttonLink="#"
         imagePosition="left"
         backgroundImage={
-          "https://evolve-strength.tor1.digitaloceanspaces.com/media/1763109300250-47d31d1b-6bdd-452f-bb33-6c334d55644d.webp"
+          "/media/1763109300250-47d31d1b-6bdd-452f-bb33-6c334d55644d.webp"
         }
         backgroundImageMob={
-          "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762851957642-85e47bed-980b-42f2-9111-672badc6579d.webp"
+          "/media/1762851957642-85e47bed-980b-42f2-9111-672badc6579d.webp"
         }
         height={800}
       /> */}
@@ -68,10 +68,10 @@ function JoinAsTrainer() {
         buttonLink="/trainer-form"
         imagePosition="right"
         backgroundImage={
-          "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762851098170-0165b620-0939-4da4-8806-51236f565a5d.webp"
+          "/media/1762851098170-0165b620-0939-4da4-8806-51236f565a5d.webp"
         }
         backgroundImageMob={
-          "https://evolve-strength.tor1.digitaloceanspaces.com/media/1762851986658-3d3b9cab-583a-4500-8994-4acedf661cdd.webp"
+          "/media/1762851986658-3d3b9cab-583a-4500-8994-4acedf661cdd.webp"
         }
         height={800}
       />

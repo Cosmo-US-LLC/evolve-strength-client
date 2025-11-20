@@ -3,23 +3,23 @@ import Marquee from "react-fast-marquee";
 
 const partnerLogos = [
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/Air_canada_logo.svg",
+    src: "/assets/images/corporateMembership/WhoItsFor/Air_canada_logo.svg",
     alt: "AirCanadaLogo",
   },
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/Amazon_logo.svg",
+    src: "/assets/images/corporateMembership/WhoItsFor/Amazon_logo.svg",
     alt: "AmazonLogo",
   },
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/Sony_logo.svg",
+    src: "/assets/images/corporateMembership/WhoItsFor/Sony_logo.svg",
     alt: "sonyLogo",
   },
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/WCB_logo.svg",
+    src: "/assets/images/corporateMembership/WhoItsFor/WCB_logo.svg",
     alt: "WCBLogo",
   },
   {
-    src: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/WhoItsFor/Alberta_health_services_logo.svg",
+    src: "/assets/images/corporateMembership/WhoItsFor/Alberta_health_services_logo.svg",
     alt: "albertaLogo",
   },
 ];

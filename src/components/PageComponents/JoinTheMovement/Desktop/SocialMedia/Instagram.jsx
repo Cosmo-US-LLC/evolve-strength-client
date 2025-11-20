@@ -12,7 +12,7 @@ return (
 
       <div className=" rounded-full">
         <img
-          src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/SocialMedia/instagram/insta_logo.svg"
+          src="/assets/images/JoinTheMovement/SocialMedia/instagram/insta_logo.svg"
           alt="Instagram Logo"
         />
       </div>
@@ -21,7 +21,7 @@ return (
     {/* Runner emoji and Reach Number */}
     <div className="md:mt-3 mt-1 flex items-center justify-between">
       <img
-        src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/SocialMedia/instagram/Jogging_emoji.svg"
+        src="/assets/images/JoinTheMovement/SocialMedia/instagram/Jogging_emoji.svg"
         alt="Jogging SVG"
         className="w-12 h-12 md:w-auto md:h-auto"
       />
