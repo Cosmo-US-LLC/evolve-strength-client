@@ -28,94 +28,96 @@ import Mental_Health from "../assets/icons/home/Wellness-Services/wellness_icons
 import Mobility_Olympic from "../assets/icons/home/Wellness-Services/wellness_icons (2).svg";
 import Lifting from "../assets/icons/home/Wellness-Services/wellness_icons (6).svg";
 
+import Services1 from "../assets/images/home/wellness-services/esthetician.webp"
+import Services2 from "../assets/images/home/wellness-services/chiropractic_care.webp"
+import Services3 from "../assets/images/home/wellness-services/chiropractic_head.webp"
+import Services4 from "../assets/images/home/wellness-services/physiotherapy.webp"
+import Services5 from "../assets/images/home/wellness-services/acupuncture.webp"
+import Services6 from "../assets/images/home/wellness-services/acupuncture_food.webp"
+import Services7 from "../assets/images/home/wellness-services/osteopathy.webp"
+import Services8 from "../assets/images/home/wellness-services/osteopathy_glass.webp"
+import Services9 from "../assets/images/home/wellness-services/mental_health.webp"
+
+import ServicesMob1 from "../assets/images/home/wellness-services/esthetician_mobile.webp"
+import ServicesMob2 from "../assets/images/home/wellness-services/chiropractic_careMob.webp"
+import ServicesMob3 from "../assets/images/home/wellness-services/chiropractic_headMob.webp"
+import ServicesMob4 from "../assets/images/home/wellness-services/physiotherapyMob.webp"
+import ServicesMob5 from "../assets/images/home/wellness-services/acpunctureMob.webp"
+import ServicesMob6 from "../assets/images/home/wellness-services/dietitionMob.webp"
+import ServicesMob7 from "../assets/images/home/wellness-services/osteopathyMob.webp"
+import ServicesMob8 from "../assets/images/home/wellness-services/osteoathy_glassMob.webp"
+import ServicesMob9 from "../assets/images/home/wellness-services/mental_healthMob.webp"
+
 export const professionalServices = [
   {
     title: "Esthetician",
     images: {
-      desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/esthetician.webp",
-      mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/esthetician_mobile.webp",
+      desktopImage: Services1,
+      mobileImage: ServicesMob1,
     },
     icon: Esthetician,
   },
   {
     title: "Chiropractic Care",
     images: {
-      desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_care.webp",
-      mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_careMob.webp",
+      desktopImage: Services2,
+      mobileImage: ServicesMob2,
     },
     icon: Chiropractic_Care,
   },
   {
     title: "Massage Therapy",
     images: {
-      desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_head.webp",
-      mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_headMob.webp",
+      desktopImage: Services3,
+      mobileImage: ServicesMob3,
     },
     icon: Massage_Therapy,
   },
   {
     title: "Physiotherapy",
     images: {
-      desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/physiotherapy.webp",
-      mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/physiotherapyMob.webp",
+      desktopImage: Services4,
+      mobileImage: ServicesMob4,
     },
     icon: Physiotherapy,
   },
   {
     title: "Acupuncture",
     images: {
-      desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupuncture.webp",
-      mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupunctureMob.webp",
+      desktopImage: Services5,
+      mobileImage: ServicesMob5,
     },
     icon: Acupuncture,
   },
   {
     title: "Dietitian Services",
     images: {
-      desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupuncture_food.webp",
-      mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupuncture_foodMob.webp",
+      desktopImage: Services6,
+      mobileImage: ServicesMob6,
     },
     icon: Dietitian_Services,
   },
   {
     title: "Osteopathy",
     images: {
-      desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/osteopathy.webp",
-      mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/osteopathyMob.webp",
+      desktopImage: Services7,
+      mobileImage: ServicesMob7,
     },
     icon: Osteopathy,
   },
   {
     title: "Laser Therapy",
     images: {
-      desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/Laser.webp",
-      mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/laserMob.webp",
+      desktopImage: Services8,
+      mobileImage: ServicesMob8,
     },
     icon: Laser_Therapy,
   },
   {
     title: "Mental Health",
     images: {
-      desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/mental_health.webp",
-      mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/mental_healthMob.webp",
+      desktopImage: Services9,
+      mobileImage: ServicesMob9,
     },
     icon: Mental_Health,
   },
@@ -126,9 +128,9 @@ export const professionalServicesForLocations = [
     title: "Esthetician",
     images: {
       desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/esthetician.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/esthetician.webp",
       mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/esthetician_mobile.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/esthetician_mobile.webp",
     },
     icon: Esthetician,
   },
@@ -136,9 +138,9 @@ export const professionalServicesForLocations = [
     title: "Chiropractic Care",
     images: {
       desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_care.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/chiropractic_care.webp",
       mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_careMob.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/chiropractic_careMob.webp",
     },
     icon: Chiropractic_Care,
   },
@@ -146,9 +148,9 @@ export const professionalServicesForLocations = [
     title: "Massage Therapy",
     images: {
       desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_head.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/chiropractic_head.webp",
       mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/chiropractic_headMob.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/chiropractic_headMob.webp",
     },
     icon: Massage_Therapy,
   },
@@ -176,9 +178,9 @@ export const professionalServicesForLocations = [
     title: "Physiotherapy",
     images: {
       desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/physiotherapy.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/physiotherapy.webp",
       mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/physiotherapyMob.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/physiotherapyMob.webp",
     },
     icon: Physiotherapy,
   },
@@ -186,9 +188,9 @@ export const professionalServicesForLocations = [
     title: "Acupuncture",
     images: {
       desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupuncture.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/acupuncture.webp",
       mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupunctureMob.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/acupunctureMob.webp",
     },
     icon: Acupuncture,
   },
@@ -196,9 +198,9 @@ export const professionalServicesForLocations = [
     title: "Dietitian Services",
     images: {
       desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupuncture_food.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/acupuncture_food.webp",
       mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/acupuncture_foodMob.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/acupuncture_foodMob.webp",
     },
     icon: Dietitian_Services,
   },
@@ -226,9 +228,9 @@ export const professionalServicesForLocations = [
     title: "Osteopathy",
     images: {
       desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/osteopathy.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/osteopathy.webp",
       mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/osteopathyMob.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/osteopathyMob.webp",
     },
     icon: Osteopathy,
   },
@@ -236,9 +238,9 @@ export const professionalServicesForLocations = [
     title: "Laser Therapy",
     images: {
       desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/Laser.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/Laser.webp",
       mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/laserMob.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/laserMob.webp",
     },
     icon: Laser_Therapy,
   },
@@ -246,9 +248,9 @@ export const professionalServicesForLocations = [
     title: "Mental Health",
     images: {
       desktopImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/mental_health.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/mental_health.webp",
       mobileImage:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/wellness/WellnessServicesForEveryone/mental_healthMob.webp",
+        "/assets/images/wellness/WellnessServicesForEveryone/mental_healthMob.webp",
     },
     icon: Mental_Health,
   },
@@ -278,32 +280,32 @@ export const professionalMembershipPremiumAmenities = [
   {
     title: "On-Site Parking",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/on-site.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/on-site.webp",
   },
   {
     title: "Waiting Area",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/waiting-area.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/waiting-area.webp",
   },
   {
     title: "Showers",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/showers.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/showers.webp",
   },
   {
     title: "Locker Rooms",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/locker-room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/locker-room.webp",
   },
   {
     title: "Steam Rooms and Saunas",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/steam-room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/steam-room.webp",
   },
   {
     title: "Full Commercial Gym Access",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/gym-area.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/gym-area.webp",
   },
 ];
 
@@ -312,22 +314,22 @@ export const postPremiumAmenities = [
   {
     title: "On-Site Parking",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/post_parking.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/post_parking.webp",
   },
   {
     title: "Waiting Area",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/post_waiting_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/post_waiting_room.webp",
   },
   {
     title: "Locker Rooms",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/post_locker_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/post_locker_room.webp",
   },
   {
     title: "Saunas",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/post_steam_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/post_steam_room.webp",
   },
 ];
 
@@ -336,22 +338,22 @@ export const setonPremiumAmenities = [
   {
     title: "On-Site Parking",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seten_parking.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/seten_parking.webp",
   },
   {
     title: "Waiting Area",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seton_waiting_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/seton_waiting_room.webp",
   },
   {
     title: "Locker Rooms",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seten_locker_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/seten_locker_room.webp",
   },
   {
     title: "Steam Rooms and Saunas",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seten_steam_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/seten_steam_room.webp",
   },
 ];
 
@@ -360,22 +362,22 @@ export const calgarysetonPremiumAmenities = [
   {
     title: "On-Site Parking",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seten_parking.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/seten_parking.webp",
   },
   {
     title: "Waiting Area",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seton_waiting_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/seton_waiting_room.webp",
   },
   {
     title: "Locker Rooms",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seten_locker_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/seten_locker_room.webp",
   },
   {
     title: "Steam Rooms",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/seten_steam_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/seten_steam_room.webp",
   },
 ];
 // brentwood premium amenities
@@ -383,17 +385,17 @@ export const brentwoodPremiumAmenities = [
   {
     title: "Waiting Area",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/brentwood_waiting_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/brentwood_waiting_room.webp",
   },
   {
     title: "Locker Rooms",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/brentwood_locker_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/brentwood_locker_room.webp",
   },
   {
     title: "Saunas",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/brentwood_steam_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/brentwood_steam_room.webp",
   },
 ];
 
@@ -402,22 +404,22 @@ export const royalOakPremiumAmenities = [
   {
     title: "On-Site Parking",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/royal_ock_parking_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/royal_ock_parking_room.webp",
   },
   {
     title: "Waiting Area",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/royal_ock_waiting_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/royal_ock_waiting_room.webp",
   },
   {
     title: "Locker Rooms",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/royal_ock_locker_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/royal_ock_locker_room.webp",
   },
   {
     title: "Saunas and Steam Rooms",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/royal_oak_sauna_steam.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/royal_oak_sauna_steam.webp",
   },
 ];
 
@@ -426,17 +428,17 @@ export const downtownPremiumAmenities = [
   {
     title: "Waiting Area",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/downtown_waiting_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/downtown_waiting_room.webp",
   },
   // {
   //   title: "Steam Rooms and Saunas",
   //   image:
-  //     "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/diwntown_steam_room.webp",
+  //     "/assets/images/corporateMembership/MembershipPremiumAmenities/diwntown_steam_room.webp",
   // },
   {
     title: "Locker Rooms",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/downtown_locker_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/downtown_locker_room.webp",
   },
 ];
 
@@ -444,16 +446,16 @@ export const EdmontonDowntownPremiumAmenities = [
   {
     title: "Waiting Area",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/downtown_waiting_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/downtown_waiting_room.webp",
   },
   {
     title: "Steam Rooms",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/diwntown_steam_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/diwntown_steam_room.webp",
   },
   {
     title: "Locker Rooms",
     image:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/corporateMembership/MembershipPremiumAmenities/downtown_locker_room.webp",
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/downtown_locker_room.webp",
   },
 ];

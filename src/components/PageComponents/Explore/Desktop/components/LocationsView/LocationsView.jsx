@@ -400,10 +400,10 @@ function LocationsView() {
                   {transformedTrainers && transformedTrainers.length === 0 && (
                     <div className="text-center text-gray-500 py-6 md:py-8 px-4 md:px-0 transition-all duration-300 ease-in-out">
                       <p className="text-base md:text-lg font-medium mb-2">
-                        No trainers available for this service.
+                        No trainers available for this location.
                       </p>
                       <p className="text-sm md:text-base">
-                        Try selecting a different service or contact us for
+                        Try selecting a different location or contact us for
                         availability.
                       </p>
                     </div>

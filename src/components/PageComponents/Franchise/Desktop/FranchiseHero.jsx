@@ -217,11 +217,11 @@ function FranchiseHero() {
                     muted={isMuted}
                   >
                     <source
-                      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/FranchiseHero.mp4"
+                      src="/assets/videos/FranchiseHero.mp4"
                       type="video/mp4"
                     />
                     <source
-                      src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/videos/FranchiseHero.webm"
+                      src="/assets/videos/FranchiseHero.webm"
                       type="video/webm"
                     />
                     Your browser does not support the video tag.

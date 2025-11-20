@@ -7,27 +7,27 @@ const gymCards = [
     description:
       "Train on top-of-the-line machines and free weights, all expertly maintained for smarter lifts and faster results.",
     video:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703686095-2b7f5707-b22c-41ab-b746-a1a23c6fa234.webm",
+      "/media/1760703686095-2b7f5707-b22c-41ab-b746-a1a23c6fa234.webm",
     videomobile:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632418364-2ae4dfc4-dbf7-4a7e-b6bf-514a32eadcba.mp4",
+      "/media/1760632418364-2ae4dfc4-dbf7-4a7e-b6bf-514a32eadcba.mp4",
   },
   {
     title: "Room to Move",
     description:
       "Spacious, open training zones give you freedom to focus, move freely, and challenge your limits.",
     video:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703608053-568cac3d-912b-4505-99bb-84a94b9b79a6.webm",
+      "/media/1760703608053-568cac3d-912b-4505-99bb-84a94b9b79a6.webm",
     videomobile:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632354725-62c014a5-4988-4976-a834-89d492aa8c6b.mp4",
+      "/media/1760632354725-62c014a5-4988-4976-a834-89d492aa8c6b.mp4",
   },
   {
     title: "Atmosphere",
     description:
       "Stay motivated in a vibrant, inspiring space designed to energize and elevate every workout experience.",
     video:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760703643796-bfad9aab-51e1-4ed5-af09-1f804aff883b.webm",
+      "/media/1760703643796-bfad9aab-51e1-4ed5-af09-1f804aff883b.webm",
     videomobile:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1760632574411-b43edd39-e64a-46cc-8401-2b10f516aa6f.mp4",
+      "/media/1760632574411-b43edd39-e64a-46cc-8401-2b10f516aa6f.mp4",
   },
 ];
 

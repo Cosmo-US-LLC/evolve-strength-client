@@ -21,16 +21,16 @@ const ConsultationWithPersonalTrainers = () => {
   const specialisedOfferings = useSyncedCounter(150, 3000, hasStarted);
 
   const firstColumn = [
-    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide1.webp",
-    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide2.webp",
-    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide3.webp",
-    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide4.webp",
+    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide1.webp",
+    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide2.webp",
+    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide3.webp",
+    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide4.webp",
   ];
   const secondColumn = [
-    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide5.webp",
-    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide6.webp",
-    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide7.webp",
-    "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide8.webp",
+    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide5.webp",
+    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide6.webp",
+    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide7.webp",
+    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide8.webp",
   ];
 
   return (

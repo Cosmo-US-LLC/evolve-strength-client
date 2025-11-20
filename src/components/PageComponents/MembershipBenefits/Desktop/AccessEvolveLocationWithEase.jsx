@@ -5,26 +5,26 @@ import Autoplay from "embla-carousel-autoplay";
 
 const AccessEvolveLocationWithEase = () => {
   const slides = [
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/slide1.webp", alt: "Evolve gym location 1" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/seton5.webp", alt: "Evolve gym location 2" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/seton6.webp", alt: "Evolve gym location 3" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/seton7.webp", alt: "Evolve gym location 4" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/north4.webp", alt: "Evolve gym location 5" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/north5.webp", alt: "Evolve gym location 6" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_3.webp", alt: "Evolve gym location 7" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_4.webp", alt: "Evolve gym location 8" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/downtown_5.webp", alt: "Evolve gym location 9" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/royal_oak_5.webp", alt: "Evolve gym location 10" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/royal_oak_6.webp", alt: "Evolve gym location 11" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/royal_oak_8.webp", alt: "Evolve gym location 12" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/south_3.webp", alt: "Evolve gym location 13" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/south_8.webp", alt: "Evolve gym location 14" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/sunridge3.webp", alt: "Evolve gym location 15" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/sunridge5.webp", alt: "Evolve gym location 16" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/sunridge7.webp", alt: "Evolve gym location 17" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/brentwood3.webp", alt: "Evolve gym location 18" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/brentwood6.webp", alt: "Evolve gym location 19" },
-    { imageUrl: "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/facility/brentwood8.webp", alt: "Evolve gym location 20" },
+    { imageUrl: "/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/slide1.webp", alt: "Evolve gym location 1" },
+    { imageUrl: "/assets/images/home/facility/seton5.webp", alt: "Evolve gym location 2" },
+    { imageUrl: "/assets/images/home/facility/seton6.webp", alt: "Evolve gym location 3" },
+    { imageUrl: "/assets/images/home/facility/seton7.webp", alt: "Evolve gym location 4" },
+    { imageUrl: "/assets/images/home/facility/north4.webp", alt: "Evolve gym location 5" },
+    { imageUrl: "/assets/images/home/facility/north5.webp", alt: "Evolve gym location 6" },
+    { imageUrl: "/assets/images/home/facility/downtown_3.webp", alt: "Evolve gym location 7" },
+    { imageUrl: "/assets/images/home/facility/downtown_4.webp", alt: "Evolve gym location 8" },
+    { imageUrl: "/assets/images/home/facility/downtown_5.webp", alt: "Evolve gym location 9" },
+    { imageUrl: "/assets/images/home/facility/royal_oak_5.webp", alt: "Evolve gym location 10" },
+    { imageUrl: "/assets/images/home/facility/royal_oak_6.webp", alt: "Evolve gym location 11" },
+    { imageUrl: "/assets/images/home/facility/royal_oak_8.webp", alt: "Evolve gym location 12" },
+    { imageUrl: "/assets/images/home/facility/south_3.webp", alt: "Evolve gym location 13" },
+    { imageUrl: "/assets/images/home/facility/south_8.webp", alt: "Evolve gym location 14" },
+    { imageUrl: "/assets/images/home/facility/sunridge3.webp", alt: "Evolve gym location 15" },
+    { imageUrl: "/assets/images/home/facility/sunridge5.webp", alt: "Evolve gym location 16" },
+    { imageUrl: "/assets/images/home/facility/sunridge7.webp", alt: "Evolve gym location 17" },
+    { imageUrl: "/assets/images/home/facility/brentwood3.webp", alt: "Evolve gym location 18" },
+    { imageUrl: "/assets/images/home/facility/brentwood6.webp", alt: "Evolve gym location 19" },
+    { imageUrl: "/assets/images/home/facility/brentwood8.webp", alt: "Evolve gym location 20" },
   ];
 
 
@@ -95,7 +95,7 @@ const AccessEvolveLocationWithEase = () => {
             className="h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
           >
             <img
-              src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/left-arrow.svg"
+              src="/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/left-arrow.svg"
               alt="Previous"
               className="h-5 w-5 text-[#00000060]"
             />
@@ -105,7 +105,7 @@ const AccessEvolveLocationWithEase = () => {
             className="h-[46px] w-[46px] bg-white rounded-full border border-[#00000060] flex items-center justify-center shadow hover:bg-gray-100 cursor-pointer"
           >
             <img
-              src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/right-arrow.svg"
+              src="/assets/images/MembershipBenefits/AccessEvolveLocationWithEase/right-arrow.svg"
               alt="Next"
               className="h-5 w-5 text-[#00000060]"
             />

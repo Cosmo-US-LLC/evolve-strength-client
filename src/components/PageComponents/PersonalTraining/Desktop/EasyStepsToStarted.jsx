@@ -29,7 +29,7 @@ function EasyStepsToStarted() {
       title: "Pick a Location",
       description: "Choose from 7 Evolve gyms across Canada.",
       image:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/FreeAssessment/pick_location.webp",
+        "/assets/images/PersonalTraning/FreeAssessment/pick_location.webp",
     },
     {
       number: "2",
@@ -37,21 +37,21 @@ function EasyStepsToStarted() {
       description:
         "Sign up with a simple biweekly fee and unlock full gym access.",
       image:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/FreeAssessment/join_evolve.webp",
+        "/assets/images/PersonalTraning/FreeAssessment/join_evolve.webp",
     },
     {
       number: "3",
       title: "Explore Trainers",
       description: "Browse personal trainers based on your goals.",
       image:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/FreeAssessment/explore_trainer.webp",
+        "/assets/images/PersonalTraning/FreeAssessment/explore_trainer.webp",
     },
     {
       number: "4",
       title: "Start Training",
       description: "Connect with your trainer and begin your journey.",
       image:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/PersonalTraning/FreeAssessment/start_training.webp",
+        "/assets/images/PersonalTraning/FreeAssessment/start_training.webp",
     },
   ];
 

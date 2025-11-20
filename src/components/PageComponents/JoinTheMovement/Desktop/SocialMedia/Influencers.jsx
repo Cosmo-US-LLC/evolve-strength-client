@@ -14,16 +14,16 @@ const Influencers = () => {
         Featured Influencers
       </h3>
       <img
-        src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/Kettleball_logo.svg"
+        src="/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/Kettleball_logo.svg"
         alt=""
       />
     </div>
 
     <div className="flex md:mt-4 relative w-full bg-amber-300 h-20">
       {[
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img1.webp",
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img2.webp",
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img3.webp",
+        "/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img1.webp",
+        "/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img2.webp",
+        "/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img3.webp",
       ].map((img, index) => (
         <img
           key={index}

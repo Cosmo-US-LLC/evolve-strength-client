@@ -108,7 +108,7 @@ function SetonLocation() {
         >
           FACILITY TIMINGS
           <img
-            src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/Seton/icon.svg"
+            src="/assets/images/Locations/Seton/icon.svg"
             alt=""
             className={`transition-transform duration-300 ${
               isTimingsExpanded ? "rotate-180" : ""

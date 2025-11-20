@@ -231,7 +231,7 @@ function Intake() {
           {/* Left side - Image */}
           <div className="hidden lg:block w-full lg:w-1/2 relative rounded-[8px] overflow-hidden bg-white mb-6 lg:mb-0 lg:mr-4">
             <img
-              src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/intake/left-intake.webp"
+              src="/assets/images/intake/left-intake.webp"
               alt="Fitness training"
               className="w-full h-[300px] lg:h-full object-cover"
             />

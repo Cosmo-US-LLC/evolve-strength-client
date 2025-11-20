@@ -8,9 +8,9 @@ const opportunities = [
       "Set up your practice in our vibrant wellness hubs, with flexible, spacious spaces for health professionals.",
     image: {
       desktop:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/BusinessOpportunities/leasing_opportunities.webp",
+        "/assets/images/home/BusinessOpportunities/leasing_opportunities.webp",
       mobile:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/BusinessOpportunities/leasing_opportunities_mobile.webp",
+        "/assets/images/home/BusinessOpportunities/leasing_opportunities_mobile.webp",
     },
     link: "/work-spaces",
   },
@@ -20,9 +20,9 @@ const opportunities = [
       "Own an Evolve Strength gym with a proven model, trusted brand, and nationwide support.",
     image: {
       desktop:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/BusinessOpportunities/franchise_opportunities.webp",
+        "/assets/images/home/BusinessOpportunities/franchise_opportunities.webp",
       mobile:
-        "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/home/BusinessOpportunities/franchise_opportunities_mobile.webp",
+        "/assets/images/home/BusinessOpportunities/franchise_opportunities_mobile.webp",
     },
     link: "/franchise",
   },

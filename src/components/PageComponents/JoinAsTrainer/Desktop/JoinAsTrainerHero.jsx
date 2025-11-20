@@ -47,12 +47,12 @@ function JoinAsTrainerHero(onSelectOption) {
                 You’re Losing Money at Your Current Gym
               </h3>
               <img
-                src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1763469266624-2e0a80b7-6cd3-467b-87ef-7e6998d07df7.webp"
+                src="/media/1763469266624-2e0a80b7-6cd3-467b-87ef-7e6998d07df7.webp"
                 alt="Animated graphic"
                 className="md:hidden w-[31px]  ml-[48px] mt-[14px]"
               />
               <img
-                src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1762430416767-8aad447b-4802-4e62-ace8-1760aab6a6f6.png"
+                src="/media/1762430416767-8aad447b-4802-4e62-ace8-1760aab6a6f6.png"
                 alt="Animated graphic"
                 className="max-md:hidden   transform scale-y-[-1] md:scale-y-[1.2] origin-center"
               />

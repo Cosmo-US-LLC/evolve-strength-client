@@ -4,65 +4,65 @@ import { Link } from "react-router-dom";
 const LOCATION_BACKGROUNDS = {
   "calgary-seton": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/join_evolve_seten.webp",
+      "/assets/images/Locations/join-evolve/join_evolve_seten.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/join_evolve_seten_mob.webp",
+      "/assets/images/Locations/join-evolve/join_evolve_seten_mob.webp",
     locationName: "Calgary Seton",
     tourUrl: "/book-a-tour/?location=40097",
   },
   "calgary-royal-oak": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/join_evolve_royal-oak.webp",
+      "/assets/images/Locations/join-evolve/join_evolve_royal-oak.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/join_evolve_royal_oak_mob.webp",
+      "/assets/images/Locations/join-evolve/join_evolve_royal_oak_mob.webp",
     locationName: "Calgary Royal Oak",
     tourUrl: "/book-a-tour/?location=40142",
   },
   "calgary-sunridge": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/sunridge.webp",
+      "/assets/images/Locations/join-evolve/sunridge.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/sunridgeMob.webp",
+      "/assets/images/Locations/join-evolve/sunridgeMob.webp",
     locationName: "Calgary Sunridge",
     tourUrl: "/book-a-tour/?location=06973",
   },
   "edmonton-south": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/south.webp",
+      "/assets/images/Locations/join-evolve/south.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/southMob.webp",
+      "/assets/images/Locations/join-evolve/southMob.webp",
     locationName: "Edmonton South",
     tourUrl: "/book-a-tour/?location=06962",
   },
   "edmonton-north": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/north.webp",
+      "/assets/images/Locations/join-evolve/north.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/northMob.webp",
+      "/assets/images/Locations/join-evolve/northMob.webp",
     locationName: "Edmonton North",
     tourUrl: "/book-a-tour/?location=06964",
   },
   "edmonton-downtown": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/join_evolve_downtown.webp",
+      "/assets/images/Locations/join-evolve/join_evolve_downtown.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/join_evolve_downtown_mob.webp",
+      "/assets/images/Locations/join-evolve/join_evolve_downtown_mob.webp",
     locationName: "Edmonton Downtown",
     tourUrl: "/book-a-tour/?location=06967",
   },
   "burnaby-brentwood": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/join_evolve_brentwood.webp",
+      "/assets/images/Locations/join-evolve/join_evolve_brentwood.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/join_evolve_brentwood_mob.webp",
+      "/assets/images/Locations/join-evolve/join_evolve_brentwood_mob.webp",
     locationName: "Burnaby Brentwood",
     tourUrl: "/book-a-tour/?location=40248",
   },
   "vancouver-post": {
     desktop:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/join_evolve_post.webp",
+      "/assets/images/Locations/join-evolve/join_evolve_post.webp",
     mobile:
-      "https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/images/Locations/join-evolve/join_evolve_post_mob.webp",
+      "/assets/images/Locations/join-evolve/join_evolve_post_mob.webp",
     locationName: "Vancouver The Post",
     tourUrl: "/book-a-tour/?location=40327",
   },
