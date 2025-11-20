@@ -14,7 +14,7 @@ import card_icon8 from "@/assets/images/gym/World-Class/world_card_icons (4).svg
 import card_icon9 from "@/assets/images/gym/World-Class/standing_abductor.svg";
 import card_icon10 from "@/assets/images/gym/World-Class/Treadmill.svg";
 import card_icon11 from "@/assets/images/gym/World-Class/world_card_icons (10).svg";
-import card_icon12 from "../../../../assets/images/gym/World-Class/Standing_abductor1.svg";
+import card_icon12 from "../../../../assets/images/gym/World-Class/standing_abductor1.svg";
 import card_icon13 from "@/assets/images/gym/World-Class/seal_row_bench.svg";
 
 import img_1 from "../../../../assets/images/gym/World-Class/img_1.webp";
