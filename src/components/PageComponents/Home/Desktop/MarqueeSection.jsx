@@ -176,7 +176,7 @@ const MarqueeSection = () => {
             />
           </div>
           <div className="p-3 bg-white flex-shrink-0">
-            <p className="text-[#1C1C1C] font-[Kanit] font-[400] text-[16px]  leading-[120%] text-center">
+            <p className="text-[#1C1C1C] font-[Kanit] font-[400] text-[16px]  leading-[120%] capitalize text-center">
               {card.label}
             </p>
           </div>
@@ -237,7 +237,7 @@ const MarqueeSection = () => {
                   className="w-12 h-12 object-contain"
                 />
               ) : null}
-              <p className="text-[#1C1C1C] font-[Kanit] font-[400] text-[16px] leading-[120%] text-center px-4">
+              <p className="text-[#1C1C1C] font-[Kanit] capitalize font-[400] text-[16px] leading-[120%] text-center px-4">
                 {card.label}
               </p>
             </div>
