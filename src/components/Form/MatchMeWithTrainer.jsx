@@ -14,6 +14,8 @@ const initialState = {
   fitnessGoals: "",
   otherFitnessGoals: "",
   message: "",
+  tour_time: "",
+  any_medical___health_restrictions: "",
 };
 
 // Contact-Us style locations list (label = cityName, value = full address)
@@ -137,6 +139,15 @@ export default function MatchMeWithTrainer() {
       newErrors.message = "Message must be less than 1000 characters";
     }
 
+    if (!form.tour_time.trim()) {
+      newErrors.tour_time = "Client availability is required";
+    }
+
+    if (!form.any_medical___health_restrictions.trim()) {
+      newErrors.any_medical___health_restrictions =
+        "Please provide medical or health restrictions (or write 'None')";
+    }
+
     return newErrors;
   };
 
@@ -193,6 +204,11 @@ export default function MatchMeWithTrainer() {
                 form.fitnessGoals === "Other"
                   ? form.otherFitnessGoals
                   : form.fitnessGoals,
+            },
+            { name: "tour_time", value: form.tour_time },
+            {
+              name: "any_medical___health_restrictions",
+              value: form.any_medical___health_restrictions,
             },
             { name: "message", value: form.message },
           ],
@@ -258,7 +274,7 @@ export default function MatchMeWithTrainer() {
             <img
               src="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessJourneySteps/step_1.webp"
               alt="Personal Training Session"
-              className="object-cover w-full h-[710px]"
+              className="object-cover w-full h-[926px]"
             />
           </div>
         </div>
@@ -471,6 +487,55 @@ export default function MatchMeWithTrainer() {
                   )}
                 </div>
               )}
+
+              <div className="w-full">
+                <label htmlFor="tour_time" className="block form-label mb-1">
+                  Client Availability *
+                </label>
+                <input
+                  type="text"
+                  id="tour_time"
+                  name="tour_time"
+                  value={form.tour_time}
+                  onChange={handleChange}
+                  placeholder="e.g., Weekdays after 5 PM"
+                  className={`w-full px-3 h-[40px] border rounded-[5px] ${
+                    errors.tour_time ? "border-red-500" : "border-[#D4D4D4]"
+                  }`}
+                  disabled={isSubmitting}
+                />
+                {errors.tour_time && (
+                  <p className="input-error mt-1">{errors.tour_time}</p>
+                )}
+              </div>
+
+              <div className="w-full">
+                <label
+                  htmlFor="any_medical___health_restrictions"
+                  className="block form-label mb-1"
+                >
+                  Any Medical or Health Restrictions *
+                </label>
+                <textarea
+                  id="any_medical___health_restrictions"
+                  name="any_medical___health_restrictions"
+                  value={form.any_medical___health_restrictions}
+                  onChange={handleChange}
+                  placeholder="List any medical issues, injuries, or write 'None'"
+                  rows={3}
+                  className={`w-full px-3 py-2 border rounded-[5px] resize-vertical ${
+                    errors.any_medical___health_restrictions
+                      ? "border-red-500"
+                      : "border-[#D4D4D4]"
+                  }`}
+                  disabled={isSubmitting}
+                />
+                {errors.any_medical___health_restrictions && (
+                  <p className="input-error mt-1">
+                    {errors.any_medical___health_restrictions}
+                  </p>
+                )}
+              </div>
 
               <div className="w-full">
                 <label htmlFor="message" className="block form-label mb-1">
