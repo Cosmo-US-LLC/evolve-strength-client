@@ -67,7 +67,7 @@ function EdmontonSouthCommonWaitlist() {
             <span className="text-[#fff]">TO SOUTH EDMONTON COMMON!</span>
           </h1>
           <h4 className="text-[#fff] text-center font-[kanit]">
-            Presale starts October 2025. Join the waitlist for early access.
+            Presale starts soon. Join the waitlist for early access.
           </h4>
         </div>
 
