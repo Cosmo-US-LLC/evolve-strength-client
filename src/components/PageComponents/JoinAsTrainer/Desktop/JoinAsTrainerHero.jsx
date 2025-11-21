@@ -108,7 +108,11 @@ function JoinAsTrainerHero(onSelectOption) {
                 </div>
               </div>
               <div className="space-y-[5px]">
-                <h3 className="text-[#fff]">Your current gym split %</h3>
+                <h3 className="text-[#fff]">Your current revenue split %</h3>
+                <h5 className="!font-[300] !text-[13px] text-white pb-[8px]">
+                  Select the percentage of your income that your current gym
+                  keeps.
+                </h5>
                 <div className="flex justify-between space-x-[1px] items-center">
                   {gymSplitOptions.map((option) => (
                     <button
@@ -140,7 +144,7 @@ function JoinAsTrainerHero(onSelectOption) {
                 <h5 className="!font-[300] !text-[14px] text-white text-center leading-[26px]">
                   by staying at your current gym.
                 </h5>
-                <h5 className="!font-[300] !text-[14px] text-white text-center leading-[12px]">
+                <h5 className="!font-[300] !text-[14px] text-white text-center ">
                   That’s{" "}
                   <span className="text-white text-[16px] font-[500] font-[kanit]">
                     $
