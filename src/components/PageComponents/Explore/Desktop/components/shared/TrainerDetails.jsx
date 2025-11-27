@@ -59,8 +59,7 @@ function TrainerDetails({ trainer }) {
   // Helper function to get social media handle from URL
   const getSocialHandle = (url) => {
     try {
-      console.log(url)
-      const urlObj = new URL((url?.includes("https://") || url?.includes("http://")) ? url : `https://${url}`);
+      const urlObj = new URL(url);
       const pathname = urlObj.pathname;
       const lowerUrl = url.toLowerCase();
 
@@ -84,9 +83,8 @@ function TrainerDetails({ trainer }) {
       }
       // For website URLs, return the domain name
       return urlObj.hostname.replace("www.", "");
-    } catch (error) {
-      console.log(error)
-      return "Website";
+    } catch {
+      return url; // Return original value if URL parsing fails
     }
   };
 
@@ -107,6 +105,88 @@ function TrainerDetails({ trainer }) {
         return <Globe className="text-[#4AB04A]" size={20} />;
       default:
         return <Mail className="text-[#4AB04A]" size={20} />;
+    }
+  };
+
+  // Helper function to render icon based on contact type from API
+  const renderContactIcon = (type) => {
+    switch (type) {
+      case "EMAIL":
+        return <Mail className="text-[#4AB04A]" size={20} />;
+      case "PHONE":
+        return <Phone className="text-[#4AB04A]" size={20} />;
+      case "WEBSITE":
+        return <Globe className="text-[#4AB04A]" size={20} />;
+      case "SOCIAL_IG":
+        return <Instagram className="text-[#4AB04A]" size={20} />;
+      case "SOCIAL_FB":
+        return <Facebook className="text-[#4AB04A]" size={20} />;
+      case "SOCIAL_YOUTUBE":
+        return <Youtube className="text-[#4AB04A]" size={20} />;
+      case "SOCIAL_LINKEDIN":
+        return <Linkedin className="text-[#4AB04A]" size={20} />;
+      case "SOCIAL_TWITTER":
+      case "SOCIAL_X":
+        return <Twitter className="text-[#4AB04A]" size={20} />;
+      case "SOCIAL_OTHER":
+        return <Globe className="text-[#4AB04A]" size={20} />;
+      default:
+        return <Globe className="text-[#4AB04A]" size={20} />;
+    }
+  };
+
+  // Helper function to get display label for contact
+  const getContactLabel = (type, value) => {
+    switch (type) {
+      case "EMAIL":
+      case "PHONE":
+        return value;
+      case "WEBSITE":
+        try {
+          const url = new URL(value);
+          return url.hostname.replace("www.", "");
+        } catch {
+          return value;
+        }
+      case "SOCIAL_IG":
+        try {
+          const url = new URL(value);
+          return url.pathname.replace("/", "") || "Instagram";
+        } catch {
+          return value;
+        }
+      case "SOCIAL_FB":
+        try {
+          const url = new URL(value);
+          return url.pathname.replace("/", "") || "Facebook";
+        } catch {
+          return value;
+        }
+      case "SOCIAL_OTHER":
+        return value;
+      default:
+        return value;
+    }
+  };
+
+  // Helper function to get href for contact
+  const getContactHref = (type, value) => {
+    switch (type) {
+      case "EMAIL":
+        return `mailto:${value}`;
+      case "PHONE":
+        return `tel:${value}`;
+      case "WEBSITE":
+      case "SOCIAL_IG":
+      case "SOCIAL_FB":
+      case "SOCIAL_YOUTUBE":
+      case "SOCIAL_LINKEDIN":
+      case "SOCIAL_TWITTER":
+      case "SOCIAL_X":
+      case "SOCIAL_OTHER":
+        return value; // Use URL directly from API
+      default:
+        return value;
     }
   };
 
@@ -168,58 +248,85 @@ function TrainerDetails({ trainer }) {
           Contact:
         </h3>
         <div className="flex flex-wrap gap-2">
-          {/* Email */}
-          {trainer.email && (
-            <a
-              href={`mailto:${trainer.email}`}
-              className="px-2 md:px-3 py-3 flex items-center gap-2 description bg-[#F6F6F6] text-[#000] rounded-[5px] text-xs md:text-sm hover:bg-[#E6E6E6] transition-colors"
-            >
-              <Mail className="text-[#4AB04A]" size={20} />
-              {trainer.email}
-            </a>
-          )}
-
-          {/* Phone */}
-          {trainer.phone && (
-            <a
-              href={`tel:${trainer.phone}`}
-              className="px-2 md:px-3 py-3 description text-[14px] md:text-[16px] flex items-center gap-2 bg-[#F6F6F6] text-[#000] rounded-[5px] hover:bg-[#E6E6E6] transition-colors"
-            >
-              <Phone className="text-[#4AB04A]" size={20} />
-              {trainer.phone}
-            </a>
-          )}
-
-          {/* Social Links */}
-          {trainer.social_links &&
-            trainer.social_links.length > 0 &&
-            trainer.social_links.map((link, index) => {
-              const platform = getSocialPlatform(link);
-              const handle = getSocialHandle(link);
+          {/* If contacts array exists, render from it with type-based icons */}
+          {trainer.contacts && trainer.contacts.length > 0 ? (
+            trainer.contacts.map((contact) => {
+              const isExternal =
+                contact.type !== "EMAIL" && contact.type !== "PHONE";
+              const href = getContactHref(contact.type, contact.value);
+              const label = getContactLabel(contact.type, contact.value);
 
               return (
                 <a
-                  key={index}
-                  href={new URL((link?.includes("https://") || link?.includes("http://")) ? link : `https://${link}`)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-2 md:px-3 py-3 flex font-[Vazirmatn] items-center gap-2 bg-[#F6F6F6] text-[#000] rounded-[5px] text-[14px] md:text-[16px] hover:bg-[#E6E6E6] transition-colors"
+                  key={contact.id}
+                  href={href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                  className="px-2 md:px-3 py-3 flex items-center gap-2 description bg-[#F6F6F6] text-[#000] rounded-[5px] text-xs md:text-sm hover:bg-[#E6E6E6] transition-colors"
                 >
-                  {renderSocialIcon(platform)}
-                  {handle}
+                  {renderContactIcon(contact.type)}
+                  {label}
                 </a>
               );
-            })}
+            })
+          ) : (
+            // Fallback to old format if contacts array doesn't exist
+            <>
+              {/* Email */}
+              {trainer.email && (
+                <a
+                  href={`mailto:${trainer.email}`}
+                  className="px-2 md:px-3 py-3 flex items-center gap-2 description bg-[#F6F6F6] text-[#000] rounded-[5px] text-xs md:text-sm hover:bg-[#E6E6E6] transition-colors"
+                >
+                  <Mail className="text-[#4AB04A]" size={20} />
+                  {trainer.email}
+                </a>
+              )}
 
-          {/* Fallback if no contact info */}
-          {!trainer.email &&
-            !trainer.phone &&
-            (!trainer.social_links || trainer.social_links.length === 0) && (
-              <span className="px-2 md:px-3 py-3 flex items-center gap-2 description bg-[#F6F6F6] text-[#000] rounded-[5px] text-[14px] md:text-[16px]">
-                <Mail className="text-[#4AB04A]" size={20} />
-                Contact information not available
-              </span>
-            )}
+              {/* Phone */}
+              {trainer.phone && (
+                <a
+                  href={`tel:${trainer.phone}`}
+                  className="px-2 md:px-3 py-3 description text-[14px] md:text-[16px] flex items-center gap-2 bg-[#F6F6F6] text-[#000] rounded-[5px] hover:bg-[#E6E6E6] transition-colors"
+                >
+                  <Phone className="text-[#4AB04A]" size={20} />
+                  {trainer.phone}
+                </a>
+              )}
+
+              {/* Social Links */}
+              {trainer.social_links &&
+                trainer.social_links.length > 0 &&
+                trainer.social_links.map((link, index) => {
+                  const platform = getSocialPlatform(link);
+                  const handle = getSocialHandle(link);
+
+                  return (
+                    <a
+                      key={index}
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-2 md:px-3 py-3 flex font-[Vazirmatn] items-center gap-2 bg-[#F6F6F6] text-[#000] rounded-[5px] text-[14px] md:text-[16px] hover:bg-[#E6E6E6] transition-colors"
+                    >
+                      {renderSocialIcon(platform)}
+                      {handle}
+                    </a>
+                  );
+                })}
+
+              {/* Fallback if no contact info */}
+              {!trainer.email &&
+                !trainer.phone &&
+                (!trainer.social_links ||
+                  trainer.social_links.length === 0) && (
+                  <span className="px-2 md:px-3 py-3 flex items-center gap-2 description bg-[#F6F6F6] text-[#000] rounded-[5px] text-[14px] md:text-[16px]">
+                    <Mail className="text-[#4AB04A]" size={20} />
+                    Contact information not available
+                  </span>
+                )}
+            </>
+          )}
         </div>
       </div>
     </div>

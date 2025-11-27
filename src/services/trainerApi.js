@@ -56,6 +56,13 @@ export const transformTrainer = (apiTrainer) => {
   if (website) socialLinks.push(website);
   if (instagram) socialLinks.push(instagram);
 
+  // Keep full contacts array with type info for icon rendering
+  const contactsWithTypes = contacts.map((c) => ({
+    id: c.id,
+    type: c.type,
+    value: c.value,
+  }));
+
   const location =
     FRANCHISE_MAP[apiTrainer.franchise_id] ||
     apiTrainer.franchise?.name?.toUpperCase() ||
@@ -101,6 +108,7 @@ export const transformTrainer = (apiTrainer) => {
     email,
     phone,
     social_links: socialLinks,
+    contacts: contactsWithTypes, // Full contacts array with type info
     franchise_id: apiTrainer.franchise_id,
   };
 };
