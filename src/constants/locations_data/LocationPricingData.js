@@ -10,7 +10,7 @@ export const LOCATION_PRICING = {
       {
         title: "1 Year Contract",
         billing: "Bi-Weekly",
-        price: "$28.50",
+        price: "$30.49",
         featuresTitle: "Feature you'll like:",
         features: [
           "$0 Enrolment Fee",
@@ -26,7 +26,7 @@ export const LOCATION_PRICING = {
       {
         title: "Month To Month",
         billing: "Bi-Weekly",
-        price: "$32.99",
+        price: "$35.99",
         featuresTitle: "Feature you'll like:",
         features: [
           "$0 Enrolment Fee",
@@ -51,7 +51,7 @@ export const LOCATION_PRICING = {
       {
         title: "1 Year Contract",
         billing: "Bi-Weekly",
-        price: "$28.50",
+        price: "$30.49",
         featuresTitle: "Feature you'll like:",
         features: [
           "$0 Enrolment Fee",
@@ -67,7 +67,7 @@ export const LOCATION_PRICING = {
       {
         title: "Month To Month",
         billing: "Bi-Weekly",
-        price: "$32.99",
+        price: "$35.99",
         featuresTitle: "Feature you'll like:",
         features: [
           "$0 Enrolment Fee",
@@ -133,7 +133,7 @@ export const LOCATION_PRICING = {
       {
         title: "1 Year Contract",
         billing: "Bi-Weekly",
-        price: "$28.50",
+        price: "$30.49",
         featuresTitle: "Feature you'll like:",
         features: [
           "$0 Enrolment Fee",
@@ -149,7 +149,7 @@ export const LOCATION_PRICING = {
       {
         title: "Month To Month",
         billing: "Bi-Weekly",
-        price: "$32.99",
+        price: "$35.99",
         featuresTitle: "Feature you'll like:",
         features: [
           "$0 Enrolment Fee",
@@ -174,7 +174,7 @@ export const LOCATION_PRICING = {
       {
         title: "1 Year Contract",
         billing: "Bi-Weekly",
-        price: "$28.50",
+        price: "$30.49",
         featuresTitle: "Feature you'll like:",
         features: [
           "$0 Enrolment Fee",
@@ -190,7 +190,7 @@ export const LOCATION_PRICING = {
       {
         title: "Month To Month",
         billing: "Bi-Weekly",
-        price: "$32.99",
+        price: "$35.99",
         featuresTitle: "Feature you'll like:",
         features: [
           "$0 Enrolment Fee",
@@ -215,7 +215,7 @@ export const LOCATION_PRICING = {
       {
         title: "1 Year Contract",
         billing: "Bi-Weekly",
-        price: "$28.50",
+        price: "$30.49",
         featuresTitle: "Feature you'll like:",
         features: [
           "$0 Enrolment Fee",
@@ -231,7 +231,7 @@ export const LOCATION_PRICING = {
       {
         title: "Month To Month",
         billing: "Bi-Weekly",
-        price: "$32.99",
+        price: "$35.99",
         featuresTitle: "Feature you'll like:",
         features: [
           "$0 Enrolment Fee",

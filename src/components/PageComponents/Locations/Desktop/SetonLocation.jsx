@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   LOCATIONS_DATA,
@@ -33,22 +33,14 @@ function SetonLocation() {
   // Location-specific tour URLs
   const getTourUrl = (locationKey) => {
     const tourUrls = {
-      "vancouver-post":
-        "/book-a-tour/?location=40327",
-      "burnaby-brentwood":
-        "/book-a-tour/?location=40248",
-      "calgary-seton":
-        "/book-a-tour/?location=40097",
-      "calgary-royal-oak":
-        "/book-a-tour/?location=40142",
-      "calgary-sunridge":
-        "/book-a-tour/?location=06973",
-      "edmonton-south":
-        "/book-a-tour/?location=06962",
-      "edmonton-downtown":
-        "/book-a-tour/?location=06967",
-      "edmonton-north":
-        "/book-a-tour/?location=06964",
+      "vancouver-post": "/book-a-tour/?location=40327",
+      "burnaby-brentwood": "/book-a-tour/?location=40248",
+      "calgary-seton": "/book-a-tour/?location=40097",
+      "calgary-royal-oak": "/book-a-tour/?location=40142",
+      "calgary-sunridge": "/book-a-tour/?location=06973",
+      "edmonton-south": "/book-a-tour/?location=06962",
+      "edmonton-downtown": "/book-a-tour/?location=06967",
+      "edmonton-north": "/book-a-tour/?location=06964",
     };
 
     return tourUrls[locationKey] || "/book-a-tour/";
@@ -57,6 +49,16 @@ function SetonLocation() {
   const tourUrl = getTourUrl(locationKey);
 
   const [isTimingsExpanded, setIsTimingsExpanded] = useState(false);
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
+
+  // Lazy load the map section after other content loads
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsMapLoaded(true);
+    }, 5000); // Delay map loading by 500s
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="w-full max-w-[1280px] mx-auto px-4 md:px-8 py-12 flex flex-col gap-4 ">
@@ -75,30 +77,46 @@ function SetonLocation() {
           className="w-full md:w-[500px] h-auto md:h-[410px] object-cover rounded-md"
         />
 
-        <div className="w-full md:w-[695px]  md:h-[410px] flex flex-col">
-          <iframe
-            src={locationData.mapUrl}
-            title={`Evolve Strength ${locationData.name} Location`}
-            className="w-full object-cover rounded-t-md h-[310px] border-0"
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+        {isMapLoaded ? (
+          <div className="w-full md:w-[695px]  md:h-[410px] flex flex-col animate-fade-in">
+            <iframe
+              src={locationData.mapUrl}
+              title={`Evolve Strength ${locationData.name} Location`}
+              className="w-full object-cover rounded-t-md h-[310px] border-0"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
 
-          <div className="md:h-[100px]  bg-[#F9F9F9] p-4 border shadow rounded-b-md flex flex-col md:flex-row md:items-center md:justify-between ">
-            <div>
-              <h3 className="">{locationData.name}</h3>
-              <p className="text-[16px] font-[kanit] font-[300] text-[#000]">
-                {locationData.address}
-              </p>
-            </div>
-            <div className="flex flex-start pt-5 md:pt-0">
-              <a href={tourUrl}>
-                <button className="btnPrimary">BOOK A FREE TOUR</button>
-              </a>
+            <div className="md:h-[100px]  bg-[#F9F9F9] p-4 border shadow rounded-b-md flex flex-col md:flex-row md:items-center md:justify-between ">
+              <div>
+                <h3 className="">{locationData.name}</h3>
+                <p className="text-[16px] font-[kanit] font-[300] text-[#000]">
+                  {locationData.address}
+                </p>
+              </div>
+              <div className="flex flex-start pt-5 md:pt-0">
+                <a href={tourUrl}>
+                  <button className="btnPrimary">BOOK A FREE TOUR</button>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          // Skeleton loader for map section
+          <div className="w-full md:w-[695px]  md:h-[410px] flex flex-col">
+            <div className="w-full rounded-t-md h-[310px] bg-gray-200 animate-pulse" />
+            <div className="md:h-[100px] bg-[#F9F9F9] p-4 border shadow rounded-b-md flex flex-col md:flex-row md:items-center md:justify-between ">
+              <div className="flex-1">
+                <div className="h-6 bg-gray-300 rounded w-3/4 mb-2 animate-pulse"></div>
+                <div className="h-4 bg-gray-200 rounded w-1/2 animate-pulse"></div>
+              </div>
+              <div className="flex flex-start pt-5 md:pt-0">
+                <div className="h-10 bg-gray-300 rounded w-40 animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="  ">
