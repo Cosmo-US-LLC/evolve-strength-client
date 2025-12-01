@@ -12,7 +12,6 @@ const MiddleTextHero = ({ title }) => {
   const [isMutedDesktop, setIsMutedDesktop] = useState(true);
   const [isMutedMobile, setIsMutedMobile] = useState(true);
 
-  // Detect screen size
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 700);
@@ -23,6 +22,22 @@ const MiddleTextHero = ({ title }) => {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+  if (isDesktop) {
+    videoRefDesktop.current?.play().catch(() => {});
+    if (videoRefMobile.current) {
+      videoRefMobile.current.pause();
+      videoRefMobile.current.currentTime = 0;
+    }
+  } else {
+    videoRefMobile.current?.play().catch(() => {});
+    if (videoRefDesktop.current) {
+      videoRefDesktop.current.pause();
+      videoRefDesktop.current.currentTime = 0;
+    }
+  }
+}, [isDesktop]);
 
   const toggleDesktopMute = () => {
     const newMute = !isMutedDesktop;
@@ -38,7 +53,6 @@ const MiddleTextHero = ({ title }) => {
 
   return (
     <div>
-      {/* <div className="relative overflow-hidden w-full h-[70vh] md:h-[100vh]"  */}
       <div
         className="relative overflow-hidden w-full h-[70vh] md:h-[100vh] "
         // style={{
