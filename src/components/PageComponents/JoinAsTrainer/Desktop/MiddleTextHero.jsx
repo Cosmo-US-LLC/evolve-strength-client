@@ -1,10 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Volume2, VolumeOff } from "lucide-react";
 
 const MiddleTextHero = ({ title }) => {
-  const [isMuted, setIsMuted] = useState(true);
+ const [isMuted, setIsMuted] = useState(true);
   const videoRefDesktop = useRef(null);
   const videoRefMobile = useRef(null);
+
+
   const toggleMute = () => {
     setIsMuted((prev) => {
       const newMute = !prev;
@@ -13,6 +15,26 @@ const MiddleTextHero = ({ title }) => {
       return newMute;
     });
   };
+
+  useEffect(() => {
+    const handleVideoState = () => {
+      const isDesktop = window.innerWidth >= 768;
+
+      if (isDesktop) {
+        videoRefDesktop.current?.play();
+        videoRefMobile.current?.pause();
+      } else {
+        videoRefMobile.current?.play();
+        videoRefDesktop.current?.pause();
+      }
+    };
+
+    handleVideoState(); // Run on load
+    window.addEventListener("resize", handleVideoState);
+
+    return () => window.removeEventListener("resize", handleVideoState);
+  }, []);
+
   return (
     <div>
       {/* <div className="relative overflow-hidden w-full h-[70vh] md:h-[100vh]"  */}
@@ -22,37 +44,26 @@ const MiddleTextHero = ({ title }) => {
         //   backgroundImage: `url("/media/1762435890643-9a2fb639-e969-433c-afcc-8d225c2905bf.webp")`,
         // }}
       >
-        <video
+            <video
           ref={videoRefDesktop}
           autoPlay
           loop
           muted={isMuted}
           playsInline
           className="absolute hidden md:block inset-0 w-full h-full object-cover"
-          style={{ objectFit: "", objectPosition: "" }}
         >
-          <source
-            // src="/assets/videos/gym-vid-desktop.mp4"
-            src="/assets/videos/jat-desk.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
+          <source src="/assets/videos/jat-desk.mp4" type="video/mp4" />
         </video>
-        <video
-          autoPlay
+      
+         <video
           ref={videoRefMobile}
+          autoPlay
           loop
-          playsInline
           muted={isMuted}
+          playsInline
           className="absolute block md:hidden inset-0 w-full h-full object-cover"
-          style={{ objectFit: "", objectPosition: "" }}
         >
-          <source
-            // src="/assets/videos/gym-vid-mobile.mp4"
-            src="/assets/videos/jat-mob.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
+          <source src="/assets/videos/jat-mob.mp4" type="video/mp4" />
         </video>
 
         <div className="max-w-[1280px] md:px-8 px-4 mx-auto w-full h-full relative z-2">
