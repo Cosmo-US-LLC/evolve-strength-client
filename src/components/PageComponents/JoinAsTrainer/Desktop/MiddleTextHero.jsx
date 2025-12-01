@@ -2,22 +2,26 @@ import React, { useRef, useState, useEffect } from "react";
 import { Volume2, VolumeOff } from "lucide-react";
 
 const MiddleTextHero = ({ title }) => {
- const [isMuted, setIsMuted] = useState(true);
   const videoRefDesktop = useRef(null);
   const videoRefMobile = useRef(null);
 
+  const [isMutedDesktop, setIsMutedDesktop] = useState(true);
+  const [isMutedMobile, setIsMutedMobile] = useState(true);
 
-  const toggleMute = () => {
-    setIsMuted((prev) => {
-      const newMute = !prev;
-      if (videoRefDesktop.current) videoRefDesktop.current.muted = newMute;
-      if (videoRefMobile.current) videoRefMobile.current.muted = newMute;
-      return newMute;
-    });
+  const toggleDesktopMute = () => {
+    const newMute = !isMutedDesktop;
+    setIsMutedDesktop(newMute);
+    if (videoRefDesktop.current) videoRefDesktop.current.muted = newMute;
+  };
+
+  const toggleMobileMute = () => {
+    const newMute = !isMutedMobile;
+    setIsMutedMobile(newMute);
+    if (videoRefMobile.current) videoRefMobile.current.muted = newMute;
   };
 
   useEffect(() => {
-    const handleVideoState = () => {
+    const updatePlayState = () => {
       const isDesktop = window.innerWidth >= 768;
 
       if (isDesktop) {
@@ -29,10 +33,9 @@ const MiddleTextHero = ({ title }) => {
       }
     };
 
-    handleVideoState(); // Run on load
-    window.addEventListener("resize", handleVideoState);
-
-    return () => window.removeEventListener("resize", handleVideoState);
+    updatePlayState();
+    window.addEventListener("resize", updatePlayState);
+    return () => window.removeEventListener("resize", updatePlayState);
   }, []);
 
   return (
@@ -44,22 +47,22 @@ const MiddleTextHero = ({ title }) => {
         //   backgroundImage: `url("/media/1762435890643-9a2fb639-e969-433c-afcc-8d225c2905bf.webp")`,
         // }}
       >
-            <video
+        <video
           ref={videoRefDesktop}
           autoPlay
           loop
-          muted={isMuted}
+          muted={isMutedDesktop}
           playsInline
           className="absolute hidden md:block inset-0 w-full h-full object-cover"
         >
           <source src="/assets/videos/jat-desk.mp4" type="video/mp4" />
         </video>
-      
-         <video
+
+        <video
           ref={videoRefMobile}
           autoPlay
           loop
-          muted={isMuted}
+          muted={isMutedMobile}
           playsInline
           className="absolute block md:hidden inset-0 w-full h-full object-cover"
         >
@@ -84,13 +87,24 @@ const MiddleTextHero = ({ title }) => {
           </div>
         </div>
         <button
-          onClick={toggleMute}
-          className="absolute cursor-pointer bottom-4 right-4 bg-black bg-opacity-50 p-3 rounded-full z-20 flex items-center justify-center"
+          onClick={toggleDesktopMute}
+          className="hidden md:flex absolute bottom-4 right-4 bg-black bg-opacity-50 p-3 rounded-full z-20"
         >
-          {isMuted ? (
-            <VolumeOff className="h-7 w-7 text-[#fff]" />
+          {isMutedDesktop ? (
+            <VolumeOff className="h-7 w-7 text-white" />
           ) : (
-            <Volume2 className="h-7 w-7 text-[#fff]" />
+            <Volume2 className="h-7 w-7 text-white" />
+          )}
+        </button>
+
+        <button
+          onClick={toggleMobileMute}
+          className="md:hidden flex absolute bottom-4 right-4 bg-black bg-opacity-50 p-3 rounded-full z-20"
+        >
+          {isMutedMobile ? (
+            <VolumeOff className="h-7 w-7 text-white" />
+          ) : (
+            <Volume2 className="h-7 w-7 text-white" />
           )}
         </button>
       </div>
