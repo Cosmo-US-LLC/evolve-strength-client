@@ -5,8 +5,24 @@ const MiddleTextHero = ({ title }) => {
   const videoRefDesktop = useRef(null);
   const videoRefMobile = useRef(null);
 
+  const [isDesktop, setIsDesktop] = useState(
+    typeof window !== "undefined" ? window.innerWidth >= 700 : true
+  );
+
   const [isMutedDesktop, setIsMutedDesktop] = useState(true);
   const [isMutedMobile, setIsMutedMobile] = useState(true);
+
+  // Detect screen size
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 700);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const toggleDesktopMute = () => {
     const newMute = !isMutedDesktop;
@@ -20,24 +36,6 @@ const MiddleTextHero = ({ title }) => {
     if (videoRefMobile.current) videoRefMobile.current.muted = newMute;
   };
 
-  useEffect(() => {
-    const updatePlayState = () => {
-      const isDesktop = window.innerWidth >= 768;
-
-      if (isDesktop) {
-        videoRefDesktop.current?.play();
-        videoRefMobile.current?.pause();
-      } else {
-        videoRefMobile.current?.play();
-        videoRefDesktop.current?.pause();
-      }
-    };
-
-    updatePlayState();
-    window.addEventListener("resize", updatePlayState);
-    return () => window.removeEventListener("resize", updatePlayState);
-  }, []);
-
   return (
     <div>
       {/* <div className="relative overflow-hidden w-full h-[70vh] md:h-[100vh]"  */}
@@ -47,27 +45,30 @@ const MiddleTextHero = ({ title }) => {
         //   backgroundImage: `url("/media/1762435890643-9a2fb639-e969-433c-afcc-8d225c2905bf.webp")`,
         // }}
       >
-        <video
-          ref={videoRefDesktop}
-          autoPlay
-          loop
-          muted={isMutedDesktop}
-          playsInline
-          className="absolute hidden md:block inset-0 w-full h-full object-cover"
-        >
-          <source src="/assets/videos/jat-desk.mp4" type="video/mp4" />
-        </video>
-
-        <video
-          ref={videoRefMobile}
-          autoPlay
-          loop
-          muted={isMutedMobile}
-          playsInline
-          className="absolute block md:hidden inset-0 w-full h-full object-cover"
-        >
-          <source src="/assets/videos/jat-mob.mp4" type="video/mp4" />
-        </video>
+        {isDesktop && (
+          <video
+            ref={videoRefDesktop}
+            autoPlay
+            loop
+            muted={isMutedDesktop}
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/assets/videos/jat-desk.mp4" type="video/mp4" />
+          </video>
+        )}
+        {!isDesktop && (
+          <video
+            ref={videoRefMobile}
+            autoPlay
+            loop
+            muted={isMutedMobile}
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/assets/videos/jat-mob.mp4" type="video/mp4" />
+          </video>
+        )}
 
         <div className="max-w-[1280px] md:px-8 px-4 mx-auto w-full h-full relative z-2">
           <div className="relative z-2 flex justify-center items-center text-center h-full">
@@ -86,27 +87,31 @@ const MiddleTextHero = ({ title }) => {
                 </div> */}
           </div>
         </div>
-        <button
-          onClick={toggleDesktopMute}
-          className="hidden md:flex absolute bottom-4 right-4 bg-black bg-opacity-50 p-3 rounded-full z-20"
-        >
-          {isMutedDesktop ? (
-            <VolumeOff className="h-7 w-7 text-white" />
-          ) : (
-            <Volume2 className="h-7 w-7 text-white" />
-          )}
-        </button>
+        {isDesktop && (
+          <button
+            onClick={toggleDesktopMute}
+            className="absolute bottom-4 right-4 bg-black bg-opacity-50 p-3 rounded-full z-20"
+          >
+            {isMutedDesktop ? (
+              <VolumeOff className="h-7 w-7 text-white" />
+            ) : (
+              <Volume2 className="h-7 w-7 text-white" />
+            )}
+          </button>
+        )}
 
-        <button
-          onClick={toggleMobileMute}
-          className="md:hidden flex absolute bottom-4 right-4 bg-black bg-opacity-50 p-3 rounded-full z-20"
-        >
-          {isMutedMobile ? (
-            <VolumeOff className="h-7 w-7 text-white" />
-          ) : (
-            <Volume2 className="h-7 w-7 text-white" />
-          )}
-        </button>
+        {!isDesktop && (
+          <button
+            onClick={toggleMobileMute}
+            className="absolute bottom-4 right-4 bg-black bg-opacity-50 p-3 rounded-full z-20"
+          >
+            {isMutedMobile ? (
+              <VolumeOff className="h-7 w-7 text-white" />
+            ) : (
+              <Volume2 className="h-7 w-7 text-white" />
+            )}
+          </button>
+        )}
       </div>
     </div>
   );
