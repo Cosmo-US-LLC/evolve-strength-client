@@ -13,10 +13,30 @@ function FitnessCategory() {
     "Inclusive",
     "Beginners",
     "Sport-Specific",
+    "Strength",
+    "Powerlifting",
+    "Fat Loss",
+    "Weightlifting",
+    "HIIT",
+    "Rehab",
+    "Meal Plans",
+    "Inclusive",
+    "Beginners",
+    "Sport-Specific",
+    "Strength",
+    "Powerlifting",
+    "Fat Loss",
+    "Weightlifting",
+    "HIIT",
+    "Rehab",
+    "Meal Plans",
+    "Inclusive",
+    "Beginners",
+    "Sport-Specific",
   ];
 
   return (
-    <section className="bg-[#000] py-8 ">
+    <section className="bg-[#000] py-8">
       <Marquee pauseOnHover={true} speed={40} gradient={false}>
         {tags.map((tag, idx) => (
           <span
