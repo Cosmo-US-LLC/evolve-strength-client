@@ -403,6 +403,20 @@
   height: 700px;
   margin-top: 160px;
 }
+.Servicecardbg_1 {
+    background-image: url("/public/assets/images/Discover/Services\ \(1\).webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.Servicecardbg_2 {
+    background-image: url("/public/assets/images/Discover/Services\ \(2\).webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
 
 @media (max-width: 768px) {
   .someThinkNewBg {
