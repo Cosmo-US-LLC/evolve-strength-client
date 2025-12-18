@@ -19,11 +19,14 @@ import {
 import {
   FRANCHISE_ID_BY_NAME,
   LOCATION_CONFIG,
-  WELLNESS_SERVICES,
+  WELLNESS_SERVICES_DISCOVER,
+  TRAINER_SERVICES_DISCOVER,
   TRAINER_ROLE_IDS,
   fetchAllTrainers,
 } from "@/services/trainerApi";
 import ExploreHeroVideo from "@/assets/videos/ExplorePages.webm";
+
+import icon1 from "/public/assets/images/Discover/wellnessC (2).svg"
 
 const STEP = {
   HERO: "HERO",
@@ -88,11 +91,27 @@ const Discover = () => {
     [locationName]
   );
 
+ const displayServices = useMemo(() => {
+  const services = category === CATEGORY.TRAINERS 
+    ? TRAINER_SERVICES_DISCOVER 
+    : WELLNESS_SERVICES_DISCOVER;
+
+  return [...services].sort((a, b) => a.name.localeCompare(b.name));
+}, [category]);
+
   const activeWellnessRole = useMemo(() => {
     if (!selectedServiceId || selectedServiceId === "ALL") return null;
-    const svc = WELLNESS_SERVICES.find((s) => s.id === selectedServiceId);
+    const svc = WELLNESS_SERVICES_DISCOVER.find((s) => s.id === selectedServiceId);
     return svc?.role || null;
   }, [selectedServiceId]);
+
+  const activeRole = useMemo(() => {
+  if (!selectedServiceId || selectedServiceId === "ALL") return null;
+  
+  // Look in the list currently being displayed
+  const svc = displayServices.find((s) => s.id === selectedServiceId);
+  return svc?.role || null;
+}, [selectedServiceId, displayServices]);
 
   const franchiseId = useMemo(
     () => (locationName ? FRANCHISE_ID_BY_NAME[locationName] : undefined),
@@ -114,52 +133,89 @@ const Discover = () => {
   }, [locationName, location.search, navigate]);
 
   useEffect(() => {
-    if (!franchiseId) return;
+  if (!franchiseId) return;
 
-    let mounted = true;
-    const load = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const params = {
-          franchise: franchiseId,
-          trainerRole:
-            category === CATEGORY.TRAINERS
-              ? TRAINER_ROLE_IDS.PERSONAL_TRAINER
-              : TRAINER_ROLE_IDS.WELLNESS_EXPERT,
-        };
+  let mounted = true;
+  const load = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const params = {
+        franchise: franchiseId,
+        trainerRole:
+          category === CATEGORY.TRAINERS
+            ? TRAINER_ROLE_IDS.PERSONAL_TRAINER
+            : TRAINER_ROLE_IDS.WELLNESS_EXPERT,
+      };
 
-        if (category === CATEGORY.WELLNESS && activeWellnessRole) {
-          params.service = [activeWellnessRole];
-        }
-
-        const data = await fetchAllTrainers(params);
-        if (!mounted) return;
-
-        // Extra safety: keep only this location's trainers
-        const filteredByLocation = data.filter(
-          (t) =>
-            t.location &&
-            t.location.toUpperCase() === locationName.toUpperCase()
-        );
-        setTrainers(filteredByLocation);
-      } catch (err) {
-        if (!mounted) return;
-        console.error("Error loading discover trainers:", err);
-        setError(
-          err?.message ||
-            "Unable to load providers for this location right now."
-        );
-      } finally {
-        if (mounted) setLoading(false);
+      if (selectedServiceId !== "ALL" && activeRole) {
+        params.service = [activeRole];
       }
-    };
 
-    load();
-    return () => {
-      mounted = false;
-    };
-  }, [franchiseId, locationName, category, activeWellnessRole]);
+      const data = await fetchAllTrainers(params);
+      if (!mounted) return;
+
+      const filteredByLocation = data.filter(
+        (t) => t.location?.toUpperCase() === locationName.toUpperCase()
+      );
+      setTrainers(filteredByLocation);
+    } catch (err) {
+    } finally {
+      if (mounted) setLoading(false);
+    }
+  };
+
+  load();
+  return () => { mounted = false; };
+}, [franchiseId, locationName, category, activeRole]); 
+
+  // useEffect(() => {
+  //   if (!franchiseId) return;
+
+  //   let mounted = true;
+  //   const load = async () => {
+  //     try {
+  //       setLoading(true);
+  //       setError(null);
+  //       const params = {
+  //         franchise: franchiseId,
+  //         trainerRole:
+  //           category === CATEGORY.TRAINERS
+  //             ? TRAINER_ROLE_IDS.PERSONAL_TRAINER
+  //             : TRAINER_ROLE_IDS.WELLNESS_EXPERT,
+  //       };
+
+  //       if (category === CATEGORY.WELLNESS && activeWellnessRole) {
+  //         params.service = [activeWellnessRole];
+  //       }
+
+  //       const data = await fetchAllTrainers(params);
+  //       if (!mounted) return;
+
+  //       // Extra safety: keep only this location's trainers
+  //       const filteredByLocation = data.filter(
+  //         (t) =>
+  //           t.location &&
+  //           t.location.toUpperCase() === locationName.toUpperCase()
+  //       );
+  //       setTrainers(filteredByLocation);
+  //     } catch (err) {
+  //       if (!mounted) return;
+  //       console.error("Error loading discover trainers:", err);
+  //       setError(
+  //         err?.message ||
+  //           "Unable to load providers for this location right now."
+  //       );
+  //     } finally {
+  //       if (mounted) setLoading(false);
+  //     }
+  //   };
+
+  //   load();
+  //   return () => {
+  //     mounted = false;
+  //   };
+  // }, [franchiseId, locationName, category, activeWellnessRole]);
 
   const visibleProviders = useMemo(
     () =>
@@ -171,6 +227,30 @@ const Discover = () => {
         : [],
     [trainers]
   );
+
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientY);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientY);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isUpSwipe = distance > minSwipeDistance;
+
+    if (isUpSwipe) {
+      handleStart();
+    }
+  };
 
   const handleStart = () => {
     setStep(STEP.SERVICES);
@@ -192,10 +272,10 @@ const Discover = () => {
     setStep(STEP.PROFILE);
   };
 
-  const sortedServices = [...WELLNESS_SERVICES].sort((a, b) =>
-    a.name.localeCompare(b.name)
+  const sortedServices = [...WELLNESS_SERVICES_DISCOVER].sort((a, b) =>
+    a.name.localeCompare(b.name) 
   );
-
+// 
   const handleBackFromProfile = () => {
     setStep(STEP.PROVIDERS);
     setSelectedProvider(null);
@@ -256,6 +336,20 @@ const Discover = () => {
     }
   };
 
+  const SERVICE_ICONS = {
+  "wellness-acupuncture": "/public/assets/images/Discover/wellnessC (11).svg",
+  "wellness-chiropractic-care": "/public/assets/images/Discover/wellnessC (8).svg",
+  "wellness-dietitian-services": "/public/assets/images/Discover/wellnessC (6).svg",
+  "wellness-esthetician": "/public/assets/images/Discover/wellnessC (5).svg",
+  "wellness-laser-therapy": "/public/assets/images/Discover/wellnessC (4).svg",
+  "wellness-massage-therapy": "/public/assets/images/Discover/wellnessC (3).svg",
+  "wellness-mental-health": "/public/assets/images/Discover/wellnessC (2).svg",
+  "wellness-osteopathy": "/public/assets/images/Discover/wellnessC (10).svg",
+  "wellness-physiotherapy": "/public/assets/images/Discover/wellnessC (1).svg",
+  "wellness-pilates": "/public/assets/images/Discover/wellnessC (9).svg",
+  "default": icon1,
+};
+
   const getContactHref = (type, value) => {
     switch (type) {
       case "EMAIL":
@@ -310,7 +404,7 @@ const Discover = () => {
   return (
     <div className="min-h-screen  text-white">
       {step !== STEP.HERO && (
-        <header className="w-full flex items-center justify-between px-6 md:px-12 py-4 md:py-6 bg-[#fff] b border-b-[1px] border-black/10">
+        <header className="w-full flex items-center justify-between px-6 md:px-12 py-2 bg-[#fff] b border-b-[1px] border-black/10">
           <div className="flex items-center justify-between gap-3 md:gap-4 w-full">
             <button
               type="button"
@@ -340,16 +434,16 @@ const Discover = () => {
               Back
             </button>
             <div className="flex justify-center items-center">
-              <span className="border-r-[1px] border-[#000] pr-2 mr-2">
+              <span className="">
                 <img
                   className="min-h-[50px]"
                   src="/images/logo.svg"
                   alt="Discover at"
                 />
               </span>
-              <span className="text-[18.333px] text-white bg-[#4AB04A] px-2  font-bold">
+              {/* <span className="text-[18.333px] text-white bg-[#4AB04A] px-2  font-bold">
                 {locationConfig.city} {locationConfig.branch}
-              </span>
+              </span> */}
             </div>
             <button
               type="button"
@@ -404,47 +498,52 @@ const Discover = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/40" />
 
           <div className="relative z-10 text-center  px-4">
-            <h2 className="!text-[64px] !leading-[110%] mb-4 md:mb-7">
+            <h2 className="!text-[84px] !font-[Kanit] !leading-[89.286%] !font-[600] mb-4 md:mb-7">
               Discover Trainers,
               <br className="hidden md:block" /> Wellness Services
             </h2>
-            <p className="text-[18px] mb-8">Swipe to get started.</p>
+            <p className="mb-8 !text-[24px] !leading-[100%]">
+              Swipe to get started.
+            </p>
             <button
               type="button"
               onClick={handleStart}
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
               className="inline-flex cursor-pointer items-center text-black tracking-[0.18em] animate-bounce"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="103"
-                height="103"
-                viewBox="0 0 103 103"
+                width="115"
+                height="115"
+                viewBox="0 0 115 115"
                 fill="none"
               >
-                <g filter="url(#filter0_d_10856_4523)">
+                <g filter="url(#filter0_d_10966_10)">
                   <rect
                     x="18.6001"
-                    y="79.5996"
-                    width="65"
-                    height="65"
-                    rx="32.5"
-                    transform="rotate(-90 18.6001 79.5996)"
+                    y="91.6"
+                    width="77"
+                    height="77"
+                    rx="38.5"
+                    transform="rotate(-90 18.6001 91.6)"
                     stroke="#4AB04A"
                     stroke-width="3"
                     shape-rendering="crispEdges"
                   />
                   <path
-                    d="M59.1001 32.7211L59.1001 38.8921C59.1001 39.3371 58.5611 39.5611 58.2461 39.2461L51.1001 32.1001L43.9531 39.2471C43.6391 39.5621 43.1001 39.3381 43.1001 38.8931L43.1001 32.7221C43.1001 32.3241 43.2581 31.9431 43.5391 31.6611L50.3931 24.8071C50.7841 24.4161 51.4171 24.4161 51.8071 24.8071L58.6601 31.6601C58.9421 31.9421 59.1001 32.3231 59.1001 32.7211ZM58.6601 61.6611L51.8071 54.8081C51.4161 54.4171 50.7831 54.4171 50.3931 54.8081L43.5391 61.6621C43.2581 61.9431 43.1001 62.3241 43.1001 62.7221L43.1001 68.8931C43.1001 69.3381 43.6391 69.5621 43.9541 69.2471L51.1001 62.1011L58.2461 69.2471C58.5611 69.5621 59.1001 69.3391 59.1001 68.8931L59.1001 62.7221C59.1001 62.3241 58.9421 61.9421 58.6601 61.6611ZM58.6601 46.6611L51.8071 39.8081C51.4161 39.4171 50.7831 39.4171 50.3931 39.8081L43.5391 46.6621C43.2581 46.9421 43.1001 47.3241 43.1001 47.7221L43.1001 53.8931C43.1001 54.3381 43.6391 54.5621 43.9541 54.2471L51.1001 47.1001L58.2461 54.2461C58.5611 54.5611 59.1001 54.3381 59.1001 53.8931L59.1001 47.7221C59.1001 47.3231 58.9421 46.9421 58.6601 46.6611Z"
+                    d="M66.512 36.1841L66.512 43.4441C66.512 43.9676 65.8779 44.2312 65.5073 43.8606L57.1002 35.4535L48.692 43.8617C48.3226 44.2323 47.6885 43.9688 47.6885 43.4453L47.6885 36.1853C47.6885 35.717 47.8744 35.2688 48.2049 34.937L56.2685 26.8735C56.7285 26.4135 57.4732 26.4135 57.932 26.8735L65.9944 34.9359C66.3261 35.2676 66.512 35.7159 66.512 36.1841ZM65.9944 70.2312L57.932 62.1688C57.472 61.7088 56.7273 61.7088 56.2685 62.1688L48.2049 70.2323C47.8744 70.5629 47.6885 71.0112 47.6885 71.4794L47.6885 78.7394C47.6885 79.2629 48.3226 79.5264 48.6932 79.1559L57.1002 70.7488L65.5073 79.1559C65.8779 79.5264 66.512 79.2641 66.512 78.7394L66.512 71.4794C66.512 71.0112 66.3261 70.5617 65.9944 70.2312ZM65.9944 52.5841L57.932 44.5217C57.472 44.0617 56.7273 44.0617 56.2685 44.5217L48.2049 52.5853C47.8744 52.9147 47.6885 53.3641 47.6885 53.8323L47.6885 61.0923C47.6885 61.6159 48.3226 61.8794 48.6932 61.5088L57.1002 53.1006L65.5073 61.5076C65.8779 61.8782 66.512 61.6159 66.512 61.0923L66.512 53.8323C66.512 53.3629 66.3261 52.9147 65.9944 52.5841Z"
                     fill="#4AB04A"
                   />
                 </g>
                 <defs>
                   <filter
-                    id="filter0_d_10856_4523"
+                    id="filter0_d_10966_10"
                     x="9.72748e-05"
-                    y="-0.000391006"
-                    width="102.2"
-                    height="102.2"
+                    y="-2.47955e-05"
+                    width="114.2"
+                    height="114.2"
                     filterUnits="userSpaceOnUse"
                     color-interpolation-filters="sRGB"
                   >
@@ -465,12 +564,12 @@ const Discover = () => {
                     <feBlend
                       mode="normal"
                       in2="BackgroundImageFix"
-                      result="effect1_dropShadow_10856_4523"
+                      result="effect1_dropShadow_10966_10"
                     />
                     <feBlend
                       mode="normal"
                       in="SourceGraphic"
-                      in2="effect1_dropShadow_10856_4523"
+                      in2="effect1_dropShadow_10966_10"
                       result="shape"
                     />
                   </filter>
@@ -483,14 +582,8 @@ const Discover = () => {
 
       {/* SERVICES STEP */}
       {step === STEP.SERVICES && (
-        <main className="min-h-screen  text-black flex flex-col">
-          <section className=" w-full mx-auto px-4 md:px-8 py-10 md:py-16">
-            <header className="text-center mb-10 md:mb-14">
-              <h2 className="!text-[40px] !font-[Kanit] !font-semibold mb-3">
-                Choose Services
-              </h2>
-            </header>
-
+        <main className="">
+          <section className=" w-full mx-auto px-4 md:px-8 pt-6 md:pt-10">
             <div className="grid gap-6 md:gap-8 md:grid-cols-2">
               {/* Wellness card */}
               <button
@@ -560,13 +653,13 @@ const Discover = () => {
 
       {/* PROVIDERS STEP */}
       {step === STEP.PROVIDERS && (
-        <main className="min-h-screen  text-black flex flex-col">
+        <main className="">
           <section className="w-full mx-auto px-4 md:px-8 py-8 md:py-12 flex-1 flex flex-col">
-            <header className="mb-6 md:mb-8">
+            {/* <header className="mb-6 md:mb-8">
               <h2 className="!text-[40px] !font-[Kanit] !font-semibold mb-3 text-center uppercase">
                 {category === CATEGORY.WELLNESS ? "Providers" : "Trainers"}
               </h2>
-            </header>
+            </header> */}
             <div className="mb-8">
               <Carousel
                 opts={{
@@ -580,35 +673,40 @@ const Discover = () => {
                     <button
                       type="button"
                       onClick={() => handleServiceFilterSelect("ALL")}
-                      className={`px-4 py-2 cursor-pointer rounded-[8px] border border-[#000] text-sm whitespace-nowrap transition-colors !text-[20px] !font-[400] ${
+                      className={`px-4 py-2 cursor-pointer rounded-[8px] border border-[#000] text-sm whitespace-nowrap transition-colors !font-[Kanit] !text-[20px] !font-[400] flex items-center justify-center gap-2 ${
                         selectedServiceId === "ALL"
                           ? "bg-black text-white border-black"
                           : "bg-white text-black border-[#CCCCCC] hover:bg-black hover:text-white"
                       }`}
                     >
+                         <img src={"/public/assets/images/Discover/wellnessC (7).svg"}  className=" object-contain" />
                       All
                     </button>
                   </CarouselItem>
 
-                  {/* Filter Buttons Mapping */}
-                  {sortedServices.map((svc) => (
-                    <CarouselItem
-                      key={svc.id}
-                      className="pl-3 md:pl-4 basis-auto"
-                    >
-                      <button
-                        type="button"
-                        onClick={() => handleServiceFilterSelect(svc.id)}
-                        className={`px-4 py-2 !text-[20px] cursor-pointer !font-[400] rounded-[8px] border border-[#000] text-sm whitespace-nowrap transition-colors ${
-                          selectedServiceId === svc.id
-                            ? "bg-[#4AB04A] text-black border-[#4AB04A]"
-                            : "bg-white text-black border-[#CCCCCC] hover:bg-black hover:text-white"
-                        }`}
+                  {displayServices.map((svc) => {
+                   const IconSource = SERVICE_ICONS[svc.id] || SERVICE_ICONS.default;
+
+                    return (
+                      <CarouselItem
+                        key={svc.id}
+                        className="pl-3 md:pl-4 basis-auto"
                       >
-                        {svc.name}
-                      </button>
-                    </CarouselItem>
-                  ))}
+                        <button
+                          type="button"
+                          onClick={() => handleServiceFilterSelect(svc.id)}
+                          className={`flex items-center gap-2 px-4 py-2 !text-[20px] !font-[Kanit] cursor-pointer !font-[400] rounded-[8px] border transition-colors whitespace-nowrap ${
+                            selectedServiceId === svc.id
+                              ? "bg-[#000] text-[#fff] border-[#CCCCCC]"
+                              : "bg-white text-black border-[#CCCCCC] hover:bg-black hover:text-white"
+                          }`}
+                        >
+                         <img src={IconSource} alt={svc.name} className="object-contain" />
+                          {svc.name}
+                        </button>
+                      </CarouselItem>
+                    );
+                  })}
                 </CarouselContent>
               </Carousel>
             </div>
@@ -672,11 +770,11 @@ const Discover = () => {
                       </div>
                       <div className="p-4 md:p-5 flex items-center justify-between">
                         <div className="w-[80%]">
-                          <h3 className="text-base md:!text-[24px] !font-[500] mb-1">
+                          <h3 className="text-base md:!text-[24px] !font-[Kanit] text-[#000] !font-[500] mb-1">
                             {provider.displayName}
                           </h3>
                           {provider.specialty && (
-                            <p className="!text-[16px] text-[#767676] mb-1">
+                            <p className="!text-[18px] !font-[Kanit] text-[#767676] mb-1">
                               {provider.specialty}
                             </p>
                           )}
@@ -711,11 +809,11 @@ const Discover = () => {
 
       {/* PROFILE STEP */}
       {step === STEP.PROFILE && selectedProvider && (
-        <main className="min-h-screen bg-white text-black flex flex-col">
-          <section className="w-full mx-auto px-4 md:px-8 py-8 md:py-12 flex-1">
+        <main className="bg-white text-black flex flex-col">
+          <section className="w-full max-w-[1280px] mx-auto px-4 md:px-8 flex-1">
             <article className="  overflow-hidden">
               <div className="w-full  ">
-                <div className="flex justify-center items-start  space-x-3  p-10 space-x-10 rounded-[12px]">
+                <div className="flex justify-center items-start  space-x-3  p-12 space-x-10 rounded-[12px]">
                   <div className="min-w-[400px]  ">
                     <div className="bg-[#F7F7F7] p-4 !rounded-[8px] ">
                       <div className="w-full  overflow-hidden !rounded-[12px]">
@@ -732,18 +830,18 @@ const Discover = () => {
                         )}
                       </div>
                       <div className="mt-6">
-                        <h1 className="!text-[24px] font-semibold !leading-[120%]">
+                        <h1 className="!text-[24px] !font-[Kanit] !font-[500] !leading-[120%]">
                           {selectedProvider.displayName}
                         </h1>
                         {selectedProvider.role && (
-                          <p className="text-sm md:text-base text-[#555555] mb-1">
+                          <p className="!text-[20px] !font-[Kanit] !font-[400] text-[#555555] mb-1">
                             {selectedProvider.role}
                           </p>
                         )}
                         {selectedProvider.location && (
                           <div className="flex items-center gap-1.5 mt-2 text-[#555555]">
                             <MapPin className="text-[#4AB04A] " size={18} />
-                            <span className="text-sm md:text-base !capitalize font-medium">
+                            <span className="!text-[20px] !font-[Kanit] !font-[400] !capitalize font-medium">
                               {selectedProvider.location}
                             </span>
                           </div>
@@ -799,10 +897,10 @@ const Discover = () => {
                     <div className="flex-1 ">
                       {selectedProvider.bio && (
                         <section className="mb-6">
-                          <h2 className="text-sm md:!text-[24px] font-semibold mb-2">
+                          <h2 className="!text-[32px] !font-[Kanit] !font-[500] mb-2">
                             About
                           </h2>
-                          <p className="text-sm md:!text-[16px] text-[#444444] leading-relaxed whitespace-pre-line">
+                          <p className="!text-[20px] text-[#000] leading-relaxed font-[400] !font-[Vazirmatn]">
                             {selectedProvider.bio}
                           </p>
                         </section>
@@ -810,7 +908,7 @@ const Discover = () => {
 
                       {selectedProvider.certification && (
                         <section className="mb-6">
-                          <h2 className="text-sm md:!text-[24px] font-semibold mb-2">
+                          <h2 className="!text-[32px] !font-[Kanit] !font-[500] mb-2">
                             Certification
                           </h2>
                           <p className="text-sm md:!text-[16px] text-[#444444] leading-relaxed whitespace-pre-line">
@@ -821,7 +919,7 @@ const Discover = () => {
 
                       {selectedProvider.areas_of_focus && (
                         <section className="mb-6">
-                          <h2 className="text-sm md:!text-[24px] font-semibold mb-2">
+                          <h2 className="!text-[32px] !font-[Kanit] !font-[500] mb-2">
                             Areas of Focus
                           </h2>
                           <div className="flex flex-wrap gap-2">
@@ -849,7 +947,7 @@ const Discover = () => {
                         (Array.isArray(selectedProvider.social_links) &&
                           selectedProvider.social_links.length > 0)) && (
                         <section className="flex flex-col gap-2 md:gap-0.5 mt-6">
-                          <h2 className="text-sm md:!text-[24px] font-semibold mb-2 text-[#000]">
+                          <h2 className="!text-[32px] !font-[Kanit] !font-[500] mb-2 text-[#000]">
                             Contact & Socials
                           </h2>
                           <div className="flex flex-wrap gap-2">
