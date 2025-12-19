@@ -4,7 +4,7 @@ const DiscoverHeader = ({ step, STEP, handleBack, locationConfig, onHomeClick })
   if (step === STEP.HERO) return null;
 
   return (
-    <header className="w-full flex items-center justify-between px-6 md:px-12 py-2 bg-[#fff] b border-b-[1px] border-black/10">
+    <header className="fixed top-0 left-0 right-0 w-full flex items-center justify-between px-6 md:px-12 py-2 bg-[#fff] border-b-[1px] border-black/10 z-50">
       <div className="flex items-center justify-between gap-3 md:gap-4 w-full">
         <button
           type="button"
