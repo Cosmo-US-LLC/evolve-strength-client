@@ -88,7 +88,7 @@ const renderContactIcon = (type) => {
 
 const DiscoverProfile = ({ provider }) => {
   return (
-    <main className="bg-white text-black flex flex-col">
+    <main className="bg-white text-black flex flex-col pt-20 md:pt-24">
       <section className="w-full max-w-[1280px] mx-auto px-4 md:px-8 flex-1">
         <article className="overflow-hidden">
           <div className="w-full">

@@ -54,8 +54,8 @@ const DiscoverFlow = () => {
   const [trainers, setTrainers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [selectedServiceId, setSelectedServiceId] = useState("ALL");
-  const [selectedFocusArea, setSelectedFocusArea] = useState("ALL");
+  const [selectedServiceIds, setSelectedServiceIds] = useState([]);
+  const [selectedFocusAreas, setSelectedFocusAreas] = useState([]);
   const [selectedProvider, setSelectedProvider] = useState(null);
 
   const locationName = useMemo(
@@ -77,18 +77,16 @@ const DiscoverFlow = () => {
     return [...services].sort((a, b) => a.name.localeCompare(b.name));
   }, [category]);
 
-  const activeWellnessRole = useMemo(() => {
-    if (!selectedServiceId || selectedServiceId === "ALL") return null;
-    const svc = WELLNESS_SERVICES_DISCOVER.find((s) => s.id === selectedServiceId);
-    return svc?.role || null;
-  }, [selectedServiceId]);
-
-  const activeRole = useMemo(() => {
-    if (!selectedServiceId || selectedServiceId === "ALL") return null;
-
-    const svc = displayServices.find((s) => s.id === selectedServiceId);
-    return svc?.role || null;
-  }, [selectedServiceId, displayServices]);
+  const activeRoles = useMemo(() => {
+    if (!selectedServiceIds || selectedServiceIds.length === 0) return [];
+    
+    return selectedServiceIds
+      .map((id) => {
+        const svc = displayServices.find((s) => s.id === id);
+        return svc?.role || null;
+      })
+      .filter(Boolean);
+  }, [selectedServiceIds, displayServices]);
 
   const franchiseId = useMemo(
     () => (locationName ? FRANCHISE_ID_BY_NAME[locationName] : undefined),
@@ -126,16 +124,8 @@ const DiscoverFlow = () => {
               : TRAINER_ROLE_IDS.WELLNESS_EXPERT,
         };
 
-        // For wellness, use service filter
-        if (category === CATEGORY.WELLNESS && activeRole) {
-          params.service = [activeRole];
-        }
-
-        // For trainers, use focus area filter
-        if (category === CATEGORY.TRAINERS && selectedFocusArea && selectedFocusArea !== "ALL") {
-          params.areaOfFocus = [selectedFocusArea];
-        }
-
+        // Always fetch all trainers for the category, then filter client-side with OR logic
+        // This ensures consistent behavior for single and multiple filters
         const data = await fetchAllTrainers(params);
         if (!mounted) return;
 
@@ -158,7 +148,7 @@ const DiscoverFlow = () => {
     return () => {
       mounted = false;
     };
-  }, [franchiseId, locationName, category, activeRole, selectedFocusArea]);
+  }, [franchiseId, locationName, category]);
 
   const visibleProviders = useMemo(() => {
     if (!Array.isArray(trainers)) return [];
@@ -168,21 +158,57 @@ const DiscoverFlow = () => {
       displayName: t.trainerName || t.name,
     }));
 
-    // Client-side filtering for focus areas only (backup to API filtering)
-    // Wellness filtering is handled entirely by the API
-    if (category === CATEGORY.TRAINERS && selectedFocusArea && selectedFocusArea !== "ALL") {
+    // Client-side filtering with OR logic (match ANY selected filter)
+    // If no filters selected, show all trainers
+    // Uses same logic as Explore: checks if selected area is included in trainer's areas_of_focus string
+    // This allows "Women's Health" to match "Women's Health and Fitness"
+    if (category === CATEGORY.TRAINERS && selectedFocusAreas.length > 0) {
       filtered = filtered.filter((t) => {
         if (!t.areas_of_focus) return false;
-        // Split the comma-separated areas_of_focus string and normalize
-        const trainerAreas = t.areas_of_focus
+        // Convert to lowercase for case-insensitive matching
+        const trainerAreasLower = String(t.areas_of_focus).toLowerCase();
+        // OR logic: trainer matches if ANY of the selected areas is included in their areas_of_focus
+        // This allows partial matches like "Women's Health" matching "Women's Health and Fitness"
+        const matches = selectedFocusAreas.some((area) =>
+          trainerAreasLower.includes(area.toLowerCase())
+        );
+        return matches;
+      });
+    }
+
+    // Client-side filtering for wellness with OR logic (based on specialty field)
+    // If no filters selected, show all trainers
+    if (category === CATEGORY.WELLNESS && activeRoles.length > 0) {
+      filtered = filtered.filter((t) => {
+        // Filter based on specialty field (similar to how trainers use areas_of_focus)
+        if (!t.specialty) return false;
+        
+        // Specialty might be a single value or comma-separated
+        const trainerSpecialties = String(t.specialty)
           .split(",")
-          .map((a) => a.trim().toLowerCase());
-        return trainerAreas.includes(selectedFocusArea.toLowerCase());
+          .map(s => s.trim().toLowerCase());
+        
+        // OR logic: provider matches if their specialty matches ANY of the selected roles
+        // Same simple logic as trainers filtering with areas_of_focus
+        const matches = activeRoles.some((selectedRole) => {
+          const selectedRoleLower = selectedRole.toLowerCase().trim();
+          return trainerSpecialties.some((specialtyLower) => {
+            // Exact match
+            if (specialtyLower === selectedRoleLower) return true;
+            // Partial match (e.g., "Mental Health Professional" contains "Mental Health")
+            if (specialtyLower.includes(selectedRoleLower)) return true;
+            // Reverse partial match (e.g., "Mental Health" in "Mental Health Professional")
+            if (selectedRoleLower.includes(specialtyLower)) return true;
+            return false;
+          });
+        });
+        
+        return matches;
       });
     }
 
     return filtered;
-  }, [trainers, category, selectedFocusArea]);
+  }, [trainers, category, selectedFocusAreas, activeRoles]);
 
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -214,22 +240,23 @@ const DiscoverFlow = () => {
 
   const handleCategorySelect = (nextCategory) => {
     setCategory(nextCategory);
-    setSelectedServiceId("ALL");
-    setSelectedFocusArea("ALL");
+    setSelectedServiceIds([]);
+    setSelectedFocusAreas([]);
     setSelectedProvider(null);
     setStep(STEP.PROVIDERS);
   };
 
-  const handleServiceFilterSelect = (serviceId) => {
-    setSelectedServiceId(serviceId);
+  const handleServiceFilterSelect = (serviceIds) => {
+    setSelectedServiceIds(serviceIds);
   };
 
-  const handleFocusAreaSelect = (area) => {
-    setSelectedFocusArea(area);
+  const handleFocusAreaSelect = (areas) => {
+    setSelectedFocusAreas(areas);
   };
 
-  const handleSelectAllFocusAreas = () => {
-    setSelectedFocusArea("ALL");
+  const handleResetFilters = () => {
+    setSelectedServiceIds([]);
+    setSelectedFocusAreas([]);
   };
 
   const handleProviderClick = (provider) => {
@@ -299,11 +326,11 @@ const DiscoverFlow = () => {
       {step === STEP.PROVIDERS && (
         <DiscoverProviders
           category={category}
-          selectedServiceId={selectedServiceId}
-          selectedFocusArea={selectedFocusArea}
+          selectedServiceIds={selectedServiceIds}
+          selectedFocusAreas={selectedFocusAreas}
           onServiceFilterSelect={handleServiceFilterSelect}
           onFocusAreaSelect={handleFocusAreaSelect}
-          onSelectAllFocusAreas={handleSelectAllFocusAreas}
+          onResetFilters={handleResetFilters}
           loading={loading}
           error={error}
           locationConfig={locationConfig}

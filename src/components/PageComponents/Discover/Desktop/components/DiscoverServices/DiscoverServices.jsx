@@ -4,7 +4,7 @@ import { CATEGORY } from "../constants";
 const DiscoverServices = ({ onCategorySelect }) => {
   return (
     <main className="">
-      <section className=" w-full mx-auto px-4 md:px-8 pt-6 md:pt-10">
+      <section className=" w-full mx-auto px-4 md:px-8 pt-20 md:pt-24">
         <div className="grid gap-6 md:gap-8 md:grid-cols-2">
           {/* Wellness card */}
           <button
@@ -12,7 +12,7 @@ const DiscoverServices = ({ onCategorySelect }) => {
             onClick={() => onCategorySelect(CATEGORY.WELLNESS)}
             className="group relative overflow-hidden rounded-2xl bg-black text-left shadow-lg hover:shadow-xl transition-all duration-300 Servicecardbg_2"
           >
-            <div className="relative p-6 md:p-8 flex flex-col justify-end h-full w-full cursor-pointer min-h-[480px]">
+            <div className="relative p-6 md:p-8 flex flex-col justify-end h-full w-full cursor-pointer min-h-[560px]">
               <div className="mt-5 flex flex-col pb-8 items-center justify-between">
                 <h3 className="!text-[64px] !font-[Kanit] !font-semibold uppercase  text-white mb-2">
                   Wellness
@@ -43,7 +43,7 @@ const DiscoverServices = ({ onCategorySelect }) => {
             onClick={() => onCategorySelect(CATEGORY.TRAINERS)}
             className="group relative overflow-hidden rounded-2xl bg-[#101010] text-left shadow-lg hover:shadow-xl transition-all duration-300 Servicecardbg_1"
           >
-            <div className="relative p-6 md:p-8 flex flex-col justify-end h-full cursor-pointer min-h-[480px]">
+            <div className="relative p-6 md:p-8 flex flex-col justify-end h-full cursor-pointer min-h-[456px]">
               <div className="mt-5 flex flex-col pb-8 items-center justify-between">
                 <h3 className="!text-[64px] !font-[Kanit] !font-semibold uppercase  text-white mb-2">
                   Training
