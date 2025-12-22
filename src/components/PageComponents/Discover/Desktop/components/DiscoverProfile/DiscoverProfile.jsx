@@ -190,7 +190,7 @@ const DiscoverProfile = ({ provider }) => {
                       <h2 className="!text-[32px] !font-[Kanit] !font-[500] mb-2">
                         Certification
                       </h2>
-                      <p className="text-sm md:!text-[16px] text-[#444444] leading-relaxed whitespace-pre-line">
+                      <p className="text-sm md:!text-[20px] !font-[Vazirmatn] !font-[400] text-[#000] leading-relaxed whitespace-pre-line">
                         {provider.certification}
                       </p>
                     </section>
@@ -201,7 +201,7 @@ const DiscoverProfile = ({ provider }) => {
                       <h2 className="!text-[32px] !font-[Kanit] !font-[500] mb-2">
                         Areas of Focus
                       </h2>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex items-center flex-wrap gap-2">
                         {provider.areas_of_focus
                           .split(",")
                           .map((area) => area.trim())
@@ -209,7 +209,7 @@ const DiscoverProfile = ({ provider }) => {
                           .map((area) => (
                             <span
                               key={area}
-                              className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#DDDDDD] text-xs md:text-sm text-[#333333]"
+                              className="inline-flex items-center px-3 pb-1 pt-2 !font-[Vazirmatn] !leading-[100%] rounded-full bg-white border border-[#DDDDDD] text-xs md:text-[16px] text-[#000]"
                             >
                               {area}
                             </span>

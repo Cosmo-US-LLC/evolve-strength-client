@@ -205,11 +205,10 @@ const ServiceFilters = ({ selectedServiceIds, onServiceFilterSelect, onResetFilt
             <div className=" bg-white px-6 py-4 flex items-center justify-between z-10">
               <div className="relative w-full">
                 <h2 className="text-center text-2xl md:text-[40px] font-[600] !font-[Kanit] text-black mb-2">
-                  CHOOSE YOUR TRAINER
+                CHOOSE YOUR WELLNESS EXPERT
                 </h2>
                 <p className="text-sm text-center md:text-[24px] font-[Kanit] font-[300] max-w-[690px] mx-auto text-gray-600">
-                  Easily filter through a diverse range of expert trainers by
-                  category to find the perfect match for your fitness journey.
+                Easily filter through a diverse range of wellness experts by service to find the perfect match for your wellness journey.
                 </p>
               <button
                 type="button"

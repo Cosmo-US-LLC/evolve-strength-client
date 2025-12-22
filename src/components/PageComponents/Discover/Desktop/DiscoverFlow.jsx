@@ -93,6 +93,24 @@ const DiscoverFlow = () => {
     [locationName]
   );
 
+  // Scroll to top when component first mounts (navigating from another page)
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, []);
+
+  // Scroll to top when step changes
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [step]);
+
   // Keep URL in sync if location is missing
   useEffect(() => {
     if (!locationName) return;

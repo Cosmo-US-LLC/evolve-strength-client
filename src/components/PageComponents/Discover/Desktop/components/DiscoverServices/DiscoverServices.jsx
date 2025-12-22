@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CATEGORY } from "../constants";
 
 const DiscoverServices = ({ onCategorySelect }) => {
+  // Preload background images
+  useEffect(() => {
+    const image1 = new Image();
+    image1.src = "/assets/images/Discover/Services (1).webp";
+    
+    const image2 = new Image();
+    image2.src = "/assets/images/Discover/Services (2).webp";
+  }, []);
+
   return (
     <main className="">
       <section className=" w-full mx-auto px-4 md:px-8 pt-20 md:pt-24">
