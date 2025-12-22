@@ -153,10 +153,21 @@ const DiscoverFlow = () => {
   const visibleProviders = useMemo(() => {
     if (!Array.isArray(trainers)) return [];
 
+    // Map trainers and ensure unique IDs
     let filtered = trainers.map((t) => ({
       ...t,
       displayName: t.trainerName || t.name,
     }));
+
+    // Remove duplicates based on ID
+    const seenIds = new Set();
+    filtered = filtered.filter((t) => {
+      if (seenIds.has(t.id)) {
+        return false;
+      }
+      seenIds.add(t.id);
+      return true;
+    });
 
     // Client-side filtering with OR logic (match ANY selected filter)
     // If no filters selected, show all trainers
@@ -178,32 +189,40 @@ const DiscoverFlow = () => {
 
     // Client-side filtering for wellness with OR logic (based on specialty field)
     // If no filters selected, show all trainers
-    if (category === CATEGORY.WELLNESS && activeRoles.length > 0) {
+    // Wellness providers are filtered by their specialty field
+    // Match specialty to role name - specialty must contain the role name (ignoring prefixes like "Registered")
+    if (category === CATEGORY.WELLNESS && activeRoles && Array.isArray(activeRoles) && activeRoles.length > 0) {
       filtered = filtered.filter((t) => {
-        // Filter based on specialty field (similar to how trainers use areas_of_focus)
         if (!t.specialty) return false;
         
-        // Specialty might be a single value or comma-separated
-        const trainerSpecialties = String(t.specialty)
-          .split(",")
-          .map(s => s.trim().toLowerCase());
+        const specialtyLower = String(t.specialty).toLowerCase().trim();
         
-        // OR logic: provider matches if their specialty matches ANY of the selected roles
-        // Same simple logic as trainers filtering with areas_of_focus
-        const matches = activeRoles.some((selectedRole) => {
-          const selectedRoleLower = selectedRole.toLowerCase().trim();
-          return trainerSpecialties.some((specialtyLower) => {
-            // Exact match
-            if (specialtyLower === selectedRoleLower) return true;
-            // Partial match (e.g., "Mental Health Professional" contains "Mental Health")
-            if (specialtyLower.includes(selectedRoleLower)) return true;
-            // Reverse partial match (e.g., "Mental Health" in "Mental Health Professional")
-            if (selectedRoleLower.includes(specialtyLower)) return true;
-            return false;
-          });
+        // Check if specialty matches any of the selected roles
+        const hasMatch = activeRoles.some((selectedRole) => {
+          if (!selectedRole) return false;
+          const selectedRoleLower = String(selectedRole).toLowerCase().trim();
+          
+          // Special case: Mental Health Professional can match Psychologist, Therapist, Counselor
+          if (selectedRoleLower === "mental health professional" || selectedRoleLower.includes("mental health")) {
+            return specialtyLower.includes("psychologist") || 
+                   specialtyLower.includes("therapist") || 
+                   specialtyLower.includes("counselor") ||
+                   specialtyLower.includes("mental health");
+          }
+          
+          // For other services, check if specialty contains the role name
+          // Remove "Registered" prefix from specialty before matching (it's not part of the role name)
+          // e.g., role "Massage Therapist" should match specialty "Registered Massage Therapist"
+          // by checking if "Massage Therapist" (after removing "Registered") contains "Massage Therapist"
+          let specialtyForMatching = specialtyLower;
+          // Remove "Registered" prefix if present
+          specialtyForMatching = specialtyForMatching.replace(/^registered\s+/i, '');
+          
+          // Check if specialty (without "Registered") contains the role name
+          return specialtyForMatching.includes(selectedRoleLower);
         });
         
-        return matches;
+        return hasMatch;
       });
     }
 

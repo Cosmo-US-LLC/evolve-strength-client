@@ -89,39 +89,57 @@ const ServiceFilters = ({ selectedServiceIds, onServiceFilterSelect, onResetFilt
 
   // Render only chips if showChips is true
   if (showChips) {
+    const visibleFilters = selectedServices.slice(0, 3);
+    const remainingCount = selectedServices.length - 3;
+    const hasFilters = selectedServices.length > 0;
+
     return (
       <>
-        {selectedServices.length > 0 && (
-          <div className="mb-6 flex flex-wrap items-center gap-2">
-            {selectedServices.map((svc) => (
-              <div
-                key={svc.id}
-                className="flex items-center gap-2 px-4 py-2 bg-white border-2 border-[#CCCCCC] rounded-[8px]"
-              >
-                <span className="text-[14px] md:text-[20px] cursor-pointer font-[Kanit] font-[300] text-black capitalize">
-                  {svc.name}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => handleRemoveFilter(svc.id)}
-                  className="text-black hover:text-gray-600 transition-colors cursor-pointer"
+        <div className="mb-6 flex flex-wrap items-center gap-2">
+          {hasFilters && (
+            <>
+              {visibleFilters.map((svc) => (
+                <div
+                  key={svc.id}
+                  className="flex items-center gap-2 px-4 py-2 bg-white border-2 border-[#CCCCCC] rounded-[8px]"
                 >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
-            ))}
-            <button
-              type="button"
-              onClick={() => {
-                onServiceFilterSelect([]);
-                if (onResetFilters) onResetFilters();
-              }}
-              className="ml-auto px-4 py-2 bg-black cursor-pointer text-white rounded-[8px] text-[14px] md:text-[20px] font-[Kanit] font-[300] hover:bg-gray-800 transition-colors uppercase"
-            >
-              RESET FILTER
-            </button>
-          </div>
-        )}
+                  <span className="text-[14px] md:text-[20px] cursor-pointer font-[Kanit] font-[300] text-black capitalize">
+                    {svc.name}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveFilter(svc.id)}
+                    className="text-black hover:text-gray-600 transition-colors cursor-pointer"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+              ))}
+              {remainingCount > 0 && (
+                <div className="flex items-center gap-2 px-4 py-2 bg-white border-2 border-[#CCCCCC] rounded-[8px]">
+                  <span className="text-[14px] md:text-[20px] font-[Kanit] font-[300] text-black">
+                    +{remainingCount} more
+                  </span>
+                </div>
+              )}
+            </>
+          )}
+          <button
+            type="button"
+            onClick={() => {
+              onServiceFilterSelect([]);
+              if (onResetFilters) onResetFilters();
+            }}
+            disabled={!hasFilters}
+            className={`ml-auto px-4 py-2 rounded-[8px] text-[14px] md:text-[20px] font-[Kanit] font-[300] transition-colors uppercase ${
+              hasFilters
+                ? "!bg-[#000] cursor-pointer text-white hover:bg-gray-800"
+                : "bg-[#e5e5e5] cursor-not-allowed text-black"
+            }`}
+          >
+            RESET FILTER
+          </button>
+        </div>
       </>
     );
   }
@@ -130,7 +148,7 @@ const ServiceFilters = ({ selectedServiceIds, onServiceFilterSelect, onResetFilt
     <>
       {/* Sidebar */}
       {showSidebar && (
-        <div className="sticky top-4 bg-white rounded-[8px] border border-[#CCCCCC] p-4 flex flex-col h-[calc(100vh-20px)]">
+        <div className="sticky top-22 bg-white rounded-[8px] border border-[#CCCCCC] p-4 flex flex-col h-[calc(100vh-90px)]">
           <h3 className="text-[16px] md:text-[18px] font-[Kanit] font-[500] text-black mb-4 uppercase flex-shrink-0">
             FILTER BY GOAL
           </h3>
