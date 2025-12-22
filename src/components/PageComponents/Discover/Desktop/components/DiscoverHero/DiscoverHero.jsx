@@ -15,7 +15,7 @@ const DiscoverHero = ({ onStart, onTouchStart, onTouchMove, onTouchEnd }) => {
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/40" />
 
       <div className="relative z-10 text-center  px-4">
-        <h2 className="!text-[84px] !font-[Kanit] !leading-[89.286%] !font-[600] mb-4 md:mb-7">
+        <h2 className="!text-[84px] !font-[Kanit] uppercase !leading-[89.286%] !font-[600] mb-4 md:mb-7">
           Discover Trainers,
           <br className="hidden md:block" /> Wellness Services
         </h2>

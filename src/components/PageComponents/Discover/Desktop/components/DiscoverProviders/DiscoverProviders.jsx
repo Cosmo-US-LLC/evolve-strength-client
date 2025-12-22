@@ -18,10 +18,10 @@ const DiscoverProviders = ({
 }) => {
   return (
     <main className="">
-      <section className="w-full mx-auto px-4 md:px-8 pt-20 md:pt-24 pb-8 md:pb-12 flex-1">
+      <section className="w-full mx-auto px-4 md:px-8  flex-1">
         <div className="flex flex-col md:flex-row gap-6 md:gap-8">
           {/* Sidebar with Filters */}
-          <div className="w-full md:w-[280px] lg:w-[350px] flex-shrink-0">
+          <div className="w-full md:w-[280px] lg:w-[380px] flex-shrink-0">
             {category === CATEGORY.WELLNESS ? (
               <ServiceFilters
                 selectedServiceIds={selectedServiceIds}
@@ -40,7 +40,7 @@ const DiscoverProviders = ({
           </div>
 
           {/* Main Content Area */}
-          <div className="flex-1 flex flex-col ">
+          <div className="flex-1 flex flex-col pt-20 md:pt-24 pb-8 md:pb-12 min-h-screen">
             {/* Active Filters Chips */}
             {category === CATEGORY.WELLNESS ? (
               <ServiceFilters
@@ -85,7 +85,7 @@ const DiscoverProviders = ({
                     Try again
                   </button>
                 </div>
-              ) : visibleProviders.length === 0 ? (
+              ) : !visibleProviders || !Array.isArray(visibleProviders) || visibleProviders.length === 0 ? (
                 <div className="text-center text-gray-600 py-10 max-w-md mx-auto">
                   <p className="text-base md:text-lg font-medium mb-2">
                     No providers found for the selected criteria.
@@ -124,7 +124,7 @@ const DiscoverProviders = ({
                           </h3>
                           {provider.specialty && (
                             <p className="!text-[18px] !font-[Kanit] text-[#767676] mb-1">
-                              {provider.specialty}
+                              {provider.specialty.replace(/^Registered\s+/i, '')}
                             </p>
                           )}
                         </div>
