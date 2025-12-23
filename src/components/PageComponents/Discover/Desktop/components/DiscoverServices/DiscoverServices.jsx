@@ -55,7 +55,7 @@ const DiscoverServices = ({ onCategorySelect }) => {
             <div className="relative p-6 md:p-8 flex flex-col justify-end h-full cursor-pointer min-h-[456px]">
               <div className="mt-5 flex flex-col pb-8 items-center justify-between">
                 <h3 className="!text-[64px] !font-[Kanit] !font-semibold uppercase  text-white mb-2">
-                  Training
+                  Trainers
                 </h3>
                 <span className="h-10 w-10 rounded-full  border-[1px] border-[#fff] flex items-center justify-center  group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200">
                   <svg

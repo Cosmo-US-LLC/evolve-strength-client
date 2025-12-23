@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState , useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import MetaTags from "@/components/Metatags/Meta";
 import FormsHeader from "../ui/FormsHeader";
 import SuccessFullScreen from "../ui/SuccessFullScreen";
@@ -81,6 +81,28 @@ export default function MatchMeWithTrainer() {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+  const locationParam = searchParams.get("locationName");
+  console.log('locationParam', locationParam)
+  if (!locationParam) return;
+
+  // Convert "VANCOUVER+POST" → "VANCOUVER POST"
+  const normalised = locationParam.replace(/\+/g, " ").toLowerCase();
+
+  const matchedLocation = LOCATIONS.find(
+    (loc) => loc.cityName.toLowerCase() === normalised
+  );
+
+  if (matchedLocation) {
+    setForm((prev) => ({
+      ...prev,
+      location: matchedLocation.location,
+    }));
+  }
+}, [searchParams]);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
