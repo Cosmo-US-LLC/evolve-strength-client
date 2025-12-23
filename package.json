@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "start": "vite preview --port 4174"
+    "start": "vite preview --port 4174 --host"
   },
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.14.4",
