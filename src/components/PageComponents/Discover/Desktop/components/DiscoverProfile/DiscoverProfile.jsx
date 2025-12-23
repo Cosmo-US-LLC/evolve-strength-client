@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { QRCodeSVG } from "qrcode.react";
 import {
   Mail,
   Instagram,
@@ -10,6 +11,7 @@ import {
   Twitter,
   MapPin,
 } from "lucide-react";
+import { CATEGORY } from "../constants";
 
 const getContactHref = (type, value) => {
   switch (type) {
@@ -86,7 +88,35 @@ const renderContactIcon = (type) => {
   }
 };
 
-const DiscoverProfile = ({ provider }) => {
+const DiscoverProfile = ({ provider, category, locationName }) => {
+  // Generate QR code URL based on category
+  const qrCodeUrl = useMemo(() => {
+    const baseUrl = window.location.origin;
+    let path = "";
+    
+    if (category === CATEGORY.WELLNESS) {
+      path = "/match-me-with-a-wellness-expert";
+    } else if (category === CATEGORY.TRAINERS) {
+      path = "/match-me-with-a-trainer";
+    }
+    
+    // Add location parameter if available
+    if (locationName) {
+      const params = new URLSearchParams({ locationName });
+      return `${baseUrl}${path}?${params.toString()}`;
+    }
+    
+    return `${baseUrl}${path}`;
+  }, [category, locationName]);
+
+  const qrCodeTitle = category === CATEGORY.WELLNESS 
+    ? "Match me with a wellness provider"
+    : "Match me with a trainer";
+    
+  const qrCodeDescription = category === CATEGORY.WELLNESS
+    ? "Scan the QR code to connect with the perfect wellness trainer."
+    : "Scan the QR code to connect with the perfect trainer.";
+
   return (
     <main className="bg-white text-black flex flex-col pt-20 md:pt-24">
       <section className="w-full max-w-[1280px] mx-auto px-4 md:px-8 flex-1">
@@ -127,7 +157,30 @@ const DiscoverProfile = ({ provider }) => {
                     )}
                   </div>
                 </div>
-                <div className="bg-[#1A1A1A] flex justify-center items-center flex-col rounded-[8px] px-3 py-12 mt-4">
+                {/* QR Code Card */}
+                <div className="bg-[#F7F7F7] flex items-center gap-4 rounded-[8px] px-4 py-6 mt-4">
+                  <div className="flex-shrink-0">
+                    <QRCodeSVG
+                      value={qrCodeUrl}
+                      size={120}
+                      level="H"
+                      includeMargin={false}
+                      fgColor="#000000"
+                      bgColor="#FFFFFF"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="!text-[20px] md:!text-[24px] !font-[Kanit] !font-[500] text-black mb-1">
+                      {qrCodeTitle}
+                    </h3>
+                    <p className="!text-[14px] md:!text-[16px] !font-[Kanit] !font-[300] text-[#555555]">
+                      {qrCodeDescription}
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Need Assistance Card */}
+                <div className="bg-[#1A1A1A] flex gap-5 justify-center items-center md:flex-row flex-col rounded-[8px] px-3 py-6 mt-4">
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -164,12 +217,14 @@ const DiscoverProfile = ({ provider }) => {
                       </defs>
                     </svg>
                   </div>
-                  <h3 className="!text-[32px] !text-[#fff] mt-5 !font-[500]">
+                 <div>
+                 <h3 className="!text-[24px] !text-[#fff] mt-5 !font-[500]">
                     Need assistance?
                   </h3>
-                  <p className="!text-[#fff] !text-[20px]">
+                  <p className="!text-[#fff] !text-[18px]">
                     Reach out to our receptionist for help!
                   </p>
+                 </div>
                 </div>
               </div>
               <div className="border-[1px] border-[#DDDDDD] rounded-[12px] p-6">

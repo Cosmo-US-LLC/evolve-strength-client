@@ -377,7 +377,11 @@ const DiscoverFlow = () => {
       )}
 
       {step === STEP.PROFILE && selectedProvider && (
-        <DiscoverProfile provider={selectedProvider} />
+        <DiscoverProfile 
+          provider={selectedProvider} 
+          category={category}
+          locationName={locationName}
+        />
       )}
     </div>
   );
