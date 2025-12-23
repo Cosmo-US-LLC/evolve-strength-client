@@ -19,7 +19,7 @@ export const FRANCHISE_MAP = {
   11: "CALGARY SETON",
   12: "BURNABY BRENTWOOD",
   13: "VANCOUVER POST",
-  14: "CALGARY SUNRIDGE",
+  // 14: "CALGARY SUNRIDGE",
 };
 
 export const FRANCHISE_OPTIONS = Object.entries(FRANCHISE_MAP)
@@ -572,3 +572,93 @@ export const WELLNESS_SERVICES = [
     role: "Mental Health Professional",
   },
 ];
+export const WELLNESS_SERVICES_DISCOVER = [
+  { id: "wellness-esthetician", name: "Esthetician", role: "Esthetician" },
+  {
+    id: "wellness-chiropractic-care",
+    name: "Chiropractic Care",
+    role: "Chiropractor",
+  },
+  {
+    id: "wellness-physiotherapy",
+    name: "Physiotherapy",
+    role: "Physiotherapist",
+  },
+  {
+    id: "wellness-massage-therapy",
+    name: "Massage Therapy",
+    role: "Massage Therapist",
+  },
+  {
+    id: "wellness-acupuncture",
+    name: "Acupuncture",
+    role: "Acupuncturist",
+  },
+  {
+    id: "wellness-dietitian-services",
+    name: "Dietitian Services",
+    role: "Dietitian",
+  },
+  { id: "wellness-osteopathy", name: "Osteopathy", role: "Osteopath" },
+  {
+    id: "wellness-laser-therapy",
+    name: "Laser Therapy",
+    role: "Laser Therapist",
+  },
+  {
+    id: "wellness-mental-health",
+    name: "Mental Health",
+    role: "Mental Health Professional",
+  },
+  {
+    id: "wellness-pilates",
+    name: "Pilates",
+    role: "Pilates",
+  },
+];
+export const TRAINER_SERVICES_DISCOVER = [
+  { id: "wellness-esthetician", name: "Esthetician", role: "Esthetician" },
+  {
+    id: "wellness-chiropractic-care",
+    name: "Chiropractic Care",
+    role: "Chiropractor",
+  },
+  {
+    id: "wellness-physiotherapy",
+    name: "Physiotherapy",
+    role: "Physiotherapist",
+  },
+  {
+    id: "wellness-massage-therapy",
+    name: "Massage Therapy",
+    role: "Massage Therapist",
+  },
+  {
+    id: "wellness-acupuncture",
+    name: "Acupuncture",
+    role: "Acupuncturist",
+  },
+  {
+    id: "wellness-dietitian-services",
+    name: "Dietitian Services",
+    role: "Dietitian",
+  },
+  { id: "wellness-osteopathy", name: "Osteopathy", role: "Osteopath" },
+  {
+    id: "wellness-laser-therapy",
+    name: "Laser Therapy",
+    role: "Laser Therapist",
+  },
+  {
+    id: "wellness-mental-health",
+    name: "Mental Health",
+    role: "Mental Health Professional",
+  },
+  {
+    id: "wellness-pilates",
+    name: "Pilates",
+    role: "Pilates",
+  },
+];
+
+

@@ -1,0 +1,12 @@
+export const STEP = {
+  HERO: "HERO",
+  SERVICES: "SERVICES",
+  PROVIDERS: "PROVIDERS",
+  PROFILE: "PROFILE",
+};
+
+export const CATEGORY = {
+  WELLNESS: "WELLNESS",
+  TRAINERS: "TRAINERS",
+};
+

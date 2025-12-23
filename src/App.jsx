@@ -45,6 +45,7 @@ import Careers from "./pages/Careers";
 import ApplyForWorkSpaceForm from "./components/Form/ApplyForWorkSpaceForm";
 import Intake from "./components/Form/Intake";
 import Gym from "./pages/Gym";
+import Discover from "./pages/Discover";
 
 function App() {
   return (
@@ -102,6 +103,12 @@ function App() {
 
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Route>
+
+        {/* Location-based Discover flow */}
+        {/* Primary URL as requested: /discovr?{locationName} */}
+        <Route path="/discovr" element={<Discover />} />
+        {/* Backwards-compatible alias: /discover?locationName=... */}
+        <Route path="/discover" element={<Discover />} />
 
         <Route path="/join-the-wait-list" element={<EvolveSpacesForm />} />
         <Route

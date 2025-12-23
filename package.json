@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "start": "vite preview --port 4174"
+    "start": "vite preview --port 4174 --host"
   },
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.14.4",
@@ -23,6 +23,7 @@
     "express": "^5.1.0",
     "framer-motion": "^12.23.0",
     "lucide-react": "^0.517.0",
+    "qrcode.react": "^4.2.0",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "react-helmet-async": "^2.0.5",
