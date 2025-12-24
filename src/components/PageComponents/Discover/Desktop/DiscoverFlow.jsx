@@ -125,7 +125,7 @@ const DiscoverFlow = () => {
     }
   }, [locationName, location.search, navigate]);
 
-  // Fetch trainers based on category and filters
+  // Fetch trainers based on category and filters (server-side filtering)
   useEffect(() => {
     if (!franchiseId) return;
 
@@ -142,11 +142,22 @@ const DiscoverFlow = () => {
               : TRAINER_ROLE_IDS.WELLNESS_EXPERT,
         };
 
-        // Always fetch all trainers for the category, then filter client-side with OR logic
-        // This ensures consistent behavior for single and multiple filters
+        // Send filter selections to the API so the backend performs filtering
+        // - For trainers category we pass areas of focus
+        // - For wellness category we pass the selected service roles
+        if (category === CATEGORY.TRAINERS && selectedFocusAreas && selectedFocusAreas.length > 0) {
+          params.areaOfFocus = selectedFocusAreas;
+        }
+
+        if (category === CATEGORY.WELLNESS && activeRoles && activeRoles.length > 0) {
+          // activeRoles contains role names derived from selected service ids
+          params.service = activeRoles;
+        }
+
         const data = await fetchAllTrainers(params);
         if (!mounted) return;
 
+        // Ensure we only show trainers for the requested location
         const filteredByLocation = data.filter(
           (t) => t.location?.toUpperCase() === locationName.toUpperCase()
         );
@@ -166,7 +177,7 @@ const DiscoverFlow = () => {
     return () => {
       mounted = false;
     };
-  }, [franchiseId, locationName, category]);
+  }, [franchiseId, locationName, category, selectedFocusAreas, activeRoles]);
 
   const visibleProviders = useMemo(() => {
     if (!Array.isArray(trainers)) return [];
@@ -187,62 +198,8 @@ const DiscoverFlow = () => {
       return true;
     });
 
-    // Client-side filtering with OR logic (match ANY selected filter)
-    // If no filters selected, show all trainers
-    // Uses same logic as Explore: checks if selected area is included in trainer's areas_of_focus string
-    // This allows "Women's Health" to match "Women's Health and Fitness"
-    if (category === CATEGORY.TRAINERS && selectedFocusAreas.length > 0) {
-      filtered = filtered.filter((t) => {
-        if (!t.areas_of_focus) return false;
-        // Convert to lowercase for case-insensitive matching
-        const trainerAreasLower = String(t.areas_of_focus).toLowerCase();
-        // OR logic: trainer matches if ANY of the selected areas is included in their areas_of_focus
-        // This allows partial matches like "Women's Health" matching "Women's Health and Fitness"
-        const matches = selectedFocusAreas.some((area) =>
-          trainerAreasLower.includes(area.toLowerCase())
-        );
-        return matches;
-      });
-    }
-
-    // Client-side filtering for wellness with OR logic (based on specialty field)
-    // If no filters selected, show all trainers
-    // Wellness providers are filtered by their specialty field
-    // Match specialty to role name - specialty must contain the role name (ignoring prefixes like "Registered")
-    if (category === CATEGORY.WELLNESS && activeRoles && Array.isArray(activeRoles) && activeRoles.length > 0) {
-      filtered = filtered.filter((t) => {
-        if (!t.specialty) return false;
-        
-        const specialtyLower = String(t.specialty).toLowerCase().trim();
-        
-        // Check if specialty matches any of the selected roles
-        const hasMatch = activeRoles.some((selectedRole) => {
-          if (!selectedRole) return false;
-          const selectedRoleLower = String(selectedRole).toLowerCase().trim();
-          
-          // Special case: Mental Health Professional can match Psychologist, Therapist, Counselor
-          if (selectedRoleLower === "mental health professional" || selectedRoleLower.includes("mental health")) {
-            return specialtyLower.includes("psychologist") || 
-                   specialtyLower.includes("therapist") || 
-                   specialtyLower.includes("counselor") ||
-                   specialtyLower.includes("mental health");
-          }
-          
-          // For other services, check if specialty contains the role name
-          // Remove "Registered" prefix from specialty before matching (it's not part of the role name)
-          // e.g., role "Massage Therapist" should match specialty "Registered Massage Therapist"
-          // by checking if "Massage Therapist" (after removing "Registered") contains "Massage Therapist"
-          let specialtyForMatching = specialtyLower;
-          // Remove "Registered" prefix if present
-          specialtyForMatching = specialtyForMatching.replace(/^registered\s+/i, '');
-          
-          // Check if specialty (without "Registered") contains the role name
-          return specialtyForMatching.includes(selectedRoleLower);
-        });
-        
-        return hasMatch;
-      });
-    }
+    // Server-side filtering: selected filters (areas / services) are sent to the API
+    // so the backend returns already-filtered results. Keep only dedupe and normalization here.
 
     return filtered;
   }, [trainers, category, selectedFocusAreas, activeRoles]);
