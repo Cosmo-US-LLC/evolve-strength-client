@@ -63,7 +63,7 @@ const DiscoverProviders = ({
             {/* Providers grid */}
             <div className="flex-1">
               {loading ? (
-                <div className="flex items-center justify-center py-12">
+                <div className="flex items-center justify-center py-12 h-[calc(100vh-250px)]">
                   <div className="text-center">
                     <div className="inline-block animate-spin rounded-full h-10 w-10 border-b-2 border-gray-900 mb-4" />
                     <p className="text-gray-600 text-sm md:text-base">
@@ -86,7 +86,7 @@ const DiscoverProviders = ({
                   </button>
                 </div>
               ) : !visibleProviders || !Array.isArray(visibleProviders) || visibleProviders.length === 0 ? (
-                <div className="text-center text-gray-600 py-10 max-w-md mx-auto">
+                <div className="text-center text-gray-600 py-10 max-w-md mx-auto h-[calc(100vh-250px)] flex flex-col items-center justify-center">
                   <p className="text-base md:text-lg font-medium mb-2">
                     No providers found for the selected criteria.
                   </p>
@@ -102,7 +102,7 @@ const DiscoverProviders = ({
                       key={provider.id}
                       type="button"
                       onClick={() => onProviderClick(provider)}
-                      className="group text-left bg-[#F6F6F6] cursor-pointer rounded-[8px] overflow-hidden hover:shadow-sm transition-all duration-200"
+                      className="group text-left bg-[#F6F6F6] cursor-pointer rounded-[8px] overflow-hidden hover:shadow-sm transition-all duration-200 flex flex-col justify-between"
                     >
                       <div className="aspect-[4/3] w-full bg-[#222222] overflow-hidden">
                         {provider.image ? (
@@ -147,6 +147,7 @@ const DiscoverProviders = ({
                           </svg>
                         </div>
                       </div>
+                      <div></div>
                     </button>
                   ))}
                 </div>
