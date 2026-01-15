@@ -23,6 +23,14 @@
   width: 100%;
 }
 
+.BuiltBiggerEquippedBetterBG {
+  background-image: url("/assets/images/presaleCommonSouth/buildBiggerImage.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
 .trainerCallout {
   background-image: url("../../assets/images/home/TrainerCallout/trainer_callout.webp");
   background-size: cover;
@@ -404,14 +412,14 @@
   margin-top: 160px;
 }
 .Servicecardbg_1 {
-    background-image: url("/assets/images/Discover/Services\ \(1\).webp");
+  background-image: url("/assets/images/Discover/Services\ \(1\).webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
 }
 .Servicecardbg_2 {
-    background-image: url("/assets/images/Discover/Services\ \(2\).webp");
+  background-image: url("/assets/images/Discover/Services\ \(2\).webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -441,6 +449,10 @@
   .personalTrainingHeroSection {
     background-image: url("/assets/images/PersonalTraning/hero/evolve-personal-training-mob.webp");
     height: 646px;
+  }
+
+  .BuiltBiggerEquippedBetterBG {
+    background-image: url("/assets/images/presaleCommonSouth/buildBiggerImageMob.webp");
   }
   .trainerCallout {
     background-image: url("../../assets/images/home/TrainerCallout/trainer_callout_mob.webp");

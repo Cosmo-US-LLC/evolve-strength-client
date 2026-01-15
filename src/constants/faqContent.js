@@ -67,7 +67,7 @@ export const faqMain = {
     {
       question: "Is personal training included in my membership?",
       answer:
-      "Personal training is not included in the membership and is available for an additional fee. However, all new Evolve members receive a one-on-one assessment with a certified trainer after <a href='/join-now/' class='text-[#4AB04A] cursor-pointer underline'>signing up</a>.",
+        "Personal training is not included in the membership and is available for an additional fee. However, all new Evolve members receive a one-on-one assessment with a certified trainer after <a href='/join-now/' class='text-[#4AB04A] cursor-pointer underline'>signing up</a>.",
     },
     {
       question: "Are recovery services included in my membership?",
@@ -169,6 +169,39 @@ export const LocationFaq = {
       question: "Do you have Wi-Fi?",
       answer:
         "Yes. Free Wi-Fi is available throughout the gym, so you can stream music, follow workouts, or stay connected during your visit.",
+    },
+  ],
+};
+
+export const presaleEdmontonSouthCommonFAQs = {
+  heading: "FREQUENTLY ASKED QUESTIONS",
+  subtext:
+    "Got questions? We’ve got answers. Whether you're curious about memberships, services, or what to expect on your first visit",
+  faqs: [
+    {
+      question: "How do I pay for my membership?",
+      answer:
+        "You can pay online with a credit or debit card or set up a bank transfer for your membership fees.",
+    },
+    {
+      question: "Can I lock my membership rate?",
+      answer:
+        "Yes. You can pay a CA $149 deposit to secure your founding membership rate for life.",
+    },
+    {
+      question: "Is the deposit refundable?",
+      answer:
+        "Yes. The CA $149 deposit is refundable if you cancel at least 30 days before the gym opens.",
+    },
+    {
+      question: "What happens to the $149 deposit?",
+      answer:
+        "Your $149 deposit will be applied toward your first membership billing.",
+    },
+    {
+      question: "What does my membership include?",
+      answer:
+        "Your membership gives you access to all Evolve Strength locations, premium amenities, open training areas, and recovery facilities like sauna and steam rooms.",
     },
   ],
 };

@@ -46,6 +46,7 @@ import ApplyForWorkSpaceForm from "./components/Form/ApplyForWorkSpaceForm";
 import Intake from "./components/Form/Intake";
 import Gym from "./pages/Gym";
 import Discover from "./pages/Discover";
+import PresaleEdmontonSouthCommon from "./pages/PresalePage/PresaleEdmontonSouthCommon";
 
 function App() {
   return (
@@ -92,6 +93,10 @@ function App() {
             element={<BurnabyBrentwood />}
           />
           <Route path="/locations/vancouver-post" element={<VancouverPost />} />
+          <Route
+            path="/presale-edmonton-south-common"
+            element={<PresaleEdmontonSouthCommon />}
+          />
 
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/contact-us" element={<ContactUs />} />
