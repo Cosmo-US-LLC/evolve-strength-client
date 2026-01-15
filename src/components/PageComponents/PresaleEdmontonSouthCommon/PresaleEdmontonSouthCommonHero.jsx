@@ -6,7 +6,7 @@ import { Check } from "lucide-react";
 function PresaleEdmontonSouthCommonHero() {
   return (
     <div>
-      <div className="relative overflow-hidden w-full h-[70vh] md:h-[100vh]">
+      <div className="relative overflow-hidden w-full h-[96vh] md:h-[100vh]">
         <video
           autoPlay
           muted
@@ -32,7 +32,7 @@ function PresaleEdmontonSouthCommonHero() {
             <h3 className="text-[#FFFFFF] !font-[400] leading-[24px] md:leading-[24px] mb-6 max-w-[350px] md:max-w-[606px]">
               Limited to 500 Members Only | Fully Refundable Deposit
             </h3>
-            <div className="flex gap-3 items-center">
+            <div className="flex gap-3 flex-col md:flex-row md:items-center items-start">
               <Link to="#">
                 {" "}
                 {/* <Lock className="w-4 h-4 text-white" /> */}
