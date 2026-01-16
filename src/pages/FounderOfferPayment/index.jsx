@@ -4,6 +4,7 @@ import FormsHeader from "@/components/ui/FormsHeader";
 import ProgressTracker from "@/components/FounderOfferPayment/ProgressTracker";
 import LocationCard from "@/components/FounderOfferPayment/LocationCard";
 import BenefitsCard from "@/components/FounderOfferPayment/BenefitsCard";
+import MembershipSummaryCard from "@/components/FounderOfferPayment/MembershipSummaryCard";
 import PrimaryMemberDetails from "@/components/FounderOfferPayment/steps/PrimaryMemberDetails";
 import AddFamilyMembers from "@/components/FounderOfferPayment/steps/AddFamilyMembers";
 import PaymentInformation from "@/components/FounderOfferPayment/steps/PaymentInformation";
@@ -99,26 +100,37 @@ function FounderOfferPayment() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="h-screen bg-white flex flex-col overflow-hidden">
       <FormsHeader />
-      <div className="pt-16">
-        <div className="max-w-[1440px] mx-auto px-4 md:px-[50px] py-8">
-          <div className="flex gap-8 items-start">
+      <div className="flex-1 overflow-hidden pt-16">
+        <div className="max-w-[1280px] h-full mx-auto px-4 md:px-8 py-8">
+          <div className="flex gap-8 items-start h-full">
             {/* Left Sidebar - Progress Tracker */}
-            <div className="hidden lg:block w-[300px] flex-shrink-0">
-              <ProgressTracker currentStep={currentStep} />
+            {currentStep !== 4 && (
+              <div className="hidden lg:block w-[300px] flex-shrink-0">
+                <ProgressTracker currentStep={currentStep} />
+              </div>
+            )}
+
+            {/* Main Content - Scrollable */}
+            <div className="flex-1 min-w-0 h-full overflow-y-auto scrollbar-hide pr-2">
+              <div className="pb-8">{renderStep()}</div>
             </div>
 
-            {/* Main Content */}
-            <div className="flex-1 min-w-0">{renderStep()}</div>
-
-            {/* Right Sidebar - Location & Benefits */}
+            {/* Right Sidebar - Location & Benefits or Membership Summary */}
             {currentStep !== 4 && (
               <div className="hidden xl:block w-[300px] flex-shrink-0">
-                <div className="flex flex-col gap-4">
-                  <LocationCard />
-                  <BenefitsCard />
-                </div>
+                {currentStep === 3 ? (
+                  <MembershipSummaryCard
+                    primaryMember={formData.primaryMember}
+                    familyMembers={formData.familyMembers}
+                  />
+                ) : (
+                  <div className="flex flex-col gap-4">
+                    <LocationCard />
+                    <BenefitsCard />
+                  </div>
+                )}
               </div>
             )}
           </div>

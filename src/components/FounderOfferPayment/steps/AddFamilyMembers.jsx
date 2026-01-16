@@ -172,7 +172,7 @@ function AddFamilyMembers({
         <button
           type="button"
           onClick={onBack}
-          className="flex gap-1.5 items-center font-['Kanit'] font-light text-black text-[16px] uppercase"
+          className="flex gap-1.5 items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
         >
           <ArrowLeft className="size-4" />
           Back

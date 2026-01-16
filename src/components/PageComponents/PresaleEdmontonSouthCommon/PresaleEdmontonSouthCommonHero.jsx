@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import heroVideo from "../../../../public/assets/videos/ES_waitlist_desktop.webm";
+import { Lock } from "lucide-react";
 
 function PresaleEdmontonSouthCommonHero() {
   return (
@@ -34,8 +35,10 @@ function PresaleEdmontonSouthCommonHero() {
             <div className="flex gap-3 flex-col md:flex-row md:items-center items-start">
               <Link to="/founder-offer-payment">
                 {" "}
-                {/* <Lock className="w-4 h-4 text-white" /> */}
-                <button className="btnPrimary">Lock My Rate Now</button>
+                <button className="btnPrimary flex items-center gap-2 md:gap-[10px] uppercase">
+                  <Lock className="w-4 h-4 text-white" />
+                  Lock My Rate Now
+                </button>
               </Link>
               <p className="text-[#FFFFFF] !text-[16px] !font-[400] font-[Kanit] leading-[24px] md:leading-[24px]  max-w-[250px] md:max-w-[206px]">
                 CA $149 deposit applies toward your membership
