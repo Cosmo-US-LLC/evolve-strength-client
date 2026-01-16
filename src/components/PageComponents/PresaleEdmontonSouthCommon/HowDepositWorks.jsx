@@ -32,7 +32,7 @@ function HowDepositWorks() {
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <div className="rounded-[12px] overflow-hidden flex flex-col md:flex-row">
           {/* Left Side - Image */}
-          <div className="relative w-full md:w-[550px] h-[400px] md:h-auto flex-shrink-0">
+          <div className="relative w-full md:w-[570px] h-[400px] md:h-auto flex-shrink-0">
             <img
               src="/assets/images/presaleCommonSouth/hoeDepositImage.webp"
               alt="Gym members celebrating"
@@ -41,7 +41,7 @@ function HowDepositWorks() {
           </div>
 
           {/* Right Side - Content */}
-          <div className="bg-[#000] backdrop-blur-[15px] flex-1 flex flex-col gap-[35px] px-6 md:px-10 py-8 md:py-8">
+          <div className="bg-[#000] backdrop-blur-[15px] flex-1 flex flex-col gap-[35px] px-6 md:px-12 py-8 md:py-8">
             {/* Header */}
             <div className="flex flex-col gap-4">
               <h2 className="!font-[600] uppercase text-white">
@@ -55,9 +55,9 @@ function HowDepositWorks() {
             </div>
 
             {/* Benefits List */}
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-7">
               {depositBenefits.map((benefit, index) => (
-                <div key={index} className="flex flex-col gap-1">
+                <div key={index} className="flex flex-col">
                   <div className="flex gap-3 items-center">
                     <div className="w-[30px] h-[30px] flex-shrink-0">
                       <img

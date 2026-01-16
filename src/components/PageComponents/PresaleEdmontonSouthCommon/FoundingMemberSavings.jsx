@@ -18,7 +18,7 @@ function FoundingMemberSavings() {
         {/* Main Card */}
         <div className="bg-[rgba(255,255,255,0.15)] backdrop-blur-[15px] rounded-[12px] w-full p-6 md:p-12 flex flex-col md:flex-row gap-8 md:gap-12 ">
           {/* Left Side - Image */}
-          <div className="md:h-[400px] h-full w-full md:flex-1 aspect-[2160/1440] rounded-[8px] overflow-hidden">
+          <div className="h-full w-full md:flex-1 aspect-[2160/1440] rounded-[8px] overflow-hidden">
             <img
               src="/assets/images/presaleCommonSouth/FoundingMemberSavingsImage.webp"
               alt="Gym members at Evolve Strength"
