@@ -47,6 +47,7 @@ import Intake from "./components/Form/Intake";
 import Gym from "./pages/Gym";
 import Discover from "./pages/Discover";
 import PresaleEdmontonSouthCommon from "./pages/PresalePage/PresaleEdmontonSouthCommon";
+import FounderOfferPayment from "./pages/FounderOfferPayment";
 
 function App() {
   return (
@@ -162,6 +163,11 @@ function App() {
         <Route
           path="/company-not-registered"
           element={<CompanyNotRegistered />}
+        />
+
+        <Route
+          path="/founder-offer-payment"
+          element={<FounderOfferPayment />}
         />
 
         <Route path="/loader" element={<Loader />} />

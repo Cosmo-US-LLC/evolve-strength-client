@@ -32,7 +32,7 @@ function PresaleEdmontonSouthCommonHero() {
               Limited to 500 Members Only | Fully Refundable Deposit
             </h3>
             <div className="flex gap-3 flex-col md:flex-row md:items-center items-start">
-              <Link to="#">
+              <Link to="/founder-offer-payment">
                 {" "}
                 {/* <Lock className="w-4 h-4 text-white" /> */}
                 <button className="btnPrimary">Lock My Rate Now</button>
