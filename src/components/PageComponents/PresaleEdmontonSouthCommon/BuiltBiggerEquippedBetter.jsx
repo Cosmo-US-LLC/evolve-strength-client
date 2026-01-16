@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 function BuiltBiggerEquippedBetter() {
   return (
-    <section className="relative w-full h-[600px] md:h-[666px] BuiltBiggerEquippedBetterBG">
-      <div className="relative z-10 max-w-[1280px] mx-auto px-4 md:px-8 h-full flex items-end pb-8 md:pb-16">
-        <div className="flex flex-col gap-6 md:gap-[24px] max-w-[565px]">
+    <section className="relative w-full h-[600px] md:h-[640px] BuiltBiggerEquippedBetterBG">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-4 md:px-8 h-full flex items-end pb-8 md:pb-20">
+        <div className="flex flex-col gap-6 md:gap-8 max-w-[565px]">
           {/* Heading and Description */}
-          <div className="flex flex-col gap-4 md:gap-4">
+          <div className="flex flex-col gap-4 md:gap-6">
             <h2 className="uppercase text-[#fff]">
               Built Bigger. Equipped Better.
             </h2>
@@ -19,8 +19,8 @@ function BuiltBiggerEquippedBetter() {
           </div>
 
           {/* CTA Button and Deposit Text */}
-          <div className="flex flex-col gap-2 md:gap-[8px]">
-            <div className="flex flex-col md:flex-row gap-3 md:gap-[8px] items-start md:items-center">
+          <div className="flex flex-col gap-2 md:gap-4">
+            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start md:items-center">
               <Link to="#">
                 <button className="btnPrimary flex items-center gap-2 md:gap-[10px] uppercase">
                   {/* Lock Icon */}
@@ -39,7 +39,7 @@ function BuiltBiggerEquippedBetter() {
                   Lock My Rate Now
                 </button>
               </Link>
-              <p className="text-[12px] md:text-[14px] leading-[18px] md:leading-[20px] font-[400] font-[Kanit] text-white max-w-[165px] md:max-w-[165px]">
+              <p className="text-[12px] md:text-[14px] leading-[18px] md:leading-[20px] font-[400] font-[Kanit] text-white max-w-[185px] md:max-w-[165px]">
                 CA $149 deposit applies toward your membership
               </p>
             </div>

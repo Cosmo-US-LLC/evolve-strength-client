@@ -30,7 +30,7 @@ function RateLockCertificate() {
         </div>
 
         {/* Main Content - Benefits and Certificate */}
-        <div className="w-full flex flex-col md:flex-row gap-8 md:gap-12 items-center justify-between min-h-[400px] md:min-h-[495px]">
+        <div className="w-full flex flex-col md:flex-row gap-8 md:gap-12 justify-between min-h-[400px] md:min-h-[495px]">
           {/* Left Side - Benefits List */}
           <div className="w-full md:w-auto flex flex-col gap-4">
             {certificateBenefits.map((benefit, index) => (
@@ -39,8 +39,8 @@ function RateLockCertificate() {
                 className="backdrop-blur-[1px] bg-[rgba(255,255,255,0.08)] border border-[#474747] rounded-[12px] flex items-center gap-3 md:gap-[14px] px-4 md:px-[16px] py-3 md:py-[10px]"
               >
                 {/* Checkmark Icon */}
-                <div className="bg-[#4ab04a] rounded-full  w-[29px] h-[29px] flex items-center justify-center flex-shrink-0">
-                  <Check className="w-5 h-5 text-white" />
+                <div className="bg-[#4ab04a] rounded-full w-[26px] h-[26px] flex items-center justify-center flex-shrink-0">
+                  <Check className="w-4 h-4 text-white" />
                 </div>
                 {/* Benefit Text */}
                 <p className="text-[16px] md:text-[18px] leading-[22px] md:leading-[26px] font-[300] font-[Kanit] text-[#fff]">
@@ -50,7 +50,7 @@ function RateLockCertificate() {
             ))}
 
             {/* CTA Button and Deposit Text */}
-            <div className="flex mt-20 flex-col gap-2 md:gap-[8px]">
+            <div className="flex mt-29 flex-col gap-2 md:gap-[8px]">
               <div className="flex flex-col md:flex-row gap-3 md:gap-[8px] items-start md:items-center">
                 <Link to="#">
                   <button className="btnPrimary flex items-center gap-2 md:gap-[10px] uppercase">
@@ -67,7 +67,7 @@ function RateLockCertificate() {
           </div>
 
           {/* Right Side - Certificate Document */}
-          <div className="w-full max-w-full md:max-w-[724px] h-auto md:h-[495px] relative rounded-[12px] overflow-hidden bg-[#fff] flex-shrink-0 p-6 md:p-8 flex gap-7 flex-col">
+          <div className="w-full max-w-full md:max-w-[754px] h-auto md:h-[475px] relative rounded-[12px] overflow-hidden bg-[#fff] flex-shrink-0 p-6 md:p-8 flex gap-7 flex-col">
             <div className="">
               <img
                 src="/assets/images/presaleCommonSouth/Evolve-Strength-Logo-Presale.svg"
@@ -77,7 +77,7 @@ function RateLockCertificate() {
 
             {/* Main Title - Centered Upper Half */}
             <div className="">
-              <h2 className="text-[24px] md:text-[32px] lg:text-[40px] font-[700] font-[Kanit] uppercase text-black leading-tight">
+              <h2 className="font-[700] uppercase text-[#000]">
                 OFFICIAL RATE
                 <br />
                 LOCK CERTIFICATE
@@ -123,13 +123,14 @@ function RateLockCertificate() {
             </div>
 
             {/* Watermark Logo - Bottom Right (Faded) */}
-            <div className="absolute bottom-4 md:bottom-8 right-4 md:right-4">
+            <div className="absolute bottom-0 md:bottom-2 right-4 md:right-4">
               {/* Large watermark logo placeholder - will be replaced with actual logo */}
-              <div className="w-[200px] md:w-[200px] h-auto">
+              <div className="w-[200px] md:w-[240px] h-auto">
                 {/* Watermark logo image will go here */}
                 <img
-                  src="/assets/images/presaleCommonSouth/Evolve-Strength-footer-Logo.svg"
+                  src="/assets/images/presaleCommonSouth/evolve-dark-logo.svg"
                   alt="Logo"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </div>

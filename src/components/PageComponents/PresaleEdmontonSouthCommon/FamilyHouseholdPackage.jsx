@@ -16,20 +16,25 @@ function FamilyHouseholdPackage() {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 max-w-[1280px] mx-auto px-4 md:px-8 py-10 md:py-20 flex justify-end md:items-center items-end min-h-[800px] md:min-h-[700px]">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-4 md:px-8 py-10 md:py-20 flex justify-end md:items-center items-end ">
         {/* White Card Overlay */}
-        <div className="bg-[#fff] backdrop-blur-[15px] border border-[rgba(173,173,173,0.4)] rounded-[12px] w-full max-w-[524px] p-6 md:p-6 flex flex-col gap-[17px]">
+        <div className="bg-[#fff] backdrop-blur-[15px] border border-[rgba(173,173,173,0.4)] rounded-[12px] w-full max-w-[544px] p-6 md:p-8 flex flex-col gap-[16px]">
           {/* Header Text */}
-          <div className="flex flex-col items-start">
+          {/* <div className="flex flex-col items-start">
             <p className="text-[14px] md:text-[16px] leading-[22px] font-[400] font-[Kanit] text-black text-center w-full">
               Lock in founder rates for your entire household
             </p>
-          </div>
+          </div> */}
 
           {/* Main Content */}
           <div className="flex flex-col gap-8 items-center">
             {/* Heading and Features */}
-            <div className="flex flex-col gap-4 items-center w-full">
+            <div className="flex flex-col gap-2 items-center w-full">
+              <div className="flex flex-col items-start">
+                <p className="text-[14px] md:text-[16px] leading-[22px] font-[400] font-[Kanit] text-black text-center w-full">
+                  Lock in founder rates for your entire household
+                </p>
+              </div>
               <h2 className="uppercase text-[#000] text-center">
                 family/household package
               </h2>
@@ -76,7 +81,7 @@ function FamilyHouseholdPackage() {
 
             {/* CTA Button */}
             <Link to="#" className="w-full max-w-[198px]">
-              <button className="btnPrimary w-full h-[50px] uppercase  ">
+              <button className="btnPrimary uppercase  ">
                 Lock My Rate Now
               </button>
             </Link>
