@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import MembershipSummaryCard from "@/components/FounderOfferPayment/MembershipSummaryCard";
+import { validateCardNumber, validateExpiryDate, validateCVV } from "@/utils/validation";
 
 // Zod Schema
 const formSchema = z.object({
@@ -63,6 +64,95 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryM
   }, [form, updateFormData]);
 
   const onSubmit = (values) => {
+    let hasErrors = false;
+
+    // 1. Check react-payment-inputs meta validation errors
+    if (meta.erroredInputs.cardNumber) {
+      form.setError("cardNumber", {
+        type: "manual",
+        message: meta.erroredInputs.cardNumber || "Invalid card number",
+      });
+      hasErrors = true;
+    }
+
+    if (meta.erroredInputs.expiryDate) {
+      form.setError("expiryDate", {
+        type: "manual",
+        message: meta.erroredInputs.expiryDate || "Invalid expiry date",
+      });
+      hasErrors = true;
+    }
+
+    if (meta.erroredInputs.cvc) {
+      form.setError("cvv", {
+        type: "manual",
+        message: meta.erroredInputs.cvc || "Invalid CVC",
+      });
+      hasErrors = true;
+    }
+
+    // 2. Validate card number length (13-19 digits)
+    const cardDigits = values.cardNumber.replace(/\D/g, "");
+    if (cardDigits.length < 13 || cardDigits.length > 19) {
+      form.setError("cardNumber", {
+        type: "manual",
+        message: "Card number must be between 13 and 19 digits",
+      });
+      hasErrors = true;
+    } else if (cardDigits.length === 16) {
+      // For 16-digit cards, also validate using Luhn algorithm
+      if (!validateCardNumber(values.cardNumber)) {
+        form.setError("cardNumber", {
+          type: "manual",
+          message: "Invalid card number. Please check and try again",
+        });
+        hasErrors = true;
+      }
+    }
+
+    // 3. Validate CVC (3-4 digits)
+    if (!validateCVV(values.cvv)) {
+      form.setError("cvv", {
+        type: "manual",
+        message: "CVC must be 3 or 4 digits",
+      });
+      hasErrors = true;
+    }
+
+    // 4. Validate expiry date format and expiration
+    if (!values.expiryDate || !values.expiryDate.trim()) {
+      form.setError("expiryDate", {
+        type: "manual",
+        message: "Expiry date is required",
+      });
+      hasErrors = true;
+    } else {
+      // Clean the expiry date (remove any extra spaces that react-payment-inputs might add)
+      const cleanedExpiryDate = values.expiryDate.trim().replace(/\s+/g, "");
+      const expiryValidation = validateExpiryDate(cleanedExpiryDate);
+      
+      // Check if format is invalid or card is expired
+      if (!expiryValidation.isValid || expiryValidation.isExpired) {
+        form.setError("expiryDate", {
+          type: "manual",
+          message: expiryValidation.error || "Invalid expiry date. Please enter a valid date in MM/YY format",
+        });
+        hasErrors = true;
+      }
+    }
+
+    // If there are validation errors, prevent submission
+    if (hasErrors) {
+      // Scroll to first error field
+      const firstErrorField = document.querySelector('[class*="border-red-500"]');
+      if (firstErrorField) {
+        firstErrorField.scrollIntoView({ behavior: "smooth", block: "center" });
+        firstErrorField.focus();
+      }
+      return;
+    }
+
+    // All validations passed - proceed with submission
     updateFormData({
       cardNumber: values.cardNumber,
       expiryDate: values.expiryDate,

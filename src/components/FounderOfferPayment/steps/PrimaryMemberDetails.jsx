@@ -3,7 +3,6 @@ import { ArrowLeft, ChevronDown } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { loadGoogleMaps } from "@/lib/loadGoogleMap";
 import { checkGoogleMapsKey } from "@/utils/checkEnv";
 import {
@@ -16,7 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import BenefitsCard from "@/components/FounderOfferPayment/BenefitsCard";
 
-const genderOptions = ["Male", "Female", "Other", "Prefer not to say"];
+const genderOptions = ["Male", "Female", "Other"];
 
 // Clean address string helper
 const cleanString = (str = "") =>
@@ -651,7 +650,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
             <FormField
               control={form.control}
               name="gender"
-              render={({ field }) => (
+              render={() => (
                 <FormItem className="flex-1 relative" ref={dropdownRef}>
                   <FormControl>
                     <button
@@ -670,13 +669,13 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                     </button>
                   </FormControl>
                   {showGenderDropdown && (
-                    <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-[#d4d4d4] rounded-[5px] shadow-lg z-50">
+                    <div className="absolute top-full left-0 right-0 bg-white border border-[#d4d4d4] rounded-[5px] shadow-lg z-50">
                       {genderOptions.map((option) => (
                         <button
                           key={option}
                           type="button"
                           onClick={() => handleGenderSelect(option)}
-                          className="w-full px-4 py-2 text-left hover:bg-gray-100 form-placeholder"
+                          className="w-full px-4 py-1 text-left hover:bg-gray-100 form-placeholder"
                         >
                           {option}
                         </button>

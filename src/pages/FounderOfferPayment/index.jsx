@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import FormsHeader from "@/components/ui/FormsHeader";
 import ProgressTracker from "@/components/FounderOfferPayment/ProgressTracker";
 import LocationCard from "@/components/FounderOfferPayment/LocationCard";
@@ -9,11 +9,32 @@ import PrimaryMemberDetails from "@/components/FounderOfferPayment/steps/Primary
 import PaymentInformation from "@/components/FounderOfferPayment/steps/PaymentInformation";
 import SuccessCertificate from "@/components/FounderOfferPayment/steps/SuccessCertificate";
 
+// Step to URL parameter mapping
+const stepToParam = {
+  1: "founder-details",
+  2: "payment-details",
+  3: "thank-you",
+};
+
+// URL parameter to step mapping
+const paramToStep = {
+  "founder-details": 1,
+  "payment-details": 2,
+  "thank-you": 3,
+};
+
 function FounderOfferPayment() {
   const navigate = useNavigate();
-  const [currentStep, setCurrentStep] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
   const containerRef = useRef(null);
   const prevStepRef = useRef(1);
+  
+  // Initialize currentStep from URL param or default to 1
+  const stepParam = searchParams.get("step");
+  const stepFromUrl = stepParam ? (paramToStep[stepParam] || 1) : 1;
+  const [currentStep, setCurrentStep] = useState(
+    stepFromUrl >= 1 && stepFromUrl <= 3 ? stepFromUrl : 1
+  );
   
   const [formData, setFormData] = useState({
     primaryMember: {
@@ -41,6 +62,15 @@ function FounderOfferPayment() {
       [step]: { ...prev[step], ...data },
     }));
   };
+
+  // Update URL param when step changes
+  useEffect(() => {
+    const newStep = currentStep;
+    if (newStep >= 1 && newStep <= 3) {
+      const stepParamName = stepToParam[newStep];
+      setSearchParams({ step: stepParamName }, { replace: true });
+    }
+  }, [currentStep, setSearchParams]);
 
   const handleNext = () => {
     if (currentStep < 3) {
@@ -109,25 +139,25 @@ function FounderOfferPayment() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="h-screen bg-white flex flex-col overflow-hidden ">
       <FormsHeader />
-      <div className="flex-1 pt-16">
-        <div ref={containerRef} className="max-w-[1280px] h-full mx-auto px-4 md:px-8 py-4 md:py-8">
+      <div className="flex-1 pt-16 overflow-hidden">
+        <div ref={containerRef} className="max-w-[1280px] h-full mx-auto px-4 md:px-8 py-4 md:py-8 flex flex-col">
           {/* Mobile Progress Tracker - Top */}
           {currentStep !== 3 && (
-            <div className="lg:hidden mb-6 pb-4 border-b border-[#d4d4d4]">
+            <div className="lg:hidden mb-6 pb-4 border-b border-[#d4d4d4] flex-shrink-0">
               <ProgressTracker currentStep={currentStep} />
             </div>
           )}
 
           {/* Mobile LocationCard - Below ProgressTracker */}
           {currentStep !== 3 && (
-            <div className="lg:hidden mb-6">
+            <div className="lg:hidden mb-6 flex-shrink-0">
               <LocationCard />
             </div>
           )}
 
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-start h-full">
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-start flex-1 min-h-0">
             {/* Left Sidebar - Progress Tracker (Desktop) */}
             {currentStep !== 3 && (
               <div className="hidden lg:block w-[300px] flex-shrink-0">
@@ -136,7 +166,7 @@ function FounderOfferPayment() {
             )}
 
             {/* Main Content - Scrollable */}
-            <div className="flex-1 min-w-0 w-full lg:h-full lg:overflow-y-auto lg:scrollbar-hide lg:pr-2">
+            <div className="flex-1 min-w-0 w-full lg:h-full lg:overflow-y-auto scrollbar-hide lg:pr-2">
               <div className="pb-8">{renderStep()}</div>
             </div>
 
