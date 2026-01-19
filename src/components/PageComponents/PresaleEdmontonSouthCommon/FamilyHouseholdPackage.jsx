@@ -80,7 +80,7 @@ function FamilyHouseholdPackage() {
             </p>
 
             {/* CTA Button */}
-            <Link to="#" className="w-full max-w-[198px]">
+            <Link to="/founder-offer-payment" className="w-full max-w-[198px]">
               <button className="btnPrimary uppercase  ">
                 Lock My Rate Now
               </button>

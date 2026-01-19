@@ -78,7 +78,7 @@ function FoundingMemberSavings() {
         </div>
 
         {/* CTA Button */}
-        <Link to="#">
+        <Link to="/founder-offer-payment">
           <button className="btnPrimary uppercase whitespace-nowrap">
             claim your founder spot
           </button>

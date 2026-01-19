@@ -1,7 +1,7 @@
 import React from "react";
 import { Calendar, MapPin, Users } from "lucide-react";
 
-function MembershipSummaryCard({ primaryMember, familyMembers }) {
+function MembershipSummaryCard({ primaryMember }) {
   // Calculate 2 years from now for the guarantee date
   const getGuaranteeDate = () => {
     const date = new Date();
@@ -9,7 +9,7 @@ function MembershipSummaryCard({ primaryMember, familyMembers }) {
     return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
   };
 
-  const totalMembers = 1 + (familyMembers?.length || 0);
+  const totalMembers = 1;
   const primaryMemberName =
     primaryMember?.firstName && primaryMember?.lastName
       ? `${primaryMember.firstName} ${primaryMember.lastName}`
@@ -95,28 +95,6 @@ function MembershipSummaryCard({ primaryMember, familyMembers }) {
             {primaryMemberName}
           </p>
         </div>
-
-        {/* Family Members */}
-        {familyMembers && familyMembers.length > 0 && (
-          <div className="flex flex-col gap-0.5">
-            <p className="font-['Kanit'] font-medium text-[#0a0a0a] text-[14px] leading-[20px]">
-              Family Members
-            </p>
-            <div className="flex flex-col gap-0.5 font-['Kanit'] font-light text-[#4a5565] text-[12px] leading-[16px]">
-              {familyMembers.map((member, index) => {
-                const memberName =
-                  member.firstName && member.lastName
-                    ? `${member.firstName} ${member.lastName}`
-                    : `Family Member ${index + 1}`;
-                return (
-                  <p key={member.id || index} className="relative shrink-0">
-                    {memberName}
-                  </p>
-                );
-              })}
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );

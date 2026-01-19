@@ -23,6 +23,10 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  optimizeDeps: {
+    include: ["react-payment-inputs", "styled-components"],
+    exclude: [],
+  },
   preview: {
     allowedHosts: ["evolvestrength.ca", "www.evolvestrength.ca"],
   },

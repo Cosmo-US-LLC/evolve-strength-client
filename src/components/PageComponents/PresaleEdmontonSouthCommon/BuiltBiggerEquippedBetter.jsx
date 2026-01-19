@@ -21,7 +21,7 @@ function BuiltBiggerEquippedBetter() {
           {/* CTA Button and Deposit Text */}
           <div className="flex flex-col gap-2 md:gap-4">
             <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start md:items-center">
-              <Link to="#">
+              <Link to="/founder-offer-payment">
                 <button className="btnPrimary flex items-center gap-2 md:gap-[10px] uppercase">
                   {/* Lock Icon */}
                   <svg
