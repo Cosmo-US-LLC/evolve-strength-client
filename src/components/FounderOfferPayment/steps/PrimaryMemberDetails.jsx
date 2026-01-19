@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import BenefitsCard from "@/components/FounderOfferPayment/BenefitsCard";
 
 const genderOptions = ["Male", "Female", "Other", "Prefer not to say"];
 
@@ -688,8 +689,13 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
             />
           </div>
 
+          {/* Mobile BenefitsCard - Above Navigation Buttons */}
+          <div className="lg:hidden mt-8 mb-6">
+            <BenefitsCard />
+          </div>
+
           {/* Navigation Buttons */}
-          <div className="flex items-center justify-between mt-8">
+          <div className="flex items-center justify-between mt-0 md:mt-8">
             <button
               type="button"
               onClick={onBack}
