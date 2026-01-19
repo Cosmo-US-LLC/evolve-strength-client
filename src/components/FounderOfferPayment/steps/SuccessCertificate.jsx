@@ -1,16 +1,12 @@
 import React from "react";
-import { Download, User } from "lucide-react";
+import { Download } from "lucide-react";
 
-function SuccessCertificate({ primaryMember, familyMembers, onBack }) {
+function SuccessCertificate({ primaryMember, onBack }) {
   const handleDownloadCertificate = () => {
     // TODO: Implement certificate download when backend is ready
     console.log("Download certificate");
   };
 
-  const handleDownloadMemberPass = (memberId) => {
-    // TODO: Implement member pass download when backend is ready
-    console.log("Download member pass for:", memberId);
-  };
 
   return (
     <div className="w-full flex items-center justify-center min-h-[80vh]">
@@ -50,50 +46,6 @@ function SuccessCertificate({ primaryMember, familyMembers, onBack }) {
           <button onClick={handleDownloadCertificate} className="btnPrimary">
             Download Your Certificate
           </button>
-
-          {/* Individual Member Passes */}
-          {familyMembers.length > 0 && (
-            <div className="flex flex-col gap-4 items-start w-full max-w-[520px] mt-4">
-              {/* Divider with Title */}
-              <div className="flex gap-3 items-center w-full">
-                <div className="flex-1 h-px bg-[#d4d4d4]" />
-                <p className="font-['Kanit'] font-medium text-black text-[16px] leading-[21px] whitespace-nowrap">
-                  Individual Member Passes
-                </p>
-                <div className="flex-1 h-px bg-[#d4d4d4]" />
-              </div>
-
-              {/* Member Pass Cards */}
-              <div className="flex flex-col gap-4 w-full">
-                {familyMembers.map((member, index) => (
-                  <div
-                    key={member.id}
-                    className="bg-[#fcfcfc] border border-[#c4c4c4] rounded-[8px] px-3 py-2.5 flex items-center justify-between"
-                  >
-                    <div className="flex gap-2 items-center">
-                      <div className="bg-[rgba(74,176,74,0.1)] rounded-[9px] p-0.5 size-6 flex items-center justify-center">
-                        <User className="size-3 text-[#4ab04a]" />
-                      </div>
-                      <div className="flex flex-col leading-[20px]">
-                        <p className="font-['Kanit'] font-medium text-[#0a0a0a] text-[14px]">
-                          {member.firstName} {member.lastName}
-                        </p>
-                        <p className="font-['Kanit'] font-light text-[#4a5565] text-[12px]">
-                          {index === 0 ? "Spouse" : "Child"}
-                        </p>
-                      </div>
-                    </div>
-                    <button
-                      onClick={() => handleDownloadMemberPass(member.id)}
-                      className="size-[18px] flex items-center justify-center hover:opacity-70"
-                    >
-                      <Download className="size-4 text-black" />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
 
           {/* Back to Home Button */}
           <button

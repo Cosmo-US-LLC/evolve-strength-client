@@ -1,5 +1,5 @@
 import React from "react";
-import { Check, User, Users, CreditCard } from "lucide-react";
+import { Check, User, CreditCard } from "lucide-react";
 
 const steps = [
   {
@@ -16,12 +16,6 @@ const steps = [
   },
   {
     id: 3,
-    title: "Add Family Member (Optional)",
-    description: "Include family info to apply the founder.",
-    icon: Users,
-  },
-  {
-    id: 4,
     title: "Add Payment Information",
     description: "Provide billing details.",
     icon: CreditCard,
@@ -32,11 +26,10 @@ function ProgressTracker({ currentStep }) {
   const getStepStatus = (stepId) => {
     // Step 1 (Founder Membership) is always completed
     if (stepId === 1) return "completed";
-    // Map currentStep (1-4) to progress steps (2-5)
+    // Map currentStep (1-3) to progress steps (2-4)
     // currentStep 1 = Primary Details (step 2 in tracker)
-    // currentStep 2 = Family Members (step 3 in tracker)
-    // currentStep 3 = Payment (step 4 in tracker)
-    // currentStep 4 = Success (all steps completed)
+    // currentStep 2 = Payment (step 3 in tracker)
+    // currentStep 3 = Success (all steps completed)
     const progressStep = currentStep + 1;
     if (stepId < progressStep) return "completed";
     if (stepId === progressStep) return "active";
