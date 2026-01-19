@@ -1,83 +1,73 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { usePaymentInputs } from "react-payment-inputs";
+import images from "react-payment-inputs/images";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+
+// Zod Schema
+const formSchema = z.object({
+  // Required fields; react-payment-inputs meta handles detailed validation
+  cardNumber: z.string().min(1, "Card number is required."),
+  expiryDate: z.string().min(1, "Expiry date is required."),
+  cvv: z.string().min(1, "CVC is required."),
+  agreedToTerms: z.boolean().refine((val) => val === true, {
+    message: "Please confirm you have read our Terms and Conditions",
+  }),
+  agreedToAuthorization: z.boolean().refine((val) => val === true, {
+    message: "Please accept the authorization and agreement",
+  }),
+});
 
 function PaymentInformation({ formData, updateFormData, onNext, onBack }) {
-  const [errors, setErrors] = useState({});
-  const [agreedToTerms, setAgreedToTerms] = useState(false);
-  const [agreedToAuthorization, setAgreedToAuthorization] = useState(false);
+  const {
+    getCardNumberProps,
+    getExpiryDateProps,
+    getCVCProps,
+    getCardImageProps,
+    meta,
+  } = usePaymentInputs();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    let formattedValue = value;
+  const form = useForm({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      cardNumber: formData.cardNumber || "",
+      expiryDate: formData.expiryDate || "",
+      cvv: formData.cvv || "",
+      agreedToTerms: false,
+      agreedToAuthorization: false,
+    },
+  });
 
-    // Format card number (add spaces every 4 digits)
-    if (name === "cardNumber") {
-      formattedValue = value
-        .replace(/\s/g, "")
-        .replace(/(.{4})/g, "$1 ")
-        .trim();
-      if (formattedValue.length > 19)
-        formattedValue = formattedValue.slice(0, 19);
-    }
+  // Update parent form data when form values change
+  useEffect(() => {
+    const subscription = form.watch((value) => {
+      updateFormData({
+        cardNumber: value.cardNumber,
+        expiryDate: value.expiryDate,
+        cvv: value.cvv,
+      });
+    });
+    return () => subscription.unsubscribe();
+  }, [form, updateFormData]);
 
-    // Format expiry date (MM/YY)
-    if (name === "expiryDate") {
-      formattedValue = value.replace(/\D/g, "");
-      if (formattedValue.length >= 2) {
-        formattedValue =
-          formattedValue.slice(0, 2) + "/" + formattedValue.slice(2, 4);
-      }
-      if (formattedValue.length > 5)
-        formattedValue = formattedValue.slice(0, 5);
-    }
-
-    // Format CVV (max 3 digits)
-    if (name === "cvv") {
-      formattedValue = value.replace(/\D/g, "").slice(0, 3);
-    }
-
-    updateFormData({ [name]: formattedValue });
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }));
-    }
-  };
-
-  const validate = () => {
-    const newErrors = {};
-    if (
-      !formData.cardNumber.trim() ||
-      formData.cardNumber.replace(/\s/g, "").length < 16
-    ) {
-      newErrors.cardNumber = "Valid card number is required";
-    }
-    if (
-      !formData.expiryDate.trim() ||
-      !/^\d{2}\/\d{2}$/.test(formData.expiryDate)
-    ) {
-      newErrors.expiryDate = "Valid expiry date is required (MM/YY)";
-    }
-    if (!formData.cvv.trim() || formData.cvv.length < 3) {
-      newErrors.cvv = "Valid CVV is required";
-    }
-    if (!agreedToTerms) {
-      newErrors.agreedToTerms =
-        "Please confirm you have read our Terms and Conditions";
-    }
-    if (!agreedToAuthorization) {
-      newErrors.agreedToAuthorization =
-        "Please accept the authorization and agreement";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      onNext();
-    }
+  const onSubmit = (values) => {
+    updateFormData({
+      cardNumber: values.cardNumber,
+      expiryDate: values.expiryDate,
+      cvv: values.cvv,
+    });
+    onNext();
   };
 
   return (
@@ -91,160 +81,208 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack }) {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-        {/* Card Number */}
-        <div className="flex flex-col">
-          <input
-            type="text"
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5">
+          {/* Card Number (Stripe-style with card brand icon) */}
+          <FormField
+            control={form.control}
             name="cardNumber"
-            value={formData.cardNumber}
-            onChange={handleChange}
-            placeholder="Card Number"
-            maxLength={19}
-            className={`w-full px-4 py-3 border rounded-[5px] form-placeholder ${
-              errors.cardNumber ? "border-red-500" : "border-[#d4d4d4]"
-            }`}
-          />
-          {errors.cardNumber && (
-            <p className="input-error mt-1">{errors.cardNumber}</p>
-          )}
-        </div>
-
-        {/* Expiry Date & CVV */}
-        <div className="flex gap-4">
-          <div className="flex-1 flex flex-col">
-            <input
-              type="text"
-              name="expiryDate"
-              value={formData.expiryDate}
-              onChange={handleChange}
-              placeholder="MM/YY"
-              maxLength={5}
-              className={`w-full px-4 py-3 border rounded-[5px] form-placeholder ${
-                errors.expiryDate ? "border-red-500" : "border-[#d4d4d4]"
-              }`}
-            />
-            {errors.expiryDate && (
-              <p className="input-error mt-1">{errors.expiryDate}</p>
+            render={({ field, fieldState }) => (
+              <FormItem>
+                <FormControl>
+                  <div className="relative flex items-center">
+                    <Input
+                      {...getCardNumberProps({
+                        onChange: field.onChange,
+                        onBlur: field.onBlur,
+                        value: field.value,
+                      })}
+                      placeholder="1234 5678 9012 3456"
+                      className={`pr-12 ${
+                        fieldState.error ? "border-red-500" : "border-[#d4d4d4]"
+                      }`}
+                    />
+                    {meta.cardType && (
+                      <div className="absolute right-3 pointer-events-none">
+                        <svg
+                          {...getCardImageProps({ images })}
+                          className="h-5 w-auto"
+                          style={{ display: "block" }}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </FormControl>
+                <FormMessage>
+                  {fieldState.error?.message ||
+                    (meta.touchedInputs.cardNumber &&
+                      meta.erroredInputs.cardNumber)}
+                </FormMessage>
+              </FormItem>
             )}
-          </div>
-          <div className="flex-1 flex flex-col">
-            <input
-              type="text"
+          />
+
+          {/* Expiry Date & CVV */}
+          <div className="flex gap-4">
+            <FormField
+              control={form.control}
+              name="expiryDate"
+              render={({ field, fieldState }) => (
+                <FormItem className="flex-1">
+                  <FormControl>
+                    <Input
+                      {...getExpiryDateProps({
+                        onChange: field.onChange,
+                        onBlur: field.onBlur,
+                        value: field.value,
+                      })}
+                      placeholder="MM/YY"
+                      className={
+                        fieldState.error ? "border-red-500" : "border-[#d4d4d4]"
+                      }
+                    />
+                  </FormControl>
+                  <FormMessage>
+                    {fieldState.error?.message ||
+                      (meta.touchedInputs.expiryDate &&
+                        meta.erroredInputs.expiryDate)}
+                  </FormMessage>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
               name="cvv"
-              value={formData.cvv}
-              onChange={handleChange}
-              placeholder="CVV"
-              maxLength={3}
-              className={`w-full px-4 py-3 border rounded-[5px] form-placeholder ${
-                errors.cvv ? "border-red-500" : "border-[#d4d4d4]"
-              }`}
+              render={({ field, fieldState }) => (
+                <FormItem className="flex-1">
+                  <FormControl>
+                    <Input
+                      {...getCVCProps({
+                        onChange: field.onChange,
+                        onBlur: field.onBlur,
+                        value: field.value,
+                      })}
+                      placeholder="CVC"
+                      className={
+                        fieldState.error ? "border-red-500" : "border-[#d4d4d4]"
+                      }
+                    />
+                  </FormControl>
+                  <FormMessage>
+                    {fieldState.error?.message ||
+                      (meta.touchedInputs.cvc && meta.erroredInputs.cvc)}
+                  </FormMessage>
+                </FormItem>
+              )}
             />
-            {errors.cvv && <p className="input-error mt-1">{errors.cvv}</p>}
           </div>
-        </div>
 
-        {/* Terms and Conditions Checkboxes */}
-        <div className="flex flex-col gap-4">
-          {/* First Checkbox */}
-          <div className="flex gap-3 items-start">
-            <input
-              type="checkbox"
-              id="agreedToTerms"
-              checked={agreedToTerms}
-              onChange={(e) => {
-                setAgreedToTerms(e.target.checked);
-                if (errors.agreedToTerms) {
-                  setErrors((prev) => ({ ...prev, agreedToTerms: "" }));
-                }
-              }}
-              className="mt-1 size-4 flex-shrink-0 cursor-pointer"
+          {/* Terms and Conditions Checkboxes */}
+          <div className="flex flex-col gap-4">
+            {/* First Checkbox */}
+            <FormField
+              control={form.control}
+              name="agreedToTerms"
+              render={({ field }) => (
+                <FormItem>
+                  <div className="flex gap-3 items-start">
+                    <FormControl>
+                      <input
+                        type="checkbox"
+                        checked={field.value}
+                        onChange={(e) => field.onChange(e.target.checked)}
+                        className="mt-1 size-4 flex-shrink-0 cursor-pointer"
+                      />
+                    </FormControl>
+                    <label
+                      htmlFor="agreedToTerms"
+                      className="flex-1 font-['Vazirmatn'] font-normal text-black text-[14px] leading-[22px] cursor-pointer"
+                    >
+                      Please confirm you have read our{" "}
+                      <Link
+                        to="/terms-and-conditions"
+                        target="_blank"
+                        className="text-[#4ab04a] underline"
+                      >
+                        Terms
+                      </Link>{" "}
+                      and{" "}
+                      <Link
+                        to="/terms-and-conditions"
+                        target="_blank"
+                        className="text-[#4ab04a] underline"
+                      >
+                        Conditions
+                      </Link>
+                    </label>
+                  </div>
+                  <FormMessage className="ml-7" />
+                </FormItem>
+              )}
             />
-            <label
-              htmlFor="agreedToTerms"
-              className="flex-1 font-['Vazirmatn'] font-normal text-black text-[14px] leading-[22px] cursor-pointer"
+
+            {/* Second Checkbox */}
+            <FormField
+              control={form.control}
+              name="agreedToAuthorization"
+              render={({ field }) => (
+                <FormItem>
+                  <div className="flex gap-3 items-start">
+                    <FormControl>
+                      <input
+                        type="checkbox"
+                        checked={field.value}
+                        onChange={(e) => field.onChange(e.target.checked)}
+                        className="mt-1 size-4 flex-shrink-0 cursor-pointer"
+                      />
+                    </FormControl>
+                    <label
+                      htmlFor="agreedToAuthorization"
+                      className="flex-1 font-['Vazirmatn'] font-normal text-black text-[14px] leading-[22px] cursor-pointer"
+                    >
+                      I authorize Evolve Strength to change my card for membership fees.
+                      I understand my membership renews automatically unless I cancel as
+                      stated in the contract. I have read and agree to the{" "}
+                      <Link
+                        to="/terms-and-conditions"
+                        target="_blank"
+                        className="text-[#4ab04a] underline"
+                      >
+                        Terms And Conditions
+                      </Link>{" "}
+                      and{" "}
+                      <Link
+                        to="/privacy-policy"
+                        target="_blank"
+                        className="text-[#4ab04a] underline"
+                      >
+                        Privacy Policy
+                      </Link>
+                      .
+                    </label>
+                  </div>
+                  <FormMessage className="ml-7" />
+                </FormItem>
+              )}
+            />
+          </div>
+
+          {/* Navigation Buttons */}
+          <div className="flex items-center justify-between mt-8">
+            <button
+              type="button"
+              onClick={onBack}
+              className="flex gap-1.5 items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
             >
-              Please confirm you have read our{" "}
-              <Link
-                to="/terms-and-conditions"
-                target="_blank"
-                className="text-[#4ab04a] underline"
-              >
-                Terms
-              </Link>{" "}
-              and{" "}
-              <Link
-                to="/terms-and-conditions"
-                target="_blank"
-                className="text-[#4ab04a] underline"
-              >
-                Conditions
-              </Link>
-            </label>
+              <ArrowLeft className="size-4" />
+              Back
+            </button>
+            <button type="submit" className="btnPrimary">
+              Complete Payment
+            </button>
           </div>
-          {errors.agreedToTerms && (
-            <p className="input-error ml-7">{errors.agreedToTerms}</p>
-          )}
-
-          {/* Second Checkbox */}
-          <div className="flex gap-3 items-start">
-            <input
-              type="checkbox"
-              id="agreedToAuthorization"
-              checked={agreedToAuthorization}
-              onChange={(e) => {
-                setAgreedToAuthorization(e.target.checked);
-                if (errors.agreedToAuthorization) {
-                  setErrors((prev) => ({ ...prev, agreedToAuthorization: "" }));
-                }
-              }}
-              className="mt-1 size-4 flex-shrink-0 cursor-pointer"
-            />
-            <label
-              htmlFor="agreedToAuthorization"
-              className="flex-1 font-['Vazirmatn'] font-normal text-black text-[14px] leading-[22px] cursor-pointer"
-            >
-              I authorize Evolve Strength to change my card for membership fees.
-              I understand my membership renews automatically unless I cancel as
-              stated in the contract. I have read and agree to the{" "}
-              <Link
-                to="/terms-and-conditions"
-                target="_blank"
-                className="text-[#4ab04a] underline"
-              >
-                Terms And Conditions
-              </Link>{" "}
-              and{" "}
-              <Link
-                to="/privacy-policy"
-                target="_blank"
-                className="text-[#4ab04a] underline"
-              >
-                Privacy Policy
-              </Link>
-              .
-            </label>
-          </div>
-          {errors.agreedToAuthorization && (
-            <p className="input-error ml-7">{errors.agreedToAuthorization}</p>
-          )}
-        </div>
-
-        {/* Navigation Buttons */}
-        <div className="flex items-center justify-between mt-8">
-          <button
-            type="button"
-            onClick={onBack}
-            className="flex gap-1.5 items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
-          >
-            <ArrowLeft className="size-4" />
-            Back
-          </button>
-          <button type="submit" className="btnPrimary">
-            Complete Payment
-          </button>
-        </div>
-      </form>
+        </form>
+      </Form>
     </div>
   );
 }

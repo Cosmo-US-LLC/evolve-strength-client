@@ -52,7 +52,7 @@ function RateLockCertificate() {
             {/* CTA Button and Deposit Text */}
             <div className="flex mt-29 flex-col gap-2 md:gap-[8px]">
               <div className="flex flex-col md:flex-row gap-3 md:gap-[8px] items-start md:items-center">
-                <Link to="#">
+                <Link to="/founder-offer-payment">
                   <button className="btnPrimary flex items-center gap-2 md:gap-[10px] uppercase">
                     {/* Lock Icon */}
                     <Lock className="w-4 h-4 text-white" />

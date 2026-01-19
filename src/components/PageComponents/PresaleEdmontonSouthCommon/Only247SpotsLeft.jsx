@@ -18,7 +18,7 @@ function Only247SpotsLeft() {
 
         {/* CTA Button */}
         <div className="w-full md:w-auto flex justify-center md:justify-end">
-          <Link to="#">
+          <Link to="/founder-offer-payment">
             <button className="btnPrimary uppercase whitespace-nowrap">
               Lock My Rate Now
             </button>
