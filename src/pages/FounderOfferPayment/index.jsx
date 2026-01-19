@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import FormsHeader from "@/components/ui/FormsHeader";
 import ProgressTracker from "@/components/FounderOfferPayment/ProgressTracker";
@@ -12,6 +12,9 @@ import SuccessCertificate from "@/components/FounderOfferPayment/steps/SuccessCe
 function FounderOfferPayment() {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
+  const containerRef = useRef(null);
+  const prevStepRef = useRef(1);
+  
   const [formData, setFormData] = useState({
     primaryMember: {
       firstName: "",
@@ -45,6 +48,25 @@ function FounderOfferPayment() {
     }
   };
 
+  // Scroll to top on mobile when step changes
+  useEffect(() => {
+    // Only scroll on mobile (screen width < 1024px which is lg breakpoint)
+    if (window.innerWidth < 1024 && currentStep !== prevStepRef.current) {
+      // Small delay to ensure DOM is updated
+      setTimeout(() => {
+        // Scroll to top with minor offset
+        if (containerRef.current) {
+          const containerTop = containerRef.current.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({ top: containerTop - 60, behavior: 'smooth' });
+        } else {
+          // Fallback: scroll window to top with minor offset
+          window.scrollTo({ top: 60, behavior: 'smooth' });
+        }
+      }, 100);
+      prevStepRef.current = currentStep;
+    }
+  }, [currentStep]);
+
   const handleBack = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
@@ -71,6 +93,7 @@ function FounderOfferPayment() {
             updateFormData={(data) => updateFormData("payment", data)}
             onNext={handleNext}
             onBack={handleBack}
+            primaryMember={formData.primaryMember}
           />
         );
       case 3:
@@ -86,12 +109,26 @@ function FounderOfferPayment() {
   };
 
   return (
-    <div className="h-screen bg-white flex flex-col overflow-hidden">
+    <div className="min-h-screen bg-white flex flex-col">
       <FormsHeader />
-      <div className="flex-1 overflow-hidden pt-16">
-        <div className="max-w-[1280px] h-full mx-auto px-4 md:px-8 py-8">
-          <div className="flex gap-8 items-start h-full">
-            {/* Left Sidebar - Progress Tracker */}
+      <div className="flex-1 pt-16">
+        <div ref={containerRef} className="max-w-[1280px] h-full mx-auto px-4 md:px-8 py-4 md:py-8">
+          {/* Mobile Progress Tracker - Top */}
+          {currentStep !== 3 && (
+            <div className="lg:hidden mb-6 pb-4 border-b border-[#d4d4d4]">
+              <ProgressTracker currentStep={currentStep} />
+            </div>
+          )}
+
+          {/* Mobile LocationCard - Below ProgressTracker */}
+          {currentStep !== 3 && (
+            <div className="lg:hidden mb-6">
+              <LocationCard />
+            </div>
+          )}
+
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-start h-full">
+            {/* Left Sidebar - Progress Tracker (Desktop) */}
             {currentStep !== 3 && (
               <div className="hidden lg:block w-[300px] flex-shrink-0">
                 <ProgressTracker currentStep={currentStep} />
@@ -99,24 +136,36 @@ function FounderOfferPayment() {
             )}
 
             {/* Main Content - Scrollable */}
-            <div className="flex-1 min-w-0 h-full overflow-y-auto scrollbar-hide pr-2">
+            <div className="flex-1 min-w-0 w-full lg:h-full lg:overflow-y-auto lg:scrollbar-hide lg:pr-2">
               <div className="pb-8">{renderStep()}</div>
             </div>
 
             {/* Right Sidebar - Location & Benefits or Membership Summary */}
             {currentStep !== 3 && (
-              <div className="hidden xl:block w-[300px] flex-shrink-0">
-                {currentStep === 2 ? (
-                  <MembershipSummaryCard
-                    primaryMember={formData.primaryMember}
-                  />
-                ) : (
-                  <div className="flex flex-col gap-4">
-                    <LocationCard />
-                    <BenefitsCard />
-                  </div>
-                )}
-              </div>
+              <>
+                {/* Desktop Sidebar */}
+                <div className="hidden xl:block w-[300px] flex-shrink-0">
+                  {currentStep === 2 ? (
+                    <MembershipSummaryCard
+                      primaryMember={formData.primaryMember}
+                    />
+                  ) : (
+                    <div className="flex flex-col gap-4">
+                      <LocationCard />
+                      <BenefitsCard />
+                    </div>
+                  )}
+                </div>
+
+                {/* Mobile Sidebar - Below Content */}
+                {/* <div className="xl:hidden w-full lg:hidden mt-4">
+                  {currentStep === 2 && (
+                    <MembershipSummaryCard
+                      primaryMember={formData.primaryMember}
+                    />
+                  )}
+                </div> */}
+              </>
             )}
           </div>
         </div>

@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import MembershipSummaryCard from "@/components/FounderOfferPayment/MembershipSummaryCard";
 
 // Zod Schema
 const formSchema = z.object({
@@ -29,7 +30,7 @@ const formSchema = z.object({
   }),
 });
 
-function PaymentInformation({ formData, updateFormData, onNext, onBack }) {
+function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryMember }) {
   const {
     getCardNumberProps,
     getExpiryDateProps,
@@ -267,8 +268,13 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack }) {
             />
           </div>
 
+          {/* Mobile MembershipSummaryCard - Above Navigation Buttons */}
+          <div className="lg:hidden mt-2 md:mt-8 mb-6">
+            <MembershipSummaryCard primaryMember={primaryMember} />
+          </div>
+
           {/* Navigation Buttons */}
-          <div className="flex items-center justify-between mt-8">
+          <div className="flex items-center justify-between mt-0 md:mt-8">
             <button
               type="button"
               onClick={onBack}
