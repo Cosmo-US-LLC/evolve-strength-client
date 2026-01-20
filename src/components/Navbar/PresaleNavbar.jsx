@@ -34,7 +34,7 @@ function PresaleNavbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-5 md:gap-[21px]">
+        {/* <div className="hidden md:flex items-center gap-5 md:gap-[21px]">
           {navigationLinks.map((link) => (
             <Link
               key={link.to}
@@ -45,10 +45,10 @@ function PresaleNavbar() {
               {link.label}
             </Link>
           ))}
-        </div>
+        </div> */}
 
         {/* Mobile Hamburger Menu */}
-        <div className="md:hidden">
+        {/* <div className="md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <button className="flex items-center justify-center w-10 h-10 rounded-[5px] bg-[#00000040] border border-[#fff] text-white transition-colors">
@@ -74,7 +74,7 @@ function PresaleNavbar() {
               </div>
             </SheetContent>
           </Sheet>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
