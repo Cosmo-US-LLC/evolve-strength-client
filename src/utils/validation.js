@@ -105,9 +105,12 @@ export const validateExpiryDate = (expiryDate) => {
     return { isValid: false, isExpired: false, error: "Expiry date is required" };
   }
   
+  // Clean the date: remove all spaces (react-payment-inputs might add spaces like "02 / 33")
+  const cleanedDate = expiryDate.trim().replace(/\s+/g, "");
+  
   // Check format MM/YY
   const expiryRegex = /^(\d{2})\/(\d{2})$/;
-  const match = expiryDate.trim().match(expiryRegex);
+  const match = cleanedDate.match(expiryRegex);
   
   if (!match) {
     return { isValid: false, isExpired: false, error: "Please enter expiry date in MM/YY format" };
