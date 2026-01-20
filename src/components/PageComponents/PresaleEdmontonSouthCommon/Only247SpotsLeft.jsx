@@ -10,7 +10,7 @@ function Only247SpotsLeft() {
           <h2 className="font-[600] uppercase text-[#000]">
             Only 247 Spots left
           </h2>
-          <p className="text-[16px] md:text-[20px] leading-[22px] md:leading-[28px] font-[400] font-[Kanit] text-black">
+          <p className="text-[16px] md:!text-[20px] leading-[22px] md:leading-[28px] font-[400] font-[Kanit] text-black">
             Lock the lowest rate ever and secure your membership. It&apos;s time
             to Evolve.
           </p>
@@ -19,7 +19,7 @@ function Only247SpotsLeft() {
         {/* CTA Button */}
         <div className="w-full md:w-auto flex justify-center md:justify-end">
           <Link to="/founder-offer-payment">
-            <button className="btnPrimary uppercase whitespace-nowrap">
+            <button className="btnPrimary uppercase !py-[17px] !px-[20px] whitespace-nowrap">
               Lock My Rate Now
             </button>
           </Link>

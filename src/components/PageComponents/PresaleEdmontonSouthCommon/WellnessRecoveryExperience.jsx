@@ -53,12 +53,13 @@ function WellnessRecoveryExperience() {
           <p className="text-[14px] md:text-[16px] leading-[22px] md:leading-[26px] font-[400] font-Inter text-[#fff] max-w-[896px]">
             You put your body to work, we help you take care of it., recover
             faster, and stay injury-free. Recharge yourself with our full range
-            of services (additional charges may apply): Available services:
+            of services (additional charges may apply).
           </p>
+          <h3 className="text-[#4ab04a]  text-[18px] md:text-[24px] leading-[24px] md:leading-[26px] font-[700]">Available services:</h3>
         </div>
 
         {/* Services Grid */}
-        <div className="w-full max-w-[1200px] grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-[20px]">
+        <div className="w-full max-w-[1200px] grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-[20px] [&>:last-child]:col-span-2 md:[&>:last-child]:col-span-1 [&>:last-child]:w-fit md:[&>:last-child]:w-auto [&>:last-child]:mx-auto md:[&>:last-child]:mx-0 [&>:last-child]:justify-self-center md:[&>:last-child]:justify-self-auto">
           {wellnessServices.map((service, index) => (
             <div
               key={index}
@@ -74,7 +75,7 @@ function WellnessRecoveryExperience() {
                   />
                 </div>
                 {/* Service Name */}
-                <p className="text-[18px] md:text-[24px] leading-[24px] md:leading-[26px] font-[700] font-[Kanit] text-[#fff] text-center">
+                <p className="text-[14px] md:text-[24px] leading-[18px] md:leading-[26px] font-[700] !font-[Kanit] text-[#fff] text-center">
                   {service.name}
                 </p>
               </div>

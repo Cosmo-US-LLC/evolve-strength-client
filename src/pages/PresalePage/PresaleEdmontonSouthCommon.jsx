@@ -20,7 +20,7 @@ function PresaleEdmontonSouthCommon() {
       <FoundingMemberSavings />
       <RateLockCertificate />
       <HowDepositWorks />
-      <FamilyHouseholdPackage />
+      {/* <FamilyHouseholdPackage /> */}
       <WellnessRecoveryExperience />
       <BuiltBiggerEquippedBetter />
       <PresaleTrustedEquipmentBrands />

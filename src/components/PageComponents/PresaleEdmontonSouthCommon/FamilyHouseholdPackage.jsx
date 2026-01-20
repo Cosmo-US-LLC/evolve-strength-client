@@ -31,11 +31,11 @@ function FamilyHouseholdPackage() {
             {/* Heading and Features */}
             <div className="flex flex-col gap-2 items-center w-full">
               <div className="flex flex-col items-start">
-                <p className="text-[14px] md:text-[16px] leading-[22px] font-[400] font-[Kanit] text-black text-center w-full">
+                <p className="text-[14px] md:!text-[16px] leading-[22px] font-[400] font-[Kanit] text-black text-center w-full">
                   Lock in founder rates for your entire household
                 </p>
               </div>
-              <h2 className="uppercase text-[#000] text-center">
+              <h2 className="uppercase text-[#000] md:!text-[40px] text-center">
                 family/household package
               </h2>
 
@@ -64,7 +64,7 @@ function FamilyHouseholdPackage() {
                         />
                       </svg>
                     </div>
-                    <p className="text-[11px] md:text-[18px] leading-[26px] font-[400] font-[Kanit] text-black">
+                    <p className="text-[11px] md:!text-[18px] leading-[26px] font-[400] font-[Kanit] text-black">
                       {feature}
                     </p>
                   </div>
@@ -73,7 +73,7 @@ function FamilyHouseholdPackage() {
             </div>
 
             {/* Description */}
-            <p className="text-[16px] md:text-[18px] leading-[26px] font-[300] font-[Kanit] text-black text-center max-w-[434px]">
+            <p className="text-[16px] md:!text-[18px] leading-[26px] font-[300] font-[Kanit] text-black text-center max-w-[434px]">
               With a single deposit, multiple household members can secure the
               founder rate. Perfect for couples, families, or roommates who want
               to train and stay healthy together.
@@ -81,7 +81,7 @@ function FamilyHouseholdPackage() {
 
             {/* CTA Button */}
             <Link to="/founder-offer-payment" className="w-full max-w-[198px]">
-              <button className="btnPrimary uppercase  ">
+              <button className="btnPrimary uppercase !py-[17px] !px-[26px] ">
                 Lock My Rate Now
               </button>
             </Link>
