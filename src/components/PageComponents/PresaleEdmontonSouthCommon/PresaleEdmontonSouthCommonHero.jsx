@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import heroVideo from "../../../../public/assets/videos/ES_waitlist_desktop.webm";
 
 function PresaleEdmontonSouthCommonHero() {
   return (
@@ -15,7 +14,7 @@ function PresaleEdmontonSouthCommonHero() {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectFit: "cover", objectPosition: "bottom" }}
         >
-          <source src={heroVideo} type="video/webm" />
+          <source src={"/assets/videos/ES_waitlist_desktop.webm"} type="video/webm" />
           Your browser does not support the video tag.
         </video>
 
