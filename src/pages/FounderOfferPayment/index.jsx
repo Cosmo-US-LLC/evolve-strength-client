@@ -121,24 +121,6 @@ function FounderOfferPayment() {
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
-
-
-      if (currentStep === 2) {
-        const didSubmit = await makePayment({
-          primaryMember: formData.primaryMember,
-          payment: formData.payment,
-        });
-
-        if (didSubmit) {
-          setCurrentStep(3);
-        }
-        return;
-      }
-
-      setCurrentStep(currentStep + 1);
-    }
-  };
-
   const makePayment = async ({ primaryMember, payment }) => {
     const selectPlan = "credit_debit"; // TODO: wire actual plan selection.
     const cardTypeMap = {
