@@ -11,6 +11,21 @@ const certificateBenefits = [
 ];
 
 function RateLockCertificate() {
+  // Get current date formatted as "21ST JANUARY 2026"
+  const getCurrentDate = () => {
+    const date = new Date();
+    const day = date.getDate();
+    const month = date.toLocaleString("en-US", { month: "long" }).toUpperCase();
+    const year = date.getFullYear();
+    
+    // Convert day to ordinal (1ST, 2ND, 3RD, 21ST, etc.)
+    let ordinal = "TH";
+    if (day % 10 === 1 && day !== 11) ordinal = "ST";
+    else if (day % 10 === 2 && day !== 12) ordinal = "ND";
+    else if (day % 10 === 3 && day !== 13) ordinal = "RD";
+    
+    return `${String(day).padStart(2, "0")}${ordinal} ${month} ${year}`;
+  };
   return (
     <section className="bg-[#000] py-10 md:py-20">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col gap-8 md:gap-[36px] items-center">
@@ -20,7 +35,7 @@ function RateLockCertificate() {
             <span className="text-white">Your Official Rate Lock </span>
             <span className="text-[#4ab04a]">Certificate</span>
           </h2>
-          <p className="text-[16px] md:!text-[18px] leading-[22px] md:leading-[26px] font-[300] font-[Kanit] text-white text-center">
+          <p className="!text-[14px] md:!text-[18px] leading-[22px] md:leading-[26px] font-[300] font-[Kanit] text-white text-center">
             Secure your{" "}
             <span className="font-[700] text-[#4ab04a]">$29.99 Bi-Weekly</span>{" "}
             founder pricing with a{" "}
@@ -74,7 +89,7 @@ function RateLockCertificate() {
                     Lock My Rate Now
                   </button>
                 </Link>
-                <p className="text-[12px] md:!text-[14px] leading-[18px] md:leading-[20px] font-[400] font-[Kanit] max-md:text-center text-white max-w-[165px]">
+                <p className="!text-[14px] md:!text-[14px] leading-[18px] md:leading-[20px] font-[400] font-[Kanit] max-md:text-center text-white max-w-[165px]">
                   CA $149 deposit applies toward your membership
                 </p>
               </div>
@@ -118,7 +133,7 @@ function RateLockCertificate() {
               {/* Date Section - Bottom Left */}
               <div className="flex flex-col">
                 <p className="text-[14px] md:text-[16px] font-[700] font-[Kanit] !text-[#737373] uppercase">
-                  07TH JANUARY 2026
+                  {getCurrentDate()}
                 </p>
                 <p className="text-[12px] md:text-[14px] font-[600] font-[Kanit] text-black mt-1 uppercase">
                   CURRENT DATE

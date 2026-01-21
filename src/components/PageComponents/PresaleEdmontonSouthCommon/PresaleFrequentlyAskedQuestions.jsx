@@ -11,7 +11,7 @@ const PresaleFrequentlyAskedQuestions = ({ heading, subtext, faqs }) => {
     <section className="py-22 bg-[#000]">
       <div className="max-w-[1280px] md:px-8 px-4 mx-auto w-full h-full  flex flex-col justify-center items-center text-center">
         <h2 className="text-[#fff] uppercase mb-4">{heading}</h2>
-        <h4 className="text-[#fff] max-w-2xl leading-[26px] mb-10">
+        <h4 className="text-[#fff] max-md:!text-[14px] max-w-2xl leading-[20px] md:leading-[26px] mb-10">
           {subtext}
         </h4>
 
@@ -38,7 +38,7 @@ const PresaleFrequentlyAskedQuestions = ({ heading, subtext, faqs }) => {
 
               <AccordionContent className="px-6 pb-5 text-left">
                 <h4
-                  className="text-[#fff] font-kanit leading-normal"
+                  className="text-[#fff] max-md:!text-[18px] max-md:leading-[28px] font-kanit leading-normal"
                   dangerouslySetInnerHTML={{ __html: item.answer }}
                 />
               </AccordionContent>

@@ -22,17 +22,15 @@ const steps = [
   },
 ];
 
-function ProgressTracker({ currentStep }) {
+function ProgressTracker({ currentStep = 0 }) {
   const getStepStatus = (stepId) => {
-    // Step 1 (Founder Membership) is always completed
-    if (stepId === 1) return "completed";
-    // Map currentStep (1-3) to progress steps (2-4)
-    // currentStep 1 = Primary Details (step 2 in tracker)
-    // currentStep 2 = Payment (step 3 in tracker)
-    // currentStep 3 = Success (all steps completed)
-    const progressStep = currentStep + 1;
-    if (stepId < progressStep) return "completed";
-    if (stepId === progressStep) return "active";
+    // stepId is 1-based (1, 2, 3)
+    // currentStep is 0-based (0, 1, 2)
+    // currentStep 0 = Step 1 is active
+    // currentStep 1 = Step 1 completed, Step 2 is active
+    // currentStep 2 = Step 1-2 completed, Step 3 is active
+    if (stepId <= currentStep) return "completed";
+    if (stepId === currentStep + 1) return "active";
     return "pending";
   };
 
@@ -114,63 +112,85 @@ function ProgressTracker({ currentStep }) {
         })}
       </div>
 
-      {/* Mobile: Horizontal Layout (One Row) */}
-      <div className="lg:hidden w-full">
-        <div className="flex items-center justify-between relative">
-          {/* Progress Line Background - Full width with padding */}
-          <div className="absolute top-[20px] left-[60px] right-[60px] h-[1.5px] bg-[#e5e5e5] -z-0" />
-          
-          {/* Progress Line Fill - Calculated based on step progress */}
-          <div 
-            className="absolute top-[20px] left-[40px] h-[1.5px] bg-[#4ab04a] -z-0 transition-all duration-500 ease-out"
-            style={{ 
-              // Calculate width: for 3 steps, we have 2 segments
-              // Step 1 completed = 0% (no line filled yet)
-              // Step 2 active (currentStep=1) = 50% (first segment filled)
-              // Step 3 active (currentStep=2) = 100% (both segments filled)
-              width: currentStep === 1 
-                ? 'calc((100% - 60px) * 0.5)' 
-                : currentStep >= 2 
-                ? 'calc(100% - 80px)' 
-                : '0px'
-            }}
-          />
+      {/* Mobile: Card Layout - Show only current step */}
+      <div className="lg:hidden w-full bg-[#F4F4F4] px-4 py-4">
+        {steps.map((step) => {
+          const config = getStepConfig(step.id);
+          const status = getStepStatus(step.id);
 
-          {steps.map((step) => {
-            const config = getStepConfig(step.id);
-            const Icon = step.icon;
-            const status = getStepStatus(step.id);
+          // Only show the active step
+          if (status !== "active") return null;
 
-            return (
-              <div key={step.id} className="flex flex-col items-center flex-1 relative z-10">
-                {/* Step Circle */}
-                <div
-                  className={`flex items-center justify-center rounded-full size-[40px] border-2 ${config.borderColor} flex-shrink-0 mb-2 ${config.bgColor === 'bg-transparent' ? 'bg-white' : config.bgColor} shadow-sm transition-all duration-300`}
+          return (
+            <div key={step.id} className="flex items-center gap-4">
+              {/* Progress Circle Badge */}
+              <div className="relative flex-shrink-0">
+                {/* Background Circle */}
+                <svg
+                  className="w-15 h-15"
+                  viewBox="0 0 100 100"
+                  style={{ transform: "rotate(-90deg)" }}
                 >
-                  {status === "completed" ? (
-                    <Check className={`size-5 ${config.iconColor}`} />
-                  ) : (
-                    <Icon className={`size-5 ${config.iconColor}`} />
+                  {/* Background Circle */}
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    fill="#F4F4F4"
+                    stroke="#e5e5e5"
+                    strokeWidth="7"
+                  />
+                  {/* Progress Arc */}
+                  {status === "completed" && (
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      fill="none"
+                      stroke="#4ab04a"
+                      strokeWidth="7"
+                      strokeDasharray="282.7 282.7"
+                      strokeLinecap="round"
+                    />
                   )}
-                </div>
-
-                {/* Step Title and Description (Mobile) */}
-                <div className="flex gap-1 flex-col items-center text-center px-1 w-full">
-                  <p
-                    className={`font-['Vazirmatn'] font-bold leading-[16px] text-[14px] ${config.textColor} max-md:h-[30px] mb-0.5`}
-                  >
-                    {step.title}
-                  </p>
-                  <p
-                    className={`font-['Vazirmatn'] max-md:h-[30px] font-normal leading-[14px] text-[12px] ${config.descriptionColor}`}
-                  >
-                    {step.description}
+                  {status === "active" && (
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      fill="none"
+                      stroke="#4ab04a"
+                      strokeWidth="7"
+                      strokeDasharray="141.35 282.7"
+                      strokeLinecap="round"
+                      className="transition-all duration-500"
+                    />
+                  )}
+                </svg>
+                {/* Text in center */}
+                <div className="absolute inset-0 flex items-center justify-center flex-col">
+                  <p className="font-['Vazirmatn'] font-[400] text-[10px] text-[#000] leading-none">
+                    Step {step.id}/4
                   </p>
                 </div>
               </div>
-            );
-          })}
-        </div>
+
+              {/* Step Content */}
+              <div className="flex flex-col flex-1 min-w-0">
+                <p
+                  className={`font-['Vazirmatn'] !text-[16px] !font-bold leading-tight  ${config.textColor}`}
+                >
+                  {step.title}
+                </p>
+                <p
+                  className={`font-['Vazirmatn'] font-normal leading-tight text-[12px] text-[#6F6D66] mt-1 ${config.descriptionColor}`}
+                >
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </>
   );

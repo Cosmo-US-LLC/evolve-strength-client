@@ -63,20 +63,66 @@ function FounderOfferPayment() {
     }));
   };
 
-  // Update URL param when step changes
+  // Update URL param when step changes via back button
   useEffect(() => {
     const newStep = currentStep;
     if (newStep >= 1 && newStep <= 3) {
       const stepParamName = stepToParam[newStep];
-      setSearchParams({ step: stepParamName }, { replace: true });
+      // Only update if URL doesn't already match to avoid conflicts with pushState
+      const currentParam = new URLSearchParams(window.location.search).get("step");
+      if (currentParam !== stepParamName) {
+        setSearchParams({ step: stepParamName });
+      }
     }
   }, [currentStep, setSearchParams]);
 
   const handleNext = () => {
     if (currentStep < 3) {
-      setCurrentStep(currentStep + 1);
+      const nextStep = currentStep + 1;
+      setCurrentStep(nextStep);
+      // Push new history entry with the new step
+      const stepParamName = stepToParam[nextStep];
+      window.history.pushState({ step: nextStep }, "", `?step=${stepParamName}`);
     }
   };
+
+  // Initialize browser history when component mounts
+  useEffect(() => {
+    const stepParam = searchParams.get("step");
+    if (stepParam && paramToStep[stepParam]) {
+      const step = paramToStep[stepParam];
+      setCurrentStep(step);
+      // Initialize history state
+      if (step > 1) {
+        // Build history chain: replace current with step 1, then push steps 2, 3...
+        window.history.replaceState({ step: 1 }, "", `?step=${stepToParam[1]}`);
+        // Push the subsequent steps
+        for (let i = 2; i <= step; i++) {
+          window.history.pushState({ step: i }, "", `?step=${stepToParam[i]}`);
+        }
+      }
+    }
+  }, []); // Only run once on mount
+
+  // Handle browser back button
+  useEffect(() => {
+    const handlePopState = () => {
+      // Get the new step from the URL that the browser just navigated to
+      const urlParams = new URLSearchParams(window.location.search);
+      const newStepParam = urlParams.get("step");
+      
+      if (newStepParam && paramToStep[newStepParam]) {
+        const newStep = paramToStep[newStepParam];
+        setCurrentStep(newStep);
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+
+
 
   // Scroll to top on mobile when step changes
   useEffect(() => {
@@ -139,25 +185,25 @@ function FounderOfferPayment() {
   };
 
   return (
-    <div className="h-screen bg-white flex flex-col overflow-hidden ">
+    <div className="h-screen bg-white flex flex-col md:overflow-hidden ">
       <FormsHeader />
-      <div className="flex-1 pt-16 overflow-hidden">
-        <div ref={containerRef} className="max-w-[1280px] h-full mx-auto px-4 md:px-8 py-4 md:py-8 flex flex-col">
+      <div className="flex-1 pt-14 md:pt-16 md:overflow-hidden">
+        <div ref={containerRef} className="max-w-[1280px] h-full mx-auto px-0 md:px-8 py-0 md:py-8 flex flex-col">
           {/* Mobile Progress Tracker - Top */}
           {currentStep !== 3 && (
-            <div className="lg:hidden mb-6 pb-4 border-b border-[#d4d4d4] flex-shrink-0">
+            <div className="lg:hidden mb-6 pb-0 max-md:px-0 md:border-b md:border-[#d4d4d4] flex-shrink-0">
               <ProgressTracker currentStep={currentStep} />
             </div>
           )}
 
           {/* Mobile LocationCard - Below ProgressTracker */}
-          {currentStep !== 3 && (
-            <div className="lg:hidden mb-6 flex-shrink-0">
+          {currentStep !== 2 && currentStep !== 3 && (
+            <div className="lg:hidden mb-6 max-md:px-4 flex-shrink-0">
               <LocationCard />
             </div>
           )}
 
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-start flex-1 min-h-0">
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-start flex-1 min-h-0 ">
             {/* Left Sidebar - Progress Tracker (Desktop) */}
             {currentStep !== 3 && (
               <div className="hidden lg:block w-[300px] flex-shrink-0">
@@ -166,7 +212,7 @@ function FounderOfferPayment() {
             )}
 
             {/* Main Content - Scrollable */}
-            <div className="flex-1 min-w-0 w-full lg:h-full lg:overflow-y-auto scrollbar-hide lg:pr-2">
+            <div className="flex-1 min-w-0 w-full lg:h-full lg:overflow-y-auto scrollbar-hide lg:pr-2 max-md:px-4">
               <div className="pb-8">{renderStep()}</div>
             </div>
 
@@ -174,7 +220,7 @@ function FounderOfferPayment() {
             {currentStep !== 3 && (
               <>
                 {/* Desktop Sidebar */}
-                <div className="hidden xl:block w-[300px] flex-shrink-0">
+                <div className="hidden xl:block w-[300px] flex-shrink-0 max-md:px-4">
                   {currentStep === 2 ? (
                     <MembershipSummaryCard
                       primaryMember={formData.primaryMember}

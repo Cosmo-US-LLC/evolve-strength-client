@@ -45,12 +45,12 @@ function WellnessRecoveryExperience() {
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col gap-8 md:gap-[30px] items-center">
         {/* Header Section */}
         <div className="flex flex-col gap-6 md:gap-[24px] items-center text-center">
-          <h2 className="!font-[600] !text-[24px] md:!text-[40px] !leading-[28px] !md:leading-[46px] uppercase text-center text-[#fff]">
+          <h2 className="!font-[600] !text-[32px] md:!text-[40px] !leading-[28px] !md:leading-[46px] uppercase text-center text-[#fff]">
             <span className="text-[#fff]">A Complete Wellness & </span>
             <span className="text-[#4ab04a]">Recovery Experience</span>
           </h2>
 
-          <p className="text-[14px] md:text-[16px] leading-[22px] md:leading-[26px] font-[400] font-Inter text-[#fff] max-w-[896px]">
+          <p className="text-[14px] md:text-[16px] leading-[22px] md:leading-[26px] font-[400] !font-[Kanit] text-[#fff] max-w-[896px] ">
             You put your body to work, we help you take care of it., recover
             faster, and stay injury-free. Recharge yourself with our full range
             of services (additional charges may apply).
@@ -75,7 +75,7 @@ function WellnessRecoveryExperience() {
                   />
                 </div>
                 {/* Service Name */}
-                <p className="text-[14px] md:text-[24px] leading-[18px] md:leading-[26px] font-[700] !font-[Kanit] text-[#fff] text-center">
+                <p className="text-[14px] md:text-[24px] leading-[18px] md:leading-[26px] font-[600] md:font-[700] !font-[Kanit] text-[#fff] text-center">
                   {service.name}
                 </p>
               </div>

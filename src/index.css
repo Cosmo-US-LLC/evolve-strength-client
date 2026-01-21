@@ -251,6 +251,14 @@ h5 {
 }
 
 @media (max-width: 768px) {
+  .btnPrimary {
+  font-size: 14px !important;
+}
+
+.btnSecondary {
+  font-size: 14px !important;
+}
+
   h1 {
     font-size: 52px;
   }

@@ -10,7 +10,7 @@ function FoundingMemberSavings() {
           <h2 className="!font-[600] md:text-[40px] uppercase text-white">
             Save CA $1,040 as a Founding Member!
           </h2>
-          <p className="text-[18px] md:!text-[24px] leading-[17px] md:leading-[17px] font-[400] font-[Kanit] text-[#fff] uppercase">
+          <p className="!text-[14px] md:!text-[24px] leading-[17px] md:leading-[17px] font-[400] font-[Kanit] text-[#fff] uppercase">
             Lock in your founder rate today.
           </p>
         </div>
@@ -35,8 +35,8 @@ function FoundingMemberSavings() {
                 <p className="text-[16px] md:text-[18px] max-md:text-center leading-[20px] font-[400] font-[Kanit] text-white">
                   Bi-Weekly
                 </p>
-                <p className="text-[32px] mb-2 md:text-[40px] max-md:text-center leading-[40px] md:leading-[40px] font-[500] font-[Kanit] ">
-                 <span className="text-[#4ab04a]"> $29.99</span> <span className="!text-[18px] md:!text-[24px] leading-[18px] md:leading-[24px] font-[400] font-[Kanit] !text-[#fff] line-through">$35.99</span>
+                <p className="text-[32px] mb-2 md:text-[60px] max-md:text-center leading-[40px] md:leading-[60px] font-[500] font-[Kanit] ">
+                 <span className="text-[#4ab04a]"> $29.99</span> <span className="!text-[18px] md:!text-[24px] leading-[18px] md:leading-[24px] font-[400] font-[Kanit] !text-[#fff] line- relative">$35.99 <span className="absolute border-b-3 border-[#fff] w-[40px] md:w-[60px] md:bottom-4 bottom-3 md:left-0 left-2 rotate-[150deg]"></span> </span>
                 </p>
                 {/* Divider */}
                 <div className="h-px w-full  md:mt-0 bg-white/30"></div>
@@ -50,7 +50,7 @@ function FoundingMemberSavings() {
                 <p className="text-[32px] md:text-[40px] max-md:text-center leading-[40px] md:leading-[40px] font-[500] font-[Kanit] text-white">
                   CA $149
                 </p>
-                <p className="text-[14px] md:!text-[16px] leading-[15px] md:leading-[17px] font-[400] font-[Kanit] text-[#fff] pb-1 mx-md:text-center">One-time deposit to lock your rate</p>
+                <p className="text-[14px] md:!text-[16px] leading-[15px] md:leading-[17px] font-[400] font-[Kanit] text-[#fff] pb-1 max-md:text-center">One-time deposit to lock your rate</p>
                 {/* Divider */}
                 <div className="h-px w-full mt-2 bg-white/30"></div>
               </div>
