@@ -32,9 +32,16 @@ function HowDepositWorks() {
       <div className="max-w-[1280px] mx-auto px-0 md:px-8">
         <div className="md:rounded-[12px] overflow-hidden flex flex-col md:flex-row max-md:flex-col-reverse shadow-lg max-md:bg-black max-md:pt-6 max-md:pb-10">
           {/* Left Side - Image */}
-          <div className="relative w-full md:px-0 px-4   md:w-[570px] h-[300px] md:h-auto flex-shrink-0">
+          <div className="relative w-full md:px-0 px-6   md:w-[570px] h-[300px] md:h-auto md:block hidden flex-shrink-0">
             <img
               src="/assets/images/presaleCommonSouth/hoeDepositImage.webp"
+              alt="Gym members celebrating"
+              className="w-full h-full md:object-cover max-md:rounded-[8px]"
+            />
+          </div>
+            <div className="relative w-full md:px-0 px-6   md:w-[570px] h-[300px] md:h-auto md:hidden block flex-shrink-0">
+            <img
+              src="/assets/images/presaleCommonSouth/hoeDepositImagemob.webp"
               alt="Gym members celebrating"
               className="w-full h-full object-cover max-md:rounded-[8px]"
             />
@@ -49,7 +56,7 @@ function HowDepositWorks() {
                 <br />
                 <span className="text-[#4ab04a]">Deposit Works</span>
               </h2>
-              <p className="text-[14px] md:!text-[16px] leading-[26px] font-[400] font-Inter text-white">
+              <p className="text-[14px] md:!text-[16px] !font-[Kanit] leading-[26px] font-[400] font-Inter text-white">
                 Purpose-built spaces for strength, conditioning, and results.
               </p>
             </div>
@@ -66,7 +73,7 @@ function HowDepositWorks() {
                         className="w-full h-full"
                       />
                     </div>
-                    <h3 className="text-white md:!text-[24px] whitespace-nowrap">
+                    <h3 className="text-white !text-[18px] max-md:!font-[500] max-md:leading-[133%] md:!text-[24px] whitespace-nowrap">
                       {benefit.title}
                     </h3>
                   </div>

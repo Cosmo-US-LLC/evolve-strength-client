@@ -20,14 +20,14 @@ function PresaleEdmontonSouthCommonHero() {
 
         <div className="max-w-[1280px] md:px-8 px-4 md:pb-0 max-md:pb-[24px] mx-auto w-full h-full relative z-2">
           <div className="relative z-2 flex flex-col items-start justify-center h-full">
-            <div className="text-[#FFFFFF] text-[16px] font-[600] backdrop-blur-[15px] uppercase leading-[24px] mb-6 bg-[#20202066] md:!font-[70px] border border-[#ADADAD] px-4 py-2 rounded-[8px]">
+            <div className="text-[#FFFFFF] text-[12px] md:text-[16px] font-[600] backdrop-blur-[15px] uppercase leading-[24px] mb-4 md:mb-6 bg-[#20202066] md:!font-[70px] !font-[Kanit] border border-[#ADADAD] px-4 py-2 rounded-[8px]">
               Evolve Strength South Edmonton Common
             </div>
-            <h1 className="text-[#FFFFFF] uppercase max-w-[707px] leading-[50px] md:leading-[66px] mb-6 font-[600]">
+            <h1 className="text-[#FFFFFF] !font-[Kanit] uppercase max-w-[707px] leading-[40px] md:leading-[66px] max-md:!text-[36px] mb-4 md:mb-6 font-[600]">
               Lock Your <br /> Founder Rate for <br />{" "}
               <span className="text-[#4ab04a]">2 Years at $29.99</span>
             </h1>{" "}
-            <h3 className="text-[#FFFFFF] !text-[16px] !font-[400] !leading-[24px] !md:leading-[24px] mb-8 max-w-[350px] md:max-w-[606px]">
+            <h3 className="text-[#FFFFFF] !text-[16px] !font-[400] !leading-[20px] !md:leading-[24px] mb-8 max-w-[350px] md:max-w-[606px] !font-[Kanit]">
               Limited to 500 Members Only | Fully Refundable Deposit
             </h3>
             <div className="flex gap-3 flex-col md:flex-row md:items-center items-start">
@@ -53,7 +53,7 @@ function PresaleEdmontonSouthCommonHero() {
                   Lock My Rate Now
                 </button>
               </Link>
-              <p className="text-[#FFFFFF] !text-[14px] !font-[400] font-[Kanit] leading-[24px] md:leading-[24px]  max-w-[250px] md:max-w-[190px]">
+              <p className="text-[#FFFFFF] !text-[14px] !font-[400] !font-[Kanit] leading-[24px] md:leading-[24px]  max-w-[250px] md:max-w-[190px]">
                 CA $149 deposit applies toward your membership
               </p>
             </div>

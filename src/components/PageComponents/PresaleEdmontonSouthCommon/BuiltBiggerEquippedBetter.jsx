@@ -31,7 +31,7 @@ function BuiltBiggerEquippedBetter() {
                   Lock My Rate Now
                 </button>
               </Link>
-              <p className="text-[12px] md:!text-[14px] leading-[18px] md:leading-[20px] font-[400] font-[Kanit] text-white max-w-[185px] md:max-w-[165px]">
+              <p className="text-[14px] md:!text-[14px] leading-[18px] md:leading-[20px] font-[400] font-[Kanit] text-white max-w-[185px] md:max-w-[165px]">
                 CA $149 deposit applies toward your membership
               </p>
             </div>
