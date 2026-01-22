@@ -46,7 +46,7 @@ function WellnessRecoveryExperience() {
         {/* Header Section */}
         <div className="flex flex-col gap-6 md:gap-[24px] items-center text-center">
           <h2 className="!font-[600] !text-[32px] md:!text-[40px] !leading-[28px] !md:leading-[46px] uppercase text-center text-[#fff]">
-            <span className="text-[#fff]">A Complete Wellness & </span>
+            <span className="text-[#fff]">A Complete Wellness </span>
             <span className="text-[#4ab04a]">Recovery Experience</span>
           </h2>
 
