@@ -11,7 +11,7 @@ function BuiltBiggerEquippedBetter() {
             <h2 className="uppercase md:!text-[40px] text-[#fff]">
               Built Bigger. Equipped Better.
             </h2>
-            <p className="text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] font-[300] md:font-[400] font-Inter text-white max-w-[542px]">
+            <p className="text-[14px] !font-[Kanit] md:text-[16px] leading-[20px] md:leading-[24px] font-[300] md:font-[400] text-white max-w-[542px]">
               From the strength floor to the conditioning turf, move freely,
               train efficiently, and push your limits in a space designed for
               results.
