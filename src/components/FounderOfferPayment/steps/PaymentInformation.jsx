@@ -164,17 +164,19 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryM
   return (
     <div className="w-full max-w-[640px] mx-auto">
       <div className="flex flex-col gap-1 items-start mb-6">
-        <h2 className="font-['Kanit'] !font-medium text-[#000] !text-[20px] capitalize !leading-[28px]">
-          Add Payment Information
+        <h2 className="font-['Kanit'] !font-medium text-[#000] !text-[20px] capitalize !leading-[20px]">
+         Enter your Payment Details
         </h2>
-        <p className="font-['Kanit'] font-light text-[#393939] text-[14px] leading-[22px]">
+        {/* <p className="font-['Kanit'] font-light text-[#393939] text-[14px] leading-[22px]">
           Provide billing details to complete your founder membership
-        </p>
+        </p> */}
       </div>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5">
           {/* Card Number (Stripe-style with card brand icon) */}
+          <div>
+              <label className="text-[14px] md:text-[16px] font-[Kanit] font-[500] leading-[156.25%]" htmlFor="">Card Number*</label>
           <FormField
             control={form.control}
             name="cardNumber"
@@ -189,8 +191,8 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryM
                         value: field.value,
                       })}
                       placeholder="1234 5678 9012 3456"
-                      className={`pr-12 ${
-                        fieldState.error ? "border-red-500" : "border-[#d4d4d4]"
+                      className={`pr-12 mt-2 ${
+                        fieldState.error ? "border-red-500 " : "border-[#d4d4d4] "
                       }`}
                     />
                     {meta.cardType && (
@@ -212,10 +214,13 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryM
               </FormItem>
             )}
           />
+          </div>
 
           {/* Expiry Date & CVV */}
           <div className="flex gap-4">
-            <FormField
+               <div className="w-full">
+              <label className="text-[14px] md:text-[16px] font-[Kanit] font-[500] leading-[156.25%]" htmlFor="Expiry Date*">Expiry Date*</label>
+              <FormField
               control={form.control}
               name="expiryDate"
               render={({ field, fieldState }) => (
@@ -228,8 +233,8 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryM
                         value: field.value,
                       })}
                       placeholder="MM/YY"
-                      className={
-                        fieldState.error ? "border-red-500" : "border-[#d4d4d4]"
+                      className={ 
+                        fieldState.error ? "border-red-500 mt-2" : "border-[#d4d4d4] mt-2"
                       }
                     />
                   </FormControl>
@@ -241,7 +246,10 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryM
                 </FormItem>
               )}
             />
-            <FormField
+            </div>
+          <div className="w-full">
+              <label className="text-[14px] md:text-[16px] font-[Kanit] font-[500] leading-[156.25%]" htmlFor="">CVV*</label>
+                <FormField
               control={form.control}
               name="cvv"
               render={({ field, fieldState }) => (
@@ -255,7 +263,7 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryM
                       })}
                       placeholder="CVC"
                       className={
-                        fieldState.error ? "border-red-500" : "border-[#d4d4d4]"
+                        fieldState.error ? "border-red-500 mt-2" : "border-[#d4d4d4] mt-2"
                       }
                     />
                   </FormControl>
@@ -266,6 +274,10 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryM
                 </FormItem>
               )}
             />
+          </div>
+            
+         
+          
           </div>
 
           {/* Terms and Conditions Checkboxes */}
@@ -282,12 +294,12 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryM
                         type="checkbox"
                         checked={field.value}
                         onChange={(e) => field.onChange(e.target.checked)}
-                        className="mt-1 size-4 flex-shrink-0 cursor-pointer"
+                        className="size-4 flex-shrink-0 cursor-pointer"
                       />
                     </FormControl>
                     <label
                       htmlFor="agreedToTerms"
-                      className="flex-1 font-['Vazirmatn'] font-normal text-black text-[14px] leading-[22px] cursor-pointer"
+                      className="flex-1 font-['Vazirmatn'] font-normal text-black text-[14px] md:text-[16px] leading-[22px] cursor-pointer"
                     >
                       Please confirm you have read our{" "}
                       <Link
@@ -324,12 +336,12 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryM
                         type="checkbox"
                         checked={field.value}
                         onChange={(e) => field.onChange(e.target.checked)}
-                        className="mt-1 size-4 flex-shrink-0 cursor-pointer"
+                        className=" size-4 flex-shrink-0 cursor-pointer"
                       />
                     </FormControl>
                     <label
                       htmlFor="agreedToAuthorization"
-                      className="flex-1 font-['Vazirmatn'] font-normal text-black text-[14px] leading-[22px] cursor-pointer"
+                      className="flex-1 font-['Vazirmatn'] font-normal text-black text-[14px] md:text-[16px] leading-[22px] cursor-pointer"
                     >
                       I authorize Evolve Strength to change my card for membership fees.
                       I understand my membership renews automatically unless I cancel as
@@ -364,16 +376,16 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryM
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex items-center justify-between mt-0 md:mt-8">
+          <div className="flex items-center gap-4 justify-between mt-0 md:mt-8">
             <button
               type="button"
               onClick={onBack}
-              className="flex gap-1.5 items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
+              className="flex gap-1.5 underline items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
             >
               <ArrowLeft className="size-4" />
               Back
             </button>
-            <button type="submit" className="btnPrimary">
+            <button type="submit" className="btnPrimary max-md:w-[100%]">
               Complete Payment
             </button>
           </div>

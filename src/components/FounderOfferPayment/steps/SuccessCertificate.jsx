@@ -28,12 +28,12 @@ function SuccessCertificate({ primaryMember, onBack }) {
 
   return (
     <div className="w-full flex items-center justify-center min-h-[80vh]">
-      <div className="backdrop-blur-[28.15px] bg-[#fcfcfc] border border-[#d4d4d4] rounded-[16px] p-8 max-w-[904px] w-full">
+      <div className="backdrop-blur-[28.15px] bg-[#fcfcfc] border border-[#d4d4d4] rounded-[16px] md:p-8 p-4 max-w-[904px] w-full">
         <div className="flex flex-col gap-5 items-center">
           {/* Success Message */}
           <div className="flex flex-col gap-4 items-center text-center max-w-[520px]">
-            <h2 className="font-['Kanit'] font-bold text-black text-[40px] uppercase leading-[39px]">
-              Founder Rate Locked! 🏋🏻
+            <h2 className="font-['Kanit'] font-bold text-black md:text-[40px] !text-[24px] uppercase leading-[39px]">
+              Founder Rate Locked! 🎉
             </h2>
             <p className="font-['Vazirmatn'] font-normal text-black text-[16px] leading-[24px] max-w-[380px]">
               Congratulations! You've secured founder pricing for the next 2
@@ -42,7 +42,7 @@ function SuccessCertificate({ primaryMember, onBack }) {
           </div>
 
           {/* Certificate Placeholder */}
-          <div className="border border-black border-dashed min-h-[320px] rounded-[11.79px] w-full max-w-[520px] flex items-center justify-center bg-white">
+          <div className="border border-black border-dashed md:min-h-[320px] min-h-[260px] rounded-[11.79px] w-full max-w-[520px] flex items-center justify-center bg-white">
             <div className="w-full relative rounded-[12px] overflow-hidden bg-[#fff] flex-shrink-0 p-6 md:p-8 flex gap-2 flex-col">
               <div className="">
                 <img
@@ -61,12 +61,12 @@ function SuccessCertificate({ primaryMember, onBack }) {
               </div>
 
               {/* Certificate Text */}
-              <div className="md:flex block justify-between items-center gap-3">
+              <div className="md:flex flex justify-between items-center gap-3">
                 <div className="flex flex-col md:mt-1">
-                  <p className="text-[16px] md:text-[16px] mb-1 font-[700] font-[Kanit] text-[#4ab04a] uppercase">
+                  <p className="!text-[12px] md:text-[16px] mb-1 font-[700] font-[Kanit] text-[#4ab04a] uppercase">
                     {memberName}
                   </p>
-                  <p className="text-[14px] md:text-[12px] max-w-[440px] leading-[22px] md:leading-[18px] font-[400] font-[Kanit] text-black">
+                  <p className="!text-[8px] md:text-[12px] max-w-[440px] leading-[12px] md:leading-[18px] font-[400] font-[Kanit] text-black">
                     This certifies that{" "}
                     <span className="font-[700]">{memberName}</span> has
                     secured the exclusive Founder&apos;s Rate of{" "}
@@ -91,10 +91,10 @@ function SuccessCertificate({ primaryMember, onBack }) {
               <div className="mt-auto max-w-[400px] flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-4">
                 {/* Date Section - Bottom Left */}
                 <div className="flex flex-col">
-                  <p className="text-[14px] md:text-[14px] font-[700] font-[Kanit] !text-[#737373] uppercase">
+                  <p className="text-[10px] md:text-[14px] font-[700] font-[Kanit] !text-[#737373] uppercase">
                     {getCurrentDate()}
                   </p>
-                  <p className="text-[12px] md:text-[14px] font-[600] font-[Kanit] text-black mt-1 uppercase">
+                  <p className="text-[10px] md:text-[14px] font-[600] font-[Kanit] text-black md:mt-1 uppercase">
                     CURRENT DATE
                   </p>
                 </div>
@@ -123,7 +123,7 @@ function SuccessCertificate({ primaryMember, onBack }) {
           {/* Back to Home Button */}
           <button
             onClick={onBack}
-            className="mt-6 font-['Kanit'] font-light text-black text-[16px] uppercase hover:underline"
+            className="md:mt-6 mt-4 font-['Kanit'] underline font-semi-bold cursor-pointer text-black text-[16px] uppercase hover:underline"
           >
             Back to Presale Page
           </button>

@@ -423,7 +423,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
   return (
     <div className="w-full max-w-[640px] mx-auto">
       <div className="flex flex-col gap-1 mb-6">
-        <h2 className="font-['Kanit'] font-medium text-[#000] !text-[20px] capitalize !leading-[28px]">
+        <h2 className="!font-[Kanit] !font-[500] text-[#000] !text-[20px] capitalize !leading-[28px]">
           Tell us about the primary member
         </h2>
         <p className="font-['Kanit'] font-light text-[#393939] text-[14px] leading-[22px]">
@@ -665,7 +665,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                       <span className={genderValue ? "" : "text-gray-400"}>
                         {genderValue || "Gender"}
                       </span>
-                      <ChevronDown className="size-[10px]" />
+                      <ChevronDown className={`size-[14px] transition-transform duration-300 ${showGenderDropdown ? 'rotate-180' : 'rotate-0'}`} />
                     </button>
                   </FormControl>
                   {showGenderDropdown && (
@@ -694,16 +694,16 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex items-center justify-between mt-0 md:mt-8">
+          <div className="flex items-center justify-between gap-4 mt-0 md:mt-8">
             <button
               type="button"
               onClick={onBack}
-              className="flex gap-1.5 items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
+              className="flex gap-1.5 underline items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
             >
               <ArrowLeft className="size-4" />
               Back
             </button>
-            <button type="submit" className="btnPrimary">
+            <button type="submit" className="btnPrimary max-md:w-[100%]">
               Next
             </button>
           </div>

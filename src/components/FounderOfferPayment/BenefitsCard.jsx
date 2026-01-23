@@ -12,7 +12,7 @@ function BenefitsCard() {
   return (
     <div className="bg-[#fcfcfc] border border-[#d4d4d4] rounded-[8px] p-6">
       <div className="flex flex-col gap-6">
-        <h3 className="font-['Kanit'] font-bold text-[#2c2240] text-[18px] text-center">
+        <h3 className="font-[Kanit] !font-[700] text-[#2c2240] !text-[18px] text-start md:text-center">
           Founder Benefits
         </h3>
         <div className="flex flex-col gap-4">
@@ -22,7 +22,7 @@ function BenefitsCard() {
                 <div className="bg-[#4ab04a] rounded-full size-[20px] flex items-center justify-center flex-shrink-0">
                   <Check className="size-[14px] text-white flex-shrink-0" />
                 </div>
-                <p className="font-['Vazirmatn'] font-normal text-black text-[14px] leading-[22px]">
+                <p className="font-['Vazirmatn'] font-normal text-black md:text-[14px] !text-[16px] leading-[22px]">
                   {benefit}
                 </p>
               </div>

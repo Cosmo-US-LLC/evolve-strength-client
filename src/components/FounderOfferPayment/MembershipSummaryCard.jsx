@@ -25,17 +25,17 @@ function MembershipSummaryCard({ primaryMember }) {
               Founder Rate
             </p>
           </span>
-          <p className="font-['Kanit'] font-bold text-[#0a0a0a] text-[18px] leading-[normal]">
+          <p className="font-['Kanit'] font-bold text-[#0a0a0a] md:text-[18px] !text-[20px] leading-[normal]">
             Founder Membership
           </p>
         </div>
         <div className="flex items-end gap-1">
           <p className="font-['Kanit'] font-bold text-[#4ab04a] text-[24px] leading-[24px]">
-            $29.99
+           CA $149
           </p>
-          <p className="font-['Kanit'] font-normal text-[#4a5565] text-[14px] leading-[20px]">
+          {/* <p className="font-['Kanit'] font-normal text-[#4a5565] text-[14px] leading-[20px]">
             / bi-weekly
-          </p>
+          </p> */}
         </div>
       </div>
 
