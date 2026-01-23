@@ -7,7 +7,7 @@ function LocationCard() {
         <p className="font-['Vazirmatn'] font-light text-[#393939] text-[14px]">
           Your Membership at
         </p>
-        <p className="font-['Kanit'] font-bold text-black text-[24px] uppercase leading-[24px]">
+        <p className="font-['Kanit'] font-bold text-black text-[20px] md:text-[24px] uppercase leading-[24px]">
           South Edmonton Common
         </p>
       </div>

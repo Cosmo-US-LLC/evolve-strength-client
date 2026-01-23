@@ -121,6 +121,14 @@ function ProgressTracker({ currentStep = 0 }) {
           // Only show the active step
           if (status !== "active") return null;
 
+          // Map step.id (1, 2, 3) to display step number for "Step X/2"
+          // Step 1 (id: 1) → Don't show step number
+          // Step 2 (id: 2) → Step 1/2
+          // Step 3 (id: 3) → Step 2/2
+          const showStepNumber = step.id >= 2;
+          const displayStepNumber = step.id === 2 ? 1 : step.id === 3 ? 2 : null;
+          const totalSteps = 2;
+
           return (
             <div key={step.id} className="flex items-center gap-4">
               {/* Progress Circle Badge */}
@@ -161,18 +169,20 @@ function ProgressTracker({ currentStep = 0 }) {
                       fill="none"
                       stroke="#4ab04a"
                       strokeWidth="7"
-                      strokeDasharray="141.35 282.7"
+                      strokeDasharray={step.id === 3 ? "282.7 282.7" : "141.35 282.7"}
                       strokeLinecap="round"
                       className="transition-all duration-500"
                     />
                   )}
                 </svg>
-                {/* Text in center */}
-                <div className="absolute inset-0 flex items-center justify-center flex-col">
-                  <p className="font-['Vazirmatn'] font-[400] text-[10px] text-[#000] leading-none">
-                    Step {step.id}/4
-                  </p>
-                </div>
+                {/* Text in center - Only show for steps 1 and 2 */}
+                {showStepNumber && (
+                  <div className="absolute inset-0 flex items-center justify-center flex-col">
+                    <p className="font-['Vazirmatn'] font-[400] text-[10px] text-[#000] leading-none">
+                      Step {displayStepNumber}/{totalSteps}
+                    </p>
+                  </div>
+                )}
               </div>
 
               {/* Step Content */}
