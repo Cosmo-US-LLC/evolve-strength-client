@@ -23,11 +23,119 @@ const paramToStep = {
   "thank-you": 3,
 };
 
+const formatDobForSubmission = (dobValue) => {
+  const value = (dobValue || "").toString().trim();
+  if (!value) return "";
+
+  const ymd = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (ymd) {
+    return `${ymd[2]}/${ymd[3]}/${ymd[1]}`;
+  }
+
+  const ymdSlash = value.match(/^(\d{4})\/(\d{1,2})\/(\d{1,2})$/);
+  if (ymdSlash) {
+    const mm = ymdSlash[2].padStart(2, "0");
+    const dd = ymdSlash[3].padStart(2, "0");
+    return `${mm}/${dd}/${ymdSlash[1]}`;
+  }
+
+  const mdy = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2}|\d{4})$/);
+  if (mdy) {
+    const mm = mdy[1].padStart(2, "0");
+    const dd = mdy[2].padStart(2, "0");
+    const year = mdy[3].length === 2 ? `20${mdy[3]}` : mdy[3];
+    return `${mm}/${dd}/${year}`;
+  }
+
+  return value;
+};
+
+const provinceMap = {
+  Alberta: "AB",
+  "British Columbia": "BC",
+  Manitoba: "MB",
+  "New Brunswick": "NB",
+  Newfoundland: "NL",
+  "Northwest Territories": "NT",
+  "Nova Scotia": "NS",
+  Nunavut: "NU",
+  Ontario: "ON",
+  "Prince Edward Island": "PE",
+  Quebec: "QC",
+  Saskatchewan: "SK",
+  Yukon: "YT",
+};
+
+const normalizeProvince = (provinceValue) => {
+  const value = (provinceValue || "").toString().trim();
+  if (!value) return "";
+  if (value.length === 2) return value.toUpperCase();
+  return provinceMap[value] || value;
+};
+
+const PRIMARY_MEMBER_STORAGE_KEY = "founderOfferPayment.primaryMember.v1";
+
+const loadStoredPrimaryMember = () => {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = window.sessionStorage.getItem(PRIMARY_MEMBER_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" ? parsed : null;
+  } catch (error) {
+    console.warn("Failed to load saved member data.", error);
+    return null;
+  }
+};
+
+const persistPrimaryMember = (data) => {
+  if (typeof window === "undefined") return;
+  try {
+    window.sessionStorage.setItem(
+      PRIMARY_MEMBER_STORAGE_KEY,
+      JSON.stringify(data)
+    );
+  } catch (error) {
+    console.warn("Failed to persist member data.", error);
+  }
+};
+
+const clearStoredPrimaryMember = () => {
+  if (typeof window === "undefined") return;
+  try {
+    window.sessionStorage.removeItem(PRIMARY_MEMBER_STORAGE_KEY);
+  } catch (error) {
+    console.warn("Failed to clear saved member data.", error);
+  }
+};
+
+const isPrimaryMemberComplete = (primaryMember) => {
+  const requiredFields = [
+    "firstName",
+    "lastName",
+    "email",
+    "phone",
+    "address",
+    "province",
+    "city",
+    "postalCode",
+    "dob",
+    "gender",
+  ];
+
+  return requiredFields.every((field) => {
+    const value = primaryMember?.[field];
+    if (typeof value === "string") return value.trim().length > 0;
+    return Boolean(value);
+  });
+};
+
 function FounderOfferPayment() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const containerRef = useRef(null);
   const prevStepRef = useRef(1);
+  const storedPrimaryMemberRef = useRef(loadStoredPrimaryMember());
   
   // Initialize currentStep from URL param or default to 1
   const stepParam = searchParams.get("step");
@@ -36,25 +144,35 @@ function FounderOfferPayment() {
     stepFromUrl >= 1 && stepFromUrl <= 3 ? stepFromUrl : 1
   );
   
-  const [formData, setFormData] = useState({
-    primaryMember: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      address: "",
-      province: "",
-      city: "",
-      postalCode: "",
-      dob: "",
-      gender: "",
-    },
-    payment: {
-      cardNumber: "",
-      expiryDate: "",
-      cvv: "",
-    },
+  const [formData, setFormData] = useState(() => {
+    const storedPrimaryMember = storedPrimaryMemberRef.current || {};
+    return {
+      primaryMember: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        address: "",
+        province: "",
+        city: "",
+        postalCode: "",
+        dob: "",
+        gender: "",
+        ...storedPrimaryMember,
+      },
+      payment: {
+        cardNumber: "",
+        expiryDate: "",
+        cvv: "",
+        cardType: "",
+      },
+    };
   });
+  const [yearlyPlanDetails, setYearlyPlanDetails] = useState(null);
+  const [plansError, setPlansError] = useState("");
+  const [isPlansLoading, setIsPlansLoading] = useState(false);
+  const [paymentError, setPaymentError] = useState("");
+  const [isSubmittingPayment, setIsSubmittingPayment] = useState(false);
 
   const updateFormData = (step, data) => {
     setFormData((prev) => ({
@@ -62,6 +180,20 @@ function FounderOfferPayment() {
       [step]: { ...prev[step], ...data },
     }));
   };
+
+  useEffect(() => {
+    persistPrimaryMember(formData.primaryMember);
+  }, [formData.primaryMember]);
+
+  useEffect(() => {
+    if (currentStep <= 1) return;
+    if (isPrimaryMemberComplete(formData.primaryMember)) return;
+
+    setCurrentStep(1);
+    const stepParamName = stepToParam[1];
+    setSearchParams({ step: stepParamName });
+    window.history.replaceState({ step: 1 }, "", `?step=${stepParamName}`);
+  }, [currentStep, formData.primaryMember, setSearchParams]);
 
   // Update URL param when step changes via back button
   useEffect(() => {
@@ -121,7 +253,92 @@ function FounderOfferPayment() {
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
-  const makePayment = async ({ primaryMember, payment }) => {
+  const baseUrl = import.meta.env.VITE_APP_API_URL || "";
+  const locationPostal = "32176";
+
+  async function fetchClubPlans(locationPostal) {
+    try {
+      const response = await fetch(
+        `${baseUrl}/getClubInfo?location=${parseInt(locationPostal, 10)}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch club plans");
+      }
+      const { plans: data = [] } = await response.json();
+
+      const yearlyPlan = data.find((v) => v.planName?.includes("12"));
+      if (!yearlyPlan) throw new Error("12-month plan not found");
+
+      const monthlyPlan = data.find((v) => !v.planName?.includes("12"));
+      if (!monthlyPlan) throw new Error("No-contract plan not found");
+
+      return {
+        yearlyPlanId: yearlyPlan.planId,
+        monthlyPlanId: monthlyPlan.planId,
+      };
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
+
+async function fetchClubPlansDetails(id, locationPostal) {
+  try {
+    const response = await fetch(
+      `${baseUrl}/getPlanDetails?location=${parseInt(
+        locationPostal,
+        10
+      )}&planId=${id}`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch club plan details");
+    }
+    const res = await response.json();
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+  useEffect(() => {
+    let isActive = true;
+
+    const loadPlans = async () => {
+      if (!baseUrl) {
+        setPlansError("Missing VITE_APP_API_URL for plan lookup.");
+        return;
+      }
+      setIsPlansLoading(true);
+      setPlansError("");
+      try {
+        const planIds = await fetchClubPlans(locationPostal);
+        if (!planIds || !isActive) return;
+        const details = await fetchClubPlansDetails(
+          planIds.yearlyPlanId,
+          locationPostal
+        );
+        if (isActive) {
+          setYearlyPlanDetails(details || null);
+        }
+      } catch (error) {
+        if (isActive) {
+          setPlansError(error?.message || "Unable to load plans.");
+        }
+      } finally {
+        if (isActive) {
+          setIsPlansLoading(false);
+        }
+      }
+    };
+
+    loadPlans();
+
+    return () => {
+      isActive = false;
+    };
+  }, [baseUrl]);
+
+  const makePayment = async ({ primaryMember, payment }, planDetails) => {
     const selectPlan = "credit_debit"; // TODO: wire actual plan selection.
     const cardTypeMap = {
       visa: "visa",
@@ -129,13 +346,19 @@ function FounderOfferPayment() {
       amex: "americanexpress",
       discover: "discover",
     };
+    const allowedCardTypes = new Set([
+      "visa",
+      "discover",
+      "mastercard",
+      "americanexpress",
+    ]);
 
     const schedules = ["Dues"]; // TODO: include add-on schedules when available.
     const payload = {
-      paymentPlanId: "", // TODO: add selected plan id.
-      planValidationHash: "", // TODO: add plan validation hash.
-      campaignId: "", // TODO: add presale campaign id.
-      activePresale: "true",
+      paymentPlanId: planDetails?.paymentPlanId || "", // Required for payment.
+      planValidationHash: planDetails?.planValidationHash || "", // Required for payment.
+      campaignId: "730E227DC96B7F9EE05302E014ACD689",
+      activePresale: planDetails?.activePresale ? "true" : "false",
       sendAgreementEmail: "true",
       agreementContactInfo: {
         firstName: primaryMember.firstName || "",
@@ -146,14 +369,14 @@ function FounderOfferPayment() {
         homePhone: primaryMember.phone || "",
         cellPhone: primaryMember.phone || "",
         workPhone: "", // TODO: collect work phone if required.
-        birthday: primaryMember.dob || "",
+        birthday: formatDobForSubmission(primaryMember.dob),
         wellnessProgramId: "", // TODO: provide wellness program id if needed.
         barcode: "", // TODO: provide barcode if needed.
         agreementAddressInfo: {
           addressLine1: primaryMember.address || "",
           addressLine2: "", // TODO: add address line 2 if needed.
           city: primaryMember.city || "",
-          state: primaryMember.province || "",
+          state: normalizeProvince(primaryMember.province),
           country: "CA",
           zipCode: primaryMember.postalCode || "",
         },
@@ -177,12 +400,20 @@ function FounderOfferPayment() {
 
     if (selectPlan !== "direct_debit") {
       const sanitizedExpiry = (payment.expiryDate || "").replace(/\s+/g, "");
+      const cardNumberDigits = String(payment.cardNumber || "").replace(
+        /\D/g,
+        ""
+      );
       const [expMonthRaw, expYearRaw] = sanitizedExpiry.split("/");
       const expMonth = expMonthRaw ? parseInt(expMonthRaw, 10) : "00";
       const expYear = expYearRaw ? parseInt(`20${expYearRaw}`, 10) : "";
-      const creditCardType = payment.cardType
-        ? cardTypeMap[payment.cardType] || "unsupported"
-        : ""; // TODO: set card type from payment input meta.
+      const rawCardType = (
+        payment.cardType?.type || payment.cardType || ""
+      ).toString().toLowerCase();
+      const mappedCardType = cardTypeMap[rawCardType] || rawCardType;
+      const creditCardType = allowedCardTypes.has(mappedCardType)
+        ? mappedCardType
+        : "";
 
       payload.todayBillingInfo = {
         isTodayBillingSameAsDraft: "true",
@@ -194,7 +425,7 @@ function FounderOfferPayment() {
         creditCardFirstName: primaryMember.firstName || "",
         creditCardLastName: primaryMember.lastName || "",
         creditCardType,
-        creditCardAccountNumber: payment.cardNumber?.replace(/\s+/g, "") || "",
+        creditCardAccountNumber: cardNumberDigits,
         creditCardExpMonth: expMonth,
         creditCardExpYear: expYear,
       };
@@ -215,13 +446,11 @@ function FounderOfferPayment() {
       };
     }
 
-    const baseUrl = `${import.meta.env.VITE_APP_API_URL || ""}`;
     if (!baseUrl) {
       console.error("Missing VITE_APP_API_URL for payment submission.");
       return false;
     }
 
-    const locationPostal = ""; // TODO: provide location postal code for submitAgreement query.
     const locationParam = locationPostal ? parseInt(locationPostal, 10) : "";
 
     try {
@@ -249,46 +478,92 @@ function FounderOfferPayment() {
     }
   };
 
-  // const createPeople = async () => {
-  //   const userInfo = localStorage?.getItem("yourDetails");
-  //   try {
-  //     const baseUrl = `${import.meta.env.VITE_APP_API_URL}`;
-  //     const response = await fetch(`${baseUrl}/createPerson`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: userInfo,
-  //     });
+  const createPerson = async () => {
+    const userInfo = localStorage?.getItem("yourDetails");
+    if (!userInfo) {
+      console.error("Missing yourDetails in localStorage for createPerson.");
+      return false;
+    }
 
-  //     const res = await response.json();
-  //     const person = res?.people_create_response;
+    if (!baseUrl) {
+      console.error("Missing VITE_APP_API_URL for person creation.");
+      return false;
+    }
 
-  //     if (person?.id) {
-  //       // http://localhost:3000/success?date=1/1/25&plan=0&amount=36.74
-  //       localStorage?.removeItem("pricing");
-  //       localStorage?.setItem("date", format(new Date(), "M/d/yy"));
-  //       localStorage?.setItem("plan", currentPlan);
-  //       localStorage?.setItem(
-  //         "amount",
-  //         plansDetails?.length > 0 &&
-  //           sumDollarAmounts([
-  //             plansDetails[currentPlan]?.downPayments[0]?.total,
-  //             ...planAddons?.map((addon) => addon?.scheduleAmount),
-  //           ])
-  //       );
-  //       navigate(`/success`);
-  //     } else {
-  //       // setIsLoading(false);
-  //       console.warn("Person creation failed or missing ID.");
-  //       setIsLoading(false);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error creating person:", error.message);
-  //     setIsLoading(false);
-  //     // setIsLoading(false);
-  //   }
-  // };
+    try {
+      const response = await fetch(`${baseUrl}/createPerson`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: userInfo,
+      });
+
+      const res = await response.json();
+      const person = res?.people_create_response;
+
+      if (person?.id) {
+        return true;
+      }
+
+      console.warn("Person creation failed or missing ID.");
+      return false;
+    } catch (error) {
+      console.error("Error creating person:", error?.message || error);
+      return false;
+    }
+  };
+
+  const handlePaymentSubmit = async ({ cardNumber, expiryDate, cvv, cardType }) => {
+    if (!yearlyPlanDetails?.planId || !yearlyPlanDetails?.planValidation) {
+      setPaymentError(
+        plansError ||
+          (isPlansLoading
+            ? "Plans are still loading. Please try again shortly."
+            : "Unable to load plan details. Please refresh and try again.")
+      );
+      return false;
+    }
+
+    setIsSubmittingPayment(true);
+    setPaymentError("");
+
+    const paymentSuccess = await makePayment(
+      {
+        primaryMember: formData.primaryMember,
+        payment: {
+          cardNumber,
+          expiryDate,
+          cvv,
+          cardType,
+        },
+      },
+      {
+        paymentPlanId: yearlyPlanDetails.planId,
+        planValidationHash: yearlyPlanDetails.planValidation,
+        activePresale: yearlyPlanDetails.activePresale,
+      }
+    );
+
+    if (!paymentSuccess) {
+      setPaymentError("Payment failed. Please check your details and try again.");
+      setIsSubmittingPayment(false);
+      return false;
+    }
+
+    const personCreated = await createPerson();
+    if (!personCreated) {
+      setPaymentError(
+        "Payment succeeded, but we could not create your profile. Please contact support."
+      );
+      setIsSubmittingPayment(false);
+      return false;
+    }
+
+    clearStoredPrimaryMember();
+    setIsSubmittingPayment(false);
+    return true;
+  };
 
   // Scroll to top on mobile when step changes
   useEffect(() => {
@@ -336,6 +611,10 @@ function FounderOfferPayment() {
             onNext={handleNext}
             onBack={handleBack}
             primaryMember={formData.primaryMember}
+            onSubmitPayment={handlePaymentSubmit}
+            isSubmitting={isSubmittingPayment}
+            submitError={paymentError}
+            paymentAmount={yearlyPlanDetails?.scheduleTotalAmount || ""}
           />
         );
       case 3:
@@ -390,6 +669,7 @@ function FounderOfferPayment() {
                   {currentStep === 2 ? (
                     <MembershipSummaryCard
                       primaryMember={formData.primaryMember}
+                      paymentAmount={yearlyPlanDetails?.scheduleTotalAmount || ""}
                     />
                   ) : (
                     <div className="flex flex-col gap-4">

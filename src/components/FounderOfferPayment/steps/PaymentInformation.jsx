@@ -31,7 +31,17 @@ const formSchema = z.object({
   }),
 });
 
-function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryMember }) {
+function PaymentInformation({
+  formData,
+  updateFormData,
+  onNext,
+  onBack,
+  primaryMember,
+  onSubmitPayment,
+  isSubmitting,
+  submitError,
+  paymentAmount,
+}) {
   const {
     getCardNumberProps,
     getExpiryDateProps,
@@ -58,12 +68,13 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryM
         cardNumber: value.cardNumber,
         expiryDate: value.expiryDate,
         cvv: value.cvv,
+        cardType: meta.cardType?.type || "",
       });
     });
     return () => subscription.unsubscribe();
-  }, [form, updateFormData]);
+  }, [form, updateFormData, meta.cardType]);
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     let hasErrors = false;
 
     // 1. Check react-payment-inputs meta validation errors
@@ -157,7 +168,22 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryM
       cardNumber: values.cardNumber,
       expiryDate: values.expiryDate,
       cvv: values.cvv,
+      cardType: meta.cardType?.type || "",
     });
+
+    if (onSubmitPayment) {
+      const success = await onSubmitPayment({
+        cardNumber: values.cardNumber,
+        expiryDate: values.expiryDate,
+        cvv: values.cvv,
+        cardType: meta.cardType?.type || "",
+      });
+      if (success) {
+        onNext();
+      }
+      return;
+    }
+
     onNext();
   };
 
@@ -372,7 +398,10 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryM
 
           {/* Mobile MembershipSummaryCard - Above Navigation Buttons */}
           <div className="lg:hidden mt-2 md:mt-8 mb-6">
-            <MembershipSummaryCard primaryMember={primaryMember} />
+            <MembershipSummaryCard
+              primaryMember={primaryMember}
+              paymentAmount={paymentAmount}
+            />
           </div>
 
           {/* Navigation Buttons */}
@@ -385,9 +414,20 @@ function PaymentInformation({ formData, updateFormData, onNext, onBack, primaryM
               <ArrowLeft className="size-4" />
               Back
             </button>
-            <button type="submit" className="btnPrimary max-md:w-[100%]">
-              Complete Payment
-            </button>
+            <div className="flex flex-col items-end gap-2 w-full md:w-auto">
+              {submitError && (
+                <p className="text-[12px] md:text-[13px] text-red-600">
+                  {submitError}
+                </p>
+              )}
+              <button
+                type="submit"
+                className="btnPrimary max-md:w-[100%]"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Processing..." : "Complete Payment"}
+              </button>
+            </div>
           </div>
         </form>
       </Form>

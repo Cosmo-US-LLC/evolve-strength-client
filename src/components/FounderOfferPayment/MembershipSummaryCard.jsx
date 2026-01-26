@@ -1,7 +1,7 @@
 import React from "react";
 import { Calendar, MapPin, Users } from "lucide-react";
 
-function MembershipSummaryCard({ primaryMember }) {
+function MembershipSummaryCard({ primaryMember, paymentAmount }) {
   // Calculate 2 years from now for the guarantee date
   const getGuaranteeDate = () => {
     const date = new Date();
@@ -14,6 +14,17 @@ function MembershipSummaryCard({ primaryMember }) {
     primaryMember?.firstName && primaryMember?.lastName
       ? `${primaryMember.firstName} ${primaryMember.lastName}`
       : "Not provided";
+  const normalizedAmount =
+    typeof paymentAmount === "number"
+      ? paymentAmount.toFixed(2)
+      : (paymentAmount || "").toString().trim();
+  const displayAmount = normalizedAmount
+    ? /CA/i.test(normalizedAmount)
+      ? normalizedAmount
+      : normalizedAmount.startsWith("$")
+        ? `CA ${normalizedAmount}`
+        : `CA $${normalizedAmount}`
+    : "CA $149";
 
   return (
     <div className="bg-[#fcfcfc] border border-[#d4d4d4] rounded-[14px] px-6 py-4 flex flex-col gap-6">
@@ -31,7 +42,7 @@ function MembershipSummaryCard({ primaryMember }) {
         </div>
         <div className="flex items-end gap-1">
           <p className="font-['Kanit'] font-bold text-[#4ab04a] text-[24px] leading-[24px]">
-           CA $149
+           {displayAmount}
           </p>
           {/* <p className="font-['Kanit'] font-normal text-[#4a5565] text-[14px] leading-[20px]">
             / bi-weekly
