@@ -8,6 +8,7 @@ import FoundingMemberSavings from "@/components/PageComponents/PresaleEdmontonSo
 import WellnessRecoveryExperience from "@/components/PageComponents/PresaleEdmontonSouthCommon/WellnessRecoveryExperience";
 import BuiltBiggerEquippedBetter from "@/components/PageComponents/PresaleEdmontonSouthCommon/BuiltBiggerEquippedBetter";
 import RateLockCertificate from "@/components/PageComponents/PresaleEdmontonSouthCommon/RateLockCertificate";
+import GymZones from "@/components/PageComponents/PresaleEdmontonSouthCommon/GymZones";
 
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import PresaleTrustedEquipmentBrands from "@/components/PageComponents/PresaleEdmontonSouthCommon/PresaleTrustedEquipmentBrands";
@@ -21,7 +22,9 @@ function PresaleEdmontonSouthCommon() {
       <RateLockCertificate />
       <HowDepositWorks />
       {/* <FamilyHouseholdPackage /> */}
+      
       <WellnessRecoveryExperience />
+      <GymZones />
       <BuiltBiggerEquippedBetter />
       <PresaleTrustedEquipmentBrands />
       <PresaleFrequentlyAskedQuestions {...presaleEdmontonSouthCommonFAQs} />
