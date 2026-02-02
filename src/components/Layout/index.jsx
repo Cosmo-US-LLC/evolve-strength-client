@@ -16,11 +16,14 @@ function Layout() {
       <div className="">
         <Outlet />
       </div>
-      {!isPresalePage && (
+      <div className="">
+          <Footer />
+        </div>
+      {/* {!isPresalePage && (
         <div className="">
           <Footer />
         </div>
-      )}
+      )} */}
     </div>
   );
 }

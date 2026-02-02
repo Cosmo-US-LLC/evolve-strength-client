@@ -13,6 +13,7 @@ import GymZones from "@/components/PageComponents/PresaleEdmontonSouthCommon/Gym
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import PresaleTrustedEquipmentBrands from "@/components/PageComponents/PresaleEdmontonSouthCommon/PresaleTrustedEquipmentBrands";
 import PresaleFrequentlyAskedQuestions from "@/components/PageComponents/PresaleEdmontonSouthCommon/PresaleFrequentlyAskedQuestions";
+import UnmatchedAmenities from "@/components/PageComponents/PresaleEdmontonSouthCommon/UnmatchedAmenities";
 
 function PresaleEdmontonSouthCommon() {
   return (
@@ -20,15 +21,15 @@ function PresaleEdmontonSouthCommon() {
       <PresaleEdmontonSouthCommonHero />
       <FoundingMemberSavings />
       <RateLockCertificate />
-      <HowDepositWorks />
+      {/* <HowDepositWorks /> */}
       {/* <FamilyHouseholdPackage /> */}
-      
-      <WellnessRecoveryExperience />
       <GymZones />
       <BuiltBiggerEquippedBetter />
       <PresaleTrustedEquipmentBrands />
+      <UnmatchedAmenities />
+      <WellnessRecoveryExperience />
       <PresaleFrequentlyAskedQuestions {...presaleEdmontonSouthCommonFAQs} />
-      <Only247SpotsLeft />
+      {/* <Only247SpotsLeft /> */}
     </>
   );
 }

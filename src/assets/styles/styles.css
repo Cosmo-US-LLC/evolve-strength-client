@@ -24,7 +24,7 @@
 }
 
 .BuiltBiggerEquippedBetterBG {
-  background-image: url("/assets/images/presaleCommonSouth/buildBiggerImage.webp");
+  background-image: url("../images//PresaleEdmontonSouthCommon/built_bigger/BuiltBiggerEquippedDesktop.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -452,7 +452,7 @@
   }
 
   .BuiltBiggerEquippedBetterBG {
-    background-image: url("/assets/images/presaleCommonSouth/buildBiggerImageMob.webp");
+    background-image: url("../images/PresaleEdmontonSouthCommon/built_bigger/BuiltBiggerEquippedMobile.webp");
   }
   .trainerCallout {
     background-image: url("../../assets/images/home/TrainerCallout/trainer_callout_mob.webp");

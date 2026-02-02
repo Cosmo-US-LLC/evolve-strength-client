@@ -4,17 +4,15 @@ import { Link } from "react-router-dom";
 function BuiltBiggerEquippedBetter() {
   return (
     <section className="relative w-full h-[600px] md:h-[640px] BuiltBiggerEquippedBetterBG">
-      <div className="relative z-10 max-w-[1280px] mx-auto px-4 md:px-8 h-full flex items-end pb-8 md:pb-20">
-        <div className="flex flex-col gap-6 md:gap-8 max-w-[565px]">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-4 md:px-8 h-full flex items-end pb-8 md:pb-10">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8 max-w-[1000px] mx-auto bg-[#17171780] backdrop-blur-[5px] rounded-[12px] p-4 md:p-6">
           {/* Heading and Description */}
-          <div className="flex flex-col gap-4 md:gap-6">
-            <h2 className="uppercase md:!text-[40px] text-[#fff]">
-              Built Bigger. Equipped Better.
+          <div className="flex flex-col gap-4">
+            <h2 className="uppercase md:!text-[28px] !text-[24px] leading-[36px] md:leading-[28px] !font-[600] text-[#fff]">
+            Built Bigger. Equipped Better.
             </h2>
-            <p className="text-[14px] !font-[Kanit] md:text-[16px] leading-[20px] md:leading-[24px] font-[300] md:font-[400] text-white max-w-[542px]">
-              From the strength floor to the conditioning turf, move freely,
-              train efficiently, and push your limits in a space designed for
-              results.
+            <p className="text-[14px] !font-[Kanit] md:text-[16px] leading-[20px] md:leading-[24px] font-[300] md:font-[400] text-white max-w-[642px]">
+            Designed for those who demand more than sweat and guesswork. Our facility blends elite training spaces with data driven assessment, including DEXA scanning and medical services, to turn effort into precise, science backed results.
             </p>
           </div>
 
@@ -31,9 +29,9 @@ function BuiltBiggerEquippedBetter() {
                   Lock My Rate Now
                 </button>
               </Link>
-              <p className="text-[14px] md:!text-[14px] leading-[18px] md:leading-[20px] font-[400] font-[Kanit] text-white max-w-[185px] md:max-w-[165px]">
+              {/* <p className="text-[14px] md:!text-[14px] leading-[18px] md:leading-[20px] font-[400] font-[Kanit] text-white max-w-[185px] md:max-w-[165px]">
                 CA $149 deposit applies toward your membership
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
