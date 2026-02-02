@@ -174,34 +174,39 @@ export const LocationFaq = {
 };
 
 export const presaleEdmontonSouthCommonFAQs = {
-  heading: "FREQUENTLY ASKED QUESTIONS",
+  heading: "Frequently Asked Questions (FAQs)",
   subtext:
     "Got questions? We’ve got answers. Whether you're curious about memberships, services, or what to expect on your first visit",
   faqs: [
     {
-      question: "How do I pay for my membership?",
+      question: "When does billing actually start?",
       answer:
-        "You can pay online with a credit or debit card or set up a bank transfer for your membership fees.",
-    },
-    {
-      question: "Can I lock my membership rate?",
-      answer:
-        "Yes. You can pay a CA $149 deposit to secure your founding membership rate for life.",
-    },
-    {
-      question: "Is the deposit refundable?",
-      answer:
-        "Yes. The CA $149 deposit is refundable if you cancel at least 30 days before the gym opens.",
-    },
-    {
-      question: "What happens to the $149 deposit?",
-      answer:
-        "Your $149 deposit will be applied toward your first membership billing.",
+        "Billing starts two weeks after we open our doors. Your payment today locks in your rate and covers your first 2 weeks.",
     },
     {
       question: "What does my membership include?",
       answer:
-        "Your membership gives you access to all Evolve Strength locations, premium amenities, open training areas, and recovery facilities like sauna and steam rooms.",
+        "Your membership gives you access to all Evolve Strength locations, premium amenities, open training areas, and recovery facilities such as saunas.",
+    },
+    {
+      question: "Will I be protected from future rate increases?",
+      answer:
+        "Yes! Your founder rate is locked for life while your membership remains active.",
+    },
+    {
+      question: "What are the terms & conditions?",
+      answer:
+        "If you cancel, the founder rate will no longer be available. You can view the full terms here.",
+    },
+    {
+      question: "When does South Commons Open?",
+      answer:
+        "We are scheduled to be open in the Spring of 2026.",
+    },
+    {
+      question: "Can I use other Evolve locations before South Commons opens?",
+      answer:
+        "Membership access begins once the South Commons location officially opens. If you would like to train at another Evolve location before then, a temporary membership can be purchased for that period.",
     },
   ],
 };
