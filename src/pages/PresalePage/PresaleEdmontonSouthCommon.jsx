@@ -14,10 +14,16 @@ import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAske
 import PresaleTrustedEquipmentBrands from "@/components/PageComponents/PresaleEdmontonSouthCommon/PresaleTrustedEquipmentBrands";
 import PresaleFrequentlyAskedQuestions from "@/components/PageComponents/PresaleEdmontonSouthCommon/PresaleFrequentlyAskedQuestions";
 import UnmatchedAmenities from "@/components/PageComponents/PresaleEdmontonSouthCommon/UnmatchedAmenities";
+import MetaTags from "@/components/Metatags/Meta";
+import PresaleWellnwssServices from "@/components/PageComponents/PresaleEdmontonSouthCommon/PresaleWellnwssServices";
 
 function PresaleEdmontonSouthCommon() {
   return (
     <>
+    <MetaTags
+        title="Evolve Strength South Edmonton Common Gym | Sign Up Free"
+        description="Join the presale risk-free! Sign up with $0 down and pay nothing until we open. Not satisfied? Cancel within 10 days of opening for a full refund."
+      />
       <PresaleEdmontonSouthCommonHero />
       <FoundingMemberSavings />
       <RateLockCertificate />
@@ -27,7 +33,8 @@ function PresaleEdmontonSouthCommon() {
       <BuiltBiggerEquippedBetter />
       <PresaleTrustedEquipmentBrands />
       <UnmatchedAmenities />
-      <WellnessRecoveryExperience />
+      {/* <WellnessRecoveryExperience /> */}
+      <PresaleWellnwssServices />
       <PresaleFrequentlyAskedQuestions {...presaleEdmontonSouthCommonFAQs} />
       {/* <Only247SpotsLeft /> */}
     </>

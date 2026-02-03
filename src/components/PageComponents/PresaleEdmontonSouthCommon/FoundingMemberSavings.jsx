@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import icon1 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon2.svg";
-import icon2 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon1.svg";
+import icon1 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_1.svg";
+import icon2 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_2.svg";
+import icon3 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_3.svg";
+import icon4 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_4.svg";
 
 const LOCK_ICON = (
   <svg
@@ -30,11 +32,16 @@ function MembershipCardContent({
   priceSuffix,
   disclaimers1,
   disclaimers2,
+  disclaimers3,
+  disclaimers4,
   rateLockLabel,
   rateLockValue,
   rateLockNote,
   disclaimers1Icon,
   disclaimers2Icon,
+  disclaimers3Icon,
+  disclaimers4Icon,
+
 }) {
   return (
     <>
@@ -48,7 +55,7 @@ function MembershipCardContent({
         </div>
       </div>
 
-      <p className="text-white text-[16px] md:text-[18px] font-[400] font-[Kanit] leading-[20px]">
+      <p className="text-white text-[16px] md:text-[18px] font-[400] font-[Kanit] leading-[10px]">
         {contractTerm}
       </p>
       <p className="text-[28px] md:text-[40px] leading-[32px] md:leading-[48px] font-[500] font-[Kanit]">
@@ -79,9 +86,31 @@ function MembershipCardContent({
             {disclaimers2}
           </p>
         </div>
-      <div className="h-px w-full bg-white/30" aria-hidden />
+        <div className="flex items-center gap-2">
+          <img
+            src={disclaimers3Icon}
+            alt=""
+            className="w-4 h-4 md:w-5 md:h-5 shrink-0 object-contain"
+            aria-hidden
+          />
+          <p className="text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
+            {disclaimers3}
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          <img
+            src={disclaimers4Icon}
+            alt=""
+            className="w-4 h-4 md:w-5 md:h-5 shrink-0 object-contain"
+            aria-hidden
+          />
+          <p className="text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
+            {disclaimers4}
+          </p>
+        </div>
+      <div className="h-px w-full bg-white/30 my-4" aria-hidden />
       {/* Line 1: "Rate Locked For" - medium, normal weight */}
-      <p className="text-[16px] md:text-[18px] leading-[22px] font-[400] font-[Kanit] text-white">
+      <p className="text-[16px] md:text-[18px] leading-[22px] font-[400] font-[Kanit] text-white ">
         {rateLockLabel}
       </p>
       {/* Line 2: "Lifetime" / "24 Months" - large, bold; "(T&C Apply)" - small, same line to the right */}
@@ -93,7 +122,7 @@ function MembershipCardContent({
           {rateLockNote}
         </span>
       </p>
-      <Link to="/founder-offer-payment" className="inline-flex ">
+      <Link to="/founder-offer-payment" className="inline-flex pt-4">
         <button
           type="button"
           className="btnPrimary flex items-center gap-2 md:gap-[10px] !py-[14px] !px-[20px] uppercase text-[14px] md:text-[16px] font-semibold"
@@ -142,22 +171,26 @@ function FoundingMemberSavings() {
 
           <TabsContent value="yearly" className="w-full mt-0 outline-none">
             <div className="bg-[rgba(255,255,255,0.12)] backdrop-blur-[15px] rounded-[12px] w-full overflow-hidden flex flex-col md:flex-row p-4 md:p-6">
-              <div className="w-full md:max-w-[55%] md:flex-1 rounded-l-[12px] overflow-hidden shrink-0">
+              <div className="w-full md:max-w-[57%] md:flex-1 rounded-l-[12px] overflow-hidden shrink-0">
                 <img
                   src="/assets/images/presaleCommonSouth/FoundingMemberSavingsImage.webp"
                   alt="Gym members at Evolve Strength"
-                  className="w-full h-full min-h-[240px] md:min-h-[320px] object-cover object-center"
+                  className="w-full h-full min-h-[240px] md:min-h-[300px]"
                 />
               </div>
-              <div className="w-full md:flex-1 md:max-w-[45%] flex flex-col gap-4 md:gap-5 p-6 md:p-8 relative">
+              <div className="w-full md:flex-1 md:max-w-[43%] flex flex-col gap-4 md:gap-3 p-6 md:p-8 relative">
                 <MembershipCardContent
                   contractTerm="1 Year Contract"
                   price="$24.39"
-                  priceSuffix="+tax /biweekly"
+                  priceSuffix="+gst /biweekly"
                   disclaimers1="No Maintenance Fee"
                   disclaimers1Icon={icon1}
                   disclaimers2="No Initiation Fee"
                   disclaimers2Icon={icon2}
+                  disclaimers3="Train Risk-Free for 10 Days"
+                  disclaimers3Icon={icon3}
+                  disclaimers4="Zero Payments Until Opening Day"
+                  disclaimers4Icon={icon4}
                   rateLockLabel="Rate Locked For"
                   rateLockValue="Lifetime"
                   rateLockNote="(T&C Apply)"
@@ -168,24 +201,28 @@ function FoundingMemberSavings() {
 
           <TabsContent value="monthly" className="w-full mt-0 outline-none">
             <div className="bg-[rgba(255,255,255,0.12)] backdrop-blur-[15px] rounded-[12px] w-full overflow-hidden flex flex-col md:flex-row p-4 md:p-6">
-              <div className="w-full md:max-w-[55%] md:flex-1 rounded-l-[12px] overflow-hidden shrink-0">
+              <div className="w-full md:max-w-[57%] md:flex-1 rounded-l-[12px] overflow-hidden shrink-0">
                 <img
                   src="/assets/images/presaleCommonSouth/FoundingMemberSavingsImage.webp"
                   alt="Gym members at Evolve Strength"
-                  className="w-full h-full min-h-[240px] md:min-h-[300px] object-cover object-center"
+                  className="w-full h-full min-h-[240px] md:min-h-[300px]"
                 />
               </div>
-              <div className="w-full md:flex-1 md:max-w-[45%] flex flex-col gap-4 md:gap-5 p-6 md:p-8 relative">
+              <div className="w-full md:flex-1 md:max-w-[43%] flex flex-col gap-4 md:gap-3 p-6 md:p-8 relative">
                 <MembershipCardContent
                   contractTerm=""
-                  price="$29.99"
-                  priceSuffix="+tax /biweekly"
+                  price="$28.79"
+                  priceSuffix="+gst /monthly"
                   disclaimers1="No Maintenance Fee"
                   disclaimers1Icon={icon1}
                   disclaimers2="No Initiation Fee"           
                   disclaimers2Icon={icon2}
+                  disclaimers3="Train Risk-Free for 10 Days"
+                  disclaimers3Icon={icon3}
+                  disclaimers4="Zero Payments Until Opening Day"
+                  disclaimers4Icon={icon4}
                   rateLockLabel="Rate Locked For"
-                  rateLockValue="24 Months"
+                  rateLockValue="Lifetime"
                   rateLockNote="(T&C Apply)"
                 />
               </div>
