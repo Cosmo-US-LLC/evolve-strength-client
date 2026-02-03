@@ -14,27 +14,27 @@ const certificateBenefits = [
 const depositBenefits = [
   {
     icon: noUpfront,
-    title: "No Upfront Payments",
+    title: "1. Reserve Your Rate",
     description:
       "Reserve now, pay later, 10-day refund guarantee.",
   },
   {
     icon: "/assets/images/presaleCommonSouth/icon2.svg",
-    title: "Get Certificate",
+    title: "2. Get Certificate",
     description:
       "Receive your digital Rate Lock Certificate.",
   },
   {
     icon: "/assets/images/presaleCommonSouth/icon3.svg",
-    title: "VIP Access",
+    title: "3. VIP Access",
     description: "Enjoy exclusive early access before the gym opens.",
   },
-  // {
-  //   icon: "/assets/images/presaleCommonSouth/icon4.svg",
-  //   title: "No Deposit = No Guarantee",
-  //   description:
-  //     "Without a deposit, your rate is not guaranteed and prices may increase.",
-  // },
+  {
+    icon: "/assets/images/presaleCommonSouth/icon_4.svg",
+    title: "4. Grand Opening",
+    description:
+      "Your billing only starts when our doors open.",
+  },
 ];
 
 function RateLockCertificate() {

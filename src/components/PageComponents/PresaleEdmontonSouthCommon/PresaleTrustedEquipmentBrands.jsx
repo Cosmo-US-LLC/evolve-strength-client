@@ -149,7 +149,7 @@ function PresaleTrustedEquipmentBrands() {
       <div className="w-full flex flex-col items-center gap-8 md:gap-10">
         {/* Title - centered, uppercase, bold, black (Figma: OUR EQUIPMENT PARTNERS) */}
         <h2 className="text-[#000] text-center uppercase font-bold text-[28px] md:text-[36px] leading-tight tracking-tight px-4">
-          Our Equipment Partners
+        Equipped Without Compromise
         </h2>
 
         {/* Marquee - horizontal partner cards with logo overlay on background image */}
