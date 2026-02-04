@@ -234,7 +234,7 @@ function RateLockCertificate() {
                 No Initiation Fee
                   </p>
                 </div>
-                <div className="flex items-center flex-wrap w-full gap-2 max-w-[70px]">
+                <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[70px]">
                   <img
                     src={icon4}
                     alt="Icon"
