@@ -1,4 +1,11 @@
 import React, { useState, useEffect } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Plus, Minus } from "lucide-react";
 // Import images from presale folder
 import strengthZoneBg1 from "../../../assets/images/presale/gym_presale_1.webp";
 import strengthZoneBg2 from "../../../assets/images/presale/gym_presale_2.webp";
@@ -125,7 +132,6 @@ const GymZones = () => {
       <div className="hidden md:flex relative z-10 w-full flex-row justify-end items-end min-h-[700px]">
         {gymZones.map((zone, index) => {
           const isActive = hoveredIndex === index;
-          const isLast = index === gymZones.length - 1;
 
           return (
             <div
@@ -199,72 +205,70 @@ const GymZones = () => {
         })}
       </div>
 
-      {/* Mobile Layout - Vertical Stack */}
-      <div className="md:hidden relative z-10 w-full flex flex-col">
-        {gymZones.map((zone, index) => {
-          const isActive = hoveredIndex === index || (hoveredIndex === null && index === 0);
-
-          return (
-            <div
+      {/* Mobile Layout - Shadcn Accordion (Figma 13070-9405) */}
+      <div className="md:hidden relative z-10 w-full">
+        <Accordion
+          type="single"
+          collapsible
+          defaultValue="zone-0"
+          className="w-full "
+        >
+          {gymZones.map((zone, index) => (
+            <AccordionItem
               key={index}
-              onClick={() => setHoveredIndex(isActive ? null : index)}
-              className="relative w-full min-h-[200px] flex flex-col justify-center items-center p-6 cursor-pointer"
-              style={{
-                backgroundImage: `url("${zone.bgImage}")`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
+              value={`zone-${index}`}
+              className="group/zone border-b-0 border-0 overflow-hidden relative mt-4"
             >
-              {/* Overlay */}
-              {/* <div className="absolute inset-0 bg-black/50" /> */}
-              
-              {/* Content */}
-              <div className="relative z-10 flex flex-col items-center justify-center gap-3 w-full">
-                <div 
-                  className="flex justify-center p-[12px]"
-                  style={{
-                    width: "55px",
-                    height: "55px",
-                    borderRadius: "27.5px",
-                    background: "rgba(0, 0, 0, 0.45)",
-                    backdropFilter: "blur(6.300000190734863px)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <img
-                    src={zone.icon}
-                    alt={`${zone.title} icon`}
-                    className="w-10 h-10"
-                    style={{ filter: "brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%)" }}
-                  />
-                </div>
-                
-                <h3
-                  className="text-center !text-[18px] font-[kanit] leading-[22px] !font-[600] text-[#fff]"
-                >
-                  {zone.title}
-                </h3>
-
-                {isActive && zone.description && (
-                  <p
-                    className="leading-[20px] font-[kanit] font-[300] text-[16px] text-center text-[#fff] mt-1 px-4"
+              {/* Blur only when accordion is open (group-data-[state=open]) */}
+              <div
+                className="absolute inset-0 z-0 pointer-events-none transition-[filter] duration-300 group-data-[state=open]/zone:blur-[4px]"
+                style={{
+                  backgroundImage: `url("${zone.bgImage}")`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  transform: "scale(1.08)",
+                }}
+              />
+              {/* <div className="absolute inset-0 z-0 bg-black/50 pointer-events-none" /> */}
+              <AccordionTrigger className="relative z-10 min-h-[120px] w-full flex items-center gap-3 px-4 py-4 no-underline hover:no-underline focus:outline-none focus:ring-0 [&>svg]:hidden group">
+                <div className="flex items-center gap-3 w-full text-left">
+                  <div
+                    className="shrink-0 flex items-center justify-center w-[55px] h-[55px] rounded-full p-[12px]"
+                    style={{
+                      background: "rgba(0, 0, 0, 0.45)",
+                      backdropFilter: "blur(6.3px)",
+                    }}
                   >
-                    {zone.description}
-                  </p>
-                )}
-
-                <span
-                  className="!text-[18px] font-[kanit] leading-[108%] font-bold text-[#fff] mt-2"
-                >
-                  {zone.number}
-                </span>
-              </div>
-            </div>
-          );
-        })}
+                    <img
+                      src={zone.icon}
+                      alt=""
+                      className="w-10 h-10 object-contain"
+                      style={{
+                        filter:
+                          "brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%)",
+                      }}
+                    />
+                  </div>
+                  <h3 className="flex-1 text-[#fff] !text-[20px] font-[kanit] leading-[22px] font-[500]">
+                    {zone.title}
+                  </h3>
+                  <div
+                    className="shrink-0 w-8 h-8 rounded-full bg-black/60 flex items-center justify-center border border-white/20 relative"
+                    aria-hidden
+                  >
+                    <Plus className="w-4 h-4 text-white absolute inset-0 m-auto group-data-[state=open]:hidden" />
+                    <Minus className="w-4 h-4 text-white absolute inset-0 m-auto group-data-[state=closed]:hidden" />
+                  </div>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="relative z-10 px-6 pb-4 pt-0 bg-transparent">
+                <p className="text-[#fff] text-[16px] leading-[24px] font-[kanit] font-[300]">
+                  {zone.description}
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </div>
   );
