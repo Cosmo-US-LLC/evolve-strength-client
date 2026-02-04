@@ -165,7 +165,7 @@ function RateLockCertificate() {
           </div>
 
           {/* Right Side - Certificate Document */}
-          <div className="w-full max-w-full md:max-w-[700px] h-[320px] md:h-[442px] relative rounded-[12px] overflow-hidden bg-[#000000] flex-shrink-0 p-5 md:p-8 flex gap-3 flex-col">
+          <div className="w-full max-w-full md:max-w-[700px] h-[336px] md:h-[442px] relative rounded-[12px] overflow-hidden bg-[#000000] flex-shrink-0 p-5 md:p-8 flex gap-3 flex-col">
             <div className="">
               <img
                 src="../../../assets/images/home/navbar/Evolve-logo-light.svg"
@@ -188,7 +188,7 @@ function RateLockCertificate() {
               <p className="text-[16px] md:text-[22px] mb-2 font-[700] font-[Kanit] text-[#4ab04a] uppercase">
                 MEMBER NAME
               </p>
-              <p className="text-[8px] md:text-[14px] md:max-w-[380px] max-w-[230px] leading-[15px] md:leading-[18px] font-[300] font-[Kanit] text-[#ffffff]">
+              <p className="text-[10px] md:text-[14px] md:max-w-[380px] max-w-[230px] leading-[15px] md:leading-[18px] font-[300] font-[Kanit] text-[#ffffff]">
                 {/* This certifies that{" "}
                 <span className="font-[700]">[Member Name]</span> has secured
                 the exclusive Founder&apos;s Rate of{" "}

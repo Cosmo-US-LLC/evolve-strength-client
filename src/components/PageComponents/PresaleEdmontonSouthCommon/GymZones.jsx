@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 // Import images from presale folder
-import strengthZoneBg1 from "../../../assets/images/presale/gym_presale(5).webp";
-import strengthZoneBg2 from "../../../assets/images/presale/gym_presale (4).webp";
-import strengthZoneBg3 from "../../../assets/images/presale/gym_presale (3).webp";
-import strengthZoneBg4 from "../../../assets/images/presale/gym_presale (2).webp";
-import strengthZoneBg5 from "../../../assets/images/presale/gym_presale (1).webp";
+import strengthZoneBg1 from "../../../assets/images/presale/gym_presale_1.webp";
+import strengthZoneBg2 from "../../../assets/images/presale/gym_presale_2.webp";
+import strengthZoneBg3 from "../../../assets/images/presale/gym_presale_3.webp";
+import strengthZoneBg4 from "../../../assets/images/presale/gym_presale_4.webp";
+import strengthZoneBg5 from "../../../assets/images/presale/gym_presale_5.webp";
 // Import SVG icons from presale folder
-import icon1 from "../../../assets/images/presale/gym_presale_icon (1).svg";
-import icon2 from "../../../assets/images/presale/gym_presale_icon (2).svg";
-import icon3 from "../../../assets/images/presale/gym_presale_icon (3).svg";
-import icon4 from "../../../assets/images/presale/gym_presale_icon (4).svg";
+import icon1 from "../../../assets/images/presale/gym_presale_icon (4).svg";
+import icon2 from "../../../assets/images/presale/gym_presale_icon (3).svg";
+import icon3 from "../../../assets/images/presale/gym_presale_icon (2).svg";
+import icon4 from "../../../assets/images/presale/gym_presale_icon (1).svg";
 
 
 const gymZones = [
@@ -118,7 +118,7 @@ const GymZones = () => {
             opacity: imagesLoaded ? 1 : 0,
           }}
         />
-        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+        {/* <div className="absolute inset-0 bg-black/20 pointer-events-none" /> */}
       </div>
 
       {/* Desktop Layout */}
@@ -132,16 +132,15 @@ const GymZones = () => {
               key={index}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className={`flex-1 p-6 md:p-8 rounded-t-[5px] flex flex-col 
+              className={`flex-1 p-6 md:p-8 flex flex-col 
                 justify-end cursor-pointer relative group overflow-hidden 
-                transition-all duration-200 transform hover:scale-[1.03] 
-                hover:shadow-2xl min-h-[700px] ${
-                !isLast ? "border-r border-white/20" : ""
-              }`}
+                transition-all duration-200   min-h-[700px] 
+                
+              `}
             >
-              {!isActive && (
+              {/* {!isActive && (
                 <div className="absolute inset-0 z-0 bg-black/40 pointer-events-none" />
-              )}
+              )} */}
 
               <div className="relative z-10 flex max-h-[400px] flex-col justify-between h-full w-full">
                 <div className="flex flex-col justify-between gap-4 md:gap-6">
@@ -168,7 +167,7 @@ const GymZones = () => {
                     </div>
                     <h3
                       className={`text-center md:text-center 
-                        !text-[20px] md:!text-[24px] font-Kanit leading-[26px] 
+                        !text-[20px] md:!text-[24px] font-[kanit] leading-[26px] 
                         md:leading-[24px] !font-[600] text-[#fff]`}
                     >
                       {zone.title}
@@ -176,7 +175,7 @@ const GymZones = () => {
 
                     {isActive && zone.description && (
                       <p
-                        className="leading-[24px] !font-Kanit font-[300] md:leading-[26px] text-[14px]
+                        className="leading-[24px] font-[kanit] font-[300] md:leading-[26px] text-[14px]
                          md:text-[18px] text-center transition-all duration-200 
                          group-hover:translate-y-[-2px] text-[#fff] mt-2"
                       >
@@ -218,7 +217,7 @@ const GymZones = () => {
               }}
             >
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/50" />
+              {/* <div className="absolute inset-0 bg-black/50" /> */}
               
               {/* Content */}
               <div className="relative z-10 flex flex-col items-center justify-center gap-3 w-full">
@@ -244,21 +243,21 @@ const GymZones = () => {
                 </div>
                 
                 <h3
-                  className="text-center !text-[18px] font-Kanit leading-[22px] !font-[600] text-[#fff]"
+                  className="text-center !text-[18px] font-[kanit] leading-[22px] !font-[600] text-[#fff]"
                 >
                   {zone.title}
                 </h3>
 
                 {isActive && zone.description && (
                   <p
-                    className="leading-[20px] !font-Kanit font-[300] text-[14px] text-center text-[#fff] mt-1 px-4"
+                    className="leading-[20px] font-[kanit] font-[300] text-[16px] text-center text-[#fff] mt-1 px-4"
                   >
                     {zone.description}
                   </p>
                 )}
 
                 <span
-                  className="text-[18px] !font-Kanit leading-[108%] font-bold text-[#fff] mt-2"
+                  className="!text-[18px] font-[kanit] leading-[108%] font-bold text-[#fff] mt-2"
                 >
                   {zone.number}
                 </span>
