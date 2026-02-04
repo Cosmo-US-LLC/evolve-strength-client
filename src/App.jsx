@@ -48,6 +48,7 @@ import Gym from "./pages/Gym";
 import Discover from "./pages/Discover";
 import PresaleEdmontonSouthCommon from "./pages/PresalePage/PresaleEdmontonSouthCommon";
 import FounderOfferPayment from "./pages/FounderOfferPayment";
+import EdmontonSouthTermsAndConditions from "./pages/PresalePage/EdmontonSouthTermsAndConditions"
 
 function App() {
   return (
@@ -105,6 +106,10 @@ function App() {
           <Route
             path="/terms-and-conditions"
             element={<TermsAndConditions />}
+          />
+          <Route
+            path="/edmonton-south-terms-and-conditions"
+            element={<EdmontonSouthTermsAndConditions />}
           />
 
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
