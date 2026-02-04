@@ -6,10 +6,10 @@ import strengthZoneBg3 from "../../../assets/images/presale/gym_presale_3.webp";
 import strengthZoneBg4 from "../../../assets/images/presale/gym_presale_4.webp";
 import strengthZoneBg5 from "../../../assets/images/presale/gym_presale_5.webp";
 // Import SVG icons from presale folder
-import icon1 from "../../../assets/images/presale/gym_presale_icon (1).svg";
-import icon2 from "../../../assets/images/presale/gym_presale_icon (2).svg";
-import icon3 from "../../../assets/images/presale/gym_presale_icon (3).svg";
-import icon4 from "../../../assets/images/presale/gym_presale_icon (4).svg";
+import icon1 from "../../../assets/images/presale/gym_presale_icon (4).svg";
+import icon2 from "../../../assets/images/presale/gym_presale_icon (3).svg";
+import icon3 from "../../../assets/images/presale/gym_presale_icon (2).svg";
+import icon4 from "../../../assets/images/presale/gym_presale_icon (1).svg";
 
 
 const gymZones = [
