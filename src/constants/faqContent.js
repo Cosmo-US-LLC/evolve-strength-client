@@ -181,7 +181,7 @@ export const presaleEdmontonSouthCommonFAQs = {
     {
       question: "When does billing actually start?",
       answer:
-        "Billing starts the day we open our doors. Your payment today locks in your rate and covers your first 2 weeks.",
+        "Billing begins on the day we officially open our doors. Your payment today locks in your rate and covers your first 2 weeks.",
     },
     {
       question: "What does my membership include?",
