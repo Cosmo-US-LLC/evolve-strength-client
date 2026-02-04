@@ -160,7 +160,7 @@ function MembershipCardContent({
         </button>
       </Link>
       <p className="flex justify-center md:justify-start text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
-        Limited to 500 Members Only
+        Limited to 500 Members
       </p>
     </>
   );
