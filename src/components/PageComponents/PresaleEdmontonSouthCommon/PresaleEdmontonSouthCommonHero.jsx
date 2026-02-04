@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function PresaleEdmontonSouthCommonHero() {
   return (
     <div>
-      <div className="relative overflow-hidden w-full h-[96vh] md:h-[100vh]">
+      <div className="relative overflow-hidden w-full h-[96vh] md:h-[100vh] bg-[#000000]">
         <video
           autoPlay
           muted
@@ -52,7 +52,7 @@ function PresaleEdmontonSouthCommonHero() {
                   Lock My Rate Now
                 </button>
               </Link>
-              <p className="text-[#FFFFFF] !text-[14px] !font-[400] !font-[Kanit] leading-[24px] md:leading-[24px]  max-w-[250px] md:max-w-[190px]">
+              <p className="text-[#FFFFFF] !text-[16px] !font-[400] !font-[Kanit] leading-[24px] md:leading-[24px]  max-w-[250px] md:max-w-[190px]">
               Limited to 500 Members
               </p>
             </div>

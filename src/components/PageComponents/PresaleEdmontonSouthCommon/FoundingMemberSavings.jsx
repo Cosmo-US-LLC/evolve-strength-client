@@ -5,6 +5,7 @@ import icon1 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_1.sv
 import icon2 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_2.svg";
 import icon3 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_3.svg";
 import icon4 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_4.svg";
+import icon5 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_5.svg";
 
 const LOCK_ICON = (
   <svg
@@ -30,10 +31,12 @@ function MembershipCardContent({
   contractTerm,
   price,
   priceSuffix,
+  priceBiWeeklyCopy,
   disclaimers1,
   disclaimers2,
   disclaimers3,
   disclaimers4,
+  disclaimers5,
   rateLockLabel,
   rateLockValue,
   rateLockNote,
@@ -41,12 +44,13 @@ function MembershipCardContent({
   disclaimers2Icon,
   disclaimers3Icon,
   disclaimers4Icon,
+  disclaimers5Icon,
 
 }) {
   return (
     <>
       {/* Limited ribbon - diagonal green, top-right (Figma) */}
-      <div className="absolute top-[-5%] right-[-4%] z-10 overflow-hidden w-28 h-28 hidden md:block">
+      <div className="absolute top-[-5%] right-[-4%] z-10 overflow-hidden w-28 h-28 max-md:hidden ">
         <div
           className="absolute bg-[#4ab04a] text-white font-[500] font-[Kanit] text-[12px] md:text-[24px] capitalize tracking-wide flex items-center justify-center w-[150%] h-8 left-[-15%] top-[25%] rotate-45 shadow-md"
           aria-hidden
@@ -55,20 +59,32 @@ function MembershipCardContent({
         </div>
       </div>
 
-      <p className="text-white text-[16px] md:text-[18px] font-[400] font-[Kanit] leading-[10px]">
+      <div className="absolute top-[-53%] right-[-7%] z-10 overflow-hidden w-18 h-18 md:hidden">
+        <div
+          className="absolute bg-[#4ab04a] text-white font-[400] font-[Kanit] text-[12px] capitalize tracking-wide flex items-center justify-center w-[150%] h-6 left-[-15%] top-[25%] rotate-45 shadow-md"
+          aria-hidden
+        >
+          Limited
+        </div>
+      </div>
+
+      <p className="text-white text-[16px] md:text-[18px] text-center md:text-start font-[400] font-[Kanit] leading-[10px]">
         {contractTerm}
       </p>
-      <p className="text-[28px] md:text-[40px] leading-[32px] md:leading-[48px] font-[500] font-[Kanit]">
+      <p className="text-[40px] md:text-[60px] leading-[32px] md:leading-[48px] text-center md:text-start font-[500] font-[Kanit]">
         <span className="text-[#4ab04a]">{price}</span>
-        <span className="text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90 ml-1">
+        
+        <span className="text-[14px] md:text-[16px] leading-[6px] font-[500] font-[Kanit] text-[#4ab04a] ml-1">
           {priceSuffix}
         </span>
+        <span className="text-[#ffffff] text-[14px] md:text-[16px] leading-[17px] font-[400] font-[Kanit] ml-1">{priceBiWeeklyCopy}</span>
       </p>
-        <div className="flex items-center gap-2">
+      <div className="flex flex-col gap-3 md:gap-3 px-6 md:px-0  w-full">
+        <div className="flex items-center gap-2 w-full">
           <img
             src={disclaimers1Icon}
             alt=""
-            className="w-4 h-4 md:w-5 md:h-5 shrink-0 object-contain"
+            className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
             aria-hidden
           />
           <p className="text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
@@ -79,7 +95,7 @@ function MembershipCardContent({
           <img
             src={disclaimers2Icon}
             alt=""
-            className="w-4 h-4 md:w-5 md:h-5 shrink-0 object-contain"
+            className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
             aria-hidden
           />
           <p className="text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
@@ -90,7 +106,7 @@ function MembershipCardContent({
           <img
             src={disclaimers3Icon}
             alt=""
-            className="w-4 h-4 md:w-5 md:h-5 shrink-0 object-contain"
+            className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
             aria-hidden
           />
           <p className="text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
@@ -101,28 +117,40 @@ function MembershipCardContent({
           <img
             src={disclaimers4Icon}
             alt=""
-            className="w-4 h-4 md:w-5 md:h-5 shrink-0 object-contain"
+            className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
             aria-hidden
           />
           <p className="text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
             {disclaimers4}
           </p>
         </div>
-      <div className="h-px w-full bg-white/30 my-4" aria-hidden />
+        <div className="flex items-center gap-2">
+          <img
+            src={disclaimers5Icon}
+            alt=""
+            className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
+            aria-hidden
+          />
+          <p className="text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
+            {disclaimers5}
+          </p>
+        </div>
+        </div>
+      <div className="h-px w-full bg-white/30 my-3" aria-hidden />
       {/* Line 1: "Rate Locked For" - medium, normal weight */}
-      <p className="text-[16px] md:text-[18px] leading-[22px] font-[400] font-[Kanit] text-white ">
+      <p className="text-[16px] md:text-[18px] text-center md:text-start leading-[22px] font-[400] font-[Kanit] text-white ">
         {rateLockLabel}
       </p>
       {/* Line 2: "Lifetime" / "24 Months" - large, bold; "(T&C Apply)" - small, same line to the right */}
-      <p className="flex items-baseline gap-1.5 flex-wrap">
-        <span className="text-[24px] md:text-[40px] leading-[28px] md:leading-[17px] font-[500] md:font-[500] font-[Kanit] text-white">
+      <p className="flex items-baseline gap-1.5 flex-wrap justify-center md:justify-start">
+        <span className="text-[32px] md:text-[40px] leading-[12px] md:leading-[17px] font-[500] md:font-[500] font-[Kanit] text-white">
           {rateLockValue}
         </span>
-        <span className="text-[12px] md:text-[14px] text-white/80 font-[400] font-[Kanit]">
+        <span className="text-[14px] md:text-[14px] text-white/80 font-[400] font-[Kanit]">
           {rateLockNote}
         </span>
       </p>
-      <Link to="/founder-offer-payment" className="inline-flex pt-4">
+      <Link to="/founder-offer-payment" className="inline-flex pt-3 justify-center md:justify-start">
         <button
           type="button"
           className="btnPrimary flex items-center gap-2 md:gap-[10px] !py-[14px] !px-[20px] uppercase text-[14px] md:text-[16px] font-semibold"
@@ -131,7 +159,7 @@ function MembershipCardContent({
           Lock My Rate Now
         </button>
       </Link>
-      <p className="text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
+      <p className="flex justify-center md:justify-start text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
         Limited to 500 Members Only
       </p>
     </>
@@ -178,11 +206,12 @@ function FoundingMemberSavings() {
                   className="w-full h-full min-h-[240px] md:min-h-[300px]"
                 />
               </div>
-              <div className="w-full md:flex-1 md:max-w-[43%] flex flex-col gap-4 md:gap-3 p-6 md:p-8 relative">
+              <div className="w-full md:flex-1 md:max-w-[43%] flex flex-col gap-4 md:gap-4 px-0 py-6 md:py-4 md:px-8 relative">
                 <MembershipCardContent
                   contractTerm="1 Year Contract"
                   price="$24.39"
-                  priceSuffix="+gst /biweekly"
+                  priceSuffix="+GST"
+                  priceBiWeeklyCopy="/biweekly"
                   disclaimers1="No Maintenance Fee"
                   disclaimers1Icon={icon1}
                   disclaimers2="No Initiation Fee"
@@ -191,6 +220,8 @@ function FoundingMemberSavings() {
                   disclaimers3Icon={icon3}
                   disclaimers4="Zero Payments Until Opening Day"
                   disclaimers4Icon={icon4}
+                  disclaimers5="Early access before we officially open"
+                  disclaimers5Icon={icon5}
                   rateLockLabel="Rate Locked For"
                   rateLockValue="Lifetime"
                   rateLockNote="(T&C Apply)"
@@ -208,11 +239,12 @@ function FoundingMemberSavings() {
                   className="w-full h-full min-h-[240px] md:min-h-[300px]"
                 />
               </div>
-              <div className="w-full md:flex-1 md:max-w-[43%] flex flex-col gap-4 md:gap-3 p-6 md:p-8 relative">
+              <div className="w-full md:flex-1 md:max-w-[43%] flex flex-col gap-4 md:gap-4 px-0 py-6 md:px-8 md:py-4 relative">
                 <MembershipCardContent
-                  contractTerm=""
+                  contractTerm="Month-to-Month"
                   price="$28.79"
-                  priceSuffix="+gst /monthly"
+                  priceSuffix="+GST"
+                  priceBiWeeklyCopy="/biweekly"
                   disclaimers1="No Maintenance Fee"
                   disclaimers1Icon={icon1}
                   disclaimers2="No Initiation Fee"           
@@ -221,6 +253,8 @@ function FoundingMemberSavings() {
                   disclaimers3Icon={icon3}
                   disclaimers4="Zero Payments Until Opening Day"
                   disclaimers4Icon={icon4}
+                  disclaimers5="Early access before we officially open"
+                  disclaimers5Icon={icon5}
                   rateLockLabel="Rate Locked For"
                   rateLockValue="Lifetime"
                   rateLockNote="(T&C Apply)"
