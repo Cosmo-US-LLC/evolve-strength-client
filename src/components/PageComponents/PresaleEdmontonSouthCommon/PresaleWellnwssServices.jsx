@@ -99,8 +99,8 @@ const PresaleWellnwssServices = () => {
             <h2 className="uppercase text-[#ffffff] max-w-[420px]">
                 a complete wellness recovery experience
             </h2>
-            <h4 className="md:!text-[20px] leading-[20px] text-[#ffffff] max-w-[420px]">
-            You put your body to work, we help you take care of it., recover faster, and stay injury-free. Recharge yourself with our full range of services (additional charges may apply).
+            <h4 className="text-[18px] md:!text-[18px] leading-[20px] text-[#ffffff] max-w-[420px]">
+            You put your body to work, we help you take care of it, recover faster, and stay injury-free. Recharge yourself with our full range of services (additional charges may apply).
             </h4>
             <div className="flex gap-2 justify-start w-full">
           <Link to="/founder-offer-payment">
@@ -147,7 +147,7 @@ const PresaleWellnwssServices = () => {
                   <div className="mb-2 text-[16px] font-[kanit] font-[500] leading-[16px] uppercase">
                     <img src={service.icon} alt="" />
                   </div>
-                  <div className="text-[16px] font-kanit font-[500] leading-[20px] uppercase text-[#fff] text-center px-[12px]">
+                  <div className="text-[16px] font-[kanit] font-[500] leading-[20px] uppercase text-[#fff] text-center px-[12px]">
                     {service.title}
                   </div>
 
@@ -183,11 +183,10 @@ const PresaleWellnwssServices = () => {
 
         <div className="relative z-10 flex flex-col items-center w-full  gap-4">
           <h2 className="uppercase text-[#ffffff] font-bold">
-            Premium Wellness & Personal Training
+          a complete wellness recovery experience
           </h2>
           <h4 className=" leading-[20px] text-[#ffffff] ">
-            Boost your fitness with our add-on services (not included in
-            membership)
+          You put your body to work, we help you take care of it, recover faster, and stay injury-free. Recharge yourself with our full range of services (additional charges may apply).
           </h4>
           <div className="flex gap-2 justify-start w-full">
           <Link to="/founder-offer-payment">
@@ -244,7 +243,7 @@ const PresaleWellnwssServices = () => {
                         >
                           <img src={service.icon} alt="" />
                         </div>
-                        <div className="text-[14px] font-kanit font-[400] leading-[20px] uppercase text-[#fff] text-center">
+                        <div className="text-[14px] font-[kanit] font-[400] leading-[20px] uppercase text-[#fff] text-center">
                           {service.title}
                         </div>
                       </div>

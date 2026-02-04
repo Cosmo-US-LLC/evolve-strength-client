@@ -196,7 +196,7 @@ export const presaleEdmontonSouthCommonFAQs = {
     {
       question: "What are the terms & conditions?",
       answer:
-        "If you cancel, the founder rate will no longer be available. You can view the full terms here.",
+        "If you cancel, the founder rate will no longer be available. You can view the full terms <a href='/edmonton-south-terms-and-conditions' class='text-[#4AB04A] cursor-pointer underline'>here</a>.",
     },
     {
       question: "When does South Commons Open?",
