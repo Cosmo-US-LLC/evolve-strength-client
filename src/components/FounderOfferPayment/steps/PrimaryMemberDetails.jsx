@@ -628,20 +628,27 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
               control={form.control}
               name="dob"
               render={({ field }) => (
-                <FormItem className="flex-1">
-                  <FormControl>
-                    <Input
-                      {...field}
-                      type="date"
-                      min={dobLimits.min}
-                      max={dobLimits.max}
-                      placeholder="DOB"
-                      className={`${
-                        form.formState.errors.dob
-                          ? "border-red-500"
-                          : "border-[#d4d4d4]"
-                      } text-black! text-base! cursor-pointer w-full h-full`}
-                    />
+                <FormItem className="flex-1 relative">
+                  <FormControl className="w-full">
+                    <div className="relative w-full">
+                      {!field.value && (
+                        <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-base">
+                          DOB
+                        </span>
+                      )}
+                      <Input
+                        {...field}
+                        type="date"
+                        min={dobLimits.min}
+                        max={dobLimits.max}
+                        placeholder="DOB"
+                        className={`${
+                          form.formState.errors.dob
+                            ? "border-red-500"
+                            : "border-[#d4d4d4]"
+                        } text-black! text-base! cursor-pointer w-full h-full`}
+                      />
+                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>

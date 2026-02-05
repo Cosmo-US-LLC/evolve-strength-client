@@ -758,7 +758,7 @@ function FounderOfferPayment() {
   };
 
   return (
-    <div className="h-screen bg-white flex flex-col md:overflow-hidden ">
+    <div className={`h-screen bg-white flex flex-col md:overflow-hidden ${isSuccessModalOpen && 'overflow-hidden'}`}>
       <FormsHeader />
       <div className="flex-1 pt-14 md:pt-16 md:overflow-hidden">
         {/* <div ref={containerRef} className="max-w-[1280px] h-full mx-auto px-0 md:px-8 py-0 md:py-8 flex flex-col"> */}
