@@ -557,6 +557,8 @@ function FounderOfferPayment() {
   };
 
   const handlePaymentSubmit = async ({ cardNumber, expiryDate, cvv, cardType }) => {
+    // console.log(selectedPlanDetails)
+    // return true;
     if (!selectedPlanDetails?.planId || !selectedPlanDetails?.planValidation) {
       setPaymentError(
         plansError ||
@@ -696,7 +698,7 @@ function FounderOfferPayment() {
       <FormsHeader />
       <div className="flex-1 pt-14 md:pt-16 md:overflow-hidden">
         {/* <div ref={containerRef} className="max-w-[1280px] h-full mx-auto px-0 md:px-8 py-0 md:py-8 flex flex-col"> */}
-        <div ref={containerRef} className="max-w-[1440px] h-full mx-auto px-0 md:px-8 py-0 md:py-8 flex flex-col">
+        <div ref={containerRef} className="max-w-[1440px] h-full mx-auto px-0 md:px-8 py-0 md:pt-8 flex flex-col">
           {/* Mobile Progress Tracker - Top */}
           {currentStep !== 3 && (
             <div className="lg:hidden mb-6 pb-0 max-md:px-0 md:border-b md:border-[#d4d4d4] flex-shrink-0">
@@ -736,7 +738,7 @@ function FounderOfferPayment() {
                     />
                   ) : (
                     <div className="flex flex-col gap-4">
-                      <LocationCard />
+                      <LocationCard dueToday={selectedPlanDetails?.downPaymentTotalAmount || "$--.--"} />
                       <BenefitsCard />
                     </div>
                   )}
