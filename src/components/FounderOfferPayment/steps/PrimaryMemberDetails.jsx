@@ -46,19 +46,19 @@ const getDobLimits = () => {
   const maxDate = new Date(
     today.getFullYear() - 18,
     today.getMonth(),
-    today.getDate()
+    today.getDate(),
   );
 
   // Min: today minus 120 years
   const minDate = new Date(
     today.getFullYear() - 120,
     today.getMonth(),
-    today.getDate()
+    today.getDate(),
   );
 
   const toInputDate = (d) =>
     `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(
-      d.getDate()
+      d.getDate(),
     ).padStart(2, "0")}`;
 
   return {
@@ -75,7 +75,7 @@ const formSchema = z.object({
     .max(50, "First name must be less than 50 characters")
     .regex(
       /^[a-zA-Z\s'-]+$/,
-      "First name can only contain letters, spaces, hyphens, and apostrophes"
+      "First name can only contain letters, spaces, hyphens, and apostrophes",
     ),
   lastName: z
     .string()
@@ -83,7 +83,7 @@ const formSchema = z.object({
     .max(50, "Last name must be less than 50 characters")
     .regex(
       /^[a-zA-Z\s'-]+$/,
-      "Last name can only contain letters, spaces, hyphens, and apostrophes"
+      "Last name can only contain letters, spaces, hyphens, and apostrophes",
     ),
   email: z
     .string()
@@ -93,14 +93,11 @@ const formSchema = z.object({
   phone: z
     .string()
     .min(1, "Phone number is required.")
-    .refine(
-      (val) => {
-        // Allow common formats but require exactly 10 digits total
-        const digitsOnly = (val || "").replace(/\D/g, "");
-        return digitsOnly.length === 10;
-      },
-      "Please enter a valid 10-digit phone number"
-    ),
+    .refine((val) => {
+      // Allow common formats but require exactly 10 digits total
+      const digitsOnly = (val || "").replace(/\D/g, "");
+      return digitsOnly.length === 10;
+    }, "Please enter a valid 10-digit phone number"),
   address: z
     .string()
     .min(5, "Address must be at least 5 characters")
@@ -112,7 +109,7 @@ const formSchema = z.object({
     .max(100, "City must be less than 100 characters")
     .regex(
       /^[a-zA-Z\s-]+$/,
-      "City can only contain letters, spaces, and hyphens"
+      "City can only contain letters, spaces, and hyphens",
     ),
   postalCode: z
     .string()
@@ -120,9 +117,9 @@ const formSchema = z.object({
     .refine(
       (value) =>
         /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z] ?\d[ABCEGHJ-NPRSTV-Z]\d$/i.test(
-          value ?? ""
+          value ?? "",
         ),
-      "Please enter a valid Canadian postal code (e.g., A1A 1A1)"
+      "Please enter a valid Canadian postal code (e.g., A1A 1A1)",
     ),
   dob: z
     .string()
@@ -157,17 +154,21 @@ const formSchema = z.object({
         if (age < 18) return "You must be at least 18 years old";
         if (age >= 120) return "Please enter a valid date of birth";
         return "Invalid date of birth";
-      }
+      },
     ),
   gender: z.string().min(1, "Gender is required."),
 });
 
 function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
   const [showGenderDropdown, setShowGenderDropdown] = useState(false);
-  const [autocompleteInitializedForAddress, setAutocompleteInitializedForAddress] =
-    useState(false);
-  const [autocompleteInitializedForPostal, setAutocompleteInitializedForPostal] =
-    useState(false);
+  const [
+    autocompleteInitializedForAddress,
+    setAutocompleteInitializedForAddress,
+  ] = useState(false);
+  const [
+    autocompleteInitializedForPostal,
+    setAutocompleteInitializedForPostal,
+  ] = useState(false);
   const dropdownRef = useRef(null);
   const addressRef = useRef(null);
   const postalCodeRef = useRef(null);
@@ -227,22 +228,22 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
     if (!autocompleteInitializedForAddress && addressRef.current) {
       try {
         const apiKey = import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY;
-        
+
         // Debug: Log all env variables (remove in production)
         console.log("Environment variables:", {
           hasKey: !!apiKey,
           keyValue: apiKey,
           allEnv: import.meta.env,
         });
-        
+
         if (!apiKey || apiKey === "undefined") {
           console.error(
-            "Google Maps API key is missing. Please ensure VITE_APP_GOOGLE_MAPS_API_KEY is set in your .env file and restart your dev server."
+            "Google Maps API key is missing. Please ensure VITE_APP_GOOGLE_MAPS_API_KEY is set in your .env file and restart your dev server.",
           );
           console.error("Available env vars:", Object.keys(import.meta.env));
           return;
         }
-        
+
         const google = await loadGoogleMaps(apiKey);
 
         const autocomplete = new google.maps.places.Autocomplete(
@@ -250,7 +251,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
           {
             types: ["address"],
             componentRestrictions: { country: "ca" },
-          }
+          },
         );
 
         autocomplete.setFields(["formatted_address", "address_components"]);
@@ -273,7 +274,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
               if (component.types.includes("route")) {
                 if (shortAddress) {
                   shortAddress = cleanString(
-                    `${shortAddress} ${component.long_name}`
+                    `${shortAddress} ${component.long_name}`,
                   );
                 } else {
                   shortAddress = cleanString(component.long_name);
@@ -298,7 +299,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
             const cleanedAddress = formatAddress(place.formatted_address);
             form.setValue("address", cleanedAddress, { shouldValidate: true });
           }
-          
+
           if (postalCode) {
             form.setValue("postalCode", postalCode, { shouldValidate: true });
           }
@@ -322,14 +323,14 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
     if (!autocompleteInitializedForPostal && postalCodeRef.current) {
       try {
         const apiKey = import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY;
-        
+
         if (!apiKey || apiKey === "undefined") {
           console.error(
-            "Google Maps API key is missing. Please ensure VITE_APP_GOOGLE_MAPS_API_KEY is set in your .env file and restart your dev server."
+            "Google Maps API key is missing. Please ensure VITE_APP_GOOGLE_MAPS_API_KEY is set in your .env file and restart your dev server.",
           );
           return;
         }
-        
+
         const google = await loadGoogleMaps(apiKey);
 
         const autocomplete = new google.maps.places.Autocomplete(
@@ -337,7 +338,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
           {
             types: ["(regions)"],
             componentRestrictions: { country: "ca" },
-          }
+          },
         );
 
         autocomplete.setFields([
@@ -364,7 +365,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
               if (component.types.includes("route")) {
                 if (shortAddress) {
                   shortAddress = cleanString(
-                    `${shortAddress} ${component.long_name}`
+                    `${shortAddress} ${component.long_name}`,
                   );
                 } else {
                   shortAddress = cleanString(component.long_name);
@@ -392,7 +393,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
           if (city) {
             form.setValue("city", city, { shouldValidate: true });
           }
-          
+
           // Update address if we have street information
           if (shortAddress) {
             form.setValue("address", shortAddress, { shouldValidate: true });
@@ -432,7 +433,10 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
       </div>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-3">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="flex flex-col gap-3"
+        >
           {/* First Name & Last Name */}
           <div className="flex gap-4">
             <FormField
@@ -444,11 +448,11 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                     <Input
                       {...field}
                       placeholder="First Name"
-                      className={
+                      className={`${
                         form.formState.errors.firstName
                           ? "border-red-500"
                           : "border-[#d4d4d4]"
-                      }
+                      } text-black! text-base!`}
                     />
                   </FormControl>
                   <FormMessage />
@@ -464,11 +468,11 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                     <Input
                       {...field}
                       placeholder="Last Name"
-                      className={
+                      className={`${
                         form.formState.errors.lastName
                           ? "border-red-500"
                           : "border-[#d4d4d4]"
-                      }
+                      } text-black! text-base!`}
                     />
                   </FormControl>
                   <FormMessage />
@@ -489,11 +493,11 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                       {...field}
                       type="email"
                       placeholder="Email Address"
-                      className={`h-[49px] ${
+                      className={`h-[49px] ${`${
                         form.formState.errors.email
                           ? "border-red-500"
                           : "border-[#d4d4d4]"
-                      }`}
+                      }`} text-black! text-base!`}
                     />
                   </FormControl>
                   <FormMessage />
@@ -519,7 +523,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                         form.formState.errors.phone
                           ? "border-red-500"
                           : "border-[#d4d4d4]"
-                      }`}
+                      } text-black! text-base!`}
                     />
                   </FormControl>
                   <FormMessage />
@@ -543,9 +547,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                     }}
                     onFocus={handleAddressFocus}
                     placeholder="Address"
-                    className={
-                      addressError ? "border-red-500" : "border-[#d4d4d4]"
-                    }
+                    className={`${addressError ? "border-red-500" : "border-[#d4d4d4]"} text-black! text-base!`}
                   />
                 </FormControl>
                 <FormMessage />
@@ -563,11 +565,11 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                   <Input
                     {...field}
                     placeholder="Province"
-                    className={
+                    className={`${
                       form.formState.errors.province
                         ? "border-red-500"
                         : "border-[#d4d4d4]"
-                    }
+                    } text-black! text-base!`}
                   />
                 </FormControl>
                 <FormMessage />
@@ -586,11 +588,11 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                     <Input
                       {...field}
                       placeholder="City"
-                      className={
+                      className={`${
                         form.formState.errors.city
                           ? "border-red-500"
                           : "border-[#d4d4d4]"
-                      }
+                      } text-black! text-base!`}
                     />
                   </FormControl>
                   <FormMessage />
@@ -611,9 +613,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                       }}
                       onFocus={handlePostalCodeFocus}
                       placeholder="Postal Code"
-                      className={
-                        postalCodeError ? "border-red-500" : "border-[#d4d4d4]"
-                      }
+                      className={`${postalCodeError ? "border-red-500" : "border-[#d4d4d4]"} text-black! text-base!`}
                     />
                   </FormControl>
                   <FormMessage />
@@ -636,11 +636,11 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                       min={dobLimits.min}
                       max={dobLimits.max}
                       placeholder="DOB"
-                      className={
+                      className={`${
                         form.formState.errors.dob
                           ? "border-red-500"
                           : "border-[#d4d4d4]"
-                      }
+                      } text-black! text-base! cursor-pointer`}
                     />
                   </FormControl>
                   <FormMessage />
@@ -656,16 +656,18 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                     <button
                       type="button"
                       onClick={() => setShowGenderDropdown(!showGenderDropdown)}
-                      className={`w-full px-4 py-3 border rounded-[5px] form-placeholder flex items-center justify-between ${
+                      className={`w-full px-4 py-3 border rounded-[5px] form-placeholder flex items-center justify-between cursor-pointer ${
                         form.formState.errors.gender
                           ? "border-red-500"
                           : "border-[#d4d4d4]"
-                      }`}
+                      } text-black! text-base!`}
                     >
                       <span className={genderValue ? "" : "text-gray-400"}>
                         {genderValue || "Gender"}
                       </span>
-                      <ChevronDown className={`size-[14px] transition-transform duration-300 ${showGenderDropdown ? 'rotate-180' : 'rotate-0'}`} />
+                      <ChevronDown
+                        className={`size-[14px] transition-transform duration-300 ${showGenderDropdown ? "rotate-180" : "rotate-0"}`}
+                      />
                     </button>
                   </FormControl>
                   {showGenderDropdown && (
@@ -675,7 +677,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                           key={option}
                           type="button"
                           onClick={() => handleGenderSelect(option)}
-                          className="w-full px-4 py-1 text-left hover:bg-gray-100 form-placeholder"
+                          className="w-full px-4 py-1 text-left hover:bg-gray-100 form-placeholder cursor-pointer hover:text-black! "
                         >
                           {option}
                         </button>

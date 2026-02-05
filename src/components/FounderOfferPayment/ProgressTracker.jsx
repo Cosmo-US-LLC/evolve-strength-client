@@ -10,14 +10,14 @@ const steps = [
   },
   {
     id: 2,
-    title: "Add Primary Details",
-    description: "Enter your basic information.",
+    title: "Founder Membership",
+    description: "Join as Founder",
     icon: User,
   },
   {
     id: 3,
     title: "Add Payment Information",
-    description: "Provide billing details.",
+    description: "Provide billing details",
     icon: CreditCard,
   },
 ];
