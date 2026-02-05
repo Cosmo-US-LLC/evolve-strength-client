@@ -22,27 +22,33 @@ import icon2 from "../../../assets/images/presale/gym_presale_icon (3).svg";
 import icon3 from "../../../assets/images/presale/gym_presale_icon (2).svg";
 // import icon4 from "../../../assets/images/presale/gym_presale_icon (1).svg";
 
+// Reception
+// https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304376936-6e908d28-3c87-41a7-97d8-c68d247a4e8f.webp
+// Treadmills
+// https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304391753-57bca423-49c1-40a6-9a25-9f3e25df5af8.webp
+// Trough
+// https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304404780-80b9f5db-508e-4f5a-9012-26fac72a4681.webp
 
 const gymZones = [
   {
     title: "Strength Zone",
     description:
       "Equip yourself with free weights, machines, and all the tools to build muscle and power.",
-    bgImage: strengthZoneBg2,
+    bgImage: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770305496673-9d5e6fef-a478-41eb-9abb-8a34058b41b7.webp",
     icon: icon1,
     number: 1,
   },
   {
     title: "Cardio Zone",
     description: "Stay active and boost endurance with treadmills, bikes, rowers, and more.",
-    bgImage: strengthZoneBg3,
+    bgImage: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304391753-57bca423-49c1-40a6-9a25-9f3e25df5af8.webp",
     icon: icon2,
     number: 2,
   },
   {
     title: "Turf Area",
     description: "Train functionally with open space for agility, HIIT, and dynamic workouts.",
-    bgImage: strengthZoneBg4,
+    bgImage: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304404780-80b9f5db-508e-4f5a-9012-26fac72a4681.webp",
     icon: icon3,
     number: 3,
   },
@@ -60,28 +66,31 @@ const gymZonesMobile = [
     title: "Strength Zone",
     description:
       "Equip yourself with free weights, machines, and all the tools to build muscle and power.",
-    bgImage: strengthZoneBg2Mobile,
+    // bgImage: strengthZoneBg2Mobile,
+    bgImage: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770305496673-9d5e6fef-a478-41eb-9abb-8a34058b41b7.webp",
     icon: icon1,
     number: 1,
   },
   {
     title: "Cardio Zone",
     description: "Stay active and boost endurance with treadmills, bikes, rowers, and more.",
-    bgImage: strengthZoneBg3Mobile,
+    // bgImage: strengthZoneBg3Mobile,
+    bgImage: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304391753-57bca423-49c1-40a6-9a25-9f3e25df5af8.webp",
     icon: icon2,
     number: 2,
   },
   {
     title: "Turf Area",
     description: "Train functionally with open space for agility, HIIT, and dynamic workouts.",
-    bgImage: strengthZoneBg4Mobile,
+    // bgImage: strengthZoneBg4Mobile,
+    bgImage: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304404780-80b9f5db-508e-4f5a-9012-26fac72a4681.webp",
     icon: icon3,
     number: 3,
   },
 ];
 
 // Default background image
-const defaultBg = strengthZoneBg1;
+const defaultBg = "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304376936-6e908d28-3c87-41a7-97d8-c68d247a4e8f.webp";
 
 const GymZones = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -158,7 +167,7 @@ const GymZones = () => {
       </div>
 
       {/* Desktop Layout */}
-      <div className="hidden md:flex relative z-10 w-full flex-row justify-end items-end min-h-[700px]">
+      <div className="bg-black/60 hidden md:flex relative z-10 w-full flex-row justify-end items-end min-h-[700px]">
         {gymZones.map((zone, index) => {
           const isActive = hoveredIndex === index;
 
@@ -170,7 +179,7 @@ const GymZones = () => {
               className={`flex-1 p-6 md:p-8 flex flex-col 
                 justify-end cursor-pointer relative group overflow-hidden 
                 transition-all duration-200   min-h-[700px] 
-                
+              ${zone?.number==2 ? "border-x border-white/20" : ""}
               `}
             >
               {/* {!isActive && (
@@ -246,7 +255,7 @@ const GymZones = () => {
             <AccordionItem
               key={index}
               value={`zone-${index}`}
-              className="group/zone border-b-0 border-0 overflow-hidden relative mt-4"
+              className="group/zone  border-b-0 border-0 overflow-hidden relative mt-4"
             >
               {/* Blur only when accordion is open (group-data-[state=open]) */}
               <div
@@ -259,7 +268,7 @@ const GymZones = () => {
                 }}
               />
               {/* <div className="absolute inset-0 z-0 bg-black/50 pointer-events-none" /> */}
-              <AccordionTrigger className="relative z-10 min-h-[120px] w-full flex items-center gap-3 px-4 py-4 no-underline hover:no-underline focus:outline-none focus:ring-0 [&>svg]:hidden group">
+              <AccordionTrigger className="bg-black/50 relative z-10 min-h-[120px] w-full flex items-center gap-3 px-4 py-4 no-underline hover:no-underline focus:outline-none focus:ring-0 rounded-none! [&>svg]:hidden group">
                 <div className="flex items-center gap-3 w-full text-left">
                   <div
                     className="shrink-0 flex items-center justify-center w-[55px] h-[55px] rounded-full p-[12px]"
@@ -290,7 +299,7 @@ const GymZones = () => {
                   </div>
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="relative z-10 px-6 pb-4 pt-0 bg-transparent">
+              <AccordionContent className="bg-black/50 relative z-10 px-6 pb-4 pt-0">
                 <p className="text-[#fff] text-[16px] leading-[24px] font-[kanit] font-[300]">
                   {zone.description}
                 </p>
