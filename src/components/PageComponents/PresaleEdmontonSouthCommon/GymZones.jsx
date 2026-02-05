@@ -11,6 +11,10 @@ import strengthZoneBg1 from "../../../assets/images/presale/presale_common_deskt
 import strengthZoneBg2 from "../../../assets/images/presale/presale_common_desktop_2.webp";
 import strengthZoneBg3 from "../../../assets/images/presale/presale_common_desktop_3.webp";
 import strengthZoneBg4 from "../../../assets/images/presale/presale_common_desktop_4.webp";
+import strengthZoneBg1Mobile from "../../../assets/images/presale/presale_common_mobile_1.webp";
+import strengthZoneBg2Mobile from "../../../assets/images/presale/presale_common_mobile_2.webp";
+import strengthZoneBg3Mobile from "../../../assets/images/presale/presale_common_mobile_3.webp";
+import strengthZoneBg4Mobile from "../../../assets/images/presale/presale_common_mobile_4.webp";
 // import strengthZoneBg5 from "../../../assets/images/presale/gym_presale_5.webp";
 // Import SVG icons from presale folder
 import icon1 from "../../../assets/images/presale/gym_presale_icon (4).svg";
@@ -49,6 +53,31 @@ const gymZones = [
   //   icon: icon4,
   //   number: 4,
   // },
+];
+
+const gymZonesMobile = [
+  {
+    title: "Strength Zone",
+    description:
+      "Equip yourself with free weights, machines, and all the tools to build muscle and power.",
+    bgImage: strengthZoneBg2Mobile,
+    icon: icon1,
+    number: 1,
+  },
+  {
+    title: "Cardio Zone",
+    description: "Stay active and boost endurance with treadmills, bikes, rowers, and more.",
+    bgImage: strengthZoneBg3Mobile,
+    icon: icon2,
+    number: 2,
+  },
+  {
+    title: "Turf Area",
+    description: "Train functionally with open space for agility, HIIT, and dynamic workouts.",
+    bgImage: strengthZoneBg4Mobile,
+    icon: icon3,
+    number: 3,
+  },
 ];
 
 // Default background image
@@ -213,7 +242,7 @@ const GymZones = () => {
           defaultValue="zone-0"
           className="w-full "
         >
-          {gymZones.map((zone, index) => (
+          {gymZonesMobile.map((zone, index) => (
             <AccordionItem
               key={index}
               value={`zone-${index}`}
