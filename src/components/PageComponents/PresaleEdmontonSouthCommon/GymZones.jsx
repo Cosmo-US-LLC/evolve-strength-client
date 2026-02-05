@@ -83,7 +83,7 @@ const GymZones = () => {
       });
     };
 
-    // Preload all images
+     
     Promise.all(imagesToPreload.map(loadImage)).then(() => {
       console.log("All images preloaded");
       setImagesLoaded(true);
