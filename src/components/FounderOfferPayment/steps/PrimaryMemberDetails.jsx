@@ -630,7 +630,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
               render={({ field }) => (
                 <FormItem className="flex-1 relative">
                   <FormControl className="w-full">
-                    <div className="relative w-full">
+                    <div className="relative w-full h-full flex">
                       {!field.value && (
                         <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-base">
                           DOB
@@ -646,7 +646,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                           form.formState.errors.dob
                             ? "border-red-500"
                             : "border-[#d4d4d4]"
-                        } text-black! text-base! cursor-pointer w-full h-full`}
+                        } text-black! text-base! cursor-pointer flex-1`}
                       />
                     </div>
                   </FormControl>
