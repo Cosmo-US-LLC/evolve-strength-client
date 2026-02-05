@@ -15,7 +15,6 @@ const stepToParam = {
   0: "plan-type",
   1: "founder-details",
   2: "payment-details",
-  3: "thank-you",
 };
 
 // URL parameter to step mapping
@@ -23,7 +22,7 @@ const paramToStep = {
   "plan-type": 0,
   "founder-details": 1,
   "payment-details": 2,
-  "thank-you": 3,
+  "thank-you": 2,
 };
 
 const formatDobForSubmission = (dobValue) => {
@@ -78,9 +77,12 @@ const normalizeProvince = (provinceValue) => {
 
 const PRIMARY_MEMBER_STORAGE_KEY = "founderOfferPayment.primaryMember.v1";
 const SELECTED_PLAN_STORAGE_KEY = "founderOfferPayment.selectedPlan.v1";
+const SUCCESS_PARAM_KEY = "success";
+const SUCCESS_PARAM_VALUE = "1";
 const PLAN_TYPE_YEARLY = 0;
 const PLAN_TYPE_MONTHLY = 1;
 const VALID_PLAN_TYPES = new Set([PLAN_TYPE_YEARLY, PLAN_TYPE_MONTHLY]);
+const MAX_STEP = 2;
 
 const isValidStepParam = (stepParam) =>
   Object.prototype.hasOwnProperty.call(paramToStep, stepParam);
@@ -89,6 +91,9 @@ const normalizePlanType = (value, fallback = PLAN_TYPE_YEARLY) => {
   const parsed = Number.parseInt(value, 10);
   return VALID_PLAN_TYPES.has(parsed) ? parsed : fallback;
 };
+
+const isSuccessParam = (value) =>
+  value === SUCCESS_PARAM_VALUE || value === "true";
 
 const loadStoredPrimaryMember = () => {
   if (typeof window === "undefined") return null;
@@ -211,6 +216,12 @@ const isPrimaryMemberComplete = (primaryMember) => {
   });
 };
 
+const hasPrimaryMemberData = (primaryMember) =>
+  Object.values(primaryMember || {}).some((value) => {
+    if (typeof value === "string") return value.trim().length > 0;
+    return Boolean(value);
+  });
+
 function FounderOfferPayment() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -220,10 +231,20 @@ function FounderOfferPayment() {
   const storedSelectedPlanRef = useRef(loadStoredSelectedPlan());
 
   const stepParam = searchParams.get("step");
-  const stepFromUrl = isValidStepParam(stepParam) ? paramToStep[stepParam] : 0;
+  const initialSuccess =
+    stepParam === "thank-you" ||
+    isSuccessParam(searchParams.get(SUCCESS_PARAM_KEY));
+  const stepFromUrl = isValidStepParam(stepParam)
+    ? paramToStep[stepParam]
+    : initialSuccess
+      ? MAX_STEP
+      : 0;
   const [currentStep, setCurrentStep] = useState(
-    stepFromUrl >= 0 && stepFromUrl <= 3 ? stepFromUrl : 0
+    stepFromUrl >= 0 && stepFromUrl <= MAX_STEP ? stepFromUrl : 0
   );
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(initialSuccess);
+  const [completedMember, setCompletedMember] = useState(null);
+  const wasSuccessOpenRef = useRef(initialSuccess);
 
   const planParam = searchParams.get("plan");
   const initialPlan = normalizePlanType(
@@ -270,13 +291,20 @@ function FounderOfferPayment() {
     selectedPlanDetails?.schedules?.[0]?.schedulePreTaxAmount ||
     "";
 
-  const syncUrlState = (stepIndex, planType, mode = "replace") => {
+  const syncUrlState = (
+    stepIndex,
+    planType,
+    { mode = "replace", success = false } = {}
+  ) => {
     const stepValue = stepToParam[stepIndex] ? stepIndex : 0;
     const planValue = normalizePlanType(planType);
     const params = new URLSearchParams({
       step: stepToParam[stepValue],
       plan: String(planValue),
     });
+    if (success) {
+      params.set(SUCCESS_PARAM_KEY, SUCCESS_PARAM_VALUE);
+    }
     const historyMethod = mode === "push" ? "pushState" : "replaceState";
     window.history[historyMethod](
       { step: stepValue, plan: planValue },
@@ -293,26 +321,32 @@ function FounderOfferPayment() {
   };
 
   useEffect(() => {
+    if (isSuccessModalOpen) return;
+    if (!hasPrimaryMemberData(formData.primaryMember)) {
+      clearStoredPrimaryMember();
+      return;
+    }
     persistPrimaryMember(formData.primaryMember);
-  }, [formData.primaryMember]);
+  }, [formData.primaryMember, isSuccessModalOpen]);
 
   useEffect(() => {
     persistSelectedPlan(currentPlan);
   }, [currentPlan]);
 
   useEffect(() => {
+    if (isSuccessModalOpen) return;
     if (currentStep <= 1) return;
     if (isPrimaryMemberComplete(formData.primaryMember)) return;
 
     setCurrentStep(1);
-    syncUrlState(1, currentPlan, "replace");
-  }, [currentStep, currentPlan, formData.primaryMember]);
+    syncUrlState(1, currentPlan, { mode: "replace" });
+  }, [currentStep, currentPlan, formData.primaryMember, isSuccessModalOpen]);
 
   const handleNext = async () => {
-    if (currentStep < 3) {
+    if (currentStep < MAX_STEP) {
       const nextStep = currentStep + 1;
       setCurrentStep(nextStep);
-      syncUrlState(nextStep, currentPlan, "push");
+      syncUrlState(nextStep, currentPlan, { mode: "push" });
     }
   };
 
@@ -322,13 +356,17 @@ function FounderOfferPayment() {
       const urlParams = new URLSearchParams(window.location.search);
       const newStepParam = urlParams.get("step");
       const newPlanParam = urlParams.get("plan");
+      const newSuccessParam = urlParams.get(SUCCESS_PARAM_KEY);
       const newStep = isValidStepParam(newStepParam)
         ? paramToStep[newStepParam]
         : 0;
       const newPlan = normalizePlanType(newPlanParam, PLAN_TYPE_YEARLY);
+      const newSuccess =
+        newStepParam === "thank-you" || isSuccessParam(newSuccessParam);
 
       setCurrentStep(newStep);
       setCurrentPlan(newPlan);
+      setIsSuccessModalOpen(newSuccess);
     };
 
     window.addEventListener("popstate", handlePopState);
@@ -604,7 +642,31 @@ function FounderOfferPayment() {
       return false;
     }
 
+    setCompletedMember({ ...formData.primaryMember });
+    setFormData((prev) => ({
+      ...prev,
+      primaryMember: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        address: "",
+        province: "",
+        city: "",
+        postalCode: "",
+        dob: "",
+        gender: "",
+      },
+      payment: {
+        cardNumber: "",
+        expiryDate: "",
+        cvv: "",
+        cardType: "",
+      },
+    }));
     clearStoredPrimaryMember();
+    setIsSuccessModalOpen(true);
+    syncUrlState(currentStep, currentPlan, { mode: "replace", success: true });
     setIsSubmittingPayment(false);
     return true;
   };
@@ -628,17 +690,26 @@ function FounderOfferPayment() {
     }
   }, [currentStep]);
 
+  useEffect(() => {
+    if (wasSuccessOpenRef.current && !isSuccessModalOpen) {
+      setCompletedMember(null);
+      setCurrentStep(0);
+      syncUrlState(0, currentPlan, { mode: "replace" });
+    }
+    wasSuccessOpenRef.current = isSuccessModalOpen;
+  }, [isSuccessModalOpen, currentPlan]);
+
   const handlePlanChange = (planType) => {
     const normalizedPlan = normalizePlanType(planType, currentPlan);
     setCurrentPlan(normalizedPlan);
-    syncUrlState(currentStep, normalizedPlan, "replace");
+    syncUrlState(currentStep, normalizedPlan, { mode: "replace" });
   };
 
   const handleBack = () => {
     if (currentStep > 0) {
       const previousStep = currentStep - 1;
       setCurrentStep(previousStep);
-      syncUrlState(previousStep, currentPlan, "push");
+      syncUrlState(previousStep, currentPlan, { mode: "push" });
     } else {
       navigate("/presale-edmonton-south-common");
     }
@@ -679,13 +750,6 @@ function FounderOfferPayment() {
             isSubmitting={isSubmittingPayment}
             submitError={paymentError}
             paymentAmount={selectedPlanAmount}
-          />
-        );
-      case 3:
-        return (
-          <SuccessCertificate
-            primaryMember={formData.primaryMember}
-            onBack={() => navigate("/presale-edmonton-south-common")}
           />
         );
       default:
@@ -757,6 +821,16 @@ function FounderOfferPayment() {
           </div>
         </div>
       </div>
+      {isSuccessModalOpen && (
+        <div className="absolute top-0 left-0 z-[900] w-screen h-screen flex items-center justify-center bg-black/80 px-4 py-8">
+          <div className="w-full max-w-[904px]">
+            <SuccessCertificate
+              primaryMember={completedMember || formData.primaryMember}
+              onBack={() => navigate("/presale-edmonton-south-common")}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
