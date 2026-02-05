@@ -50,7 +50,7 @@ function MembershipSummaryCard({ primaryMember, paymentAmount }) {
             </p> */}
         </div>
         <p className="font-['Kanit'] text-[#0A0A0A] text-sm">
-          {displayAmount}
+          {displayAmount} &nbsp;<span className="text-xs text-[#4A5565]">(Billed Biweekly)</span>
           <br />
           <span className="text-[#4A5565]">
           Refundable Deposit
@@ -62,20 +62,20 @@ function MembershipSummaryCard({ primaryMember, paymentAmount }) {
       <div className="flex flex-col gap-3">
         {/* 2 Years Locked */}
         <div className="flex gap-2 items-start">
-          <Calendar className="size-5 text-[#4ab04a] flex-shrink-0 mt-0.5" />
+          <Calendar className="size-5 text-[#6A7282] flex-shrink-0 mt-0.5" />
           <div className="flex flex-col leading-[20px]">
             <p className="font-['Kanit'] font-medium text-[#0a0a0a] text-[14px]">
-              2 Years Locked
+              Rate Locked
             </p>
             <p className="font-['Kanit'] font-light text-[#4a5565] text-[12px]">
-              Guaranteed until {getGuaranteeDate()}
+              Rate Locked for life
             </p>
           </div>
         </div>
 
         {/* Location */}
         <div className="flex gap-2 items-start">
-          <MapPin className="size-5 text-[#4ab04a] flex-shrink-0 mt-0.5" />
+          <MapPin className="size-5 text-[#6A7282] flex-shrink-0 mt-0.5" />
           <div className="flex flex-col leading-[20px]">
             <p className="font-['Kanit'] font-medium text-[#0a0a0a] text-[14px]">
               Location

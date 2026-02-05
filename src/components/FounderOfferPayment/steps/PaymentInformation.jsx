@@ -455,7 +455,7 @@ function PaymentInformation({
                 className="btnPrimary max-md:w-[100%]"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Processing..." : "Complete Payment"}
+                {isSubmitting ? "Processing..." : "PROCEED TO PAY"}
               </button>
             </div>
           </div>

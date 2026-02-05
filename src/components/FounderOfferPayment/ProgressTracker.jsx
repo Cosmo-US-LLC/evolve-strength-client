@@ -187,14 +187,11 @@ function ProgressTracker({ currentStep = 0 }) {
           // Only show the active step
           if (status !== "active") return null;
 
-          // Map step.id (1, 2, 3) to display step number for "Step X/2"
-          // Step 1 (id: 1) → Don't show step number
-          // Step 2 (id: 2) → Step 1/2
-          // Step 3 (id: 3) → Step 2/2
-          const showStepNumber = step.id >= 2;
-          const displayStepNumber =
-            step.id === 2 ? 1 : step.id === 3 ? 2 : null;
-          const totalSteps = 2;
+          const totalSteps = steps.length;
+          const displayStepNumber = step.id;
+          const radius = 45;
+          const circumference = 2 * Math.PI * radius;
+          const progress = displayStepNumber / totalSteps;
 
           return (
             <div key={step.id} className="flex items-center gap-4">
@@ -220,11 +217,11 @@ function ProgressTracker({ currentStep = 0 }) {
                     <circle
                       cx="50"
                       cy="50"
-                      r="45"
+                      r={radius}
                       fill="none"
                       stroke="#4ab04a"
                       strokeWidth="7"
-                      strokeDasharray="282.7 282.7"
+                      strokeDasharray={`${circumference} ${circumference}`}
                       strokeLinecap="round"
                     />
                   )}
@@ -232,26 +229,21 @@ function ProgressTracker({ currentStep = 0 }) {
                     <circle
                       cx="50"
                       cy="50"
-                      r="45"
+                      r={radius}
                       fill="none"
                       stroke="#4ab04a"
                       strokeWidth="7"
-                      strokeDasharray={
-                        step.id === 3 ? "282.7 282.7" : "141.35 282.7"
-                      }
+                      strokeDasharray={`${circumference * progress} ${circumference}`}
                       strokeLinecap="round"
                       className="transition-all duration-500"
                     />
                   )}
                 </svg>
-                {/* Text in center - Only show for steps 1 and 2 */}
-                {showStepNumber && (
-                  <div className="absolute inset-0 flex items-center justify-center flex-col">
-                    <p className="font-['Vazirmatn'] font-[400] text-[10px] text-[#000] leading-none">
-                      Step {displayStepNumber}/{totalSteps}
-                    </p>
-                  </div>
-                )}
+                <div className="absolute inset-0 flex items-center justify-center flex-col">
+                  <p className="font-['Vazirmatn'] font-[400] text-[10px] text-[#000] leading-none">
+                    Step {displayStepNumber}/{totalSteps}
+                  </p>
+                </div>
               </div>
 
               {/* Step Content */}

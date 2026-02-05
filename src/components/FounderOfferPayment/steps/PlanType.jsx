@@ -1,5 +1,6 @@
 import { ArrowLeft } from "lucide-react";
 import React from "react";
+import BenefitsCard from "../BenefitsCard";
 
 const getDisplayedPlanAmount = (planDetails) => {
   const rawAmount =
@@ -71,12 +72,12 @@ function PlanType({
           <div className="text-black text-base font-[kanit] font-semibold whitespace-nowrap">
             BI-WEEKLY
           </div>
-          <div className="flex items-end space-x-1 justify-end">
+          <div className="flex items-end space-x-1 justify-end whitespace-nowrap">
             <div className="text-[#4AB04A] text-2xl lg:text-4xl font-bold whitespace-nowrap">
               {displayAmount}
             </div>
-            <div className="text-[#4AB04A] max-md:hidden text-sm">
-              + GST
+            <div className="text-[#4AB04A] text-xs max-md:pb-1 md:text-sm">
+              +<span className="max-md:hidden"> </span>GST
               {/* (Tax included) */}
             </div>
           </div>
@@ -86,7 +87,12 @@ function PlanType({
         <p className="mb-4 text-[13px] text-red-600">{plansError}</p>
       )}
 
-      <div className="mt-[320px]">
+      <div className="md:hidden">
+        <BenefitsCard />
+        <br />
+      </div>
+
+      <div className="md:mt-[320px]">
         <div className="flex items-center justify-between gap-4 mt-0 md:mt-8">
           <button
             type="button"

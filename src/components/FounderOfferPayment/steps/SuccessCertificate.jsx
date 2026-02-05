@@ -167,7 +167,7 @@ function SuccessCertificate({ primaryMember, onBack }) {
           >
             <div
               id="certificate"
-              className="w-full max-w-full md:max-w-[700px] h-[336px] md:h-[442px] relative rounded-[12px] overflow-hidden bg-[#000000] flex-shrink-0 p-5 md:p-8 flex gap-3 flex-col"
+              className="w-full max-w-full md:max-w-[700px] h-[336px] md:h-[442px] relative overflow-hidden bg-[#000000] flex-shrink-0 p-5 md:p-8 flex gap-3 flex-col"
             >
               <div className="">
                 <svg
