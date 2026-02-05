@@ -358,19 +358,11 @@ function PaymentInformation({
                     >
                       Please confirm you have read our{" "}
                       <Link
-                        to="/terms-and-conditions"
+                        to="/edmonton-south-terms-and-conditions"
                         target="_blank"
                         className="text-[#4ab04a] underline"
                       >
-                        Terms
-                      </Link>{" "}
-                      and{" "}
-                      <Link
-                        to="/terms-and-conditions"
-                        target="_blank"
-                        className="text-[#4ab04a] underline"
-                      >
-                        Conditions
+                        Terms and Conditions
                       </Link>
                     </label>
                   </div>
