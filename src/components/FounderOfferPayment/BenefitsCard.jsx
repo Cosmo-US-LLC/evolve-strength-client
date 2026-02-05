@@ -2,7 +2,7 @@ import React from "react";
 import { Check } from "lucide-react";
 
 const benefits = [
-  "Founder rate locked for 24 months",
+  "Founder rate locked for life",
   "Access to all locations nationwide",
   "$0 enrollment & maintenance fees",
   "Risk-free membership with a full refund within 10 days of opening",

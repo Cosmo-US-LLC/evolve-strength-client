@@ -96,7 +96,7 @@ function PlanType({
             <ArrowLeft className="size-4" />
             Back
           </button>
-          <button type="button" onClick={onNext} className="btnPrimary max-md:w-[100%]">
+          <button type="button" disabled={displayAmount === "$--.--"} onClick={onNext} className="btnPrimary disabled:cursor-wait max-md:w-[100%]">
             Next
           </button>
         </div>
