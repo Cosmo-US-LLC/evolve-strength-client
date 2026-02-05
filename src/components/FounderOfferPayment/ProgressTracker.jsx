@@ -4,8 +4,8 @@ import { Check, User, CreditCard } from "lucide-react";
 const steps = [
   {
     id: 1,
-    title: "Founder Membership",
-    description: "Join as Founder",
+    title: "Select Package",
+    description: "Choose your plan",
     icon: Check,
   },
   {

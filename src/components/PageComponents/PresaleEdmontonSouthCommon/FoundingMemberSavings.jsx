@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import icon1 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_1.svg";
@@ -45,7 +45,7 @@ function MembershipCardContent({
   disclaimers3Icon,
   disclaimers4Icon,
   disclaimers5Icon,
-
+  link
 }) {
   return (
     <>
@@ -73,11 +73,13 @@ function MembershipCardContent({
       </p>
       <p className="text-[40px] md:text-[60px] leading-[32px] md:leading-[48px] text-center md:text-start font-[500] font-[Kanit]">
         <span className="text-[#4ab04a]">{price}</span>
-        
+
         <span className="text-[14px] md:text-[16px] leading-[6px] font-[500] font-[Kanit] text-[#4ab04a] ml-1">
           {priceSuffix}
         </span>
-        <span className="text-[#ffffff] text-[14px] md:text-[16px] leading-[17px] font-[400] font-[Kanit] ml-1">{priceBiWeeklyCopy}</span>
+        <span className="text-[#ffffff] text-[14px] md:text-[16px] leading-[17px] font-[400] font-[Kanit] ml-1">
+          {priceBiWeeklyCopy}
+        </span>
       </p>
       <div className="flex flex-col gap-3 md:gap-3 px-6 md:px-0  w-full">
         <div className="flex items-center gap-2 w-full">
@@ -135,7 +137,7 @@ function MembershipCardContent({
             {disclaimers5}
           </p>
         </div>
-        </div>
+      </div>
       <div className="h-px w-full bg-white/30 my-3" aria-hidden />
       {/* Line 1: "Rate Locked For" - medium, normal weight */}
       <p className="text-[16px] md:text-[18px] text-center md:text-start leading-[22px] font-[400] font-[Kanit] text-white ">
@@ -150,7 +152,10 @@ function MembershipCardContent({
           {rateLockNote}
         </span>
       </p>
-      <Link to="/founder-offer-payment" className="inline-flex pt-3 justify-center md:justify-start">
+      <Link
+        to={link}
+        className="inline-flex pt-3 justify-center md:justify-start"
+      >
         <button
           type="button"
           className="btnPrimary flex items-center gap-2 md:gap-[10px] !py-[14px] !px-[20px] uppercase text-[14px] md:text-[16px] font-semibold"
@@ -167,6 +172,68 @@ function MembershipCardContent({
 }
 
 function FoundingMemberSavings() {
+  const baseUrl = import.meta.env.VITE_APP_API_URL || "";
+  const locationPostal = "32176";
+
+  const [plansData, setPlansData] = React.useState(null);
+
+  const fetchClubPlans = async (baseUrl, locationPostal) => {
+    try {
+      const response = await fetch(
+        `${baseUrl}/getClubInfo?location=${parseInt(locationPostal, 10)}`,
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch club plans");
+      }
+      const { plans: data = [] } = await response.json();
+
+      const yearlyPlan = data.find((v) => v.planName?.includes("12"));
+      if (!yearlyPlan) throw new Error("12-month plan not found");
+
+      const monthlyPlan = data.find((v) => !v.planName?.includes("12"));
+      if (!monthlyPlan) throw new Error("No-contract plan not found");
+
+      return {
+        yearlyPlanId: yearlyPlan.planId,
+        monthlyPlanId: monthlyPlan.planId,
+      };
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  };
+  const fetchClubPlansDetails = async (baseUrl, id, locationPostal) => {
+    try {
+      const response = await fetch(
+        `${baseUrl}/getPlanDetails?location=${parseInt(locationPostal, 10)}&planId=${id}`,
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch club plan details");
+      }
+      return await response.json();
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  };
+
+  useEffect(() => {
+    const loadPlans = async () => {
+      const planIds = await fetchClubPlans(baseUrl, locationPostal);
+      const [yearlyPlanDetails, monthlyPlanDetails] = await Promise.all([
+        fetchClubPlansDetails(baseUrl, planIds.yearlyPlanId, locationPostal),
+        fetchClubPlansDetails(baseUrl, planIds.monthlyPlanId, locationPostal),
+      ]);
+      setPlansData({
+        yearlyPlan: yearlyPlanDetails,
+        monthlyPlan: monthlyPlanDetails,
+      });
+      // console.log(yearlyPlanDetails?.schedules, monthlyPlanDetails?.schedules);
+    };
+
+    loadPlans();
+  }, [baseUrl]);
+
   return (
     <section className="bg-black py-10 md:py-20">
       <div className="max-w-[1340px] mx-auto px-4 md:px-8 flex flex-col gap-8 md:gap-10 items-center">
@@ -180,7 +247,10 @@ function FoundingMemberSavings() {
           </p>
         </div> */}
 
-        <Tabs defaultValue="yearly" className="w-full flex flex-col items-center gap-6">
+        <Tabs
+          defaultValue="yearly"
+          className="w-full flex flex-col items-center gap-6"
+        >
           {/* Tab navigation - Yearly (green when active) / Monthly (dark grey when inactive), pill style (Figma) */}
           <TabsList className="inline-flex h-12  rounded-full bg-[rgba(255,255,255,0.12)] p-1 gap-0 border-0">
             <TabsTrigger
@@ -209,7 +279,8 @@ function FoundingMemberSavings() {
               <div className="w-full md:flex-1 md:max-w-[43%] flex flex-col gap-4 md:gap-4 px-0 py-6 md:py-4 md:px-8 relative">
                 <MembershipCardContent
                   contractTerm="1 Year Contract"
-                  price="$24.39"
+                  // price="$24.39"
+                  price={`${plansData?.yearlyPlan?.schedules ? `${plansData?.yearlyPlan?.schedules[0]?.schedulePreTaxAmount}` : "--.--"}`}
                   priceSuffix="+GST"
                   priceBiWeeklyCopy="/biweekly"
                   disclaimers1="No Maintenance Fee"
@@ -225,6 +296,7 @@ function FoundingMemberSavings() {
                   rateLockLabel="Rate Locked For"
                   rateLockValue="Lifetime"
                   rateLockNote="(T&C Apply)"
+                  link="/founder-offer-payment?plan=0"
                 />
               </div>
             </div>
@@ -242,12 +314,13 @@ function FoundingMemberSavings() {
               <div className="w-full md:flex-1 md:max-w-[43%] flex flex-col gap-4 md:gap-4 px-0 py-6 md:px-8 md:py-4 relative">
                 <MembershipCardContent
                   contractTerm="Month-to-Month"
-                  price="$28.79"
+                  // price="$28.79"
+                  price={`${plansData?.monthlyPlan?.schedules ? `${plansData?.monthlyPlan?.schedules[0]?.schedulePreTaxAmount}` : "--.--"}`}
                   priceSuffix="+GST"
                   priceBiWeeklyCopy="/biweekly"
                   disclaimers1="No Maintenance Fee"
                   disclaimers1Icon={icon1}
-                  disclaimers2="No Initiation Fee"           
+                  disclaimers2="No Initiation Fee"
                   disclaimers2Icon={icon2}
                   disclaimers3="Train Risk-Free for 10 Days"
                   disclaimers3Icon={icon3}
@@ -258,6 +331,7 @@ function FoundingMemberSavings() {
                   rateLockLabel="Rate Locked For"
                   rateLockValue="Lifetime"
                   rateLockNote="(T&C Apply)"
+                  link="/founder-offer-payment?plan=1"
                 />
               </div>
             </div>

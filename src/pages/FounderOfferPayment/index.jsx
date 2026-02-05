@@ -8,9 +8,11 @@ import MembershipSummaryCard from "@/components/FounderOfferPayment/MembershipSu
 import PrimaryMemberDetails from "@/components/FounderOfferPayment/steps/PrimaryMemberDetails";
 import PaymentInformation from "@/components/FounderOfferPayment/steps/PaymentInformation";
 import SuccessCertificate from "@/components/FounderOfferPayment/steps/SuccessCertificate";
+import PlanType from "@/components/FounderOfferPayment/steps/PlanType";
 
 // Step to URL parameter mapping
 const stepToParam = {
+  0: "plan-type",
   1: "founder-details",
   2: "payment-details",
   3: "thank-you",
@@ -18,6 +20,7 @@ const stepToParam = {
 
 // URL parameter to step mapping
 const paramToStep = {
+  "plan-type": 0,
   "founder-details": 1,
   "payment-details": 2,
   "thank-you": 3,
@@ -74,6 +77,18 @@ const normalizeProvince = (provinceValue) => {
 };
 
 const PRIMARY_MEMBER_STORAGE_KEY = "founderOfferPayment.primaryMember.v1";
+const SELECTED_PLAN_STORAGE_KEY = "founderOfferPayment.selectedPlan.v1";
+const PLAN_TYPE_YEARLY = 0;
+const PLAN_TYPE_MONTHLY = 1;
+const VALID_PLAN_TYPES = new Set([PLAN_TYPE_YEARLY, PLAN_TYPE_MONTHLY]);
+
+const isValidStepParam = (stepParam) =>
+  Object.prototype.hasOwnProperty.call(paramToStep, stepParam);
+
+const normalizePlanType = (value, fallback = PLAN_TYPE_YEARLY) => {
+  const parsed = Number.parseInt(value, 10);
+  return VALID_PLAN_TYPES.has(parsed) ? parsed : fallback;
+};
 
 const loadStoredPrimaryMember = () => {
   if (typeof window === "undefined") return null;
@@ -109,6 +124,72 @@ const clearStoredPrimaryMember = () => {
   }
 };
 
+const loadStoredSelectedPlan = () => {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = window.sessionStorage.getItem(SELECTED_PLAN_STORAGE_KEY);
+    if (!raw) return null;
+    const normalized = normalizePlanType(raw, NaN);
+    return Number.isNaN(normalized) ? null : normalized;
+  } catch (error) {
+    console.warn("Failed to load saved plan selection.", error);
+    return null;
+  }
+};
+
+const persistSelectedPlan = (planType) => {
+  if (typeof window === "undefined") return;
+  try {
+    window.sessionStorage.setItem(
+      SELECTED_PLAN_STORAGE_KEY,
+      String(normalizePlanType(planType))
+    );
+  } catch (error) {
+    console.warn("Failed to persist selected plan.", error);
+  }
+};
+
+const fetchClubPlans = async (baseUrl, locationPostal) => {
+  try {
+    const response = await fetch(
+      `${baseUrl}/getClubInfo?location=${parseInt(locationPostal, 10)}`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch club plans");
+    }
+    const { plans: data = [] } = await response.json();
+
+    const yearlyPlan = data.find((v) => v.planName?.includes("12"));
+    if (!yearlyPlan) throw new Error("12-month plan not found");
+
+    const monthlyPlan = data.find((v) => !v.planName?.includes("12"));
+    if (!monthlyPlan) throw new Error("No-contract plan not found");
+
+    return {
+      yearlyPlanId: yearlyPlan.planId,
+      monthlyPlanId: monthlyPlan.planId,
+    };
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+const fetchClubPlansDetails = async (baseUrl, id, locationPostal) => {
+  try {
+    const response = await fetch(
+      `${baseUrl}/getPlanDetails?location=${parseInt(locationPostal, 10)}&planId=${id}`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch club plan details");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
 const isPrimaryMemberComplete = (primaryMember) => {
   const requiredFields = [
     "firstName",
@@ -132,18 +213,25 @@ const isPrimaryMemberComplete = (primaryMember) => {
 
 function FounderOfferPayment() {
   const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const containerRef = useRef(null);
   const prevStepRef = useRef(1);
   const storedPrimaryMemberRef = useRef(loadStoredPrimaryMember());
-  
-  // Initialize currentStep from URL param or default to 1
+  const storedSelectedPlanRef = useRef(loadStoredSelectedPlan());
+
   const stepParam = searchParams.get("step");
-  const stepFromUrl = stepParam ? (paramToStep[stepParam] || 1) : 1;
+  const stepFromUrl = isValidStepParam(stepParam) ? paramToStep[stepParam] : 0;
   const [currentStep, setCurrentStep] = useState(
-    stepFromUrl >= 1 && stepFromUrl <= 3 ? stepFromUrl : 1
+    stepFromUrl >= 0 && stepFromUrl <= 3 ? stepFromUrl : 0
   );
-  
+
+  const planParam = searchParams.get("plan");
+  const initialPlan = normalizePlanType(
+    planParam,
+    storedSelectedPlanRef.current ?? PLAN_TYPE_YEARLY
+  );
+  const [currentPlan, setCurrentPlan] = useState(initialPlan);
+
   const [formData, setFormData] = useState(() => {
     const storedPrimaryMember = storedPrimaryMemberRef.current || {};
     return {
@@ -168,11 +256,34 @@ function FounderOfferPayment() {
       },
     };
   });
-  const [yearlyPlanDetails, setYearlyPlanDetails] = useState(null);
+  const [planDetailsByType, setPlanDetailsByType] = useState({
+    [PLAN_TYPE_YEARLY]: null,
+    [PLAN_TYPE_MONTHLY]: null,
+  });
   const [plansError, setPlansError] = useState("");
   const [isPlansLoading, setIsPlansLoading] = useState(false);
   const [paymentError, setPaymentError] = useState("");
   const [isSubmittingPayment, setIsSubmittingPayment] = useState(false);
+  const selectedPlanDetails = planDetailsByType[currentPlan] || null;
+  const selectedPlanAmount =
+    selectedPlanDetails?.scheduleTotalAmount ||
+    selectedPlanDetails?.schedules?.[0]?.schedulePreTaxAmount ||
+    "";
+
+  const syncUrlState = (stepIndex, planType, mode = "replace") => {
+    const stepValue = stepToParam[stepIndex] ? stepIndex : 0;
+    const planValue = normalizePlanType(planType);
+    const params = new URLSearchParams({
+      step: stepToParam[stepValue],
+      plan: String(planValue),
+    });
+    const historyMethod = mode === "push" ? "pushState" : "replaceState";
+    window.history[historyMethod](
+      { step: stepValue, plan: planValue },
+      "",
+      `?${params.toString()}`
+    );
+  };
 
   const updateFormData = (step, data) => {
     setFormData((prev) => ({
@@ -186,67 +297,38 @@ function FounderOfferPayment() {
   }, [formData.primaryMember]);
 
   useEffect(() => {
+    persistSelectedPlan(currentPlan);
+  }, [currentPlan]);
+
+  useEffect(() => {
     if (currentStep <= 1) return;
     if (isPrimaryMemberComplete(formData.primaryMember)) return;
 
     setCurrentStep(1);
-    const stepParamName = stepToParam[1];
-    setSearchParams({ step: stepParamName });
-    window.history.replaceState({ step: 1 }, "", `?step=${stepParamName}`);
-  }, [currentStep, formData.primaryMember, setSearchParams]);
-
-  // Update URL param when step changes via back button
-  useEffect(() => {
-    const newStep = currentStep;
-    if (newStep >= 1 && newStep <= 3) {
-      const stepParamName = stepToParam[newStep];
-      // Only update if URL doesn't already match to avoid conflicts with pushState
-      const currentParam = new URLSearchParams(window.location.search).get("step");
-      if (currentParam !== stepParamName) {
-        setSearchParams({ step: stepParamName });
-      }
-    }
-  }, [currentStep, setSearchParams]);
+    syncUrlState(1, currentPlan, "replace");
+  }, [currentStep, currentPlan, formData.primaryMember]);
 
   const handleNext = async () => {
     if (currentStep < 3) {
       const nextStep = currentStep + 1;
       setCurrentStep(nextStep);
-      // Push new history entry with the new step
-      const stepParamName = stepToParam[nextStep];
-      window.history.pushState({ step: nextStep }, "", `?step=${stepParamName}`);
+      syncUrlState(nextStep, currentPlan, "push");
     }
   };
-
-  // Initialize browser history when component mounts
-  useEffect(() => {
-    const stepParam = searchParams.get("step");
-    if (stepParam && paramToStep[stepParam]) {
-      const step = paramToStep[stepParam];
-      setCurrentStep(step);
-      // Initialize history state
-      if (step > 1) {
-        // Build history chain: replace current with step 1, then push steps 2, 3...
-        window.history.replaceState({ step: 1 }, "", `?step=${stepToParam[1]}`);
-        // Push the subsequent steps
-        for (let i = 2; i <= step; i++) {
-          window.history.pushState({ step: i }, "", `?step=${stepToParam[i]}`);
-        }
-      }
-    }
-  }, []); // Only run once on mount
 
   // Handle browser back button
   useEffect(() => {
     const handlePopState = () => {
-      // Get the new step from the URL that the browser just navigated to
       const urlParams = new URLSearchParams(window.location.search);
       const newStepParam = urlParams.get("step");
-      
-      if (newStepParam && paramToStep[newStepParam]) {
-        const newStep = paramToStep[newStepParam];
-        setCurrentStep(newStep);
-      }
+      const newPlanParam = urlParams.get("plan");
+      const newStep = isValidStepParam(newStepParam)
+        ? paramToStep[newStepParam]
+        : 0;
+      const newPlan = normalizePlanType(newPlanParam, PLAN_TYPE_YEARLY);
+
+      setCurrentStep(newStep);
+      setCurrentPlan(newPlan);
     };
 
     window.addEventListener("popstate", handlePopState);
@@ -255,50 +337,6 @@ function FounderOfferPayment() {
 
   const baseUrl = import.meta.env.VITE_APP_API_URL || "";
   const locationPostal = "32176";
-
-  async function fetchClubPlans(locationPostal) {
-    try {
-      const response = await fetch(
-        `${baseUrl}/getClubInfo?location=${parseInt(locationPostal, 10)}`
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch club plans");
-      }
-      const { plans: data = [] } = await response.json();
-
-      const yearlyPlan = data.find((v) => v.planName?.includes("12"));
-      if (!yearlyPlan) throw new Error("12-month plan not found");
-
-      const monthlyPlan = data.find((v) => !v.planName?.includes("12"));
-      if (!monthlyPlan) throw new Error("No-contract plan not found");
-
-      return {
-        yearlyPlanId: yearlyPlan.planId,
-        monthlyPlanId: monthlyPlan.planId,
-      };
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  }
-
-async function fetchClubPlansDetails(id, locationPostal) {
-  try {
-    const response = await fetch(
-      `${baseUrl}/getPlanDetails?location=${parseInt(
-        locationPostal,
-        10
-      )}&planId=${id}`
-    );
-    if (!response.ok) {
-      throw new Error("Failed to fetch club plan details");
-    }
-    const res = await response.json();
-    return res;
-  } catch (error) {
-    console.error(error);
-  }
-}
 
   useEffect(() => {
     let isActive = true;
@@ -311,14 +349,18 @@ async function fetchClubPlansDetails(id, locationPostal) {
       setIsPlansLoading(true);
       setPlansError("");
       try {
-        const planIds = await fetchClubPlans(locationPostal);
+        const planIds = await fetchClubPlans(baseUrl, locationPostal);
         if (!planIds || !isActive) return;
-        const details = await fetchClubPlansDetails(
-          planIds.yearlyPlanId,
-          locationPostal
-        );
+        const [yearlyPlanDetails, monthlyPlanDetails] = await Promise.all([
+          fetchClubPlansDetails(baseUrl, planIds.yearlyPlanId, locationPostal),
+          fetchClubPlansDetails(baseUrl, planIds.monthlyPlanId, locationPostal),
+        ]);
+
         if (isActive) {
-          setYearlyPlanDetails(details || null);
+          setPlanDetailsByType({
+            [PLAN_TYPE_YEARLY]: yearlyPlanDetails || null,
+            [PLAN_TYPE_MONTHLY]: monthlyPlanDetails || null,
+          });
         }
       } catch (error) {
         if (isActive) {
@@ -515,7 +557,7 @@ async function fetchClubPlansDetails(id, locationPostal) {
   };
 
   const handlePaymentSubmit = async ({ cardNumber, expiryDate, cvv, cardType }) => {
-    if (!yearlyPlanDetails?.planId || !yearlyPlanDetails?.planValidation) {
+    if (!selectedPlanDetails?.planId || !selectedPlanDetails?.planValidation) {
       setPaymentError(
         plansError ||
           (isPlansLoading
@@ -539,9 +581,9 @@ async function fetchClubPlansDetails(id, locationPostal) {
         },
       },
       {
-        paymentPlanId: yearlyPlanDetails.planId,
-        planValidationHash: yearlyPlanDetails.planValidation,
-        activePresale: yearlyPlanDetails.activePresale,
+        paymentPlanId: selectedPlanDetails.planId,
+        planValidationHash: selectedPlanDetails.planValidation,
+        activePresale: selectedPlanDetails.activePresale,
       }
     );
 
@@ -584,9 +626,17 @@ async function fetchClubPlansDetails(id, locationPostal) {
     }
   }, [currentStep]);
 
+  const handlePlanChange = (planType) => {
+    const normalizedPlan = normalizePlanType(planType, currentPlan);
+    setCurrentPlan(normalizedPlan);
+    syncUrlState(currentStep, normalizedPlan, "replace");
+  };
+
   const handleBack = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
+    if (currentStep > 0) {
+      const previousStep = currentStep - 1;
+      setCurrentStep(previousStep);
+      syncUrlState(previousStep, currentPlan, "push");
     } else {
       navigate("/presale-edmonton-south-common");
     }
@@ -594,6 +644,18 @@ async function fetchClubPlansDetails(id, locationPostal) {
 
   const renderStep = () => {
     switch (currentStep) {
+      case 0:
+        return (
+          <PlanType
+            onNext={handleNext}
+            onBack={handleBack}
+            currentPlan={currentPlan}
+            onPlanChange={handlePlanChange}
+            selectedPlanDetails={selectedPlanDetails}
+            isPlansLoading={isPlansLoading}
+            plansError={plansError}
+          />
+        );
       case 1:
         return (
           <PrimaryMemberDetails
@@ -614,7 +676,7 @@ async function fetchClubPlansDetails(id, locationPostal) {
             onSubmitPayment={handlePaymentSubmit}
             isSubmitting={isSubmittingPayment}
             submitError={paymentError}
-            paymentAmount={yearlyPlanDetails?.scheduleTotalAmount || ""}
+            paymentAmount={selectedPlanAmount}
           />
         );
       case 3:
@@ -633,7 +695,8 @@ async function fetchClubPlansDetails(id, locationPostal) {
     <div className="h-screen bg-white flex flex-col md:overflow-hidden ">
       <FormsHeader />
       <div className="flex-1 pt-14 md:pt-16 md:overflow-hidden">
-        <div ref={containerRef} className="max-w-[1280px] h-full mx-auto px-0 md:px-8 py-0 md:py-8 flex flex-col">
+        {/* <div ref={containerRef} className="max-w-[1280px] h-full mx-auto px-0 md:px-8 py-0 md:py-8 flex flex-col"> */}
+        <div ref={containerRef} className="max-w-[1440px] h-full mx-auto px-0 md:px-8 py-0 md:py-8 flex flex-col">
           {/* Mobile Progress Tracker - Top */}
           {currentStep !== 3 && (
             <div className="lg:hidden mb-6 pb-0 max-md:px-0 md:border-b md:border-[#d4d4d4] flex-shrink-0">
@@ -651,13 +714,13 @@ async function fetchClubPlansDetails(id, locationPostal) {
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-start flex-1 min-h-0 ">
             {/* Left Sidebar - Progress Tracker (Desktop) */}
             {currentStep !== 3 && (
-              <div className="hidden lg:block w-[300px] flex-shrink-0">
+              <div className="hidden lg:block w-64 xl:w-[280px] 2xl:w-[300px] flex-shrink-0">
                 <ProgressTracker currentStep={currentStep} />
               </div>
             )}
 
             {/* Main Content - Scrollable */}
-            <div className="flex-1 min-w-0 w-full lg:h-full lg:overflow-y-auto scrollbar-hide lg:pr-2 max-md:px-4">
+            <div className="flex-1 min-w-0 w-full md:w-[640px] lg:h-full lg:overflow-y-auto scrollbar-hide lg:pr-2 max-md:px-4">
               <div className="pb-8">{renderStep()}</div>
             </div>
 
@@ -665,11 +728,11 @@ async function fetchClubPlansDetails(id, locationPostal) {
             {currentStep !== 3 && (
               <>
                 {/* Desktop Sidebar */}
-                <div className="hidden xl:block w-[300px] flex-shrink-0 max-md:px-4">
+                <div className="hidden xl:block w-64 xl:w-[280px] 2xl:w-[300px] flex-shrink-0 max-md:px-4">
                   {currentStep === 2 ? (
                     <MembershipSummaryCard
                       primaryMember={formData.primaryMember}
-                      paymentAmount={yearlyPlanDetails?.scheduleTotalAmount || ""}
+                      paymentAmount={selectedPlanAmount}
                     />
                   ) : (
                     <div className="flex flex-col gap-4">
