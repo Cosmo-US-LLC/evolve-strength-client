@@ -132,7 +132,7 @@ function SuccessCertificate({ primaryMember, onBack }) {
               >
                 <path
                   d="M21 7L7 21M21 21L7 7"
-                  stroke="[#000000]"
+                  stroke="black"
                   stroke-width="1.75"
                   stroke-linecap="round"
                   stroke-linejoin="round"
