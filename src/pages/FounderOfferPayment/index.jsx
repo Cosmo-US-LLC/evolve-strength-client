@@ -822,7 +822,7 @@ function FounderOfferPayment() {
         </div>
       </div>
       {isSuccessModalOpen && (
-        <div className="absolute top-0 left-0 z-[900] w-screen h-screen flex items-center justify-center bg-black/80 px-4 py-8">
+        <div className="fixed top-0 left-0 z-[900] w-screen h-screen flex items-center justify-center bg-black/80 px-4 py-8">
           <div className="w-full max-w-[904px]">
             <SuccessCertificate
               primaryMember={completedMember || formData.primaryMember}

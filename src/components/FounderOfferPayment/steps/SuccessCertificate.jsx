@@ -167,7 +167,7 @@ function SuccessCertificate({ primaryMember, onBack }) {
           >
             <div
               id="certificate"
-              className="w-full max-w-full md:max-w-[700px] h-[336px] md:h-[442px] relative overflow-hidden bg-[#000000] flex-shrink-0 p-5 md:p-8 flex gap-3 flex-col"
+              className="w-[700px] h-[442px] relative overflow-hidden bg-[#000000] flex-shrink-0 p-8 flex gap-3 flex-col"
             >
               <div className="">
                 <svg
@@ -257,18 +257,18 @@ function SuccessCertificate({ primaryMember, onBack }) {
               </div>
 
               <div className="">
-                <h2 className="!font-[900] md:!leading-[77%] !leading-[90%] !text-[28px] md:!text-[57px] uppercase text-[#ffffff]">
+                <h2 className="!font-[900] !leading-[90%] !text-[57px] uppercase text-[#ffffff]">
                   OFFICIAL RATE
                   <br />
                   LOCK CERTIFICATE
                 </h2>
               </div>
 
-              <div className="flex flex-col md:mt-4">
-                <p className="text-[16px] md:text-[22px] mb-2 font-[700] font-[Kanit] text-[#4ab04a] uppercase">
+              <div className="flex flex-col mt-4">
+                <p className="text-[22px] mb-2 font-[700] font-[Kanit] text-[#4ab04a] uppercase">
                   {memberName}
                 </p>
-                <p className="text-[10px] md:text-[14px] md:max-w-[380px] max-w-[230px] leading-[15px] md:leading-[18px] font-[300] font-[Kanit] text-[#ffffff]">
+                <p className="text-[14px] w-[380px] leading-[18px] font-[300] font-[Kanit] text-[#ffffff]">
                   This certifies that{" "}
                   <span className="font-[700]">{memberName}</span> has secured the
                   exclusive founder rate for the duration of their active
@@ -276,56 +276,56 @@ function SuccessCertificate({ primaryMember, onBack }) {
                 </p>
               </div>
 
-              <div className="max-w-[400px] flex flex-col gap-4 md:mt-6 mt-2">
-                <div className="flex flex-row md:gap-12 gap-6 w-full justify-start items-start">
-                  <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[80px]">
+              <div className="max-w-[400px] flex flex-col gap-4 mt-6">
+                <div className="flex flex-row gap-12 w-full justify-start items-start">
+                  <div className="flex items-center flex-wrap gap-2 w-[120px]">
                     <img
                       src={icon1}
                       alt="Icon"
-                      className="w-4 h-4 md:w-5 md:h-5 shrink-0 object-contain"
+                      className="w-5 h-5 shrink-0 object-contain"
                     />
-                    <p className="text-[8px] md:text-[12px] pb-[16px] font-[300] font-[Kanit] text-[#ffffff]">
+                    <p className="text-[12px] pb-[16px] font-[300] font-[Kanit] text-[#ffffff]">
                       $0 Enrollment
                     </p>
                   </div>
-                  <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[80px]">
+                  <div className="flex items-center flex-wrap gap-2 w-[120px]">
                     <img
                       src={icon3}
                       alt="Icon"
-                      className="w-4 h-4 md:w-5 md:h-5 shrink-0 object-contain"
+                      className="w-5 h-5 shrink-0 object-contain"
                     />
-                    <p className="text-[8px] md:text-[12px] pb-[16px] font-[300] font-[Kanit] text-[#ffffff]">
+                    <p className="text-[12px] pb-[16px] font-[300] font-[Kanit] text-[#ffffff]">
                       Lifetime Lock
                     </p>
                   </div>
                 </div>
 
-                <div className="flex flex-row md:gap-12 gap-6 w-full justify-start items-start">
-                  <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[90px]">
+                <div className="flex flex-row gap-12 justify-start items-start">
+                  <div className="flex items-center flex-wrap gap-2 w-[120px]">
                     <img
                       src={icon2}
                       alt="Icon"
-                      className="w-4 h-4 md:w-5 md:h-5 shrink-0 object-contain"
+                      className="w-5 h-5 shrink-0 object-contain"
                     />
-                    <p className="text-[8px] md:text-[12px] pb-[16px] font-[300] font-[Kanit] text-[#ffffff]">
+                    <p className="text-[12px] pb-[16px] font-[300] font-[Kanit] text-[#ffffff]">
                       No Initiation Fee
                     </p>
                   </div>
-                  <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[70px]">
+                  <div className="flex items-center flex-wrap gap-2 w-[120px]">
                     <img
                       src={icon4}
                       alt="Icon"
-                      className="w-4 h-4 md:w-5 md:h-5 shrink-0 object-contain"
+                      className="w-5 h-5 shrink-0 object-contain"
                     />
-                    <p className="text-[8px] md:text-[12px] pb-[16px] font-[300] font-[Kanit] text-[#ffffff]">
+                    <p className="text-[12px] pb-[16px] font-[300] font-[Kanit] text-[#ffffff]">
                       All Access
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute bottom-[30px] md:bottom-[50px] right-5 md:right-6">
-                <div className="w-[189px] absolute right-5 bottom-10 h-auto">
+              <div className="absolute bottom-[50px] right-6">
+                <div className="w-[189px] absolute right-5 bottom-6 h-auto">
                   <svg
                     width="189"
                     height="auto"

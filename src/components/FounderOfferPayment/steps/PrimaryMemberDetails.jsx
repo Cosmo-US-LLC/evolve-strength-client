@@ -640,7 +640,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                         form.formState.errors.dob
                           ? "border-red-500"
                           : "border-[#d4d4d4]"
-                      } text-black! text-base! cursor-pointer`}
+                      } text-black! text-base! cursor-pointer w-full h-full`}
                     />
                   </FormControl>
                   <FormMessage />
