@@ -9,11 +9,11 @@ function MembershipSummaryCard({ primaryMember, paymentAmount }) {
     return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
   };
 
-  const totalMembers = 1;
-  const primaryMemberName =
-    primaryMember?.firstName && primaryMember?.lastName
-      ? `${primaryMember.firstName} ${primaryMember.lastName}`
-      : "Not provided";
+  // const totalMembers = 1;
+  // const primaryMemberName =
+  //   primaryMember?.firstName && primaryMember?.lastName
+  //     ? `${primaryMember.firstName} ${primaryMember.lastName}`
+  //     : "Not provided";
   const normalizedAmount =
     typeof paymentAmount === "number"
       ? paymentAmount.toFixed(2)
@@ -41,13 +41,21 @@ function MembershipSummaryCard({ primaryMember, paymentAmount }) {
           </p>
         </div>
         <div className="flex items-end gap-1">
-          <p className="font-['Kanit'] font-bold text-[#4ab04a] text-[24px] leading-[24px]">
-           {displayAmount}
+          <p className="font-['Kanit'] text-[#4ab04a] text-[24px] leading-[24px]">
+           Due Today:
+           <span className="font-bold"> $0.00</span>
           </p>
           {/* <p className="font-['Kanit'] font-normal text-[#4a5565] text-[14px] leading-[20px]">
             / bi-weekly
-          </p> */}
+            </p> */}
         </div>
+        <p className="font-['Kanit'] text-[#0A0A0A] text-sm">
+          {displayAmount}
+          <br />
+          <span className="text-[#4A5565]">
+          Refundable Deposit
+          </span>
+        </p>
       </div>
 
       {/* Details Section */}
@@ -79,7 +87,7 @@ function MembershipSummaryCard({ primaryMember, paymentAmount }) {
         </div>
 
         {/* Members */}
-        <div className="flex gap-2 items-start">
+        {/* <div className="flex gap-2 items-start">
           <Users className="size-5 text-[#4ab04a] flex-shrink-0 mt-0.5" />
           <div className="flex flex-col leading-[20px]">
             <p className="font-['Kanit'] font-medium text-[#0a0a0a] text-[14px]">
@@ -89,15 +97,14 @@ function MembershipSummaryCard({ primaryMember, paymentAmount }) {
               {totalMembers} {totalMembers === 1 ? "member" : "members"}
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Divider */}
-      <div className="h-px bg-[#d4d4d4] w-full" />
+      {/* <div className="h-px bg-[#d4d4d4] w-full" /> */}
 
       {/* Members List */}
-      <div className="flex flex-col gap-3">
-        {/* Primary Member */}
+      {/* <div className="flex flex-col gap-3">
         <div className="flex flex-col leading-[20px]">
           <p className="font-['Kanit'] font-medium text-[#0a0a0a] text-[14px]">
             Primary Member
@@ -106,7 +113,7 @@ function MembershipSummaryCard({ primaryMember, paymentAmount }) {
             {primaryMemberName}
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

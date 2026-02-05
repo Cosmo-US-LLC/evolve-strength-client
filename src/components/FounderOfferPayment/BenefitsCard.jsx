@@ -5,7 +5,7 @@ const benefits = [
   "Founder rate locked for 24 months",
   "Access to all locations nationwide",
   "$0 enrollment & maintenance fees",
-  "Fully refundable deposit within 30 days",
+  "Risk-free membership with a full refund within 10 days of opening",
 ];
 
 function BenefitsCard() {
@@ -18,11 +18,11 @@ function BenefitsCard() {
         <div className="flex flex-col gap-4">
           {benefits.map((benefit, index) => (
             <div key={index}>
-              <div className="flex gap-2 items-center">
-                <div className="bg-[#4ab04a] rounded-full size-[20px] flex items-center justify-center flex-shrink-0">
-                  <Check className="size-[14px] text-white flex-shrink-0" />
+              <div className="flex gap-2">
+                <div className="border border-[#4ab04a] bg-white rounded-full size-[18px] flex items-center justify-center flex-shrink-0">
+                  <Check className="size-[10px] text-[#4ab04a] flex-shrink-0" />
                 </div>
-                <p className="font-['Vazirmatn'] font-normal text-black md:text-[14px] !text-[16px] leading-[22px]">
+                <p className="font-['Vazirmatn'] font-normal text-black md:text-[14px]">
                   {benefit}
                 </p>
               </div>
