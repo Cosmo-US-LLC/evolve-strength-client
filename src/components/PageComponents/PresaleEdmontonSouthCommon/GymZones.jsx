@@ -7,16 +7,16 @@ import {
 } from "@/components/ui/accordion";
 import { Plus, Minus } from "lucide-react";
 // Import images from presale folder
-import strengthZoneBg1 from "../../../assets/images/presale/gym_presale_1.webp";
-import strengthZoneBg2 from "../../../assets/images/presale/gym_presale_2.webp";
-import strengthZoneBg3 from "../../../assets/images/presale/gym_presale_3.webp";
-import strengthZoneBg4 from "../../../assets/images/presale/gym_presale_4.webp";
-import strengthZoneBg5 from "../../../assets/images/presale/gym_presale_5.webp";
+import strengthZoneBg1 from "../../../assets/images/presale/presale_common_desktop_1.webp";
+import strengthZoneBg2 from "../../../assets/images/presale/presale_common_desktop_2.webp";
+import strengthZoneBg3 from "../../../assets/images/presale/presale_common_desktop_3.webp";
+import strengthZoneBg4 from "../../../assets/images/presale/presale_common_desktop_4.webp";
+// import strengthZoneBg5 from "../../../assets/images/presale/gym_presale_5.webp";
 // Import SVG icons from presale folder
 import icon1 from "../../../assets/images/presale/gym_presale_icon (4).svg";
 import icon2 from "../../../assets/images/presale/gym_presale_icon (3).svg";
 import icon3 from "../../../assets/images/presale/gym_presale_icon (2).svg";
-import icon4 from "../../../assets/images/presale/gym_presale_icon (1).svg";
+// import icon4 from "../../../assets/images/presale/gym_presale_icon (1).svg";
 
 
 const gymZones = [
@@ -42,13 +42,13 @@ const gymZones = [
     icon: icon3,
     number: 3,
   },
-  {
-    title: "Olympic Zone",
-    description: "Master lifts and explosive training with barbells, platforms, and Olympic-grade equipment.",
-    bgImage: strengthZoneBg5,
-    icon: icon4,
-    number: 4,
-  },
+  // {
+  //   title: "Olympic Zone",
+  //   description: "Master lifts and explosive training with barbells, platforms, and Olympic-grade equipment.",
+  //   bgImage: strengthZoneBg5,
+  //   icon: icon4,
+  //   number: 4,
+  // },
 ];
 
 // Default background image
