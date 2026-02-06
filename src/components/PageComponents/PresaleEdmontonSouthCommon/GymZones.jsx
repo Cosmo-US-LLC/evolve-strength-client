@@ -268,7 +268,7 @@ const GymZones = () => {
                 }}
               />
               {/* <div className="absolute inset-0 z-0 bg-black/50 pointer-events-none" /> */}
-              <AccordionTrigger className="bg-black/50 relative z-10 min-h-[200px] w-full flex flex-col justify-center items-center gap-3 px-4 py-4 no-underline hover:no-underline focus:outline-none focus:ring-0 rounded-none! [&>svg]:hidden group">
+              <AccordionTrigger className="bg-black/50 relative z-10 min-h-[300px] w-full flex flex-col justify-center items-center gap-3 px-4 py-4 no-underline hover:no-underline focus:outline-none focus:ring-0 rounded-none! [&>svg]:hidden group">
                 <div className="flex items-center gap-3 w-full text-left">
                   <div
                     className="shrink-0 flex items-center justify-center w-[55px] h-[55px] rounded-full p-[12px]"

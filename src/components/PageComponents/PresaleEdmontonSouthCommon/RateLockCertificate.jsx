@@ -93,7 +93,7 @@ function RateLockCertificate() {
           {/* Left Side - Benefits List */}
           <div className="w-full md:w-auto flex flex-col gap-4">
           <div className="flex flex-col md:gap-6 gap-5">
-            <p className="text-[14px] text-center md:text-left md:!text-[18px] leading-[22px] md:leading-[26px] font-[400] font-[Kanit] text-[#000]">
+            <p className="text-base text-center md:text-left md:!text-[18px] leading-[22px] md:leading-[26px] font-[400] font-[Kanit] text-[#000]">
             We are building the ultimate training facility. By joining during our construction phase, you are rewarded with our lowest rate possible, forever.
               </p>
               {depositBenefits.map((benefit, index) => (
