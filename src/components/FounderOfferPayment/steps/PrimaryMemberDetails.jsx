@@ -161,6 +161,7 @@ const formSchema = z.object({
 
 function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
   const [showGenderDropdown, setShowGenderDropdown] = useState(false);
+  const [isIOSDevice, setIsIOSDevice] = useState(false);
   const [
     autocompleteInitializedForAddress,
     setAutocompleteInitializedForAddress,
@@ -176,6 +177,14 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
   // Debug: Check environment variable on component mount
   useEffect(() => {
     checkGoogleMapsKey();
+  }, []);
+
+  useEffect(() => {
+    if (typeof navigator === "undefined") return;
+    const isIOS =
+      /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    setIsIOSDevice(isIOS);
   }, []);
 
   const form = useForm({
@@ -631,7 +640,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                 <FormItem className="flex-1 relative">
                   <FormControl className="w-full">
                     <div className="relative w-full h-full max-h-[50px] flex">
-                      {!field.value && (
+                      {isIOSDevice && !field.value && (
                         <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-base">
                           DOB
                         </span>

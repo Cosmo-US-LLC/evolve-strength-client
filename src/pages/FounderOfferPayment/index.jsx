@@ -542,19 +542,36 @@ function FounderOfferPayment() {
           body: JSON.stringify(payload),
         }
       );
-      const res = await response.json();
-      const message = res?.data?.restResponse?.status?.message;
+      let res = null;
+      try {
+        res = await response.json();
+      } catch (error) {
+        res = null;
+      }
+      const status = res?.data?.restResponse?.status;
+      const message = status?.message;
+      const apiMessage = (
+        message ||
+        status?.statusMessage ||
+        status?.errorMessage ||
+        status?.error ||
+        res?.message ||
+        res?.error?.message ||
+        (!response.ok ? response.statusText : "")
+      )
+        ?.toString()
+        .trim();
 
       if (message && message.toLowerCase() === "success") {
-        return true;
+        return { success: true };
       }
 
       console.error("Payment failed:", message || "Unknown error");
       console.log(res);
-      return false;
+      return { success: false, apiMessage };
     } catch (error) {
       console.error("Payment error:", error?.message || error);
-      return false;
+      return { success: false, apiMessage: error?.message || "" };
     }
   };
 
@@ -610,7 +627,7 @@ function FounderOfferPayment() {
     setIsSubmittingPayment(true);
     setPaymentError("");
 
-    const paymentSuccess = await makePayment(
+    const paymentResult = await makePayment(
       {
         primaryMember: formData.primaryMember,
         payment: {
@@ -627,8 +644,13 @@ function FounderOfferPayment() {
       }
     );
 
-    if (!paymentSuccess) {
-      setPaymentError("Payment failed. Please check your details and try again.");
+    if (!paymentResult?.success) {
+      const baseError =
+        "Payment failed.";
+      const apiMessage = paymentResult?.apiMessage;
+      setPaymentError(
+        apiMessage ? `${baseError} (${apiMessage})` : baseError
+      );
       setIsSubmittingPayment(false);
       return false;
     }
