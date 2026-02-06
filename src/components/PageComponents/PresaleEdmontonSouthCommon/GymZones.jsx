@@ -141,7 +141,7 @@ const GymZones = () => {
   }, [currentBg]);
 
   return (
-    <div className="relative w-full overflow-hidden min-h-[400px] md:min-h-[700px]">
+    <div className="relative w-full overflow-hidden min-h-[400px] md:min-h-[800px]">
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
@@ -158,7 +158,7 @@ const GymZones = () => {
           style={{
             backgroundImage: `url("${currentBg}")`,
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "bottom",
             backgroundRepeat: "no-repeat",
             opacity: imagesLoaded ? 1 : 0,
           }}
@@ -167,7 +167,7 @@ const GymZones = () => {
       </div>
 
       {/* Desktop Layout */}
-      <div className="bg-black/60 hidden md:flex relative z-10 w-full flex-row justify-end items-end min-h-[700px]">
+      <div className="bg-black/60 hidden md:flex relative z-10 w-full flex-row justify-end items-end min-h-[800px]">
         {gymZones.map((zone, index) => {
           const isActive = hoveredIndex === index;
 
@@ -229,14 +229,14 @@ const GymZones = () => {
                   </div>
                 </div>
 
-                <div className="flex justify-center md:justify-center mt-auto pt-6">
+                {/* <div className="flex justify-center md:justify-center mt-auto pt-6">
                   <span
                     className={`text-[20px] !font-Kanit md:text-[24px] leading-[108%] font-bold 
                         transition-colors text-[#fff] text-center duration-200`}
                   >
                     {zone.number}
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
           );
@@ -268,7 +268,7 @@ const GymZones = () => {
                 }}
               />
               {/* <div className="absolute inset-0 z-0 bg-black/50 pointer-events-none" /> */}
-              <AccordionTrigger className="bg-black/50 relative z-10 min-h-[120px] w-full flex items-center gap-3 px-4 py-4 no-underline hover:no-underline focus:outline-none focus:ring-0 rounded-none! [&>svg]:hidden group">
+              <AccordionTrigger className="bg-black/50 relative z-10 min-h-[200px] w-full flex flex-col justify-center items-center gap-3 px-4 py-4 no-underline hover:no-underline focus:outline-none focus:ring-0 rounded-none! [&>svg]:hidden group">
                 <div className="flex items-center gap-3 w-full text-left">
                   <div
                     className="shrink-0 flex items-center justify-center w-[55px] h-[55px] rounded-full p-[12px]"
@@ -298,12 +298,13 @@ const GymZones = () => {
                     <Minus className="w-4 h-4 text-white absolute inset-0 m-auto group-data-[state=closed]:hidden" />
                   </div>
                 </div>
-              </AccordionTrigger>
-              <AccordionContent className="bg-black/50 relative z-10 px-6 pb-4 pt-0">
+                <AccordionContent className=" relative z-10 px-2 pb-4 pt-0">
                 <p className="text-[#fff] text-[16px] leading-[24px] font-[kanit] font-[300]">
                   {zone.description}
                 </p>
               </AccordionContent>
+              </AccordionTrigger>
+              
             </AccordionItem>
           ))}
         </Accordion>

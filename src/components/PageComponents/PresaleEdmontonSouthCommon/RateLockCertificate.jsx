@@ -30,24 +30,24 @@ const certificateBenefits = [
 const depositBenefits = [
   {
     icon: noUpfront,
-    title: "1. Reserve Your Rate",
+    title: "Reserve Your Rate",
     description:
       "Reserve now, pay later, 10-day refund guarantee.",
   },
   {
     icon: "/assets/images/presaleCommonSouth/icon2.svg",
-    title: "2. Get Certificate",
+    title: "Get Certificate",
     description:
       "Receive your digital Rate Lock Certificate.",
   },
   {
     icon: "/assets/images/presaleCommonSouth/icon3.svg",
-    title: "3. VIP Access",
+    title: "VIP Access",
     description: "Enjoy exclusive early access before the gym opens.",
   },
   {
     icon: "/assets/images/presaleCommonSouth/icon_4.svg",
-    title: "4. Grand Opening",
+    title: "Grand Opening",
     description:
       "Your billing only starts when our doors open.",
   },
@@ -93,7 +93,7 @@ function RateLockCertificate() {
           {/* Left Side - Benefits List */}
           <div className="w-full md:w-auto flex flex-col gap-4">
           <div className="flex flex-col md:gap-6 gap-5">
-            <p className="text-[14px] text-center md:text-left md:!text-[18px] leading-[26px] font-[400] font-[Kanit] text-[#000]">
+            <p className="text-[14px] text-center md:text-left md:!text-[18px] leading-[22px] md:leading-[26px] font-[400] font-[Kanit] text-[#000]">
             We are building the ultimate training facility. By joining during our construction phase, you are rewarded with our lowest rate possible, forever.
               </p>
               {depositBenefits.map((benefit, index) => (
@@ -110,7 +110,7 @@ function RateLockCertificate() {
                       {benefit.title}
                     </h3>
                   </div>
-                  <p className="pl-[42px] text-[14px] md:!text-[16px] leading-[26px] font-[300] font-[Kanit] text-[#000]">
+                  <p className="pl-[42px] text-[16px] md:!text-[16px] leading-[26px] font-[300] font-[Kanit] text-[#000]">
                     {benefit.description}
                   </p>
                 </div>
@@ -165,7 +165,7 @@ function RateLockCertificate() {
           </div>
 
           {/* Right Side - Certificate Document */}
-          <div className="w-full max-w-full md:max-w-[700px] h-[336px] md:h-[442px] relative rounded-[12px] overflow-hidden bg-[#000000] flex-shrink-0 p-5 md:p-8 flex gap-3 flex-col">
+          <div className="w-full max-w-full md:max-w-[700px] h-[336px] md:h-[442px] relative rounded-[12px] overflow-hidden bg-[#000000] flex-shrink-0 p-4 md:p-8 flex gap-3 flex-col">
             <div className="">
               <img
                 src="../../../assets/images/home/navbar/Evolve-logo-light.svg"
@@ -188,7 +188,7 @@ function RateLockCertificate() {
               <p className="text-[16px] md:text-[22px] mb-2 font-[700] font-[Kanit] text-[#4ab04a] uppercase">
                 MEMBER NAME
               </p>
-              <p className="text-[10px] md:text-[14px] md:max-w-[380px] max-w-[230px] leading-[15px] md:leading-[18px] font-[300] font-[Kanit] text-[#ffffff]">
+              <p className="text-[12px] md:text-[14px] md:max-w-[380px] max-w-[330px] leading-[15px] md:leading-[18px] font-[300] font-[Kanit] text-[#ffffff]">
                 {/* This certifies that{" "}
                 <span className="font-[700]">[Member Name]</span> has secured
                 the exclusive Founder&apos;s Rate of{" "}
@@ -201,56 +201,56 @@ function RateLockCertificate() {
 
             {/* Bottom Section - Date and Signature */}
             <div className="max-w-[400px] flex flex-col gap-4 md:mt-6 mt-2">
-              <div className="flex flex-row md:gap-12 gap-6 w-full justify-start items-start">
-              <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[80px]">
+              <div className="flex flex-row md:gap-12 gap-0 w-full justify-start items-start">
+              <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[120px]">
                 <img
                   src={icon1}
                   alt="Icon"
                   className="w-4 h-4 md:w-5 md:h-5 shrink-0 object-contain"
                 />
-                <p className="text-[8px] md:text-[12px] leading-[16px] font-[300] font-[Kanit] text-[#ffffff]">
+                <p className="text-[12px] md:text-[12px] leading-[16px] font-[300] font-[Kanit] text-[#ffffff]">
                   $0 Enrollment
                   </p>
                 </div>
-                <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[80px]">
+                <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[120px]">
                   <img
                     src={icon3}
                     alt="Icon"
                     className="w-4 h-4 md:w-5 md:h-5 shrink-0 object-contain"
                   />
-                  <p className="text-[8px] md:text-[12px] leading-[16px] font-[300] font-[Kanit] text-[#ffffff]">
+                  <p className="text-[12px] md:text-[12px] leading-[16px] font-[300] font-[Kanit] text-[#ffffff]">
                   Lifetime Lock</p>
                 </div>
               </div>
 
               <div className="flex flex-row md:gap-12 gap-6 w-full justify-start items-start">
-              <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[90px]">
+              <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[120px]">
                 <img
                   src={icon2}
                   alt="Icon"
                   className="w-4 h-4 md:w-5 md:h-5 shrink-0 object-contain"
                 />
-                <p className="text-[8px] md:text-[12px] leading-[16px] font-[300] font-[Kanit] text-[#ffffff]">
+                <p className="text-[12px] md:text-[12px] leading-[16px] font-[300] font-[Kanit] text-[#ffffff]">
                 No Initiation Fee
                   </p>
                 </div>
-                <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[70px]">
+                <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[120px]">
                   <img
                     src={icon4}
                     alt="Icon"
                     className="w-4 h-4 md:w-5 md:h-5 shrink-0 object-contain"
                   />
-                  <p className="text-[8px] md:text-[12px] leading-[16px] font-[300] font-[Kanit] text-[#ffffff]">
-                  All Access</p>
+                  <p className="text-[12px] md:text-[12px] leading-[16px] font-[300] font-[Kanit] text-[#ffffff]">
+                  Early Access</p>
                 </div>
               </div>
               
             </div>
 
             {/* Watermark Logo - Bottom Right (Faded) */}
-            <div className="absolute bottom-[30px] md:bottom-[50px] right-5 md:right-6">
+            <div className="absolute bottom-[36px] md:bottom-[50px] right-2 md:right-6">
               {/* Large watermark logo placeholder - will be replaced with actual logo */}
-              <div className="w-[100px] md:w-[240px] h-auto">
+              <div className="w-[92px] md:w-[240px] h-auto">
                 {/* Watermark logo image will go here */}
                 <img
                   src="../../../assets/images/home/footer/Evolve-Strength-footer-Logo.svg"
