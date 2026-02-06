@@ -77,6 +77,7 @@ const normalizeProvince = (provinceValue) => {
 
 const PRIMARY_MEMBER_STORAGE_KEY = "founderOfferPayment.primaryMember.v1";
 const SELECTED_PLAN_STORAGE_KEY = "founderOfferPayment.selectedPlan.v1";
+const SUCCESS_STORAGE_KEY = "founderOfferPayment.success.v1";
 const SUCCESS_PARAM_KEY = "success";
 const SUCCESS_PARAM_VALUE = "1";
 const PLAN_TYPE_YEARLY = 0;
@@ -126,6 +127,40 @@ const clearStoredPrimaryMember = () => {
     window.sessionStorage.removeItem(PRIMARY_MEMBER_STORAGE_KEY);
   } catch (error) {
     console.warn("Failed to clear saved member data.", error);
+  }
+};
+
+const loadStoredSuccess = () => {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = window.sessionStorage.getItem(SUCCESS_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== "object") return null;
+    if (!parsed.member || typeof parsed.member !== "object") return null;
+    if (!parsed.verifiedAt) return null;
+    return parsed;
+  } catch (error) {
+    console.warn("Failed to load success record.", error);
+    return null;
+  }
+};
+
+const persistSuccess = (record) => {
+  if (typeof window === "undefined") return;
+  try {
+    window.sessionStorage.setItem(SUCCESS_STORAGE_KEY, JSON.stringify(record));
+  } catch (error) {
+    console.warn("Failed to persist success record.", error);
+  }
+};
+
+const clearStoredSuccess = () => {
+  if (typeof window === "undefined") return;
+  try {
+    window.sessionStorage.removeItem(SUCCESS_STORAGE_KEY);
+  } catch (error) {
+    console.warn("Failed to clear success record.", error);
   }
 };
 
@@ -216,6 +251,9 @@ const isPrimaryMemberComplete = (primaryMember) => {
   });
 };
 
+const isSuccessRecordValid = (record) =>
+  Boolean(record?.verifiedAt) && isPrimaryMemberComplete(record?.member);
+
 const hasPrimaryMemberData = (primaryMember) =>
   Object.values(primaryMember || {}).some((value) => {
     if (typeof value === "string") return value.trim().length > 0;
@@ -229,11 +267,14 @@ function FounderOfferPayment() {
   const prevStepRef = useRef(1);
   const storedPrimaryMemberRef = useRef(loadStoredPrimaryMember());
   const storedSelectedPlanRef = useRef(loadStoredSelectedPlan());
+  const [successRecord, setSuccessRecord] = useState(() => loadStoredSuccess());
 
   const stepParam = searchParams.get("step");
+  const successParam = searchParams.get(SUCCESS_PARAM_KEY);
+  const hasValidSuccessRecord = isSuccessRecordValid(successRecord);
   const initialSuccess =
-    stepParam === "thank-you" ||
-    isSuccessParam(searchParams.get(SUCCESS_PARAM_KEY));
+    (stepParam === "thank-you" || isSuccessParam(successParam)) &&
+    hasValidSuccessRecord;
   const stepFromUrl = isValidStepParam(stepParam)
     ? paramToStep[stepParam]
     : initialSuccess
@@ -243,7 +284,9 @@ function FounderOfferPayment() {
     stepFromUrl >= 0 && stepFromUrl <= MAX_STEP ? stepFromUrl : 0
   );
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(initialSuccess);
-  const [completedMember, setCompletedMember] = useState(null);
+  const [completedMember, setCompletedMember] = useState(
+    hasValidSuccessRecord ? successRecord?.member : null
+  );
   const wasSuccessOpenRef = useRef(initialSuccess);
 
   const planParam = searchParams.get("plan");
@@ -321,6 +364,19 @@ function FounderOfferPayment() {
   };
 
   useEffect(() => {
+    if (initialSuccess) return;
+    if (!successParam) return;
+    if (hasValidSuccessRecord) return;
+    syncUrlState(currentStep, currentPlan, { mode: "replace", success: false });
+  }, [
+    currentStep,
+    currentPlan,
+    hasValidSuccessRecord,
+    initialSuccess,
+    successParam,
+  ]);
+
+  useEffect(() => {
     if (isSuccessModalOpen) return;
     if (!hasPrimaryMemberData(formData.primaryMember)) {
       clearStoredPrimaryMember();
@@ -361,11 +417,17 @@ function FounderOfferPayment() {
         ? paramToStep[newStepParam]
         : 0;
       const newPlan = normalizePlanType(newPlanParam, PLAN_TYPE_YEARLY);
+      const storedSuccess = loadStoredSuccess();
+      const hasStoredSuccess = isSuccessRecordValid(storedSuccess);
       const newSuccess =
-        newStepParam === "thank-you" || isSuccessParam(newSuccessParam);
+        (newStepParam === "thank-you" ||
+          isSuccessParam(newSuccessParam)) &&
+        hasStoredSuccess;
 
       setCurrentStep(newStep);
       setCurrentPlan(newPlan);
+      setSuccessRecord(storedSuccess);
+      setCompletedMember(hasStoredSuccess ? storedSuccess?.member : null);
       setIsSuccessModalOpen(newSuccess);
     };
 
@@ -664,7 +726,14 @@ function FounderOfferPayment() {
       return false;
     }
 
-    setCompletedMember({ ...formData.primaryMember });
+    const completedData = { ...formData.primaryMember };
+    const successRecordPayload = {
+      verifiedAt: new Date().toISOString(),
+      member: completedData,
+    };
+    persistSuccess(successRecordPayload);
+    setSuccessRecord(successRecordPayload);
+    setCompletedMember(completedData);
     setFormData((prev) => ({
       ...prev,
       primaryMember: {
@@ -714,6 +783,8 @@ function FounderOfferPayment() {
 
   useEffect(() => {
     if (wasSuccessOpenRef.current && !isSuccessModalOpen) {
+      clearStoredSuccess();
+      setSuccessRecord(null);
       setCompletedMember(null);
       setCurrentStep(0);
       syncUrlState(0, currentPlan, { mode: "replace" });
@@ -848,7 +919,12 @@ function FounderOfferPayment() {
           <div className="w-full max-w-[904px]">
             <SuccessCertificate
               primaryMember={completedMember || formData.primaryMember}
-              onBack={() => navigate("/presale-edmonton-south-common")}
+              onBack={() => {
+                clearStoredSuccess();
+                setSuccessRecord(null);
+                setIsSuccessModalOpen(false);
+                navigate("/presale-edmonton-south-common");
+              }}
             />
           </div>
         </div>
