@@ -17,6 +17,9 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), svgr()],
   server: {
     historyApiFallback: true,
+    watch: {
+      ignored: ["**/data/sent-emails.json"],
+    },
   },
   resolve: {
     alias: {
