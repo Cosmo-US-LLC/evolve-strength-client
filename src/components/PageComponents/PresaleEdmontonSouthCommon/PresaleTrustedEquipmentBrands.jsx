@@ -163,7 +163,7 @@ function PresaleTrustedEquipmentBrands() {
             {EQUIPMENT_PARTNERS.map((partner) => (
               <div
                 key={partner.id}
-                className="relative shrink-0 w-[280px] md:w-[270px] h-[340px] md:h-[380px] rounded-2xl overflow-hidden mr-4 md:mr-6"
+                className="relative shrink-0 w-[280px] md:w-[270px] h-[380px] md:h-[380px] rounded-2xl overflow-hidden mr-4 md:mr-6"
               >
                 {/* Background image */}
                 <img
@@ -188,10 +188,9 @@ function PresaleTrustedEquipmentBrands() {
                 </div>
               </div>
             ))}
-            {/* Spacer so last card doesn't collapse on first at loop seam */}
-            <div className="shrink-0 w-4 md:w-6" aria-hidden="true" />
           </Marquee>
         </div>
+        
       </div>
     </section>
   );

@@ -81,7 +81,7 @@ function MembershipCardContent({
           {priceBiWeeklyCopy}
         </span>
       </p>
-      <div className="flex flex-col gap-3 md:gap-3 px-6 md:px-0  w-full">
+      <div className="flex flex-col gap-3 md:gap-3 px-1 md:px-0  w-full">
         <div className="flex items-center gap-2 w-full">
           <img
             src={disclaimers1Icon}
@@ -89,7 +89,7 @@ function MembershipCardContent({
             className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
             aria-hidden
           />
-          <p className="text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
+          <p className="text-[16px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
             {disclaimers1}
           </p>
         </div>
@@ -100,7 +100,7 @@ function MembershipCardContent({
             className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
             aria-hidden
           />
-          <p className="text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
+          <p className="text-[16px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
             {disclaimers2}
           </p>
         </div>
@@ -111,7 +111,7 @@ function MembershipCardContent({
             className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
             aria-hidden
           />
-          <p className="text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
+          <p className="text-[16px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
             {disclaimers3}
           </p>
         </div>
@@ -122,7 +122,7 @@ function MembershipCardContent({
             className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
             aria-hidden
           />
-          <p className="text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
+          <p className="text-[16px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
             {disclaimers4}
           </p>
         </div>
@@ -133,7 +133,7 @@ function MembershipCardContent({
             className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
             aria-hidden
           />
-          <p className="text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
+          <p className="text-[16px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
             {disclaimers5}
           </p>
         </div>
