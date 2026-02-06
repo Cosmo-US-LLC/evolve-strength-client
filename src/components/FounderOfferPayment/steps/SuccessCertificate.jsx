@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Download } from "lucide-react";
 
 import icon1 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_1.svg";
@@ -8,6 +8,18 @@ import icon4 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_5.sv
 
 function SuccessCertificate({ primaryMember, onBack }) {
   const [isDownloading, setIsDownloading] = useState(false);
+  const isAutoSendingRef = useRef(false);
+
+  const CERTIFICATE_EMAIL_STORAGE_PREFIX =
+    "founderOfferPayment.certificateSent.v1";
+  const certificateApiBase =
+    import.meta.env.VITE_CERT_EMAIL_API_URL || "";
+
+  const normalizeEmail = (email) =>
+    (email || "").toString().trim().toLowerCase();
+
+  const getSentStorageKey = (email) =>
+    `${CERTIFICATE_EMAIL_STORAGE_PREFIX}.${normalizeEmail(email)}`;
 
   const loadScript = (src) =>
     new Promise((resolve, reject) => {
@@ -38,63 +50,221 @@ function SuccessCertificate({ primaryMember, onBack }) {
       document.body.appendChild(script);
     });
 
+  const getCertificateElement = () =>
+    document.getElementById("certificate");
+
+  const loadPdfLibraries = async () => {
+    const html2CanvasUrl =
+      "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
+    const jsPdfUrl =
+      "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js";
+
+    await Promise.all([loadScript(html2CanvasUrl), loadScript(jsPdfUrl)]);
+  };
+
+  const buildCertificateFilename = (nameValue) => {
+    const safeName = (nameValue || "")
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9-]/gi, "")
+      .toLowerCase();
+    return safeName
+      ? `founder-certificate-${safeName}.pdf`
+      : "founder-certificate.pdf";
+  };
+
+  const dataUriToBlob = (dataUri) => {
+    if (typeof dataUri !== "string") {
+      throw new Error("Invalid data URI");
+    }
+
+    const commaIndex = dataUri.indexOf(",");
+    if (commaIndex === -1) {
+      throw new Error("Invalid data URI");
+    }
+
+    const meta = dataUri.slice(0, commaIndex);
+    const base64 = dataUri.slice(commaIndex + 1);
+    const mimeMatch = meta.match(/data:([^;]+);base64/i);
+    const mimeType = mimeMatch ? mimeMatch[1] : "application/octet-stream";
+
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i += 1) {
+      bytes[i] = binary.charCodeAt(i);
+    }
+
+    return new Blob([bytes], { type: mimeType });
+  };
+
+  const generateCertificatePdf = async () => {
+    const certificateElement = getCertificateElement();
+    if (!certificateElement) {
+      throw new Error("Certificate element not found");
+    }
+
+    await loadPdfLibraries();
+
+    if (document.fonts?.ready) {
+      await document.fonts.ready;
+    }
+
+    const rect = certificateElement.getBoundingClientRect();
+    const scale = Math.min(4, (window.devicePixelRatio || 1) * 2);
+    const canvas = await window.html2canvas(certificateElement, {
+      scale,
+      useCORS: true,
+      backgroundColor: "#ffffff",
+      logging: false,
+      width: Math.ceil(rect.width),
+      height: Math.ceil(rect.height),
+      windowWidth: Math.ceil(rect.width),
+      windowHeight: Math.ceil(rect.height),
+    });
+
+    const imageData = canvas.toDataURL("image/png", 1.0);
+    const pdfModule = window.jspdf || window;
+    const jsPDF = pdfModule.jsPDF;
+
+    if (!jsPDF) {
+      throw new Error("PDF library not available");
+    }
+
+    const orientation =
+      canvas.width > canvas.height ? "landscape" : "portrait";
+    const pdf = new jsPDF({
+      orientation,
+      unit: "px",
+      format: [canvas.width, canvas.height],
+      hotfixes: ["px_scaling"],
+    });
+
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    const imageRatio = canvas.width / canvas.height;
+    let imageWidth = pageWidth;
+    let imageHeight = pageWidth / imageRatio;
+    if (imageHeight > pageHeight) {
+      imageHeight = pageHeight;
+      imageWidth = pageHeight * imageRatio;
+    }
+    const imageX = (pageWidth - imageWidth) / 2;
+    const imageY = (pageHeight - imageHeight) / 2;
+
+    pdf.addImage(
+      imageData,
+      "PNG",
+      imageX,
+      imageY,
+      imageWidth,
+      imageHeight,
+      undefined,
+      "FAST"
+    );
+
+    const dataUri = pdf.output("datauristring");
+    let pdfBlob = null;
+    try {
+      const blobOutput = pdf.output("blob");
+      if (blobOutput instanceof Blob) {
+        pdfBlob = blobOutput;
+      } else if (blobOutput) {
+        pdfBlob = new Blob([blobOutput], { type: "application/pdf" });
+      }
+    } catch (error) {
+      pdfBlob = null;
+    }
+
+    if (!pdfBlob) {
+      try {
+        const bufferOutput = pdf.output("arraybuffer");
+        if (bufferOutput) {
+          pdfBlob = new Blob([bufferOutput], { type: "application/pdf" });
+        }
+      } catch (error) {
+        pdfBlob = null;
+      }
+    }
+
+    return { pdf, dataUri, pdfBlob };
+  };
+
   const handleDownloadCertificate = async () => {
     if (isDownloading) return;
-    const certificateElement = document.getElementById("certificate");
-    if (!certificateElement) return;
 
     setIsDownloading(true);
     try {
-      const html2CanvasUrl =
-        "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
-      const jsPdfUrl =
-        "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js";
-
-      await Promise.all([loadScript(html2CanvasUrl), loadScript(jsPdfUrl)]);
-
-      if (document.fonts?.ready) {
-        await document.fonts.ready;
-      }
-
-      const scale = Math.max(2, window.devicePixelRatio || 2);
-      const canvas = await window.html2canvas(certificateElement, {
-        scale,
-        useCORS: true,
-        backgroundColor: "#ffffff",
-        logging: false,
-      });
-
-      const imageData = canvas.toDataURL("image/png", 1.0);
-      const pdfModule = window.jspdf || window;
-      const jsPDF = pdfModule.jsPDF;
-
-      if (!jsPDF) {
-        throw new Error("PDF library not available");
-      }
-
-      const orientation =
-        canvas.width > canvas.height ? "landscape" : "portrait";
-      const pdf = new jsPDF({
-        orientation,
-        unit: "px",
-        format: [canvas.width, canvas.height],
-      });
-
-      pdf.addImage(imageData, "PNG", 0, 0, canvas.width, canvas.height);
-
-      const safeName = memberName
-        .replace(/\s+/g, "-")
-        .replace(/[^a-z0-9-]/gi, "")
-        .toLowerCase();
-      const filename = safeName
-        ? `founder-certificate-${safeName}.pdf`
-        : "founder-certificate.pdf";
-
+      const { pdf } = await generateCertificatePdf();
+      const filename = buildCertificateFilename(memberName);
       pdf.save(filename);
     } catch (error) {
       console.error("Failed to download certificate:", error);
     } finally {
       setIsDownloading(false);
+    }
+  };
+
+  const sendCertificateEmail = async () => {
+    const email = normalizeEmail(primaryMember?.email);
+    if (!email) return;
+
+    if (typeof window !== "undefined") {
+      const sentKey = getSentStorageKey(email);
+      if (window.localStorage.getItem(sentKey) === "1") {
+        return;
+      }
+    }
+
+    if (isAutoSendingRef.current) return;
+    isAutoSendingRef.current = true;
+
+    let didSend = false;
+    try {
+      const { dataUri, pdfBlob } = await generateCertificatePdf();
+      const filename = buildCertificateFilename(memberName);
+      const certificateBlob = pdfBlob || dataUriToBlob(dataUri);
+      const endpoint = certificateApiBase
+        ? `${certificateApiBase.replace(/\/$/, "")}/send-certificate`
+        : "/send-certificate";
+
+      const formData = new FormData();
+      formData.append("email", email);
+      if (memberName) {
+        formData.append("name", memberName);
+      }
+      formData.append("fileName", filename);
+      formData.append("certificate", certificateBlob, filename);
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        body: formData,
+      });
+
+      let result = null;
+      try {
+        result = await response.json();
+      } catch (error) {
+        result = null;
+      }
+
+      if (!response.ok) {
+        console.error(
+          "Failed to send certificate email:",
+          result?.error || response.statusText
+        );
+        return;
+      }
+
+      if (typeof window !== "undefined") {
+        const sentKey = getSentStorageKey(email);
+        window.localStorage.setItem(sentKey, "1");
+      }
+      didSend = true;
+    } catch (error) {
+      console.error("Failed to send certificate email:", error);
+    } finally {
+      if (!didSend) {
+        isAutoSendingRef.current = false;
+      }
     }
   };
 
@@ -117,6 +287,13 @@ function SuccessCertificate({ primaryMember, onBack }) {
   const memberName =
     `${primaryMember?.firstName || "[First Name]"} ${primaryMember?.lastName || "[Last Name]"}`.trim();
 
+  useEffect(() => {
+    if (!primaryMember?.email) return;
+    sendCertificateEmail();
+    // Intentionally only re-run when the email changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [primaryMember?.email]);
+
   return (
     <div className="w-full flex items-center justify-center min-h-[80vh]">
       <div className="border-[8px] border-[#5B5B5B] bg-[#5B5B5B] rounded-[16px] max-w-[904px] w-full">
@@ -133,9 +310,9 @@ function SuccessCertificate({ primaryMember, onBack }) {
                 <path
                   d="M21 7L7 21M21 21L7 7"
                   stroke="black"
-                  stroke-width="1.75"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.75"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </button>
