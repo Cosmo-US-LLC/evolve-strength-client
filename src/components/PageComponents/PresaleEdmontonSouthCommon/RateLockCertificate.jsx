@@ -61,7 +61,7 @@ function RateLockCertificate() {
     const month = date.toLocaleString("en-US", { month: "long" }).toUpperCase();
     const year = date.getFullYear();
     
-    // Convert day to ordinal (1ST, 2ND, 3RD, 21ST, etc.)
+  
     let ordinal = "TH";
     if (day % 10 === 1 && day !== 11) ordinal = "ST";
     else if (day % 10 === 2 && day !== 12) ordinal = "ND";
