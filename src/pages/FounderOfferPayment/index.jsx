@@ -75,6 +75,28 @@ const normalizeProvince = (provinceValue) => {
   return provinceMap[value] || value;
 };
 
+const extractApiMessage = (responseBody, responseStatusText = "") => {
+  const status = responseBody?.data?.restResponse?.status;
+  const candidates = [
+    status?.errorMessage,
+    status?.statusMessage,
+    status?.error,
+    status?.message,
+    responseBody?.error?.message,
+    responseBody?.error,
+    responseBody?.message,
+    responseBody?.errors?.[0]?.message,
+    responseBody?.errors?.[0],
+    responseBody?.people_create_response?.message,
+    responseStatusText,
+  ];
+
+  const found = candidates.find(
+    (item) => typeof item === "string" && item.trim().length > 0
+  );
+  return found ? found.trim() : "";
+};
+
 const PRIMARY_MEMBER_STORAGE_KEY = "founderOfferPayment.primaryMember.v1";
 const SELECTED_PLAN_STORAGE_KEY = "founderOfferPayment.selectedPlan.v1";
 const SUCCESS_STORAGE_KEY = "founderOfferPayment.success.v1";
@@ -607,22 +629,15 @@ function FounderOfferPayment() {
       let res = null;
       try {
         res = await response.json();
-      } catch (error) {
+      } catch {
         res = null;
       }
       const status = res?.data?.restResponse?.status;
       const message = status?.message;
-      const apiMessage = (
-        message ||
-        status?.statusMessage ||
-        status?.errorMessage ||
-        status?.error ||
-        res?.message ||
-        res?.error?.message ||
-        (!response.ok ? response.statusText : "")
-      )
-        ?.toString()
-        .trim();
+      const apiMessage = extractApiMessage(
+        res,
+        !response.ok ? response.statusText : ""
+      );
 
       if (message && message.toLowerCase() === "success") {
         return { success: true };
@@ -637,17 +652,25 @@ function FounderOfferPayment() {
     }
   };
 
-  const createPerson = async () => {
-    const userInfo = localStorage?.getItem("yourDetails");
-    if (!userInfo) {
-      console.error("Missing yourDetails in localStorage for createPerson.");
-      return false;
-    }
-
+  const createPerson = async (primaryMember) => {
     if (!baseUrl) {
       console.error("Missing VITE_APP_API_URL for person creation.");
-      return false;
+      return { success: false, apiMessage: "" };
     }
+
+    const payload = {
+      club_id: locationPostal,
+      first_name: primaryMember?.firstName || "",
+      last_name: primaryMember?.lastName || "",
+      email: primaryMember?.email || "",
+      birthday: formatDobForSubmission(primaryMember?.dob),
+      gender: primaryMember?.gender || "",
+      phone_mobile: String(primaryMember?.phone || "").replace(/\D/g, ""),
+      address: primaryMember?.address || "",
+      city: primaryMember?.city || "",
+      province: normalizeProvince(primaryMember?.province),
+      postal_code: primaryMember?.postalCode || "",
+    };
 
     try {
       const response = await fetch(`${baseUrl}/createPerson`, {
@@ -655,21 +678,27 @@ function FounderOfferPayment() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: userInfo,
+        body: JSON.stringify(payload),
       });
 
-      const res = await response.json();
+      let res = null;
+      try {
+        res = await response.json();
+      } catch {
+        res = null;
+      }
       const person = res?.people_create_response;
+      const apiMessage = extractApiMessage(res, response.statusText);
 
       if (person?.id) {
-        return true;
+        return { success: true };
       }
 
-      console.warn("Person creation failed or missing ID.");
-      return false;
+      console.warn("Person creation failed or missing ID.", res);
+      return { success: false, apiMessage };
     } catch (error) {
       console.error("Error creating person:", error?.message || error);
-      return false;
+      return { success: false, apiMessage: error?.message || "" };
     }
   };
 
@@ -707,21 +736,15 @@ function FounderOfferPayment() {
     );
 
     if (!paymentResult?.success) {
-      const baseError =
-        "Payment failed.";
       const apiMessage = paymentResult?.apiMessage;
-      setPaymentError(
-        apiMessage ? `${baseError} (${apiMessage})` : baseError
-      );
+      setPaymentError(apiMessage || "");
       setIsSubmittingPayment(false);
       return false;
     }
 
-    const personCreated = await createPerson();
-    if (!personCreated) {
-      setPaymentError(
-        "Payment succeeded, but we could not create your profile. Please contact support."
-      );
+    const personCreated = await createPerson(formData.primaryMember);
+    if (!personCreated?.success) {
+      setPaymentError(personCreated?.apiMessage || "");
       setIsSubmittingPayment(false);
       return false;
     }
