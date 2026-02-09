@@ -49,6 +49,7 @@ import Discover from "./pages/Discover";
 import PresaleEdmontonSouthCommon from "./pages/PresalePage/PresaleEdmontonSouthCommon";
 import FounderOfferPayment from "./pages/FounderOfferPayment";
 import EdmontonSouthTermsAndConditions from "./pages/PresalePage/EdmontonSouthTermsAndConditions"
+import MembershipSummaryCard from "./components/FounderOfferPayment/MembershipSummaryCard";
 
 function App() {
   return (
