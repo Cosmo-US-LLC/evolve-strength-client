@@ -24,6 +24,10 @@ function TrainerForm() {
       location: "4825 89 St NW Edmonton, Alberta, T6E 5K1",
     },
     {
+      cityName: "South Edmonton Common",
+      location: "1910 102 St NW, Edmonton, AB T6N 1N3, Canada",
+    },
+    {
       cityName: "Edmonton North",
       location: "13457 149 St Edmonton, Alberta, T5L 2T3",
     },

@@ -50,6 +50,10 @@ const LOCATIONS = [
     location: "13457 149 St Edmonton, Alberta, T5L 2T3",
   },
   {
+    cityName: "South Edmonton Common",
+    location: "1910 102 St NW, Edmonton, AB T6N 1N3, Canada",
+  },
+  {
     cityName: "Calgary Royal Oak",
     location: "8888 Country Hills Blvd NW #600 Calgary, Alberta, T3G 5T4",
   },

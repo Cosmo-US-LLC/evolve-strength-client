@@ -1,5 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import partnersImage1 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_image1.webp";
 import partnersImage2 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_image2.webp";
 import partnersImage3 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_image3.webp";
@@ -143,54 +149,92 @@ const EQUIPMENT_PARTNERS = [
   },
 ];
 
+function PartnerCard({ partner, className = "" }) {
+  return (
+    <div
+      className={`relative shrink-0 w-[280px] md:w-[270px] h-[380px] rounded-2xl overflow-hidden ${className}`.trim()}
+    >
+      <img
+        src={partner.backgroundImage}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-black/10" aria-hidden="true" />
+      <div className="absolute inset-0 flex items-center justify-center p-6">
+        <img
+          src={partner.logo}
+          alt={partner.alt}
+          className="max-h-[80px] md:max-h-[100px] w-auto object-contain brightness-0 invert"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  );
+}
+
+const MARQUEE_PARTNERS = [...EQUIPMENT_PARTNERS, ...EQUIPMENT_PARTNERS, ...EQUIPMENT_PARTNERS];
+
 function PresaleTrustedEquipmentBrands() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   return (
     <section className="bg-[#EEEEEE] py-12 md:py-16 w-full overflow-hidden">
       <div className="w-full flex flex-col items-center gap-8 md:gap-10">
-        {/* Title - centered, uppercase, bold, black (Figma: OUR EQUIPMENT PARTNERS) */}
         <h2 className="text-[#000] text-center uppercase font-bold text-[28px] md:text-[36px] leading-tight tracking-tight px-4">
-        Equipped Without Compromise
+          Equipped Without Compromise
         </h2>
 
-        {/* Marquee - horizontal partner cards with logo overlay on background image */}
         <div className="w-full overflow-hidden">
-          <Marquee
-            pauseOnHover
-            speed={40}
-            gradient={false}
-            className="[&_.rfm-child]:flex [&_.rfm-child]:shrink-0 [&_.rfm-initial-child-container]:flex py-2"
-          >
-            {EQUIPMENT_PARTNERS.map((partner) => (
-              <div
-                key={partner.id}
-                className="relative shrink-0 w-[280px] md:w-[270px] h-[380px] md:h-[380px] rounded-2xl overflow-hidden mr-4 md:mr-6"
+          {isMobile ? (
+            /* Mobile: shadcn Carousel with autoplay */
+            <div className="w-full px-4">
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                  containScroll: "trimSnaps",
+                  dragFree: false,
+                }}
+                plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
+                className="w-full flex gap-4"
               >
-                {/* Background image */}
-                <img
-                  src={partner.backgroundImage}
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
+                <CarouselContent className="-ml-4 py-2">
+                  {EQUIPMENT_PARTNERS.map((partner) => (
+                    <CarouselItem
+                      key={partner.id}
+                      className="pl-4 basis-[300px] shrink-0 "
+                    >
+                      <PartnerCard partner={partner} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+            </div>
+          ) : (
+            /* Desktop: react-fast-marquee */
+            <Marquee
+              speed={40}
+              gradient={false}
+              className="[&_.rfm-child]:flex [&_.rfm-child]:shrink-0 [&_.rfm-initial-child-container]:flex py-2"
+            >
+              {MARQUEE_PARTNERS.map((partner, index) => (
+                <PartnerCard
+                  key={`${partner.id}-${index}`}
+                  partner={partner}
+                  className="mr-4 md:mr-6"
                 />
-                {/* Dark overlay so white logo is visible */}
-                <div
-                  className="absolute inset-0 bg-black/5"
-                  aria-hidden="true"
-                />
-                {/* Logo centered on card - white via filter for contrast */}
-                <div className="absolute inset-0 flex items-center justify-center p-6">
-                  <img
-                    src={partner.logo}
-                    alt={partner.alt}
-                    className="max-h-[80px] md:max-h-[100px] w-auto object-contain brightness-0 invert"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            ))}
-          </Marquee>
+              ))}
+            </Marquee>
+          )}
         </div>
-        
       </div>
     </section>
   );

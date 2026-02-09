@@ -332,8 +332,7 @@ function SuccessCertificate({ primaryMember, onBack }) {
               Founder Rate Locked!
             </h2>
             <p className="font-['Vazirmatn'] font-normal text-[#000000] text-[16px] leading-[24px] max-w-[380px]">
-              Congratulations! You've secured founder pricing for the next 2
-              years.
+              Congratulations! You've secured founder pricing for life time.
             </p>
           </div>
 

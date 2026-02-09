@@ -21,6 +21,7 @@ const baseTabs = [
   { id: "Calgary Seton", label: "Calgary Seton" },
   // { id: "Calgary Sunridge", label: "Calgary Sunridge" },
   { id: "Edmonton South", label: "Edmonton South" },
+  { id: "South Edmonton Common", label: "South Edmonton Common" },
 ];
 
 const allOffices = [
@@ -129,6 +130,7 @@ const AvailableOffices = () => {
     "Brentwood",
     "Post",
     "Edmonton Downtown",
+    "South Edmonton Common",
   ];
 
   // Calculate available offices count for "All" tab

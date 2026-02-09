@@ -17,9 +17,9 @@ import strengthZoneBg3Mobile from "../../../assets/images/presale/presale_common
 import strengthZoneBg4Mobile from "../../../assets/images/presale/presale_common_mobile_4.webp";
 // import strengthZoneBg5 from "../../../assets/images/presale/gym_presale_5.webp";
 // Import SVG icons from presale folder
-import icon1 from "../../../assets/images/presale/gym_presale_icon (4).svg";
-import icon2 from "../../../assets/images/presale/gym_presale_icon (3).svg";
-import icon3 from "../../../assets/images/presale/gym_presale_icon (2).svg";
+import icon1 from "../../../assets/images/presale/gym_presale_icon_3.svg";
+import icon2 from "../../../assets/images/presale/gym_presale_icon_2.svg";
+import icon3 from "../../../assets/images/presale/gym_presale_icon_1.svg";
 // import icon4 from "../../../assets/images/presale/gym_presale_icon (1).svg";
 
 // Reception
@@ -158,7 +158,7 @@ const GymZones = () => {
           style={{
             backgroundImage: `url("${currentBg}")`,
             backgroundSize: "cover",
-            backgroundPosition: "bottom",
+            backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             opacity: imagesLoaded ? 1 : 0,
           }}
@@ -178,7 +178,7 @@ const GymZones = () => {
               onMouseLeave={() => setHoveredIndex(null)}
               className={`flex-1 p-6 md:p-8 flex flex-col 
                 justify-end cursor-pointer relative group overflow-hidden 
-                transition-all duration-200   min-h-[700px] 
+                transition-all duration-200   min-h-[800px] 
               ${zone?.number==2 ? "border-x border-white/20" : ""}
               `}
             >
@@ -197,6 +197,7 @@ const GymZones = () => {
                         borderRadius: "27.5px",
                         background: "rgba(0, 0, 0, 0.45)",
                         backdropFilter: "blur(6.300000190734863px)",
+                        // opacity: "0.7",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -205,7 +206,7 @@ const GymZones = () => {
                       <img
                         src={zone.icon}
                         alt={`${zone.title} icon`}
-                        className="w-10 h-10 transition-all duration-200"
+                        className="w-10 h-10 transition-all duration-200 opacity-50"
                         style={{ filter: "brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%)" }}
                       />
                     </div>

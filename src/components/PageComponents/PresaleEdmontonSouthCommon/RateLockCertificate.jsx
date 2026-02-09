@@ -202,7 +202,7 @@ function RateLockCertificate() {
             {/* Bottom Section - Date and Signature */}
             <div className="max-w-[400px] flex flex-col gap-4 md:mt-6 mt-2">
               <div className="flex flex-row md:gap-12 gap-0 w-full justify-start items-start">
-              <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[120px]">
+              <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[124px]">
                 <img
                   src={icon1}
                   alt="Icon"
@@ -223,7 +223,7 @@ function RateLockCertificate() {
                 </div>
               </div>
 
-              <div className="flex flex-row md:gap-12 gap-6 w-full justify-start items-start">
+              <div className="flex flex-row md:gap-12 gap-[6px] w-full justify-start items-start">
               <div className="flex items-center flex-wrap w-full gap-2 md:max-w-[120px] max-w-[120px]">
                 <img
                   src={icon2}
