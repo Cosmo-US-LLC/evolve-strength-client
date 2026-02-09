@@ -81,6 +81,7 @@ function PlanType({
               {/* (Tax included) */}
             </div>
           </div>
+          <div className="text-[#000] text-right md:text-[12px] text-[10px] pt-1 font-[kanit] font-normal">Once we open*</div>
         </div>
       </div>
       {plansError && (
