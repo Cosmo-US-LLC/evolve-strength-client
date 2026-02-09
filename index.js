@@ -199,7 +199,8 @@ app.post("/send-certificate", optionalCertificateUpload, async (req, res) => {
     const transporter = createTransporter();
 
     await transporter.sendMail({
-      from: SMTP_FROM,
+      // from: SMTP_FROM,
+      from: '"Evolve South Commons" <' + SMTP_FROM + '>',
       to: normalizedEmail,
       subject: EMAIL_SUBJECT,
       text: `Hi${displayName ? ` ${displayName}` : ""},\n\nWelcome to the New Standard of Strength\n\nYou are officially part of something extraordinary.\n\nYour founder rate is locked for life. Your membership will never increase as long as it stays active. And you will pay nothing until we open our doors this spring. Terms & conditions apply.\n\nThis is more than a membership. It is early access to Evolve Strength South Edmonton Common, our flagship location designed to set the new standard in training.\n\nHere is your Rate Lock Certificate, your proof of priority access and lifetime rate security.\n\nWe are building something exceptional. Your journey starts now.\n\nThe Evolve Strength Team\n\n[View Your Rate Lock Certificate]`,

@@ -670,6 +670,7 @@ function FounderOfferPayment() {
       city: primaryMember?.city || "",
       province: normalizeProvince(primaryMember?.province),
       postal_code: primaryMember?.postalCode || "",
+      company_id: "06962"
     };
 
     try {
