@@ -206,8 +206,8 @@ const GymZones = () => {
                       <img
                         src={zone.icon}
                         alt={`${zone.title} icon`}
-                        className="w-10 h-10 transition-all duration-200 opacity-50"
-                        style={{ filter: "brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%)" }}
+                        className="w-10 h-10 transition-all duration-200 opacity-80 "
+                        // style={{ filter: "brightness(90) saturate(80%) invert(48%) sepia(69%) saturate(1476%) hue-rotate(66deg) brightness(90%) contrast(90%)" }}
                       />
                     </div>
                     <h3
@@ -282,10 +282,10 @@ const GymZones = () => {
                       src={zone.icon}
                       alt=""
                       className="w-10 h-10 object-contain"
-                      style={{
-                        filter:
-                          "brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%)",
-                      }}
+                      // style={{
+                      //   filter:
+                      //     "brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%)",
+                      // }}
                     />
                   </div>
                   <h3 className="flex-1 text-[#fff] !text-[20px] font-[kanit] leading-[22px] font-[500]">
