@@ -281,7 +281,7 @@ const GymZones = () => {
                     <img
                       src={zone.icon}
                       alt=""
-                      className="w-10 h-10 object-contain"
+                      className="w-10 h-10 object-contain opacity-80"
                       // style={{
                       //   filter:
                       //     "brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%)",
