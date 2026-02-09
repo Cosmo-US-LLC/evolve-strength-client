@@ -35,7 +35,7 @@ function BenefitsCard() {
             
           ))}
         </div>
-        <div className="text-[#000] text-[12px] font-['Vazirmatn'] italic font-normal border-t border-[#d4d4d4] pt-2"> 
+        <div className="text-[#000] text-[12px] font-['Vazirmatn'] italic font-normal border-t border-[#d4d4d4] pt-4"> 
           If you are under 18, you cannot join online, your membership must be completed in person.
         </div>
       </div>

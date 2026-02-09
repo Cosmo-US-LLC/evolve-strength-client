@@ -86,6 +86,10 @@ function MembershipSummaryCard({ primaryMember, paymentAmount }) {
           </div>
         </div>
 
+        <div className="text-[#000] text-[12px] font-['Vazirmatn'] italic font-normal border-t border-[#d4d4d4] pt-4"> 
+          If you are under 18, you cannot join online, your membership must be completed in person.
+        </div>
+
         {/* Members */}
         {/* <div className="flex gap-2 items-start">
           <Users className="size-5 text-[#4ab04a] flex-shrink-0 mt-0.5" />
