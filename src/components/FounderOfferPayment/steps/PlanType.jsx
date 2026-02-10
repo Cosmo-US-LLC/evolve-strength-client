@@ -3,7 +3,6 @@ import React from "react";
 import BenefitsCard from "../BenefitsCard";
 
 const getDisplayedPlanAmount = (planDetails) => {
-  console.log(planDetails?.schedules?.[0], "planDetails?.schedules?.[0]");
   const rawAmount =
     planDetails?.schedules?.[0]?.schedulePreTaxAmount ??
     planDetails?.schedulePreTaxAmount ??
@@ -37,7 +36,6 @@ function PlanType({
   onToggleService,
   paymentAmount,
 }) {
-  console.log(paymentAmount)
   const displayAmount = isPlansLoading
     ? "$--.--"
     : paymentAmount

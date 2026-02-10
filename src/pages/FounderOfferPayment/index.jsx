@@ -427,16 +427,47 @@ function FounderOfferPayment() {
     ) ||
     selectedPlanDetails?.schedules?.[0] ||
     null;
-  const basePlanAmountRaw =
+  const basePlanFeeAmount = parseCurrencyAmount(
     baseSchedule?.schedulePreTaxAmount ||
-    selectedPlanDetails?.scheduleTotalAmount ||
-    "";
-  const basePlanAmount = parseCurrencyAmount(basePlanAmountRaw);
-  const selectedAddonsTotal = planAddons.reduce((sum, addon) => {
+      selectedPlanDetails?.schedulePreTaxAmount ||
+      0,
+  );
+  const basePlanTotalAmount = parseCurrencyAmount(
+    baseSchedule?.scheduleAmount ||
+      selectedPlanDetails?.scheduleTotalAmount ||
+      baseSchedule?.schedulePreTaxAmount ||
+      0,
+  );
+  const basePlanGstAmount = Math.max(basePlanTotalAmount - basePlanFeeAmount, 0);
+
+  const selectedAddonsFeeAmount = planAddons.reduce((sum, addon) => {
     if (!selectedAddonProfitCenters.includes(addon?.profitCenter)) return sum;
     return sum + parseCurrencyAmount(addon?.schedulePreTaxAmount);
   }, 0);
-  const selectedPlanAmount = (basePlanAmount + selectedAddonsTotal).toFixed(2);
+  const towelAddonFeeAmount = planAddons.reduce((sum, addon) => {
+    if (!selectedAddonProfitCenters.includes(addon?.profitCenter)) return sum;
+    const profitCenter = (addon?.profitCenter || "").toString().toLowerCase();
+    if (!profitCenter.includes("towel")) return sum;
+    return sum + parseCurrencyAmount(addon?.schedulePreTaxAmount);
+  }, 0);
+  const selectedAddonsTotalAmount = planAddons.reduce((sum, addon) => {
+    if (!selectedAddonProfitCenters.includes(addon?.profitCenter)) return sum;
+    return (
+      sum +
+      parseCurrencyAmount(addon?.scheduleAmount || addon?.schedulePreTaxAmount)
+    );
+  }, 0);
+  const selectedAddonsGstAmount = Math.max(
+    selectedAddonsTotalAmount - selectedAddonsFeeAmount,
+    0,
+  );
+
+  const feeAmount = basePlanFeeAmount + selectedAddonsFeeAmount;
+  const planFeeAmount = feeAmount - towelAddonFeeAmount;
+  const gstAmount = basePlanGstAmount + selectedAddonsGstAmount;
+  const totalAmount = feeAmount + gstAmount;
+  const selectedPlanAmount = totalAmount.toFixed(2);
+  const selectedPlanBaseAmount = basePlanFeeAmount.toFixed(2);
 
   const syncUrlState = (
     stepIndex,
@@ -970,7 +1001,7 @@ function FounderOfferPayment() {
             planAddons={planAddons}
             selectedServices={selectedAddonProfitCenters}
             onToggleService={handleAddonToggle}
-            paymentAmount={selectedPlanAmount}
+            paymentAmount={selectedPlanBaseAmount}
           />
         );
       case 1:
@@ -994,6 +1025,12 @@ function FounderOfferPayment() {
             isSubmitting={isSubmittingPayment}
             submitError={paymentError}
             paymentAmount={selectedPlanAmount}
+            feeAmount={feeAmount}
+            planFeeAmount={planFeeAmount}
+            addonLabel={towelAddonFeeAmount > 0 ? "Add-ons" : ""}
+            untaxedAddonFeeAmount={towelAddonFeeAmount}
+            gstAmount={gstAmount}
+            totalAmount={totalAmount}
           />
         );
       default:
@@ -1054,6 +1091,12 @@ function FounderOfferPayment() {
                     <MembershipSummaryCard
                       primaryMember={formData.primaryMember}
                       paymentAmount={selectedPlanAmount}
+                      feeAmount={feeAmount}
+                      planFeeAmount={planFeeAmount}
+                      addonLabel={towelAddonFeeAmount > 0 ? "Add-ons" : ""}
+                      untaxedAddonFeeAmount={towelAddonFeeAmount}
+                      gstAmount={gstAmount}
+                      totalAmount={totalAmount}
                     />
                   ) : (
                     <div className="flex flex-col gap-4">

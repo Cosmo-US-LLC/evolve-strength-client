@@ -19,8 +19,8 @@ function BenefitsCard() {
           {benefits.map((benefit, index) => (
             <div key={index}>
               <div className="flex gap-2">
-                <div className="border border-[#4ab04a] bg-white rounded-full size-[18px] flex items-center justify-center flex-shrink-0">
-                  <Check className="size-[9px] text-[#4ab04a] flex-shrink-0" />
+                <div className="border-[1px] border-[#4ab04a] bg-white rounded-full size-[18px] flex items-center justify-center flex-shrink-0">
+                  <Check className="size-[9px] text-[#4ab04a] flex-shrink-0 stroke-3" />
                 </div>
                 <p className="font-['Vazirmatn'] font-normal text-black text-[14px]">
                   {benefit}

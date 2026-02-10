@@ -45,6 +45,12 @@ function PaymentInformation({
   isSubmitting,
   submitError,
   paymentAmount,
+  feeAmount,
+  planFeeAmount,
+  addonLabel,
+  untaxedAddonFeeAmount,
+  gstAmount,
+  totalAmount,
 }) {
   const {
     getCardNumberProps,
@@ -423,6 +429,12 @@ function PaymentInformation({
             <MembershipSummaryCard
               primaryMember={primaryMember}
               paymentAmount={paymentAmount}
+              feeAmount={feeAmount}
+              planFeeAmount={planFeeAmount}
+              addonLabel={addonLabel}
+              untaxedAddonFeeAmount={untaxedAddonFeeAmount}
+              gstAmount={gstAmount}
+              totalAmount={totalAmount}
             />
           </div>
 
