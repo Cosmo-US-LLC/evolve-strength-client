@@ -34,13 +34,13 @@ function SomeThinkNew() {
 
           {/* Call-to-Action Button */}
           <a
-            href="/presale-edmonton-south-common"
+            href="/locations/edmonton-south-common-waitlist"
             // target="_blank"
             target="_self"
             rel="noopener noreferrer"
             className="btnPrimary"
           >
-            JOIN THE PRESALE 
+            JOIN THE WAITLIST
           </a>
         </div>
       </div>
