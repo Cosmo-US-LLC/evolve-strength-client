@@ -89,13 +89,13 @@ function PlanType({
               {/* (Tax included) */}
             </div>
           </div>
-          <div className="text-[#000] text-right md:text-[12px] text-[10px] pt-1 font-[kanit] font-normal">
-            Once we open*
+          <div className="text-[#000] md:text-right text-left md:text-[12px] text-[10px] pt-1 font-[kanit] font-normal">
+          Billing starts at opening
           </div>
         </div>
       </div>
       {planAddons?.length > 0 && (
-        <div>
+        <div className="mb-3">
           <div className="flex justify-between items-center mb-2 lg:mb-4">
             <h3 className="font-[kanit] text-[20px] font-[500] text-black">
               Choose Additional Services
@@ -194,7 +194,7 @@ function PlanType({
         <br />
       </div>
 
-      <div className="md:mt-[320px]">
+      <div className="md:mt-[220px]">
         <div className="flex items-center justify-between gap-4 mt-0 md:mt-8">
           <button
             type="button"
