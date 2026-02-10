@@ -26,8 +26,23 @@ const paramToStep = {
 };
 
 const formatDobForSubmission = (dobValue) => {
+  if (dobValue instanceof Date && !Number.isNaN(dobValue.getTime())) {
+    const mm = String(dobValue.getMonth() + 1).padStart(2, "0");
+    const dd = String(dobValue.getDate()).padStart(2, "0");
+    const yyyy = String(dobValue.getFullYear());
+    return `${mm}/${dd}/${yyyy}`;
+  }
+
   const value = (dobValue || "").toString().trim();
   if (!value) return "";
+
+  const parsed = new Date(value);
+  if (!Number.isNaN(parsed.getTime())) {
+    const mm = String(parsed.getMonth() + 1).padStart(2, "0");
+    const dd = String(parsed.getDate()).padStart(2, "0");
+    const yyyy = String(parsed.getFullYear());
+    return `${mm}/${dd}/${yyyy}`;
+  }
 
   const ymd = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (ymd) {
@@ -92,13 +107,15 @@ const extractApiMessage = (responseBody, responseStatusText = "") => {
   ];
 
   const found = candidates.find(
-    (item) => typeof item === "string" && item.trim().length > 0
+    (item) => typeof item === "string" && item.trim().length > 0,
   );
   return found ? found.trim() : "";
 };
 
 const PRIMARY_MEMBER_STORAGE_KEY = "founderOfferPayment.primaryMember.v1";
 const SELECTED_PLAN_STORAGE_KEY = "founderOfferPayment.selectedPlan.v1";
+const SELECTED_PLAN_ADDONS_STORAGE_KEY =
+  "founderOfferPayment.selectedAddons.v1";
 const SUCCESS_STORAGE_KEY = "founderOfferPayment.success.v1";
 const SUCCESS_PARAM_KEY = "success";
 const SUCCESS_PARAM_VALUE = "1";
@@ -136,7 +153,7 @@ const persistPrimaryMember = (data) => {
   try {
     window.sessionStorage.setItem(
       PRIMARY_MEMBER_STORAGE_KEY,
-      JSON.stringify(data)
+      JSON.stringify(data),
     );
   } catch (error) {
     console.warn("Failed to persist member data.", error);
@@ -204,17 +221,50 @@ const persistSelectedPlan = (planType) => {
   try {
     window.sessionStorage.setItem(
       SELECTED_PLAN_STORAGE_KEY,
-      String(normalizePlanType(planType))
+      String(normalizePlanType(planType)),
     );
   } catch (error) {
     console.warn("Failed to persist selected plan.", error);
   }
 };
 
+const loadStoredSelectedAddons = () => {
+  if (typeof window === "undefined") return {};
+  try {
+    const raw = window.sessionStorage.getItem(SELECTED_PLAN_ADDONS_STORAGE_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== "object") return {};
+    return parsed;
+  } catch (error) {
+    console.warn("Failed to load selected addons.", error);
+    return {};
+  }
+};
+
+const persistSelectedAddons = (selectedAddons) => {
+  if (typeof window === "undefined") return;
+  try {
+    window.sessionStorage.setItem(
+      SELECTED_PLAN_ADDONS_STORAGE_KEY,
+      JSON.stringify(selectedAddons),
+    );
+  } catch (error) {
+    console.warn("Failed to persist selected addons.", error);
+  }
+};
+
+const parseCurrencyAmount = (value) => {
+  if (value === null || value === undefined) return 0;
+  const normalized = String(value).replace(/[^0-9.-]/g, "");
+  const parsed = Number.parseFloat(normalized);
+  return Number.isFinite(parsed) ? parsed : 0;
+};
+
 const fetchClubPlans = async (baseUrl, locationPostal) => {
   try {
     const response = await fetch(
-      `${baseUrl}/getClubInfo?location=${parseInt(locationPostal, 10)}`
+      `${baseUrl}/getClubInfo?location=${parseInt(locationPostal, 10)}`,
     );
     if (!response.ok) {
       throw new Error("Failed to fetch club plans");
@@ -240,7 +290,7 @@ const fetchClubPlans = async (baseUrl, locationPostal) => {
 const fetchClubPlansDetails = async (baseUrl, id, locationPostal) => {
   try {
     const response = await fetch(
-      `${baseUrl}/getPlanDetails?location=${parseInt(locationPostal, 10)}&planId=${id}`
+      `${baseUrl}/getPlanDetails?location=${parseInt(locationPostal, 10)}&planId=${id}`,
     );
     if (!response.ok) {
       throw new Error("Failed to fetch club plan details");
@@ -289,6 +339,7 @@ function FounderOfferPayment() {
   const prevStepRef = useRef(1);
   const storedPrimaryMemberRef = useRef(loadStoredPrimaryMember());
   const storedSelectedPlanRef = useRef(loadStoredSelectedPlan());
+  const storedSelectedAddonsRef = useRef(loadStoredSelectedAddons());
   const [successRecord, setSuccessRecord] = useState(() => loadStoredSuccess());
 
   const stepParam = searchParams.get("step");
@@ -303,18 +354,33 @@ function FounderOfferPayment() {
       ? MAX_STEP
       : 0;
   const [currentStep, setCurrentStep] = useState(
-    stepFromUrl >= 0 && stepFromUrl <= MAX_STEP ? stepFromUrl : 0
+    stepFromUrl >= 0 && stepFromUrl <= MAX_STEP ? stepFromUrl : 0,
   );
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(initialSuccess);
   const [completedMember, setCompletedMember] = useState(
-    hasValidSuccessRecord ? successRecord?.member : null
+    hasValidSuccessRecord ? successRecord?.member : null,
   );
+  const [planAddons, setPlanAddons] = useState([]);
+  const [
+    selectedAddonProfitCentersByPlan,
+    setSelectedAddonProfitCentersByPlan,
+  ] = useState(() => {
+    const stored = storedSelectedAddonsRef.current || {};
+    return {
+      [PLAN_TYPE_YEARLY]: Array.isArray(stored?.[PLAN_TYPE_YEARLY])
+        ? stored[PLAN_TYPE_YEARLY]
+        : [],
+      [PLAN_TYPE_MONTHLY]: Array.isArray(stored?.[PLAN_TYPE_MONTHLY])
+        ? stored[PLAN_TYPE_MONTHLY]
+        : [],
+    };
+  });
   const wasSuccessOpenRef = useRef(initialSuccess);
 
   const planParam = searchParams.get("plan");
   const initialPlan = normalizePlanType(
     planParam,
-    storedSelectedPlanRef.current ?? PLAN_TYPE_YEARLY
+    storedSelectedPlanRef.current ?? PLAN_TYPE_YEARLY,
   );
   const [currentPlan, setCurrentPlan] = useState(initialPlan);
 
@@ -330,7 +396,7 @@ function FounderOfferPayment() {
         province: "",
         city: "",
         postalCode: "",
-        dob: "",
+        dob: null,
         gender: "",
         ...storedPrimaryMember,
       },
@@ -351,15 +417,30 @@ function FounderOfferPayment() {
   const [paymentError, setPaymentError] = useState("");
   const [isSubmittingPayment, setIsSubmittingPayment] = useState(false);
   const selectedPlanDetails = planDetailsByType[currentPlan] || null;
-  const selectedPlanAmount =
+  const selectedAddonProfitCenters =
+    selectedAddonProfitCentersByPlan?.[currentPlan] || [];
+
+  const baseSchedule =
+    selectedPlanDetails?.schedules?.find(
+      (schedule) => schedule?.addon !== true,
+    ) ||
+    selectedPlanDetails?.schedules?.[0] ||
+    null;
+  const basePlanAmountRaw =
+    baseSchedule?.schedulePreTaxAmount ||
     selectedPlanDetails?.scheduleTotalAmount ||
-    selectedPlanDetails?.schedules?.[0]?.schedulePreTaxAmount ||
     "";
+  const basePlanAmount = parseCurrencyAmount(basePlanAmountRaw);
+  const selectedAddonsTotal = planAddons.reduce((sum, addon) => {
+    if (!selectedAddonProfitCenters.includes(addon?.profitCenter)) return sum;
+    return sum + parseCurrencyAmount(addon?.schedulePreTaxAmount);
+  }, 0);
+  const selectedPlanAmount = (basePlanAmount + selectedAddonsTotal).toFixed(2);
 
   const syncUrlState = (
     stepIndex,
     planType,
-    { mode = "replace", success = false } = {}
+    { mode = "replace", success = false } = {},
   ) => {
     const stepValue = stepToParam[stepIndex] ? stepIndex : 0;
     const planValue = normalizePlanType(planType);
@@ -374,7 +455,7 @@ function FounderOfferPayment() {
     window.history[historyMethod](
       { step: stepValue, plan: planValue },
       "",
-      `?${params.toString()}`
+      `?${params.toString()}`,
     );
   };
 
@@ -412,6 +493,30 @@ function FounderOfferPayment() {
   }, [currentPlan]);
 
   useEffect(() => {
+    persistSelectedAddons(selectedAddonProfitCentersByPlan);
+  }, [selectedAddonProfitCentersByPlan]);
+
+  useEffect(() => {
+    const addons =
+      selectedPlanDetails?.schedules
+        ?.map((plan) => (plan?.addon === true ? plan : null))
+        .filter((addon) => addon !== null) || [];
+    setPlanAddons(addons);
+
+    const availableProfitCenters = new Set(
+      addons.map((addon) => addon?.profitCenter).filter(Boolean),
+    );
+    setSelectedAddonProfitCentersByPlan((prev) => {
+      const currentSelected = prev?.[currentPlan] || [];
+      const sanitized = currentSelected.filter((profitCenter) =>
+        availableProfitCenters.has(profitCenter),
+      );
+      if (sanitized.length === currentSelected.length) return prev;
+      return { ...prev, [currentPlan]: sanitized };
+    });
+  }, [selectedPlanDetails, currentPlan]);
+
+  useEffect(() => {
     if (isSuccessModalOpen) return;
     if (currentStep <= 1) return;
     if (isPrimaryMemberComplete(formData.primaryMember)) return;
@@ -442,8 +547,7 @@ function FounderOfferPayment() {
       const storedSuccess = loadStoredSuccess();
       const hasStoredSuccess = isSuccessRecordValid(storedSuccess);
       const newSuccess =
-        (newStepParam === "thank-you" ||
-          isSuccessParam(newSuccessParam)) &&
+        (newStepParam === "thank-you" || isSuccessParam(newSuccessParam)) &&
         hasStoredSuccess;
 
       setCurrentStep(newStep);
@@ -517,7 +621,7 @@ function FounderOfferPayment() {
       "americanexpress",
     ]);
 
-    const schedules = ["Dues"]; // TODO: include add-on schedules when available.
+    const schedules = ["Dues", ...selectedAddonProfitCenters];
     const payload = {
       paymentPlanId: planDetails?.paymentPlanId || "", // Required for payment.
       planValidationHash: planDetails?.planValidationHash || "", // Required for payment.
@@ -566,14 +670,14 @@ function FounderOfferPayment() {
       const sanitizedExpiry = (payment.expiryDate || "").replace(/\s+/g, "");
       const cardNumberDigits = String(payment.cardNumber || "").replace(
         /\D/g,
-        ""
+        "",
       );
       const [expMonthRaw, expYearRaw] = sanitizedExpiry.split("/");
       const expMonth = expMonthRaw ? parseInt(expMonthRaw, 10) : "00";
       const expYear = expYearRaw ? parseInt(`20${expYearRaw}`, 10) : "";
-      const rawCardType = (
-        payment.cardType?.type || payment.cardType || ""
-      ).toString().toLowerCase();
+      const rawCardType = (payment.cardType?.type || payment.cardType || "")
+        .toString()
+        .toLowerCase();
       const mappedCardType = cardTypeMap[rawCardType] || rawCardType;
       const creditCardType = allowedCardTypes.has(mappedCardType)
         ? mappedCardType
@@ -624,7 +728,7 @@ function FounderOfferPayment() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
-        }
+        },
       );
       let res = null;
       try {
@@ -636,7 +740,7 @@ function FounderOfferPayment() {
       const message = status?.message;
       const apiMessage = extractApiMessage(
         res,
-        !response.ok ? response.statusText : ""
+        !response.ok ? response.statusText : "",
       );
 
       if (message && message.toLowerCase() === "success") {
@@ -670,7 +774,7 @@ function FounderOfferPayment() {
       city: primaryMember?.city || "",
       province: normalizeProvince(primaryMember?.province),
       postal_code: primaryMember?.postalCode || "",
-      company_id: "20534"
+      company_id: "20534",
     };
 
     try {
@@ -703,7 +807,12 @@ function FounderOfferPayment() {
     }
   };
 
-  const handlePaymentSubmit = async ({ cardNumber, expiryDate, cvv, cardType }) => {
+  const handlePaymentSubmit = async ({
+    cardNumber,
+    expiryDate,
+    cvv,
+    cardType,
+  }) => {
     // console.log(selectedPlanDetails)
     // return true;
     if (!selectedPlanDetails?.planId || !selectedPlanDetails?.planValidation) {
@@ -711,7 +820,7 @@ function FounderOfferPayment() {
         plansError ||
           (isPlansLoading
             ? "Plans are still loading. Please try again shortly."
-            : "Unable to load plan details. Please refresh and try again.")
+            : "Unable to load plan details. Please refresh and try again."),
       );
       return false;
     }
@@ -733,7 +842,7 @@ function FounderOfferPayment() {
         paymentPlanId: selectedPlanDetails.planId,
         planValidationHash: selectedPlanDetails.planValidation,
         activePresale: selectedPlanDetails.activePresale,
-      }
+      },
     );
 
     if (!paymentResult?.success) {
@@ -769,7 +878,7 @@ function FounderOfferPayment() {
         province: "",
         city: "",
         postalCode: "",
-        dob: "",
+        dob: null,
         gender: "",
       },
       payment: {
@@ -794,11 +903,13 @@ function FounderOfferPayment() {
       setTimeout(() => {
         // Scroll to top with minor offset
         if (containerRef.current) {
-          const containerTop = containerRef.current.getBoundingClientRect().top + window.pageYOffset;
-          window.scrollTo({ top: containerTop - 60, behavior: 'smooth' });
+          const containerTop =
+            containerRef.current.getBoundingClientRect().top +
+            window.pageYOffset;
+          window.scrollTo({ top: containerTop - 60, behavior: "smooth" });
         } else {
           // Fallback: scroll window to top with minor offset
-          window.scrollTo({ top: 60, behavior: 'smooth' });
+          window.scrollTo({ top: 60, behavior: "smooth" });
         }
       }, 100);
       prevStepRef.current = currentStep;
@@ -820,6 +931,17 @@ function FounderOfferPayment() {
     const normalizedPlan = normalizePlanType(planType, currentPlan);
     setCurrentPlan(normalizedPlan);
     syncUrlState(currentStep, normalizedPlan, { mode: "replace" });
+  };
+
+  const handleAddonToggle = (profitCenter) => {
+    if (!profitCenter) return;
+    setSelectedAddonProfitCentersByPlan((prev) => {
+      const currentSelected = prev?.[currentPlan] || [];
+      const nextSelected = currentSelected.includes(profitCenter)
+        ? currentSelected.filter((item) => item !== profitCenter)
+        : [...currentSelected, profitCenter];
+      return { ...prev, [currentPlan]: nextSelected };
+    });
   };
 
   const handleBack = () => {
@@ -844,6 +966,10 @@ function FounderOfferPayment() {
             selectedPlanDetails={selectedPlanDetails}
             isPlansLoading={isPlansLoading}
             plansError={plansError}
+            planAddons={planAddons}
+            selectedServices={selectedAddonProfitCenters}
+            onToggleService={handleAddonToggle}
+            paymentAmount={selectedPlanAmount}
           />
         );
       case 1:
@@ -875,11 +1001,16 @@ function FounderOfferPayment() {
   };
 
   return (
-    <div className={`h-screen bg-white flex flex-col md:overflow-hidden ${isSuccessModalOpen && 'overflow-hidden'}`}>
+    <div
+      className={`h-screen bg-white flex flex-col md:overflow-hidden ${isSuccessModalOpen && "overflow-hidden"}`}
+    >
       <FormsHeader />
       <div className="flex-1 pt-14 md:pt-16 md:overflow-hidden">
         {/* <div ref={containerRef} className="max-w-[1280px] h-full mx-auto px-0 md:px-8 py-0 md:py-8 flex flex-col"> */}
-        <div ref={containerRef} className="max-w-[1440px] h-full mx-auto px-0 md:px-8 py-0 md:pt-8 flex flex-col">
+        <div
+          ref={containerRef}
+          className="max-w-[1440px] h-full mx-auto px-0 md:px-8 py-0 md:pt-8 flex flex-col"
+        >
           {/* Mobile Progress Tracker - Top */}
           {currentStep !== 3 && (
             <div className="lg:hidden mb-6 pb-0 max-md:px-0 md:border-b md:border-[#d4d4d4] flex-shrink-0">
@@ -919,7 +1050,12 @@ function FounderOfferPayment() {
                     />
                   ) : (
                     <div className="flex flex-col gap-4">
-                      <LocationCard dueToday={selectedPlanDetails?.downPaymentTotalAmount || "$--.--"} />
+                      <LocationCard
+                        dueToday={
+                          selectedPlanDetails?.downPaymentTotalAmount ||
+                          "$--.--"
+                        }
+                      />
                       <BenefitsCard />
                     </div>
                   )}

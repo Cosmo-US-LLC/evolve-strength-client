@@ -12,10 +12,23 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Input } from "@/components/ui/input";
 import BenefitsCard from "@/components/FounderOfferPayment/BenefitsCard";
-
-const genderOptions = ["Male", "Female", "Other"];
+import { format, subYears } from "date-fns";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 // Clean address string helper
 const cleanString = (str = "") =>
@@ -38,34 +51,53 @@ const formatPhone = (value = "") => {
   return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
 };
 
-// Helper: compute date limits for DOB input
-const getDobLimits = () => {
-  const today = new Date();
-
-  // Max: today minus 18 years
-  const maxDate = new Date(
-    today.getFullYear() - 18,
-    today.getMonth(),
-    today.getDate(),
-  );
-
-  // Min: today minus 120 years
-  const minDate = new Date(
-    today.getFullYear() - 120,
-    today.getMonth(),
-    today.getDate(),
-  );
-
-  const toInputDate = (d) =>
-    `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(
-      d.getDate(),
-    ).padStart(2, "0")}`;
-
-  return {
-    min: toInputDate(minDate),
-    max: toInputDate(maxDate),
-  };
+const toDateOrUndefined = (value) => {
+  if (!value) return undefined;
+  if (value instanceof Date) {
+    return Number.isNaN(value.getTime()) ? undefined : value;
+  }
+  const parsed = new Date(value);
+  return Number.isNaN(parsed.getTime()) ? undefined : parsed;
 };
+
+const getAge = (date) => {
+  const now = new Date();
+  let age = now.getFullYear() - date.getFullYear();
+  const monthDiff = now.getMonth() - date.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < date.getDate())) {
+    age--;
+  }
+  return age;
+};
+
+// Helper: compute date limits for DOB input
+// const getDobLimits = () => {
+//   const today = new Date();
+
+//   // Max: today minus 18 years
+//   const maxDate = new Date(
+//     today.getFullYear() - 18,
+//     today.getMonth(),
+//     today.getDate(),
+//   );
+
+//   // Min: today minus 120 years
+//   const minDate = new Date(
+//     today.getFullYear() - 120,
+//     today.getMonth(),
+//     today.getDate(),
+//   );
+
+//   const toInputDate = (d) =>
+//     `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(
+//       d.getDate(),
+//     ).padStart(2, "0")}`;
+
+//   return {
+//     min: toInputDate(minDate),
+//     max: toInputDate(maxDate),
+//   };
+// };
 
 // Zod Schema
 const formSchema = z.object({
@@ -121,47 +153,26 @@ const formSchema = z.object({
         ),
       "Please enter a valid Canadian postal code (e.g., A1A 1A1)",
     ),
-  dob: z
-    .string()
-    .min(1, "Date of birth is required.")
-    .refine(
-      (val) => {
-        const date = new Date(val);
-        if (isNaN(date.getTime())) return false;
-        if (date > new Date()) return false;
-        let age = new Date().getFullYear() - date.getFullYear();
-        const monthDiff = new Date().getMonth() - date.getMonth();
-        if (
-          monthDiff < 0 ||
-          (monthDiff === 0 && new Date().getDate() < date.getDate())
-        ) {
-          age--;
-        }
-        return age >= 18 && age < 120;
-      },
-      (val) => {
-        const date = new Date(val);
-        if (isNaN(date.getTime())) return "Please enter a valid date";
-        if (date > new Date()) return "Date of birth cannot be in the future";
-        let age = new Date().getFullYear() - date.getFullYear();
-        const monthDiff = new Date().getMonth() - date.getMonth();
-        if (
-          monthDiff < 0 ||
-          (monthDiff === 0 && new Date().getDate() < date.getDate())
-        ) {
-          age--;
-        }
-        if (age < 18) return "You must be at least 18 years old";
-        if (age >= 120) return "Please enter a valid date of birth";
-        return "Invalid date of birth";
-      },
-    ),
+  dob: z.preprocess(
+    (value) => toDateOrUndefined(value),
+    z
+      .date({ required_error: "Date of birth is required." })
+      .refine(
+        (date) => date <= new Date(),
+        "Date of birth cannot be in the future",
+      )
+      .refine((date) => getAge(date) >= 18, "You must be at least 18 years old")
+      .refine(
+        (date) => getAge(date) < 120,
+        "Please enter a valid date of birth",
+      ),
+  ),
   gender: z.string().min(1, "Gender is required."),
 });
 
 function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
   const [showGenderDropdown, setShowGenderDropdown] = useState(false);
-  const [isIOSDevice, setIsIOSDevice] = useState(false);
+  // const [isIOSDevice, setIsIOSDevice] = useState(false);
   const [
     autocompleteInitializedForAddress,
     setAutocompleteInitializedForAddress,
@@ -179,13 +190,13 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
     checkGoogleMapsKey();
   }, []);
 
-  useEffect(() => {
-    if (typeof navigator === "undefined") return;
-    const isIOS =
-      /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-    setIsIOSDevice(isIOS);
-  }, []);
+  // useEffect(() => {
+  //   if (typeof navigator === "undefined") return;
+  //   const isIOS =
+  //     /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+  //     (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  //   setIsIOSDevice(isIOS);
+  // }, []);
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -198,7 +209,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
       province: formData.province || "",
       city: formData.city || "",
       postalCode: formData.postalCode || "",
-      dob: formData.dob || "",
+      dob: toDateOrUndefined(formData.dob),
       gender: formData.gender || "",
     },
   });
@@ -226,11 +237,6 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showGenderDropdown]);
-
-  const handleGenderSelect = (gender) => {
-    form.setValue("gender", gender, { shouldValidate: true });
-    setShowGenderDropdown(false);
-  };
 
   // Address Autocomplete Handler
   const handleAddressFocus = async () => {
@@ -425,10 +431,9 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
     onNext();
   };
 
-  const genderValue = form.watch("gender");
   const addressError = form.formState.errors.address;
   const postalCodeError = form.formState.errors.postalCode;
-  const dobLimits = getDobLimits();
+  // const dobLimits = getDobLimits();
 
   return (
     <div className="w-full max-w-[640px] mx-auto">
@@ -637,6 +642,48 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
               control={form.control}
               name="dob"
               render={({ field }) => (
+                <>
+                  <FormItem className="flex-1 flex flex-col">
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            variant="outline"
+                            className={`w-full justify-start text-left font-normal min-h-[50px] text-sm px-4 py-3 placeholder:text-sm placeholder:text-black border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none ${!field.value && "text-[#8A8A8A]"}`}
+                          >
+                            {field.value
+                              ? format(field.value, "d MMM, yyyy")
+                              : "DOB"}
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent
+                        className="w-auto p-0 bg-white"
+                        align="start"
+                        side="bottom"
+                        sideOffset={5}
+                      >
+                        <Calendar
+                          mode="single"
+                          selected={field.value}
+                          onSelect={field.onChange}
+                          disabled={(date) => date > subYears(new Date(), 18)}
+                          defaultMonth={subYears(new Date(), 18)}
+                          initialFocus
+                          className="min-w-[250px] min-h-[340px]"
+                          captionLayout="dropdown"
+                        />
+                      </PopoverContent>
+                    </Popover>
+                    <FormMessage />
+                  </FormItem>
+                </>
+              )}
+            />
+            {/* <FormField
+              control={form.control}
+              name="dob"
+              render={({ field }) => (
                 <FormItem className="flex-1 relative">
                   <FormControl className="w-full">
                     <div className="relative w-full h-full max-h-[50px] flex">
@@ -662,8 +709,40 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             <FormField
+              control={form.control}
+              name="gender"
+              render={({ field }) => (
+                <FormItem className="flex-1">
+                  {/* <FormLabel>Gender</FormLabel> */}
+                  <Select
+                    // onValueChange={field.onChange}
+                    // defaultValue={field.value}
+                    onValueChange={field.onChange}
+                    // defaultValue={field.value ?? undefined}
+                    value={field.value ?? undefined}
+                    key={field.value ?? "unset"}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="min-h-[50px] w-full text-sm px-4 py-3 placeholder:text-sm placeholder:text-black border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none">
+                        <SelectValue
+                          placeholder="Gender"
+                          className="text-sm text-black placeholder:text-sm placeholder:text-black"
+                        />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="Male">Male</SelectItem>
+                      <SelectItem value="Female">Female</SelectItem>
+                      <SelectItem value="Other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            {/* <FormField
               control={form.control}
               name="gender"
               render={() => (
@@ -678,7 +757,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                           : "border-[#d4d4d4]"
                       } text-black! text-base!`}
                     >
-                      <span className={genderValue ? "" : "text-gray-400"}>
+                      <span className={genderValue ? "" : "text-[#8A8A8A]"}>
                         {genderValue || "Gender"}
                       </span>
                       <ChevronDown
@@ -703,7 +782,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
           </div>
 
           {/* Mobile BenefitsCard - Above Navigation Buttons */}
