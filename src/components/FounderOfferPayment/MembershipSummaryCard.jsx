@@ -3,7 +3,7 @@ import { Calendar, MapPin } from "lucide-react";
 
 const formatCurrency = (value) => {
   const amount = Number.isFinite(value) ? value : Number.parseFloat(value) || 0;
-  return `CA $${amount.toFixed(2)}`;
+  return `$${amount.toFixed(2)}`;
 };
 
 function MembershipSummaryCard({
@@ -59,7 +59,7 @@ function MembershipSummaryCard({
         <p className="font-['Kanit'] text-[#0A0A0A] text-sm">
           <span className="text-[#4A5565]">Refundable Deposit</span>
         </p>
-        <div className="space-y-1 font-['Vazirmatn']">
+        <div className="space-y-1 font-['Kanit']">
           <div className="flex justify-between items-center">
             <span className="text-[#4A5565] font-light text-xs">Fee</span>
             <span className="text-[#0A0A0A] text-sm">{formatCurrency(normalizedPlanFeeAmount)}</span>

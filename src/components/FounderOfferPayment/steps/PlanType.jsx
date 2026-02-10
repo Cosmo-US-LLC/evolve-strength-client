@@ -17,7 +17,7 @@ const getDisplayedPlanAmount = (planDetails) => {
 
   if (!normalizedAmount) return "$--.--";
 
-  const amountWithoutCurrencyPrefix = normalizedAmount.replace(/^CA\s*/i, "");
+  const amountWithoutCurrencyPrefix = normalizedAmount.replace(/^\s*/i, "");
   return amountWithoutCurrencyPrefix.startsWith("$")
     ? amountWithoutCurrencyPrefix
     : `$${amountWithoutCurrencyPrefix}`;
