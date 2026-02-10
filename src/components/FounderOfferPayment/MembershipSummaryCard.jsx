@@ -27,7 +27,7 @@ function MembershipSummaryCard({ primaryMember, paymentAmount }) {
     : "CA $149";
 
   return (
-    <div className="bg-[#fcfcfc] border border-[#d4d4d4] rounded-[14px] px-6 py-4 flex flex-col gap-6">
+    <div className="bg-[#fcfcfc] border border-[#d4d4d4] rounded-[14px] px-4 py-4 flex flex-col gap-6">
       {/* Header Section */}
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-1">
@@ -88,6 +88,10 @@ function MembershipSummaryCard({ primaryMember, paymentAmount }) {
 
         <div className="text-[#000] text-[12px] font-['Vazirmatn'] italic font-normal border-t border-[#d4d4d4] pt-4"> 
           If you are under 18, you cannot join online, your membership must be completed in person.
+        </div>
+
+        <div className="text-[#000] text-[14px] font-['Vazirmatn'] italic font-normal"> 
+        All presale offers are only available for new Evolve members. These offers are not available to current Evolve members.
         </div>
 
         {/* Members */}

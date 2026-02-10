@@ -95,7 +95,7 @@ function PlanType({
         </div>
       </div>
       {planAddons?.length > 0 && (
-        <div className="mb-3">
+        <div className="mb-4">
           <div className="flex justify-between items-center mb-2 lg:mb-4">
             <h3 className="font-[kanit] text-[20px] font-[500] text-black">
               Choose Additional Services
@@ -130,7 +130,7 @@ function PlanType({
                     <p className="font-[kanit] font-[500] text-black">
                       {service?.profitCenter}
                     </p>
-                    <p className="text-black text-sm">
+                    <p className="text-black text-sm font-['Vazirmatn'] font-[400]">
                       {/* Recurring {service?.scheduleAmount} Bi-Weekly */}
                       Recurring {service?.schedulePreTaxAmount} Bi-Weekly
                     </p>
@@ -194,7 +194,7 @@ function PlanType({
         <br />
       </div>
 
-      <div className="md:mt-[220px]">
+      <div className="md:mt-[120px]">
         <div className="flex items-center justify-between gap-4 mt-0 md:mt-8">
           <button
             type="button"

@@ -649,7 +649,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                         <FormControl>
                           <Button
                             variant="outline"
-                            className={`w-full justify-start text-left  min-h-[50px] text-[14px] font-["Vazirmatn"] font-[400] px-4 py-3 placeholder:text-sm placeholder:text-black border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none ${!field.value && "text-[#8A8A8A]"}`}
+                            className={`w-full justify-start text-left  min-h-[50px] text-[16px] font-["Vazirmatn"] font-[400] px-4 py-3 placeholder:text-sm placeholder:text-black border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none ${!field.value && "text-[#8A8A8A]"}`}
                           >
                             {field.value
                               ? format(field.value, "d MMM, yyyy")
@@ -725,10 +725,10 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                     key={field.value ?? "unset"}
                   >
                     <FormControl>
-                      <SelectTrigger className="min-h-[50px] w-full text-[14px] font-['Vazirmatn'] font-[400] px-4 py-3 placeholder:text-sm placeholder:text-black border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none">
+                      <SelectTrigger className="min-h-[50px] w-full text-[16px] font-['Vazirmatn'] font-[400] px-4 py-3 placeholder:text-sm placeholder:text-black border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none">
                         <SelectValue
                           placeholder="Gender"
-                          className="text-[14px] font-['Vazirmatn'] font-[400] text-black placeholder:text-sm placeholder:text-black"
+                          className="text-[16px] font-['Vazirmatn'] font-[400] text-black placeholder:text-sm placeholder:text-black"
                         />
                       </SelectTrigger>
                     </FormControl>

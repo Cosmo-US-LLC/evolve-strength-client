@@ -11,7 +11,7 @@ const benefits = [
 function BenefitsCard() {
   return (
     <div className="bg-[#fcfcfc] border border-[#d4d4d4] rounded-[8px] p-4">
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3">
         <h3 className="font-[Kanit] !font-[700] text-[#2c2240] !text-[18px] text-start md:text-center">
           Founder Benefits
         </h3>
@@ -20,9 +20,9 @@ function BenefitsCard() {
             <div key={index}>
               <div className="flex gap-2">
                 <div className="border border-[#4ab04a] bg-white rounded-full size-[18px] flex items-center justify-center flex-shrink-0">
-                  <Check className="size-[10px] text-[#4ab04a] flex-shrink-0" />
+                  <Check className="size-[9px] text-[#4ab04a] flex-shrink-0" />
                 </div>
-                <p className="font-['Vazirmatn'] font-normal text-black md:text-[14px]">
+                <p className="font-['Vazirmatn'] font-normal text-black text-[14px]">
                   {benefit}
                 </p>
                 
