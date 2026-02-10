@@ -1034,7 +1034,7 @@ function FounderOfferPayment() {
             )}
 
             {/* Main Content - Scrollable */}
-            <div className="flex-1 min-w-0 w-full md:w-[640px] lg:h-full lg:overflow-y-auto scrollbar-hide lg:pr-2 max-md:px-4">
+            <div className="flex-1 min-w-0 w-full md:w-[620px] lg:h-full lg:overflow-y-auto scrollbar-hide lg:pr-2 max-md:px-4">
               <div className="pb-8">{renderStep()}</div>
             </div>
 
@@ -1042,7 +1042,7 @@ function FounderOfferPayment() {
             {currentStep !== 3 && (
               <>
                 {/* Desktop Sidebar */}
-                <div className="hidden xl:block w-64 xl:w-[280px] 2xl:w-[300px] flex-shrink-0 max-md:px-4">
+                <div className="hidden xl:block w-64 xl:w-[300px] 2xl:w-[300px] flex-shrink-0 max-md:px-4">
                   {currentStep === 2 ? (
                     <MembershipSummaryCard
                       primaryMember={formData.primaryMember}
