@@ -6,7 +6,7 @@ function FormsHeader() {
   return (
     <div className="relative">
       <div className="fixed top-0 left-0 w-full z-[99] bg-white justify-center items-center mb-8 border-b border-[#D4D4D4] py-3 px-4 flex">
-        <Link to="/" className="flex items-center">
+        <Link to="/presale-edmonton-south-common" className="flex items-center">
           <img
             src={EvolveStrengthBlackLogo}
             alt="Evolve Strength Logo"

@@ -50,6 +50,7 @@ import PresaleEdmontonSouthCommon from "./pages/PresalePage/PresaleEdmontonSouth
 import FounderOfferPayment from "./pages/FounderOfferPayment";
 import EdmontonSouthTermsAndConditions from "./pages/PresalePage/EdmontonSouthTermsAndConditions"
 import MembershipSummaryCard from "./components/FounderOfferPayment/MembershipSummaryCard";
+import PrimaryMemberDetails from "./components/FounderOfferPayment/steps/PrimaryMemberDetails";
 
 function App() {
   return (
@@ -114,6 +115,7 @@ function App() {
           />
 
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          
         </Route>
 
         {/* Location-based Discover flow */}
