@@ -396,3 +396,29 @@ h5 {
 @theme {
   --aspect-trainer: 65 / 54; 
 }
+
+
+
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #4ab04a;
+  border-radius: 4px;
+  position: relative;
+}
+
+input[type="checkbox"]:checked {
+  background: #4ab04a;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: #fff; /* your tick color */
+  position: absolute;
+  left: 2px;
+  top: -4px;
+  font-size: 14px;
+}
+

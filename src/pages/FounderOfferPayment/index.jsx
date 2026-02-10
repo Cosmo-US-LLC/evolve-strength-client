@@ -9,6 +9,7 @@ import PrimaryMemberDetails from "@/components/FounderOfferPayment/steps/Primary
 import PaymentInformation from "@/components/FounderOfferPayment/steps/PaymentInformation";
 import SuccessCertificate from "@/components/FounderOfferPayment/steps/SuccessCertificate";
 import PlanType from "@/components/FounderOfferPayment/steps/PlanType";
+import MetaTags from "@/components/Metatags/Meta";
 
 // Step to URL parameter mapping
 const stepToParam = {
@@ -1001,6 +1002,12 @@ function FounderOfferPayment() {
   };
 
   return (
+    <>
+     <MetaTags
+        title="Founder Membership"
+        description="Join as a Founder Member at Evolve Strength and lock in exclusive presale pricing before we open."
+      />
+    
     <div
       className={`h-screen bg-white flex flex-col md:overflow-hidden ${isSuccessModalOpen && "overflow-hidden"}`}
     >
@@ -1090,6 +1097,7 @@ function FounderOfferPayment() {
         </div>
       )}
     </div>
+    </>
   );
 }
 
