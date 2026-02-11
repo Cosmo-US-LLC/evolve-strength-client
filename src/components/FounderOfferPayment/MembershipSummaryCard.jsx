@@ -18,8 +18,9 @@ function MembershipSummaryCard({
   const fallbackTotal =
     typeof paymentAmount === "number"
       ? paymentAmount
-      : Number.parseFloat((paymentAmount || "").toString().replace(/[^0-9.-]/g, "")) ||
-        0;
+      : Number.parseFloat(
+          (paymentAmount || "").toString().replace(/[^0-9.-]/g, ""),
+        ) || 0;
   const normalizedFeeAmount = Number.isFinite(feeAmount) ? feeAmount : 0;
   const normalizedPlanFeeAmount = Number.isFinite(planFeeAmount)
     ? planFeeAmount
@@ -31,7 +32,9 @@ function MembershipSummaryCard({
     normalizedUntaxedAddonFeeAmount > 0 && addonLabel.trim().length > 0;
   const normalizedGstAmount = Number.isFinite(gstAmount) ? gstAmount : 0;
   const normalizedTotalAmount =
-    Number.isFinite(totalAmount) && totalAmount > 0 ? totalAmount : fallbackTotal;
+    Number.isFinite(totalAmount) && totalAmount > 0
+      ? totalAmount
+      : fallbackTotal;
 
   return (
     <div className="bg-[#fcfcfc] border border-[#d4d4d4] rounded-[14px] px-4 py-4 flex flex-col gap-4">
@@ -62,11 +65,15 @@ function MembershipSummaryCard({
         <div className="space-y-1 font-['Kanit']">
           <div className="flex justify-between items-center">
             <span className="text-[#4A5565] font-light text-xs">Fee</span>
-            <span className="text-[#0A0A0A] text-sm">{formatCurrency(normalizedPlanFeeAmount)}</span>
+            <span className="text-[#0A0A0A] text-sm">
+              {formatCurrency(normalizedPlanFeeAmount)}
+            </span>
           </div>
           {showUntaxedAddonRow && (
             <div className="flex justify-between items-center">
-              <span className="text-[#4A5565] font-light text-xs">{addonLabel}</span>
+              <span className="text-[#4A5565] font-light text-xs">
+                {addonLabel}
+              </span>
               <span className="text-[#0A0A0A] text-sm">
                 {formatCurrency(normalizedUntaxedAddonFeeAmount)}
               </span>
@@ -74,13 +81,17 @@ function MembershipSummaryCard({
           )}
           <div className="flex justify-between items-center">
             <span className="text-[#4A5565] font-light text-xs">GST</span>
-            <span className="text-[#0A0A0A] text-sm">{formatCurrency(normalizedGstAmount)}</span>
+            <span className="text-[#0A0A0A] text-sm">
+              {formatCurrency(normalizedGstAmount)}
+            </span>
           </div>
           <div className="flex justify-between items-center text-md font-[kanit] font-medium text-[#4AB04A]">
             <span>Total</span>
             <span>{formatCurrency(normalizedTotalAmount)}</span>
           </div>
-          <span className="float-right text-xs text-[#4A5565]">(Billed Biweekly)</span>
+          <span className="float-right text-xs text-[#4A5565]">
+            (Billed Biweekly)
+          </span>
         </div>
       </div>
 
@@ -94,7 +105,7 @@ function MembershipSummaryCard({
               Rate Locked
             </p>
             <p className="font-['Kanit'] font-light text-[#4a5565] text-[12px]">
-              Rate Locked for life
+              Rate locked for life while membership is active
             </p>
           </div>
         </div>
@@ -117,7 +128,7 @@ function MembershipSummaryCard({
           completed in person.
         </div>
 
-        <div className="text-[#000] text-[14px] font-['Vazirmatn'] italic font-normal">
+        <div className="text-[#000] font-bold text-[14px] font-['Vazirmatn'] italic">
           All presale offers are only available for new Evolve members. These
           offers are not available to current Evolve members.
         </div>
