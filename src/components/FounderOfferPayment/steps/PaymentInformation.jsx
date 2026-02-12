@@ -20,6 +20,7 @@ import {
   validateExpiryDate,
   validateCVV,
 } from "@/utils/validation";
+import { Checkbox } from "@/components/ui/checkbox";
 
 // Zod Schema
 const formSchema = z.object({
@@ -351,11 +352,13 @@ function PaymentInformation({
                 <FormItem>
                   <div className="flex gap-3 items-start">
                     <FormControl>
-                      <input
-                        type="checkbox"
+                      <Checkbox
+                        id="agreedToTerms"
                         checked={field.value}
-                        onChange={(e) => field.onChange(e.target.checked)}
-                        className="size-4 flex-shrink-0 cursor-pointer"
+                        onCheckedChange={(checked) =>
+                          field.onChange(checked === true)
+                        }
+                        className="mt-px w-4 h-4 border-gray-300 rounded focus:ring-[#4ab04a]"
                       />
                     </FormControl>
                     <label
@@ -364,7 +367,7 @@ function PaymentInformation({
                     >
                       Please confirm you have read our{" "}
                       <Link
-                        to="/edmonton-south-terms-and-conditions"
+                        to="/terms-and-conditions"
                         target="_blank"
                         className="text-[#4ab04a] underline"
                       >
@@ -385,11 +388,19 @@ function PaymentInformation({
                 <FormItem>
                   <div className="flex gap-3 items-start">
                     <FormControl>
-                      <input
+                      {/* <input
                         type="checkbox"
                         checked={field.value}
                         onChange={(e) => field.onChange(e.target.checked)}
                         className=" size-4 flex-shrink-0 cursor-pointer"
+                      /> */}
+                      <Checkbox
+                        id="agreedToAuthorization"
+                        checked={field.value}
+                        onCheckedChange={(checked) =>
+                          field.onChange(checked === true)
+                        }
+                        className="mt-px w-4 h-4 border-gray-300 rounded focus:ring-[#4ab04a]"
                       />
                     </FormControl>
                     <label
