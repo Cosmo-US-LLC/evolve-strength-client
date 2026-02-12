@@ -109,10 +109,10 @@ function App() {
             path="/terms-and-conditions"
             element={<TermsAndConditions />}
           />
-          <Route
+          {/* <Route
             path="/edmonton-south-terms-and-conditions"
             element={<EdmontonSouthTermsAndConditions />}
-          />
+          /> */}
 
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           
