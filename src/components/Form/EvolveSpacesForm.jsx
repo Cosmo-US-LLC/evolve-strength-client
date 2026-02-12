@@ -38,6 +38,10 @@ const purposeOfUseOptions = [
 // Contact-Us style locations list (label = cityName, value = full address)
 const LOCATIONS = [
   {
+    cityName: "South Edmonton Common",
+    location: "1910 102 STREET NW, EDMONTON, AB T6N 1N3",
+  },
+  {
     cityName: "Edmonton Downtown",
     location: "12328 102 ave nw Edmonton, Alberta, T5N 0L9",
   },
@@ -49,10 +53,7 @@ const LOCATIONS = [
     cityName: "Edmonton North",
     location: "13457 149 St Edmonton, Alberta, T5L 2T3",
   },
-  {
-    cityName: "South Edmonton Common",
-    location: "1910 102 STREET NW, EDMONTON, AB T6N 1N3",
-  },
+
   {
     cityName: "Calgary Royal Oak",
     location: "8888 Country Hills Blvd NW #600 Calgary, Alberta, T3G 5T4",
