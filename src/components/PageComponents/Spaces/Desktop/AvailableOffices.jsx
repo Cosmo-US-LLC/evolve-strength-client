@@ -18,12 +18,11 @@ const baseTabs = [
   { id: "Calgary Royal Oak", label: "Calgary Royal Oak" },
   { id: "Edmonton North", label: "Edmonton North" },
   { id: "Edmonton Downtown", label: "Edmonton Downtown" },
-  
+
   { id: "Brentwood", label: "Brentwood" },
   { id: "Calgary Seton", label: "Calgary Seton" },
   // { id: "Calgary Sunridge", label: "Calgary Sunridge" },
-  { id: "Edmonton South", label: "Edmonton South" },
-  
+  // { id: "Edmonton South", label: "Edmonton South" },
 ];
 
 const allOffices = [
@@ -38,8 +37,7 @@ const allOffices = [
   {
     title: "Premium Office Suite",
     location: "Calgary Royal Oak",
-    image:
-      "/assets/images/spaces/AvailableOffices/royal_P.webp",
+    image: "/assets/images/spaces/AvailableOffices/royal_P.webp",
     size: "170 sq/ft",
     roomStatus: "Unfurnished | without a sink",
   },
@@ -54,16 +52,14 @@ const allOffices = [
   {
     title: "Executive Office",
     location: "Edmonton North",
-    image:
-      "/assets/images/spaces/AvailableOffices/royal_E.webp",
+    image: "/assets/images/spaces/AvailableOffices/royal_E.webp",
     size: "Starting at 112 sq/ft",
     roomStatus: "Unfurnished | Without a Sink",
   },
   {
     title: "Executive Office",
     location: "Edmonton North",
-    image:
-      "/assets/images/spaces/AvailableOffices/royal_P.webp",
+    image: "/assets/images/spaces/AvailableOffices/royal_P.webp",
     size: "Starting at 114 sq/ft",
     roomStatus: "Unfurnished | Without a Sink",
   },
@@ -127,7 +123,7 @@ const AvailableOffices = () => {
 
   // Define unavailable locations
   const unavailableLocations = [
-    "Edmonton South",
+    // "Edmonton South",
     "Calgary Seton",
     "Brentwood",
     "Post",
@@ -137,7 +133,7 @@ const AvailableOffices = () => {
 
   // Calculate available offices count for "All" tab
   const availableOfficesCount = allOffices.filter(
-    (office) => !unavailableLocations.includes(office.location)
+    (office) => !unavailableLocations.includes(office.location),
   ).length;
 
   // Generate tabs with dynamic counts
@@ -154,14 +150,14 @@ const AvailableOffices = () => {
   const filteredOffices =
     activeTab === "All"
       ? allOffices.filter(
-          (office) => !unavailableLocations.includes(office.location)
+          (office) => !unavailableLocations.includes(office.location),
         )
       : allOffices.filter((o) => o.location === activeTab);
 
   const mobileFilteredOffices =
     activeTabmobile === "All"
       ? allOffices.filter(
-          (office) => !unavailableLocations.includes(office.location)
+          (office) => !unavailableLocations.includes(office.location),
         )
       : allOffices.filter((o) => o.location === activeTabmobile);
 
@@ -237,7 +233,7 @@ const AvailableOffices = () => {
                           </p>
                           <Link
                             to={`/apply-for-work-space?location=${encodeURIComponent(
-                              office.location
+                              office.location,
                             )}`}
                           >
                             <button className="btnPrimary">APPLY NOW</button>
@@ -344,7 +340,7 @@ const AvailableOffices = () => {
 
                           <Link
                             to={`/apply-for-work-space?location=${encodeURIComponent(
-                              office.location
+                              office.location,
                             )}`}
                           >
                             <button className="btnPrimary">APPLY NOW</button>
