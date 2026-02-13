@@ -36,9 +36,11 @@ function BenefitsCard() {
           If you are under 18, you cannot join online, your membership must be
           completed in person.
         </div>
+        <div className="text-[#000] text-[14px] font-['Vazirmatn'] italic font-normal ">
+          To be eligible to purchase a presale membership, the purchaser must be a current resident of Edmonton, Alberta. Proof of residency may be required at the discretion of Evolve Strength.
+        </div>
         <div className="text-[#000] text-[14px] font-['Vazirmatn'] italic font-bold">
-          All presale offers are only available for new Evolve members. These
-          offers are not available to current Evolve members.
+          All presale offers are exclusively available to new Evolve Strength members and are not available to current members. Evolve Strength reserves the right to cancel any presale membership that does not meet eligibility requirements.
         </div>
       </div>
     </div>

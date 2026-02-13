@@ -1054,10 +1054,10 @@ function FounderOfferPayment() {
       />
     
     <div
-      className={`h-screen bg-white flex flex-col md:overflow-hidden ${isSuccessModalOpen && "overflow-hidden"}`}
+      className={`h-screen bg-white flex flex-col ${isSuccessModalOpen && "overflow-hidden"}`}
     >
       <FormsHeader />
-      <div className="flex-1 pt-14 md:pt-16 md:overflow-hidden">
+      <div className="flex-1 pt-14 md:pt-16  pb-8">
         {/* <div ref={containerRef} className="max-w-[1280px] h-full mx-auto px-0 md:px-8 py-0 md:py-8 flex flex-col"> */}
         <div
           ref={containerRef}
@@ -1086,7 +1086,7 @@ function FounderOfferPayment() {
             )}
 
             {/* Main Content - Scrollable */}
-            <div className="flex-1 min-w-0 w-full md:w-[620px] lg:h-full lg:overflow-y-auto scrollbar-hide lg:pr-2 max-md:px-4">
+            <div className="flex-1 min-w-0 w-full md:w-[620px] lg:h-full lg:pr-2 max-md:px-4">
               <div className="pb-8">{renderStep()}</div>
             </div>
 

@@ -186,7 +186,7 @@ export const presaleEdmontonSouthCommonFAQs = {
     {
       question: "What does my membership include?",
       answer:
-        "Once your membership begins this spring at South Edmonton Common, you’ll have access to all Evolve Strength locations, premium amenities, open training areas, and recovery facilities, including saunas. <a href='/edmonton-south-terms-and-conditions' class='text-[#4AB04A] cursor-pointer underline'>Terms & conditions </a> apply.",
+        "Once your membership begins this spring at South Edmonton Common, you’ll have access to all Evolve Strength locations, premium amenities, open training areas, and recovery facilities, including saunas. <a href='/terms-and-conditions' class='text-[#4AB04A] cursor-pointer underline'>Terms & conditions </a> apply.",
     },
     {
       question: "Will I be protected from future rate increases?",
