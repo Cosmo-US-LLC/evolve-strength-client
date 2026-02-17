@@ -10,6 +10,8 @@ import BuiltBiggerEquippedBetter from "@/components/PageComponents/PresaleEdmont
 import RateLockCertificate from "@/components/PageComponents/PresaleEdmontonSouthCommon/RateLockCertificate";
 import GymZones from "@/components/PageComponents/PresaleEdmontonSouthCommon/GymZones";
 
+import CareerWithEvolve from "@/components/PageComponents/Home/Desktop/CareerWithEvolve";
+
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import PresaleTrustedEquipmentBrands from "@/components/PageComponents/PresaleEdmontonSouthCommon/PresaleTrustedEquipmentBrands";
 import PresaleFrequentlyAskedQuestions from "@/components/PageComponents/PresaleEdmontonSouthCommon/PresaleFrequentlyAskedQuestions";
@@ -35,6 +37,8 @@ function PresaleEdmontonSouthCommon() {
       <UnmatchedAmenities />
       {/* <WellnessRecoveryExperience /> */}
       <PresaleWellnwssServices />
+      {/* <CareerWithEvolve /> */}
+      <CareerWithEvolve/>
       <PresaleFrequentlyAskedQuestions {...presaleEdmontonSouthCommonFAQs} />
       {/* <Only247SpotsLeft /> */}
     </>
