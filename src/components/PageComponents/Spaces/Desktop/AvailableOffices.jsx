@@ -26,14 +26,14 @@ const baseTabs = [
 ];
 
 const allOffices = [
-  // {
-  //   title: "Executive Office",
-  //   location: "Calgary Royal Oak",
-  //   image:
-  //     "/assets/images/spaces/AvailableOffices/royal_E.webp",
-  //   size: "Starting at 130 sq/ft",
-  //   roomStatus: "Unfurnished | With or Without a Sink",
-  // },
+  {
+    title: "Premium Offices Suites",
+    location: "South Edmonton Common",
+    image:
+      "/assets/images/spaces/AvailableOffices/south_edmonton_common.webp",
+    size: "130-140 sq/ft",
+    roomStatus: "Unfurnished | without a sink",
+  },
   {
     title: "Premium Office Suite",
     location: "Calgary Royal Oak",
@@ -128,7 +128,7 @@ const AvailableOffices = () => {
     "Brentwood",
     "Post",
     "Edmonton Downtown",
-    "South Edmonton Common",
+    // "South Edmonton Common",
   ];
 
   // Calculate available offices count for "All" tab
