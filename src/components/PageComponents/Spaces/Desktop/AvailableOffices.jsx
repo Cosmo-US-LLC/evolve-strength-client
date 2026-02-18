@@ -27,7 +27,7 @@ const baseTabs = [
 
 const allOffices = [
   {
-    title: "Premium Office Suites",
+    title: "Premium Office Suite",
     location: "South Edmonton Common",
     image: "/assets/images/spaces/AvailableOffices/south_edmonton_common.webp",
     size: "130-140 sq/ft",
