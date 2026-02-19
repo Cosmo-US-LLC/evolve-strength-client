@@ -407,7 +407,7 @@ function PaymentInformation({
                       htmlFor="agreedToAuthorization"
                       className="flex-1 font-['Vazirmatn'] font-normal text-black text-[14px] md:text-[16px] leading-[22px] cursor-pointer"
                     >
-                      I authorize Evolve Strength to change my card for
+                      I authorize Evolve Strength to charge my card for
                       membership fees. I understand my membership renews
                       automatically unless I cancel as stated in the contract. I
                       have read and agree to the{" "}
