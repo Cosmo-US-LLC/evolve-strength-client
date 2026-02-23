@@ -181,7 +181,7 @@ export const presaleEdmontonSouthCommonFAQs = {
     {
       question: "What is our address?",
       answer:
-        "We are located at <span class='font-bold'>1910 102 STREET NW, EDMONTON, AB T6N 1N3 </span> (Old Nordstrom Rack Building In South Commons).",
+        "We are located at <span class='font-[500]'>1910 102 STREET NW, EDMONTON, AB T6N 1N3 </span> (Old Nordstrom Rack Building In South Commons).",
     },
     {
       question: "When does billing actually start?",
