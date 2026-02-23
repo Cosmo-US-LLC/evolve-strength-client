@@ -179,9 +179,13 @@ export const presaleEdmontonSouthCommonFAQs = {
     "Got questions? We’ve got answers. Whether you're curious about memberships, services, or what to expect on your first visit",
   faqs: [
     {
-      question: "When does billing actually start?",
+      question: "What is our address?",
       answer:
-        "Billing begins on the day we officially open our doors.",
+        "We are located at <span class='font-bold'>1910 102 STREET NW, EDMONTON, AB T6N 1N3 </span> (Old Nordstrom Rack Building In South Commons).",
+    },
+    {
+      question: "When does billing actually start?",
+      answer: "Billing begins on the day we officially open our doors.",
     },
     {
       question: "What does my membership include?",
@@ -200,8 +204,7 @@ export const presaleEdmontonSouthCommonFAQs = {
     },
     {
       question: "When does South Commons Open?",
-      answer:
-        "We are scheduled to be open in the Spring of 2026.",
+      answer: "We are scheduled to be open in the Spring of 2026.",
     },
     {
       question: "Can I use other Evolve locations before South Commons opens?",
