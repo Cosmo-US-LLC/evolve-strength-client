@@ -5,6 +5,17 @@ import { Link } from "react-router-dom";
 function AllGymLocations() {
   const locations = [
     {
+      id: 9,
+      name: "South Edmonton Common",
+      image:
+        "/assets/all_locations/g_south_com.webp",
+      address: "",
+      phone: "",
+      directionsUrl: "",
+      locationUrl: "",
+      commonbtn: true,
+    },
+    {
       id: 1,
       name: "Burnaby Brentwood",
       image:
@@ -106,17 +117,7 @@ function AllGymLocations() {
       locationUrl: "/locations/edmonton-north",
       commonbtn: false,
     },
-    {
-      id: 9,
-      name: "Edmonton South Common",
-      image:
-        "/assets/all_locations/g_south_com.webp",
-      address: "",
-      phone: "",
-      directionsUrl: "",
-      locationUrl: "",
-      commonbtn: true,
-    },
+  
   ];
 
   const handleGetDirections = (directionsUrl) => {
@@ -148,7 +149,7 @@ function AllGymLocations() {
             <div className="w-full h-[200px] group md:h-[240px] overflow-hidden relative rounded-[10px]">
               {location.commonbtn && (
                 <div className="absolute flex description !font-[Kanit] !font-[500] items-center justify-center  rounded-[5px]  bg-[#FFF] h-[24px] w-[120px] right-2 top-2">
-                  COMING SOON
+                  Opening Spring
                 </div>
               )}
 
@@ -162,10 +163,10 @@ function AllGymLocations() {
               <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center max-md:hidden">
                 {location.commonbtn ? (
                   <Link
-                    to="/locations/edmonton-south-common-waitlist"
+                    to="/presale-edmonton-south-common"
                     className="flex items-center gap-2 bg-white underline px-3 py-3 rounded-[5px] transition-all duration-200 text-black font-semibold"
                   >
-                    <span>Join the Waitlist</span>
+                    <span>Join the Presale</span>
                     <ArrowUpRight className="w-5 h-5" />
                   </Link>
                 ) : (
@@ -183,10 +184,10 @@ function AllGymLocations() {
               {location.commonbtn ? (
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center md:hidden">
                   <Link
-                    to="/locations/edmonton-south-common-waitlist"
+                    to="/presale-edmonton-south-common"
                     className="flex items-center gap-2 underline px-3 py-3 rounded-[5px] transition-all duration-200 text-[#fff] font-semibold"
                   >
-                    <span>Join the Waitlist</span>
+                    <span>Join the Presale</span>
                   </Link>
                 </div>
               ) : (
@@ -206,8 +207,8 @@ function AllGymLocations() {
 
               {location.commonbtn ? (
                 <div className="flex gap-3">
-                  <Link to="/locations/edmonton-south-common-waitlist">
-                    <button className="btnPrimary">Join the waitlist</button>
+                  <Link to="/presale-edmonton-south-common">
+                    <button className="btnPrimary">JOIN THE PRESALE</button>
                   </Link>
                 </div>
               ) : (

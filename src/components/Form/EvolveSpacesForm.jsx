@@ -38,17 +38,22 @@ const purposeOfUseOptions = [
 // Contact-Us style locations list (label = cityName, value = full address)
 const LOCATIONS = [
   {
+    cityName: "South Edmonton Common",
+    location: "1910 102 STREET NW, EDMONTON, AB T6N 1N3",
+  },
+  {
     cityName: "Edmonton Downtown",
     location: "12328 102 ave nw Edmonton, Alberta, T5N 0L9",
   },
-  {
-    cityName: "Edmonton South",
-    location: "4825 89 St NW Edmonton, Alberta, T6E 5K1",
-  },
+  // {
+  //   cityName: "Edmonton South",
+  //   location: "4825 89 St NW Edmonton, Alberta, T6E 5K1",
+  // },
   {
     cityName: "Edmonton North",
     location: "13457 149 St Edmonton, Alberta, T5L 2T3",
   },
+
   {
     cityName: "Calgary Royal Oak",
     location: "8888 Country Hills Blvd NW #600 Calgary, Alberta, T3G 5T4",
@@ -99,7 +104,7 @@ export default function EvolveSpacesForm() {
 
       // Try exact city name match first
       let matched = LOCATIONS.find(
-        (loc) => normalized(loc.cityName) === aliasTarget
+        (loc) => normalized(loc.cityName) === aliasTarget,
       );
 
       // Fallback: loose contains match on city name
@@ -107,7 +112,7 @@ export default function EvolveSpacesForm() {
         matched = LOCATIONS.find(
           (loc) =>
             normalized(loc.cityName).includes(aliasTarget) ||
-            aliasTarget.includes(normalized(loc.cityName))
+            aliasTarget.includes(normalized(loc.cityName)),
         );
       }
 
@@ -256,7 +261,7 @@ export default function EvolveSpacesForm() {
               "Content-Type": "application/json",
             },
             body: JSON.stringify(formData),
-          }
+          },
         );
 
         if (!response.ok) {

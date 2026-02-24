@@ -47,6 +47,10 @@ import Intake from "./components/Form/Intake";
 import Gym from "./pages/Gym";
 import Discover from "./pages/Discover";
 import PresaleEdmontonSouthCommon from "./pages/PresalePage/PresaleEdmontonSouthCommon";
+import FounderOfferPayment from "./pages/FounderOfferPayment";
+import EdmontonSouthTermsAndConditions from "./pages/PresalePage/EdmontonSouthTermsAndConditions"
+import MembershipSummaryCard from "./components/FounderOfferPayment/MembershipSummaryCard";
+import PrimaryMemberDetails from "./components/FounderOfferPayment/steps/PrimaryMemberDetails";
 
 function App() {
   return (
@@ -105,8 +109,13 @@ function App() {
             path="/terms-and-conditions"
             element={<TermsAndConditions />}
           />
+          {/* <Route
+            path="/edmonton-south-terms-and-conditions"
+            element={<EdmontonSouthTermsAndConditions />}
+          /> */}
 
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          
         </Route>
 
         {/* Location-based Discover flow */}
@@ -162,6 +171,11 @@ function App() {
         <Route
           path="/company-not-registered"
           element={<CompanyNotRegistered />}
+        />
+
+        <Route
+          path="/founder-offer-payment"
+          element={<FounderOfferPayment />}
         />
 
         <Route path="/loader" element={<Loader />} />

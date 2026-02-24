@@ -12,22 +12,21 @@ function SomeThinkNew() {
             </h2>
 
             <h4 className="text-[#fff] leading-relaxed">
-              Our newest location is opening soon in one of the city’s busiest
-              hubs. Join the waitlist today and be first to know when
-              memberships go live.
+            Presale is live! Join now to lock your founder rate 
+            for free before we officially open.
             </h4>
 
             <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-8 text-[#fff]">
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5" />
                 <span className="test-[14px] font-[kanit] leading-[22px]">
-                  South Edmonton Common
+            South Edmonton Common
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5" />
                 <span className="test-[14px] font-[kanit] leading-[22px]">
-                  Announcing Soon
+                Spring 2026
                 </span>
               </div>
             </div>
@@ -35,12 +34,13 @@ function SomeThinkNew() {
 
           {/* Call-to-Action Button */}
           <a
-            href="/locations/edmonton-south-common-waitlist"
-            target="_blank"
+            href="/presale-edmonton-south-common"
+            // target="_blank"
+            target="_self"
             rel="noopener noreferrer"
             className="btnPrimary"
           >
-            JOIN THE WAITLIST
+            JOIN THE PRESALE
           </a>
         </div>
       </div>

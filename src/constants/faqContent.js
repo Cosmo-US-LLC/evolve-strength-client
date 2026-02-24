@@ -174,34 +174,42 @@ export const LocationFaq = {
 };
 
 export const presaleEdmontonSouthCommonFAQs = {
-  heading: "FREQUENTLY ASKED QUESTIONS",
+  heading: "Frequently Asked Questions (FAQs)",
   subtext:
     "Got questions? We’ve got answers. Whether you're curious about memberships, services, or what to expect on your first visit",
   faqs: [
     {
-      question: "How do I pay for my membership?",
+      question: "What is our address?",
       answer:
-        "You can pay online with a credit or debit card or set up a bank transfer for your membership fees.",
+        "We are located at <span class='font-[500]'>1910 102 STREET NW, EDMONTON, AB T6N 1N3 </span> (Old Nordstrom Rack Building In South Commons).",
     },
     {
-      question: "Can I lock my membership rate?",
-      answer:
-        "Yes. You can pay a CA $149 deposit to secure your founding membership rate for life.",
-    },
-    {
-      question: "Is the deposit refundable?",
-      answer:
-        "Yes. The CA $149 deposit is refundable if you cancel at least 30 days before the gym opens.",
-    },
-    {
-      question: "What happens to the $149 deposit?",
-      answer:
-        "Your $149 deposit will be applied toward your first membership billing.",
+      question: "When does billing actually start?",
+      answer: "Billing begins on the day we officially open our doors.",
     },
     {
       question: "What does my membership include?",
       answer:
-        "Your membership gives you access to all Evolve Strength locations, premium amenities, open training areas, and recovery facilities like sauna and steam rooms.",
+        "Once your membership begins this spring at South Edmonton Common, you’ll have access to all Evolve Strength locations, premium amenities, open training areas, and recovery facilities, including saunas. <a href='/terms-and-conditions' class='text-[#4AB04A] cursor-pointer underline'>Terms & conditions </a> apply.",
+    },
+    {
+      question: "Will I be protected from future rate increases?",
+      answer:
+        "Yes! Your founder rate is locked for life while your membership remains active.",
+    },
+    {
+      question: "What are the terms & conditions?",
+      answer:
+        "If you cancel, the founder rate will no longer be available. You can view the full terms <a href='/terms-and-conditions' class='text-[#4AB04A] cursor-pointer underline'>here</a>.",
+    },
+    {
+      question: "When does South Commons Open?",
+      answer: "We are scheduled to be open in the Spring of 2026.",
+    },
+    {
+      question: "Can I use other Evolve locations before South Commons opens?",
+      answer:
+        "Membership access begins once the South Commons location officially opens. If you would like to train at another Evolve location before then, a temporary membership can be purchased for that period.",
     },
   ],
 };

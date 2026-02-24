@@ -6,24 +6,34 @@ const contactLocationsData = {
   heading: "OUR LOCATIONS",
   locations: [
     {
+      cityName: "South Edmonton Common",
+      location: "1910 102 STREET NW, EDMONTON, AB T6N 1N3",
+      number: "",
+      email: "sec@evolvestrength.ca",
+    },
+    {
       cityName: "Edmonton Downtown",
       location: "12328 102 ave nw Edmonton, Alberta, T5N 0L9",
       number: "(780) 784-2675",
+      email: null,
     },
     {
       cityName: "Edmonton South",
       location: "4825 89 St NW Edmonton, Alberta, T6E 5K1",
       number: "(587) 754-3632",
+      email: null,
     },
     {
       cityName: "Edmonton North",
       location: "13457 149 St Edmonton, Alberta, T5L 2T3",
       number: "(780) 784-7870",
+      email: null,
     },
     {
       cityName: "Calgary Royal Oak",
       location: "8888 Country Hills Blvd NW #600 Calgary, Alberta, T3G 5T4",
       number: "(403) 452-3169",
+      email: null,
     },
     // {
     //   cityName: "Calgary Sunridge",
@@ -34,16 +44,19 @@ const contactLocationsData = {
       cityName: "Calgary Seton",
       location: "710-19587 Seton Crescent SE Calgary, Alberta, T3M 2T5",
       number: "(825) 407-9015",
+      email: null,
     },
     {
       cityName: "Burnaby Brentwood",
       location: "1920 Willingdon Ave #3105 Burnaby, British Columbia, V5C 0K3",
       number: "(236) 455-6573",
+      email: null,
     },
     {
       cityName: "Vancouver Post",
       location: "658 Homer St Vancouver, British Columbia, V6B 2R4",
       number: "(236) 757-5475",
+      email: null,
     },
   ],
 };
@@ -93,10 +106,10 @@ function Contactusmain() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-      if (!isHuman) {
-    alert("Please verify you are human before submitting.");
-    return;
-  }
+    if (!isHuman) {
+      alert("Please verify you are human before submitting.");
+      return;
+    }
     setIsSubmitting(true);
 
     try {
@@ -135,7 +148,7 @@ function Contactusmain() {
             value: formData.location
               ? `${
                   contactLocationsData.locations.find(
-                    (loc) => loc.location === formData.location
+                    (loc) => loc.location === formData.location,
                   )?.cityName || formData.location
                 } - ${formData.location}`
               : "",
@@ -156,7 +169,7 @@ function Contactusmain() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(hubspotFormData),
-        }
+        },
       );
 
       if (!response.ok) {
@@ -213,10 +226,14 @@ function Contactusmain() {
                     {location.location}
                   </span>
                   <a
-                    href={`tel:${location.number}`}
+                    href={
+                      location.email
+                        ? `mailto:${location.email}`
+                        : `tel:${location.number}`
+                    }
                     className="h-[21px] block  text-[#000] transition-colors duration-200"
                   >
-                    {location.number}
+                    {location.email ? location.email : location.number}
                   </a>
                 </div>
               </li>
@@ -366,7 +383,7 @@ function Contactusmain() {
               )}
             </div>
 
-             <Turnstile
+            <Turnstile
               sitekey="0x4AAAAAAB3E2_2oqH3zoAqZ"
               onSuccess={() => setIsHuman(true)}
               onError={() => setIsHuman(false)}

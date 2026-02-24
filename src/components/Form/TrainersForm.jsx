@@ -16,13 +16,18 @@ function TrainerForm() {
   // Contact-Us style locations list (label = cityName, value = full address)
   const LOCATIONS = [
     {
+      cityName: "South Edmonton Common",
+      location: "1910 102 STREET NW, EDMONTON, AB T6N 1N3",
+    },
+    {
       cityName: "Edmonton Downtown",
       location: "12328 102 ave nw Edmonton, Alberta, T5N 0L9",
     },
-    {
-      cityName: "Edmonton South",
-      location: "4825 89 St NW Edmonton, Alberta, T6E 5K1",
-    },
+    // {
+    //   cityName: "Edmonton South",
+    //   location: "4825 89 St NW Edmonton, Alberta, T6E 5K1",
+    // },
+
     {
       cityName: "Edmonton North",
       location: "13457 149 St Edmonton, Alberta, T5L 2T3",
@@ -172,7 +177,7 @@ function TrainerForm() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-        }
+        },
       );
 
       if (response.ok) {

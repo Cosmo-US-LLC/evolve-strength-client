@@ -17,11 +17,18 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), svgr()],
   server: {
     historyApiFallback: true,
+    watch: {
+      ignored: ["**/data/sent-emails.json"],
+    },
   },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  optimizeDeps: {
+    include: ["react-payment-inputs", "styled-components"],
+    exclude: [],
   },
   preview: {
     allowedHosts: ["evolvestrength.ca", "www.evolvestrength.ca"],

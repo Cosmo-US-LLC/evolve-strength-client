@@ -1,173 +1,240 @@
 import React, { useState, useEffect } from "react";
-import useEmblaCarousel from "embla-carousel-react";
+import Marquee from "react-fast-marquee";
 import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import partnersImage1 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_image1.webp";
+import partnersImage2 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_image2.webp";
+import partnersImage3 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_image3.webp";
+import partnersImage4 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_image4.webp";
+import partnersImage5 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_image5.webp";
+import partnersImage6 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_image6.webp";
+
+import partnersLogo1 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_logo1.svg";
+import partnersLogo2 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_logo2.svg";
+import partnersLogo3 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_logo3.svg";
+import partnersLogo4 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_logo4.svg";
+import partnersLogo5 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_logo5.svg";
+import partnersLogo6 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_logo6.svg";
+
+const EQUIPMENT_PARTNERS = [
+  {
+    id: 1,
+    name: "Newtech Strength Equipment",
+    logo: partnersLogo1,
+    backgroundImage: partnersImage1,
+    alt: "Newtech Strength Equipment",
+  },
+  {
+    id: 2,
+    name: "Eleiko",
+    logo: partnersLogo2,
+    backgroundImage: partnersImage2,
+    alt: "Eleiko",
+  },
+  {
+    id: 3,
+    name: "Technogym",
+    logo: partnersLogo3,
+    backgroundImage: partnersImage3,
+    alt: "Technogym",
+  },
+  {
+    id: 4,
+    name: "Atlantis",
+    logo: partnersLogo4,
+    backgroundImage: partnersImage4,
+    alt: "Atlantis",
+  },
+  {
+    id: 5,
+    name: "Precor",
+    logo: partnersLogo5,
+    backgroundImage: partnersImage5,
+    alt: "Precor",
+  },
+  {
+    id: 6,
+    name: "Rogue",
+    logo: partnersLogo6,
+    backgroundImage: partnersImage6,
+    alt: "Rogue",
+  },
+  {
+    id: 7,
+    name: "Newtech Strength Equipment",
+    logo: partnersLogo1,
+    backgroundImage: partnersImage1,
+    alt: "Newtech Strength Equipment",
+  },
+  {
+    id: 8,
+    name: "Eleiko",
+    logo: partnersLogo2,
+    backgroundImage: partnersImage2,
+    alt: "Eleiko",
+  },
+  {
+    id: 9,
+    name: "Technogym",
+    logo: partnersLogo3,
+    backgroundImage: partnersImage3,
+    alt: "Technogym",
+  },
+  {
+    id: 10,
+    name: "Atlantis",
+    logo: partnersLogo4,
+    backgroundImage: partnersImage4,
+    alt: "Atlantis",
+  },
+  {
+    id: 11,
+    name: "Precor",
+    logo: partnersLogo5,
+    backgroundImage: partnersImage5,
+    alt: "Precor",
+  },
+  {
+    id: 12,
+    name: "Rogue",
+    logo: partnersLogo6,
+    backgroundImage: partnersImage6,
+    alt: "Rogue",
+  },
+  {
+    id: 13,
+    name: "Newtech Strength Equipment",
+    logo: partnersLogo1,
+    backgroundImage: partnersImage1,
+    alt: "Newtech Strength Equipment",
+  },
+  {
+    id: 14,
+    name: "Eleiko",
+    logo: partnersLogo2,
+    backgroundImage: partnersImage2,
+    alt: "Eleiko",
+  },
+  {
+    id: 15,
+    name: "Technogym",
+    logo: partnersLogo3,
+    backgroundImage: partnersImage3,
+    alt: "Technogym",
+  },
+  {
+    id: 16,
+    name: "Atlantis",
+    logo: partnersLogo4,
+    backgroundImage: partnersImage4,
+    alt: "Atlantis",
+  },
+  {
+    id: 17,
+    name: "Precor",
+    logo: partnersLogo5,
+    backgroundImage: partnersImage5,
+    alt: "Precor",
+  },
+  {
+    id: 18,
+    name: "Rogue",
+    logo: partnersLogo6,
+    backgroundImage: partnersImage6,
+    alt: "Rogue",
+  },
+];
+
+function PartnerCard({ partner, className = "" }) {
+  return (
+    <div
+      className={`relative shrink-0 w-[280px] md:w-[270px] h-[380px] rounded-2xl overflow-hidden ${className}`.trim()}
+    >
+      <img
+        src={partner.backgroundImage}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-black/10" aria-hidden="true" />
+      <div className="absolute inset-0 flex items-center justify-center p-6">
+        <img
+          src={partner.logo}
+          alt={partner.alt}
+          className="max-h-[80px] md:max-h-[100px] w-auto object-contain brightness-0 invert"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  );
+}
+
+const MARQUEE_PARTNERS = [...EQUIPMENT_PARTNERS, ...EQUIPMENT_PARTNERS, ...EQUIPMENT_PARTNERS];
 
 function PresaleTrustedEquipmentBrands() {
   const [isMobile, setIsMobile] = useState(false);
 
-  // Check if device is mobile
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
-  const [emblaRef] = useEmblaCarousel(
-    {
-      containScroll: "trimSnaps",
-      loop: true,
-      slidesToScroll: 1,
-      align: "start",
-    },
-    [Autoplay({ delay: 3000, stopOnInteraction: true })]
-  );
-
-  const equipmentImages = [
-    {
-      id: 1,
-      src: "/assets/images/gym/image1.webp",
-      alt: "Woman performing barbell squat with Eleiko equipment",
-      brand: "Eleiko",
-    },
-    {
-      id: 2,
-      src: "/assets/images/gym/image2.webp",
-      alt: "Woman using Technogym chest press machine",
-      brand: "Technogym",
-    },
-    {
-      id: 3,
-      src: "/assets/images/gym/image3.webp",
-      alt: "Man using Rogue air bike",
-      brand: "Rogue",
-    },
-    {
-      id: 4,
-      src: "/assets/images/gym/image4.webp",
-      alt: "Woman using Atlantis strength training machine",
-      brand: "Atlantis",
-    },
-  ];
-
-  const brandLogos = [
-    {
-      name: "Eleiko",
-      logo: "/assets/images/gym/Eleiko.svg",
-      alt: "Eleiko Logo",
-    },
-    {
-      name: "Technogym",
-      logo: "/assets/images/gym/TechnoGym.svg",
-      alt: "Technogym Logo",
-    },
-    {
-      name: "Rogue",
-      logo: "/assets/images/gym/Rogue.svg",
-      alt: "Rogue Logo",
-    },
-    {
-      name: "Atlantis",
-      logo: "/assets/images/gym/Atlantis.svg",
-      alt: "Atlantis Logo",
-    },
-  ];
-
   return (
-    <section className="bg-[#000] py-12 max-md:pb-0 w-full">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col gap-8">
-        {/* Header Section */}
+    <section className="bg-[#EEEEEE] py-12 md:py-16 w-full overflow-hidden">
+      <div className="w-full flex flex-col items-center gap-8 md:gap-10">
+        <h2 className="text-[#000] text-center uppercase font-bold text-[28px] md:text-[36px] leading-tight tracking-tight px-4">
+          Equipped Without Compromise
+        </h2>
 
-        <div className="w-full flex flex-col md:flex-row md:gap-8 gap-1">
-          <div className="w-[100%] md:w-[50%]">
-            <h2 className="max-w-[500px] !leading-[39px] text-left font-bold text-[#fff] mb-3">
-              TRUSTED EQUIPMENT <br className="max-md:hidden" /> BRANDS
-            </h2>
-          </div>
-          <div className="w-[100%] md:w-[50%]">
-            {/* <h4 className="text-lg text-[#000] leading-relaxed text-left ">
-              Achieve your fitness goals in a space built for results. From
-              Olympic-grade machines by top brands like Eleiko and Atlantis to
-              fully equipped strength zones, Evolve gives you everything you
-              need to train smarter and stronger.
-            </h4> */}
-          </div>
-        </div>
-
-        {/* Equipment Cards with Brand Logos */}
-        {isMobile ? (
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex  py-4 ">
-              {equipmentImages.map((image, index) => {
-                const brand = brandLogos[index];
-                return (
-                  <div
-                    key={image.id}
-                    className="w-[80%] px-2 h-[100%] flex-shrink-0"
-                  >
-                    <div className="bg-[#000] rounded-lg overflow-hidden">
-                      <div className="relative rounded-lg overflow-hidden">
-                        <img
-                          src={image.src}
-                          alt={image.alt}
-                          className="w-[100%] h-[100%] rounded-lg object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-
-                      {/* Brand Logo Below Image */}
-                      <div className="py-4 bg-[#000] flex justify-center">
-                        <img
-                          src={brand.logo}
-                          alt={brand.alt}
-                          className="h-10 w-auto object-contain"
-                          loading="lazy"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+        <div className="w-full overflow-hidden">
+          {isMobile ? (
+            /* Mobile: shadcn Carousel with autoplay */
+            <div className="w-full px-4">
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                  containScroll: "trimSnaps",
+                  dragFree: false,
+                }}
+                plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
+                className="w-full flex gap-4"
+              >
+                <CarouselContent className="-ml-4 py-2">
+                  {EQUIPMENT_PARTNERS.map((partner) => (
+                    <CarouselItem
+                      key={partner.id}
+                      className="pl-4 basis-[300px] shrink-0 "
+                    >
+                      <PartnerCard partner={partner} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
             </div>
-          </div>
-        ) : (
-          <div className="flex flex-col md:flex-row flex-wrap gap-5">
-            {equipmentImages.map((image, index) => {
-              const brand = brandLogos[index];
-              return (
-                <div
-                  key={image.id}
-                  className="flex-1 min-w-0 md:w-1/2 lg:w-1/4"
-                >
-                  <div className="bg-[#000] rounded-lg overflow-hidden">
-                    {/* Equipment Image */}
-                    <div className="relative h-[220px] rounded-lg  overflow-hidden flex items-center justify-center">
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        className="w-full aspect-square h-full  object-cover object-center"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    {/* Brand Logo Below Image */}
-                    <div className="py-4 bg-[#000] flex justify-center">
-                      <img
-                        src={brand.logo}
-                        alt={brand.alt}
-                        className="h-10 w-auto object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
+          ) : (
+            /* Desktop: react-fast-marquee */
+            <Marquee
+              speed={40}
+              gradient={false}
+              className="[&_.rfm-child]:flex [&_.rfm-child]:shrink-0 [&_.rfm-initial-child-container]:flex py-2"
+            >
+              {MARQUEE_PARTNERS.map((partner, index) => (
+                <PartnerCard
+                  key={`${partner.id}-${index}`}
+                  partner={partner}
+                  className="mr-4 md:mr-6"
+                />
+              ))}
+            </Marquee>
+          )}
+        </div>
       </div>
     </section>
   );

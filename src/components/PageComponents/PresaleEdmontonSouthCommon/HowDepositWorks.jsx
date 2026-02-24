@@ -28,36 +28,43 @@ const depositBenefits = [
 
 function HowDepositWorks() {
   return (
-    <section className="bg-white py-10 md:py-20">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-        <div className="rounded-[12px] overflow-hidden flex flex-col md:flex-row">
+    <section className="bg-white py-0 md:py-20">
+      <div className="max-w-[1280px] mx-auto px-0 md:px-8">
+        <div className="md:rounded-[12px] overflow-hidden flex flex-col md:flex-row max-md:flex-col-reverse shadow-lg max-md:bg-black max-md:pt-6 max-md:pb-10">
           {/* Left Side - Image */}
-          <div className="relative w-full md:w-[550px] h-[400px] md:h-auto flex-shrink-0">
+          <div className="relative w-full md:px-0 px-6   md:w-[570px] h-[300px] md:h-auto md:block hidden flex-shrink-0">
             <img
               src="/assets/images/presaleCommonSouth/hoeDepositImage.webp"
               alt="Gym members celebrating"
-              className="w-full h-full object-cover"
+              className="w-full h-full md:object-cover max-md:rounded-[8px]"
+            />
+          </div>
+            <div className="relative w-full md:px-0 px-6   md:w-[570px] h-[300px] md:h-auto md:hidden block flex-shrink-0">
+            <img
+              src="/assets/images/presaleCommonSouth/hoeDepositImagemob.webp"
+              alt="Gym members celebrating"
+              className="w-full h-full object-cover max-md:rounded-[8px]"
             />
           </div>
 
           {/* Right Side - Content */}
-          <div className="bg-[#000] backdrop-blur-[15px] flex-1 flex flex-col gap-[35px] px-6 md:px-10 py-8 md:py-8">
+          <div className="bg-[#000] backdrop-blur-[15px] flex-1 flex flex-col gap-[35px] px-6 md:px-12 py-8 md:py-8">
             {/* Header */}
             <div className="flex flex-col gap-4">
-              <h2 className="!font-[600] uppercase text-white">
+              <h2 className="!font-[600] text-[40px] uppercase text-white">
                 How the <span className="text-white">CA $149</span>
                 <br />
                 <span className="text-[#4ab04a]">Deposit Works</span>
               </h2>
-              <p className="text-[14px] md:text-[16px] leading-[26px] font-[400] font-Inter text-white">
+              <p className="text-[14px] md:!text-[16px] !font-[Kanit] leading-[26px] font-[400] font-Inter text-white">
                 Purpose-built spaces for strength, conditioning, and results.
               </p>
             </div>
 
             {/* Benefits List */}
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-7">
               {depositBenefits.map((benefit, index) => (
-                <div key={index} className="flex flex-col gap-1">
+                <div key={index} className="flex flex-col">
                   <div className="flex gap-3 items-center">
                     <div className="w-[30px] h-[30px] flex-shrink-0">
                       <img
@@ -66,11 +73,11 @@ function HowDepositWorks() {
                         className="w-full h-full"
                       />
                     </div>
-                    <h3 className="text-white whitespace-nowrap">
+                    <h3 className="text-white !text-[18px] max-md:!font-[500] max-md:leading-[133%] md:!text-[24px] whitespace-nowrap">
                       {benefit.title}
                     </h3>
                   </div>
-                  <p className="pl-[42px] text-[14px] md:text-[16px] leading-[26px] font-[300] font-[Kanit] text-white">
+                  <p className="pl-[42px] text-[14px] md:!text-[16px] leading-[26px] font-[300] font-[Kanit] text-white">
                     {benefit.description}
                   </p>
                 </div>
