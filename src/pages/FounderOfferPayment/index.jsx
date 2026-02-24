@@ -124,8 +124,6 @@ const PLAN_TYPE_YEARLY = 0;
 const PLAN_TYPE_MONTHLY = 1;
 const VALID_PLAN_TYPES = new Set([PLAN_TYPE_YEARLY, PLAN_TYPE_MONTHLY]);
 const MAX_STEP = 2;
-// TEMP: set to false to restore strict createPerson failure handling.
-const ALLOW_CREATE_PERSON_FAILURE = true;
 
 const isValidStepParam = (stepParam) =>
   Object.prototype.hasOwnProperty.call(paramToStep, stepParam);
@@ -887,16 +885,10 @@ function FounderOfferPayment() {
     }
 
     const personCreated = await createPerson(formData.primaryMember);
-    if (!personCreated?.success && !ALLOW_CREATE_PERSON_FAILURE) {
+    if (!personCreated?.success) {
       setPaymentError(personCreated?.apiMessage || "");
       setIsSubmittingPayment(false);
       return false;
-    }
-    if (!personCreated?.success && ALLOW_CREATE_PERSON_FAILURE) {
-      console.warn(
-        "TEMP: createPerson failed but continuing as success.",
-        personCreated?.apiMessage,
-      );
     }
 
     const completedData = { ...formData.primaryMember };
