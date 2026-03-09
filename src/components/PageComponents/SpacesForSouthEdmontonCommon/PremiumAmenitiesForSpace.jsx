@@ -54,7 +54,7 @@ const PremiumAmenitiesForSpace = () => {
               <h2 className="font-[700] text-[#000] uppercase">
                 Premium Amenities For You & Your Clients
               </h2>
-              <h4 className="text-[#000] !font-[400] leading-[26px]">
+              <h4 className="text-[#000] !font-[300] leading-[26px]">
                 Benefit from shared amenities like high-speed internet, remote
                 check-in, showers, saunas, and kitchen areas. You get a
                 professional environment without the overhead of running your
