@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import receptionImage from "../../../assets/images/SpacesCommon/spot_card_1.webp";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import SuccessFullScreen from "../../ui/SuccessFullScreen";
 
 const initialState = {
   firstName: "",
@@ -9,12 +9,64 @@ const initialState = {
   phone: "",
   bestTime: "",
   location: "",
+  purposeOfUse: "",
+  otherPurpose: "",
   message: "",
 };
 
 const bestTimeOptions = ["Morning", "Afternoon", "Evening"];
 
-const LOCATIONS = ["South Edmonton Common"];
+const purposeOfUseOptions = [
+  "Esthetician",
+  "Chiropractic Care",
+  "Massage Therapy",
+  "Physiotherapy",
+  "Acupuncture",
+  "Dietitian Services",
+  "Osteopathy",
+  "Laser Therapy",
+  "Mental Health",
+  "Other",
+];
+
+// Contact-Us style locations list (label = cityName, value = full address)
+const LOCATIONS = [
+  {
+    cityName: "South Edmonton Common",
+    location: "1910 102 STREET NW, EDMONTON, AB T6N 1N3",
+  },
+  {
+    cityName: "Edmonton Downtown",
+    location: "12328 102 ave nw Edmonton, Alberta, T5N 0L9",
+  },
+  {
+    cityName: "Edmonton North",
+    location: "13457 149 St Edmonton, Alberta, T5L 2T3",
+  },
+  {
+    cityName: "Calgary Royal Oak",
+    location: "8888 Country Hills Blvd NW #600 Calgary, Alberta, T3G 5T4",
+  },
+  {
+    cityName: "Calgary Seton",
+    location: "710-19587 Seton Crescent SE Calgary, Alberta, T3M 2T5",
+  },
+  {
+    cityName: "Burnaby Brentwood",
+    location: "1920 Willingdon Ave #3105 Burnaby, British Columbia, V5C 0K3",
+  },
+  {
+    cityName: "Vancouver Post",
+    location: "658 Homer St Vancouver, British Columbia, V6B 2R4",
+  },
+];
+
+// Alias short names to full city names used in LOCATIONS
+const LOCATION_ALIASES = {
+  brentwood: "Burnaby Brentwood",
+  post: "Vancouver Post",
+  "calgary sunridge": "Calgary Sunridge",
+};
 
 function validateEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -27,6 +79,54 @@ function JoinSouthCommonSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [bestTimeFocused, setBestTimeFocused] = useState(false);
+  const routerLocation = useLocation();
+  const isSouthCommonPage =
+    routerLocation.pathname === "/spaces-for-south-edmonton-common";
+
+  // Auto-select location from query param: ?location=City%20Name
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(routerLocation.search);
+      const cityParam = params.get("location");
+      if (!cityParam) return;
+      const normalized = (s) => s.trim().toLowerCase();
+      const target = normalized(cityParam);
+      const aliasCity = LOCATION_ALIASES[target] || cityParam;
+      const aliasTarget = normalized(aliasCity);
+
+      // Try exact city name match first
+      let matched = LOCATIONS.find(
+        (loc) => normalized(loc.cityName) === aliasTarget,
+      );
+
+      // Fallback: loose contains match on city name
+      if (!matched) {
+        matched = LOCATIONS.find(
+          (loc) =>
+            normalized(loc.cityName).includes(aliasTarget) ||
+            aliasTarget.includes(normalized(loc.cityName)),
+        );
+      }
+
+      if (matched) {
+        setForm((prev) => ({ ...prev, location: matched.location }));
+      }
+    } catch {
+      // ignore parsing errors
+    }
+  }, [routerLocation.search]);
+
+  // Fallback: on the South Common page, default to South Edmonton Common if nothing is selected
+  useEffect(() => {
+    if (isSouthCommonPage && !form.location) {
+      const southCommon = LOCATIONS.find(
+        (loc) => loc.cityName === "South Edmonton Common",
+      );
+      if (southCommon) {
+        setForm((prev) => ({ ...prev, location: southCommon.location }));
+      }
+    }
+  }, [isSouthCommonPage, form.location]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -67,6 +167,14 @@ function JoinSouthCommonSection() {
 
     if (!form.location) {
       newErrors.location = "Please select a location";
+    }
+
+    if (!form.purposeOfUse) {
+      newErrors.purposeOfUse = "Please select a purpose of office use";
+    }
+
+    if (form.purposeOfUse === "Other" && !form.otherPurpose.trim()) {
+      newErrors.otherPurpose = "Please specify the purpose of office use";
     }
 
     if (!form.message.trim()) {
@@ -118,12 +226,18 @@ function JoinSouthCommonSection() {
             {
               name: "location",
               value: form.location
-                ? `South Edmonton Common - ${form.location}`
+                ? `${
+                    LOCATIONS.find((loc) => loc.location === form.location)
+                      ?.cityName || form.location
+                  } - ${form.location}`
                 : "",
             },
             {
               name: "could_you_share_the_purpose_of_using_the_office_",
-              value: "South Edmonton Common leasing inquiry",
+              value:
+                form.purposeOfUse === "Other"
+                  ? form.otherPurpose
+                  : form.purposeOfUse,
             },
             { name: "message", value: form.message },
           ],
@@ -136,7 +250,7 @@ function JoinSouthCommonSection() {
         };
 
         const response = await fetch(
-          "https://api.hsforms.com/submissions/v3/integration/submit/342148198/1bb16ac9-687a-49b8-bdf2-5b7db19f2a55",
+          "https://api.hsforms.com/submissions/v3/integration/submit/342148198/cd0925f8-5782-4c15-b784-6691da248002",
           {
             method: "POST",
             headers: {
@@ -165,9 +279,21 @@ function JoinSouthCommonSection() {
 
   return (
     <section
+      id="join-south-common-form"
       className="relative w-full py-16 md:py-20 joinSouthCommonSection"
       data-node-id="14338:806"
     >
+      {submitted && (
+        <SuccessFullScreen
+          title="Thank you for your interest in Evolve."
+          description="We’ve received your details. Our team will review them and reach out soon with the next steps. We’re excited to help you find the right space to grow your practice."
+          buttonText="BACK TO HOME"
+          buttonLink="/spaces-for-south-edmonton-common"
+          icon="check"
+          onButtonClick={() => setSubmitted(false)}
+        />
+      )}
+
       <div className="w-full h-full max-w-[1280px] mx-auto px-4 md:px-8 flex items-center justify-end">
         <div className="relative w-full max-w-[500px] bg-[#FCFCFC] border border-[#D4D4D4] rounded-[10px] overflow-hidden h-full">
           <div className="bg-black text-white text-center py-4 px-6">
@@ -183,7 +309,7 @@ function JoinSouthCommonSection() {
           </div>
 
           <form
-            className="p-6 flex flex-col gap-4 bg-[#FCFCFC]"
+            className="px-6 pt-6 pb-3 flex flex-col gap-4 bg-[#FCFCFC]"
             onSubmit={handleSubmit}
             noValidate
           >
@@ -279,29 +405,35 @@ function JoinSouthCommonSection() {
               <label htmlFor="bestTime" className="block form-label mb-1">
                 Best Time to call you *
               </label>
-              <select
-                id="bestTime"
-                name="bestTime"
-                value={form.bestTime}
-                onChange={handleChange}
-                onFocus={() => setBestTimeFocused(true)}
-                onBlur={() => setBestTimeFocused(false)}
-                className={`appearance-none w-full px-3 h-[40px] form-placeholder border rounded-[5px] ${
-                  errors.bestTime ? "border-red-500" : "border-[#D4D4D4]"
-                } ${
-                  form.bestTime === ""
-                    ? "text-[#6F6D66] text-[12px]"
-                    : "text-[#000] text-[16px]"
-                }`}
-                disabled={isSubmitting}
-              >
-                <option value="">Select the best time to call you</option>
-                {bestTimeOptions.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
+              <div className="relative w-full">
+                <select
+                  id="bestTime"
+                  name="bestTime"
+                  value={form.bestTime}
+                  onChange={handleChange}
+                  onFocus={() => setBestTimeFocused(true)}
+                  onBlur={() => setBestTimeFocused(false)}
+                  className={`appearance-none w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.bestTime ? "border-red-500" : "border-[#D4D4D4]"
+                  } ${
+                    form.bestTime === ""
+                      ? "text-[#6F6D66] text-[12px]"
+                      : "text-[#000] text-[16px]"
+                  }`}
+                  disabled={isSubmitting}
+                >
+                  <option value="">Select the best time to call you</option>
+                  {bestTimeOptions.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {opt}
+                    </option>
+                  ))}
+                </select>
+                {/* Simple caret without image icons to keep this self-contained */}
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66] text-xs">
+                  {bestTimeFocused ? "▲" : "▼"}
+                </span>
+              </div>
               {errors.bestTime && (
                 <p className="input-error mt-1">{errors.bestTime}</p>
               )}
@@ -316,19 +448,19 @@ function JoinSouthCommonSection() {
                 name="location"
                 value={form.location}
                 onChange={handleChange}
-                className={`w-full px-3 h-[40px] form-placeholder border rounded-[5px] ${
+                className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
                   errors.location ? "border-red-500" : "border-[#D4D4D4]"
                 } ${
                   form.location === ""
                     ? "text-[#6F6D66] text-[12px]"
                     : "text-[#000] text-[16px]"
                 }`}
-                disabled={isSubmitting}
+                disabled={isSubmitting || isSouthCommonPage}
               >
                 <option value="">Select a location</option>
                 {LOCATIONS.map((loc) => (
-                  <option key={loc} value={loc}>
-                    {loc}
+                  <option key={loc.cityName} value={loc.location}>
+                    {loc.cityName}
                   </option>
                 ))}
               </select>
@@ -336,6 +468,65 @@ function JoinSouthCommonSection() {
                 <p className="input-error mt-1">{errors.location}</p>
               )}
             </div>
+
+            <div className="w-full">
+              <label
+                htmlFor="purposeOfUse"
+                className="block form-label mb-1"
+              >
+                Could you share the purpose of using the office? *
+              </label>
+              <select
+                id="purposeOfUse"
+                name="purposeOfUse"
+                value={form.purposeOfUse}
+                onChange={handleChange}
+                className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                  errors.purposeOfUse ? "border-red-500" : "border-[#D4D4D4]"
+                } ${
+                  form.purposeOfUse === ""
+                    ? "text-[#6F6D66] text-[12px]"
+                    : "text-[#000] text-[16px]"
+                }`}
+                disabled={isSubmitting}
+              >
+                <option value="">Select Purpose</option>
+                {purposeOfUseOptions.map((purpose) => (
+                  <option key={purpose} value={purpose}>
+                    {purpose}
+                  </option>
+                ))}
+              </select>
+              {errors.purposeOfUse && (
+                <p className="input-error mt-1">{errors.purposeOfUse}</p>
+              )}
+            </div>
+
+            {form.purposeOfUse === "Other" && (
+              <div className="w-full">
+                <label
+                  htmlFor="otherPurpose"
+                  className="block form-label mb-1"
+                >
+                  Other: *
+                </label>
+                <input
+                  type="text"
+                  id="otherPurpose"
+                  name="otherPurpose"
+                  value={form.otherPurpose}
+                  onChange={handleChange}
+                  placeholder="Please specify your purpose"
+                  className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.otherPurpose ? "border-red-500" : "border-[#D4D4D4]"
+                  }`}
+                  disabled={isSubmitting}
+                />
+                {errors.otherPurpose && (
+                  <p className="input-error mt-1">{errors.otherPurpose}</p>
+                )}
+              </div>
+            )}
 
             <div className="w-full">
               <label htmlFor="message" className="block form-label mb-1">
@@ -366,12 +557,6 @@ function JoinSouthCommonSection() {
             >
               {isSubmitting ? "SUBMITTING..." : "SUBMIT NOW"}
             </button>
-
-            {submitted && (
-              <p className="mt-2 text-sm text-green-600">
-                Thank you for your inquiry. We will be in touch shortly.
-              </p>
-            )}
           </form>
 
           <div className="px-6 pb-4 text-center text-[16px] text-black !font-[Kanit]">

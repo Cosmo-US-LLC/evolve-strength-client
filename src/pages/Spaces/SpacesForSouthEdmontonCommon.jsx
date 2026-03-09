@@ -7,7 +7,7 @@ import SpacesForSouthEdmontonCommonOpeningDayPath from "@/components/PageCompone
 import SpacesForSouthEdmontonCommonSecureSpot from "@/components/PageComponents/SpacesForSouthEdmontonCommon/SpacesForSouthEdmontonCommonSecureSpot";
 import JoinSouthCommonSection from "@/components/PageComponents/SpacesForSouthEdmontonCommon/JoinSouthCommonSection";
 import WhyEvolveIsDifferent from "@/components/PageComponents/Spaces/Desktop/WhyEvolveIsDifferent";
-import PremiumAmenities from "@/components/PageComponents/Spaces/Desktop/PremiumAmenities";
+import PremiumAmenitiesForSpace from "@/components/PageComponents/SpacesForSouthEdmontonCommon/PremiumAmenitiesForSpace";
 
 function SpacesForSouthEdmontonCommon() {
   return (
@@ -16,11 +16,11 @@ function SpacesForSouthEdmontonCommon() {
       <SpacesForSouthEdmontonCommonBeyondSection />
       <SpaceBuiltForCommon />
       <WhyEvolveIsDifferent />
-      <PremiumAmenities />
+      <PremiumAmenitiesForSpace />
       <AvailableOfficesForSouthEdmontonCommon />
       <SpacesForSouthEdmontonCommonOpeningDayPath />
-      <SpacesForSouthEdmontonCommonSecureSpot />
       <JoinSouthCommonSection />
+      <SpacesForSouthEdmontonCommonSecureSpot />
     </>
   );
 }

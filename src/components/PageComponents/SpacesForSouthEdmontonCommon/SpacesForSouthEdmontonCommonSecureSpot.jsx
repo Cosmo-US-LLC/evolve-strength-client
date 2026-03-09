@@ -35,6 +35,12 @@ const GALLERY_IMAGES = [
 ];
 
 function SpacesForSouthEdmontonCommonSecureSpot() {
+  const handleScrollToForm = () => {
+    const el = document.getElementById("join-south-common-form");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
   return (
     <section
       className="bg-white w-full flex flex-col gap-10 md:gap-16 px-4 md:px-[100px] py-16 md:py-20"
@@ -60,9 +66,7 @@ function SpacesForSouthEdmontonCommonSecureSpot() {
             data-name="CTA with text"
           >
             <Link
-              to={`/apply-for-work-space?location=${encodeURIComponent(
-                "South Edmonton Common",
-              )}`}
+              onClick={handleScrollToForm}
               className="inline-flex btnPrimary w-fit text-white uppercase"
             >
               Submit Leasing Inquiry

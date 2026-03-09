@@ -171,6 +171,12 @@ function ArrowCurve3() {
 }
 
 function SpacesForSouthEdmontonCommonOpeningDayPath() {
+  const handleScrollToForm = () => {
+    const el = document.getElementById("join-south-common-form");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
   return (
     <section
       className="w-full flex flex-col items-start justify-center pb-20"
@@ -251,16 +257,14 @@ function SpacesForSouthEdmontonCommonOpeningDayPath() {
                   data-name="CTA with text"
                   data-node-id="14471:1536"
                 >
-                  <Link
-                    to={`/apply-for-work-space?location=${encodeURIComponent(
-                      "South Edmonton Common",
-                    )}`}
+                  <button
+                    onClick={handleScrollToForm}
                     className="btnPrimary w-fit text-center"
                     data-name="CTA"
                     data-node-id="14471:1537"
                   >
                     Inquire About Suites
-                  </Link>
+                  </button>
                   <p
                     className="text-[#fff] !font-[Kanit] text-[16px] leading-[24px] font-normal text-center"
                     data-node-id="14471:1539"
@@ -290,14 +294,12 @@ function SpacesForSouthEdmontonCommonOpeningDayPath() {
               />
 
               <div className="col-span-3 flex flex-col items-center justify-center pt-2">
-                <Link
-                  to={`/apply-for-work-space?location=${encodeURIComponent(
-                    "South Edmonton Common",
-                  )}`}
+                <button
+                  onClick={handleScrollToForm}
                   className="btnPrimary w-fit text-center"
                 >
                   Inquire About Suites
-                </Link>
+                </button>
                 <p className="text-white mt-2 text-[16px] leading-[24px] font-normal text-center">
                   Limited suites are available
                 </p>
@@ -354,15 +356,13 @@ function SpacesForSouthEdmontonCommonOpeningDayPath() {
                 </div>
 
                 <div className="flex flex-col gap-2 items-start relative">
-                  <Link
-                    to={`/apply-for-work-space?location=${encodeURIComponent(
-                      "South Edmonton Common",
-                    )}`}
+                  <button
+                    onClick={handleScrollToForm}
                     className="bg-[#4ab04a] px-5 py-3 rounded-[6px] text-white uppercase font-medium text-[14px] leading-[16px] text-center hover:opacity-90 transition-opacity"
                     data-node-id="14483:3657"
                   >
                     Inquire About Suites
-                  </Link>
+                  </button>
                   <p className="text-white text-[16px] leading-[24px] font-normal text-center">
                     Limited suites are available
                   </p>

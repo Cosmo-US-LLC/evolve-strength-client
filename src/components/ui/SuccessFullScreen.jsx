@@ -8,6 +8,7 @@ function SuccessFullScreen({
   buttonText = "BACK TO HOME",
   buttonLink = "/",
   icon = "trophy",
+  onButtonClick,
 }) {
   const iconMap = {
     trophy: Trophy,
@@ -33,7 +34,11 @@ function SuccessFullScreen({
           {description}
         </p>
 
-        <Link to={buttonLink} className="btnPrimary">
+        <Link
+          to={buttonLink}
+          className="btnPrimary"
+          onClick={onButtonClick}
+        >
           {buttonText}
         </Link>
       </div>
