@@ -54,8 +54,16 @@ const SpaceBuiltForCommon = () => {
       });
     }
   };
+
+  const handleScrollToForm = () => {
+    const el = document.getElementById("join-south-common-form");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <section className="py-16">
+    <section className="pt-16 pb-2">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col items-start gap-8">
         <div className="flex flex-col gap-4">
           <h2 className="text-[#000] uppercase md:max-w-[655px]">
@@ -121,8 +129,13 @@ const SpaceBuiltForCommon = () => {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-center md:gap-4 gap-2">
-          <button className="btnPrimary" onClick={handleScroll}>
-            See Available Spaces
+          <button
+            Available
+            Spacesn
+            className="btnPrimary"
+            onClick={handleScrollToForm}
+          >
+            Inquire About Suites
           </button>
           <p className="text-[#000] !font-[Kanit] text-[16px] font-[400] leading-[24px]">
             Limited suites are available

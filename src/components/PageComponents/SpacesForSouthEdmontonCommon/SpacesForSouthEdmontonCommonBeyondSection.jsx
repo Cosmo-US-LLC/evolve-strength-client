@@ -6,28 +6,34 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import useCounter from "@/hooks/useCounter";
+import useSyncedCounter from "@/hooks/useSyncedCounter";
 
 const STAT_CARDS = [
   {
-    metric: "2×",
+    numericTarget: 2,
+    suffix: "×",
     title: "More Profit",
     description:
       "Providers at Evolve earn double the profit compared to similar practices, driven by high client demand and efficient business support.",
   },
   {
-    metric: "85%",
+    numericTarget: 85,
+    suffix: "%",
     title: "Member Usage",
     description:
       "85% of gym members use wellness services every month, creating a consistent stream of health conscious clients ready for your practice.",
   },
   {
-    metric: "4000+",
+    numericTarget: 4000,
+    suffix: "+",
     title: "Active Members",
     description:
       "A thriving community of fitness focused members who prioritize recovery, performance, and wellness and are ready to engage with your services.",
   },
   {
-    metric: "40%",
+    numericTarget: 40,
+    suffix: "%",
     title: "Less Overhead",
     description:
       "Streamlined operations including reception and in-house advertising reduce your overhead by 40% compared to traditional setups.",
@@ -37,11 +43,12 @@ const STAT_CARDS = [
 const cardClassName =
   "backdrop-blur-[20px] bg-gradient-to-b from-white/10 to-gray-500/10 border border-white/10 flex flex-col gap-6 md:gap-10 items-start min-w-0 px-5 py-6 rounded-[14px] h-full";
 
-function StatCard({ card }) {
+function StatCard({ card, animatedCount }) {
   return (
     <div className={cardClassName} data-name="Background+Border">
       <p className="font-[500] leading-[72px] !font-[Kanit] text-[#4ab04a] text-5xl md:text-[64px] uppercase shrink-0">
-        {card.metric}
+        {animatedCount}
+        {card.suffix}
       </p>
       <div className="flex flex-col gap-2 w-full shrink-0">
         <h3 className="leading-8 text-2xl text-white w-full">{card.title}</h3>
@@ -53,7 +60,7 @@ function StatCard({ card }) {
   );
 }
 
-function MobileStatCard({ card }) {
+function MobileStatCard({ card, animatedCount }) {
   return (
     <div
       className={
@@ -62,7 +69,8 @@ function MobileStatCard({ card }) {
       data-name="Background+Border"
     >
       <p className="font-medium !font-[Kanit] leading-[72px] text-[#4ab04a] text-[50px] uppercase shrink-0">
-        {card.metric}
+        {animatedCount}
+        {card.suffix}
       </p>
       <div className="flex flex-col gap-2 w-full shrink-0">
         <h3 className="font-medium leading-9 text-[28px] text-white w-full">
@@ -77,8 +85,32 @@ function MobileStatCard({ card }) {
 }
 
 function SpacesForSouthEdmontonCommonBeyondSection() {
+  const { elementRef, hasStarted } = useCounter(1, 2000);
+  const count1 = useSyncedCounter(
+    STAT_CARDS[0].numericTarget,
+    1000,
+    hasStarted,
+  );
+  const count2 = useSyncedCounter(
+    STAT_CARDS[1].numericTarget,
+    2000,
+    hasStarted,
+  );
+  const count3 = useSyncedCounter(
+    STAT_CARDS[2].numericTarget,
+    3000,
+    hasStarted,
+  );
+  const count4 = useSyncedCounter(
+    STAT_CARDS[3].numericTarget,
+    1000,
+    hasStarted,
+  );
+  const animatedCounts = [count1, count2, count3, count4];
+
   return (
     <section
+      ref={elementRef}
       className="bg-black flex flex-col gap-5 md:gap-[48px] items-center justify-center px-5 md:px-[100px] py-[60px] md:py-20 w-full"
       data-node-id="14338:611"
     >
@@ -113,7 +145,10 @@ function SpacesForSouthEdmontonCommonBeyondSection() {
                 key={index}
                 className="pl-[18px] basis-[298px] shrink-0"
               >
-                <MobileStatCard card={card} />
+                <MobileStatCard
+                  card={card}
+                  animatedCount={animatedCounts[index]}
+                />
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -131,7 +166,7 @@ function SpacesForSouthEdmontonCommonBeyondSection() {
       >
         {STAT_CARDS.map((card, index) => (
           <div key={index} className="flex-1 min-w-0">
-            <StatCard card={card} />
+            <StatCard card={card} animatedCount={animatedCounts[index]} />
           </div>
         ))}
       </div>

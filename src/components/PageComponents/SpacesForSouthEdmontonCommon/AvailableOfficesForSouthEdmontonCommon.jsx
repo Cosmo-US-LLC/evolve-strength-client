@@ -12,6 +12,13 @@ const OFFICES = [
   },
 ];
 
+const handleScrollToForm = () => {
+  const el = document.getElementById("join-south-common-form");
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
+
 function OfficeCard({ office }) {
   return (
     <div
@@ -83,14 +90,14 @@ function OfficeCard({ office }) {
           data-name="CTA with text"
           data-node-id="14471:1527"
         >
-          <Link
-            to={`/apply-for-work-space?location=${encodeURIComponent(office.location)}`}
+          <button
+            onClick={handleScrollToForm}
             className="flex btnPrimary w-fit text-center"
             data-name="CTA"
             data-node-id="14471:1528"
           >
             Apply now
-          </Link>
+          </button>
           <p
             className="font-normal text-[16px] !font-[Kanit] text-black leading-6"
             data-node-id="14471:1530"
