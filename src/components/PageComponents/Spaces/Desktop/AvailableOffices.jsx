@@ -33,13 +33,13 @@ const allOffices = [
     size: "130-140 sq/ft",
     roomStatus: "Unfurnished | without a sink",
   },
-  {
-    title: "Premium Office Suite",
-    location: "Calgary Royal Oak",
-    image: "/assets/images/spaces/AvailableOffices/royal_P.webp",
-    size: "170 sq/ft",
-    roomStatus: "Unfurnished | without a sink",
-  },
+  // {
+  //   title: "Premium Office Suite",
+  //   location: "Calgary Royal Oak",
+  //   image: "/assets/images/spaces/AvailableOffices/royal_P.webp",
+  //   size: "170 sq/ft",
+  //   roomStatus: "Unfurnished | without a sink",
+  // },
   // {
   //   title: "Anchor",
   //   location: "Calgary Royal Oak",
@@ -137,6 +137,7 @@ const AvailableOffices = () => {
   const unavailableLocations = [
     // "Edmonton South",
     // "Calgary Seton",
+    "Calgary Royal Oak",
     "Brentwood",
     "Post",
     "Edmonton Downtown",
