@@ -33,13 +33,13 @@ const allOffices = [
     size: "130-140 sq/ft",
     roomStatus: "Unfurnished | without a sink",
   },
-  {
-    title: "Premium Office Suite",
-    location: "Calgary Royal Oak",
-    image: "/assets/images/spaces/AvailableOffices/royal_P.webp",
-    size: "170 sq/ft",
-    roomStatus: "Unfurnished | without a sink",
-  },
+  // {
+  //   title: "Premium Office Suite",
+  //   location: "Calgary Royal Oak",
+  //   image: "/assets/images/spaces/AvailableOffices/royal_P.webp",
+  //   size: "170 sq/ft",
+  //   roomStatus: "Unfurnished | without a sink",
+  // },
   // {
   //   title: "Anchor",
   //   location: "Calgary Royal Oak",
@@ -62,14 +62,27 @@ const allOffices = [
     size: "Starting at 114 sq/ft",
     roomStatus: "Unfurnished | Without a Sink",
   },
-  // {
-  //   title: "Executive Office",
-  //   location: "Edmonton Downtown",
-  //   image:
-  //     "/assets/images/spaces/AvailableOffices/royal_E.webp",
-  //   size: "Starting at 120 sq/ft",
-  //   roomStatus: "Unfurnished | Without a Sink",
-  // },
+  {
+    title: "Premium Office Suite",
+    location: "Calgary Seton",
+    image: "/assets/images/spaces/AvailableOffices/royal_P.webp",
+    size: "150 sq f",
+    roomStatus: "Unfurnished | Laminated flooring w/ wood finish | No Water",
+  },
+  {
+    title: "Premium Office Suite",
+    location: "Calgary Seton",
+    image: "/assets/images/spaces/AvailableOffices/royal_E.webp",
+    size: "135 sq ft",
+    roomStatus: "No Water | Partially furnished - upper cabinetry installed",
+  },
+  {
+    title: "Premium Office Suite",
+    location: "Calgary Seton",
+    image: "/assets/images/spaces/AvailableOffices/south_edmonton_common.webp",
+    size: "120 sq f",
+    roomStatus: "Unfurnished | Has Water",
+  },
   // {
   //   title: "Premium Office Suite",
   //   location: "Edmonton Downtown",
@@ -123,7 +136,8 @@ const AvailableOffices = () => {
   // Define unavailable locations
   const unavailableLocations = [
     // "Edmonton South",
-    "Calgary Seton",
+    // "Calgary Seton",
+    "Calgary Royal Oak",
     "Brentwood",
     "Post",
     "Edmonton Downtown",

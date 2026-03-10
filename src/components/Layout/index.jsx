@@ -7,7 +7,9 @@ import ScrollToTop from "../ScrollToTop";
 
 function Layout() {
   const location = useLocation();
-  const isPresalePage = location.pathname === "/presale-edmonton-south-common";
+  const isPresalePage =
+    location.pathname === "/presale-edmonton-south-common" ||
+    location.pathname === "/spaces-for-south-edmonton-common";
 
   return (
     <div>
@@ -17,8 +19,8 @@ function Layout() {
         <Outlet />
       </div>
       <div className="">
-          <Footer />
-        </div>
+        <Footer />
+      </div>
       {/* {!isPresalePage && (
         <div className="">
           <Footer />

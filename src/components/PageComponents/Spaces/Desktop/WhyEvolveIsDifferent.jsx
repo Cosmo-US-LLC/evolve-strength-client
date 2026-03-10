@@ -13,24 +13,21 @@ const cardData = [
     title: "Worry-Free Entrepreneurship",
     description:
       "Start or grow your business without the usual stress. You don’t need to hire front desk staff or cleaners. We handle shared areas, gym maintenance, and all the facility details. You just show up and work with your clients.",
-    image:
-      "/assets/images/spaces/WhyEvolveIsDifferent/Worry-Free.webp",
+    image: "/assets/images/spaces/WhyEvolveIsDifferent/Worry-Free.webp",
   },
   {
     number: "02",
     title: "All-Inclusive Rent",
     description:
       "No surprise bills: one flat monthly payment covers utilities, gym access, shared amenities, and more. You won't have to manage multiple service vendors.",
-    image:
-      "/assets/images/spaces/WhyEvolveIsDifferent/All-Inclusive.webp",
+    image: "/assets/images/spaces/WhyEvolveIsDifferent/All-Inclusive.webp",
   },
   {
     number: "03",
     title: "Built-In Community",
     description:
       "Be part of a trusted network of wellness professionals. That makes it easy to connect, refer clients, and grow together. We don't charge finder's fees or take a cut of your earnings.",
-    image:
-      "/assets/images/spaces/WhyEvolveIsDifferent/slide3.webp",
+    image: "/assets/images/spaces/WhyEvolveIsDifferent/slide3.webp",
   },
 ];
 
@@ -44,7 +41,7 @@ function WhyEvolveIsDifferent() {
   const [api, setApi] = useState(null);
   const containerRef = useRef(null);
   const [cardTransforms, setCardTransforms] = useState(
-    cardData.map(() => ({ transform: "", opacity: 1 }))
+    cardData.map(() => ({ transform: "", opacity: 1 })),
   );
 
   useEffect(() => {
@@ -92,7 +89,7 @@ function WhyEvolveIsDifferent() {
         }
 
         const nextCardElement = document.getElementById(
-          `diff-card-${index + 1}`
+          `diff-card-${index + 1}`,
         );
         if (nextCardElement) {
           const nextRect = nextCardElement.getBoundingClientRect();
@@ -102,7 +99,7 @@ function WhyEvolveIsDifferent() {
 
           const nextCardVisibleHeight = Math.max(
             0,
-            viewportHeight - nextCardTop
+            viewportHeight - nextCardTop,
           );
           const nextCardVisibilityPercent =
             (nextCardVisibleHeight / nextCardHeight) * 100;
@@ -121,7 +118,7 @@ function WhyEvolveIsDifferent() {
                     0,
                     1 -
                       (nextCardVisibilityPercent - threshold) /
-                        (100 - threshold)
+                        (100 - threshold),
                   );
 
             return {
@@ -273,8 +270,8 @@ function WhyEvolveIsDifferent() {
         </div>
       </div> */}
       <div className="relative block md:hidden  max-md:pb-[48px]">
-        <h2 className="text-left text-[#000] font-bold uppercase  px-4 mb-6">
-          Why Evolve Is Differentt
+        <h2 className="text-center text-[#000] font-bold uppercase max-w-[320px] mx-auto  px-4 mb-6">
+          Why Evolve Is Different
         </h2>
 
         <div className="relative min-h-[540px] flex items-end pb-[24px] z-10">
