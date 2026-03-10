@@ -45,7 +45,7 @@ function OfficeCard({ office }) {
           data-node-id="14338:746"
         >
           <h3
-            className=" text-black text-center leading-6"
+            className=" text-black !text-[24px] text-center leading-6"
             data-node-id="14338:747"
           >
             {office.title}
@@ -55,7 +55,7 @@ function OfficeCard({ office }) {
             data-node-id="14338:748"
           >
             <p
-              className="font-[300] !font-[Kanit] text-[14px] text-[#000] leading-[18px]"
+              className="font-[300] !font-[Kanit] !text-[14px] text-[#000] leading-[18px]"
               data-node-id="14338:749"
             >
               {office.size}
@@ -65,7 +65,7 @@ function OfficeCard({ office }) {
               data-node-id="14338:750"
             >
               <p
-                className="font-medium !font-[Kanit] text-[16px] text-[#000] leading-5"
+                className="font-medium !font-[Kanit] md:!text-[16px] !text-[14px] text-[#000] leading-5"
                 data-node-id="14338:751"
               >
                 {office.roomStatus}
@@ -76,7 +76,7 @@ function OfficeCard({ office }) {
                   aria-hidden
                 />
                 <p
-                  className="font-light text-[14px] !font-[Kanit] text-[#515151] leading-[18px]"
+                  className="font-light !text-[14px] !font-[Kanit] text-[#515151] leading-[18px]"
                   data-node-id="14338:757"
                 >
                   {office.location}
@@ -99,7 +99,7 @@ function OfficeCard({ office }) {
             Apply now
           </button>
           <p
-            className="font-normal text-[16px] !font-[Kanit] text-black leading-6"
+            className="font-normal md:!text-[16px] !text-[14px] !font-[Kanit] text-black leading-6"
             data-node-id="14471:1530"
           >
             Limited suites are available
@@ -113,7 +113,7 @@ function OfficeCard({ office }) {
 function AvailableOfficesForSouthEdmontonCommon() {
   return (
     <section
-      className="bg-white flex flex-col gap-10 items-center justify-center px-4 md:px-8 py-12 md:py-18 w-full"
+      className="bg-white flex flex-col  gap-10 items-center justify-center px-4 md:px-8 py-12 md:py-18 w-full"
       data-node-id="14338:740"
     >
       <div

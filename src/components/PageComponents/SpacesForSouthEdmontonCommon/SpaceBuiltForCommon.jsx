@@ -41,20 +41,6 @@ const SpaceBuiltForCommon = () => {
     }
   }, [emblaApi]);
 
-  const handleScroll = () => {
-    const element = document.querySelector("#available-offices");
-    if (element) {
-      const elementPosition =
-        element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - 0;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
   const handleScrollToForm = () => {
     const el = document.getElementById("join-south-common-form");
     if (el) {
@@ -81,8 +67,7 @@ const SpaceBuiltForCommon = () => {
 
           <div className="flex flex-col md:flex-row w-fit md:gap-4 gap-2 md:hidden">
             <button
-              Available
-              Spacesn
+              type="button"
               className="btnPrimary"
               onClick={handleScrollToForm}
             >
@@ -124,6 +109,7 @@ const SpaceBuiltForCommon = () => {
             </div>
           </div>
 
+          {/* Desktop: arrows on sides */}
           <div className="absolute -top-1/7 -translate-y-1/2 left-[92%] z-10 max-md:hidden">
             <button
               onClick={scrollPrev}
@@ -140,12 +126,31 @@ const SpaceBuiltForCommon = () => {
               <ArrowRight className="w-6 h-6" />
             </button>
           </div>
+
+          {/* Mobile: arrows below the card */}
+          <div className="flex md:hidden justify-center items-center gap-3 mt-6">
+            <button
+              type="button"
+              onClick={scrollPrev}
+              className="p-2 rounded-full border border-[#000000] bg-white text-[#000000] hover:bg-[#000000] hover:text-white transition-colors"
+              aria-label="Previous slide"
+            >
+              <ArrowLeft className="w-6 h-6" />
+            </button>
+            <button
+              type="button"
+              onClick={scrollNext}
+              className="p-2 rounded-full border border-[#000000] bg-white text-[#000000] hover:bg-[#000000] hover:text-white transition-colors"
+              aria-label="Next slide"
+            >
+              <ArrowRight className="w-6 h-6" />
+            </button>
+          </div>
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-center md:gap-4 gap-2 max-md:hidden">
           <button
-            Available
-            Spacesn
+            type="button"
             className="btnPrimary"
             onClick={handleScrollToForm}
           >
