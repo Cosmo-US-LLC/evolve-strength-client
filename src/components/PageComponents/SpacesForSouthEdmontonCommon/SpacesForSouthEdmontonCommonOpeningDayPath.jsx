@@ -82,7 +82,7 @@ function MobileStep({ number, title, description, children, className = "" }) {
         </span>
       </div>
 
-      <h3 className="text-white text-[24px] leading-[24px] tracking-[-0.72px] font-medium text-center">
+      <h3 className="text-white !text-[24px] leading-[24px] tracking-[-0.72px] font-medium text-center">
         {title}
       </h3>
 

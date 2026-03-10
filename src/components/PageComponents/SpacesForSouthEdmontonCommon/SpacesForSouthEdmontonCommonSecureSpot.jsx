@@ -110,14 +110,15 @@ function SpacesForSouthEdmontonCommonSecureSpot() {
             </Carousel>
           </div>
 
-          {/* Mobile: shadcn Carousel gallery (full-width card for cleaner UI) */}
+          {/* Mobile: shadcn Carousel gallery (auto-play) */}
           <div className="md:hidden w-full max-w-[355px] mx-auto">
             <Carousel
               opts={{
                 align: "start",
-                loop: false,
+                loop: true,
                 containScroll: "trimSnaps",
               }}
+              plugins={[Autoplay({ delay: 3000, stopOnInteraction: true })]}
               className="w-full"
             >
               <CarouselContent className="-ml-4 h-[340px]">

@@ -63,7 +63,7 @@ const SpaceBuiltForCommon = () => {
   };
 
   return (
-    <section className="pt-16 pb-2">
+    <section className="pt-16 md:pb-2 pb-16">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col items-start gap-8">
         <div className="flex flex-col gap-4">
           <h2 className="text-[#000] uppercase md:max-w-[655px]">
@@ -78,6 +78,20 @@ const SpaceBuiltForCommon = () => {
           <h4 className="leading-[26px] !font-[500]">
             Professionals we serve include.
           </h4>
+
+          <div className="flex flex-col md:flex-row w-fit md:gap-4 gap-2 md:hidden">
+            <button
+              Available
+              Spacesn
+              className="btnPrimary"
+              onClick={handleScrollToForm}
+            >
+              Inquire About Suites
+            </button>
+            <p className="text-[#000] !font-[Kanit] text-[16px] font-[400] leading-[24px]">
+              Limited suites are available
+            </p>
+          </div>
         </div>
 
         <div className="relative w-full">
@@ -128,7 +142,7 @@ const SpaceBuiltForCommon = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-center md:gap-4 gap-2">
+        <div className="flex flex-col md:flex-row items-center justify-center md:gap-4 gap-2 max-md:hidden">
           <button
             Available
             Spacesn
