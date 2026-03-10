@@ -270,7 +270,7 @@ function WhyEvolveIsDifferent() {
         </div>
       </div> */}
       <div className="relative block md:hidden  max-md:pb-[48px]">
-        <h2 className="text-center text-[#000] font-bold uppercase  px-4 mb-6">
+        <h2 className="text-center text-[#000] font-bold uppercase max-w-[320px] mx-auto  px-4 mb-6">
           Why Evolve Is Different
         </h2>
 
