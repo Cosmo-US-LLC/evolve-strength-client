@@ -116,10 +116,10 @@ function App() {
           /> */}
 
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          {/* <Route
+          <Route
             path="/spaces-for-south-edmonton-common"
             element={<SpacesForSouthEdmontonCommon />}
-          /> */}
+          />
         </Route>
 
         {/* Location-based Discover flow */}

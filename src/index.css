@@ -252,12 +252,12 @@ h5 {
 
 @media (max-width: 768px) {
   .btnPrimary {
-  font-size: 14px !important;
-}
+    font-size: 14px !important;
+  }
 
-.btnSecondary {
-  font-size: 14px !important;
-}
+  .btnSecondary {
+    font-size: 14px !important;
+  }
 
   h1 {
     font-size: 52px;
@@ -394,11 +394,8 @@ h5 {
 }
 
 @theme {
-  --aspect-trainer: 65 / 54; 
+  --aspect-trainer: 65 / 54;
 }
-
-
-
 
 input[type="checkbox"] {
   appearance: none;
@@ -421,4 +418,3 @@ input[type="checkbox"]:checked::after {
   top: -4px;
   font-size: 14px;
 }
-
