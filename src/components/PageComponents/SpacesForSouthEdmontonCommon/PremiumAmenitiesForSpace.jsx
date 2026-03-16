@@ -4,7 +4,7 @@ import { XCircle } from "lucide-react";
 const amenities = [
   {
     title: "On-Site Parking",
-    image: "/assets/images/spaces/PremiumAmenities/onSite_parking.webp",
+    image: "/assets/images/spaces/PremiumAmenities/space_parking.webp",
   },
   {
     title: "Locker Rooms",
