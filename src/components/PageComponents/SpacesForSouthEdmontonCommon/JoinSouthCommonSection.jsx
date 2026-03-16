@@ -85,6 +85,11 @@ function JoinSouthCommonSection() {
   const routerLocation = useLocation();
   const isSouthCommonPage =
     routerLocation.pathname === "/spaces-for-south-edmonton-common";
+  const southCommonLocation = LOCATIONS.find(
+    (loc) => loc.cityName === "South Edmonton Common",
+  )?.location;
+  const hideLocationArrow =
+    isSouthCommonPage && form.location === southCommonLocation;
 
   // Auto-select location from query param: ?location=City%20Name
   useEffect(() => {
@@ -479,13 +484,15 @@ function JoinSouthCommonSection() {
                     </option>
                   ))}
                 </select>
-                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${
-                      locationOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </span>
+                {!hideLocationArrow && (
+                  <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${
+                        locationOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </span>
+                )}
               </div>
               {errors.location && (
                 <p className="input-error mt-1">{errors.location}</p>
