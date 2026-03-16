@@ -12,15 +12,21 @@ import PremiumAmenitiesForSpace from "@/components/PageComponents/SpacesForSouth
 function SpacesForSouthEdmontonCommon() {
   return (
     <>
-      <SpacesForSouthEdmontonCommonHero />
-      <SpacesForSouthEdmontonCommonBeyondSection />
-      <SpaceBuiltForCommon />
-      <WhyEvolveIsDifferent />
-      <PremiumAmenitiesForSpace />
-      <AvailableOfficesForSouthEdmontonCommon />
-      <SpacesForSouthEdmontonCommonOpeningDayPath />
-      <JoinSouthCommonSection />
-      <SpacesForSouthEdmontonCommonSecureSpot />
+      <MetaTags
+        title="Workspaces at Evolve Strength | South Edmonton Common"
+        description="Lease premium wellness workspaces at Evolve Strength in South Edmonton Common. Private suites inside a flagship gym with luxury amenities, built-in member demand, and up to 40% lower overhead."
+      />
+      <>
+        <SpacesForSouthEdmontonCommonHero />
+        <SpacesForSouthEdmontonCommonBeyondSection />
+        <SpaceBuiltForCommon />
+        <WhyEvolveIsDifferent />
+        <PremiumAmenitiesForSpace />
+        <AvailableOfficesForSouthEdmontonCommon />
+        <SpacesForSouthEdmontonCommonOpeningDayPath />
+        <JoinSouthCommonSection />
+        <SpacesForSouthEdmontonCommonSecureSpot />
+      </>
     </>
   );
 }
