@@ -8,7 +8,7 @@ const amenities = [
   },
   {
     title: "Locker Rooms",
-    image: "/assets/images/spaces/PremiumAmenities/locker_rooms.webp",
+    image: "/assets/images/spaces/PremiumAmenities/space_locker_rooms.webp",
   },
   {
     title: "Showers",
@@ -16,11 +16,13 @@ const amenities = [
   },
   {
     title: "Steam Rooms and Saunas",
-    image: "/assets/images/spaces/PremiumAmenities/steam_area.webp",
+    image:
+      "/assets/images/spaces/PremiumAmenities/space_steam_rooms_and_saunas.webp",
   },
   {
     title: "Premium Waiting Area",
-    image: "/assets/images/spaces/PremiumAmenities/waiting_area.webp",
+    image:
+      "/assets/images/spaces/PremiumAmenities/space_premium_waiting_area.webp",
   },
   {
     title: "Full Commercial Gym Access",
