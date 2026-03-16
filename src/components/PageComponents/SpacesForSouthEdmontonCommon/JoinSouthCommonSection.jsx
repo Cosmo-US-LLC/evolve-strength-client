@@ -137,7 +137,14 @@ function JoinSouthCommonSection() {
   }, [isSouthCommonPage, form.location]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name } = e.target;
+    let { value } = e.target;
+
+    // Restrict phone field to digits only
+    if (name === "phone") {
+      value = value.replace(/\D/g, "");
+    }
+
     setForm((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
@@ -397,7 +404,7 @@ function JoinSouthCommonSection() {
                   name="phone"
                   value={form.phone}
                   onChange={handleChange}
-                  placeholder="Phone Number"
+                  placeholder="(345) 345-3453"
                   className={`w-full px-3 h-[40px] form-placeholder border rounded-[5px] ${
                     errors.phone ? "border-red-500" : "border-[#D4D4D4]"
                   }`}
@@ -500,10 +507,7 @@ function JoinSouthCommonSection() {
             </div>
 
             <div className="w-full">
-              <label
-                htmlFor="purposeOfUse"
-                className="block form-label mb-1"
-              >
+              <label htmlFor="purposeOfUse" className="block form-label mb-1">
                 Could you share the purpose of using the office? *
               </label>
               <div className="relative w-full">
@@ -548,10 +552,7 @@ function JoinSouthCommonSection() {
 
             {form.purposeOfUse === "Other" && (
               <div className="w-full">
-                <label
-                  htmlFor="otherPurpose"
-                  className="block form-label mb-1"
-                >
+                <label htmlFor="otherPurpose" className="block form-label mb-1">
                   Other: *
                 </label>
                 <input
