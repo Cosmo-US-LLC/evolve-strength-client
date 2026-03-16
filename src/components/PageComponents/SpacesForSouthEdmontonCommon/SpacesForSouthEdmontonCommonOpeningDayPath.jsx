@@ -152,7 +152,7 @@ function ArrowCurve3() {
       width="240"
       height="137"
       viewBox="0 0 240 137"
-      className="hidden lg:block absolute right-[-150px] top-[40px] w-[240px] h-[150px]"
+      className="hidden lg:block absolute right-[200px] top-[280px] w-[280px] h-[145px] rotate-140"
       fill="none"
     >
       <g clipPath="url(#clip0_14338_804)">
@@ -223,7 +223,8 @@ function SpacesForSouthEdmontonCommonOpeningDayPath() {
             data-name="Container"
             data-node-id="14338:766"
           >
-            <div className="hidden lg:grid grid-cols-[1fr_1fr_1fr_auto] gap-0 items-start">
+            {/* Desktop: 4 steps, CTA below (matches Figma) */}
+            <div className="hidden lg:grid grid-cols-[1fr_1fr_1fr_1fr] gap-0 items-start">
               <div className="relative">
                 <Step
                   number="1"
@@ -232,12 +233,11 @@ function SpacesForSouthEdmontonCommonOpeningDayPath() {
                 />
                 <ArrowCurve1 />
               </div>
-
               <div className="relative">
                 <Step
                   number="2"
-                  title="Design"
-                  description="Finalize your rental agreement and customize your suite layout to fit your specific needs."
+                  title="Take a tour"
+                  description="Visit the facility, explore the available suites, and see how the space supports your practice and clients."
                 />
                 <ArrowCurve2 />
               </div>
@@ -245,38 +245,49 @@ function SpacesForSouthEdmontonCommonOpeningDayPath() {
               <div className="relative">
                 <Step
                   number="3"
+                  title="Design"
+                  description="Finalize your rental agreement and customize your suite layout to fit your specific needs."
+                />
+                <ArrowCurve1 />
+              </div>
+
+              <div className="relative">
+                <Step
+                  number="4"
                   title="Launch"
                   description="Open in May 2026 and immediately engage with an established member base."
                 />
-                <ArrowCurve3 />
-              </div>
 
-              <div className="flex flex-col items-center justify-end h-full pb-8 px-4">
-                <div
-                  className="flex flex-col gap-2 items-center justify-center"
-                  data-name="CTA with text"
-                  data-node-id="14471:1536"
-                >
-                  <button
-                    onClick={handleScrollToForm}
-                    className="btnPrimary w-fit text-center"
-                    data-name="CTA"
-                    data-node-id="14471:1537"
-                  >
-                    Inquire About Suites
-                  </button>
-                  <p
-                    className="text-[#fff] !font-[Kanit] text-[16px] leading-[24px] font-normal text-center"
-                    data-node-id="14471:1539"
-                  >
-                    Limited suites are available
-                  </p>
-                </div>
+                <ArrowCurve3 />
               </div>
             </div>
 
-            {/* Tablet (md->lg): keep simple 3-up without arrows */}
-            <div className="hidden md:grid lg:hidden grid-cols-3 gap-4 items-start">
+            {/* Desktop CTA row below steps */}
+            <div className="hidden lg:flex w-full items-center justify-center pt-8">
+              <div
+                className="flex flex-col gap-2 items-center justify-center"
+                data-name="CTA with text"
+                data-node-id="14471:1536"
+              >
+                <button
+                  onClick={handleScrollToForm}
+                  className="btnPrimary w-fit text-center"
+                  data-name="CTA"
+                  data-node-id="14471:1537"
+                >
+                  Inquire About Suites
+                </button>
+                <p
+                  className="text-[#fff] !font-[Kanit] text-[16px] leading-[24px] font-normal text-center"
+                  data-node-id="14471:1539"
+                >
+                  Limited suites are available
+                </p>
+              </div>
+            </div>
+
+            {/* Tablet (md->lg): simple 4-up without arrows */}
+            <div className="hidden md:grid lg:hidden grid-cols-4 gap-4 items-start">
               <Step
                 number="1"
                 title="Apply"
@@ -291,6 +302,12 @@ function SpacesForSouthEdmontonCommonOpeningDayPath() {
                 number="3"
                 title="Launch"
                 description="Open in May 2026 and immediately engage with an established member base."
+              />
+
+              <Step
+                number="4"
+                title="Grow"
+                description="Continue growing your practice with ongoing support and a thriving wellness community."
               />
 
               <div className="col-span-3 flex flex-col items-center justify-center pt-2">
@@ -332,13 +349,13 @@ function SpacesForSouthEdmontonCommonOpeningDayPath() {
 
                   <MobileStep
                     number="2"
-                    title="Design"
-                    description="Finalize your rental agreement and customize your suite layout to fit your specific needs."
+                    title="Take a tour"
+                    description="Visit the facility, explore the available suites, and see how the space supports your practice and clients."
                     data-node-id="14483:3624"
                   >
                     <div
                       className="absolute -translate-x-1/2 flex h-[142.381px] items-center justify-center w-[26px]"
-                      style={{ left: "calc(50% - 84.5px)", top: "218px" }}
+                      style={{ left: "calc(50% - 94.5px)", top: "226px" }}
                       aria-hidden="true"
                     >
                       <div style={{ transform: "rotate(90deg) scaleY(-1)" }}>
@@ -349,10 +366,37 @@ function SpacesForSouthEdmontonCommonOpeningDayPath() {
 
                   <MobileStep
                     number="3"
+                    title="Design"
+                    description="Finalize your rental agreement and customize your suite layout to fit your specific needs."
+                    data-node-id="14483:3624"
+                  >
+                    <div
+                      className="absolute -translate-x-1/2 flex h-[142.381px] items-center justify-center w-[26px]"
+                      style={{ left: "calc(50% + 94.5px)", top: "216px" }}
+                      aria-hidden="true"
+                    >
+                      <div style={{ transform: "rotate(90deg)" }}>
+                        <MobileArrow1Svg className="block" />
+                      </div>
+                    </div>
+                  </MobileStep>
+
+                  <MobileStep
+                    number="4"
                     title="Launch"
                     description="Open in May 2026 and immediately engage with an established member base."
-                    data-node-id="14483:3636"
-                  />
+                    data-node-id="14483:3624"
+                  >
+                    {/* <div
+                      className="absolute -translate-x-1/2 flex h-[142.381px] items-center justify-center w-[26px]"
+                      style={{ left: "calc(50% - 84.5px)", top: "218px" }}
+                      aria-hidden="true"
+                    >
+                      <div style={{ transform: "rotate(90deg) scaleY(-1)" }}>
+                        <MobileArrow1Svg className="block" />
+                      </div>
+                    </div> */}
+                  </MobileStep>
                 </div>
 
                 <div className="flex flex-col gap-2 items-start relative">
@@ -373,7 +417,7 @@ function SpacesForSouthEdmontonCommonOpeningDayPath() {
                   className="absolute"
                   style={{
                     left: "214px",
-                    top: "732px",
+                    top: "1000px",
                     width: "113.378px",
                     height: "141.765px",
                     transform: "rotate(66.94deg)",

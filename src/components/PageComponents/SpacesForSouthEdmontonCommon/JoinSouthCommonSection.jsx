@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import SuccessFullScreen from "../../ui/SuccessFullScreen";
+import { ChevronDown } from "lucide-react";
 
 const initialState = {
   firstName: "",
@@ -78,7 +79,9 @@ function JoinSouthCommonSection() {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [bestTimeFocused, setBestTimeFocused] = useState(false);
+  const [bestTimeOpen, setBestTimeOpen] = useState(false);
+  const [locationOpen, setLocationOpen] = useState(false);
+  const [purposeOpen, setPurposeOpen] = useState(false);
   const routerLocation = useLocation();
   const isSouthCommonPage =
     routerLocation.pathname === "/spaces-for-south-edmonton-common";
@@ -410,9 +413,12 @@ function JoinSouthCommonSection() {
                   id="bestTime"
                   name="bestTime"
                   value={form.bestTime}
-                  onChange={handleChange}
-                  onFocus={() => setBestTimeFocused(true)}
-                  onBlur={() => setBestTimeFocused(false)}
+                  onChange={(e) => {
+                    handleChange(e);
+                    setBestTimeOpen(false);
+                  }}
+                  onClick={() => setBestTimeOpen((prev) => !prev)}
+                  onBlur={() => setBestTimeOpen(false)}
                   className={`appearance-none w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
                     errors.bestTime ? "border-red-500" : "border-[#D4D4D4]"
                   } ${
@@ -429,9 +435,12 @@ function JoinSouthCommonSection() {
                     </option>
                   ))}
                 </select>
-                {/* Simple caret without image icons to keep this self-contained */}
-                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66] text-xs">
-                  {bestTimeFocused ? "▲" : "▼"}
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${
+                      bestTimeOpen ? "rotate-180" : ""
+                    }`}
+                  />
                 </span>
               </div>
               {errors.bestTime && (
@@ -443,27 +452,41 @@ function JoinSouthCommonSection() {
               <label htmlFor="location" className="block form-label mb-1">
                 Select a Location *
               </label>
-              <select
-                id="location"
-                name="location"
-                value={form.location}
-                onChange={handleChange}
-                className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
-                  errors.location ? "border-red-500" : "border-[#D4D4D4]"
-                } ${
-                  form.location === ""
-                    ? "text-[#6F6D66] text-[12px]"
-                    : "text-[#000] text-[16px]"
-                }`}
-                disabled={isSubmitting || isSouthCommonPage}
-              >
-                <option value="">Select a location</option>
-                {LOCATIONS.map((loc) => (
-                  <option key={loc.cityName} value={loc.location}>
-                    {loc.cityName}
-                  </option>
-                ))}
-              </select>
+              <div className="relative w-full">
+                <select
+                  id="location"
+                  name="location"
+                  value={form.location}
+                  onChange={(e) => {
+                    handleChange(e);
+                    setLocationOpen(false);
+                  }}
+                  onClick={() => setLocationOpen((prev) => !prev)}
+                  onBlur={() => setLocationOpen(false)}
+                  className={`appearance-none w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.location ? "border-red-500" : "border-[#D4D4D4]"
+                  } ${
+                    form.location === ""
+                      ? "text-[#6F6D66] text-[12px]"
+                      : "text-[#000] text-[16px]"
+                  }`}
+                  disabled={isSubmitting || isSouthCommonPage}
+                >
+                  <option value="">Select a location</option>
+                  {LOCATIONS.map((loc) => (
+                    <option key={loc.cityName} value={loc.location}>
+                      {loc.cityName}
+                    </option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${
+                      locationOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </span>
+              </div>
               {errors.location && (
                 <p className="input-error mt-1">{errors.location}</p>
               )}
@@ -476,27 +499,41 @@ function JoinSouthCommonSection() {
               >
                 Could you share the purpose of using the office? *
               </label>
-              <select
-                id="purposeOfUse"
-                name="purposeOfUse"
-                value={form.purposeOfUse}
-                onChange={handleChange}
-                className={`w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
-                  errors.purposeOfUse ? "border-red-500" : "border-[#D4D4D4]"
-                } ${
-                  form.purposeOfUse === ""
-                    ? "text-[#6F6D66] text-[12px]"
-                    : "text-[#000] text-[16px]"
-                }`}
-                disabled={isSubmitting}
-              >
-                <option value="">Select Purpose</option>
-                {purposeOfUseOptions.map((purpose) => (
-                  <option key={purpose} value={purpose}>
-                    {purpose}
-                  </option>
-                ))}
-              </select>
+              <div className="relative w-full">
+                <select
+                  id="purposeOfUse"
+                  name="purposeOfUse"
+                  value={form.purposeOfUse}
+                  onChange={(e) => {
+                    handleChange(e);
+                    setPurposeOpen(false);
+                  }}
+                  onClick={() => setPurposeOpen((prev) => !prev)}
+                  onBlur={() => setPurposeOpen(false)}
+                  className={`appearance-none w-full px-3 h-[40px] flex items-center justify-center form-placeholder border rounded-[5px] ${
+                    errors.purposeOfUse ? "border-red-500" : "border-[#D4D4D4]"
+                  } ${
+                    form.purposeOfUse === ""
+                      ? "text-[#6F6D66] text-[12px]"
+                      : "text-[#000] text-[16px]"
+                  }`}
+                  disabled={isSubmitting}
+                >
+                  <option value="">Select Purpose</option>
+                  {purposeOfUseOptions.map((purpose) => (
+                    <option key={purpose} value={purpose}>
+                      {purpose}
+                    </option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6F6D66]">
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${
+                      purposeOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </span>
+              </div>
               {errors.purposeOfUse && (
                 <p className="input-error mt-1">{errors.purposeOfUse}</p>
               )}
