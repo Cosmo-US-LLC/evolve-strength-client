@@ -1,4 +1,5 @@
 import React from "react";
+import MetaTags from "@/components/Metatags/Meta";
 import SpacesForSouthEdmontonCommonHero from "@/components/PageComponents/SpacesForSouthEdmontonCommon/SpacesForSouthEdmontonCommonHero";
 import SpacesForSouthEdmontonCommonBeyondSection from "@/components/PageComponents/SpacesForSouthEdmontonCommon/SpacesForSouthEdmontonCommonBeyondSection";
 import SpaceBuiltForCommon from "@/components/PageComponents/SpacesForSouthEdmontonCommon/SpaceBuiltForCommon";
