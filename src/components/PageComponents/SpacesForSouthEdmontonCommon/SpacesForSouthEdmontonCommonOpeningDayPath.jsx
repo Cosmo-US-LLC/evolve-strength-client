@@ -77,7 +77,7 @@ function MobileStep({ number, title, description, children, className = "" }) {
       data-name="Container"
     >
       <div className="border-2 border-white rounded-full w-[63px] py-3 flex items-center justify-center">
-        <span className="text-white font-bold text-[36.2px] leading-[36.2px]">
+        <span className="text-white !font-[Kanit] font-bold text-[36.2px] leading-[36.2px]">
           {number}
         </span>
       </div>
