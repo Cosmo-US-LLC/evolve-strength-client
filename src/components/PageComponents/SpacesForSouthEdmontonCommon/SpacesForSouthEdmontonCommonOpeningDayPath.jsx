@@ -402,12 +402,12 @@ function SpacesForSouthEdmontonCommonOpeningDayPath() {
                 <div className="flex flex-col gap-2 items-start relative">
                   <button
                     onClick={handleScrollToForm}
-                    className="bg-[#4ab04a] px-5 py-3 rounded-[6px] text-white uppercase font-medium text-[14px] leading-[16px] text-center hover:opacity-90 transition-opacity"
+                    className="bg-[#4ab04a] px-5 py-3 rounded-[6px] !font-[Kanit] text-white uppercase font-medium text-[14px] leading-[16px] text-center hover:opacity-90 transition-opacity"
                     data-node-id="14483:3657"
                   >
                     Inquire About Suites
                   </button>
-                  <p className="text-white text-[16px] leading-[24px] font-normal text-center">
+                  <p className="text-white text-[16px] leading-[24px] !font-[Kanit] font-normal text-center">
                     Limited suites are available
                   </p>
                 </div>
