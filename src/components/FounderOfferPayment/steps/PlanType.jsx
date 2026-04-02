@@ -44,6 +44,16 @@ function PlanType({
 
   return (
     <div className="w-full max-w-[640px] mx-auto">
+      {/* Mobile back (top, non-sticky) */}
+      <button
+        type="button"
+        onClick={onBack}
+        className="md:hidden mb-4 py-2 flex gap-1.5 underline items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
+      >
+        <ArrowLeft className="size-4" />
+        Back
+      </button>
+
       <div className="flex flex-col gap-1 mb-6">
         <h2 className="!font-[Kanit] !font-[500] text-[#000] !text-[20px] capitalize !leading-[28px]">
           Choose your pricing plan
@@ -88,7 +98,7 @@ function PlanType({
             </div>
           </div>
           <div className="text-[#000] md:text-right text-left md:text-[12px] text-[10px] pt-1 font-[kanit] font-normal">
-          Billing starts at opening
+            Billing starts at opening
           </div>
         </div>
       </div>
@@ -197,7 +207,7 @@ function PlanType({
           <button
             type="button"
             onClick={onBack}
-            className="flex gap-1.5 underline items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
+            className="hidden md:flex gap-1.5 underline items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
           >
             <ArrowLeft className="size-4" />
             Back
@@ -206,7 +216,22 @@ function PlanType({
             type="button"
             disabled={displayAmount === "$--.--"}
             onClick={onNext}
-            className="btnPrimary disabled:cursor-wait max-md:w-[100%]"
+            className="hidden md:inline-flex btnPrimary disabled:cursor-wait"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile sticky CTA */}
+      {/* <div className="md:hidden h-[84px]" aria-hidden="true" /> */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50">
+        <div className="mx-auto max-w-[640px] px-4 pb-[max(16px,env(safe-area-inset-bottom))] pt-3 bg-white/95 backdrop-blur border-t border-black/10">
+          <button
+            type="button"
+            disabled={displayAmount === "$--.--"}
+            onClick={onNext}
+            className="btnPrimary w-full disabled:cursor-wait"
           >
             Next
           </button>

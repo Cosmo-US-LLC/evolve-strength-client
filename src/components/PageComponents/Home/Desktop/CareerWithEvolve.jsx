@@ -7,10 +7,8 @@ const tabData = {
     title: "PERSONAL TRAINER",
 
     image: {
-      desktop:
-        "/assets/images/home/CareerWithEvolve/career_1.webp",
-      mobile:
-        "/assets/images/home/CareerWithEvolve/career_mob_1.webp",
+      desktop: "/assets/images/home/CareerWithEvolve/career_1.webp",
+      mobile: "/assets/images/home/CareerWithEvolve/career_mob_1.webp",
     },
     description:
       "Build your own personal training business inside Canada's most advanced fitness facility.",
@@ -26,10 +24,8 @@ const tabData = {
     title: "WELLNESS EXPERT",
 
     image: {
-      desktop:
-        "/assets/images/home/CareerWithEvolve/career_2.webp",
-      mobile:
-        "/assets/images/home/CareerWithEvolve/career_mob_2.webp",
+      desktop: "/assets/images/home/CareerWithEvolve/career_2.webp",
+      mobile: "/assets/images/home/CareerWithEvolve/career_mob_2.webp",
     },
     description:
       "Flexible workspace for wellness professionals inside Canada’s top fitness facilities.",
@@ -39,7 +35,7 @@ const tabData = {
       "All-Inclusive Office Setup",
       "Connect with a Like-Minded Community",
     ],
-    link: "/work-spaces",
+    link: "/wellness",
   },
 };
 

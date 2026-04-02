@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -204,6 +204,16 @@ function PaymentInformation({
 
   return (
     <div className="w-full max-w-[640px] mx-auto">
+      {/* Mobile back (top, non-sticky) */}
+      <button
+        type="button"
+        onClick={onBack}
+        className="md:hidden mb-4 py-2 flex gap-1.5 underline items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
+      >
+        <ArrowLeft className="size-4" />
+        Back
+      </button>
+
       <div className="flex flex-col gap-1 items-start mb-6">
         <h2 className="font-['Kanit'] !font-medium text-[#000] !text-[20px] capitalize !leading-[20px]">
           Enter your Payment Details
@@ -454,23 +464,61 @@ function PaymentInformation({
             <button
               type="button"
               onClick={onBack}
-              className="flex gap-1.5 underline items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
+              className="hidden md:flex gap-1.5 underline items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
             >
               <ArrowLeft className="size-4" />
               Back
             </button>
-            <div className="flex flex-col items-end gap-2 w-full md:w-auto">
+            {/* Desktop/tablet CTA (non-sticky) */}
+            <div className="hidden md:flex flex-col items-end gap-2 w-full md:w-auto">
               {submitError && (
                 <p className="text-[12px] md:text-[13px] text-red-600">
                   {submitError}
                 </p>
               )}
+
               <button
                 type="submit"
-                className="btnPrimary max-md:w-[100%]"
+                className="btnPrimary"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Processing..." : "PROCEED TO PAY"}
+                {isSubmitting ? "Processing..." : "Lock My Rate"}
+              </button>
+              {/* <p className="font-['Kanit'] text-[13px] md:text-[13px] font-light leading-[18px] md:leading-[20px] text-black/60">
+                No Deduction from your card will occur until Gym Launch.
+              </p> */}
+            </div>
+          </div>
+          {/* Informational note shown before checkout */}
+          <div
+            role="note"
+            className="w-full rounded-[12px] mb-4 -mt-8 md:mt-0 md:mb-0 border border-[#4ab04a]/25 bg-[#F4FFF6] px-3 md:px-4 py-3 flex flex-row gap-3 sm:items-center"
+          >
+            <div className="flex-shrink-0 flex h-9 w-9 items-center justify-center rounded-full bg-[#4ab04a]/10">
+              <Info className="size-4 text-[#2E7D32]" />
+            </div>
+
+            <p className="font-['Kanit'] text-[13px] md:text-[15px] font-light leading-[18px] md:leading-[20px] text-black/60">
+              No Deduction from your card will occur until{" "}
+              <span className="font-medium text-black/75">Gym Launch</span>.
+            </p>
+          </div>
+
+          {/* Mobile sticky CTA */}
+          {/* <div className="md:hidden h-[84px]" aria-hidden="true" /> */}
+          <div className="md:hidden fixed bottom-0 left-0 right-0 z-50">
+            <div className="mx-auto max-w-[640px] px-4 pb-[max(16px,env(safe-area-inset-bottom))] pt-3 bg-white/95 backdrop-blur border-t border-black/10">
+              {submitError && (
+                <p className="mb-2 text-[12px] text-red-600 text-right">
+                  {submitError}
+                </p>
+              )}
+              <button
+                type="submit"
+                className="btnPrimary w-full"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Processing..." : "Lock My Rate"}
               </button>
             </div>
           </div>
