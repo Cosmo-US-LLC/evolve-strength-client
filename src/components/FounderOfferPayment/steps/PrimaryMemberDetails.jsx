@@ -437,6 +437,16 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
 
   return (
     <div className="w-full max-w-[640px] mx-auto">
+      {/* Mobile back (top, non-sticky) */}
+      <button
+        type="button"
+        onClick={onBack}
+        className="md:hidden mb-4 py-2 flex gap-1.5 underline items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
+      >
+        <ArrowLeft className="size-4" />
+        Back
+      </button>
+
       <div className="flex flex-col gap-1 mb-6">
         <h2 className="!font-[Kanit] !font-[500] text-[#000] !text-[20px] capitalize !leading-[28px]">
           Tell us about the primary member
@@ -795,14 +805,24 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
             <button
               type="button"
               onClick={onBack}
-              className="flex gap-1.5 underline items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
+              className="hidden md:flex gap-1.5 underline items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
             >
               <ArrowLeft className="size-4" />
               Back
             </button>
-            <button type="submit" className="btnPrimary max-md:w-[100%]">
+            <button type="submit" className="hidden md:inline-flex btnPrimary">
               Next
             </button>
+          </div>
+
+          {/* Mobile sticky CTA */}
+          {/* <div className="md:hidden h-[84px]" aria-hidden="true" /> */}
+          <div className="md:hidden fixed bottom-0 left-0 right-0 z-50">
+            <div className="mx-auto max-w-[640px] px-4 pb-[max(16px,env(safe-area-inset-bottom))] pt-3 bg-white/95 backdrop-blur border-t border-black/10">
+              <button type="submit" className="btnPrimary w-full">
+                Next
+              </button>
+            </div>
           </div>
         </form>
       </Form>

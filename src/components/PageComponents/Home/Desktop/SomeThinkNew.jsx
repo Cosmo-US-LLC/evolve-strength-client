@@ -12,21 +12,21 @@ function SomeThinkNew() {
             </h2>
 
             <h4 className="text-[#fff] leading-relaxed">
-            Presale is live! Join now to lock your founder rate 
-            for free before we officially open.
+              Presale is live! Join now to lock your founder rate for free
+              before we officially open.
             </h4>
 
             <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-8 text-[#fff]">
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5" />
                 <span className="test-[14px] font-[kanit] leading-[22px]">
-            South Edmonton Common
+                  South Edmonton Common
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5" />
                 <span className="test-[14px] font-[kanit] leading-[22px]">
-                Spring 2026
+                  May 2026
                 </span>
               </div>
             </div>
