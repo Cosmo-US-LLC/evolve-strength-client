@@ -67,7 +67,7 @@ const LOCATION_HERO_DATA = {
   },
   "vancouver-post": {
     video: "/videos/vancouver_post_video.webm",
-    poster: "/assets/images/Locations/location-hero/hero_post.webp",
+    poster: "",
     locationTitle: "THE POST",
     city: "VANCOUVER",
     fullTitle: "Vancouver's Premier Fitness and Wellness Club",
@@ -108,7 +108,7 @@ function LocationHero() {
   const heroVideoSrc = dynamicData.video;
 
   return (
-    <div className="relative h-dvh">
+    <div className="relative h-[620px] md:h-[99vh]">
       {heroVideoSrc ? (
         <video
           className="absolute inset-0 w-full h-full object-cover object-top"
