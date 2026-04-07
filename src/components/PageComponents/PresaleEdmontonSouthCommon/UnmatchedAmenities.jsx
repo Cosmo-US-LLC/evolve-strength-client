@@ -141,7 +141,7 @@ const UnmatchedAmenities = () => {
                 </button>
               </Link>
               <p className="text-[#000] !text-[16px] !font-[400] !font-[Kanit] leading-[24px] md:leading-[24px]  max-w-[250px] md:max-w-[190px]">
-              Spots filling up quickly
+                Spots filling up quickly
               </p>
             </div>
       </div>
