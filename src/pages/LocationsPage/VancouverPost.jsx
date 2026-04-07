@@ -20,6 +20,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import YourEvolveLocations from "@/components/PageComponents/Locations/Desktop/YourEvolveLocations";
 import EvolveFloorPlan from "@/components/PageComponents/Franchise/Desktop/EvolveFloorPlan";
 import { getFloorPlanData } from "@/constants/floorPlanSlides";
+import VideoMarketingSection from "./VideoMarketingSection";
 
 function VancouverPost() {
   return (
@@ -39,6 +40,7 @@ function VancouverPost() {
         description={getFloorPlanData("vancouverPost").description}
       />
       {/* <LoWhyChooseEvolve /> */}
+      <VideoMarketingSection />
       <LocationPricing />
       <FitnessCategory />
       <LocationsPersonalizedAssessment />
