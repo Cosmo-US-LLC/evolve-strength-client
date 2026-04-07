@@ -1,103 +1,78 @@
 import React from "react";
 import Cancel from "@/assets/images/Locations/Cancel_Icon.svg";
-import { Link } from "react-router-dom";
 
 const LOCATION_HERO_DATA = {
   "calgary-seton": {
-    desktop:
-      "/assets/images/Locations/location-hero/hero_seten.webp",
-    mobile:
-      "/assets/images/Locations/location-hero/hero_seten_mob.webp",
+    desktop: "/assets/images/Locations/location-hero/hero_seten.webp",
+    mobile: "/assets/images/Locations/location-hero/hero_seten_mob.webp",
     locationTitle: "SETON",
     city: "CALGARY",
     fullTitle: "SETON's Premier Fitness and Wellness Club",
     tourUrl: "/book-a-tour/?location=40097",
-    membershipUrl:
-      "/join-now/membership-type?location=Calgary%20Seton",
+    membershipUrl: "/join-now/membership-type?location=Calgary%20Seton",
   },
   "calgary-royal-oak": {
-    desktop:
-      "/assets/images/Locations/location-hero/hero_royal_oak.webp",
-    mobile:
-      "/assets/images/Locations/location-hero/hero_royal_oak_mob.webp",
+    desktop: "/assets/images/Locations/location-hero/hero_royal_oak.webp",
+    mobile: "/assets/images/Locations/location-hero/hero_royal_oak_mob.webp",
     locationTitle: "ROYAL OAK",
     city: "CALGARY",
     fullTitle: "ROYAL OAK's Premier Fitness and Wellness Club",
     tourUrl: "/book-a-tour/?location=40142",
-    membershipUrl:
-      "/join-now/membership-type?location=Calgary%20Royal%20Oak",
+    membershipUrl: "/join-now/membership-type?location=Calgary%20Royal%20Oak",
   },
   "calgary-sunridge": {
-    desktop:
-      "/assets/images/Locations/location-hero/sunridge.webp",
-    mobile:
-      "/assets/images/Locations/location-hero/sunridgeMob.webp",
+    desktop: "/assets/images/Locations/location-hero/sunridge.webp",
+    mobile: "/assets/images/Locations/location-hero/sunridgeMob.webp",
     locationTitle: "SUNRIDGE",
     city: "CALGARY",
     fullTitle: "SUNRIDGE's Premier Fitness and Wellness Club",
     tourUrl: "/book-a-tour/?location=06973",
-    membershipUrl:
-      "/join-now/membership-type?location=Calgary%20Sunridge",
+    membershipUrl: "/join-now/membership-type?location=Calgary%20Sunridge",
   },
   "edmonton-south": {
-    desktop:
-      "/assets/images/Locations/location-hero/south.webp",
-    mobile:
-      "/assets/images/Locations/location-hero/southMob.webp",
+    desktop: "/assets/images/Locations/location-hero/south.webp",
+    mobile: "/assets/images/Locations/location-hero/southMob.webp",
     locationTitle: "SOUTH",
     city: "EDMONTON",
     fullTitle: "Edmonton South's Premier Fitness and Wellness Club",
     tourUrl: "/book-a-tour/?location=06962",
-    membershipUrl:
-      "/join-now/membership-type?location=Edmonton%20South",
+    membershipUrl: "/join-now/membership-type?location=Edmonton%20South",
   },
   "edmonton-north": {
-    desktop:
-      "/assets/images/Locations/location-hero/north.webp",
-    mobile:
-      "/assets/images/Locations/location-hero/northMob.webp",
+    desktop: "/assets/images/Locations/location-hero/north.webp",
+    mobile: "/assets/images/Locations/location-hero/northMob.webp",
     locationTitle: "NORTH",
     city: "EDMONTON",
     fullTitle: "Edmonton North's Premier Fitness and Wellness Club",
     tourUrl: "/book-a-tour/?location=06964",
-    membershipUrl:
-      "/join-now/membership-type?location=Edmonton%20North",
+    membershipUrl: "/join-now/membership-type?location=Edmonton%20North",
   },
   "edmonton-downtown": {
-    desktop:
-      "/assets/images/Locations/location-hero/hero_downtown.webp",
-    mobile:
-      "/assets/images/Locations/location-hero/hero_downtown_mob.webp",
+    desktop: "/assets/images/Locations/location-hero/hero_downtown.webp",
+    mobile: "/assets/images/Locations/location-hero/hero_downtown_mob.webp",
     locationTitle: "DOWNTOWN",
     city: "EDMONTON",
     fullTitle: "DOWNTOWN's Premier Fitness and Wellness Club",
     tourUrl: "/book-a-tour/?location=06967",
-    membershipUrl:
-      "/join-now/membership-type?location=Edmonton%20Downtown",
+    membershipUrl: "/join-now/membership-type?location=Edmonton%20Downtown",
   },
   "burnaby-brentwood": {
-    desktop:
-      "/assets/images/Locations/location-hero/hero_brentwood.webp",
-    mobile:
-      "/assets/images/Locations/location-hero/hero_brentwood_mob.webp",
+    desktop: "/assets/images/Locations/location-hero/hero_brentwood.webp",
+    mobile: "/assets/images/Locations/location-hero/hero_brentwood_mob.webp",
     locationTitle: "BRENTWOOD",
     city: "BURNABY",
     fullTitle: "BRENTWOOD's Premier Fitness and Wellness Club",
     tourUrl: "/book-a-tour/?location=40248",
-    membershipUrl:
-      "/join-now/membership-type?location=Burnaby%20Brentwood",
+    membershipUrl: "/join-now/membership-type?location=Burnaby%20Brentwood",
   },
   "vancouver-post": {
-    desktop:
-      "/assets/images/Locations/location-hero/hero_post.webp",
-    mobile:
-      "/assets/images/Locations/location-hero/hero_post_mob.webp",
+    video: "/videos/vancouver_post_video.webm",
+    poster: "",
     locationTitle: "THE POST",
     city: "VANCOUVER",
     fullTitle: "Vancouver's Premier Fitness and Wellness Club",
     tourUrl: "/book-a-tour/?location=40327",
-    membershipUrl:
-      "/join-now/membership-type?location=Vancouver,%20The%20Post",
+    membershipUrl: "/join-now/membership-type?location=Vancouver,%20The%20Post",
   },
 };
 
@@ -130,21 +105,38 @@ function LocationHero() {
     LOCATION_HERO_DATA[locationKey] || LOCATION_HERO_DATA["calgary-seton"];
   const fullTitle = dynamicData.fullTitle;
 
-  return (
-    <div className="relative h-[600px] md:h-[700px]">
-      {/* Desktop Image */}
-      <img
-        src={dynamicData.desktop}
-        alt={`${dynamicData.locationTitle} location hero`}
-        className="absolute inset-0 w-full h-full object-cover object-top hidden md:block"
-      />
+  const heroVideoSrc = dynamicData.video;
 
-      {/* Mobile Image */}
-      <img
-        src={dynamicData.mobile}
-        alt={`${dynamicData.locationTitle} location hero`}
-        className="absolute inset-0 w-full h-full object-cover object-top block md:hidden"
-      />
+  return (
+    <div className="relative h-[620px] md:h-[99vh]">
+      {heroVideoSrc ? (
+        <video
+          className="absolute inset-0 w-full h-full object-cover object-top"
+          src={heroVideoSrc}
+          poster={dynamicData.poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-label={`${dynamicData.locationTitle} location hero`}
+        />
+      ) : (
+        <>
+          {/* Desktop Image */}
+          <img
+            src={dynamicData.desktop}
+            alt={`${dynamicData.locationTitle} location hero`}
+            className="absolute inset-0 w-full h-full object-cover object-top hidden md:block"
+          />
+
+          {/* Mobile Image */}
+          <img
+            src={dynamicData.mobile}
+            alt={`${dynamicData.locationTitle} location hero`}
+            className="absolute inset-0 w-full h-full object-cover object-top block md:hidden"
+          />
+        </>
+      )}
       <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/30" />
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 pb-[20px] md:pb-[64px] relative z-2 flex flex-col items-start justify-end w-full h-full">
         <h1 className="text-[#FFFFFF] uppercase max-w-[960px] leading-[39px] md:leading-[56px] mb-1.5 md:mb-5">
