@@ -141,7 +141,7 @@ const UnmatchedAmenities = () => {
                 </button>
               </Link>
               <p className="text-[#000] !text-[16px] !font-[400] !font-[Kanit] leading-[24px] md:leading-[24px]  max-w-[250px] md:max-w-[190px]">
-              Limited to 500 Members
+              Spots filling up quickly
               </p>
             </div>
       </div>
