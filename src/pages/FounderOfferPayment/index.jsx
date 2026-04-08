@@ -698,6 +698,8 @@ function FounderOfferPayment() {
         directMail: "true",
         pushNotification: "true",
       },
+      cfTurnstileResponse: payment.cfTurnstileResponse || "",
+      skipIpCheck: true,
     };
 
     if (selectPlan !== "direct_debit") {
