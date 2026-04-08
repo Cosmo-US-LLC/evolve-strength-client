@@ -848,6 +848,7 @@ function FounderOfferPayment() {
     expiryDate,
     cvv,
     cardType,
+    cfTurnstileResponse,
   }) => {
     // console.log(selectedPlanDetails)
     // return true;
@@ -872,6 +873,7 @@ function FounderOfferPayment() {
           expiryDate,
           cvv,
           cardType,
+          cfTurnstileResponse,
         },
       },
       {
