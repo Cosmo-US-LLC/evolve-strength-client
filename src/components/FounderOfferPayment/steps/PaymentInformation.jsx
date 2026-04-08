@@ -325,6 +325,7 @@ function PaymentInformation({
       cvv: values.cvv,
       cfTurnstileResponse: values.cfTurnstileResponse,
       cardType: meta.cardType?.type || "",
+      "skipIpCheck": true
     });
 
     if (onSubmitPayment) {
@@ -334,6 +335,7 @@ function PaymentInformation({
         cvv: values.cvv,
         cfTurnstileResponse: values.cfTurnstileResponse,
         cardType: meta.cardType?.type || "",
+        "skipIpCheck": true
       });
       if (success) {
         onNext();
