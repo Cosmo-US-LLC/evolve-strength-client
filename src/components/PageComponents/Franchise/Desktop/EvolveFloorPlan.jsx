@@ -92,7 +92,7 @@ const EvolveFloorPlan = ({
       </div>
       {videoSrc && modalOpen && (
         <div
-          className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/80"
+          className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/90"
           onClick={() => setModalOpen(false)}
         >
           <div
@@ -102,7 +102,7 @@ const EvolveFloorPlan = ({
             <button
               type="button"
               onClick={() => setModalOpen(false)}
-              className="absolute top-2 right-2 z-10 text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-1"
+              className="absolute cursor-pointer md:top-3 top-2 md:right-4 right-3 z-10 text-black hover:text-white hover:bg-black transition-colors bg-white rounded-full p-1"
               aria-label="Close video"
             >
               <X className="h-6 w-6" />
@@ -111,7 +111,7 @@ const EvolveFloorPlan = ({
               src={videoSrc}
               autoPlay
               controls
-              className="w-full max-h-[85vh] rounded-lg shadow-2xl"
+              className="w-full rounded-lg shadow-2xl"
               aria-label="Vancouver Post club video"
             />
           </div>
