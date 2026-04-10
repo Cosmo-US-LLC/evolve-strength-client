@@ -182,7 +182,7 @@ const FacilityShowcase = () => {
                   <button
                     key={loc.key}
                     onClick={() => handleTabChange(loc.key)}
-                    className={`min-w-[100px] w-[auto] max-w-[160px] px-2 py-2 rounded-[6px]  text-[14px] font-[500] transition-all duration-200 scroll-snap-align-start ${
+                    className={`min-w-[122px] w-[auto] max-w-[160px] px-2 py-2 rounded-[6px]  text-[14px] font-[500] transition-all duration-200 scroll-snap-align-start ${
                       activeTab === loc.key
                         ? "bg-[#4AB04A] text-[#fff] "
                         : "bg-[#fff] text-[#1C1C1C]"

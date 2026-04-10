@@ -26,7 +26,8 @@ function Home() {
         description="Train, recover, and grow at Evolve, Canada’s largest gym with locations in Edmonton, Calgary, Burnaby, and Vancouver. One membership includes premium fitness and integrated wellness."
       />
       <div className="overflow-hidden">
-        <Hero title={"The Standard <br /> of Health."} />
+        {/* <Hero title={"The Standard <br /> of Health."} /> */}
+        <Hero/>
         <WellnessHub />
         <GymExperience />
         <MembershipBenefits />
