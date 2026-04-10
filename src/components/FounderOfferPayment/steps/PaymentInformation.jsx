@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowLeft, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -22,12 +22,18 @@ import {
 } from "@/utils/validation";
 import { Checkbox } from "@/components/ui/checkbox";
 
+const TURNSTILE_SCRIPT_ID = "cf-turnstile-script";
+const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+
 // Zod Schema
 const formSchema = z.object({
   // Required fields; react-payment-inputs meta handles detailed validation
   cardNumber: z.string().min(1, "Card number is required."),
   expiryDate: z.string().min(1, "Expiry date is required."),
   cvv: z.string().min(1, "CVC is required."),
+  cfTurnstileResponse: z
+    .string()
+    .min(1, "Please complete the security check."),
   agreedToTerms: z.boolean().refine((val) => val === true, {
     message: "Please confirm you have read our Terms and Conditions",
   }),
@@ -35,6 +41,123 @@ const formSchema = z.object({
     message: "Please accept the authorization and agreement",
   }),
 });
+
+const ensureTurnstileScript = () =>
+  new Promise((resolve, reject) => {
+    if (window.turnstile) {
+      resolve(window.turnstile);
+      return;
+    }
+
+    const existingScript = document.getElementById(TURNSTILE_SCRIPT_ID);
+    if (existingScript) {
+      existingScript.addEventListener("load", () => resolve(window.turnstile), {
+        once: true,
+      });
+      existingScript.addEventListener(
+        "error",
+        () => reject(new Error("Failed to load Turnstile")),
+        { once: true },
+      );
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.id = TURNSTILE_SCRIPT_ID;
+    script.src =
+      "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    script.async = true;
+    script.defer = true;
+    script.addEventListener("load", () => resolve(window.turnstile), {
+      once: true,
+    });
+    script.addEventListener(
+      "error",
+      () => reject(new Error("Failed to load Turnstile")),
+      { once: true },
+    );
+    document.head.appendChild(script);
+  });
+
+const TurnstileWidget = ({
+  siteKey,
+  onTokenChange,
+  onError,
+  resetSignal,
+  theme = "light",
+}) => {
+  const containerRef = React.useRef(null);
+  const widgetIdRef = React.useRef(null);
+  const onTokenChangeRef = React.useRef(onTokenChange);
+  const onErrorRef = React.useRef(onError);
+  const hasInitErrorRef = React.useRef(false);
+
+  useEffect(() => {
+    onTokenChangeRef.current = onTokenChange;
+    onErrorRef.current = onError;
+  }, [onTokenChange, onError]);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const renderWidget = async () => {
+      if (!siteKey || !containerRef.current || hasInitErrorRef.current) return;
+
+      try {
+        const turnstile = await ensureTurnstileScript();
+        if (!isMounted || !turnstile || widgetIdRef.current !== null) return;
+
+        widgetIdRef.current = turnstile.render(containerRef.current, {
+          sitekey: siteKey,
+          theme,
+          callback: (token) => onTokenChangeRef.current(token),
+          "expired-callback": () => {
+            onTokenChangeRef.current("");
+            onErrorRef.current("Security check expired. Please try again.");
+          },
+          "error-callback": () => {
+            hasInitErrorRef.current = true;
+            onTokenChangeRef.current("");
+            onErrorRef.current(
+              "Security check failed to load. For local testing, serve the page over HTTPS or use a non-local domain.",
+            );
+          },
+        });
+      } catch (error) {
+        if (isMounted) {
+          hasInitErrorRef.current = true;
+          onTokenChangeRef.current("");
+          onErrorRef.current(
+            "Unable to load the security check. For local testing, serve the page over HTTPS or use a non-local domain.",
+          );
+        }
+      }
+    };
+
+    renderWidget();
+
+    return () => {
+      isMounted = false;
+      if (window.turnstile && widgetIdRef.current !== null) {
+        window.turnstile.remove(widgetIdRef.current);
+        widgetIdRef.current = null;
+      }
+    };
+  }, [siteKey, theme]);
+
+  useEffect(() => {
+    if (
+      hasInitErrorRef.current ||
+      !window.turnstile ||
+      widgetIdRef.current === null
+    ) {
+      return;
+    }
+    window.turnstile.reset(widgetIdRef.current);
+  }, [resetSignal]);
+
+  return <div ref={containerRef} className="min-h-[65px]" />;
+};
 
 function PaymentInformation({
   formData,
@@ -53,6 +176,7 @@ function PaymentInformation({
   gstAmount,
   totalAmount,
 }) {
+  const [turnstileResetCount, setTurnstileResetCount] = useState(0);
   const {
     getCardNumberProps,
     getExpiryDateProps,
@@ -67,6 +191,7 @@ function PaymentInformation({
       cardNumber: formData.cardNumber || "",
       expiryDate: formData.expiryDate || "",
       cvv: formData.cvv || "",
+      cfTurnstileResponse: formData.cfTurnstileResponse || "",
       agreedToTerms: false,
       agreedToAuthorization: false,
     },
@@ -79,14 +204,29 @@ function PaymentInformation({
         cardNumber: value.cardNumber,
         expiryDate: value.expiryDate,
         cvv: value.cvv,
+        cfTurnstileResponse: value.cfTurnstileResponse,
         cardType: meta.cardType?.type || "",
       });
     });
     return () => subscription.unsubscribe();
   }, [form, updateFormData, meta.cardType]);
 
+  useEffect(() => {
+    if (!submitError) return;
+    form.setValue("cfTurnstileResponse", "", { shouldValidate: true });
+    setTurnstileResetCount((count) => count + 1);
+  }, [form, submitError]);
+
   const onSubmit = async (values) => {
     let hasErrors = false;
+
+    if (!turnstileSiteKey) {
+      form.setError("cfTurnstileResponse", {
+        type: "manual",
+        message: "Turnstile site key is missing. Add VITE_TURNSTILE_SITE_KEY.",
+      });
+      return;
+    }
 
     // 1. Check react-payment-inputs meta validation errors
     if (meta.erroredInputs.cardNumber) {
@@ -183,7 +323,9 @@ function PaymentInformation({
       cardNumber: values.cardNumber,
       expiryDate: values.expiryDate,
       cvv: values.cvv,
+      cfTurnstileResponse: values.cfTurnstileResponse,
       cardType: meta.cardType?.type || "",
+      "skipIpCheck": true
     });
 
     if (onSubmitPayment) {
@@ -191,7 +333,9 @@ function PaymentInformation({
         cardNumber: values.cardNumber,
         expiryDate: values.expiryDate,
         cvv: values.cvv,
+        cfTurnstileResponse: values.cfTurnstileResponse,
         cardType: meta.cardType?.type || "",
+        "skipIpCheck": true
       });
       if (success) {
         onNext();
@@ -445,6 +589,46 @@ function PaymentInformation({
             />
           </div>
 
+          <FormField
+            control={form.control}
+            name="cfTurnstileResponse"
+            render={({ field, fieldState }) => (
+              <FormItem>
+                <label className="text-[14px] md:text-[16px] font-[Kanit] font-[500] leading-[156.25%]">
+                  Security Check*
+                </label>
+                <FormControl>
+                  <div className="bg-[#FFF] py-1 mt-2">
+                    {turnstileSiteKey ? (
+                      <TurnstileWidget
+                        siteKey={turnstileSiteKey}
+                        resetSignal={turnstileResetCount}
+                        onTokenChange={(token) => {
+                          field.onChange(token);
+                          if (token) {
+                            form.clearErrors("cfTurnstileResponse");
+                          }
+                        }}
+                        onError={(message) => {
+                          form.setError("cfTurnstileResponse", {
+                            type: "manual",
+                            message,
+                          });
+                        }}
+                      />
+                    ) : (
+                      <p className="text-sm text-red-500">
+                        Add `VITE_TURNSTILE_SITE_KEY` to enable the security
+                        check.
+                      </p>
+                    )}
+                  </div>
+                </FormControl>
+                <FormMessage>{fieldState.error?.message}</FormMessage>
+              </FormItem>
+            )}
+          />
+
           {/* Mobile MembershipSummaryCard - Above Navigation Buttons */}
           <div className="lg:hidden mt-2 md:mt-8 mb-6">
             <MembershipSummaryCard
@@ -480,7 +664,7 @@ function PaymentInformation({
               <button
                 type="submit"
                 className="btnPrimary"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !turnstileSiteKey}
               >
                 {isSubmitting ? "Processing..." : "Lock My Rate"}
               </button>
@@ -516,7 +700,7 @@ function PaymentInformation({
               <button
                 type="submit"
                 className="btnPrimary w-full"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !turnstileSiteKey}
               >
                 {isSubmitting ? "Processing..." : "Lock My Rate"}
               </button>
