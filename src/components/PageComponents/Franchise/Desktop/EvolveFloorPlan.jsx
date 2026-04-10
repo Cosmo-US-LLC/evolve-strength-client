@@ -92,7 +92,7 @@ const EvolveFloorPlan = ({
       </div>
       {videoSrc && modalOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+          className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/80"
           onClick={() => setModalOpen(false)}
         >
           <div
@@ -102,10 +102,10 @@ const EvolveFloorPlan = ({
             <button
               type="button"
               onClick={() => setModalOpen(false)}
-              className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors"
+              className="absolute top-2 right-2 z-10 text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-1"
               aria-label="Close video"
             >
-              <X className="h-8 w-8" />
+              <X className="h-6 w-6" />
             </button>
             <video
               src={videoSrc}
