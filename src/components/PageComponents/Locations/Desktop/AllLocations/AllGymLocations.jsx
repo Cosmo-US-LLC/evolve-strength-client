@@ -85,18 +85,18 @@ function AllGymLocations() {
       locationUrl: "/locations/edmonton-downtown",
       commonbtn: false,
     },
-    {
-      id: 7,
-      name: "Edmonton South",
-      image: "/assets/all_locations/edmonton_south.webp",
-      address: "4825 89 St NW Edmonton, Alberta, T6E 5K1",
-      phone: "+1 (780) 690-4252",
-      directionsUrl:
-        "https://www.google.com/maps/place/Evolve+Strength+South/@53.4856224,-113.4631501,671m/data=!3m3!1e3!4b1!5s0x53a018c417f73825:0xef1d3e6d01fde5e3!4m6!3m5!1s0x53a018c43ad69c97:0xdc7a5189de54d352!8m2!3d53.4856224!4d-113.4631501!16s%2Fg%2F11b782yhvq?entry=ttu&g_ep=EgoyMDI1MDkwNy4wIKXMDSoASAFQAw%3D%3D",
-      // "https://www.google.com/maps/place/Evolve+Strength+South/@53.4856256,-113.465725,475m[…]1b782yhvq?entry=ttu&g_ep=EgoyMDI1MDkwNy4wIKXMDSoASAFQAw%3D%3D",
-      locationUrl: "/locations/edmonton-south",
-      commonbtn: false,
-    },
+    // {
+    //   id: 7,
+    //   name: "Edmonton South",
+    //   image: "/assets/all_locations/edmonton_south.webp",
+    //   address: "4825 89 St NW Edmonton, Alberta, T6E 5K1",
+    //   phone: "+1 (780) 690-4252",
+    //   directionsUrl:
+    //     "https://www.google.com/maps/place/Evolve+Strength+South/@53.4856224,-113.4631501,671m/data=!3m3!1e3!4b1!5s0x53a018c417f73825:0xef1d3e6d01fde5e3!4m6!3m5!1s0x53a018c43ad69c97:0xdc7a5189de54d352!8m2!3d53.4856224!4d-113.4631501!16s%2Fg%2F11b782yhvq?entry=ttu&g_ep=EgoyMDI1MDkwNy4wIKXMDSoASAFQAw%3D%3D",
+    //   // "https://www.google.com/maps/place/Evolve+Strength+South/@53.4856256,-113.465725,475m[…]1b782yhvq?entry=ttu&g_ep=EgoyMDI1MDkwNy4wIKXMDSoASAFQAw%3D%3D",
+    //   locationUrl: "/locations/edmonton-south",
+    //   commonbtn: false,
+    // },
     {
       id: 8,
       name: "Edmonton North",

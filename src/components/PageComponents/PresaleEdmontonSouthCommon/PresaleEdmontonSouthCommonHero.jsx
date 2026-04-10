@@ -20,7 +20,7 @@ function PresaleEdmontonSouthCommonHero() {
           />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/50" />
+        <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/40" />
         <div className="max-w-[1280px] md:px-8 px-4 md:pb-0 max-md:pb-[24px] mx-auto w-full h-full relative z-2">
           <div className="relative z-2 flex flex-col items-start justify-center md:pt-20 pt-0 h-full">
             <div className="text-[#FFFFFF] text-[12px] md:text-[16px] font-[600] backdrop-blur-[15px] uppercase leading-[24px] mb-4 md:mb-6 bg-[#20202066] md:!font-[70px] !font-[Kanit] border border-[#ADADAD] px-4 py-2 rounded-full">
