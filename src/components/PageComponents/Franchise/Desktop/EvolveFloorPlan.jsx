@@ -108,7 +108,7 @@ const EvolveFloorPlan = ({
 
                       {/* ✅ Overlay FIXED */}
                       <div
-                        className={`absolute inset-0 flex items-center justify-center bg-black/5 rounded transition-opacity duration-300
+                        className={`absolute inset-0 flex items-center justify-center bg-black/0 md:bg-black/10 rounded transition-opacity duration-300
                         ${
                           isMobile
                             ? "opacity-100"
@@ -120,7 +120,7 @@ const EvolveFloorPlan = ({
                             isMobile ? "animate-pulse" : ""
                           }`}
                         >
-                          <Play className="h-8 w-8 text-black fill-black" />
+                          <Play className="h-7 w-7 text-black fill-black" />
                         </div>
                       </div>
                     </button>
