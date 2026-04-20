@@ -76,8 +76,8 @@ const steps = [
   },
   {
     id: 2,
-    title: "Founder Membership",
-    description: "Join as Founder",
+    title: "Your Details",
+    description: "Tell us a bit about yourself",
     icon: UserIcon,
   },
   {
