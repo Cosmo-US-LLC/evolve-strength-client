@@ -6,15 +6,14 @@ import icon2 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_2.sv
 import icon3 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_3.svg";
 import icon4 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_5.svg";
 
+const API_BASE_URL = import.meta.env.VITE_APP_API_URL || "";
+
 function SuccessCertificate({ primaryMember, onBack }) {
   const [isDownloading, setIsDownloading] = useState(false);
   const isAutoSendingRef = useRef(false);
 
   const CERTIFICATE_EMAIL_STORAGE_PREFIX =
     "founderOfferPayment.certificateSent.v1";
-  const certificateApiBase =
-    import.meta.env.VITE_CERT_EMAIL_API_URL || "";
-
   const normalizeEmail = (email) =>
     (email || "").toString().trim().toLowerCase();
 
@@ -222,9 +221,7 @@ function SuccessCertificate({ primaryMember, onBack }) {
       const { dataUri, pdfBlob } = await generateCertificatePdf();
       const filename = buildCertificateFilename(memberName);
       const certificateBlob = pdfBlob || dataUriToBlob(dataUri);
-      const endpoint = certificateApiBase
-        ? `${certificateApiBase.replace(/\/$/, "")}/send-certificate`
-        : "/send-certificate";
+      const endpoint = `${API_BASE_URL}/send-certificate`;
 
       const formData = new FormData();
       formData.append("email", email);

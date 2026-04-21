@@ -647,10 +647,6 @@ function FounderOfferPayment() {
     let isActive = true;
 
     const loadPlans = async () => {
-      if (!baseUrl) {
-        setPlansError("Missing VITE_APP_API_URL for plan lookup.");
-        return;
-      }
       setIsPlansLoading(true);
       setPlansError("");
       try {
@@ -795,11 +791,6 @@ function FounderOfferPayment() {
       };
     }
 
-    if (!baseUrl) {
-      console.error("Missing VITE_APP_API_URL for payment submission.");
-      return false;
-    }
-
     const locationParam = locationPostal ? parseInt(locationPostal, 10) : "";
 
     try {
@@ -838,11 +829,6 @@ function FounderOfferPayment() {
   };
 
   const createPerson = async (primaryMember) => {
-    if (!baseUrl) {
-      console.error("Missing VITE_APP_API_URL for person creation.");
-      return { success: false, apiMessage: "" };
-    }
-
     const payload = {
       club_id: locationPostal,
       first_name: primaryMember?.firstName || "",
