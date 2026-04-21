@@ -1228,7 +1228,7 @@ function FounderOfferPayment() {
                     />
                   </div>
                 )}
-                <div className="pb-8">{renderStep()}</div>
+                <div className="pb-0">{renderStep()}</div>
               </div>
 
               {currentStep !== 3 && (
