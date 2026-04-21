@@ -637,11 +637,38 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                         <FormControl>
                           <Button
                             variant="outline"
-                            className={`w-full justify-start text-left  min-h-[50px] text-[16px] font-["Vazirmatn"] font-[400] px-4 py-3 placeholder:text-sm placeholder:text-black border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none ${!field.value && "text-[#8A8A8A]"}`}
+                            className={`relative w-full justify-start text-left  min-h-[50px] text-[16px] font-["Vazirmatn"] font-[400] px-4 py-3 placeholder:text-sm placeholder:text-black border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none ${!field.value && "text-[#8A8A8A]"}`}
                           >
                             {field.value
                               ? format(field.value, "d MMM, yyyy")
                               : "DOB"}
+                            {!field.value && (
+                              <div className="absolute right-4 top-[50%] -translate-y-1/2">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="28"
+                                  height="28"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                >
+                                  <path
+                                    stroke="none"
+                                    d="M0 0h24v24H0z"
+                                    fill="none"
+                                  />
+                                  <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12" />
+                                  <path d="M16 3v4" />
+                                  <path d="M8 3v4" />
+                                  <path d="M4 11h16" />
+                                  <path d="M11 15h1" />
+                                  <path d="M12 15v3" />
+                                </svg>
+                              </div>
+                            )}
                           </Button>
                         </FormControl>
                       </PopoverTrigger>
