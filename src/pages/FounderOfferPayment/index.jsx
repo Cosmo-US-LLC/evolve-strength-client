@@ -2,14 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import FormsHeader from "@/components/ui/FormsHeader";
 import ProgressTracker from "@/components/FounderOfferPayment/ProgressTracker";
-import LocationCard from "@/components/FounderOfferPayment/LocationCard";
-import BenefitsCard from "@/components/FounderOfferPayment/BenefitsCard";
 import MembershipSummaryCard from "@/components/FounderOfferPayment/MembershipSummaryCard";
 import PrimaryMemberDetails from "@/components/FounderOfferPayment/steps/PrimaryMemberDetails";
 import PaymentInformation from "@/components/FounderOfferPayment/steps/PaymentInformation";
 import SuccessCertificate from "@/components/FounderOfferPayment/steps/SuccessCertificate";
-import PlanType from "@/components/FounderOfferPayment/steps/PlanType";
 import MetaTags from "@/components/Metatags/Meta";
+import YourPlan from "@/components/FounderOfferPayment/steps-v2/YourPlan";
+import PlanSelect from "@/components/FounderOfferPayment/steps-v2/PlanSelect";
+import AdditionalServices from "@/components/FounderOfferPayment/steps-v2/AdditionalServices";
+import FounderBenefits from "@/components/FounderOfferPayment/steps-v2/FounderBenefits";
 
 // Step to URL parameter mapping
 const stepToParam = {
@@ -335,6 +336,16 @@ const hasPrimaryMemberData = (primaryMember) =>
     return Boolean(value);
   });
 
+const LOCATION_NAME = "South Edmonton Common";
+const BI_WEEKLY_LABEL = "Bi-weekly";
+
+const formatCurrency = (value) => `$${parseCurrencyAmount(value).toFixed(2)}`;
+
+const getBaseSchedule = (planDetails) =>
+  planDetails?.schedules?.find((schedule) => schedule?.addon !== true) ||
+  planDetails?.schedules?.[0] ||
+  null;
+
 function FounderOfferPayment() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -423,12 +434,7 @@ function FounderOfferPayment() {
   const selectedAddonProfitCenters =
     selectedAddonProfitCentersByPlan?.[currentPlan] || [];
 
-  const baseSchedule =
-    selectedPlanDetails?.schedules?.find(
-      (schedule) => schedule?.addon !== true,
-    ) ||
-    selectedPlanDetails?.schedules?.[0] ||
-    null;
+  const baseSchedule = getBaseSchedule(selectedPlanDetails);
   const basePlanFeeAmount = parseCurrencyAmount(
     baseSchedule?.schedulePreTaxAmount ||
       selectedPlanDetails?.schedulePreTaxAmount ||
@@ -440,7 +446,10 @@ function FounderOfferPayment() {
       baseSchedule?.schedulePreTaxAmount ||
       0,
   );
-  const basePlanGstAmount = Math.max(basePlanTotalAmount - basePlanFeeAmount, 0);
+  const basePlanGstAmount = Math.max(
+    basePlanTotalAmount - basePlanFeeAmount,
+    0,
+  );
 
   const selectedAddonsFeeAmount = planAddons.reduce((sum, addon) => {
     if (!selectedAddonProfitCenters.includes(addon?.profitCenter)) return sum;
@@ -469,7 +478,43 @@ function FounderOfferPayment() {
   const gstAmount = basePlanGstAmount + selectedAddonsGstAmount;
   const totalAmount = feeAmount + gstAmount;
   const selectedPlanAmount = totalAmount.toFixed(2);
-  const selectedPlanBaseAmount = basePlanFeeAmount.toFixed(2);
+  const dueTodayAmount = formatCurrency(
+    selectedPlanDetails?.downPaymentTotalAmount || 0,
+  );
+  const planCards = [
+    {
+      value: PLAN_TYPE_YEARLY,
+      label: "1 Year Contract",
+      price: formatCurrency(
+        getBaseSchedule(planDetailsByType[PLAN_TYPE_YEARLY])
+          ?.schedulePreTaxAmount ||
+          planDetailsByType[PLAN_TYPE_YEARLY]?.schedulePreTaxAmount ||
+          0,
+      ),
+      taxLabel: "+ tax",
+      billingLabel: BI_WEEKLY_LABEL,
+    },
+    {
+      value: PLAN_TYPE_MONTHLY,
+      label: "Month to Month",
+      price: formatCurrency(
+        getBaseSchedule(planDetailsByType[PLAN_TYPE_MONTHLY])
+          ?.schedulePreTaxAmount ||
+          planDetailsByType[PLAN_TYPE_MONTHLY]?.schedulePreTaxAmount ||
+          0,
+      ),
+      taxLabel: "+ tax",
+      billingLabel: BI_WEEKLY_LABEL,
+    },
+  ];
+  const addonCards = planAddons.map((addon) => ({
+    profitCenter: addon?.profitCenter || "",
+    name:
+      addon?.scheduleDescription || addon?.profitCenter || "Additional Service",
+    priceLabel: `Recurring ${formatCurrency(
+      addon?.schedulePreTaxAmount || addon?.scheduleAmount || 0,
+    )} ${BI_WEEKLY_LABEL}`,
+  }));
 
   const syncUrlState = (
     stepIndex,
@@ -1002,19 +1047,69 @@ function FounderOfferPayment() {
     switch (currentStep) {
       case 0:
         return (
-          <PlanType
-            onNext={handleNext}
-            onBack={handleBack}
-            currentPlan={currentPlan}
-            onPlanChange={handlePlanChange}
-            selectedPlanDetails={selectedPlanDetails}
-            isPlansLoading={isPlansLoading}
-            plansError={plansError}
-            planAddons={planAddons}
-            selectedServices={selectedAddonProfitCenters}
-            onToggleService={handleAddonToggle}
-            paymentAmount={selectedPlanBaseAmount}
-          />
+          <div className="flex min-h-full flex-col">
+            {/* Legacy rollback path:
+            <PlanType
+              onNext={handleNext}
+              onBack={handleBack}
+              currentPlan={currentPlan}
+              onPlanChange={handlePlanChange}
+              selectedPlanDetails={selectedPlanDetails}
+              isPlansLoading={isPlansLoading}
+              plansError={plansError}
+              planAddons={planAddons}
+              selectedServices={selectedAddonProfitCenters}
+              onToggleService={handleAddonToggle}
+              paymentAmount={basePlanFeeAmount.toFixed(2)}
+            />
+            */}
+            <div className="space-y-4 lg:hidden">
+              <YourPlan
+                locationName={LOCATION_NAME}
+                dueToday={dueTodayAmount}
+              />
+              <PlanSelect
+                plans={planCards}
+                currentPlan={currentPlan}
+                onPlanChange={handlePlanChange}
+                isLoading={isPlansLoading}
+                error={plansError}
+              />
+              <AdditionalServices
+                addons={addonCards}
+                selectedServices={selectedAddonProfitCenters}
+                onToggleService={handleAddonToggle}
+                isLoading={isPlansLoading}
+              />
+              <FounderBenefits />
+            </div>
+
+            <div className="hidden lg:block">
+              <YourPlan
+                locationName={LOCATION_NAME}
+                dueToday={dueTodayAmount}
+              />
+            </div>
+
+            <div className="pt-[40vh] flex flex-col-reverse gap-3 lg:mt-auto lg:flex-row lg:items-center lg:justify-between">
+              <button
+                type="button"
+                onClick={handleBack}
+                className="flex items-center justify-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black underline hover:cursor-pointer lg:justify-start"
+              >
+                <span aria-hidden="true">←</span>
+                Back
+              </button>
+              <button
+                type="button"
+                onClick={handleNext}
+                className="btnPrimary w-full lg:w-auto"
+                disabled={isPlansLoading || !selectedPlanDetails}
+              >
+                Next
+              </button>
+            </div>
+          </div>
         );
       case 1:
         return (
@@ -1050,108 +1145,116 @@ function FounderOfferPayment() {
     }
   };
 
+  const renderDesktopSidebar = () => {
+    if (currentStep === 0) {
+      return (
+        <div className="space-y-3">
+          <PlanSelect
+            plans={planCards}
+            currentPlan={currentPlan}
+            onPlanChange={handlePlanChange}
+            isLoading={isPlansLoading}
+            error={plansError}
+          />
+          <AdditionalServices
+            addons={addonCards}
+            selectedServices={selectedAddonProfitCenters}
+            onToggleService={handleAddonToggle}
+            isLoading={isPlansLoading}
+          />
+          <FounderBenefits />
+        </div>
+      );
+    }
+
+    if (currentStep === 1) {
+      return (
+        <YourPlan locationName={LOCATION_NAME} dueToday={dueTodayAmount} />
+      );
+    }
+
+    if (currentStep === 2) {
+      return (
+        <MembershipSummaryCard
+          paymentAmount={selectedPlanAmount}
+          feeAmount={feeAmount}
+          planFeeAmount={planFeeAmount}
+          addonLabel={towelAddonFeeAmount > 0 ? "Add-ons" : ""}
+          untaxedAddonFeeAmount={towelAddonFeeAmount}
+          gstAmount={gstAmount}
+          totalAmount={totalAmount}
+        />
+      );
+    }
+
+    return null;
+  };
+
   return (
     <>
-     <MetaTags
+      <MetaTags
         title="Founder Membership"
         description="Join as a Founder Member at Evolve Strength and lock in exclusive presale pricing before we open."
       />
-    
-    <div
-      className={`h-screen bg-white flex flex-col ${isSuccessModalOpen && "overflow-hidden"}`}
-    >
-      <FormsHeader />
-      <div className="flex-1 pt-14 md:pt-16  pb-8">
-        {/* <div ref={containerRef} className="max-w-[1280px] h-full mx-auto px-0 md:px-8 py-0 md:py-8 flex flex-col"> */}
-        <div
-          ref={containerRef}
-          className="max-w-[1440px] h-full mx-auto px-0 md:px-8 py-0 md:pt-8 flex flex-col"
-        >
-          {/* Mobile Progress Tracker - Top */}
-          {currentStep !== 3 && (
-            <div className="lg:hidden mb-6 pb-0 max-md:px-0 md:border-b md:border-[#d4d4d4] flex-shrink-0">
-              <ProgressTracker currentStep={currentStep} />
-            </div>
-          )}
 
-          {/* Mobile LocationCard - Below ProgressTracker */}
-          {currentStep !== 2 && currentStep !== 3 && (
-            <div className="lg:hidden mb-6 max-md:px-4 flex-shrink-0">
-              <LocationCard />
-            </div>
-          )}
-
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-start flex-1 min-h-0 ">
-            {/* Left Sidebar - Progress Tracker (Desktop) */}
+      <div
+        className={`h-screen bg-white flex flex-col ${isSuccessModalOpen && "overflow-hidden"}`}
+      >
+        <FormsHeader />
+        <div className="flex-1 pb-8 pt-14 md:pt-16">
+          <div
+            ref={containerRef}
+            className="mx-auto flex h-full max-w-[1440px] flex-col px-0 py-0 md:px-8 md:pt-8"
+          >
             {currentStep !== 3 && (
-              <div className="hidden lg:block w-64 xl:w-[280px] 2xl:w-[300px] flex-shrink-0">
+              <div className="mb-4 flex-shrink-0 pb-0 max-md:px-0 md:mb-6 md:border-b md:border-[#d4d4d4] lg:hidden">
                 <ProgressTracker currentStep={currentStep} />
               </div>
             )}
 
-            {/* Main Content - Scrollable */}
-            <div className="flex-1 min-w-0 w-full md:w-[620px] lg:h-full lg:pr-2 max-md:px-4">
-              <div className="pb-8">{renderStep()}</div>
-            </div>
-
-            {/* Right Sidebar - Location & Benefits or Membership Summary */}
-            {currentStep !== 3 && (
-              <>
-                {/* Desktop Sidebar */}
-                <div className="hidden xl:block w-64 xl:w-[300px] 2xl:w-[300px] flex-shrink-0 max-md:px-4">
-                  {currentStep === 2 ? (
-                    <MembershipSummaryCard
-                      primaryMember={formData.primaryMember}
-                      paymentAmount={selectedPlanAmount}
-                      feeAmount={feeAmount}
-                      planFeeAmount={planFeeAmount}
-                      addonLabel={towelAddonFeeAmount > 0 ? "Add-ons" : ""}
-                      untaxedAddonFeeAmount={towelAddonFeeAmount}
-                      gstAmount={gstAmount}
-                      totalAmount={totalAmount}
-                    />
-                  ) : (
-                    <div className="flex flex-col gap-4">
-                      <LocationCard
-                        dueToday={
-                          selectedPlanDetails?.downPaymentTotalAmount ||
-                          "$--.--"
-                        }
-                      />
-                      <BenefitsCard />
-                    </div>
-                  )}
+            <div className="flex min-h-0 flex-1 flex-col items-start gap-4 lg:flex-row lg:gap-8">
+              {currentStep !== 3 && (
+                <div className="hidden w-64 flex-shrink-0 lg:block xl:w-[280px] 2xl:w-[300px]">
+                  <ProgressTracker currentStep={currentStep} />
                 </div>
+              )}
 
-                {/* Mobile Sidebar - Below Content */}
-                {/* <div className="xl:hidden w-full lg:hidden mt-4">
-                  {currentStep === 2 && (
-                    <MembershipSummaryCard
-                      primaryMember={formData.primaryMember}
+              <div className="w-full min-w-0 flex-1 px-4 md:px-0 lg:pr-2">
+                {currentStep === 1 && (
+                  <div className="mb-4 lg:hidden">
+                    <YourPlan
+                      locationName={LOCATION_NAME}
+                      dueToday={dueTodayAmount}
                     />
-                  )}
-                </div> */}
-              </>
-            )}
+                  </div>
+                )}
+                <div className="pb-8">{renderStep()}</div>
+              </div>
+
+              {currentStep !== 3 && (
+                <div className="hidden w-[300px] flex-shrink-0 lg:block">
+                  {renderDesktopSidebar()}
+                </div>
+              )}
+            </div>
           </div>
         </div>
+        {isSuccessModalOpen && (
+          <div className="fixed top-0 left-0 z-[900] w-screen h-screen flex items-center justify-center bg-black/80 px-4 py-8">
+            <div className="w-full max-w-[904px]">
+              <SuccessCertificate
+                primaryMember={completedMember || formData.primaryMember}
+                onBack={() => {
+                  clearStoredSuccess();
+                  setSuccessRecord(null);
+                  setIsSuccessModalOpen(false);
+                  navigate("/presale-edmonton-south-common");
+                }}
+              />
+            </div>
+          </div>
+        )}
       </div>
-      {isSuccessModalOpen && (
-        <div className="fixed top-0 left-0 z-[900] w-screen h-screen flex items-center justify-center bg-black/80 px-4 py-8">
-          <div className="w-full max-w-[904px]">
-            <SuccessCertificate
-              primaryMember={completedMember || formData.primaryMember}
-              onBack={() => {
-                clearStoredSuccess();
-                setSuccessRecord(null);
-                setIsSuccessModalOpen(false);
-                navigate("/presale-edmonton-south-common");
-              }}
-            />
-          </div>
-        </div>
-      )}
-    </div>
     </>
   );
 }

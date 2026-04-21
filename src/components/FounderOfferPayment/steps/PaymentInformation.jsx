@@ -14,7 +14,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import MembershipSummaryCard from "@/components/FounderOfferPayment/MembershipSummaryCard";
 import {
   validateCardNumber,
   validateExpiryDate,
@@ -347,24 +346,34 @@ function PaymentInformation({
   };
 
   return (
-    <div className="w-full max-w-[640px] mx-auto">
+    <div className="w-full max-w-[720px]">
       {/* Mobile back (top, non-sticky) */}
       <button
         type="button"
         onClick={onBack}
-        className="md:hidden mb-4 py-2 flex gap-1.5 underline items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
+        className="mb-4 flex gap-1.5 py-2 font-['Kanit'] text-[16px] font-light uppercase text-black underline hover:cursor-pointer md:hidden"
       >
         <ArrowLeft className="size-4" />
         Back
       </button>
 
-      <div className="flex flex-col gap-1 items-start mb-6">
-        <h2 className="font-['Kanit'] !font-medium text-[#000] !text-[20px] capitalize !leading-[20px]">
+      <div
+        role="note"
+        className="mb-5 flex flex-row gap-3 rounded-[12px] border border-[#4ab04a]/25 bg-[#F4FFF6] px-3 py-3 sm:items-center md:mb-6 md:px-4"
+      >
+        <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-[#4ab04a]/10">
+          <Info className="size-4 text-[#2E7D32]" />
+        </div>
+        <p className="font-['Kanit'] text-[13px] font-light leading-[18px] text-black/70 md:text-[15px] md:leading-[20px]">
+          You won&apos;t be billed until we officially open in{" "}
+          <span className="font-medium text-black/80">May</span>.
+        </p>
+      </div>
+
+      <div className="mb-6 flex flex-col gap-1 items-start md:mb-8">
+        <h2 className="font-['Kanit'] !text-[20px] !font-[600] !leading-[28px] text-[#000] md:!text-[24px]">
           Enter your Payment Details
         </h2>
-        {/* <p className="font-['Kanit'] font-light text-[#393939] text-[14px] leading-[22px]">
-          Provide billing details to complete your founder membership
-        </p> */}
       </div>
 
       <Form {...form}>
@@ -422,13 +431,48 @@ function PaymentInformation({
           </div>
 
           {/* Expiry Date & CVV */}
-          <div className="flex gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div className="w-full">
               <label
                 className="text-[14px] md:text-[16px] font-[Kanit] font-[500] leading-[156.25%]"
-                htmlFor="Expiry Date*"
+                htmlFor=""
               >
-                Expiry Date*
+                CVV*
+              </label>
+              <FormField
+                control={form.control}
+                name="cvv"
+                render={({ field, fieldState }) => (
+                  <FormItem className="flex-1">
+                    <FormControl>
+                      <Input
+                        {...getCVCProps({
+                          onChange: field.onChange,
+                          onBlur: field.onBlur,
+                          value: field.value,
+                        })}
+                        placeholder="CVV"
+                        className={`${
+                          fieldState.error
+                            ? "border-red-500 mt-2"
+                            : "border-[#d4d4d4] mt-2"
+                        } text-black! text-base!`}
+                      />
+                    </FormControl>
+                    <FormMessage>
+                      {fieldState.error?.message ||
+                        (meta.touchedInputs.cvc && meta.erroredInputs.cvc)}
+                    </FormMessage>
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="w-full">
+              <label
+                className="text-[14px] md:text-[16px] font-[Kanit] font-[500] leading-[156.25%]"
+                htmlFor=""
+              >
+                Expiration Date*
               </label>
               <FormField
                 control={form.control}
@@ -454,41 +498,6 @@ function PaymentInformation({
                       {fieldState.error?.message ||
                         (meta.touchedInputs.expiryDate &&
                           meta.erroredInputs.expiryDate)}
-                    </FormMessage>
-                  </FormItem>
-                )}
-              />
-            </div>
-            <div className="w-full">
-              <label
-                className="text-[14px] md:text-[16px] font-[Kanit] font-[500] leading-[156.25%]"
-                htmlFor=""
-              >
-                CVV*
-              </label>
-              <FormField
-                control={form.control}
-                name="cvv"
-                render={({ field, fieldState }) => (
-                  <FormItem className="flex-1">
-                    <FormControl>
-                      <Input
-                        {...getCVCProps({
-                          onChange: field.onChange,
-                          onBlur: field.onBlur,
-                          value: field.value,
-                        })}
-                        placeholder="CVC"
-                        className={`${
-                          fieldState.error
-                            ? "border-red-500 mt-2"
-                            : "border-[#d4d4d4] mt-2"
-                        } text-black! text-base!`}
-                      />
-                    </FormControl>
-                    <FormMessage>
-                      {fieldState.error?.message ||
-                        (meta.touchedInputs.cvc && meta.erroredInputs.cvc)}
                     </FormMessage>
                   </FormItem>
                 )}
@@ -629,32 +638,17 @@ function PaymentInformation({
             )}
           />
 
-          {/* Mobile MembershipSummaryCard - Above Navigation Buttons */}
-          <div className="lg:hidden mt-2 md:mt-8 mb-6">
-            <MembershipSummaryCard
-              primaryMember={primaryMember}
-              paymentAmount={paymentAmount}
-              feeAmount={feeAmount}
-              planFeeAmount={planFeeAmount}
-              addonLabel={addonLabel}
-              untaxedAddonFeeAmount={untaxedAddonFeeAmount}
-              gstAmount={gstAmount}
-              totalAmount={totalAmount}
-            />
-          </div>
-
           {/* Navigation Buttons */}
-          <div className="flex items-center gap-4 justify-between mt-0 md:mt-8">
+          <div className="mt-4 flex flex-col gap-3 md:mt-8 md:flex-row md:items-end md:justify-between">
             <button
               type="button"
               onClick={onBack}
-              className="hidden md:flex gap-1.5 underline items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
+              className="hidden items-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black underline hover:cursor-pointer md:flex"
             >
               <ArrowLeft className="size-4" />
               Back
             </button>
-            {/* Desktop/tablet CTA (non-sticky) */}
-            <div className="hidden md:flex flex-col items-end gap-2 w-full md:w-auto">
+            <div className="flex w-full flex-col items-end gap-2 md:w-auto">
               {submitError && (
                 <p className="text-[12px] md:text-[13px] text-red-600">
                   {submitError}
@@ -663,48 +657,20 @@ function PaymentInformation({
 
               <button
                 type="submit"
-                className="btnPrimary"
+                className="btnPrimary w-full md:w-auto"
                 disabled={isSubmitting || !turnstileSiteKey}
               >
-                {isSubmitting ? "Processing..." : "Lock My Rate"}
-              </button>
-              {/* <p className="font-['Kanit'] text-[13px] md:text-[13px] font-light leading-[18px] md:leading-[20px] text-black/60">
-                No Deduction from your card will occur until Gym Launch.
-              </p> */}
-            </div>
-          </div>
-          {/* Informational note shown before checkout */}
-          <div
-            role="note"
-            className="w-full rounded-[12px] mb-4 -mt-8 md:mt-0 md:mb-0 border border-[#4ab04a]/25 bg-[#F4FFF6] px-3 md:px-4 py-3 flex flex-row gap-3 sm:items-center"
-          >
-            <div className="flex-shrink-0 flex h-9 w-9 items-center justify-center rounded-full bg-[#4ab04a]/10">
-              <Info className="size-4 text-[#2E7D32]" />
-            </div>
-
-            <p className="font-['Kanit'] text-[13px] md:text-[15px] font-light leading-[18px] md:leading-[20px] text-black/60">
-              No Deduction from your card will occur until{" "}
-              <span className="font-medium text-black/75">Gym Launch</span>.
-            </p>
-          </div>
-
-          {/* Mobile sticky CTA */}
-          {/* <div className="md:hidden h-[84px]" aria-hidden="true" /> */}
-          <div className="md:hidden fixed bottom-0 left-0 right-0 z-50">
-            <div className="mx-auto max-w-[640px] px-4 pb-[max(16px,env(safe-area-inset-bottom))] pt-3 bg-white/95 backdrop-blur border-t border-black/10">
-              {submitError && (
-                <p className="mb-2 text-[12px] text-red-600 text-right">
-                  {submitError}
-                </p>
-              )}
-              <button
-                type="submit"
-                className="btnPrimary w-full"
-                disabled={isSubmitting || !turnstileSiteKey}
-              >
-                {isSubmitting ? "Processing..." : "Lock My Rate"}
+                {isSubmitting ? "Processing..." : "Lock My Rate For $0"}
               </button>
             </div>
+            <button
+              type="button"
+              onClick={onBack}
+              className="flex items-center justify-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black underline hover:cursor-pointer md:hidden"
+            >
+              <ArrowLeft className="size-4" />
+              Back
+            </button>
           </div>
         </form>
       </Form>

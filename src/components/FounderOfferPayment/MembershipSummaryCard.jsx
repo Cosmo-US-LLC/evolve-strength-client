@@ -37,136 +37,84 @@ function MembershipSummaryCard({
       : fallbackTotal;
 
   return (
-    <div className="bg-[#fcfcfc] border border-[#d4d4d4] rounded-[14px] px-4 py-4 flex flex-col gap-4">
-      {/* Header Section */}
+    <div className="flex flex-col gap-6 rounded-[24px] border border-[#D4D4D4] bg-[#FCFCFC] px-6 py-4 md:px-8 md:py-7">
       <div className="flex flex-col gap-4">
-        <div className="flex flex-col gap-1">
-          <span className="bg-[#4ab04a] rounded-[8px] px-2.5 py-1 w-fit">
-            <p className="font-['Kanit'] font-medium text-white text-[10px] leading-[16px]">
-              Founder Rate
-            </p>
-          </span>
-          <p className="font-['Kanit'] font-bold text-[#0a0a0a] md:text-[18px] !text-[20px] leading-[normal]">
+        <span className="w-fit rounded-[14px] bg-[#67B357] px-4 py-2 font-['Kanit'] text-[10px] font-semibold leading-none text-white">
+          Founder Rate
+        </span>
+
+        <div className="flex flex-col gap-3">
+          <h3 className="font-['Kanit'] text-lg font-bold leading-[1.1] text-[#0A0A0A] md:text-xl">
             Founder Membership
+          </h3>
+          <p className="font-['Kanit'] text-xl leading-none text-[#67B357] md:text-[28px]">
+            Due today: <span className="font-bold">$0.00</span>
           </p>
         </div>
-        <div className="flex items-end gap-1">
-          <p className="font-['Kanit'] text-[#4ab04a] text-[24px] leading-[24px]">
-            Due Today:
-            <span className="font-bold"> $0.00</span>
-          </p>
-          {/* <p className="font-['Kanit'] font-normal text-[#4a5565] text-[14px] leading-[20px]">
-            / bi-weekly
-            </p> */}
-        </div>
-        <p className="font-['Kanit'] text-[#0A0A0A] text-sm">
-          <span className="text-[#4A5565]">Refundable Deposit</span>
-        </p>
-        <div className="space-y-1 font-['Kanit']">
-          <div className="flex justify-between items-center">
-            <span className="text-[#4A5565] font-light text-xs">Fee</span>
-            <span className="text-[#0A0A0A] text-sm">
+      </div>
+
+      <div className="rounded-[18px] border border-[#E9E9E9] bg-[#FAFAFA] px-5 py-5">
+        <div className="space-y-4 font-['Kanit']">
+          <div className="flex items-center justify-between gap-4">
+            <span className="text-[18px] font-medium text-[#0A0A0A]">Fee</span>
+            <span className="text-[18px] font-light text-[#0A0A0A]">
               {formatCurrency(normalizedPlanFeeAmount)}
             </span>
           </div>
           {showUntaxedAddonRow && (
-            <div className="flex justify-between items-center">
-              <span className="text-[#4A5565] font-light text-xs">
+            <div className="flex items-center justify-between gap-4">
+              <span className="text-[18px] font-medium text-[#0A0A0A]">
                 {addonLabel}
               </span>
-              <span className="text-[#0A0A0A] text-sm">
+              <span className="text-[18px] font-light text-[#0A0A0A]">
                 {formatCurrency(normalizedUntaxedAddonFeeAmount)}
               </span>
             </div>
           )}
-          <div className="flex justify-between items-center">
-            <span className="text-[#4A5565] font-light text-xs">GST</span>
-            <span className="text-[#0A0A0A] text-sm">
+          <div className="flex items-center justify-between gap-4">
+            <span className="text-[18px] font-medium text-[#0A0A0A]">GST</span>
+            <span className="text-[18px] font-light text-[#0A0A0A]">
               {formatCurrency(normalizedGstAmount)}
             </span>
           </div>
-          <div className="flex justify-between items-center text-md font-[kanit] font-medium text-[#4AB04A]">
-            <span>Total</span>
-            <span>{formatCurrency(normalizedTotalAmount)}</span>
+          <div className="border-t border-[#D9D9D9] pt-5">
+            <div className="flex items-center justify-between gap-4 font-['Kanit']">
+              <span className="text-base font-semibold text-[#67B357]">
+                Total
+              </span>
+              <span className="text-base font-semibold text-[#67B357]">
+                {formatCurrency(normalizedTotalAmount)}
+              </span>
+            </div>
           </div>
-          <span className="float-right text-xs text-[#4A5565]">
-            (Billed Biweekly)
-          </span>
         </div>
       </div>
 
-      {/* Details Section */}
-      <div className="flex flex-col gap-3 border-t border-[#d4d4d4] pt-4">
-        {/* 2 Years Locked */}
-        <div className="flex gap-2 items-start">
-          <Calendar className="size-5 text-[#6A7282] flex-shrink-0 mt-0.5" />
-          <div className="flex flex-col leading-[20px]">
-            <p className="font-['Kanit'] font-medium text-[#0a0a0a] text-[14px]">
-              Rate Locked
+      <div className="flex flex-col gap-5">
+        <div className="flex items-start gap-3">
+          <Calendar className="mt-0.5 size-6 flex-shrink-0 text-[#7D8593]" />
+          <div className="flex flex-col">
+            <p className="font-['Kanit'] text-[18px] font-semibold leading-[1.1] text-[#0A0A0A]">
+              Rate Lock
             </p>
-            <p className="font-['Kanit'] font-light text-[#4a5565] text-[12px]">
-              Rate locked for life while membership is active
+            <p className="mt-1 font-['Kanit'] text-[16px] font-light leading-[1.25] text-[#6A7282]">
+              Rate locked for life
             </p>
           </div>
         </div>
 
-        {/* Location */}
-        <div className="flex gap-2 items-start">
-          <MapPin className="size-5 text-[#6A7282] flex-shrink-0 mt-0.5" />
-          <div className="flex flex-col leading-[20px]">
-            <p className="font-['Kanit'] font-medium text-[#0a0a0a] text-[14px]">
+        <div className="flex items-start gap-3">
+          <MapPin className="mt-0.5 size-6 flex-shrink-0 text-[#7D8593]" />
+          <div className="flex flex-col">
+            <p className="font-['Kanit'] text-[18px] font-semibold leading-[1.1] text-[#0A0A0A]">
               Location
             </p>
-            <p className="font-['Kanit'] font-light text-[#4a5565] text-[12px]">
+            <p className="mt-1 font-['Kanit'] text-[16px] font-light leading-[1.25] text-[#6A7282]">
               South Edmonton Common
             </p>
           </div>
         </div>
-
-        <div className="text-[#000] text-[14px] font-['Vazirmatn'] italic font-normal border-t border-[#d4d4d4] pt-4">
-          If you are under 18, you cannot join online, your membership must be
-          completed in person.
-        </div>
-        <div className="text-[#000] text-[14px] font-['Vazirmatn'] italic font-normal ">
-          To be eligible to purchase a presale membership, the purchaser must be
-          a current resident of Edmonton, Alberta. Proof of residency may be
-          required at the discretion of Evolve Strength.
-        </div>
-        <div className="text-[#000] text-[14px] font-['Vazirmatn'] italic font-bold">
-          All presale offers are exclusively available to new Evolve Strength
-          members and are not available to current members. Evolve Strength
-          reserves the right to cancel any presale membership that does not meet
-          eligibility requirements.
-        </div>
-
-        {/* Members */}
-        {/* <div className="flex gap-2 items-start">
-          <Users className="size-5 text-[#4ab04a] flex-shrink-0 mt-0.5" />
-          <div className="flex flex-col leading-[20px]">
-            <p className="font-['Kanit'] font-medium text-[#0a0a0a] text-[14px]">
-              Members
-            </p>
-            <p className="font-['Kanit'] font-light text-[#4a5565] text-[12px]">
-              {totalMembers} {totalMembers === 1 ? "member" : "members"}
-            </p>
-          </div>
-        </div> */}
       </div>
-
-      {/* Divider */}
-      {/* <div className="h-px bg-[#d4d4d4] w-full" /> */}
-
-      {/* Members List */}
-      {/* <div className="flex flex-col gap-3">
-        <div className="flex flex-col leading-[20px]">
-          <p className="font-['Kanit'] font-medium text-[#0a0a0a] text-[14px]">
-            Primary Member
-          </p>
-          <p className="font-['Kanit'] font-light text-[#4a5565] text-[12px]">
-            {primaryMemberName}
-          </p>
-        </div>
-      </div> */}
     </div>
   );
 }

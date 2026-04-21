@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { ArrowLeft, ChevronDown } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { ArrowLeft } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,7 +18,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Input } from "@/components/ui/input";
-import BenefitsCard from "@/components/FounderOfferPayment/BenefitsCard";
 import { format, subYears } from "date-fns";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -171,7 +170,6 @@ const formSchema = z.object({
 });
 
 function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
-  const [showGenderDropdown, setShowGenderDropdown] = useState(false);
   // const [isIOSDevice, setIsIOSDevice] = useState(false);
   const [
     autocompleteInitializedForAddress,
@@ -181,7 +179,6 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
     autocompleteInitializedForPostal,
     setAutocompleteInitializedForPostal,
   ] = useState(false);
-  const dropdownRef = useRef(null);
   const addressRef = useRef(null);
   const postalCodeRef = useRef(null);
 
@@ -221,22 +218,6 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
     });
     return () => subscription.unsubscribe();
   }, [form, updateFormData]);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setShowGenderDropdown(false);
-      }
-    };
-
-    if (showGenderDropdown) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [showGenderDropdown]);
 
   // Address Autocomplete Handler
   const handleAddressFocus = async () => {
@@ -436,33 +417,30 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
   // const dobLimits = getDobLimits();
 
   return (
-    <div className="w-full max-w-[640px] mx-auto">
+    <div className="w-full max-w-[720px]">
       {/* Mobile back (top, non-sticky) */}
       <button
         type="button"
         onClick={onBack}
-        className="md:hidden mb-4 py-2 flex gap-1.5 underline items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
+        className="mb-4 flex gap-1.5 py-2 font-['Kanit'] text-[16px] font-light uppercase text-black underline hover:cursor-pointer md:hidden"
       >
         <ArrowLeft className="size-4" />
         Back
       </button>
 
-      <div className="flex flex-col gap-1 mb-6">
-        <h2 className="!font-[Kanit] !font-[500] text-[#000] !text-[20px] capitalize !leading-[28px]">
-          Tell us about the primary member
+      <div className="mb-6 flex flex-col gap-1 md:mb-8">
+        <h2 className="!font-[Kanit] !text-[20px] !font-[600] !leading-[28px] text-[#000] md:!text-[24px]">
+          Enter Your Details
         </h2>
-        <p className="font-['Kanit'] font-light text-[#393939] text-[14px] leading-[22px]">
-          We'll use this information to set up your founder membership
-        </p>
       </div>
 
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex flex-col gap-3"
+          className="flex flex-col gap-3 md:gap-5"
         >
           {/* First Name & Last Name */}
-          <div className="flex gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <FormField
               control={form.control}
               name="firstName"
@@ -506,7 +484,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
           </div>
 
           {/* Email & Phone */}
-          <div className="flex gap-3">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <FormField
               control={form.control}
               name="email"
@@ -602,7 +580,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
           />
 
           {/* City & Postal Code */}
-          <div className="flex gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <FormField
               control={form.control}
               name="city"
@@ -647,7 +625,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
           </div>
 
           {/* DOB & Gender */}
-          <div className="flex gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <FormField
               control={form.control}
               name="dob"
@@ -795,34 +773,27 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
             /> */}
           </div>
 
-          {/* Mobile BenefitsCard - Above Navigation Buttons */}
-          <div className="lg:hidden mt-8 mb-6">
-            <BenefitsCard />
-          </div>
-
           {/* Navigation Buttons */}
-          <div className="flex items-center justify-between gap-4 mt-0 md:mt-8">
+          <div className="mt-4 flex flex-col-reverse gap-3 md:mt-8 md:flex-row md:items-center md:justify-between">
             <button
               type="button"
               onClick={onBack}
-              className="hidden md:flex gap-1.5 underline items-center hover:cursor-pointer font-['Kanit'] font-light text-black text-[16px] uppercase"
+              className="hidden items-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black underline hover:cursor-pointer md:flex"
             >
               <ArrowLeft className="size-4" />
               Back
             </button>
-            <button type="submit" className="hidden md:inline-flex btnPrimary">
+            <button type="submit" className="btnPrimary w-full md:w-auto">
               Next
             </button>
-          </div>
-
-          {/* Mobile sticky CTA */}
-          {/* <div className="md:hidden h-[84px]" aria-hidden="true" /> */}
-          <div className="md:hidden fixed bottom-0 left-0 right-0 z-50">
-            <div className="mx-auto max-w-[640px] px-4 pb-[max(16px,env(safe-area-inset-bottom))] pt-3 bg-white/95 backdrop-blur border-t border-black/10">
-              <button type="submit" className="btnPrimary w-full">
-                Next
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={onBack}
+              className="flex items-center justify-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black underline hover:cursor-pointer md:hidden"
+            >
+              <ArrowLeft className="size-4" />
+              Back
+            </button>
           </div>
         </form>
       </Form>
