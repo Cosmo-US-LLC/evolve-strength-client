@@ -14,7 +14,7 @@ export default function BookTour() {
   }
 
   return (
-    <div className="min-h-dvh">
+    <div className="min-h-dvh text-black">
       <Navbar />
       <div className="h-[40px] lg:hidden" />
       <TourForm />

@@ -290,3 +290,15 @@
     font-family: "Vazirmatn", sans-serif;
   }
 }
+
+/* Prevent global heading styles from src/index.css from inflating join-now titles */
+.join-now-root h1,
+.join-now-root h2,
+.join-now-root h3,
+.join-now-root h4,
+.join-now-root h5,
+.join-now-root h6 {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+}
