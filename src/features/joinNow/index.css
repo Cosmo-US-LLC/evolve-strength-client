@@ -264,3 +264,29 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .bg-brand-green {
+    background-color: #4ab04a;
+  }
+
+  .text-brand-green {
+    color: #4ab04a;
+  }
+
+  .border-brand-green {
+    border-color: #4ab04a;
+  }
+
+  .hover\:bg-brand-green\/90:hover {
+    background-color: rgb(74 176 74 / 0.9);
+  }
+
+  .font-\[Kanit\] {
+    font-family: "Kanit", sans-serif;
+  }
+
+  .font-\[Vazirmatn\] {
+    font-family: "Vazirmatn", sans-serif;
+  }
+}
