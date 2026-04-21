@@ -11,7 +11,7 @@ function FounderBenefits({ className = "" }) {
       <div className="space-y-4">
         <div className="space-y-4">
           <div className="flex gap-2 ">
-            <div>
+            <div className="pt-px">
               <svg
                 width="18"
                 height="18"
@@ -54,7 +54,7 @@ function FounderBenefits({ className = "" }) {
             </div>
           </div>
           <div className="flex gap-2 ">
-            <div>
+            <div className="pt-px">
               <svg
                 width="18"
                 height="18"
@@ -80,7 +80,7 @@ function FounderBenefits({ className = "" }) {
             </div>
           </div>
           <div className="flex gap-2 ">
-            <div>
+            <div className="pt-px">
               <svg
                 width="18"
                 height="18"
@@ -137,7 +137,7 @@ function FounderBenefits({ className = "" }) {
             </div>
           </div>
           <div className="flex gap-2 ">
-            <div>
+            <div className="pt-px">
               <svg
                 width="18"
                 height="18"

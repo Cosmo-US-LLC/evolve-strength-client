@@ -30,9 +30,7 @@ const formSchema = z.object({
   cardNumber: z.string().min(1, "Card number is required."),
   expiryDate: z.string().min(1, "Expiry date is required."),
   cvv: z.string().min(1, "CVC is required."),
-  cfTurnstileResponse: z
-    .string()
-    .min(1, "Please complete the security check."),
+  cfTurnstileResponse: z.string().min(1, "Please complete the security check."),
   agreedToTerms: z.boolean().refine((val) => val === true, {
     message: "Please confirm you have read our Terms and Conditions",
   }),
@@ -324,7 +322,7 @@ function PaymentInformation({
       cvv: values.cvv,
       cfTurnstileResponse: values.cfTurnstileResponse,
       cardType: meta.cardType?.type || "",
-      "skipIpCheck": true
+      skipIpCheck: true,
     });
 
     if (onSubmitPayment) {
@@ -334,7 +332,7 @@ function PaymentInformation({
         cvv: values.cvv,
         cfTurnstileResponse: values.cfTurnstileResponse,
         cardType: meta.cardType?.type || "",
-        "skipIpCheck": true
+        skipIpCheck: true,
       });
       if (success) {
         onNext();
@@ -348,22 +346,20 @@ function PaymentInformation({
   return (
     <div className="w-full max-w-[720px]">
       {/* Mobile back (top, non-sticky) */}
-      <button
+      {/* <button
         type="button"
         onClick={onBack}
         className="mb-4 flex gap-1.5 py-2 font-['Kanit'] text-[16px] font-light uppercase text-black underline hover:cursor-pointer md:hidden"
       >
         <ArrowLeft className="size-4" />
         Back
-      </button>
+      </button> */}
 
       <div
         role="note"
-        className="mb-5 flex flex-row gap-3 rounded-[12px] border border-[#4ab04a]/25 bg-[#F4FFF6] px-3 py-3 sm:items-center md:mb-6 md:px-4"
+        className="w-full mb-5 flex flex-row gap-3 rounded-[12px] bg-[#E2F2E2] px-3 py-3 sm:items-center md:mb-6 md:px-4"
       >
-        <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-[#4ab04a]/10">
-          <Info className="size-4 text-[#2E7D32]" />
-        </div>
+        <Info className="size-4 text-[#2E7D32]" />
         <p className="font-['Kanit'] text-[13px] font-light leading-[18px] text-black/70 md:text-[15px] md:leading-[20px]">
           You won&apos;t be billed until we officially open in{" "}
           <span className="font-medium text-black/80">May</span>.
@@ -431,7 +427,7 @@ function PaymentInformation({
           </div>
 
           {/* Expiry Date & CVV */}
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid gap-4 grid-cols-2">
             <div className="w-full">
               <label
                 className="text-[14px] md:text-[16px] font-[Kanit] font-[500] leading-[156.25%]"
@@ -643,7 +639,7 @@ function PaymentInformation({
             <button
               type="button"
               onClick={onBack}
-              className="hidden items-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black underline hover:cursor-pointer md:flex"
+              className="hidden items-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black hover:cursor-pointer md:flex"
             >
               <ArrowLeft className="size-4" />
               Back
@@ -666,7 +662,7 @@ function PaymentInformation({
             <button
               type="button"
               onClick={onBack}
-              className="flex items-center justify-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black underline hover:cursor-pointer md:hidden"
+              className="flex items-center justify-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black hover:cursor-pointer md:hidden"
             >
               <ArrowLeft className="size-4" />
               Back

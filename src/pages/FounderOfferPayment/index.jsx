@@ -1091,11 +1091,11 @@ function FounderOfferPayment() {
               />
             </div>
 
-            <div className="pt-[40vh] flex flex-col-reverse gap-3 lg:mt-auto lg:flex-row lg:items-center lg:justify-between">
+            <div className="pt-4 lg:pt-[40vh] flex flex-col-reverse gap-3 lg:mt-auto lg:flex-row lg:items-center lg:justify-between">
               <button
                 type="button"
                 onClick={handleBack}
-                className="flex items-center justify-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black underline hover:cursor-pointer lg:justify-start"
+                className="flex items-center justify-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black hover:cursor-pointer lg:justify-start"
               >
                 <span aria-hidden="true">←</span>
                 Back

@@ -419,14 +419,14 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
   return (
     <div className="w-full max-w-[720px]">
       {/* Mobile back (top, non-sticky) */}
-      <button
+      {/* <button
         type="button"
         onClick={onBack}
-        className="mb-4 flex gap-1.5 py-2 font-['Kanit'] text-[16px] font-light uppercase text-black underline hover:cursor-pointer md:hidden"
+        className="mb-4 flex gap-1.5 py-2 font-['Kanit'] text-[16px] font-light uppercase text-black hover:cursor-pointer md:hidden"
       >
-        <ArrowLeft className="size-4" />
+        <ArrowLeft className="size-3" />
         Back
-      </button>
+      </button> */}
 
       <div className="mb-6 flex flex-col gap-1 md:mb-8">
         <h2 className="!font-[Kanit] !text-[20px] !font-[600] !leading-[28px] text-[#000] md:!text-[24px]">
@@ -440,7 +440,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
           className="flex flex-col gap-3 md:gap-5"
         >
           {/* First Name & Last Name */}
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid gap-4 grid-cols-2">
             <FormField
               control={form.control}
               name="firstName"
@@ -484,7 +484,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
           </div>
 
           {/* Email & Phone */}
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid gap-4 grid-cols-2">
             <FormField
               control={form.control}
               name="email"
@@ -580,7 +580,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
           />
 
           {/* City & Postal Code */}
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid gap-4 grid-cols-2">
             <FormField
               control={form.control}
               name="city"
@@ -625,7 +625,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
           </div>
 
           {/* DOB & Gender */}
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid gap-4 grid-cols-2">
             <FormField
               control={form.control}
               name="dob"
@@ -774,11 +774,11 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="mt-4 flex flex-col-reverse gap-3 md:mt-8 md:flex-row md:items-center md:justify-between">
+          <div className="mt-4 flex flex-col gap-3 md:mt-8 md:flex-row md:items-center md:justify-between">
             <button
               type="button"
               onClick={onBack}
-              className="hidden items-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black underline hover:cursor-pointer md:flex"
+              className="hidden items-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black hover:cursor-pointer md:flex"
             >
               <ArrowLeft className="size-4" />
               Back
@@ -789,7 +789,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
             <button
               type="button"
               onClick={onBack}
-              className="flex items-center justify-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black underline hover:cursor-pointer md:hidden"
+              className="flex items-center justify-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black hover:cursor-pointer md:hidden"
             >
               <ArrowLeft className="size-4" />
               Back
