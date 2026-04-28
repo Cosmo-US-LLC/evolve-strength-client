@@ -14,7 +14,7 @@ function SpacesForSouthEdmontonCommonHero() {
       <div className="max-w-[1280px] px-4 md:px-8 pt-16 md:pt-20 mx-auto w-full h-full">
         <div className="relative z-2 flex  flex-col items-start justify-center h-full">
           <div className="text-[#FFFFFF] text-[12px] md:text-[16px] !font-[600] backdrop-blur-[15px] uppercase leading-[24px] mb-4 md:mb-6 bg-[#20202066] !font-[Kanit] border border-[#ADADAD] px-4 py-2 rounded-full">
-            Limited Suites Available - opening May 2026
+            Limited Suites Available - opening May 25th 2026
           </div>
           <h1 className="text-[#FFFFFF] uppercase max-w-[707px] leading-[52px] md:leading-[56px] mb-5">
             PREMIUM WELLNESS OFFICE SUITES

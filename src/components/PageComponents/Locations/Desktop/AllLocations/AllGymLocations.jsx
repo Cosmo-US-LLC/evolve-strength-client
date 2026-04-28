@@ -139,8 +139,8 @@ function AllGymLocations() {
           >
             <div className="w-full h-[200px] group md:h-[240px] overflow-hidden relative rounded-[10px]">
               {location.commonbtn && (
-                <div className="absolute flex description !font-[Kanit] !font-[500] items-center justify-center  rounded-[5px]  bg-[#FFF] h-[24px] w-[120px] right-2 top-2">
-                  Opening in May
+                <div className="absolute flex description !font-[Kanit] !font-[500] items-center justify-center  rounded-[5px]  bg-[#FFF] h-[24px] w-[130px] right-2 top-2">
+                  Opening May 25th
                 </div>
               )}
 

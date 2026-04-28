@@ -185,7 +185,7 @@ export const presaleEdmontonSouthCommonFAQs = {
     },
     {
       question: "When does billing actually start?",
-      answer: "Billing begins on the day we officially open our doors.",
+      answer: "Billing begins on the day we officially open our doors on May 25, 2026.",
     },
     {
       question: "What does my membership include?",
@@ -204,7 +204,7 @@ export const presaleEdmontonSouthCommonFAQs = {
     },
     {
       question: "When does South Commons Open?",
-      answer: "We are scheduled to be open in the May of 2026.",
+      answer: "We are scheduled to open on May 25, 2026.",
     },
     {
       question: "Can I use other Evolve locations before South Commons opens?",

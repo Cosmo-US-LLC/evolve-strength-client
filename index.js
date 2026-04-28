@@ -181,7 +181,7 @@ app.post("/send-certificate", optionalCertificateUpload, async (req, res) => {
       <p>
         Your founder rate is locked for life. Your membership will never
         increase as long as it stays active. And you will pay nothing until we
-        open our doors this May. Terms &amp; conditions apply.
+        open our doors on May 25, 2026. Terms &amp; conditions apply.
       </p>
       <p>
         This is more than a membership. It is early access to Evolve Strength
@@ -203,7 +203,7 @@ app.post("/send-certificate", optionalCertificateUpload, async (req, res) => {
       from: '"Evolve South Commons" <' + SMTP_FROM + ">",
       to: normalizedEmail,
       subject: EMAIL_SUBJECT,
-      text: `Hi${displayName ? ` ${displayName}` : ""},\n\nWelcome to the New Standard of Strength\n\nYou are officially part of something extraordinary.\n\nYour founder rate is locked for life. Your membership will never increase as long as it stays active. And you will pay nothing until we open our doors this May. Terms & conditions apply.\n\nThis is more than a membership. It is early access to Evolve Strength South Edmonton Common, our flagship location designed to set the new standard in training.\n\nHere is your Rate Lock Certificate, your proof of priority access and lifetime rate security.\n\nWe are building something exceptional. Your journey starts now.\n\nThe Evolve Strength Team\n\n[View Your Rate Lock Certificate]`,
+      text: `Hi${displayName ? ` ${displayName}` : ""},\n\nWelcome to the New Standard of Strength\n\nYou are officially part of something extraordinary.\n\nYour founder rate is locked for life. Your membership will never increase as long as it stays active. And you will pay nothing until we open our doors on May 25, 2026. Terms & conditions apply.\n\nThis is more than a membership. It is early access to Evolve Strength South Edmonton Common, our flagship location designed to set the new standard in training.\n\nHere is your Rate Lock Certificate, your proof of priority access and lifetime rate security.\n\nWe are building something exceptional. Your journey starts now.\n\nThe Evolve Strength Team\n\n[View Your Rate Lock Certificate]`,
       html: htmlBody,
       attachments: [
         {

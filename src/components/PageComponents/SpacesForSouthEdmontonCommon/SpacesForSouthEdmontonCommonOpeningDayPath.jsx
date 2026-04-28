@@ -255,7 +255,7 @@ function SpacesForSouthEdmontonCommonOpeningDayPath() {
                 <Step
                   number="4"
                   title="Launch"
-                  description="Open in May 2026 and immediately engage with an established member base."
+                  description="Open on 25th May 2026 and immediately engage with an established member base."
                 />
 
                 <ArrowCurve3 />
@@ -301,7 +301,7 @@ function SpacesForSouthEdmontonCommonOpeningDayPath() {
               <Step
                 number="3"
                 title="Launch"
-                description="Open in May 2026 and immediately engage with an established member base."
+                description="Open on 25th May 2026 and immediately engage with an established member base."
               />
 
               <Step
@@ -384,7 +384,7 @@ function SpacesForSouthEdmontonCommonOpeningDayPath() {
                   <MobileStep
                     number="4"
                     title="Launch"
-                    description="Open in May 2026 and immediately engage with an established member base."
+                    description="Open on 25th May 2026 and immediately engage with an established member base."
                     data-node-id="14483:3624"
                   >
                     {/* <div

@@ -38,7 +38,7 @@ function Hero({ title }) {
                 New Location
               </div>
               <div className="text-white text-[12px] md:text-[14px] font-[400] uppercase leading-[24px] bg-[#20202066] backdrop-blur-[14px] border border-[#ADADAD] px-4 py-1 rounded-full font-[Kanit]">
-                Opening May 2026 · Presale Live
+                Opening May 25th · Presale Live
               </div>
 
             </div>
