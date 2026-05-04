@@ -1,40 +1,45 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Pause, Play } from "lucide-react";
-import newBranchImage1 from "../../../assets/images/presale/new_branch (4).webp";
-import newBranchImage2 from "../../../assets/images/presale/new_branch (3).webp";
-import newBranchImage3 from "../../../assets/images/presale/new_branch (2).webp";
-import newBranchImage4 from "../../../assets/images/presale/new_branch (1).webp";
-import newBranchImage5 from "../../../assets/images/presale/new_branch.webp";
+import carouselImage1 from "../../../assets/images/presale/e2e7198edb7d881efbd8aa3e383efc0cc4274c85.png";
+import carouselImage2 from "../../../assets/images/presale/183bdc2f6025bf18a2de9d583073c29d25291a11.png";
+import carouselImage3 from "../../../assets/images/presale/03c7b307a30385f7d13f6375f222b7a6db5020cd.png";
+import carouselImage4 from "../../../assets/images/presale/3b74ee45f63702b535ac1910da3c5854c353a316.png";
+import carouselImage5 from "../../../assets/images/presale/aab8951982bd80573fbb781587b0065af327c379.png";
 
 const gymSlides = [
   {
-    image: newBranchImage5,
-    alt: "Cardio area with treadmills and rowers",
+    image: carouselImage1,
+    alt: "Cardio area with windows and machines",
   },
   {
-    image: newBranchImage4,
+    image: carouselImage2,
     alt: "Strength area with benches and free weights",
   },
   {
-    image: newBranchImage3,
+    image: carouselImage3,
     alt: "Indoor turf lane at Evolve Strength",
   },
   {
-    image: newBranchImage2,
+    image: carouselImage4,
     alt: "Open training floor with racks and equipment",
   },
   {
-    image: newBranchImage1,
+    image: carouselImage5,
     alt: "Wide gym floor with strength equipment",
   },
 ];
 
 const AUTOPLAY_DELAY = 4000;
+const loopSlides = [...gymSlides, gymSlides[0]];
+const SWIPE_THRESHOLD = 50;
 
 const GymZones = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
+  const [dragStartX, setDragStartX] = useState(null);
+  const [dragCurrentX, setDragCurrentX] = useState(null);
 
   useEffect(() => {
     if (isPaused) {
@@ -42,11 +47,81 @@ const GymZones = () => {
     }
 
     const intervalId = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % gymSlides.length);
+      setActiveSlide((current) => current + 1);
     }, AUTOPLAY_DELAY);
 
     return () => window.clearInterval(intervalId);
   }, [isPaused]);
+
+  const visibleSlideIndex =
+    activeSlide === gymSlides.length ? 0 : activeSlide;
+
+  const goToNextSlide = () => {
+    setActiveSlide((current) => current + 1);
+  };
+
+  const goToPrevSlide = () => {
+    setIsTransitionEnabled(false);
+    setActiveSlide((current) => {
+      if (current === 0) {
+        return gymSlides.length - 1;
+      }
+      return current - 1;
+    });
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        setIsTransitionEnabled(true);
+      });
+    });
+  };
+
+  const handleTransitionEnd = () => {
+    if (activeSlide !== gymSlides.length) {
+      return;
+    }
+
+    setIsTransitionEnabled(false);
+    setActiveSlide(0);
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        setIsTransitionEnabled(true);
+      });
+    });
+  };
+
+  const handlePointerDown = (event) => {
+    setDragStartX(event.clientX);
+    setDragCurrentX(null);
+  };
+
+  const handlePointerMove = (event) => {
+    if (dragStartX === null) {
+      return;
+    }
+
+    setDragCurrentX(event.clientX);
+  };
+
+  const handlePointerUp = () => {
+    if (dragStartX === null || dragCurrentX === null) {
+      setDragStartX(null);
+      setDragCurrentX(null);
+      return;
+    }
+
+    const swipeDistance = dragStartX - dragCurrentX;
+
+    if (swipeDistance > SWIPE_THRESHOLD) {
+      goToNextSlide();
+    } else if (swipeDistance < -SWIPE_THRESHOLD) {
+      goToPrevSlide();
+    }
+
+    setDragStartX(null);
+    setDragCurrentX(null);
+  };
 
   return (
     <section className="bg-white px-4 py-12 md:px-6 md:py-20">
@@ -86,45 +161,54 @@ const GymZones = () => {
         </div>
 
         <div className="relative mt-10 w-full md:mt-12">
-          <div className="overflow-hidden rounded-[20px] md:rounded-[24px]">
+          <div
+            className="overflow-hidden rounded-[20px] md:rounded-[24px] touch-pan-y"
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerUp}
+            onPointerCancel={handlePointerUp}
+            onPointerLeave={handlePointerUp}
+          >
             <div
-              className="flex transition-transform duration-700 ease-out"
+              className={`flex ${isTransitionEnabled ? "transition-transform duration-700 ease-out" : ""}`}
               style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+              onTransitionEnd={handleTransitionEnd}
             >
-              {gymSlides.map((slide, index) => (
+              {loopSlides.map((slide, index) => (
                 <div key={index} className="w-full shrink-0">
                   <img
                     src={slide.image}
                     alt={slide.alt}
                     className="h-[340px] w-full object-cover md:h-[620px]"
+                    draggable="false"
                   />
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-full bg-black/45 px-4 py-3 backdrop-blur-md md:bottom-6">
+          <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center rounded-full bg-black/65 p-2 md:bottom-6">
             <button
               type="button"
               onClick={() => setIsPaused((current) => !current)}
-              className="flex h-7 w-7 items-center justify-center rounded-full bg-white/15 text-white transition-colors duration-200 hover:bg-white/25"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-white/8 transition-colors duration-200 hover:bg-white/15"
               aria-label={isPaused ? "Play carousel" : "Pause carousel"}
             >
               {isPaused ? (
-                <Play className="h-3.5 w-3.5 fill-current" />
+                <Play className="h-4 w-4 fill-current text-white" strokeWidth={2.4} />
               ) : (
-                <Pause className="h-3.5 w-3.5" />
+                <Pause className="h-4 w-4 text-white" strokeWidth={2.4} />
               )}
             </button>
 
-            <div className="flex items-center gap-2">
+            <div className="ml-2 flex items-center gap-2 rounded-full px-3 py-2">
               {gymSlides.map((_, index) => (
                 <button
                   key={index}
                   type="button"
                   onClick={() => setActiveSlide(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    activeSlide === index
+                    visibleSlideIndex === index
                       ? "w-5 bg-white"
                       : "w-2 bg-white/35 hover:bg-white/60"
                   }`}
