@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Pause, Play } from "lucide-react";
-import carouselImage1 from "../../../assets/images/presale/e2e7198edb7d881efbd8aa3e383efc0cc4274c85.png";
-import carouselImage2 from "../../../assets/images/presale/183bdc2f6025bf18a2de9d583073c29d25291a11.png";
-import carouselImage3 from "../../../assets/images/presale/03c7b307a30385f7d13f6375f222b7a6db5020cd.png";
-import carouselImage4 from "../../../assets/images/presale/3b74ee45f63702b535ac1910da3c5854c353a316.png";
-import carouselImage5 from "../../../assets/images/presale/aab8951982bd80573fbb781587b0065af327c379.png";
 
 const gymSlides = [
   {
-    image: carouselImage1,
-    alt: "Cardio area with windows and machines",
+    image:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1777897973779-6eeb5268-0fdd-4ffd-9ed7-ee79ab2cc52e.webp",
+    alt: "Gym zone image 1",
   },
   {
-    image: carouselImage2,
-    alt: "Strength area with benches and free weights",
+    image:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1777898177340-da92e5d0-a08e-4bd9-aff5-ec9c64ed32a1.webp",
+    alt: "Gym zone image 2",
   },
   {
-    image: carouselImage3,
-    alt: "Indoor turf lane at Evolve Strength",
+    image:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1777898246913-c7771857-8834-4988-a3e9-8c8616c0513a.webp",
+    alt: "Gym zone image 3",
   },
   {
-    image: carouselImage4,
-    alt: "Open training floor with racks and equipment",
+    image:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1777898426244-336ab9dd-4bcf-4900-a2b5-3a8971b67607.webp",
+    alt: "Gym zone image 4",
   },
   {
-    image: carouselImage5,
-    alt: "Wide gym floor with strength equipment",
+    image:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1777898503097-cf0684c2-d7a1-4e5e-813b-b8d58a2f939a.webp",
+    alt: "Gym zone image 5",
   },
 ];
 
