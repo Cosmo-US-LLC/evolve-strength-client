@@ -128,12 +128,10 @@ const GymZones = () => {
       <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center">
         <div className="mx-auto flex max-w-[760px] flex-col items-center text-center">
           <h2 className="font-[kanit] text-[32px] font-[700] uppercase leading-[1] text-[#1f1f1f] md:text-[56px]">
-            Your New Home Gym
+            INSIDE THE FLAGSHIP
           </h2>
           <p className="mt-4 max-w-[700px] font-[kanit] text-[16px] font-[300] leading-[24px] text-[#3d3d3d] md:text-[18px] md:leading-[28px]">
-            30,000+ sq ft of premium strength, cardio, and recovery. Our biggest
-            location yet. Explore what&apos;s inside, then lock in your founding
-            member rate before we open.
+            30,000+ sq ft of premium strength, cardio, and recovery. Built bigger than ever. Explore what’s inside, then lock in your founding member rate before we open.
           </p>
           <Link to="/founder-offer-payment" className="mt-6">
             <button className="btnPrimary flex items-center justify-center gap-2 !px-[20px] !py-[14px] font-[kanit] text-[14px] font-[600] uppercase leading-[1]">
