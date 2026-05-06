@@ -361,8 +361,8 @@ function PaymentInformation({
       >
         <Info className="size-4 text-[#2E7D32]" />
         <p className="font-['Kanit'] text-[13px] font-light leading-[18px] text-black/70 md:text-[15px] md:leading-[20px]">
-          You won&apos;t be billed until we officially open in{" "}
-          <span className="font-medium text-black/80">May</span>.
+          You won’t be billed until we officially open on {" "}
+          <span className="font-medium text-black/80">25 May</span>.
         </p>
       </div>
 
