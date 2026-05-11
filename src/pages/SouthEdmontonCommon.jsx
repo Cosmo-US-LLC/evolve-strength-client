@@ -12,6 +12,7 @@ import SouthEdmontonCommonGymZone from "@/components/PageComponents/SouthEdmonto
 import SouthEdmontonCommonBiggerEverythingIntro from "@/components/PageComponents/SouthEdmontonCommon/SouthEdmontonCommonBiggerEverythingIntro";
 import FitnessCategoryMarquee from "@/components/PageComponents/PersonalTraining/Desktop/FitnessCategoryMarquee";
 import BuildWithPurpose from "@/components/PageComponents/SouthEdmontonCommon/BuildWithPurpose";
+import SouthEdmontonLocation from "@/components/PageComponents/SouthEdmontonCommon/SouthEdmontonLocation";
 
 function SouthEdmontonCommon() {
   return (
@@ -28,6 +29,7 @@ function SouthEdmontonCommon() {
       <FitnessCategoryMarquee />
       <BuildWithPurpose />
       <MoreWayToRecover />
+      <SouthEdmontonLocation />
       <PresaleFrequentlyAskedQuestions {...presaleEdmontonSouthCommonFAQs} />
       <SouthEdmontonCommonInPersonTourCta />
     </>

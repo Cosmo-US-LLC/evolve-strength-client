@@ -11,9 +11,9 @@ const gymCards = [
       "Every zone is crafted with a specific purpose in mind, ensuring functionality and efficiency.",
     bgImage: {
       desktop:
-        "/assets/images/PersonalTraning/PersonalGymExperience/fitness.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/intentional_layout_desktop.webp",
       mobile:
-        "/assets/images/PersonalTraning/PersonalGymExperience/fitnessMob.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/intentional_layout_mobile.webp",
     },
   },
   {
@@ -23,9 +23,9 @@ const gymCards = [
       "Built to perform, these spaces are designed to do more than just occupy square footage. ",
     bgImage: {
       desktop:
-        "/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_training.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/premium_equipment_desktop.webp",
       mobile:
-        "/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_trainingMob.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/premium_equipment_mobile.webp",
     },
   },
   {
@@ -35,9 +35,9 @@ const gymCards = [
       "Air quality and sound are all meticulously adjusted to create the perfect environment.",
     bgImage: {
       desktop:
-        "/assets/images/PersonalTraning/PersonalGymExperience/cardio.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/atmosphere_desktop.webp",
       mobile:
-        "/assets/images/PersonalTraning/PersonalGymExperience/cardioMob.webp",
+        "/assets/images/PersonalTraning/PersonalGymExperience/atmosphere_mobile.webp",
     },
   },
 ];
@@ -216,22 +216,31 @@ const BuildWithPurpose = () => {
           <div className="flex">
             {gymCards.map((card, index) => {
               const isSelected = selectedIndex === index;
+              // const isActive =
+              //   hoveredIndex === index ||
+              //   (hoveredIndex === null && index === 0);
               return (
                 <div key={index} className="flex-[0_0_70%] min-w-0 px-3 py-4">
                   <div
-                    className={`w-full min-h-[100px] px-3 rounded-[5px] flex flex-col justify-center gap-4 cursor-pointer relative group overflow-hidden transition-all duration-150 transform ${
+                    className={`w-full min-h-[160px] px-3 rounded-[5px] flex flex-col justify-center gap-4 cursor-pointer relative group overflow-hidden transition-all duration-150 transform ${
                       isSelected ? "scale-110" : "scale-95"
                     }`}
                   >
                     <div className="absolute inset-0 z-0 bg-[#ffffff] h-[100%] flex flex-col items-center justify-center" />
 
                     <div className="relative z-10 transition-colors duration-150 w-full text-center text-[#1C1C1C]">
-                      <p className="description leading-[20px] !font-[600] transition-all duration-150 text-[#000]">
+                      {/* <p className="description leading-[20px] !font-[600] transition-all duration-150 text-[#000]">
                         {card.count}
-                      </p>
+                      </p> */}
                       <h3 className="uppercase !text-[20px] font-Vazirmatn leading-[26px] !font-[600] transition-all duration-150 text-[#1C1C1C]">
                         {card.title}
                       </h3>
+                      <div
+                        className={`text-[#1C1C1C] text-[16px] leading-[20px] !font-[400] transition-all duration-150 ease-out 
+                        `}
+                      >
+                        {card.description}
+                      </div>
                     </div>
                   </div>
                 </div>
