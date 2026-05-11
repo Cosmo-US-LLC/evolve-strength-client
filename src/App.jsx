@@ -52,6 +52,7 @@ import EdmontonSouthTermsAndConditions from "./pages/PresalePage/EdmontonSouthTe
 import MembershipSummaryCard from "./components/FounderOfferPayment/MembershipSummaryCard";
 import PrimaryMemberDetails from "./components/FounderOfferPayment/steps/PrimaryMemberDetails";
 import SpacesForSouthEdmontonCommon from "./pages/Spaces/SpacesForSouthEdmontonCommon";
+import SouthEdmontonCommon from "./pages/SouthEdmontonCommon";
 
 function App() {
   return (
@@ -119,6 +120,10 @@ function App() {
           <Route
             path="/spaces-for-south-edmonton-common"
             element={<SpacesForSouthEdmontonCommon />}
+          />
+          <Route
+            path="/south-edmonton-common"
+            element={<SouthEdmontonCommon />}
           />
         </Route>
 
