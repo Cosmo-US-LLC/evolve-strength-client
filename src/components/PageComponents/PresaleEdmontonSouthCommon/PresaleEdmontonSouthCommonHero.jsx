@@ -56,7 +56,7 @@ function PresaleEdmontonSouthCommonHero() {
                 </button>
               </Link>
               <p className="text-[#FFFFFF] !text-[16px] !font-[400] !font-[Kanit] leading-[24px] md:leading-[24px]  max-w-[250px] md:max-w-[190px]">
-              Limited spots remaining.
+              Limited spots remaining
               </p>
             </div>
           </div>
