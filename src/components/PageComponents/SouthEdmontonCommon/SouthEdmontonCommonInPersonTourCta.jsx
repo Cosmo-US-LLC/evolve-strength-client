@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
+
 function SouthEdmontonCommonInPersonTourCta() {
   return (
     <section aria-labelledby="south-common-in-person-heading">
@@ -18,7 +20,10 @@ function SouthEdmontonCommonInPersonTourCta() {
               The tour is free.
             </p>
           </div>
-          <Link to="/book-a-tour" className="shrink-0 md:pt-1">
+          <Link
+            to={southEdmontonCommonBookTourHref()}
+            className="shrink-0 md:pt-1"
+          >
             <button type="button" className="btnPrimary uppercase">
               Book a Free Tour
             </button>

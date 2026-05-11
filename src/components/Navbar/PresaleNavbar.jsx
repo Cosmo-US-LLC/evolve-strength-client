@@ -4,6 +4,7 @@ import { Menu } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-logo-light.svg";
 import { Sheet, SheetContent, SheetTrigger } from "../../components/ui/sheet";
+import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
 
 function PresaleNavbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -38,7 +39,7 @@ function PresaleNavbar() {
         </Link>
 
         {isSouthEdmontonCommonPage && (
-          <Link to="/book-a-tour" className="w-fit z-10">
+          <Link to={southEdmontonCommonBookTourHref()} className="w-fit z-10">
             <button className="btnPrimary uppercase">Book a Free Tour</button>
           </Link>
         )}

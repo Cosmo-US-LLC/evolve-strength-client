@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
+
 function SouthEdmontonCommonBiggerEverythingIntro() {
   return (
     <section
@@ -19,7 +21,7 @@ function SouthEdmontonCommonBiggerEverythingIntro() {
             <p className="text-[#000] !font-[Kanit] text-[16px] font-normal leading-[24px] md:text-[18px] md:leading-[26px]">
               This gym makes you want to use the space. Come see it for yourself.
             </p>
-            <Link to="/book-a-tour">
+            <Link to={southEdmontonCommonBookTourHref()}>
               <button type="button" className="btnPrimary uppercase">
                 Book a Free Tour
               </button>

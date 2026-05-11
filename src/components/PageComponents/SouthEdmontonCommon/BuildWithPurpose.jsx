@@ -3,6 +3,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Link } from "react-router-dom";
 
+import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
+
 const gymCards = [
   {
     count: "01",
@@ -139,7 +141,7 @@ const BuildWithPurpose = () => {
         <div className="absolute inset-0 bg-black/20 pointer-events-none  " />
       </div>
 
-      <div className="relative z-10 max-w-[1280px] mx-auto px-4 md:px-8">
+      <div className="relative z-20 max-w-[1280px] mx-auto px-4 md:px-8">
         <div className="absolute top-[30px] md:top-[100px] flex flex-col gap-4">
           <h2 className="text-[#FFFFFF] w-full md:max-w-[637px] uppercase leading-[32px] md:leading-[42px] text-left">
             Built with purpose. Designed for performance.
@@ -149,8 +151,13 @@ const BuildWithPurpose = () => {
             the atmosphere, the equipment. There's no filler here.
           </h4>
 
-          <Link to="/book-a-tour" className="w-fit z-10">
-            <button className="btnPrimary uppercase">Book a Free Tour</button>
+          <Link
+            to={southEdmontonCommonBookTourHref()}
+            className="relative w-fit"
+          >
+            <button className="btnPrimary uppercase" type="button">
+              Book a Free Tour
+            </button>
           </Link>
         </div>
       </div>

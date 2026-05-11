@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
+
 const STEPS = [
   {
     title: "Book a tour",
@@ -53,7 +55,7 @@ function SouthEdmontonCommonTourContest() {
           ))}
         </div>
 
-        <Link to="/book-a-tour">
+        <Link to={southEdmontonCommonBookTourHref()}>
           <button className="btnPrimary uppercase">Book a Free Tour</button>
         </Link>
         <p className="text-[#000] -mt-6 text-center text-[16px] !font-[300] !font-[Kanit] leading-[22px] md:leading-[22px] max-w-[500px]">

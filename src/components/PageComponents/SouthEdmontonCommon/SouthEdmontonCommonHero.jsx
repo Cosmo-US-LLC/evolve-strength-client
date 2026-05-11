@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
+
 function SouthEdmontonCommonHero() {
   return (
     <div>
@@ -41,7 +43,7 @@ function SouthEdmontonCommonHero() {
               a lifetime membership at Edmonton&apos;s biggest gym.
             </h3>
 
-            <Link to="/book-a-tour">
+            <Link to={southEdmontonCommonBookTourHref()}>
               <button className="btnPrimary uppercase" type="button">
                 Book a Free Tour
               </button>

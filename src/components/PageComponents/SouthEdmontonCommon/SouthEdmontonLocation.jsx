@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
 import buildingImage from "@/assets/images/spaces/AvailableOffices/south_edmonton_common_location.webp";
 
 const LOCATION_TITLE = "South Edmonton Common";
 const ADDRESS = "1910 102 Street NW, Edmonton, AB T6N 1N3";
 const MAP_EMBED_SRC =
   "https://maps.google.com/maps?q=1910+102+Street+NW,+Edmonton,+AB+T6N+1N3&hl=en&z=15&output=embed";
-const TOUR_HREF = "/book-a-tour/";
 
 function SouthEdmontonLocation() {
   return (
@@ -44,7 +44,7 @@ function SouthEdmontonLocation() {
                   {ADDRESS}
                 </p>
               </div>
-              <Link to={TOUR_HREF} className="shrink-0">
+              <Link to={southEdmontonCommonBookTourHref()} className="shrink-0">
                 <button type="button" className="btnPrimary h-[50px] uppercase">
                   Book a Free Tour
                 </button>
