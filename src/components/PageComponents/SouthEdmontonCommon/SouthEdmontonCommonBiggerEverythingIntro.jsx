@@ -18,10 +18,10 @@ function SouthEdmontonCommonBiggerEverythingIntro() {
             Bigger Space. Bigger Equipment. Bigger Everything.
           </h2>
           <div className="flex min-w-0 flex-1 flex-col items-start gap-4">
-            <p className="text-[#000] !font-[Kanit] text-[16px] font-normal leading-[24px] md:text-[18px] md:leading-[26px]">
+            <h4 className="text-[#000] !font-[Kanit] text-[16px] font-normal leading-[24px] md:text-[18px] md:leading-[26px]">
               This gym makes you want to use the space. Come see it for
               yourself.
-            </p>
+            </h4>
             <Link to={southEdmontonCommonBookTourHref()}>
               <button type="button" className="btnPrimary uppercase">
                 Book a Free Tour
