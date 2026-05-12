@@ -43,7 +43,7 @@ function SouthEdmontonCommonTourContest() {
             One Tour. One Winner.
             <br />A Lifetime of Evolve.
           </h2>
-          <h4 className="text-[#000] max-md:!text-[16px] leading-[22px] md:leading-[26px] max-w-[640px]">
+          <h4 className="text-[#000] max-w-[640px]">
             We're giving away a lifetime membership to Evolve Strength South
             Edmonton Common. Three steps to enter, that's it.
           </h4>

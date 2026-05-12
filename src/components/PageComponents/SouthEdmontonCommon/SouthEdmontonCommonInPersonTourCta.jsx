@@ -15,7 +15,7 @@ function SouthEdmontonCommonInPersonTourCta() {
             >
               Some Things Don&apos;t Translate Online.
             </h2>
-            <p className="text-[#000] !font-[Kanit] !font-[300] text-[15px] leading-[24px] md:text-[16px] md:leading-[26px]">
+            <p className="text-[#000] !font-[Kanit] !font-[300] text-[16px] leading-[24px] md:text-[18px] md:leading-[26px]">
               Walk the floor. Feel what three times the space actually means.
               The tour is free.
             </p>

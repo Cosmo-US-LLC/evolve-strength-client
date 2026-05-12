@@ -34,7 +34,7 @@ const gymCards = [
     count: "03",
     title: "Atmosphere",
     description:
-      "Air quality and sound are all meticulously adjusted to create the perfect environment.",
+      "Stay motivated in a vibrant, inspiring atmosphere with stunning aesthetics designed to elevate your experience.",
     bgImage: {
       desktop:
         "/assets/images/PersonalTraning/PersonalGymExperience/atmosphere_desktop.webp",
@@ -183,7 +183,7 @@ const BuildWithPurpose = () => {
               />
 
               {/* Content Container */}
-              <div className="relative z-10 w-[346px] h-[100px] flex flex-col justify-center">
+              <div className="relative z-10 w-[346px] h-[120px] flex flex-col justify-center">
                 {/* <p
                   className={`description leading-[25px] !font-[600] transition-all duration-150 ease-out ${
                     isActive
@@ -203,7 +203,7 @@ const BuildWithPurpose = () => {
                   {card.title}
                 </h3>
                 <div
-                  className={`text-[#1C1C1C] text-[16px] font-[kanit] leading-[24px] !font-[300] transition-all duration-150 ease-out ${
+                  className={`text-[#1C1C1C] text-[16px] h-[80px] font-[kanit] leading-[24px] !font-[300] transition-all duration-150 ease-out ${
                     isActive
                       ? "text-[#000] translate-y-0"
                       : "text-[#ffffff] translate-y-1"
@@ -229,13 +229,13 @@ const BuildWithPurpose = () => {
               return (
                 <div key={index} className="flex-[0_0_70%] min-w-0 px-3 py-4">
                   <div
-                    className={`w-full min-h-[160px] px-3 rounded-[5px] flex flex-col justify-center gap-4 cursor-pointer relative group overflow-hidden transition-all duration-150 transform ${
+                    className={`w-full min-h-[180px] px-3 rounded-[5px] flex flex-col justify-center gap-4 cursor-pointer relative group overflow-hidden transition-all duration-150 transform ${
                       isSelected ? "scale-110" : "scale-95"
                     }`}
                   >
                     <div className="absolute inset-0 z-0 bg-[#ffffff] h-[100%] flex flex-col items-center justify-center" />
 
-                    <div className="relative z-10 transition-colors duration-150 w-full text-center text-[#1C1C1C]">
+                    <div className="relative z-10  transition-colors duration-150 w-full text-center text-[#1C1C1C]">
                       {/* <p className="description leading-[20px] !font-[600] transition-all duration-150 text-[#000]">
                         {card.count}
                       </p> */}
@@ -243,7 +243,7 @@ const BuildWithPurpose = () => {
                         {card.title}
                       </h3>
                       <div
-                        className={`text-[#1C1C1C] text-[16px] !font-[kanit] leading-[20px] !font-[300] transition-all duration-150 ease-out 
+                        className={`text-[#1C1C1C] text-[16px] mt-2 !font-[kanit] leading-[20px] !font-[300] transition-all duration-150 ease-out 
                         `}
                       >
                         {card.description}
