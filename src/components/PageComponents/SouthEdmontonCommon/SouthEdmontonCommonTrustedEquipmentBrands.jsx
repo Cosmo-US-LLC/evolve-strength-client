@@ -193,10 +193,10 @@ function SouthEdmontonCommonTrustedEquipmentBrands() {
     <section className="bg-[#EEEEEE] py-12 md:py-16 w-full overflow-hidden">
       <div className="w-full flex flex-col items-center gap-8 md:gap-10">
         <div className="flex flex-col items-center gap-3 px-4 max-w-[800px] text-center">
-          <h2 className="text-[#000] uppercase font-bold text-[28px] md:text-[36px] leading-tight tracking-tight">
+          <h2 className="text-[#000] uppercase text-[28px] md:text-[36px] leading-tight tracking-tight">
             Trusted Equipment Brands
           </h2>
-          <p className="text-[#000] text-[14px] md:text-[16px] !font-[Kanit] font-[400] leading-[22px] md:leading-[26px]">
+          <p className="text-[#000] text-[16px] font-[300] font-[Kanit] leading-[22px] md:leading-[26px]">
             Every equipment brand was chosen because it makes you better, not
             because it filled a budget line.
           </p>

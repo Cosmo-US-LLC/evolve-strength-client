@@ -37,11 +37,11 @@ function FitnessCategoryMarquee() {
 
   return (
     <section className="bg-[#000] py-8 ">
-      <Marquee pauseOnHover={true} speed={40} gradient={false}>
+      <Marquee pauseOnHover={true} speed={80} gradient={false}>
         {tags.map((tag, idx) => (
           <span
             key={idx}
-            className="text-[#ffffff] text-[20px] font-Kanit font-[400] leading-[24px] tracking-[-0.6px] mx-8 md:mx-14 whitespace-nowrap cursor-default"
+            className="text-[#ffffff] text-[20px] font-[Kanit] font-[400] leading-[24px] tracking-[-0.3px] mx-8 md:mx-14 whitespace-nowrap cursor-default"
           >
             {tag}
           </span>

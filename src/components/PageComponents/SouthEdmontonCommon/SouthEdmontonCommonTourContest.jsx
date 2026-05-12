@@ -3,21 +3,34 @@ import { Link } from "react-router-dom";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
 
+/** South Edmonton Common Instagram (display @ may differ slightly from URL slug). */
+const SOUTH_EDMONTON_COMMON_INSTAGRAM_URL =
+  "https://www.instagram.com/evolve_strength_southcommon?igsh=MWJxd3prbG4zMDB6bQ==";
+
 const STEPS = [
   {
-    title: "Book a tour",
-    description:
-      "Come see the space and meet the team. Tours are available now.",
+    title: "Book Your Tour",
+    description: "Book a free tour within the first 3 weeks of opening",
   },
   {
-    title: "Attend in the first 3 weeks",
-    description:
-      "Tour in our first 3 weeks after opening to qualify for the draw.",
+    title: "Experience Evolve",
+    description: "Attend your tour within the first 3 weeks",
   },
   {
-    title: "You’re entered to win",
-    description:
-      "One winner takes home a lifetime membership at South Edmonton Common.",
+    title: "Join the Movement",
+    description: (
+      <>
+        Follow us on Instagram{" "}
+        <a
+          href={SOUTH_EDMONTON_COMMON_INSTAGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-[400] text-[#4AB04A] underline decoration-[#4AB04A]/0 underline-offset-2 hover:decoration-[#4AB04A]"
+        >
+          @evolve_strength_south_common
+        </a>
+      </>
+    ),
   },
 ];
 
@@ -26,11 +39,11 @@ function SouthEdmontonCommonTourContest() {
     <section className="bg-white w-full py-12 md:py-20">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col items-center gap-8 md:gap-12">
         <div className="max-w-[820px] text-center flex flex-col gap-3">
-          <h2 className="text-[#000] uppercase !font-[600]">
+          <h2 className="text-[#000] uppercase">
             One Tour. One Winner.
             <br />A Lifetime of Evolve.
           </h2>
-          <h4 className="text-[#000] !font-[400] max-md:!text-[16px] leading-[22px] md:leading-[26px] max-w-[640px]">
+          <h4 className="text-[#000] max-md:!text-[16px] leading-[22px] md:leading-[26px] max-w-[640px]">
             We're giving away a lifetime membership to Evolve Strength South
             Edmonton Common. Three steps to enter, that's it.
           </h4>
