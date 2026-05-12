@@ -5,7 +5,7 @@ import SouthEdmontonCommonHero from "@/components/PageComponents/SouthEdmontonCo
 import SouthEdmontonCommonTourContest from "@/components/PageComponents/SouthEdmontonCommon/SouthEdmontonCommonTourContest";
 import SouthEdmontonCommonTrustedEquipmentBrands from "@/components/PageComponents/SouthEdmontonCommon/SouthEdmontonCommonTrustedEquipmentBrands";
 import PresaleFrequentlyAskedQuestions from "@/components/PageComponents/PresaleEdmontonSouthCommon/PresaleFrequentlyAskedQuestions";
-import { presaleEdmontonSouthCommonFAQs } from "@/constants/faqContent";
+import { southEdmontonCommonFAQs } from "@/constants/faqContent";
 import SouthEdmontonCommonInPersonTourCta from "@/components/PageComponents/SouthEdmontonCommon/SouthEdmontonCommonInPersonTourCta";
 import MoreWayToRecover from "@/components/PageComponents/SouthEdmontonCommon/MoreWayToRecover";
 import SouthEdmontonCommonGymZone from "@/components/PageComponents/SouthEdmontonCommon/SouthEdmontonCommonGymZone";
@@ -30,7 +30,7 @@ function SouthEdmontonCommon() {
       <BuildWithPurpose />
       <MoreWayToRecover />
       <SouthEdmontonLocation />
-      <PresaleFrequentlyAskedQuestions {...presaleEdmontonSouthCommonFAQs} />
+      <PresaleFrequentlyAskedQuestions {...southEdmontonCommonFAQs} />
       <SouthEdmontonCommonInPersonTourCta />
     </>
   );

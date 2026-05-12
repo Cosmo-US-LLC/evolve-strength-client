@@ -15,7 +15,7 @@ function MoreWayToRecover() {
             >
               More Ways to Recover and Restore.
             </h2>
-            <p className="text-[#000] max-w-[640px] !font-[Kanit] !font-[400] text-[15px] leading-[24px] md:text-[16px] md:leading-[26px]">
+            <p className="text-[#000] max-w-[640px] !font-[Kanit] !font-[300] text-[15px] leading-[24px] md:text-[16px] md:leading-[26px]">
               Skip the hassle of driving to different clinics. At every Evolve
               location, you will find trusted specialists covering everything
               your body needs, all under the same roof where you train.
@@ -32,7 +32,7 @@ function MoreWayToRecover() {
         </div>
       </div>
 
-      <div className="relative h-[min(70vh,520px)] w-full overflow-hidden bg-black md:h-[700px]">
+      <div className="relative h-[70vh] md:h-[100vh] w-full overflow-hidden bg-black ">
         <video
           autoPlay
           muted

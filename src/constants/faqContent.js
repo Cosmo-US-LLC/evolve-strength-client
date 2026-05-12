@@ -185,7 +185,8 @@ export const presaleEdmontonSouthCommonFAQs = {
     },
     {
       question: "When does billing actually start?",
-      answer: "Billing begins on the day we officially open our doors on May 25, 2026.",
+      answer:
+        "Billing begins on the day we officially open our doors on May 25, 2026.",
     },
     {
       question: "What does my membership include?",
@@ -210,6 +211,39 @@ export const presaleEdmontonSouthCommonFAQs = {
       question: "Can I use other Evolve locations before South Commons opens?",
       answer:
         "Membership access begins once the South Commons location officially opens. If you would like to train at another Evolve location before then, a temporary membership can be purchased for that period.",
+    },
+  ],
+};
+
+export const southEdmontonCommonFAQs = {
+  heading: "Frequently Asked Questions (FAQs)",
+  subtext:
+    "Got questions? We’ve got answers. Whether you're curious about memberships, services, or what to expect on your first visit.",
+  faqs: [
+    {
+      question: "What happens on my tour?",
+      answer:
+        "From the moment you walk in, our friendly staff will guide you through the gym, answer any questions, and help you feel comfortable.",
+    },
+    {
+      question: "When does the gym open?",
+      answer:
+        "We're opening in May 25, 2026. Book a tour to be among the first through the doors and lock in your founding rate before pricing changes.",
+    },
+    {
+      question: "Does Evolve Strength have lockers and showers?",
+      answer:
+        "Yes. All Evolve Strength locations offer clean changing rooms, secure lockers, and well-maintained showers.",
+    },
+    {
+      question: "Is parking available?",
+      answer:
+        "Yes. Every location has on-site parking, so you do not have to worry about finding a spot before your workout.",
+    },
+    {
+      question: "Do you have Wi-Fi?",
+      answer:
+        "Yes. Free Wi-Fi is available throughout the gym, so you can stream music, follow workouts, or stay connected during your visit.",
     },
   ],
 };

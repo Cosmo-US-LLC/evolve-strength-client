@@ -11,11 +11,11 @@ function SouthEdmontonCommonInPersonTourCta() {
           <div className="flex max-w-[760px] flex-col gap-3">
             <h2
               id="south-common-in-person-heading"
-              className="text-[#000] max-w-[640px] uppercase !font-[600] !text-[28px] leading-[34px] md:!text-[40px] md:leading-[39px]"
+              className="text-[#000] max-w-[640px] uppercase !font-[700] !text-[28px] leading-[34px] md:!text-[40px] md:leading-[39px]"
             >
               Some Things Don&apos;t Translate Online.
             </h2>
-            <p className="text-[#000] !font-[Kanit] !font-[400] text-[15px] leading-[24px] md:text-[16px] md:leading-[26px]">
+            <p className="text-[#000] !font-[Kanit] !font-[300] text-[15px] leading-[24px] md:text-[16px] md:leading-[26px]">
               Walk the floor. Feel what three times the space actually means.
               The tour is free.
             </p>
@@ -31,7 +31,7 @@ function SouthEdmontonCommonInPersonTourCta() {
         </div>
       </div>
 
-      <div className="relative h-[min(70vh,520px)] w-full overflow-hidden bg-black md:h-[700px]">
+      <div className="relative h-[70vh] md:h-[100vh] w-full overflow-hidden bg-black">
         <video
           autoPlay
           muted

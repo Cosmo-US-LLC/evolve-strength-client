@@ -146,7 +146,7 @@ const BuildWithPurpose = () => {
           <h2 className="text-[#FFFFFF] w-full md:max-w-[637px] uppercase leading-[32px] md:leading-[42px] text-left">
             Built with purpose. Designed for performance.
           </h2>
-          <h4 className="text-[#FFFFFF] leading-[24px] md:leading-[26px] max-w-[638px] max-md:hidden">
+          <h4 className="text-[#FFFFFF] leading-[24px] md:leading-[26px] max-w-[638px] ">
             Everything about this location was built with intention. The layout,
             the atmosphere, the equipment. There's no filler here.
           </h4>
@@ -183,7 +183,7 @@ const BuildWithPurpose = () => {
               />
 
               {/* Content Container */}
-              <div className="relative z-10 w-[246px] h-[100px] flex flex-col justify-center">
+              <div className="relative z-10 w-[346px] h-[100px] flex flex-col justify-center">
                 {/* <p
                   className={`description leading-[25px] !font-[600] transition-all duration-150 ease-out ${
                     isActive
@@ -194,7 +194,7 @@ const BuildWithPurpose = () => {
                   {card.count}
                 </p> */}
                 <h3
-                  className={`uppercase !text-[24px] font-Vazirmatn leading-[30px] !font-[600] mb-4 transition-all duration-150 ease-out ${
+                  className={`uppercase !text-[32px] leading-[30px] !font-[600] mb-4 transition-all duration-150 ease-out ${
                     isActive
                       ? "text-[#1C1C1C] translate-y-0"
                       : "text-[#ffffff] translate-y-1"
@@ -203,7 +203,7 @@ const BuildWithPurpose = () => {
                   {card.title}
                 </h3>
                 <div
-                  className={`text-[#1C1C1C] text-[16px] leading-[24px] !font-[400] transition-all duration-150 ease-out ${
+                  className={`text-[#1C1C1C] text-[16px] font-[kanit] leading-[24px] !font-[300] transition-all duration-150 ease-out ${
                     isActive
                       ? "text-[#000] translate-y-0"
                       : "text-[#ffffff] translate-y-1"
@@ -239,11 +239,11 @@ const BuildWithPurpose = () => {
                       {/* <p className="description leading-[20px] !font-[600] transition-all duration-150 text-[#000]">
                         {card.count}
                       </p> */}
-                      <h3 className="uppercase !text-[20px] font-Vazirmatn leading-[26px] !font-[600] transition-all duration-150 text-[#1C1C1C]">
+                      <h3 className="uppercase !text-[24px] font-Vazirmatn leading-[26px] !font-[600] transition-all duration-150 text-[#1C1C1C]">
                         {card.title}
                       </h3>
                       <div
-                        className={`text-[#1C1C1C] text-[16px] leading-[20px] !font-[400] transition-all duration-150 ease-out 
+                        className={`text-[#1C1C1C] text-[16px] !font-[kanit] leading-[20px] !font-[300] transition-all duration-150 ease-out 
                         `}
                       >
                         {card.description}
