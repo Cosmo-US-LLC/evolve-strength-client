@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
 
@@ -68,9 +67,11 @@ function SouthEdmontonCommonTourContest() {
           ))}
         </div>
 
-        <Link to={southEdmontonCommonBookTourHref()}>
-          <button className="btnPrimary uppercase">Book a Free Tour</button>
-        </Link>
+        <a href={southEdmontonCommonBookTourHref()}>
+          <button type="button" className="btnPrimary uppercase">
+            Book a Free Tour
+          </button>
+        </a>
         <p className="text-[#000] -mt-6 text-center text-[16px] !font-[300] !font-[Kanit] leading-[22px] md:leading-[22px] max-w-[500px]">
           One winner selected from all eligible entries. No purchase necessary.
           Must complete all three steps to qualify

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
 
@@ -22,11 +21,11 @@ function SouthEdmontonCommonBiggerEverythingIntro() {
               This gym makes you want to use the space. Come see it for
               yourself.
             </h4>
-            <Link to={southEdmontonCommonBookTourHref()}>
+            <a href={southEdmontonCommonBookTourHref()}>
               <button type="button" className="btnPrimary uppercase">
                 Book a Free Tour
               </button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

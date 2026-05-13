@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { Link } from "react-router-dom";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
 
@@ -151,14 +150,14 @@ const BuildWithPurpose = () => {
             the atmosphere, the equipment. There's no filler here.
           </h4>
 
-          <Link
-            to={southEdmontonCommonBookTourHref()}
+          <a
+            href={southEdmontonCommonBookTourHref()}
             className="relative w-fit"
           >
             <button className="btnPrimary uppercase" type="button">
               Book a Free Tour
             </button>
-          </Link>
+          </a>
         </div>
       </div>
 
