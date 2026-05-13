@@ -26,7 +26,7 @@ function SouthEdmontonCommon() {
       <SouthEdmontonCommonBiggerEverythingIntro />
       <SouthEdmontonCommonGymZone />
       <SouthEdmontonCommonTrustedEquipmentBrands />
-      <FitnessCategoryMarquee />
+      <FitnessCategoryMarquee direction="right" />
       <BuildWithPurpose />
       <MoreWayToRecover />
       <SouthEdmontonLocation />

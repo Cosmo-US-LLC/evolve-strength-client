@@ -1,7 +1,7 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 
-function FitnessCategoryMarquee() {
+function FitnessCategoryMarquee({ direction = "left" }) {
   const tags = [
     "Strength",
     "Powerlifting",
@@ -37,7 +37,12 @@ function FitnessCategoryMarquee() {
 
   return (
     <section className="bg-[#000] py-8 ">
-      <Marquee pauseOnHover={true} speed={80} gradient={false}>
+      <Marquee
+        direction={direction}
+        pauseOnHover={true}
+        speed={40}
+        gradient={false}
+      >
         {tags.map((tag, idx) => (
           <span
             key={idx}
