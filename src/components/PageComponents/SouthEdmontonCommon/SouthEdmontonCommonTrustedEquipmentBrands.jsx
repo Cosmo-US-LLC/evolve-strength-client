@@ -212,7 +212,13 @@ function SouthEdmontonCommonTrustedEquipmentBrands() {
                   containScroll: "trimSnaps",
                   dragFree: false,
                 }}
-                plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
+                plugins={[
+                  Autoplay({
+                    delay: 3000,
+                    stopOnInteraction: false,
+                    stopOnMouseEnter: true,
+                  }),
+                ]}
                 className="w-full flex gap-4"
               >
                 <CarouselContent className="-ml-4 py-2">
@@ -231,6 +237,7 @@ function SouthEdmontonCommonTrustedEquipmentBrands() {
             <Marquee
               speed={40}
               gradient={false}
+              pauseOnHover
               className="[&_.rfm-child]:flex [&_.rfm-child]:shrink-0 [&_.rfm-initial-child-container]:flex py-2"
             >
               {MARQUEE_PARTNERS.map((partner, index) => (

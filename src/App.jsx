@@ -122,7 +122,7 @@ function App() {
             element={<SpacesForSouthEdmontonCommon />}
           />
           <Route
-            path="/south-edmonton-common"
+            path="/tour-south-edmonton-common"
             element={<SouthEdmontonCommon />}
           />
         </Route>

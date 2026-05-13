@@ -10,7 +10,7 @@ function PresaleNavbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const location = useLocation();
   const isSouthEdmontonCommonPage =
-    location.pathname === "/south-edmonton-common";
+    location.pathname === "/tour-south-edmonton-common";
 
   const navigationLinks = [
     { to: "/about-us", label: "About" },
