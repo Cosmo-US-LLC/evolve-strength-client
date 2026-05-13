@@ -1,11 +1,16 @@
 import React from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { Menu } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-logo-light.svg";
 import { Sheet, SheetContent, SheetTrigger } from "../../components/ui/sheet";
+import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
 
 function PresaleNavbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const location = useLocation();
+  const isSouthEdmontonCommonPage =
+    location.pathname === "/tour-south-edmonton-common";
 
   const navigationLinks = [
     { to: "/about-us", label: "About" },
@@ -32,6 +37,17 @@ function PresaleNavbar() {
             draggable="false"
           />
         </Link>
+
+        {isSouthEdmontonCommonPage && (
+          <a
+            href={southEdmontonCommonBookTourHref()}
+            className="w-fit z-10"
+          >
+            <button type="button" className="btnPrimary uppercase">
+              Book a Free Tour
+            </button>
+          </a>
+        )}
 
         {/* Desktop Navigation */}
         {/* <div className="hidden md:flex items-center gap-5 md:gap-[21px]">
