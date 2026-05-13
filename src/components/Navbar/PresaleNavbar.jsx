@@ -39,9 +39,14 @@ function PresaleNavbar() {
         </Link>
 
         {isSouthEdmontonCommonPage && (
-          <Link to={southEdmontonCommonBookTourHref()} className="w-fit z-10">
-            <button className="btnPrimary uppercase">Book a Free Tour</button>
-          </Link>
+          <a
+            href={southEdmontonCommonBookTourHref()}
+            className="w-fit z-10"
+          >
+            <button type="button" className="btnPrimary uppercase">
+              Book a Free Tour
+            </button>
+          </a>
         )}
 
         {/* Desktop Navigation */}

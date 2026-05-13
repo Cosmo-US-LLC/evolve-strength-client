@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
 import buildingImage from "@/assets/images/spaces/AvailableOffices/south_edmonton_common_location.webp";
@@ -44,11 +43,11 @@ function SouthEdmontonLocation() {
                   {ADDRESS}
                 </p>
               </div>
-              <Link to={southEdmontonCommonBookTourHref()} className="shrink-0">
+              <a href={southEdmontonCommonBookTourHref()} className="shrink-0">
                 <button type="button" className="btnPrimary h-[50px] uppercase">
                   Book a Free Tour
                 </button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
