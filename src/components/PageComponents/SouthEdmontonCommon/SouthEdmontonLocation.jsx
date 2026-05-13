@@ -5,9 +5,9 @@ import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommon
 import buildingImage from "@/assets/images/spaces/AvailableOffices/south_edmonton_common_location.webp";
 
 const LOCATION_TITLE = "South Edmonton Common";
-const ADDRESS = "1910 102 Street NW, Edmonton, AB T6N 1N3";
+const ADDRESS = "1910 102 St NW, Edmonton, AB T6N 1N3, Canada";
 const MAP_EMBED_SRC =
-  "https://maps.google.com/maps?q=1910+102+Street+NW,+Edmonton,+AB+T6N+1N3&hl=en&z=15&output=embed";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.557105817585!2d-113.49046790026385!3d53.447055747151595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a01f8db0902a21%3A0x6aa076ad9b42f0ee!2sEvolve%20Strength%20South%20Common!5e0!3m2!1sen!2s!4v1778656095370!5m2!1sen!2s";
 
 function SouthEdmontonLocation() {
   return (

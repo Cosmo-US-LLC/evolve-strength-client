@@ -21,7 +21,7 @@ function SouthEdmontonCommonHero() {
             type="video/webm"
           />
           <source
-            src="/assets/images/presaleCommonSouth/ES_waitlist_desktop.webm"
+            src="/assets/images/Sun_rising_south_edmonton_common.webm"
             type="video/webm"
           />
         </video>
