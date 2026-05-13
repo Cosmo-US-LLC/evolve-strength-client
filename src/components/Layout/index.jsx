@@ -10,7 +10,7 @@ function Layout() {
   const isPresalePage =
     location.pathname === "/presale-edmonton-south-common" ||
     location.pathname === "/spaces-for-south-edmonton-common" ||
-    location.pathname === "/south-edmonton-common";
+    location.pathname === "/tour-south-edmonton-common";
   return (
     <div>
       {/* <ScrollToTop /> */}
