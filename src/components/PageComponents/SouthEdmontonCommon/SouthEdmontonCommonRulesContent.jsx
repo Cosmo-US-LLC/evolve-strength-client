@@ -9,6 +9,32 @@ import {
 const bodyClass =
   "leading-normal text-black !font-[kanit] font-light text-[18px]";
 
+const SOUTH_COMMON_INSTAGRAM_HANDLE = "@evolve_strength_south_common";
+const SOUTH_COMMON_INSTAGRAM_URL =
+  "https://www.instagram.com/evolve_strength_southcommon?igsh=MWJxd3prbG4zMDB6bQ==";
+
+function renderTextWithSouthCommonInstagram(text) {
+  const i = text.indexOf(SOUTH_COMMON_INSTAGRAM_HANDLE);
+  if (i === -1) {
+    return text;
+  }
+  const after = i + SOUTH_COMMON_INSTAGRAM_HANDLE.length;
+  return (
+    <>
+      {text.slice(0, i)}
+      <a
+        href={SOUTH_COMMON_INSTAGRAM_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#4AB04A] underline underline-offset-2 hover:opacity-80"
+      >
+        {SOUTH_COMMON_INSTAGRAM_HANDLE}
+      </a>
+      {text.slice(after)}
+    </>
+  );
+}
+
 function SouthEdmontonCommonRulesContent() {
   const [activeId, setActiveId] = useState("sponsor");
 
@@ -26,7 +52,7 @@ function SouthEdmontonCommonRulesContent() {
     if (typeof block === "string") {
       return (
         <p key={index} className={`${bodyClass} whitespace-pre-wrap`}>
-          {block}
+          {renderTextWithSouthCommonInstagram(block)}
         </p>
       );
     }
@@ -47,7 +73,7 @@ function SouthEdmontonCommonRulesContent() {
         >
           {block.list.map((item, j) => (
             <li key={j} className="leading-normal ms-[27px] [&+li]:mt-0">
-              {item}
+              {renderTextWithSouthCommonInstagram(item)}
             </li>
           ))}
         </ul>
