@@ -9,11 +9,12 @@ const SOUTH_EDMONTON_COMMON_INSTAGRAM_URL =
 const STEPS = [
   {
     title: "Book Your Tour",
-    description: "Book a free tour within the first 3 weeks of opening",
+    description:
+      "Book a free tour at Evolve Strength South Edmonton Common before July 1st",
   },
   {
     title: "Experience Evolve",
-    description: "Attend your tour within the first 3 weeks",
+    description: "Attend your scheduled tour before July 1st",
   },
   {
     title: "Join the Movement",

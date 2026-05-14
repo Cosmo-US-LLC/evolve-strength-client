@@ -36,9 +36,9 @@ function SouthEdmontonCommonHero() {
               Become a lifetime evolve member.
             </h1>
             <h3 className="text-[#FFFFFF] !text-[16px] md:!text-[18px] !font-[300] max-w-[640px] leading-[22px] md:leading-[24px] mb-6 !font-[Kanit]">
-              Attend a tour within the first 3 weeks and you’ll be entered to
-              win a lifetime membership at Edmonton’s biggest gym. The giveaway
-              ends on July 1st.
+              Attend a free tour before July 1st and you could own a lifetime
+              membership at one of Edmonton's biggest gyms. Contest ends July
+              1st.
             </h3>
             <a href={southEdmontonCommonBookTourHref()}>
               <button className="btnPrimary uppercase" type="button">
