@@ -73,6 +73,7 @@ function Navbar() {
               currentPath.includes("work-spaces") ||
               currentPath.includes("privacy-policy") ||
               currentPath.includes("terms-and-conditions") ||
+              currentPath.includes("south-edmonton-common-rules") ||
               currentPath.includes("faqs") ||
               currentPath.includes("franchise") ||
               currentPath.includes("join-the-Movement") ||
