@@ -57,7 +57,7 @@ function SouthEdmontonCommonRulesContent() {
   };
 
   return (
-    <div className="mx-auto w-full max-w-[1440px] px-4 pb-[140px] md:px-[100px] md:pb-20 md:pt-20 pt-12 mt-32 flex gap-[24px] overflow-visible">
+    <div className="mx-auto w-full max-w-[1440px] px-4 pb-[140px] md:px-[100px] md:pb-20 md:pt-20 pt-12 mt-20 flex gap-[24px] overflow-visible">
       {/* Sidebar — Figma: w-[300px], py-[10px], nav ExtraLight 16px; active #4AB04A 18px + bar */}
       <div className="flex flex-col w-[300px] shrink-0 py-[10px] gap-[10px] sticky top-[150px] self-start h-fit max-md:hidden">
         <ul className="px-4 scroll-smooth !font-[kanit] space-y-2">
