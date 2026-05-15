@@ -245,5 +245,10 @@ export const southEdmontonCommonFAQs = {
       answer:
         "Yes. Free Wi-Fi is available throughout the gym, so you can stream music, follow workouts, or stay connected during your visit.",
     },
+    {
+      question: "Is there a purchase required to enter the giveaway?",
+      answer:
+        "No purchase necessary. One winner selected by random draw from all eligible entries. <a href='/south-edmonton-common-rules' class='underline text-[#4AB04A] hover:opacity-80'>View full contest rules and eligibility.</a>",
+    },
   ],
 };

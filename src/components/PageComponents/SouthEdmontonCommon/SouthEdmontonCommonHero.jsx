@@ -33,11 +33,11 @@ function SouthEdmontonCommonHero() {
               South Edmonton Common · Tours Open Now
             </div>
             <h1 className="text-[#FFFFFF] uppercase max-w-[760px] !text-[36px] leading-[40px] md:!text-[70px] md:leading-[72px] mb-4 md:mb-5">
-              Become a lifetime evolve member.
+              Get a chance to become a Lifetime Evolve member.
             </h1>
             <h3 className="text-[#FFFFFF] !text-[16px] md:!text-[18px] !font-[300] max-w-[640px] leading-[22px] md:leading-[24px] mb-6 !font-[Kanit]">
-              Attend a free tour before July 1st and you could own a lifetime
-              membership at one of Edmonton's biggest gyms. Contest ends July
+              Attend a free tour before July 1st for a chance to win a lifetime
+              membership at one of Edmonton’s biggest gyms. Contest ends July
               1st.
             </h3>
             <a href={southEdmontonCommonBookTourHref()}>

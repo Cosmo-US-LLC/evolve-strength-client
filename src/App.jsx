@@ -53,6 +53,7 @@ import MembershipSummaryCard from "./components/FounderOfferPayment/MembershipSu
 import PrimaryMemberDetails from "./components/FounderOfferPayment/steps/PrimaryMemberDetails";
 import SpacesForSouthEdmontonCommon from "./pages/Spaces/SpacesForSouthEdmontonCommon";
 import SouthEdmontonCommon from "./pages/SouthEdmontonCommon";
+import SouthEdmontonCommonRules from "./pages/SouthEdmontonCommonRules";
 
 function App() {
   return (
@@ -124,6 +125,10 @@ function App() {
           <Route
             path="/tour-south-edmonton-common"
             element={<SouthEdmontonCommon />}
+          />
+          <Route
+            path="/south-edmonton-common-rules"
+            element={<SouthEdmontonCommonRules />}
           />
         </Route>
 
