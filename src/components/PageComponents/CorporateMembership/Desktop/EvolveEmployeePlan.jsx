@@ -13,7 +13,7 @@ function EvolveEmployeePlan() {
           <h4 className="text-[#FFFFFF] md:!font-[300] !font-[400] max-w-[542px] leading-[24px] mb-6">
             Give your people access to a complete fitness and wellness
             ecosystem. We’ll help you set it up, manage it, and make sure it
-            works for your <br /> team.
+            works for your team.
           </h4>
           <div className="flex gap-6">
             <Link to="/corporate-membership-wizard">
