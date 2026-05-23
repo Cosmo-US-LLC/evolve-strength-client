@@ -34,13 +34,12 @@ function SomeThinkNew() {
 
           {/* Call-to-Action Button */}
           <a
-            href="/presale-edmonton-south-common"
-            // target="_blank"
-            target="_self"
+            href="https://evolvestrength.ca/tour-south-edmonton-common"
+            target="_blank"
             rel="noopener noreferrer"
             className="btnPrimary"
           >
-            JOIN THE PRESALE
+            Book A Free Tour
           </a>
         </div>
       </div>
