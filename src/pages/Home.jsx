@@ -35,7 +35,7 @@ function Home() {
         <EquipmentPartners />
         <WellnessServices />
         <FacilityShowcase />
-        <SomeThinkNew />
+        {/* <SomeThinkNew /> */}
         <CareerWithEvolve />
         <BusinessOpportunities />
       </div>
