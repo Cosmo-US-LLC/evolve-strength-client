@@ -36,21 +36,21 @@ function Hero({ title }) {
                 </span>
                 New Location
               </div>
-              <div className="text-white text-[12px] md:text-[14px] font-[400] uppercase leading-[24px] bg-[#20202066] backdrop-blur-[14px] border border-[#ADADAD] px-4 py-1 rounded-full font-[Kanit]">
+              {/* <div className="text-white text-[12px] md:text-[14px] font-[400] uppercase leading-[24px] bg-[#20202066] backdrop-blur-[14px] border border-[#ADADAD] px-4 py-1 rounded-full font-[Kanit]">
                 OPENING MAY 25TH
-              </div>
+              </div> */}
 
             </div>
             <h1
               className="text-[#FFFFFF] !text-[36px] md:!text-[70px] leading-[32px] md:leading-[59px] max-w-[740px] uppercase mb-4 md:mb-6"
             >
-              South Edmonton Common{" "}
-              <span className="text-[#4ab04a]">is Coming.</span>
+              South Edmonton,{" "}
+              <span className="text-[#4ab04a]">meet your new gym.</span>
             </h1>
               {/* // dangerouslySetInnerHTML={{ __html: title }} */}
 
             <h3 className="text-[#FFFFFF] !text-[16px] !font-[300] !leading-[20px] !md:leading-[24px] mb-8 max-w-[350px] md:max-w-[606px] !font-[Kanit]">
-              Our newest Evolve Strength location. Lock in your founding member rate before doors open.
+              Book a free tour before July 1st for a chance to win a lifetime membership.
             </h3>
             <div className="flex gap-2 md:gap-4 flex-col md:flex-row items-start">
               <a href="https://evolvestrength.ca/tour-south-edmonton-common" target="_blank" rel="noopener noreferrer">
