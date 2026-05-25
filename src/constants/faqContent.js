@@ -225,11 +225,11 @@ export const southEdmontonCommonFAQs = {
       answer:
         "From the moment you walk in, our friendly staff will guide you through the gym, answer any questions, and help you feel comfortable.",
     },
-    {
-      question: "When does the gym open?",
-      answer:
-        "We're opening in May 25, 2026. Book a tour to be among the first through the doors and lock in your founding rate before pricing changes.",
-    },
+    // {
+    //   question: "When does the gym open?",
+    //   answer:
+    //     "We're opening in May 25, 2026. Book a tour to be among the first through the doors and lock in your founding rate before pricing changes.",
+    // },
     {
       question: "Does Evolve Strength have lockers and showers?",
       answer:

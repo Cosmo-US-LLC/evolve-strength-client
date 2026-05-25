@@ -8,11 +8,12 @@ function AllGymLocations() {
       id: 9,
       name: "South Edmonton Common",
       image: "/assets/all_locations/g_south_com.webp",
-      address: "",
-      phone: "",
-      directionsUrl: "",
-      locationUrl: "",
-      commonbtn: true,
+      address: "1910 102 St NW, Edmonton, AB T6N 1N3, Canada",
+      phone: "+1 (587) 686-7622",
+      directionsUrl:
+        "https://www.google.com/maps/place/Evolve+Strength+South+Common/@53.4473442,-113.4915185,519m/data=!3m2!1e3!4b1!4m6!3m5!1s0x53a01f8db0902a21:0x6aa076ad9b42f0ee!8m2!3d53.4473442!4d-113.4915185!16s%2Fg%2F11xvzn3yx2?hl=en&entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D",
+      locationUrl: "/tour-south-edmonton-common",
+      commonbtn: false,
     },
     {
       id: 1,
