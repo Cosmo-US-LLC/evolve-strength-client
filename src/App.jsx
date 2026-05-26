@@ -187,10 +187,10 @@ function App() {
           element={<CompanyNotRegistered />}
         />
 
-        <Route
+        {/* <Route
           path="/founder-offer-payment"
           element={<FounderOfferPayment />}
-        />
+        /> */}
 
         <Route path="/loader" element={<Loader />} />
         <Route path="*" element={<NotFoundPage />} />
