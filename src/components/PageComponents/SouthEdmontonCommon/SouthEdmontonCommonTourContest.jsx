@@ -2,6 +2,7 @@ import React from "react";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
 
+import { Link } from "react-router-dom";
 /** South Edmonton Common Instagram (display @ may differ slightly from URL slug). */
 const SOUTH_EDMONTON_COMMON_INSTAGRAM_URL =
   "https://www.instagram.com/evolve_strength_southcommon?igsh=MWJxd3prbG4zMDB6bQ==";
@@ -68,11 +69,18 @@ function SouthEdmontonCommonTourContest() {
           ))}
         </div>
 
-        <a href={southEdmontonCommonBookTourHref()}>
-          <button type="button" className="btnPrimary uppercase">
-            Book a Free Tour
-          </button>
-        </a>
+
+        <div className="flex flex-row gap-4">
+          <a href={southEdmontonCommonBookTourHref()}>
+            <button type="button" className="btnPrimary uppercase">
+              Book a Free Tour
+            </button>
+          </a>{" "}
+          <a  href={'/join-now/membership-type?location=South%20Edmonton%20Common'}>
+
+            <button type="button" className='btnSecondary !text-[#000000] !bg-[#fff] !border !border-[#000000] hover:!bg-[#000000] hover:!text-white'>JOIN NOW</button>
+          </a>
+        </div>
         <p className="text-[#000] -mt-6 text-center text-[16px] !font-[300] !font-[Kanit] leading-[22px] md:leading-[22px] max-w-[500px]">
           One winner selected from all eligible entries. No purchase necessary.
           Must complete all three steps to qualify

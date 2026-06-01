@@ -43,11 +43,18 @@ function SouthEdmontonLocation() {
                   {ADDRESS}
                 </p>
               </div>
-              <a href={southEdmontonCommonBookTourHref()} className="shrink-0">
-                <button type="button" className="btnPrimary h-[50px] uppercase">
-                  Book a Free Tour
-                </button>
-              </a>
+
+              <div className="flex flex-row gap-4 items-center md:pt-1">
+                <a href={southEdmontonCommonBookTourHref()} className="shrink-0">
+                  <button type="button" className="btnPrimary h-[50px] uppercase">
+                    Book a Free Tour
+                  </button>
+                </a>
+                <a className=" md:hidden flex-1 " href={'/join-now/membership-type?location=South%20Edmonton%20Common'}>
+
+                  <button type="button" className='btnSecondary w-full justify-center !py-4 !text-[#000000] !bg-[#fff] !border !border-[#000000] hover:!bg-[#000000] hover:!text-white'>JOIN NOW</button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
