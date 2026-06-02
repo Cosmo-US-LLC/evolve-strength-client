@@ -40,11 +40,16 @@ function SouthEdmontonCommonHero() {
               membership at one of Edmonton’s biggest gyms. Contest ends July
               1st.
             </h3>
-            <a href={southEdmontonCommonBookTourHref()}>
-              <button className="btnPrimary uppercase" type="button">
-                Book a Free Tour
-              </button>
-            </a>{" "}
+            <div className="flex flex-row gap-4">
+              <a href={southEdmontonCommonBookTourHref()}>
+                <button className="btnPrimary uppercase" type="button">
+                  Book a Free Tour
+                </button>
+              </a>{" "}
+              <a href={'/join-now/membership-type?location=South%20Edmonton%20Common'}>
+                <button className="btnSecondary">JOIN NOW</button>
+              </a>
+            </div>
           </div>
         </div>
       </div>

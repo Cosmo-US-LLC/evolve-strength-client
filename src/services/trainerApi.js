@@ -402,6 +402,24 @@ export const filterTrainers = (trainers, filters) => {
  * Location data configuration
  */
 export const LOCATION_CONFIG = [
+    {
+    id: "location-edmonton-south",
+    city: "South",
+    branch: "Edmonton Common",
+    name: "South Edmonton Common",
+    services: [
+      "Personal Trainer",
+      "Esthetician",
+      "Chiropractor",
+      "Massage Therapist",
+      "Physiotherapist",
+      "Acupuncturist",
+      "Dietitian",
+      "Osteopath",
+      "Laser Therapist",
+      "Mental Health Professional",
+    ],
+  },
   {
     id: "location-vancouver-post",
     city: "VANCOUVER",

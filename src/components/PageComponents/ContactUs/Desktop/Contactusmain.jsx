@@ -8,8 +8,8 @@ const contactLocationsData = {
     {
       cityName: "South Edmonton Common",
       location: "1910 102 STREET NW, EDMONTON, AB T6N 1N3",
-      number: "",
-      email: "sec@evolvestrength.ca",
+      number: "(587) 686-7622",
+      email: null,
     },
     {
       cityName: "Edmonton Downtown",
@@ -17,12 +17,12 @@ const contactLocationsData = {
       number: "(780) 784-2675",
       email: null,
     },
-    {
-      cityName: "Edmonton South",
-      location: "4825 89 St NW Edmonton, Alberta, T6E 5K1",
-      number: "(587) 754-3632",
-      email: null,
-    },
+    // {
+    //   cityName: "Edmonton South",
+    //   location: "4825 89 St NW Edmonton, Alberta, T6E 5K1",
+    //   number: "(587) 754-3632",
+    //   email: null,
+    // },
     {
       cityName: "Edmonton North",
       location: "13457 149 St Edmonton, Alberta, T5L 2T3",
