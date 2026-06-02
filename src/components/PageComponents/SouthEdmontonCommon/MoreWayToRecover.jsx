@@ -20,14 +20,20 @@ function MoreWayToRecover() {
               your body needs, all under the same roof where you train.
             </p>
           </div>
-          <a
-            href={southEdmontonCommonBookTourHref()}
-            className="shrink-0 md:pt-1"
-          >
-            <button type="button" className="btnPrimary uppercase">
-              Book a Free Tour
-            </button>
-          </a>
+          <div className="flex flex-row gap-4 items-center md:pt-1">
+            <a
+              href={southEdmontonCommonBookTourHref()}
+              className="shrink-0 "
+            >
+              <button type="button" className="btnPrimary uppercase">
+                Book a Free Tour
+              </button>
+            </a>
+            <a href={'/join-now/membership-type?location=South%20Edmonton%20Common'}>
+
+              <button type="button" className='btnSecondary !text-[#000000] !bg-[#fff] !border !border-[#000000] hover:!bg-[#000000] hover:!text-white'>JOIN NOW</button>
+            </a>
+          </div>
         </div>
       </div>
 

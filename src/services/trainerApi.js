@@ -12,6 +12,7 @@ let currentController = null; // Abort previous request when a new one starts
 
 // Franchise ID to Location Name mapping
 export const FRANCHISE_MAP = {
+  15: "SOUTH EDMONTON COMMON",
   7: "EDMONTON DOWNTOWN",
   8: "EDMONTON SOUTH",
   9: "EDMONTON NORTH",
@@ -402,6 +403,24 @@ export const filterTrainers = (trainers, filters) => {
  * Location data configuration
  */
 export const LOCATION_CONFIG = [
+    {
+    id: "south-edmonton-common",
+    city: "South",
+    branch: "Edmonton Common",
+    name: "South Edmonton Common",
+    services: [
+      "Personal Trainer",
+      "Esthetician",
+      "Chiropractor",
+      "Massage Therapist",
+      "Physiotherapist",
+      "Acupuncturist",
+      "Dietitian",
+      "Osteopath",
+      "Laser Therapist",
+      "Mental Health Professional",
+    ],
+  },
   {
     id: "location-vancouver-post",
     city: "VANCOUVER",

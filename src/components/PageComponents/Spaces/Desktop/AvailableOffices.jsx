@@ -141,7 +141,7 @@ const AvailableOffices = () => {
     "Brentwood",
     "Post",
     "Edmonton Downtown",
-    // "South Edmonton Common",
+    "South Edmonton Common",
   ];
 
   // Calculate available offices count for "All" tab

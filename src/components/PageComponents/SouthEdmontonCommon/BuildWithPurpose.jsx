@@ -150,14 +150,20 @@ const BuildWithPurpose = () => {
             the atmosphere, the equipment. There's no filler here.
           </h4>
 
-          <a
-            href={southEdmontonCommonBookTourHref()}
-            className="relative w-fit"
-          >
-            <button className="btnPrimary uppercase" type="button">
-              Book a Free Tour
-            </button>
-          </a>
+
+          <div className="flex flex-row gap-4">
+            <a
+              href={southEdmontonCommonBookTourHref()}
+              className="relative w-fit"
+            >
+              <button className="btnPrimary uppercase" type="button">
+                Book a Free Tour
+              </button>
+            </a>{" "}
+            <a href={'/join-now/membership-type?location=South%20Edmonton%20Common'}>
+              <button className="btnSecondary">JOIN NOW</button>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -176,9 +182,8 @@ const BuildWithPurpose = () => {
             >
               {/* White Overlay - Smooth slide up animation */}
               <div
-                className={`absolute inset-0 z-0 bg-[#ffffff] transition-transform duration-150 ease-out ${
-                  isActive ? "translate-y-0" : "translate-y-full"
-                }`}
+                className={`absolute inset-0 z-0 bg-[#ffffff] transition-transform duration-150 ease-out ${isActive ? "translate-y-0" : "translate-y-full"
+                  }`}
               />
 
               {/* Content Container */}
@@ -193,20 +198,18 @@ const BuildWithPurpose = () => {
                   {card.count}
                 </p> */}
                 <h3
-                  className={`uppercase !text-[32px] leading-[30px] !font-[600] mb-4 transition-all duration-150 ease-out ${
-                    isActive
+                  className={`uppercase !text-[32px] leading-[30px] !font-[600] mb-4 transition-all duration-150 ease-out ${isActive
                       ? "text-[#1C1C1C] translate-y-0"
                       : "text-[#ffffff] translate-y-1"
-                  }`}
+                    }`}
                 >
                   {card.title}
                 </h3>
                 <div
-                  className={`text-[#1C1C1C] text-[16px] h-[80px] font-[kanit] leading-[24px] !font-[300] transition-all duration-150 ease-out ${
-                    isActive
+                  className={`text-[#1C1C1C] text-[16px] h-[80px] font-[kanit] leading-[24px] !font-[300] transition-all duration-150 ease-out ${isActive
                       ? "text-[#000] translate-y-0"
                       : "text-[#ffffff] translate-y-1"
-                  }`}
+                    }`}
                 >
                   {card.description}
                 </div>
@@ -228,9 +231,8 @@ const BuildWithPurpose = () => {
               return (
                 <div key={index} className="flex-[0_0_70%] min-w-0 px-3 py-4">
                   <div
-                    className={`w-full min-h-[180px] px-3 rounded-[5px] flex flex-col justify-center gap-4 cursor-pointer relative group overflow-hidden transition-all duration-150 transform ${
-                      isSelected ? "scale-110" : "scale-95"
-                    }`}
+                    className={`w-full min-h-[180px] px-3 rounded-[5px] flex flex-col justify-center gap-4 cursor-pointer relative group overflow-hidden transition-all duration-150 transform ${isSelected ? "scale-110" : "scale-95"
+                      }`}
                   >
                     <div className="absolute inset-0 z-0 bg-[#ffffff] h-[100%] flex flex-col items-center justify-center" />
 
