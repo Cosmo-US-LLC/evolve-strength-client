@@ -12,6 +12,7 @@ import {
   downtownPremiumAmenities,
   EdmontonDowntownPremiumAmenities,
   calgarysetonPremiumAmenities,
+  southEdmontonCommonPremiumAmenities,
 } from "../../../../constants/professionalServicesImages.js";
 
 const LocationsSpacious = () => {
@@ -35,6 +36,8 @@ const LocationsSpacious = () => {
     locationKey = "edmonton-downtown";
   } else if (currentPath.includes("edmonton-north")) {
     locationKey = "edmonton-north";
+  } else if (currentPath.includes("south-edmonton-common")) {
+    locationKey = "south-edmonton-common";
   }
 
   // Get location-specific amenities data
@@ -48,6 +51,7 @@ const LocationsSpacious = () => {
       "edmonton-south": downtownPremiumAmenities, // Using downtown as fallback
       "edmonton-downtown": EdmontonDowntownPremiumAmenities,
       "edmonton-north": downtownPremiumAmenities, // Using downtown as fallback
+      "south-edmonton-common": southEdmontonCommonPremiumAmenities,
     };
 
     return amenitiesMap[locationKey] || professionalMembershipPremiumAmenities;
@@ -75,6 +79,8 @@ const LocationsSpacious = () => {
         "/book-a-tour/?location=06967",
       "edmonton-north":
         "/book-a-tour/?location=06964",
+      "south-edmonton-common":
+        "/book-a-tour/?location=32176",
     };
 
     return tourUrls[locationKey] || "/book-a-tour/";

@@ -25,6 +25,8 @@ function SetonLocation() {
     locationKey = "burnaby-brentwood";
   } else if (currentPath.includes("vancouver-post")) {
     locationKey = "vancouver-post";
+  } else if (currentPath.includes("south-edmonton-common")) {
+    locationKey = "south-edmonton-common";
   }
 
   const locationData =
@@ -41,6 +43,7 @@ function SetonLocation() {
       "edmonton-south": "/book-a-tour/?location=06962",
       "edmonton-downtown": "/book-a-tour/?location=06967",
       "edmonton-north": "/book-a-tour/?location=06964",
+      "south-edmonton-common": "/book-a-tour/?location=32176",
     };
 
     return tourUrls[locationKey] || "/book-a-tour/";

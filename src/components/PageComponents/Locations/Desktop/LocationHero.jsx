@@ -50,8 +50,10 @@ const LOCATION_HERO_DATA = {
   "edmonton-downtown": {
     // desktop: "/assets/images/Locations/location-hero/hero_downtown.webp",
     // mobile: "/assets/images/Locations/location-hero/hero_downtown_mob.webp",
-    desktop: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1776063403075-778fdaac-3779-49c2-8511-4102bfce6941.webp",
-    mobile: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1776063482611-e3cca27d-6fcf-48c3-99d6-3178e53c8673.webp",
+    desktop:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1776063403075-778fdaac-3779-49c2-8511-4102bfce6941.webp",
+    mobile:
+      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1776063482611-e3cca27d-6fcf-48c3-99d6-3178e53c8673.webp",
     locationTitle: "DOWNTOWN",
     city: "EDMONTON",
     fullTitle: "DOWNTOWN's Premier Fitness and Wellness Club",
@@ -75,6 +77,16 @@ const LOCATION_HERO_DATA = {
     fullTitle: "Vancouver's Premier Fitness and Wellness Club",
     tourUrl: "/book-a-tour/?location=40327",
     membershipUrl: "/join-now/membership-type?location=Vancouver,%20The%20Post",
+  },
+  "south-edmonton-common": {
+    video: "/assets/videos/Sun_rising_south_edmonton_common.mp4",
+    poster: "",
+    locationTitle: "SOUTH EDMONTON COMMON",
+    city: "EDMONTON",
+    fullTitle: "South Edmonton's\n Premier Fitness\n and Wellness Club",
+    tourUrl: "/book-a-tour/?location=32176",
+    membershipUrl:
+      "/join-now/membership-type?location=South%20Edmonton%20Common",
   },
 };
 
@@ -100,6 +112,8 @@ function LocationHero() {
     locationKey = "burnaby-brentwood";
   } else if (currentPath.includes("vancouver-post")) {
     locationKey = "vancouver-post";
+  } else if (currentPath.includes("south-edmonton-common")) {
+    locationKey = "south-edmonton-common";
   }
 
   // Get dynamic data for the detected location
@@ -141,7 +155,7 @@ function LocationHero() {
       )}
       <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/30" />
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 pb-[20px] md:pb-[64px] relative z-2 flex flex-col items-start justify-end w-full h-full">
-        <h1 className="text-[#FFFFFF] uppercase max-w-[960px] leading-[39px] md:leading-[56px] mb-1.5 md:mb-5">
+        <h1 className="text-[#FFFFFF] uppercase max-w-[960px] leading-[39px] md:leading-[56px] mb-1.5 md:mb-5 whitespace-pre-line">
           {fullTitle}
         </h1>
         <h3 className="text-[#FFFFFF] !font-[300] max-w-[844px] leading-[29px] mb-4 md:mb-6">

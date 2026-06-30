@@ -36,6 +36,7 @@ import CalgarySunridge from "./pages/LocationsPage/CalgarySunridge";
 import CalgaryRoyalOak from "./pages/LocationsPage/CalgaryRoyalOak";
 import BurnabyBrentwood from "./pages/LocationsPage/BurnabyBrentwood";
 import VancouverPost from "./pages/LocationsPage/VancouverPost";
+import SouthEdmontonCommonLocation from "./pages/LocationsPage/SouthEdmontonCommon";
 import TrainerForm from "./components/Form/TrainersForm";
 import AllLocations from "./pages/LocationsPage/AllLocations";
 import EdmontonSouthCommon from "./pages/LocationsPage/EdmontonSouthCommon";
@@ -100,6 +101,10 @@ function App() {
             element={<BurnabyBrentwood />}
           />
           <Route path="/locations/vancouver-post" element={<VancouverPost />} />
+          <Route
+            path="/locations/south-edmonton-common"
+            element={<SouthEdmontonCommonLocation />}
+          />
           <Route
             path="/presale-edmonton-south-common"
             element={<PresaleEdmontonSouthCommon />}

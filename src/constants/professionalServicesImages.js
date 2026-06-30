@@ -442,6 +442,25 @@ export const downtownPremiumAmenities = [
   },
 ];
 
+// south edmonton common premium amenities
+export const southEdmontonCommonPremiumAmenities = [
+  {
+    title: "Saunas",
+    image:
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/south_common_sauna.webp",
+  },
+  {
+    title: "Waiting Area",
+    image:
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/south_common_waiting_room.webp",
+  },
+  {
+    title: "Locker Rooms",
+    image:
+      "/assets/images/corporateMembership/MembershipPremiumAmenities/south_common_locker_room.webp",
+  },
+];
+
 export const EdmontonDowntownPremiumAmenities = [
   {
     title: "Waiting Area",

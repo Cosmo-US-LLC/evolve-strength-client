@@ -66,6 +66,14 @@ const LOCATION_BACKGROUNDS = {
     locationName: "Vancouver The Post",
     tourUrl: "/book-a-tour/?location=40327",
   },
+  "south-edmonton-common": {
+    desktop:
+      "/assets/images/Locations/join-evolve/join_evolve_south_common.webp",
+    mobile:
+      "/assets/images/Locations/join-evolve/join_evolve_south_common_mob.webp",
+    locationName: "South Edmonton Common",
+    tourUrl: "/book-a-tour/?location=32176",
+  },
 };
 
 function JoinUsToday() {
@@ -88,6 +96,8 @@ function JoinUsToday() {
     locationKey = "burnaby-brentwood";
   } else if (currentPath.includes("vancouver-post")) {
     locationKey = "vancouver-post";
+  } else if (currentPath.includes("south-edmonton-common")) {
+    locationKey = "south-edmonton-common";
   }
 
   const locationData =
