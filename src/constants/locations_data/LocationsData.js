@@ -144,8 +144,8 @@ export const LOCATIONS_DATA = {
   "south-edmonton-common": {
     name: "South Edmonton Common",
     address: "1910 102 St NW, Edmonton, AB T6N 1N3",
-    city: "EDMONTON",
-    branch: "SOUTH COMMON",
+    city: "SOUTH EDMONTON",
+    branch: "COMMON",
     buildingImage:
       "/assets/images/spaces/AvailableOffices/south_edmonton_common_location.webp",
     mapUrl:
