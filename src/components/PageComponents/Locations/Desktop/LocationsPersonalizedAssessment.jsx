@@ -21,6 +21,8 @@ function LocationsPersonalizedAssessment() {
     locationKey = "edmonton-downtown";
   } else if (currentPath.includes("edmonton-north")) {
     locationKey = "edmonton-north";
+  } else if (currentPath.includes("south-edmonton-common")) {
+    locationKey = "south-edmonton-common";
   }
 
   // Location-specific tour URLs
@@ -34,6 +36,7 @@ function LocationsPersonalizedAssessment() {
       "edmonton-south": "/join-now/membership-type?location=Edmonton%20South",
       "edmonton-downtown": "/join-now/membership-type?location=Edmonton%20Downtown",
       "edmonton-north": "/join-now/membership-type?location=Edmonton%20North",
+      "south-edmonton-common": "/join-now/membership-type?location=South%20Edmonton%20Common",
       // "vancouver-post": "/book-a-tour/?location=40327",
       // "burnaby-brentwood": "/book-a-tour/?location=40248",
       // "calgary-seton": "/book-a-tour/?location=40097",
@@ -99,6 +102,12 @@ function LocationsPersonalizedAssessment() {
           "/assets/images/Locations/assesment/Assesment.webp",
         mobile:
           "/assets/images/Locations/assesment/LoAssesment.webp",
+      },
+      "south-edmonton-common": {
+        desktop:
+          "/assets/images/Locations/assesment/assessment_south_common.webp",
+        mobile:
+          "/assets/images/Locations/assesment/assessment_south_common_mob.webp",
       },
     };
 

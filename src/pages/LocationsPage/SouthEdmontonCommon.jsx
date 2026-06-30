@@ -1,0 +1,47 @@
+import React from "react";
+import { LocationFaq } from "@/constants/faqContent";
+
+import LocationHero from "@/components/PageComponents/Locations/Desktop/LocationHero";
+import LocationPartners from "@/components/PageComponents/Locations/Desktop/LocationsPartners";
+import RightTrainer from "@/components/PageComponents/Locations/Desktop/RightTrainer";
+import FitnessCategory from "@/components/PageComponents/Locations/Desktop/FitnessCategory";
+import Services from "@/components/PageComponents/Locations/Desktop/LocationWellnessServices.jsx";
+import Spacious from "@/components/PageComponents/Locations/Desktop/LocationsSpacious";
+import LocationsSeeItForYourSelf from "@/components/PageComponents/Locations/Desktop/LocationSeeITYourself";
+import JoinUsToday from "@/components/PageComponents/Locations/Desktop/JoinUsToday";
+import LoWhyChooseEvolve from "@/components/PageComponents/Locations/Desktop/LoWhyChooseEvlove";
+import LocationPricing from "@/components/PageComponents/Locations/Desktop/LocationPricing";
+import MeetTheTrainers from "@/components/PageComponents/Locations/Desktop/MeetTheTrainers";
+import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLocation";
+import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
+import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
+import MetaTags from "@/components/Metatags/Meta";
+import YourEvolveLocations from "@/components/PageComponents/Locations/Desktop/YourEvolveLocations";
+
+function SouthEdmontonCommonLocation() {
+  return (
+    <>
+      <MetaTags
+        title="Evolve Strength South Edmonton Common | Premier Fitness Gym"
+        description="Join Evolve Strength South Edmonton Common with top gym equipment, strength training, personal trainers, and affordable memberships."
+      />
+      <LocationHero />
+      <LocationPartners />
+      <Spacious />
+      <MeetTheTrainers location="SOUTH EDMONTON COMMON" />
+      <SetonLocation />
+      {/* <LoWhyChooseEvolve /> */}
+      <LocationPricing />
+      <FitnessCategory />
+      <LocationsPersonalizedAssessment />
+      {/* <RightTrainer /> */}
+      <Services />
+      {/* <LocationsSeeItForYourSelf /> */}
+      <YourEvolveLocations />
+      <JoinUsToday />
+      <FrequentlyAskedQuestions {...LocationFaq} />
+    </>
+  );
+}
+
+export default SouthEdmontonCommonLocation;
