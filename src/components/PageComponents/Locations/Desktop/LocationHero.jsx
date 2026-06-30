@@ -83,7 +83,7 @@ const LOCATION_HERO_DATA = {
     poster: "",
     locationTitle: "SOUTH EDMONTON COMMON",
     city: "EDMONTON",
-    fullTitle: "South Edmonton's\n Premier Fitness\n and Wellness Club",
+    fullTitle: "South Edmonton's\n Premier Fitness and Wellness Club",
     tourUrl: "/book-a-tour/?location=32176",
     membershipUrl:
       "/join-now/membership-type?location=South%20Edmonton%20Common",
