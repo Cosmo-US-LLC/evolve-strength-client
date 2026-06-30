@@ -287,6 +287,47 @@ export const LOCATION_PRICING = {
       },
     ],
   },
+  "south-edmonton-common": {
+    sectionTitle: "Simple Pricing, No Surprises",
+    sectionSubtitle:
+      "Flexible plans designed to fit your goals and your lifestyle",
+    subscriptionUrl:
+      "/join-now/membership-type?location=South%20Edmonton%20Common",
+    plans: [
+      {
+        title: "1 Year Contract",
+        billing: "Bi-Weekly",
+        price: "$30.49",
+        featuresTitle: "Feature you'll like:",
+        features: [
+          "$0 Enrolment Fee",
+          "$0 Maintenance Fee",
+          "Personalized Assessment",
+          "Access to All Locations",
+          "On-Site Health Services",
+          "Modern, Clean Facilities",
+          "24/7 Online Member Portal",
+        ],
+        buttonText: "JOIN NOW",
+      },
+      {
+        title: "Month To Month",
+        billing: "Bi-Weekly",
+        price: "$35.99",
+        featuresTitle: "Feature you'll like:",
+        features: [
+          "$0 Enrolment Fee",
+          "$0 Maintenance Fee",
+          "Personalized Assessment",
+          "Access to All Locations",
+          "On-Site Health Services",
+          "Modern, Clean Facilities",
+          "24/7 Online Member Portal",
+        ],
+        buttonText: "JOIN NOW",
+      },
+    ],
+  },
   "vancouver-post": {
     sectionTitle: "Simple Pricing, No Surprises",
     sectionSubtitle:
