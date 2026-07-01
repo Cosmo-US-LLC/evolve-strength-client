@@ -79,7 +79,16 @@ const LOCATION_HERO_DATA = {
     membershipUrl: "/join-now/membership-type?location=Vancouver,%20The%20Post",
   },
   "south-edmonton-common": {
-    video: "/assets/videos/Sun_rising_south_edmonton_common.mp4",
+    sources: [
+      {
+        src: "/assets/videos/Sun_rising_south_edmonton_common.mp4",
+        type: "video/mp4",
+      },
+      {
+        src: "/assets/images/Sun_rising_south_edmonton_common.webm",
+        type: "video/webm",
+      },
+    ],
     poster: "",
     locationTitle: "SOUTH EDMONTON COMMON",
     city: "EDMONTON",
@@ -122,20 +131,27 @@ function LocationHero() {
   const fullTitle = dynamicData.fullTitle;
 
   const heroVideoSrc = dynamicData.video;
+  const heroVideoSources = dynamicData.sources;
 
   return (
     <div className="relative h-[620px] md:h-[99vh]">
-      {heroVideoSrc ? (
+      {heroVideoSrc || heroVideoSources ? (
         <video
           className="absolute inset-0 w-full h-full object-cover object-top"
-          src={heroVideoSrc}
+          {...(!heroVideoSources && { src: heroVideoSrc })}
           poster={dynamicData.poster}
           autoPlay
           muted
           loop
           playsInline
+          preload="metadata"
           aria-label={`${dynamicData.locationTitle} location hero`}
-        />
+        >
+          {heroVideoSources &&
+            heroVideoSources.map((s, i) => (
+              <source key={i} src={s.src} type={s.type} />
+            ))}
+        </video>
       ) : (
         <>
           {/* Desktop Image */}

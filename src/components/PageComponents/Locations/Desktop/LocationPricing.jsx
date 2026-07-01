@@ -31,6 +31,8 @@ function LocationPricing() {
     locationKey = "burnaby-brentwood";
   } else if (currentPath.includes("vancouver-post")) {
     locationKey = "vancouver-post";
+  } else if (currentPath.includes("south-edmonton-common")) {
+    locationKey = "south-edmonton-common";
   }
 
   const pricingData = LOCATION_PRICING[locationKey] || DEFAULT_PRICING;
