@@ -13,6 +13,7 @@ import NoOfficeAvilable from "./NoOfficeAvailable";
 
 const baseTabs = [
   { id: "All", label: "All" },
+  { id: "Park Royal", label: "Park Royal" },
   { id: "South Edmonton Common", label: "South Edmonton Common" },
   { id: "Post", label: "Post" },
   { id: "Calgary Royal Oak", label: "Calgary Royal Oak" },
@@ -142,6 +143,7 @@ const AvailableOffices = () => {
     "Post",
     "Edmonton Downtown",
     "South Edmonton Common",
+    "Park Royal"
   ];
 
   // Calculate available offices count for "All" tab
