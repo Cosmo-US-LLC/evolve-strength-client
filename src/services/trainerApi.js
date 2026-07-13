@@ -3,40 +3,15 @@
  * Direct API integration without static data dependencies
  */
 
+import {
+  FRANCHISE_ID_BY_NAME,
+  FRANCHISE_MAP,
+  FRANCHISE_OPTIONS,
+} from "@/constants/franchiseMap";
+
+export { FRANCHISE_MAP, FRANCHISE_OPTIONS, FRANCHISE_ID_BY_NAME };
+
 const API_URL = "https://esuite-api.evolvestrength.ca/v1/trainers/public";
-
-// Simple in-flight and cache maps to prevent duplicate network requests
-const inFlightRequests = new Map(); // key -> Promise
-const responseCache = new Map(); // key -> data array
-let currentController = null; // Abort previous request when a new one starts
-
-// Franchise ID to Location Name mapping
-export const FRANCHISE_MAP = {
-  15: "SOUTH EDMONTON COMMON",
-  7: "EDMONTON DOWNTOWN",
-  // 8: "EDMONTON SOUTH",
-  9: "EDMONTON NORTH",
-  10: "CALGARY ROYAL OAK",
-  11: "CALGARY SETON",
-  12: "BURNABY BRENTWOOD",
-  13: "VANCOUVER POST",
-  // 14: "CALGARY SUNRIDGE",
-};
-
-export const FRANCHISE_OPTIONS = Object.entries(FRANCHISE_MAP)
-  .map(([id, name]) => ({
-    id: Number(id),
-    name: name,
-  }))
-  .sort((a, b) => a.name.localeCompare(b.name));
-
-export const FRANCHISE_ID_BY_NAME = Object.entries(FRANCHISE_MAP).reduce(
-  (acc, [id, name]) => {
-    acc[name] = Number(id);
-    return acc;
-  },
-  {}
-);
 
 export const TRAINER_ROLE_IDS = {
   PERSONAL_TRAINER: 16,
@@ -65,8 +40,8 @@ export const transformTrainer = (apiTrainer) => {
   }));
 
   const location =
-    FRANCHISE_MAP[apiTrainer.franchise_id] ||
     apiTrainer.franchise?.name?.toUpperCase() ||
+    FRANCHISE_MAP[apiTrainer.franchise_id] ||
     "UNKNOWN";
 
   const areasOfFocus = (apiTrainer.focus_area || [])
