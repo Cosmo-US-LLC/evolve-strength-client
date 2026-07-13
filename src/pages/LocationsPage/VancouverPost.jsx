@@ -12,6 +12,7 @@ import JoinUsToday from "@/components/PageComponents/Locations/Desktop/JoinUsTod
 import LoWhyChooseEvolve from "@/components/PageComponents/Locations/Desktop/LoWhyChooseEvlove";
 import LocationPricing from "@/components/PageComponents/Locations/Desktop/LocationPricing";
 import MeetTheTrainers from "@/components/PageComponents/Locations/Desktop/MeetTheTrainers";
+import LocationTrainersPrefetch from "@/components/PageComponents/Locations/Desktop/LocationTrainersPrefetch";
 import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLocation";
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
@@ -29,6 +30,7 @@ function VancouverPost() {
         description="Join Evolve Strength, the city’s premier fitness gym with a top personal fitness instructor, the best gym equipment, and a vibrant community."
       />
       <LocationHero />
+      <LocationTrainersPrefetch location="VANCOUVER POST" />
       <LocationPartners />
       <Spacious />
       <MeetTheTrainers location="VANCOUVER POST" />

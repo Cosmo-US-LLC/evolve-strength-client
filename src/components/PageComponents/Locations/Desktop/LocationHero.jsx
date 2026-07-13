@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Cancel from "@/assets/images/Locations/Cancel_Icon.svg";
-
 const LOCATION_HERO_DATA = {
   "calgary-seton": {
     desktop: "/assets/images/Locations/location-hero/hero_seten.webp",
@@ -79,7 +78,7 @@ const LOCATION_HERO_DATA = {
     membershipUrl: "/join-now/membership-type?location=Vancouver,%20The%20Post",
   },
   "south-edmonton-common": {
-    video: "/assets/videos/Sun_rising_south_edmonton_common.webm",
+    video: "/videos/Sun_rising_south_edmonton_common.webm",
     poster: "",
     locationTitle: "SOUTH EDMONTON COMMON",
     city: "EDMONTON",
@@ -91,6 +90,8 @@ const LOCATION_HERO_DATA = {
 };
 
 function LocationHero() {
+  const videoRef = useRef(null);
+
   // Get location from URL path
   const currentPath = window.location.pathname;
   let locationKey = "calgary-seton"; // default
@@ -123,22 +124,59 @@ function LocationHero() {
 
   const heroVideoSrc = dynamicData.video;
   const heroVideoSources = dynamicData.sources;
+  const heroVideoUrl = heroVideoSrc || heroVideoSources?.[0]?.src;
 
-  return (
-    <div className="relative h-[620px] md:h-[99vh]">
+  // Start downloading hero video before the <video> element paints
+  useEffect(() => {
+    if (!heroVideoUrl) return;
+
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "video";
+    link.href = heroVideoUrl;
+    link.type = "video/webm";
+    link.setAttribute("fetchpriority", "high");
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, [heroVideoUrl]);
+
+  // Reliable autoplay once enough video data is buffered
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const tryPlay = () => {
+      video.muted = true;
+      video.play().catch(() => {});
+    };
+
+    if (video.readyState >= 3) {
+      tryPlay();
+      return undefined;
+    }
+
+    video.addEventListener("canplay", tryPlay, { once: true });
+    return () => {
+      video.removeEventListener("canplay", tryPlay);
+    };
+  }, [heroVideoUrl]);
+
+  return (    <div className="relative h-[620px] md:h-[99vh]">
       {heroVideoSrc || heroVideoSources ? (
         <video
+          ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover object-top"
           {...(!heroVideoSources && { src: heroVideoSrc })}
-          poster={dynamicData.poster}
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           aria-label={`${dynamicData.locationTitle} location hero`}
-        >
-          {heroVideoSources &&
+        >          {heroVideoSources &&
             heroVideoSources.map((s, i) => (
               <source key={i} src={s.src} type={s.type} />
             ))}
