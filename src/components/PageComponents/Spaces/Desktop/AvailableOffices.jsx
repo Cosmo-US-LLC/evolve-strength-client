@@ -50,20 +50,6 @@ const allOffices = [
 
   // },
   {
-    title: "Executive Office",
-    location: "Edmonton North",
-    image: "/assets/images/spaces/AvailableOffices/royal_E.webp",
-    size: "Starting at 112 sq/ft",
-    roomStatus: "Unfurnished | Without a Sink",
-  },
-  {
-    title: "Executive Office",
-    location: "Edmonton North",
-    image: "/assets/images/spaces/AvailableOffices/royal_P.webp",
-    size: "Starting at 114 sq/ft",
-    roomStatus: "Unfurnished | Without a Sink",
-  },
-  {
     title: "Premium Office Suite",
     location: "Calgary Seton",
     image: "/assets/images/spaces/AvailableOffices/royal_P.webp",
@@ -142,6 +128,7 @@ const AvailableOffices = () => {
     "Brentwood",
     "Post",
     "Edmonton Downtown",
+    "Edmonton North",
     "South Edmonton Common",
     "Park Royal"
   ];
