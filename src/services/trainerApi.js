@@ -8,7 +8,6 @@ const API_URL = "https://esuite-api.evolvestrength.ca/v1/trainers/public";
 // Simple in-flight and cache maps to prevent duplicate network requests
 const inFlightRequests = new Map(); // key -> Promise
 const responseCache = new Map(); // key -> data array
-let currentController = null; // Abort previous request when a new one starts
 
 // Franchise ID to Location Name mapping
 export const FRANCHISE_MAP = {
@@ -150,97 +149,83 @@ const buildRequestBody = (filters = {}) => {
 };
 
 export const fetchAllTrainers = async (params = "") => {
-  try {
-    const body = buildRequestBody(params);
-    const response = await fetch(`${API_URL}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-      // signal,
-    });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    const transformed = data.map(transformTrainer);
-    // Cache successful responses by request body
-    // responseCache.set(cacheKey, transformed);
-    return transformed;
-  } catch (error) {
-    // If aborted or failed, make sure not to cache the failure
-    if (error?.name !== "AbortError") {
-      console.error("❌ Error fetching trainers:", error);
-    }
-    throw error;
-    // } finally {
-    // Clear in-flight record
-    // inFlightRequests.delete(cacheKey);
-    // Clear controller if this is the latest
-    // if (currentController === controller) {
-    //   currentController = null;
-    // }
+  const body = buildRequestBody(params);
+  const cacheKey = JSON.stringify(body);
+
+  if (responseCache.has(cacheKey)) {
+    return responseCache.get(cacheKey);
   }
-  // const body = buildRequestBody(params);
-  // const cacheKey = JSON.stringify(body);
 
-  // // Serve from cache if available
-  // if (responseCache.has(cacheKey)) {
-  //   return responseCache.get(cacheKey);
-  // }
+  if (inFlightRequests.has(cacheKey)) {
+    return inFlightRequests.get(cacheKey);
+  }
 
-  // // If an identical request is already in flight, return the same promise
-  // if (inFlightRequests.has(cacheKey)) {
-  //   return inFlightRequests.get(cacheKey);
-  // }
+  const requestPromise = (async () => {
+    try {
+      const response = await fetch(`${API_URL}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      const transformed = data.map(transformTrainer);
+      responseCache.set(cacheKey, transformed);
+      return transformed;
+    } catch (error) {
+      if (error?.name !== "AbortError") {
+        console.error("❌ Error fetching trainers:", error);
+      }
+      throw error;
+    } finally {
+      inFlightRequests.delete(cacheKey);
+    }
+  })();
 
-  // // Start a new request and store the promise to dedupe callers
-  // // Abort any previous request (we only care about the latest query)
-  // if (currentController) {
-  //   try {
-  //     currentController.abort();
-  //   } catch (_) {
-  //     // ignore
-  //   }
-  // }
+  inFlightRequests.set(cacheKey, requestPromise);
+  return requestPromise;
+};
 
-  // const controller = new AbortController();
-  // currentController = controller;
-  // // const signal = controller.signal;
+/**
+ * Fetch trainers for a specific location (server-filtered by franchise).
+ * Use prefetchTrainersForLocation() on page mount so data is ready before MeetTheTrainers renders.
+ */
+export const fetchTrainersForLocation = async (
+  locationName,
+  { personalTrainersOnly = false } = {}
+) => {
+  const normalizedLocation = locationName?.toUpperCase()?.trim();
+  const franchiseId = FRANCHISE_ID_BY_NAME[normalizedLocation];
 
-  // const requestPromise = (async () => {
-  //   try {
-  //     const response = await fetch(`${API_URL}`, {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify(body),
-  //       // signal,
-  //     });
-  //     if (!response.ok) {
-  //       throw new Error(`HTTP error! status: ${response.status}`);
-  //     }
-  //     const data = await response.json();
-  //     const transformed = data.map(transformTrainer);
-  //     // Cache successful responses by request body
-  //     // responseCache.set(cacheKey, transformed);
-  //     return transformed;
-  //   } catch (error) {
-  //     // If aborted or failed, make sure not to cache the failure
-  //     if (error?.name !== "AbortError") {
-  //       console.error("❌ Error fetching trainers:", error);
-  //     }
-  //     throw error;
-  //   } finally {
-  //     // Clear in-flight record
-  //     inFlightRequests.delete(cacheKey);
-  //     // Clear controller if this is the latest
-  //     if (currentController === controller) {
-  //       currentController = null;
-  //     }
-  //   }
-  // })();
+  if (!franchiseId) {
+    console.warn(`No franchise ID for location: ${locationName}`);
+    return [];
+  }
 
-  // inFlightRequests.set(cacheKey, requestPromise);
-  // return requestPromise;
+  const params = { franchise: franchiseId };
+  if (personalTrainersOnly) {
+    params.trainerRole = TRAINER_ROLE_IDS.PERSONAL_TRAINER;
+  }
+
+  const trainers = await fetchAllTrainers(params);
+
+  return getTrainersByLocation(trainers, normalizedLocation).filter((trainer) => {
+    if (!personalTrainersOnly) return true;
+    const roles = trainer.roles || [trainer.role || ""];
+    return roles.some((role) =>
+      role.toLowerCase().includes("personal trainer")
+    );
+  });
+};
+
+/**
+ * Warm the cache early — call at the top of location pages so trainers load in parallel with hero.
+ */
+export const prefetchTrainersForLocation = (locationName, options = {}) => {
+  if (!locationName) return Promise.resolve([]);
+  return fetchTrainersForLocation(locationName, options).catch(() => []);
 };
 
 /**
