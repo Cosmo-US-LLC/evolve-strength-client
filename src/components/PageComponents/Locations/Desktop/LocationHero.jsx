@@ -79,16 +79,7 @@ const LOCATION_HERO_DATA = {
     membershipUrl: "/join-now/membership-type?location=Vancouver,%20The%20Post",
   },
   "south-edmonton-common": {
-    sources: [
-      {
-        src: "/assets/videos/Sun_rising_south_edmonton_common.mp4",
-        type: "video/mp4",
-      },
-      {
-        src: "/assets/images/Sun_rising_south_edmonton_common.webm",
-        type: "video/webm",
-      },
-    ],
+    video: "/assets/videos/Sun_rising_south_edmonton_common.webm",
     poster: "",
     locationTitle: "SOUTH EDMONTON COMMON",
     city: "EDMONTON",
