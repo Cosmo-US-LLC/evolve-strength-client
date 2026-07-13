@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
-import { fetchAllTrainers, getTrainersByLocation } from "@/services/trainerApi";
+import { fetchTrainersForLocation } from "@/services/trainerApi";
 import TrainerDetails from "@/components/PageComponents/Explore/Desktop/components/shared/TrainerDetails";
 import downicon from "@/assets/images/Locations/icon_down.svg";
 import { Link } from "react-router-dom";
@@ -18,35 +18,37 @@ const MeetTheTrainers = ({ location = "" }) => {
   const [trainers, setTrainers] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch trainers from API
   useEffect(() => {
+    if (!location) return;
+
+    let mounted = true;
+
     const loadTrainers = async () => {
       try {
         setLoading(true);
-        const allTrainers = await fetchAllTrainers();
-
-        // Filter by location and role (checks ALL roles)
-        const locationTrainers = getTrainersByLocation(allTrainers, location);
-        const personalTrainers = locationTrainers.filter((trainer) => {
-          const roles = trainer.roles || [trainer.role || ""];
-          // Check if ANY role includes "Personal Trainer"
-          return roles.some((role) =>
-            role.toLowerCase().includes("personal trainer")
-          );
+        const personalTrainers = await fetchTrainersForLocation(location, {
+          personalTrainersOnly: true,
         });
-
-        setTrainers(personalTrainers);
+        if (mounted) {
+          setTrainers(personalTrainers);
+        }
       } catch (error) {
         console.error("Error loading trainers:", error);
-        setTrainers([]);
+        if (mounted) {
+          setTrainers([]);
+        }
       } finally {
-        setLoading(false);
+        if (mounted) {
+          setLoading(false);
+        }
       }
     };
 
-    if (location) {
-      loadTrainers();
-    }
+    loadTrainers();
+
+    return () => {
+      mounted = false;
+    };
   }, [location]);
 
   // Close details when carousel navigation changes (swipe, drag, etc.)
@@ -221,6 +223,9 @@ const MeetTheTrainers = ({ location = "" }) => {
                       src={trainer.image}
                       alt={trainer.name}
                       className="w-full md:h-[273px] h-[300px] rounded-2xl object-cover"
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-black/10 bg-opacity-30 rounded-2xl"></div>
                   </div>
