@@ -3,39 +3,18 @@
  * Direct API integration without static data dependencies
  */
 
+import {
+  FRANCHISE_ID_BY_NAME,
+  FRANCHISE_MAP,
+  FRANCHISE_OPTIONS,
+} from "@/constants/franchiseMap";
+
+export { FRANCHISE_MAP, FRANCHISE_OPTIONS, FRANCHISE_ID_BY_NAME };
+
 const API_URL = "https://esuite-api.evolvestrength.ca/v1/trainers/public";
 
-// Simple in-flight and cache maps to prevent duplicate network requests
 const inFlightRequests = new Map(); // key -> Promise
-const responseCache = new Map(); // key -> data array
-
-// Franchise ID to Location Name mapping
-export const FRANCHISE_MAP = {
-  15: "SOUTH EDMONTON COMMON",
-  7: "EDMONTON DOWNTOWN",
-  // 8: "EDMONTON SOUTH",
-  9: "EDMONTON NORTH",
-  10: "CALGARY ROYAL OAK",
-  11: "CALGARY SETON",
-  12: "BURNABY BRENTWOOD",
-  13: "VANCOUVER POST",
-  // 14: "CALGARY SUNRIDGE",
-};
-
-export const FRANCHISE_OPTIONS = Object.entries(FRANCHISE_MAP)
-  .map(([id, name]) => ({
-    id: Number(id),
-    name: name,
-  }))
-  .sort((a, b) => a.name.localeCompare(b.name));
-
-export const FRANCHISE_ID_BY_NAME = Object.entries(FRANCHISE_MAP).reduce(
-  (acc, [id, name]) => {
-    acc[name] = Number(id);
-    return acc;
-  },
-  {}
-);
+const responseCache = new Map();
 
 export const TRAINER_ROLE_IDS = {
   PERSONAL_TRAINER: 16,
@@ -64,8 +43,8 @@ export const transformTrainer = (apiTrainer) => {
   }));
 
   const location =
-    FRANCHISE_MAP[apiTrainer.franchise_id] ||
     apiTrainer.franchise?.name?.toUpperCase() ||
+    FRANCHISE_MAP[apiTrainer.franchise_id] ||
     "UNKNOWN";
 
   const areasOfFocus = (apiTrainer.focus_area || [])
@@ -194,7 +173,7 @@ export const fetchAllTrainers = async (params = "") => {
  */
 export const fetchTrainersForLocation = async (
   locationName,
-  { personalTrainersOnly = false } = {}
+  { personalTrainersOnly = false } = {},
 ) => {
   const normalizedLocation = locationName?.toUpperCase()?.trim();
   const franchiseId = FRANCHISE_ID_BY_NAME[normalizedLocation];
@@ -211,13 +190,15 @@ export const fetchTrainersForLocation = async (
 
   const trainers = await fetchAllTrainers(params);
 
-  return getTrainersByLocation(trainers, normalizedLocation).filter((trainer) => {
-    if (!personalTrainersOnly) return true;
-    const roles = trainer.roles || [trainer.role || ""];
-    return roles.some((role) =>
-      role.toLowerCase().includes("personal trainer")
-    );
-  });
+  return getTrainersByLocation(trainers, normalizedLocation).filter(
+    (trainer) => {
+      if (!personalTrainersOnly) return true;
+      const roles = trainer.roles || [trainer.role || ""];
+      return roles.some((role) =>
+        role.toLowerCase().includes("personal trainer"),
+      );
+    },
+  );
 };
 
 /**
@@ -233,7 +214,7 @@ export const prefetchTrainersForLocation = (locationName, options = {}) => {
  */
 export const getTrainersByLocation = (trainers, locationName) => {
   return trainers.filter(
-    (trainer) => trainer.location.toUpperCase() === locationName.toUpperCase()
+    (trainer) => trainer.location.toUpperCase() === locationName.toUpperCase(),
   );
 };
 
@@ -245,7 +226,7 @@ export const getTrainersByRole = (trainers, role) => {
     // Check if ANY of the trainer's roles includes the target role
     if (trainer.roles && Array.isArray(trainer.roles)) {
       return trainer.roles.some((r) =>
-        r.toLowerCase().includes(role.toLowerCase())
+        r.toLowerCase().includes(role.toLowerCase()),
       );
     }
     // Fallback to single role field
@@ -268,7 +249,7 @@ export const getTrainersByLocationAndRole = (trainers, locationName, role) => {
     // Check if ANY of the trainer's roles includes the target role
     if (trainer.roles && Array.isArray(trainer.roles)) {
       return trainer.roles.some((r) =>
-        r.toLowerCase().includes(role.toLowerCase())
+        r.toLowerCase().includes(role.toLowerCase()),
       );
     }
 
@@ -350,7 +331,7 @@ export const filterTrainers = (trainers, filters) => {
   // Filter by location
   if (filters.location) {
     filtered = filtered.filter(
-      (t) => t.location.toUpperCase() === filters.location.toUpperCase()
+      (t) => t.location.toUpperCase() === filters.location.toUpperCase(),
     );
   }
 
@@ -360,7 +341,7 @@ export const filterTrainers = (trainers, filters) => {
       // Check if ANY of the trainer's roles includes the target role
       if (t.roles && Array.isArray(t.roles)) {
         return t.roles.some((r) =>
-          r.toLowerCase().includes(filters.role.toLowerCase())
+          r.toLowerCase().includes(filters.role.toLowerCase()),
         );
       }
       // Fallback to single role field
@@ -376,7 +357,7 @@ export const filterTrainers = (trainers, filters) => {
       if (!t.areas_of_focus) return false;
       const trainerAreas = t.areas_of_focus.toLowerCase();
       return filters.areasOfFocus.some((area) =>
-        trainerAreas.includes(area.toLowerCase())
+        trainerAreas.includes(area.toLowerCase()),
       );
     });
   }
@@ -388,7 +369,7 @@ export const filterTrainers = (trainers, filters) => {
  * Location data configuration
  */
 export const LOCATION_CONFIG = [
-    {
+  {
     id: "south-edmonton-common",
     city: "South",
     branch: "Edmonton Common",
@@ -664,5 +645,3 @@ export const TRAINER_SERVICES_DISCOVER = [
     role: "Pilates",
   },
 ];
-
-
