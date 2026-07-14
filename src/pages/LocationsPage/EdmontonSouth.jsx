@@ -12,6 +12,7 @@ import JoinUsToday from "@/components/PageComponents/Locations/Desktop/JoinUsTod
 import LoWhyChooseEvolve from "@/components/PageComponents/Locations/Desktop/LoWhyChooseEvlove";
 import LocationPricing from "@/components/PageComponents/Locations/Desktop/LocationPricing";
 import MeetTheTrainers from "@/components/PageComponents/Locations/Desktop/MeetTheTrainers";
+import LocationTrainersPrefetch from "@/components/PageComponents/Locations/Desktop/LocationTrainersPrefetch";
 import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLocation";
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
@@ -27,6 +28,7 @@ function EdmontonSouth() {
         description="Join the best fitness club in Edmonton South with top gym equipment, strength training, personal trainers, and affordable memberships."
       />
       <LocationHero />
+      <LocationTrainersPrefetch location="EDMONTON SOUTH" />
       <LocationPartners />
       <Spacious />
       <MeetTheTrainers location="EDMONTON SOUTH" />

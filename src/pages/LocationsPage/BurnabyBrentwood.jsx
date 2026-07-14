@@ -12,6 +12,7 @@ import JoinUsToday from "@/components/PageComponents/Locations/Desktop/JoinUsTod
 import LoWhyChooseEvolve from "@/components/PageComponents/Locations/Desktop/LoWhyChooseEvlove";
 import LocationPricing from "@/components/PageComponents/Locations/Desktop/LocationPricing";
 import MeetTheTrainers from "@/components/PageComponents/Locations/Desktop/MeetTheTrainers";
+import LocationTrainersPrefetch from "@/components/PageComponents/Locations/Desktop/LocationTrainersPrefetch";
 import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLocation";
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
@@ -28,6 +29,7 @@ function BurnabyBrentwood() {
         description="Join the best fitness gym in Burnaby with affordable memberships, expert personal trainers, and top-of-the-line equipment."
       />
       <LocationHero />
+      <LocationTrainersPrefetch location="BURNABY BRENTWOOD" />
       <LocationPartners />
       <Spacious />
       <MeetTheTrainers location="BURNABY BRENTWOOD" />

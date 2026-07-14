@@ -13,6 +13,7 @@ import JoinUsToday from "@/components/PageComponents/Locations/Desktop/JoinUsTod
 import LoWhyChooseEvolve from "@/components/PageComponents/Locations/Desktop/LoWhyChooseEvlove";
 import LocationPricing from "@/components/PageComponents/Locations/Desktop/LocationPricing";
 import MeetTheTrainers from "@/components/PageComponents/Locations/Desktop/MeetTheTrainers";
+import LocationTrainersPrefetch from "@/components/PageComponents/Locations/Desktop/LocationTrainersPrefetch";
 import SetonLocation from "@/components/PageComponents/Locations/Desktop/SetonLocation";
 import FrequentlyAskedQuestions from "@/components/PageComponents/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
 import LocationsPersonalizedAssessment from "@/components/PageComponents/Locations/Desktop/LocationsPersonalizedAssessment";
@@ -29,6 +30,7 @@ function CalgaryRoyalOak() {
         description="Join Evolve Strength, Calgary’s best fitness club, with top gym equipment for strength training and cardio, plus expert personal trainers."
       />
       <LocationHero />
+      <LocationTrainersPrefetch location="CALGARY ROYAL OAK" />
       <LocationPartners />
       <Spacious />
       <MeetTheTrainers location="CALGARY ROYAL OAK" />
