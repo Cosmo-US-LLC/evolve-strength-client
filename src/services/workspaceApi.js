@@ -13,15 +13,26 @@ export const transformWorkspace = (workspace) => ({
   franchise_id: workspace.franchise_id,
 });
 
+/**
+ * Locations come from public API only for franchises that have >= 1
+ * PUBLISHED or UNPUBLISHED workspace.
+ * - available_count > 0 / show_waitlist false => office cards
+ * - available_count === 0 / show_waitlist true => waitlist card
+ */
 export const buildWorkspaceTabs = (locations = [], offices = []) => {
   const locationTabs = locations.map((location) => {
     const locationName = location.name?.trim() || "Unknown";
+    const available_count = location.available_count ?? 0;
+    const show_waitlist =
+      location.show_waitlist ?? available_count === 0;
+
     return {
       id: String(location.franchise_id),
       label: locationName,
       locationName,
       franchise_id: location.franchise_id,
-      available_count: location.available_count ?? 0,
+      available_count,
+      show_waitlist,
     };
   });
 
@@ -36,6 +47,7 @@ export const buildWorkspaceTabs = (locations = [], offices = []) => {
       ...tab,
       label: count > 0 ? `${tab.locationName} (${count})` : tab.locationName,
       available_count: count,
+      show_waitlist: tab.show_waitlist ?? count === 0,
     };
   });
 
@@ -43,6 +55,7 @@ export const buildWorkspaceTabs = (locations = [], offices = []) => {
     id: "All",
     label: `All (${availableOfficesCount})`,
     available_count: availableOfficesCount,
+    show_waitlist: false,
   };
 
   return [allTab, ...tabsWithCounts];
@@ -50,7 +63,11 @@ export const buildWorkspaceTabs = (locations = [], offices = []) => {
 
 export const getUnavailableLocations = (tabs) =>
   tabs
-    .filter((tab) => tab.id !== "All" && (tab.available_count ?? 0) === 0)
+    .filter(
+      (tab) =>
+        tab.id !== "All" &&
+        (tab.show_waitlist === true || (tab.available_count ?? 0) === 0),
+    )
     .map((tab) => tab.id);
 
 export const fetchPublicWorkspaces = async (filters = {}) => {
