@@ -85,7 +85,7 @@ function EdmontonSouthCommonForm() {
               ...(userIP && { ipAddress: userIP }),
             },
           }),
-        }
+        },
       );
 
       if (response.ok) {
