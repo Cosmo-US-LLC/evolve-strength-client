@@ -10,94 +10,41 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import NoOfficeAvilable from "./NoOfficeAvailable";
+import { fetchPublicWorkspaces } from "@/services/workspaceApi";
 
-const baseTabs = [
-  { id: "All", label: "All" },
-  { id: "Park Royal", label: "Park Royal" },
-  { id: "South Edmonton Common", label: "South Edmonton Common" },
-  { id: "Post", label: "Post" },
-  { id: "Calgary Royal Oak", label: "Calgary Royal Oak" },
-  { id: "Edmonton North", label: "Edmonton North" },
-  { id: "Edmonton Downtown", label: "Edmonton Downtown" },
-
-  { id: "Brentwood", label: "Brentwood" },
-  { id: "Calgary Seton", label: "Calgary Seton" },
-  // { id: "Calgary Sunridge", label: "Calgary Sunridge" },
-  // { id: "Edmonton South", label: "Edmonton South" },
-];
-
-const allOffices = [
-  {
-    title: "Premium Office Suite",
-    location: "South Edmonton Common",
-    image: "/assets/images/spaces/AvailableOffices/south_edmonton_common.webp",
-    size: "130-140 sq/ft",
-    roomStatus: "Unfurnished | without a sink",
-  },
-  // {
-  //   title: "Premium Office Suite",
-  //   location: "Calgary Royal Oak",
-  //   image: "/assets/images/spaces/AvailableOffices/royal_P.webp",
-  //   size: "170 sq/ft",
-  //   roomStatus: "Unfurnished | without a sink",
-  // },
-  // {
-  //   title: "Anchor",
-  //   location: "Calgary Royal Oak",
-  //   image: "/assets/images/spaces/AvailableOffices/royal_A.webp",
-  //   size: "Starting at 1170 sq/ft",
-  //   roomStatus:"Unfurnished | With or Without a Sink"
-
-  // },
-  {
-    title: "Premium Office Suite",
-    location: "Calgary Seton",
-    image: "/assets/images/spaces/AvailableOffices/royal_P.webp",
-    size: "150 sq f",
-    roomStatus: "Unfurnished | Laminated flooring w/ wood finish | No Water",
-  },
-  {
-    title: "Premium Office Suite",
-    location: "Calgary Seton",
-    image: "/assets/images/spaces/AvailableOffices/royal_E.webp",
-    size: "135 sq ft",
-    roomStatus: "No Water | Partially furnished - upper cabinetry installed",
-  },
-  {
-    title: "Premium Office Suite",
-    location: "Calgary Seton",
-    image: "/assets/images/spaces/AvailableOffices/south_edmonton_common.webp",
-    size: "120 sq f",
-    roomStatus: "Unfurnished | Has Water",
-  },
-  // {
-  //   title: "Premium Office Suite",
-  //   location: "Edmonton Downtown",
-  //   image: "/assets/images/spaces/AvailableOffices/royal_P.webp",
-  //   size: "Starting at 170 sq/ft",
-  //   roomStatus:"Unfurnished | With or Without a Sink"
-  // },
-  // {
-  //   title: "Executive Office",
-  //   location: "Calgary Sunridge",
-  //   image:
-  //     "/assets/images/spaces/AvailableOffices/CSSlides_1.webp",
-  //   size: "Starting at 121 sq/ft",
-  //   roomStatus: "Unfurnished | Without a Sink",
-  // },
-  // {
-  //   title: "Executive Office",
-  //   location: "Calgary Sunridge",
-  //   image:
-  //     "/assets/images/spaces/AvailableOffices/CSSlides_1.webp",
-  //   size: "Starting at 121 sq/ft",
-  //   roomStatus: "Unfurnished | Without a Sink",
-  // },
-];
+const OfficeCardDetails = ({ office }) => (
+  <>
+    <h2 className="font-[500] text-[#000] leading-[20px] md:text-base text-[24px]">
+      {office.title}
+    </h2>
+    {office.size ? (
+      <p className="description !font-[kanit] font-[400] text-[#000] leading-[20px] mt-1">
+        {office.size}
+      </p>
+    ) : null}
+    {office.roomStatus ? (
+      <p className="description !font-[kanit] font-[400] text-[#000] leading-[20px] mt-1">
+        {office.roomStatus}
+      </p>
+    ) : null}
+    <p className="description !font-[kanit] !text-[14px] text-[#515151] mb-1 flex items-center">
+      <MapPin className="w-4 h-4 text-[#515151] inline-block mr-1" />
+      {office.location}
+    </p>
+    <Link
+      to={`/apply-for-work-space?location=${encodeURIComponent(office.location)}`}
+    >
+      <button className="btnPrimary">APPLY NOW</button>
+    </Link>
+  </>
+);
 
 const AvailableOffices = () => {
   const [activeTab, setActiveTab] = useState("All");
-  const [activeTabmobile, setActiveTabmobile] = useState(baseTabs[0].id);
+  const [activeTabmobile, setActiveTabmobile] = useState("All");
+  const [offices, setOffices] = useState([]);
+  const [tabs, setTabs] = useState([{ id: "All", label: "All (0)" }]);
+  const [unavailableLocations, setUnavailableLocations] = useState([]);
   const carouselRef = useRef(null);
 
   // Desktop carousel
@@ -120,48 +67,46 @@ const AvailableOffices = () => {
   const scrollPrevMobile = () => emblaApiMobile && emblaApiMobile.scrollPrev();
   const scrollNextMobile = () => emblaApiMobile && emblaApiMobile.scrollNext();
 
-  // Define unavailable locations
-  const unavailableLocations = [
-    // "Edmonton South",
-    // "Calgary Seton",
-    "Calgary Royal Oak",
-    "Brentwood",
-    "Post",
-    "Edmonton Downtown",
-    "Edmonton North",
-    "South Edmonton Common",
-    "Park Royal"
-  ];
+  useEffect(() => {
+    let isMounted = true;
 
-  // Calculate available offices count for "All" tab
-  const availableOfficesCount = allOffices.filter(
-    (office) => !unavailableLocations.includes(office.location),
-  ).length;
+    const loadWorkspaces = async () => {
+      try {
+        const result = await fetchPublicWorkspaces();
+        if (!isMounted) return;
+        setOffices(result.offices);
+        setTabs(result.tabs);
+        setUnavailableLocations(result.unavailableLocations);
+      } catch (error) {
+        console.error("Error fetching workspaces:", error);
+      }
+    };
 
-  // Generate tabs with dynamic counts
-  const tabs = baseTabs.map((tab) => {
-    if (tab.id === "All") {
-      return {
-        ...tab,
-        label: `All (${availableOfficesCount})`,
-      };
-    }
-    return tab;
-  });
+    loadWorkspaces();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const getTabLocationName = (tabId) =>
+    tabs.find((tab) => tab.id === tabId)?.locationName ?? tabId;
 
   const filteredOffices =
     activeTab === "All"
-      ? allOffices.filter(
-          (office) => !unavailableLocations.includes(office.location),
+      ? offices.filter(
+          (office) =>
+            !unavailableLocations.includes(String(office.franchise_id)),
         )
-      : allOffices.filter((o) => o.location === activeTab);
+      : offices.filter((o) => String(o.franchise_id) === activeTab);
 
   const mobileFilteredOffices =
     activeTabmobile === "All"
-      ? allOffices.filter(
-          (office) => !unavailableLocations.includes(office.location),
+      ? offices.filter(
+          (office) =>
+            !unavailableLocations.includes(String(office.franchise_id)),
         )
-      : allOffices.filter((o) => o.location === activeTabmobile);
+      : offices.filter((o) => String(o.franchise_id) === activeTabmobile);
 
   // Re-initialize carousel when filtered content changes
   useEffect(() => {
@@ -180,12 +125,14 @@ const AvailableOffices = () => {
     <div id="available-offices">
       <div className="py-12 max-md:hidden">
         <div className="w-[100%] max-w-[1280px] px-8 mx-auto flex flex-col gap-10">
-          <div className="flex flex-wrap justify-around gap-2 rounded-[6px] border p-2">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-3 py-1 rounded-[5px]  text-sm font-medium cursor-pointer corporate-membership relative border-0
+          <div className="relative overflow-hidden rounded-[6px] border">
+            <div className="scrollbar-hide overflow-x-auto p-2 shadow-[inset_-10px_0_8px_-7px_rgba(0,0,0,0.1)]">
+              <div className="flex w-max min-w-full flex-nowrap gap-2">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`shrink-0 whitespace-nowrap px-3 py-1 rounded-[5px] text-sm font-medium cursor-pointer corporate-membership relative border-0
                             before:content-[''] before:absolute before:left-0 before:bottom-0 
                             before:h-[1.5px] before:w-0 before:bg-[#4AB04A] 
                             before:transition-all before:duration-300 
@@ -194,24 +141,32 @@ const AvailableOffices = () => {
                                 ? "bg-[#4AB04A] text-[#fff]"
                                 : "bg-white text-[#000000]"
                             }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div
+              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-black/[0.07] to-transparent"
+              aria-hidden="true"
+            />
           </div>
 
           <h2 className="uppercase !font-[700]">Available Offices</h2>
 
           <div className="relative">
             {unavailableLocations.includes(activeTab) ? (
-              <NoOfficeAvilable selectedLocation={activeTab} />
+              <NoOfficeAvilable
+                selectedLocation={getTabLocationName(activeTab)}
+              />
             ) : (
               <>
                 <div className="overflow-hidden" ref={emblaRef}>
                   <div className="flex gap-4">
-                    {filteredOffices.map((office, idx) => (
+                    {filteredOffices.map((office) => (
                       <div
-                        key={idx}
+                        key={office.id ?? `${office.title}-${office.location}`}
                         className="flex-[0_0_49%] relative rounded-[6px] h-[590px] overflow-hidden bg-[#EEEEEE] "
                       >
                         <img
@@ -220,26 +175,7 @@ const AvailableOffices = () => {
                           className="w-full h-[340px] object-cover"
                         />
                         <div className="flex flex-col items-center justify-center h-[250px] gap-2">
-                          <h2 className="font-[500] text-[#000] leading-[20px]">
-                            {office.title}
-                          </h2>
-                          <p className="description !font-[kanit] font-[400] text-[#000] leading-[20px] mt-1">
-                            {office.size}
-                          </p>
-                          <p className="description !font-[kanit] font-[400] text-[#000] leading-[20px] mt-1">
-                            {office.roomStatus}
-                          </p>
-                          <p className="description !font-[kanit] !text-[14px] text-[#515151] mb-1 flex items-center">
-                            <MapPin className="w-4 h-4 text-[#515151] inline-block mr-1" />
-                            {office.location}
-                          </p>
-                          <Link
-                            to={`/apply-for-work-space?location=${encodeURIComponent(
-                              office.location,
-                            )}`}
-                          >
-                            <button className="btnPrimary">APPLY NOW</button>
-                          </Link>
+                          <OfficeCardDetails office={office} />
                         </div>
                       </div>
                     ))}
@@ -309,15 +245,17 @@ const AvailableOffices = () => {
           <div className="relative">
             {unavailableLocations.includes(activeTabmobile) ? (
               <div className="px-[16px]">
-                <NoOfficeAvilable selectedLocation={activeTabmobile} />
+                <NoOfficeAvilable
+                  selectedLocation={getTabLocationName(activeTabmobile)}
+                />
               </div>
             ) : (
               <>
                 <div className="overflow-hidden" ref={emblaRefMobile}>
                   <div className="flex gap-4 relative">
-                    {mobileFilteredOffices.map((office, idx) => (
+                    {mobileFilteredOffices.map((office) => (
                       <div
-                        key={idx}
+                        key={office.id ?? `${office.title}-${office.location}`}
                         className="flex-[0_0_100%] relative rounded-[6px] h-[560px] overflow-hidden bg-[#EEEEEE] "
                       >
                         <img
@@ -326,27 +264,7 @@ const AvailableOffices = () => {
                           className="w-full h-[340px] object-cover"
                         />
                         <div className="flex flex-col items-center justify-center pt-4 gap-2">
-                          <h2 className="!font-[500] text-[#000] !text-[24px] leading-[20px]">
-                            {office.title}
-                          </h2>
-                          <p className="description !font-[kanit] font-[400] text-[#000] leading-[20px] mt-1">
-                            {office.size}
-                          </p>
-                          <p className="description !font-[kanit] font-[400] text-[#000] leading-[20px] mt-1">
-                            {office.roomStatus}
-                          </p>
-                          <p className="description !font-[kanit] !text-[14px] text-[#515151] mb-1 flex items-center">
-                            <MapPin className="w-4 h-4 text-[#515151] inline-block mr-1" />
-                            {office.location}
-                          </p>
-
-                          <Link
-                            to={`/apply-for-work-space?location=${encodeURIComponent(
-                              office.location,
-                            )}`}
-                          >
-                            <button className="btnPrimary">APPLY NOW</button>
-                          </Link>
+                          <OfficeCardDetails office={office} />
                         </div>
                       </div>
                     ))}
