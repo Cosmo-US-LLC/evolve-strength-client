@@ -126,7 +126,7 @@ const AvailableOffices = () => {
       <div className="py-12 max-md:hidden">
         <div className="w-[100%] max-w-[1280px] px-8 mx-auto flex flex-col gap-10">
           <div className="relative overflow-hidden rounded-[6px] border">
-            <div className="scrollbar-hide overflow-x-auto p-2 shadow-[inset_-10px_0_8px_-7px_rgba(0,0,0,0.1)]">
+            <div className="scrollbar-hide overflow-x-auto p-2">
               <div className="flex w-max min-w-full flex-nowrap gap-2">
                 {tabs.map((tab) => (
                   <button
@@ -147,10 +147,6 @@ const AvailableOffices = () => {
                 ))}
               </div>
             </div>
-            <div
-              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-black/[0.07] to-transparent"
-              aria-hidden="true"
-            />
           </div>
 
           <h2 className="uppercase !font-[700]">Available Offices</h2>
