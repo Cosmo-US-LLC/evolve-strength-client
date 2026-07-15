@@ -21,7 +21,7 @@ function ParkRoyalJoinWaitlist() {
           </h4>
         </div>
 
-        <EdmontonSouthCommonForm />
+        <EdmontonSouthCommonForm location="Park Royal" />
       </div>
     </section>
   );

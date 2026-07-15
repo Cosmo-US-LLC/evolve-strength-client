@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useCounter from "@/hooks/useCounter";
 
 const scrollAnimation = `
 @keyframes scroll-up {
@@ -27,8 +28,10 @@ const secondColumn = [
 ];
 
 function ParkRoyalOfficeSpaceShowcase() {
+  const { count: worldClassOffices, elementRef } = useCounter(24, 2000);
+
   return (
-    <div className="bg-[#F9F9F9] relative overflow-hidden">
+    <div className="bg-[#F9F9F9] relative overflow-hidden" ref={elementRef}>
       <style>{scrollAnimation}</style>
       <div className="w-full max-w-[1280px] px-4 md:px-8 mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
         <div className="w-full md:w-[50%]">
@@ -55,7 +58,7 @@ function ParkRoyalOfficeSpaceShowcase() {
               World-Class Offices
             </p>
             <p className="text-[40px] md:text-[56px] text-kanit font-[500] leading-[50px] text-[#000] my-4">
-              24
+              {worldClassOffices}
             </p>
           </div>
         </div>
