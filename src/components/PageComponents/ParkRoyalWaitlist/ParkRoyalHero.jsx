@@ -1,6 +1,10 @@
 import React from "react";
 
 function ParkRoyalHero() {
+  const scrollToWaitlist = () => {
+    document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div>
       <div className="relative overflow-hidden w-full h-[70vh] md:h-[100vh] bg-[#000000]">
@@ -40,11 +44,13 @@ function ParkRoyalHero() {
                 waitlist for early access when presale opens.
               </h3>
 
-              <a href="#waitlist">
-                <button type="button" className="btnPrimary uppercase">
-                  Join the Waitlist
-                </button>
-              </a>
+              <button
+                type="button"
+                className="btnPrimary uppercase"
+                onClick={scrollToWaitlist}
+              >
+                Join the Waitlist
+              </button>
             </div>
           </div>
         </div>
