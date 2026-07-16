@@ -15,16 +15,16 @@ const scrollAnimation = `
 
 // TODO: swap with the real Park Royal office/facility photos once links are shared
 const firstColumn = [
-  "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide1.webp",
-  "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide2.webp",
-  "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide3.webp",
-  "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide4.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186634672-a29cde9b-92b0-408e-b000-54cd5189d46e.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186657287-1efeecd3-6570-4ad9-a305-a4101688de23.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186673848-57e7f9be-98af-4f43-a9b7-7cdb0e086d93.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186732537-58fcf784-1abe-4ce5-887f-d605da8f7d50.webp",
 ];
 const secondColumn = [
-  "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide5.webp",
-  "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide6.webp",
-  "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide7.webp",
-  "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide8.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186732537-58fcf784-1abe-4ce5-887f-d605da8f7d50.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186766343-a1b4510b-e9d3-42c5-a9cd-afbbed03d96d.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186779172-3ecb03b2-e760-40b4-ab93-0c5a97cbae5e.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186634672-a29cde9b-92b0-408e-b000-54cd5189d46e.webp",
 ];
 
 function ParkRoyalOfficeSpaceShowcase() {
@@ -63,7 +63,7 @@ function ParkRoyalOfficeSpaceShowcase() {
           </div>
         </div>
 
-        <div className="w-full md:w-[50%] flex justify-end gap-8 h-[500px] md:h-[700px] overflow-hidden">
+        <div className="w-full md:w-[50%] flex justify-end gap-8 h-[500px] md:h-[600px] overflow-hidden">
           <div className="overflow-hidden group relative">
             <div className="flex flex-col gap-6 animate-[scroll-up_30s_linear_infinite] group-hover:[animation-play-state:paused]">
               {[...firstColumn, ...firstColumn].map((img, i) => (
