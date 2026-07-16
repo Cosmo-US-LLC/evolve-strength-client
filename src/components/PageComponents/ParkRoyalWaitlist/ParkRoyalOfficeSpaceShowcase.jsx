@@ -15,16 +15,16 @@ const scrollAnimation = `
 
 // TODO: swap with the real Park Royal office/facility photos once links are shared
 const firstColumn = [
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186634672-a29cde9b-92b0-408e-b000-54cd5189d46e.webp",
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186657287-1efeecd3-6570-4ad9-a305-a4101688de23.webp",
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186673848-57e7f9be-98af-4f43-a9b7-7cdb0e086d93.webp",
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186732537-58fcf784-1abe-4ce5-887f-d605da8f7d50.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784200929617-4cf97ea3-1602-40e5-82f6-2fbcecd47c79.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784200949027-3c15788e-5342-4a29-b66d-083a6bc4e5a1.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784200968046-2d7af29b-40fd-43b2-98c2-fcb8d877ab01.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784200992507-3f9035b4-cce0-42da-a128-70be24edc566.webp",
 ];
 const secondColumn = [
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186732537-58fcf784-1abe-4ce5-887f-d605da8f7d50.webp",
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186766343-a1b4510b-e9d3-42c5-a9cd-afbbed03d96d.webp",
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186779172-3ecb03b2-e760-40b4-ab93-0c5a97cbae5e.webp",
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784186634672-a29cde9b-92b0-408e-b000-54cd5189d46e.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784201015590-c26736fa-1953-4c79-91b0-c14f0d1d6e50.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784201040401-1088f067-7ce6-45aa-a250-5b50b3b6d488.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784201065145-5946e514-d2e4-48ad-995f-7b83427e4243.webp",
+  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784201087034-916e649d-d6ac-47dc-ae02-295af2419e07.webp",
 ];
 
 function ParkRoyalOfficeSpaceShowcase() {

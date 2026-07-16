@@ -2,29 +2,29 @@ import React from "react";
 
 function ParkRoyalSpaceShowcase() {
   return (
-    <section className="w-full py-12 md:py-16 bg-white">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center gap-8 md:gap-[80px]">
-        <div className="flex-1 flex flex-col items-start gap-4 md:gap-[16px]">
-          <p className="!text-[16px] !font-[500] text-[#4AB04A] uppercase !font-[Kanit] leading-[24px] m-0">
-            The Space
-          </p>
-          <h2 className="text-black uppercase m-0">
-            Room to train, without
-            <br />
-            the wait.
-          </h2>
-          <p className="!text-[18px] !font-[300] text-black !font-[Kanit] leading-[27px] m-0">
-            Open, purpose built zones across 30,000 square feet, so you can
-            lift, coach, and move without lining up for a rack.
-          </p>
-        </div>
+    <section className="w-full bg-white">
+      <div className="relative overflow-hidden w-full min-h-[420px] md:min-h-[667px]">
+        <img
+          src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1784191958310-801be316-2715-4165-bf74-5c0a222e5833.webp"
+          alt="Evolve Strength Park Royal training floor"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
-        <div className="flex-1 w-full">
-          <img
-            src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1784033823075-8a5a8f66-2921-4a56-b095-c5d0b1c76e07.webp"
-            alt="Evolve Strength Park Royal Gym Floor"
-            className="w-full h-[260px] md:h-[400px] object-cover rounded-2xl"
-          />
+        <div className="relative z-10 flex items-center min-h-[420px] md:min-h-[667px] max-w-[1280px] mx-auto px-4 py-12 md:px-8 md:py-[50px]">
+          <div className="w-full max-w-[500px] flex flex-col items-start gap-2 md:gap-4">
+            <p className="!text-[16px] !font-[500] text-[#4AB04A] uppercase !font-[Kanit] leading-[24px] m-0">
+              The Space
+            </p>
+            <h2 className="text-white uppercase m-0 !text-[32px] md:!text-[40px] !leading-[34px] md:!leading-[39px]">
+              Room to train, without
+              <br />
+              the wait.
+            </h2>
+            <p className="!text-[16px] md:!text-[18px] !font-[300] text-white !font-[Kanit] leading-[24px] md:leading-[27px] m-0">
+              Open, purpose built zones across 30,000 square feet, so you can
+              lift, coach, and move without lining up for a rack.
+            </p>
+          </div>
         </div>
       </div>
     </section>
