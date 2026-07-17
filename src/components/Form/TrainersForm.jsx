@@ -16,6 +16,10 @@ function TrainerForm() {
   // Contact-Us style locations list (label = cityName, value = full address)
   const LOCATIONS = [
     {
+      cityName: "Park Royal",
+      location: "815 Park Royal N West Vancouver, BC V7T 1H9",
+    },
+    {
       cityName: "South Edmonton Common",
       location: "1910 102 STREET NW, EDMONTON, AB T6N 1N3",
     },
