@@ -31,15 +31,15 @@ function ParkRoyalOfficeSpaceShowcase() {
   const { count: worldClassOffices, elementRef } = useCounter(24, 2000);
 
   return (
-    <div className="bg-[#F9F9F9] relative overflow-hidden" ref={elementRef}>
+    <div
+      className="bg-[#F9F9F9] relative overflow-hidden pt-10 md:pt-0"
+      ref={elementRef}
+    >
       <style>{scrollAnimation}</style>
       <div className="w-full max-w-[1280px] px-4 md:px-8 mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
         <div className="w-full md:w-[50%]">
-          <p className="!text-[16px] !font-[500] text-[#4AB04A] uppercase !font-[Kanit] leading-[24px] mb-2">
-            The Location
-          </p>
           <h2 className="text-[#1C1C1C] uppercase mb-4 md:mb-6">
-            Office space, built for practitioners.
+            Office space, built for practitioners
           </h2>
           <h4 className="des text-[#000] mb-8 max-w-xl leading-[26px]">
             Twenty four standard offices inside the facility, sized for
