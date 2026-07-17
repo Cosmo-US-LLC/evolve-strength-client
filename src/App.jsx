@@ -40,6 +40,7 @@ import SouthEdmontonCommonLocation from "./pages/LocationsPage/SouthEdmontonComm
 import TrainerForm from "./components/Form/TrainersForm";
 import AllLocations from "./pages/LocationsPage/AllLocations";
 import EdmontonSouthCommon from "./pages/LocationsPage/EdmontonSouthCommon";
+import ParkRoyalWaitlist from "./pages/ParkRoyalWaitlist";
 import WellnessInquiryForm from "./components/Form/WellnessInquiryForm";
 import MatchMeWithTrainer from "./components/Form/MatchMeWithTrainer";
 import Careers from "./pages/Careers";
@@ -135,6 +136,7 @@ function App() {
             path="/south-edmonton-common-rules"
             element={<SouthEdmontonCommonRules />}
           />
+          <Route path="/park-royal-waitlist" element={<ParkRoyalWaitlist />} />
         </Route>
 
         {/* Location-based Discover flow */}

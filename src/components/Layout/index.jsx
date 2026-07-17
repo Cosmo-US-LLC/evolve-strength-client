@@ -10,7 +10,9 @@ function Layout() {
   const isPresalePage =
     location.pathname === "/presale-edmonton-south-common" ||
     location.pathname === "/spaces-for-south-edmonton-common" ||
-    location.pathname === "/tour-south-edmonton-common";
+    location.pathname === "/tour-south-edmonton-common" ||
+    location.pathname === "/park-royal-waitlist";
+  const hideFooter = location.pathname === "/park-royal-waitlist";
   return (
     <div>
       {/* <ScrollToTop /> */}
@@ -18,14 +20,11 @@ function Layout() {
       <div className="">
         <Outlet />
       </div>
-      <div className="">
-        <Footer />
-      </div>
-      {/* {!isPresalePage && (
+      {!hideFooter && (
         <div className="">
           <Footer />
         </div>
-      )} */}
+      )}
     </div>
   );
 }

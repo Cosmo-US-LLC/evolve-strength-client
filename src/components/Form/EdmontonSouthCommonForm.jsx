@@ -1,13 +1,13 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
-function EdmontonSouthCommonForm() {
+function EdmontonSouthCommonForm({ location = "South Edmonton Common" }) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phoneNumber: "",
-    isCurrentMember: "Yes",
+    isCurrentMember: "",
   });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -63,6 +63,10 @@ function EdmontonSouthCommonForm() {
         email: formData.email,
         mobilephone: formData.phoneNumber,
         are_you_a_current_evolve_member_: formData.isCurrentMember,
+        // NOTE: "waitlist_location" must exist as a contact property in HubSpot
+        // (Settings → Properties → Contact properties) before this will save.
+        // Until then HubSpot will silently ignore this field.
+        waitlist_location: location,
       };
 
       // Submit to HubSpot
@@ -80,12 +84,12 @@ function EdmontonSouthCommonForm() {
             })),
             context: {
               pageUri: window.location.href,
-              pageName: "Edmonton South Common Waitlist",
+              pageName: `${location} Waitlist`,
               ...(hutk && { hutk }),
               ...(userIP && { ipAddress: userIP }),
             },
           }),
-        }
+        },
       );
 
       if (response.ok) {
@@ -96,7 +100,7 @@ function EdmontonSouthCommonForm() {
           lastName: "",
           email: "",
           phoneNumber: "",
-          isCurrentMember: "Yes",
+          isCurrentMember: "",
         });
       } else {
         setSubmitStatus("error");
@@ -197,9 +201,14 @@ function EdmontonSouthCommonForm() {
               onChange={handleInputChange}
               onFocus={() => setIsDropdownOpen(true)}
               onBlur={() => setTimeout(() => setIsDropdownOpen(false), 150)}
-              className="w-full px-4 py-3 bg-black/60 border border-white rounded-[6px] text-white focus:outline-none focus:border-green-400 appearance-none pr-10 cursor-pointer"
+              className={`w-full px-4 py-3 bg-black/60 border border-white rounded-[6px] focus:outline-none focus:border-green-400 appearance-none pr-10 cursor-pointer ${
+                formData.isCurrentMember ? "text-white" : "text-gray-400"
+              }`}
               required
             >
+              <option value="" disabled>
+                Please select
+              </option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
