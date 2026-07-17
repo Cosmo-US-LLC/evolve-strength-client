@@ -17,7 +17,7 @@ function TrainerForm() {
   const LOCATIONS = [
     {
       cityName: "Park Royal",
-      location: "815 Park Royal N, West Vancouver, British Columbia",
+      location: "815 Park Royal N West Vancouver, BC V7T 1H9",
     },
     {
       cityName: "South Edmonton Common",
