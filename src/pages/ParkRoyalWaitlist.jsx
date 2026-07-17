@@ -6,6 +6,7 @@ import ParkRoyalSpaceShowcase from "@/components/PageComponents/ParkRoyalWaitlis
 import ParkRoyalLocationShowcase from "@/components/PageComponents/ParkRoyalWaitlist/ParkRoyalLocationShowcase";
 import ParkRoyalOfficeSpaceShowcase from "@/components/PageComponents/ParkRoyalWaitlist/ParkRoyalOfficeSpaceShowcase";
 import ParkRoyalEquipmentPartners from "@/components/PageComponents/ParkRoyalWaitlist/ParkRoyalEquipmentPartners";
+import ParkRoyalRecruitingShowcase from "@/components/PageComponents/ParkRoyalWaitlist/ParkRoyalRecruitingShowcase";
 import ParkRoyalJoinWaitlist from "@/components/PageComponents/ParkRoyalWaitlist/ParkRoyalJoinWaitlist";
 
 function ParkRoyalWaitlist() {
@@ -22,6 +23,7 @@ function ParkRoyalWaitlist() {
         <ParkRoyalSpaceShowcase />
         <ParkRoyalLocationShowcase />
         <ParkRoyalOfficeSpaceShowcase />
+        <ParkRoyalRecruitingShowcase />
         <ParkRoyalJoinWaitlist />
       </div>
     </>

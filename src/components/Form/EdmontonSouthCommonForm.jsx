@@ -7,7 +7,7 @@ function EdmontonSouthCommonForm({ location = "South Edmonton Common" }) {
     lastName: "",
     email: "",
     phoneNumber: "",
-    isCurrentMember: "Yes",
+    isCurrentMember: "",
   });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -100,7 +100,7 @@ function EdmontonSouthCommonForm({ location = "South Edmonton Common" }) {
           lastName: "",
           email: "",
           phoneNumber: "",
-          isCurrentMember: "Yes",
+          isCurrentMember: "",
         });
       } else {
         setSubmitStatus("error");
@@ -201,9 +201,14 @@ function EdmontonSouthCommonForm({ location = "South Edmonton Common" }) {
               onChange={handleInputChange}
               onFocus={() => setIsDropdownOpen(true)}
               onBlur={() => setTimeout(() => setIsDropdownOpen(false), 150)}
-              className="w-full px-4 py-3 bg-black/60 border border-white rounded-[6px] text-white focus:outline-none focus:border-green-400 appearance-none pr-10 cursor-pointer"
+              className={`w-full px-4 py-3 bg-black/60 border border-white rounded-[6px] focus:outline-none focus:border-green-400 appearance-none pr-10 cursor-pointer ${
+                formData.isCurrentMember ? "text-white" : "text-gray-400"
+              }`}
               required
             >
+              <option value="" disabled>
+                Please select
+              </option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
