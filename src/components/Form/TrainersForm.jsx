@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import MetaTags from "@/components/Metatags/Meta";
 import FormsHeader from "../ui/FormsHeader";
@@ -8,6 +8,7 @@ import trainerImage from "@/assets/images/form/trainer-form.webp";
 
 function TrainerForm() {
   const navigate = useNavigate();
+  const routerLocation = useLocation();
 
   // HubSpot constants
   const HUBSPOT_PORTAL_ID = "342148198";
@@ -72,6 +73,28 @@ function TrainerForm() {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false); // added
+
+  // Auto-select location from query param: ?location=City%20Name
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(routerLocation.search);
+      const cityParam = params.get("location");
+      if (!cityParam) return;
+
+      const normalized = (s) => s.trim().toLowerCase();
+      const target = normalized(cityParam);
+
+      const matched = LOCATIONS.find(
+        (loc) => normalized(loc.cityName) === target,
+      );
+
+      if (matched) {
+        setForm((prev) => ({ ...prev, location: matched.location }));
+      }
+    } catch {
+      // ignore parsing errors
+    }
+  }, [routerLocation.search]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

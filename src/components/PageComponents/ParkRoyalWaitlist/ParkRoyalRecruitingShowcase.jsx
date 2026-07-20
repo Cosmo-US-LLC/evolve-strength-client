@@ -38,7 +38,7 @@ function ParkRoyalRecruitingShowcase() {
               </p>
             </div>
 
-            <Link to="/trainer-form">
+            <Link to="/trainer-form?location=Park%20Royal">
               <button type="button" className="btnPrimary uppercase">
                 Become a Trainer
               </button>
