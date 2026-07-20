@@ -28,6 +28,7 @@ function ParkRoyalLocationShowcase() {
             <p className="!text-[16px] md:!text-[18px] !font-[300] text-white !font-[Kanit] leading-[24px] md:leading-[27px] m-0">
               815 Park Royal N, West Vancouver, minutes from the Lions Gate
               Bridge and steps from the North Shore's best shopping and dining.
+              Free parking available on site.
             </p>
           </div>
         </div>
