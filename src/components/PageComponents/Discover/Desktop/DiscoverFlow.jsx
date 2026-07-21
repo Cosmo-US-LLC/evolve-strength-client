@@ -287,7 +287,7 @@ const DiscoverFlow = () => {
             your link includes a valid location name, for example:
           </p>
           <code className="block bg-gray-100 rounded-md px-4 py-3 text-sm md:text-base text-left overflow-x-auto">
-            /discovr?EDMONTON SOUTH
+            /discover?locationName=CALGARY%20SETON
           </code>
         </div>
       </div>

@@ -7,7 +7,7 @@ function ParkRoyalHero() {
 
   return (
     <div>
-      <div className="relative overflow-hidden w-full h-[70vh] md:h-[100vh] bg-[#000000]">
+      <div className="relative overflow-hidden w-full h-[80vh] md:h-[100vh] bg-[#000000]">
         <video
           autoPlay
           muted

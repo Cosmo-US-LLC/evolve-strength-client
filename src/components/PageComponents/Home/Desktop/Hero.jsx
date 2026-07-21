@@ -1,10 +1,9 @@
 import React from "react";
-import heroVideo from "../../../../assets/videos/ExplorePages.webm";
 
 function Hero({ title }) {
   return (
     <div>
-      <div className="relative overflow-hidden w-full h-[70vh] md:h-[100vh] bg-[#000000]">
+      <div className="relative overflow-hidden w-full h-[80vh] md:h-[100vh] bg-[#000000]">
         <video
           autoPlay
           muted
@@ -14,14 +13,10 @@ function Hero({ title }) {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectFit: "cover", objectPosition: "bottom" }}
         >
-          {/* <source
-            src={heroVideo}
-            type="video/webm"
-          /> */}
           <source
-            src={"/assets/videos/ES_waitlist_desktop.webm"}
+            src="/assets/videos/waitlist_florida_video.webm"
             type="video/webm"
-          />
+          />{" "}
           Your browser does not support the video tag.
         </video>
 
