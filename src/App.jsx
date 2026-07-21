@@ -140,9 +140,6 @@ function App() {
         </Route>
 
         {/* Location-based Discover flow */}
-        {/* Primary URL as requested: /discovr?{locationName} */}
-        <Route path="/discovr" element={<Discover />} />
-        {/* Backwards-compatible alias: /discover?locationName=... */}
         <Route path="/discover" element={<Discover />} />
 
         <Route path="/join-the-wait-list" element={<EvolveSpacesForm />} />
