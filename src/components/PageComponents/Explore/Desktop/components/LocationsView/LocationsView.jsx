@@ -10,6 +10,9 @@ import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
 import { CircleChevronDown } from "lucide-react";
 
+const ESUITE_API_BASE =
+  import.meta.env.VITE_ESUITE_API_URL || "https://esuite-api.evolvestrength.ca/v1";
+
 // Service name to role mapping
 const SERVICE_ROLE_MAP = {
   "Personal Trainer": "Personal Trainer",
@@ -35,7 +38,7 @@ function LocationsView() {
   async function getTrainers() {
     try {
       const response = await fetch(
-        `https://esuite-api.evolvestrength.ca/v1/trainers/public`,
+        `${ESUITE_API_BASE}/trainers/public`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
