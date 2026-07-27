@@ -395,6 +395,8 @@ h5 {
 
 @theme {
   --aspect-trainer: 65 / 54;
+  --color-brand-green: #4ab04a;
+  --color-brand-dark: #111111;
 }
 
 input[type="checkbox"] {

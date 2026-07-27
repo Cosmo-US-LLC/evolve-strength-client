@@ -62,6 +62,8 @@ import JoinNowMembershipType from "./features/joinNow/pages/MembershipType";
 import JoinNowYourDetails from "./features/joinNow/pages/YourDetails";
 import JoinNowPaymentInfo from "./features/joinNow/pages/PaymentInfo";
 import JoinNowSuccess from "./features/joinNow/pages/Success";
+import BookTourPage from "./features/bookTour/pages/BookTourPage";
+import BookTourThankYouPage from "./features/bookTour/pages/BookTourThankYouPage";
 
 function App() {
   return (
@@ -213,6 +215,13 @@ function App() {
           <Route path="payment-info" element={<JoinNowPaymentInfo />} />
           <Route path="success" element={<JoinNowSuccess />} />
         </Route>
+
+        {/* Book a Tour flow (merged from evolve-strength-booking) */}
+        <Route path="/book-a-tour" element={<BookTourPage />} />
+        <Route
+          path="/book-a-tour/thank-you"
+          element={<BookTourThankYouPage />}
+        />
 
         <Route path="/loader" element={<Loader />} />
         <Route path="*" element={<NotFoundPage />} />
