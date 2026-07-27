@@ -117,7 +117,7 @@ const MembershipType = () => {
                   </svg>
                 </div>
                 <div className="max-lg:hidden">
-                  <h3 className="!font-bold !text-[16px] text-black">
+                  <h3 className="!font-bold !text-[24px] text-black">
                     Membership Type
                   </h3>
                   <p className="text-[#393939] text-[14px]">
@@ -153,7 +153,7 @@ const MembershipType = () => {
                   </svg>
                 </div>
                 <div className="max-lg:hidden">
-                  <h3 className="!font-bold text-[#969698] !text-[16px]">
+                  <h3 className="!font-bold text-[#969698] !text-[24px]">
                     Your Details
                   </h3>
                   <p className="text-[#969698] text-sm text-[14px]">
@@ -192,7 +192,7 @@ const MembershipType = () => {
                   </svg>
                 </div>
                 <div className="max-lg:hidden">
-                  <h3 className="!font-bold text-[#969698] !text-[16px]">
+                  <h3 className="!font-bold text-[#969698] !text-[24px]">
                     Payment Info
                   </h3>
                   <p className="text-[#969698] text-sm text-[14px]">
@@ -203,7 +203,7 @@ const MembershipType = () => {
             </div>
             <div>
               <div className="lg:hidden">
-                <h3 className="!font-bold !text-[16px] text-black">
+                <h3 className="!font-bold !text-[24px] text-black">
                   Membership Type
                 </h3>
                 <p className="text-[#393939] text-[14px]">
