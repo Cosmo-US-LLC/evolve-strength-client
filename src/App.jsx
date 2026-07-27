@@ -56,6 +56,12 @@ import PrimaryMemberDetails from "./components/FounderOfferPayment/steps/Primary
 import SpacesForSouthEdmontonCommon from "./pages/Spaces/SpacesForSouthEdmontonCommon";
 import SouthEdmontonCommon from "./pages/SouthEdmontonCommon";
 import SouthEdmontonCommonRules from "./pages/SouthEdmontonCommonRules";
+import JoinNowLayout from "./features/joinNow/components/JoinNowLayout";
+import JoinNowLocationSelection from "./features/joinNow/pages/LocationSelection";
+import JoinNowMembershipType from "./features/joinNow/pages/MembershipType";
+import JoinNowYourDetails from "./features/joinNow/pages/YourDetails";
+import JoinNowPaymentInfo from "./features/joinNow/pages/PaymentInfo";
+import JoinNowSuccess from "./features/joinNow/pages/Success";
 
 function App() {
   return (
@@ -195,6 +201,18 @@ function App() {
           path="/founder-offer-payment"
           element={<FounderOfferPayment />}
         /> */}
+
+        {/* Join Now flow (merged from evolve-subscription-form) */}
+        <Route path="/join-now" element={<JoinNowLayout />}>
+          <Route index element={<JoinNowLocationSelection />} />
+          <Route
+            path="membership-type"
+            element={<JoinNowMembershipType />}
+          />
+          <Route path="your-details" element={<JoinNowYourDetails />} />
+          <Route path="payment-info" element={<JoinNowPaymentInfo />} />
+          <Route path="success" element={<JoinNowSuccess />} />
+        </Route>
 
         <Route path="/loader" element={<Loader />} />
         <Route path="*" element={<NotFoundPage />} />
