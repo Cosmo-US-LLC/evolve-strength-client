@@ -1150,7 +1150,7 @@ function Consent({ name, fieldName, children }) {
 }
 
 const inputBase =
-  "w-full h-12 rounded-lg border border-neutral-300 px-3 py-2.5 outline-none focus:ring-2 focus:ring-brand-green font-[Kanit] placeholder:text-[16px] placeholder:font-[300] placeholder:font-[Kanit] placeholder:leading-normal";
+  "w-full h-12 rounded-lg border border-neutral-300 px-3 py-2.5 outline-none focus:ring-2 focus:ring-brand-green font-[Kanit] leading-5 placeholder:text-[16px] placeholder:font-[300] placeholder:font-[Kanit] placeholder:leading-5";
 
 function DatePicker({
   name,

@@ -633,7 +633,7 @@ const PaymentInfo = () => {
                   </svg>
                 </div>
                 <div className="max-lg:hidden">
-                  <h3 className="!font-bold text-black">Membership Type</h3>
+                  <h3 className="!font-bold text-black !text-[16px]">Membership Type</h3>
                   <p className="text-black text-sm">
                     Pick the membership that fits you best
                   </p>
@@ -662,7 +662,7 @@ const PaymentInfo = () => {
                   </svg>
                 </div>
                 <div className="max-lg:hidden">
-                  <h3 className="!font-bold text-black">Your Details</h3>
+                  <h3 className="!font-bold text-black !text-[16px]">Your Details</h3>
                   <p className="text-black text-sm">
                     Tell us a bit about yourself
                   </p>
@@ -699,7 +699,7 @@ const PaymentInfo = () => {
                   </svg>
                 </div>
                 <div className="max-lg:hidden">
-                  <h3 className="!font-bold text-black">Payment Info</h3>
+                  <h3 className="!font-bold text-black !text-[16px]">Payment Info</h3>
                   <p className="text-black text-sm">
                     Securely enter your payment details
                   </p>
@@ -744,7 +744,7 @@ const PaymentInfo = () => {
                                 value: field.value,
                               })}
                               placeholder="0000-0000-0000-0000"
-                              className="min-h-[46px] text-[16px] placeholder:text-[16px] placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                             />
                             {meta.cardType && (
                               <svg
@@ -776,7 +776,7 @@ const PaymentInfo = () => {
                                 onBlur: field.onBlur,
                                 value: field.value,
                               })}
-                              className="min-h-[46px] text-[16px] placeholder:text-[16px] placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                             />
                           </FormControl>
                           <FormMessage>
@@ -800,7 +800,7 @@ const PaymentInfo = () => {
                                 onBlur: field.onBlur,
                                 value: field.value,
                               })}
-                              className="min-h-[46px] text-[16px] placeholder:text-[16px] placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                             />
                           </FormControl>
                           <FormMessage>

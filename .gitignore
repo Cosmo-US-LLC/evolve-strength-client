@@ -23,7 +23,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-.vercel
 
 # Local Netlify folder
 .netlify
+.playwright-mcp
+.vercel
+.env*

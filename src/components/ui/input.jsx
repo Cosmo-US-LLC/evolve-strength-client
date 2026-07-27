@@ -7,7 +7,7 @@ const Input = React.forwardRef(
       <input
         type={type}
         className={cn(
-          "w-full px-4 py-3 border rounded-[5px] form-placeholder",
+          "w-full flex items-center px-4 py-3 border rounded-[5px] form-placeholder !font-[Kanit]",
           className
         )}
         ref={ref}
