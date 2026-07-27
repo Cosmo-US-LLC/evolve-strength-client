@@ -27,7 +27,7 @@ const LocationSelection = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-white">
       <div className="md:max-w-3xl mx-auto max-md:w-[100%] px-4">
-        <h1 className="md:text-3xl max-md:text-[32px] font-[kanit] font-bold text-black text-center mb-8">
+        <h1 className="md:!text-3xl max-md:!text-[32px] !font-[kanit] !font-bold text-black text-center mb-8">
           SELECT LOCATION
         </h1>
 

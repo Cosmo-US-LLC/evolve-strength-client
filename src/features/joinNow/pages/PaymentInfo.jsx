@@ -604,7 +604,7 @@ const PaymentInfo = () => {
             />
 
             <div>
-              <h1 className="text-base font-bold leading-5">Payment Info</h1>
+              <h1 className="!text-base !font-bold !leading-5">Payment Info</h1>
               <p className="text-xs leading-4 text-[#6F6D66]">
                 Securely enter your payment details
               </p>
@@ -633,7 +633,7 @@ const PaymentInfo = () => {
                   </svg>
                 </div>
                 <div className="max-lg:hidden">
-                  <h3 className="font-bold text-black">Membership Type</h3>
+                  <h3 className="!font-bold text-black">Membership Type</h3>
                   <p className="text-black text-sm">
                     Pick the membership that fits you best
                   </p>
@@ -662,7 +662,7 @@ const PaymentInfo = () => {
                   </svg>
                 </div>
                 <div className="max-lg:hidden">
-                  <h3 className="font-bold text-black">Your Details</h3>
+                  <h3 className="!font-bold text-black">Your Details</h3>
                   <p className="text-black text-sm">
                     Tell us a bit about yourself
                   </p>
@@ -699,7 +699,7 @@ const PaymentInfo = () => {
                   </svg>
                 </div>
                 <div className="max-lg:hidden">
-                  <h3 className="font-bold text-black">Payment Info</h3>
+                  <h3 className="!font-bold text-black">Payment Info</h3>
                   <p className="text-black text-sm">
                     Securely enter your payment details
                   </p>
@@ -708,7 +708,7 @@ const PaymentInfo = () => {
             </div>
             <div>
               <div className="lg:hidden">
-                <h3 className="font-bold text-black text-[16px]">
+                <h3 className="!font-bold text-black !text-[16px]">
                   Payment Info
                 </h3>
                 <p className="text-[#393939] text-sm text-[14px]">
@@ -725,7 +725,7 @@ const PaymentInfo = () => {
               onSubmit={form.handleSubmit(onSubmit)}
             >
               <div className="lg:col-span-2">
-                <h2 className="text-xl lg:text-2xl font-[kanit] font-medium text-black mb-6">
+                <h2 className="!text-xl lg:!text-2xl !font-[kanit] !font-medium text-black mb-6">
                   Enter Your Payment Details
                 </h2>
                 <div className="space-y-4 mb-4">

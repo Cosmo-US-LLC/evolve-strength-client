@@ -11,7 +11,7 @@ const Success = () => {
     <div className="min-h-screen bg-white flex flex-col">
       <div className="max-w-md mx-auto px-4 grow flex flex-col justify-center items-center">
         <div className="bg-[#fcfcfc] border border-[#D4D4D4] rounded-lg px-4 py-8">
-          <h1 className="text-2xl lg:text-3xl font-[kanit] font-bold text-black text-center mb-4">
+          <h1 className="!text-2xl lg:!text-3xl !font-[kanit] !font-bold text-black text-center mb-4">
             CONGRATULATIONS
           </h1>
 

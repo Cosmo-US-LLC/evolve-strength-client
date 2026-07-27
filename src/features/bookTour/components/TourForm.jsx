@@ -185,7 +185,7 @@ function LeftPanel() {
           <p className="uppercase text-[13.589px] leading-[23.092px] font-[700] text-[#F8F8F8] font-[Vazirmatn]">
             Commit to something. Join today.
           </p>
-          <h1 className="mt-2 text-[40px] leading-[39px] font-bold uppercase text-[#FFF] font-[Kanit]">
+          <h1 className="mt-2 !text-[40px] !leading-[39px] !font-bold uppercase text-[#FFF] !font-[Kanit]">
             when you feel like quitting, remember why you started
           </h1>
         </div>
@@ -740,7 +740,7 @@ function FormCard({ onSuccess, location = false }) {
         }`}
       >
         <div className="rounded-t-xl bg-brand-dark px-4 lg:px-6 py-4 lg:py-5 text-white">
-          <h3 className="text-lg text-[#FFF] text-center font-[Kanit] text-[20px] lg:text-[24px] font-normal leading-[22px] lg:leading-[26px] uppercase">
+          <h3 className="text-[#FFF] text-center !font-[Kanit] !text-[20px] lg:!text-[24px] !font-normal !leading-[22px] lg:!leading-[26px] uppercase">
             LET'S PLAN YOUR TOUR
           </h3>
           <p className="pt-2 text-sm text-white/80 text-[#FFF] text-center font-[Kanit] text-[16px] lg:text-[18px] font-light leading-[17px] lg:leading-[19px]">

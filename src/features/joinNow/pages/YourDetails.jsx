@@ -619,7 +619,7 @@ const YourDetails = () => {
             />
 
             <div>
-              <h1 className="text-base font-bold leading-5">Your Details</h1>
+              <h1 className="!text-base !font-bold !leading-5">Your Details</h1>
               <p className="text-xs leading-4 text-[#6F6D66]">
                 Tell us a bit about yourself
               </p>
@@ -646,7 +646,7 @@ const YourDetails = () => {
                   </svg>
                 </div>
                 <div className="max-lg:hidden">
-                  <h3 className="font-bold text-black">Membership Type</h3>
+                  <h3 className="!font-bold text-black">Membership Type</h3>
                   <p className="text-black text-sm">
                     Pick the membership that fits you best
                   </p>
@@ -680,7 +680,7 @@ const YourDetails = () => {
                   </svg>
                 </div>
                 <div className="max-lg:hidden">
-                  <h3 className="font-bold text-black">Your Details</h3>
+                  <h3 className="!font-bold text-black">Your Details</h3>
                   <p className="text-black text-sm">
                     Tell us a bit about yourself
                   </p>
@@ -717,7 +717,7 @@ const YourDetails = () => {
                   </svg>
                 </div>
                 <div className="max-lg:hidden">
-                  <h3 className="font-bold text-gray-600">Payment Info</h3>
+                  <h3 className="!font-bold text-gray-600">Payment Info</h3>
                   <p className="text-gray-600 text-sm">
                     Securely enter your payment details
                   </p>
@@ -726,7 +726,7 @@ const YourDetails = () => {
             </div>
             <div>
               <div className="lg:hidden">
-                <h3 className="font-bold text-black text-[16px]">
+                <h3 className="!font-bold text-black !text-[16px]">
                   Your Details
                 </h3>
                 <p className="text-[#393939] text-sm text-[14px]">
@@ -745,7 +745,7 @@ const YourDetails = () => {
               <div className="max-lg:px-4 lg:col-span-2">
                 <EditMembershipBox className="lg:hidden" />
 
-                <h2 className="text-xl font-[kanit] font-medium text-black mb-4 lg:mb-6">
+                <h2 className="!text-xl !font-[kanit] !font-medium text-black mb-4 lg:mb-6">
                   Enter Your Details
                 </h2>
 

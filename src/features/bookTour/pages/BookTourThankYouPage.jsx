@@ -13,7 +13,7 @@ export default function BookTourThankYouPage() {
       <main className="px-4 pt-16 h-full">
         <div className="mx-auto flex h-[calc(100svh-64px)] max-w-[560px] items-center justify-center">
           <div className="w-full rounded-2xl border border-neutral-200 bg-white p-6 shadow-md sm:p-8">
-            <h1 className="text-center font-[Kanit] text-3xl font-extrabold uppercase leading-tight text-[#111111] md:text-4xl">
+            <h1 className="text-center !font-[Kanit] !text-3xl !font-extrabold uppercase !leading-tight text-[#111111] md:!text-4xl">
               Thank you!
             </h1>
 

@@ -3,7 +3,7 @@ import React from "react";
 function MembershipBenefits() {
   return (
     <div className="bg-[#FCFCFC] border border-[#D4D4D4] rounded-[8px] px-6 py-5">
-      <h3 className="text-[18px] font-[kanit] font-bold text-[#2C2240] mb-4">
+      <h3 className="!text-[18px] !font-[kanit] !font-bold text-[#2C2240] mb-4">
         Membership Benefits
       </h3>
       <div className="space-y-4">

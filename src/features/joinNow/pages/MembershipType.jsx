@@ -83,7 +83,7 @@ const MembershipType = () => {
             />
 
             <div>
-              <h1 className="text-base font-bold leading-5">Membership Type</h1>
+              <h1 className="!text-base !font-bold !leading-5">Membership Type</h1>
               <p className="text-xs leading-4 text-[#6F6D66]">
                 Pick the membership that fits you best
               </p>
@@ -117,7 +117,7 @@ const MembershipType = () => {
                   </svg>
                 </div>
                 <div className="max-lg:hidden">
-                  <h3 className="font-bold text-[16px] text-black">
+                  <h3 className="!font-bold !text-[16px] text-black">
                     Membership Type
                   </h3>
                   <p className="text-[#393939] text-[14px]">
@@ -153,7 +153,7 @@ const MembershipType = () => {
                   </svg>
                 </div>
                 <div className="max-lg:hidden">
-                  <h3 className="font-bold text-[#969698] text-[16px]">
+                  <h3 className="!font-bold text-[#969698] !text-[16px]">
                     Your Details
                   </h3>
                   <p className="text-[#969698] text-sm text-[14px]">
@@ -192,7 +192,7 @@ const MembershipType = () => {
                   </svg>
                 </div>
                 <div className="max-lg:hidden">
-                  <h3 className="font-bold text-[#969698] text-[16px]">
+                  <h3 className="!font-bold text-[#969698] !text-[16px]">
                     Payment Info
                   </h3>
                   <p className="text-[#969698] text-sm text-[14px]">
@@ -203,7 +203,7 @@ const MembershipType = () => {
             </div>
             <div>
               <div className="lg:hidden">
-                <h3 className="font-bold text-[16px] text-black">
+                <h3 className="!font-bold !text-[16px] text-black">
                   Membership Type
                 </h3>
                 <p className="text-[#393939] text-[14px]">
@@ -217,7 +217,7 @@ const MembershipType = () => {
           <div className="max-lg:px-4 lg:col-span-2">
             <EditMembershipBox className="lg:hidden" />
 
-            <h2 className="text-xl lg:text-2xl font-[kanit] font-medium text-black mb-2 lg:mb-6">
+            <h2 className="!text-xl lg:!text-2xl !font-[kanit] !font-medium text-black mb-2 lg:mb-6">
               Choose Your Pricing Plan
             </h2>
 
@@ -273,7 +273,7 @@ const MembershipType = () => {
               (locationPostal == 40248 || locationPostal == 40327) && (
                 <div>
                   <div className="flex justify-between items-center mb-2 lg:mb-4">
-                    <h3 className="font-[kanit] text-[20px] font-[500] text-black">
+                    <h3 className="!font-[kanit] !text-[20px] !font-[500] text-black">
                       Choose Additional Services
                     </h3>
                     <button className="hidden text-black text-sm items-center space-x-1">

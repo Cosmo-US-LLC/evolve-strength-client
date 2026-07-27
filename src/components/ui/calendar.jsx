@@ -35,7 +35,7 @@ function Calendar({
       captionLayout={captionLayout}
       formatters={{
         formatMonthDropdown: (date) =>
-          date.toLocaleString("default", { month: "short" }),
+          date.toLocaleString("en-US", { month: "short" }),
         ...formatters,
       }}
       classNames={{
@@ -44,6 +44,7 @@ function Calendar({
         month: cn("flex w-full flex-col gap-4 h-full", defaultClassNames.month),
         nav: cn(
           "absolute inset-x-0 top-0 flex w-full items-center justify-between gap-1",
+          captionLayout !== "label" && "hidden",
           defaultClassNames.nav
         ),
         button_previous: cn(
@@ -57,7 +58,7 @@ function Calendar({
           defaultClassNames.button_next
         ),
         month_caption: cn(
-          "flex h-[--cell-size] w-full items-center justify-center px-[--cell-size]",
+          "flex h-[--cell-size] w-full items-center justify-center px-[calc(var(--cell-size)+4px)]",
           defaultClassNames.month_caption
         ),
         dropdowns: cn(
@@ -65,13 +66,13 @@ function Calendar({
           defaultClassNames.dropdowns
         ),
         dropdown_root: cn(
-          "has-focus:border-ring border-input shadow-xs has-focus:ring-ring/50 has-focus:ring-[3px] relative rounded-md border",
+          "has-focus:border-ring border-input shadow-xs has-focus:ring-ring/50 has-focus:ring-[3px] relative rounded-md border min-w-[76px]",
           defaultClassNames.dropdown_root
         ),
         dropdown: cn("bg-popover absolute inset-0 opacity-0", defaultClassNames.dropdown),
         caption_label: cn("select-none font-medium", captionLayout === "label"
           ? "text-sm"
-          : "[&>svg]:text-muted-foreground flex h-8 items-center gap-1 rounded-md pl-2 pr-1 text-sm [&>svg]:size-3.5", defaultClassNames.caption_label),
+          : "[&>svg]:text-muted-foreground flex h-8 w-full items-center justify-center gap-1.5 rounded-md pl-2.5 pr-2 text-sm [&>svg]:size-3.5 [&>svg]:shrink-0", defaultClassNames.caption_label),
         table: "w-full border-collapse",
         weekdays: cn("flex", defaultClassNames.weekdays),
         weekday: cn(
