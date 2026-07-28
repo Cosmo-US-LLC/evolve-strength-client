@@ -744,7 +744,7 @@ const PaymentInfo = () => {
                                 value: field.value,
                               })}
                               placeholder="0000-0000-0000-0000"
-                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                             />
                             {meta.cardType && (
                               <svg
@@ -776,7 +776,7 @@ const PaymentInfo = () => {
                                 onBlur: field.onBlur,
                                 value: field.value,
                               })}
-                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                             />
                           </FormControl>
                           <FormMessage>
@@ -800,7 +800,7 @@ const PaymentInfo = () => {
                                 onBlur: field.onBlur,
                                 value: field.value,
                               })}
-                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                             />
                           </FormControl>
                           <FormMessage>

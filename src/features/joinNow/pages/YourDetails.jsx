@@ -762,7 +762,7 @@ const YourDetails = () => {
                           <FormControl>
                             <Input
                               placeholder="First Name"
-                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                               {...field}
                             />
                           </FormControl>
@@ -779,7 +779,7 @@ const YourDetails = () => {
                           <FormControl>
                             <Input
                               placeholder="Last Name"
-                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                               {...field}
                             />
                           </FormControl>
@@ -799,7 +799,7 @@ const YourDetails = () => {
                           <FormControl>
                             <Input
                               placeholder="Email Address"
-                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                               {...field}
                             />
                           </FormControl>
@@ -817,7 +817,7 @@ const YourDetails = () => {
                             <Input
                               // placeholder="(920) 999-0000"
                               placeholder="Phone Number"
-                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                               autoComplete="new-postal-code"
                               {...field}
                               maxLength={14}
@@ -842,7 +842,7 @@ const YourDetails = () => {
                         <FormControl>
                           <Input
                             placeholder="Address"
-                            className="min-h-[46px] text-[16px] leading-5 placeholder:text-sm placeholder:leading-5 placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                            className="min-h-[46px] text-[16px] leading-5 placeholder:text-sm placeholder:leading-5 text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                             autoComplete="new-postal-code-2"
                             {...field}
                             ref={(el) => {
@@ -866,7 +866,7 @@ const YourDetails = () => {
                         <FormControl>
                           <Input
                             placeholder="Province"
-                            className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                            className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                             autoComplete="new-postal-code"
                             {...field}
                           />
@@ -887,7 +887,7 @@ const YourDetails = () => {
                           <FormControl>
                             <Input
                               placeholder="City"
-                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                               autoComplete="new-postal-code"
                               {...field}
                             />
@@ -905,7 +905,7 @@ const YourDetails = () => {
                           <FormControl>
                             <Input
                               placeholder="Postal Code"
-                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 placeholder:text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                              className="min-h-[46px] text-[16px] leading-5 placeholder:text-[16px] placeholder:leading-5 text-black px-4 py-3 border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                               autoComplete="new-postal-code"
                               {...field}
                               ref={(el) => {
@@ -934,7 +934,7 @@ const YourDetails = () => {
                                 <Button
                                   variant="outline"
                                   className={
-                                    "w-full justify-start text-left font-normal min-h-[46px] text-sm px-4 py-3 placeholder:text-sm placeholder:text-black border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                                    "w-full justify-start text-left font-normal min-h-[46px] text-sm px-4 py-3 placeholder:text-sm text-black border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                                   }
                                 >
                                   {field.value
@@ -973,7 +973,7 @@ const YourDetails = () => {
                                 <FormControl>
                                   <Button
                                     variant="outline"
-                                    className="w-full justify-start text-left font-normal min-h-[46px] text-sm leading-5 px-4 py-3 placeholder:text-sm placeholder:leading-5 placeholder:text-black border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
+                                    className="w-full justify-start text-left font-normal min-h-[46px] text-sm leading-5 px-4 py-3 placeholder:text-sm placeholder:leading-5 text-black border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none"
                                   >
                                     {field.value
                                       ? format(field.value, "d MMM, yyyy")
@@ -1021,10 +1021,10 @@ const YourDetails = () => {
                             key={field.value ?? "unset"}
                           >
                             <FormControl>
-                              <SelectTrigger className="min-h-[46px] text-sm leading-5 px-4 py-3 placeholder:text-sm placeholder:leading-5 placeholder:text-black border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none">
+                              <SelectTrigger className="min-h-[46px] text-sm leading-5 px-4 py-3 placeholder:text-sm placeholder:leading-5 text-black border border-[#D4D4D4] bg-[#FFF] rounded-[5px] shadow-none">
                                 <SelectValue
                                   placeholder="Gender"
-                                  className="text-sm text-black placeholder:text-sm placeholder:text-black"
+                                  className="text-sm text-black placeholder:text-sm"
                                 />
                               </SelectTrigger>
                             </FormControl>

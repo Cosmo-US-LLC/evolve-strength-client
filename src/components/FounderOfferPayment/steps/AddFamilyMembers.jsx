@@ -322,7 +322,7 @@ function AddFamilyMembers({
                               {...field}
                               type="email"
                               placeholder="Email Address"
-                              className={`h-[49px] font-['Kanit'] font-light text-[16px] text-black placeholder:text-black ${
+                              className={`h-[49px] font-['Kanit'] font-light text-[16px] text-black text-black ${
                                 error ? "border-red-500" : "border-[#d4d4d4]"
                               }`}
                             />
@@ -351,7 +351,7 @@ function AddFamilyMembers({
                                 const formatted = formatPhone(e.target.value);
                                 field.onChange(formatted);
                               }}
-                              className={`h-[49px] font-['Kanit'] font-light text-[16px] text-black placeholder:text-black ${
+                              className={`h-[49px] font-['Kanit'] font-light text-[16px] text-black text-black ${
                                 error?.phone ? "border-red-500" : "border-[#d4d4d4]"
                               }`}
                             />
