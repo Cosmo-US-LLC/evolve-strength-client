@@ -92,11 +92,11 @@ const YourEvolveLocations = () => {
     },
 
     {
-      name: "SOUTH",
+      name: "SOUTH COMMON",
       mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/south_common_mob.webp",
+        "https://evolve-strength.tor1.digitaloceanspaces.com/media/1785739121416-cc3651c5-2296-4ab1-8006-00b8e72e048f.webp",
       desktopImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/south_common.webp",
+        "https://evolve-strength.tor1.digitaloceanspaces.com/media/1785739121416-cc3651c5-2296-4ab1-8006-00b8e72e048f.webp",
       city: "Edmonton",
       province: "Alberta",
     },

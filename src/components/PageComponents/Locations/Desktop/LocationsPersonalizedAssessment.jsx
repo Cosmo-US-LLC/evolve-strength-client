@@ -105,9 +105,9 @@ function LocationsPersonalizedAssessment() {
       },
       "south-edmonton-common": {
         desktop:
-          "/assets/images/Locations/assesment/assessment_south_common.webp",
+          "https://evolve-strength.tor1.digitaloceanspaces.com/media/1785738597537-5c32f8b5-812e-4d82-8a41-8d931bfd12fb.webp",
         mobile:
-          "/assets/images/Locations/assesment/assessment_south_common_mob.webp",
+          "https://evolve-strength.tor1.digitaloceanspaces.com/media/1785738597537-5c32f8b5-812e-4d82-8a41-8d931bfd12fb.webp",
       },
     };
 
@@ -117,16 +117,16 @@ function LocationsPersonalizedAssessment() {
   const backgroundImages = getBackgroundImages(locationKey);
 
   return (
-    <div className="relative w-full h-[600px] md:h-[678px]">
+    <div className="relative w-full h-[600px] md:h-[700px]">
       <img
         src={backgroundImages.desktop}
         alt="Background Image"
-        className="absolute inset-0 bg-accent bg-top bg-no-repeat hidden md:block"
+        className="absolute inset-0 w-full h-full object-cover object-center hidden md:block"
       />
       <img
         src={backgroundImages.mobile}
         alt="Background Image"
-        className="absolute w-full h-full inset-0 bg-cover bg-center bg-no-repeat block md:hidden"
+        className="absolute inset-0 w-full h-full object-cover object-center block md:hidden"
       />
 
       {/* <div className="absolute inset-0 bg-black/40"></div> */}
