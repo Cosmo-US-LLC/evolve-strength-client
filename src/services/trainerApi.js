@@ -11,7 +11,9 @@ import {
 
 export { FRANCHISE_MAP, FRANCHISE_OPTIONS, FRANCHISE_ID_BY_NAME };
 
-const API_URL = "https://esuite-api.evolvestrength.ca/v1/trainers/public";
+const ESUITE_API_BASE =
+  import.meta.env.VITE_ESUITE_API_URL || "https://esuite-api.evolvestrength.ca/v1";
+const API_URL = `${ESUITE_API_BASE}/trainers/public`;
 
 const inFlightRequests = new Map(); // key -> Promise
 const responseCache = new Map();
