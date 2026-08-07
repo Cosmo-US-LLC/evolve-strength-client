@@ -5,6 +5,18 @@ import { Link } from "react-router-dom";
 function AllGymLocations() {
   const locations = [
     {
+      id: 10,
+      name: "Park Royal",
+      image:
+        "https://evolve-strength.tor1.digitaloceanspaces.com/media/1786105143131-79959a91-c6b9-45ee-8cfb-0cf50184d8c9.webp",
+      address: "815 Park Royal N, West Vancouver, BC",
+      locationUrl: "/park-royal-waitlist",
+      commonbtn: true,
+      pillText: "Coming Soon",
+      ctaLabel: "JOIN WAITLIST",
+      overlayLabel: "Join the Waitlist",
+    },
+    {
       id: 9,
       name: "South Edmonton Common",
       image: "/assets/all_locations/g_south_com.webp",
@@ -140,8 +152,12 @@ function AllGymLocations() {
           >
             <div className="w-full h-[200px] group md:h-[240px] overflow-hidden relative rounded-[10px]">
               {location.commonbtn && (
-                <div className="absolute flex description !font-[Kanit] !font-[500] items-center justify-center  rounded-[5px]  bg-[#FFF] h-[24px] w-[130px] right-2 top-2">
-                  Opening May 25th
+                <div className="absolute flex items-center gap-1.5 !font-[Kanit] !font-[600] rounded-full bg-gradient-to-r from-[#5FC15F] to-[#3E9A3E] text-white px-3.5 py-[6px] right-2 top-2 shadow-[0_2px_8px_rgba(0,0,0,0.35)] uppercase tracking-[0.3px] text-[12px] leading-[16px]">
+                  <span className="relative flex h-[7px] w-[7px]">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-[7px] w-[7px] bg-white"></span>
+                  </span>
+                  {location.pillText || "Opening May 25th"}
                 </div>
               )}
 
@@ -155,10 +171,10 @@ function AllGymLocations() {
               <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center max-md:hidden">
                 {location.commonbtn ? (
                   <Link
-                    to="/presale-edmonton-south-common"
+                    to={location.locationUrl}
                     className="flex items-center gap-2 bg-white underline px-3 py-3 rounded-[5px] transition-all duration-200 text-black font-semibold"
                   >
-                    <span>Join the Presale</span>
+                    <span>{location.overlayLabel || "Join the Presale"}</span>
                     <ArrowUpRight className="w-5 h-5" />
                   </Link>
                 ) : (
@@ -176,10 +192,10 @@ function AllGymLocations() {
               {location.commonbtn ? (
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center md:hidden">
                   <Link
-                    to="/presale-edmonton-south-common"
+                    to={location.locationUrl}
                     className="flex items-center gap-2 underline px-3 py-3 rounded-[5px] transition-all duration-200 text-[#fff] font-semibold"
                   >
-                    <span>Join the Presale</span>
+                    <span>{location.overlayLabel || "Join the Presale"}</span>
                   </Link>
                 </div>
               ) : (
@@ -199,8 +215,10 @@ function AllGymLocations() {
 
               {location.commonbtn ? (
                 <div className="flex gap-3">
-                  <Link to="/presale-edmonton-south-common">
-                    <button className="btnPrimary">JOIN THE PRESALE</button>
+                  <Link to={location.locationUrl}>
+                    <button className="btnPrimary">
+                      {location.ctaLabel || "JOIN THE PRESALE"}
+                    </button>
                   </Link>
                 </div>
               ) : (
