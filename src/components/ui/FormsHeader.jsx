@@ -8,9 +8,14 @@ function FormsHeader() {
   const isPresalePage = location.pathname === "/presale-edmonton-south-common";
   const isFounderOfferPaymentPage =
     location.pathname === "/founder-offer-payment";
+  const isParkRoyalFounderOffer =
+    isFounderOfferPaymentPage &&
+    new URLSearchParams(location.search).get("source") === "park-royal";
 
   const logoTo =
-    isPresalePage || isFounderOfferPaymentPage
+    isParkRoyalFounderOffer
+      ? "/presale-park-royal"
+      : isPresalePage || isFounderOfferPaymentPage
       ? "/presale-edmonton-south-common"
       : "/";
 

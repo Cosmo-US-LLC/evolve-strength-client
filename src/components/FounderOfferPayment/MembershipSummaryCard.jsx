@@ -7,6 +7,8 @@ const formatCurrency = (value) => {
 };
 
 function MembershipSummaryCard({
+  locationName = "South Edmonton Common",
+  dueToday = "$0.00",
   paymentAmount,
   feeAmount = 0,
   planFeeAmount,
@@ -48,7 +50,7 @@ function MembershipSummaryCard({
             Founder Membership
           </h3>
           <p className="font-['Kanit'] text-xl leading-none text-[#67B357] md:text-[28px]">
-            Due today: <span className="font-bold">$0.00</span>
+            Due today: <span className="font-bold">{dueToday}</span>
           </p>
         </div>
       </div>
@@ -110,7 +112,7 @@ function MembershipSummaryCard({
               Location
             </p>
             <p className="mt-1 font-['Kanit'] text-[16px] font-light leading-[1.25] text-[#6A7282]">
-              South Edmonton Common
+              {locationName}
             </p>
           </div>
         </div>

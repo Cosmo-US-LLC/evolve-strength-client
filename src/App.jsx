@@ -49,6 +49,7 @@ import Intake from "./components/Form/Intake";
 import Gym from "./pages/Gym";
 import Discover from "./pages/Discover";
 import PresaleEdmontonSouthCommon from "./pages/PresalePage/PresaleEdmontonSouthCommon";
+import PresaleParkRoyal from "./pages/PresalePage/PresaleParkRoyal";
 import FounderOfferPayment from "./pages/FounderOfferPayment";
 import EdmontonSouthTermsAndConditions from "./pages/PresalePage/EdmontonSouthTermsAndConditions";
 import MembershipSummaryCard from "./components/FounderOfferPayment/MembershipSummaryCard";
@@ -117,6 +118,10 @@ function App() {
           <Route
             path="/presale-edmonton-south-common"
             element={<PresaleEdmontonSouthCommon />}
+          />
+          <Route
+            path="/presale-park-royal"
+            element={<PresaleParkRoyal />}
           />
 
           <Route path="/faqs" element={<FAQs />} />
@@ -199,10 +204,10 @@ function App() {
           element={<CompanyNotRegistered />}
         />
 
-        {/* <Route
+        <Route
           path="/founder-offer-payment"
           element={<FounderOfferPayment />}
-        /> */}
+        />
 
         {/* Join Now flow (merged from evolve-subscription-form) */}
         <Route path="/join-now" element={<JoinNowLayout />}>

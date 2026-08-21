@@ -252,3 +252,51 @@ export const southEdmontonCommonFAQs = {
     },
   ],
 };
+
+export const parkRoyalFAQs = {
+  heading: "Frequently Asked Questions",
+  subtext:
+    "Got questions? We've got answers, about memberships, services, and what to expect on your first visit.",
+  faqs: [
+    {
+      question: "When does billing actually start?",
+      answer:
+        "Billing begins on the day we officially open our doors.",
+    },
+    // {
+    //   question: "When does the gym open?",
+    //   answer:
+    //     "We're opening in May 25, 2026. Book a tour to be among the first through the doors and lock in your founding rate before pricing changes.",
+    // },
+    {
+      question: "What does my membership include?",
+      answer:
+        "Once your membership begins at Park Royal, you'll have access to all Evolve Strength locations, premium amenities, open training areas, and recovery facilities, including saunas. Terms and conditions apply.",
+    },
+    {
+      question: "Will I be protected from future rate increases?",
+      answer:
+        "Yes. Your founder rate is locked for life while your membership remains active.",
+    },
+    {
+      question: "What are the terms and conditions?",
+      answer:
+        "If you cancel, the founder rate will no longer be available. You can view the full terms here.",
+    },
+    {
+      question: "When does Park Royal open?",
+      answer:
+        "We're opening in 2026.",
+    },
+    {
+      question: "Can I use other Evolve locations before Park Royal opens?",
+      answer:
+        "Yes. If you'd like to train before we open, a temporary membership can be purchased at another Evolve Strength location.",
+    },
+    {
+      question: "Will there be early access for people who sign up during the presale?",
+      answer:
+        "Yes, we will give them early access for the weekend.",
+    },
+  ],
+};

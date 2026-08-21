@@ -123,6 +123,8 @@ const SUCCESS_PARAM_KEY = "success";
 const SUCCESS_PARAM_VALUE = "1";
 const PLAN_TYPE_YEARLY = 0;
 const PLAN_TYPE_MONTHLY = 1;
+const SOUTH_EDMONTON_COMMON_LOCATION_ID = "32176";
+const PARK_ROYAL_LOCATION_ID = "32396";
 const VALID_PLAN_TYPES = new Set([PLAN_TYPE_YEARLY, PLAN_TYPE_MONTHLY]);
 const MAX_STEP = 2;
 // TEMP: set to false to restore strict createPerson failure handling.
@@ -336,7 +338,6 @@ const hasPrimaryMemberData = (primaryMember) =>
     return Boolean(value);
   });
 
-const LOCATION_NAME = "South Edmonton Common";
 const BI_WEEKLY_LABEL = "Bi-weekly";
 
 const formatCurrency = (value) => `$${parseCurrencyAmount(value).toFixed(2)}`;
@@ -357,6 +358,16 @@ function FounderOfferPayment() {
   const [successRecord, setSuccessRecord] = useState(() => loadStoredSuccess());
 
   const stepParam = searchParams.get("step");
+  const isParkRoyalOrigin = searchParams.get("source") === "park-royal";
+  const locationPostal = isParkRoyalOrigin
+    ? PARK_ROYAL_LOCATION_ID
+    : SOUTH_EDMONTON_COMMON_LOCATION_ID;
+  const locationName = isParkRoyalOrigin
+    ? "Park Royal"
+    : "South Edmonton Common";
+  const presaleReturnPath = isParkRoyalOrigin
+    ? "/presale-park-royal"
+    : "/presale-edmonton-south-common";
   const successParam = searchParams.get(SUCCESS_PARAM_KEY);
   const hasValidSuccessRecord = isSuccessRecordValid(successRecord);
   const initialSuccess =
@@ -527,6 +538,9 @@ function FounderOfferPayment() {
       step: stepToParam[stepValue],
       plan: String(planValue),
     });
+    if (isParkRoyalOrigin) {
+      params.set("source", "park-royal");
+    }
     if (success) {
       params.set(SUCCESS_PARAM_KEY, SUCCESS_PARAM_VALUE);
     }
@@ -641,7 +655,6 @@ function FounderOfferPayment() {
   }, []);
 
   const baseUrl = import.meta.env.VITE_APP_API_URL || "";
-  const locationPostal = "32176";
 
   useEffect(() => {
     let isActive = true;
@@ -1039,7 +1052,7 @@ function FounderOfferPayment() {
       setCurrentStep(previousStep);
       syncUrlState(previousStep, currentPlan, { mode: "push" });
     } else {
-      navigate("/presale-edmonton-south-common");
+      navigate(presaleReturnPath);
     }
   };
 
@@ -1065,7 +1078,7 @@ function FounderOfferPayment() {
             */}
             <div className="space-y-4 lg:hidden">
               <YourPlan
-                locationName={LOCATION_NAME}
+                locationName={locationName}
                 dueToday={dueTodayAmount}
               />
               <PlanSelect
@@ -1086,7 +1099,7 @@ function FounderOfferPayment() {
 
             <div className="hidden lg:block">
               <YourPlan
-                locationName={LOCATION_NAME}
+                locationName={locationName}
                 dueToday={dueTodayAmount}
               />
             </div>
@@ -1169,13 +1182,15 @@ function FounderOfferPayment() {
 
     if (currentStep === 1) {
       return (
-        <YourPlan locationName={LOCATION_NAME} dueToday={dueTodayAmount} />
+        <YourPlan locationName={locationName} dueToday={dueTodayAmount} />
       );
     }
 
     if (currentStep === 2) {
       return (
         <MembershipSummaryCard
+          locationName={locationName}
+          dueToday={dueTodayAmount}
           paymentAmount={selectedPlanAmount}
           feeAmount={feeAmount}
           planFeeAmount={planFeeAmount}
@@ -1223,7 +1238,7 @@ function FounderOfferPayment() {
                 {currentStep === 1 && (
                   <div className="mb-4 lg:hidden">
                     <YourPlan
-                      locationName={LOCATION_NAME}
+                      locationName={locationName}
                       dueToday={dueTodayAmount}
                     />
                   </div>
@@ -1248,7 +1263,7 @@ function FounderOfferPayment() {
                   clearStoredSuccess();
                   setSuccessRecord(null);
                   setIsSuccessModalOpen(false);
-                  navigate("/presale-edmonton-south-common");
+                  navigate(presaleReturnPath);
                 }}
               />
             </div>
