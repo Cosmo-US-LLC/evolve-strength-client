@@ -1,6 +1,6 @@
 import React from "react";
 import PresaleParkRoyalHero from "@/components/PageComponents/PresaleParkRoyal/PresaleParkRoyalHero";
-import { parkRoyalFAQs, presaleEdmontonSouthCommonFAQs } from "@/constants/faqContent";
+import { parkRoyalFAQs } from "@/constants/faqContent";
 import FoundingMemberSavings from "@/components/PageComponents/PresaleParkRoyal/FoundingMemberSavings";
 import BuiltBiggerEquippedBetter from "@/components/PageComponents/PresaleParkRoyal/BuiltBiggerEquippedBetter";
 import RateLockCertificate from "@/components/PageComponents/PresaleParkRoyal/RateLockCertificate";
