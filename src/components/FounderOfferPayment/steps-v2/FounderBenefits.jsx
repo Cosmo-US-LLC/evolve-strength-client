@@ -1,6 +1,9 @@
 import React from "react";
 
-function FounderBenefits({ className = "" }) {
+function FounderBenefits({ className = "", isParkRoyalOrigin = false }) {
+  const residencyLocation = isParkRoyalOrigin
+    ? "West Vancouver, British Columbia"
+    : "Edmonton, Alberta";
   return (
     <div
       className={`rounded-[8px] border border-[#D4D4D4] bg-[#FCFCFC] px-4 py-6 space-y-6 ${className}`}
@@ -195,7 +198,7 @@ function FounderBenefits({ className = "" }) {
         <div className="text-xs leading-5 text-black">
           If you are under 18, you cannot join online, your membership must be
           completed in person. To be eligible to purchase a presale membership,
-          the purchaser must be a current resident of Edmonton, Alberta. Proof
+          the purchaser must be a current resident of {residencyLocation}. Proof
           of residency may be required at the discretion of Evolve Strength. All
           presale offers are exclusively available to new Evolve Strength
           members and are not available to current members. Evolve Strength

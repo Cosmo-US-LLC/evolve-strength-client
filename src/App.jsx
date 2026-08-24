@@ -52,6 +52,7 @@ import PresaleEdmontonSouthCommon from "./pages/PresalePage/PresaleEdmontonSouth
 import PresaleParkRoyal from "./pages/PresalePage/PresaleParkRoyal";
 import FounderOfferPayment from "./pages/FounderOfferPayment";
 import EdmontonSouthTermsAndConditions from "./pages/PresalePage/EdmontonSouthTermsAndConditions";
+import ParkRoyalTermsAndConditions from "./pages/PresalePage/ParkRoyalTermsAndConditions";
 import MembershipSummaryCard from "./components/FounderOfferPayment/MembershipSummaryCard";
 import PrimaryMemberDetails from "./components/FounderOfferPayment/steps/PrimaryMemberDetails";
 import SpacesForSouthEdmontonCommon from "./pages/Spaces/SpacesForSouthEdmontonCommon";
@@ -135,6 +136,11 @@ function App() {
             path="/edmonton-south-terms-and-conditions"
             element={<EdmontonSouthTermsAndConditions />}
           /> */}
+
+          <Route
+            path="/park-royal-terms-and-conditions"
+            element={<ParkRoyalTermsAndConditions />}
+          />
 
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route
