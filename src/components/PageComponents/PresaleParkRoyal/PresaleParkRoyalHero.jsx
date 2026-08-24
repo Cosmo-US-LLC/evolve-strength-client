@@ -15,7 +15,7 @@ function PresaleParkRoyalHero() {
           style={{ objectFit: "cover", objectPosition: "bottom" }}
         >
           <source
-            src={"/assets/videos/ES_waitlist_desktop.webm"}
+            src={"/assets/videos/waitlist_florida_video.webm"}
             type="video/webm"
           />
           Your browser does not support the video tag.
@@ -24,13 +24,13 @@ function PresaleParkRoyalHero() {
         <div className="max-w-[1280px] md:px-8 px-4 md:pb-0 max-md:pb-[24px] mx-auto w-full h-full relative z-2">
           <div className="relative z-2 flex flex-col items-start justify-center md:pt-20 pt-0 h-full">
             <div className="text-[#FFFFFF] text-[12px] md:text-[16px] font-[600] backdrop-blur-[15px] uppercase leading-[24px] mb-4 md:mb-6 bg-[#20202066] md:!font-[70px] !font-[Kanit] border border-[#ADADAD] px-4 py-2 rounded-full">
-              PRESALE WEST VANCOUVER 
+              Presale · West Vancouver
             </div>
-            <h1 className="text-[#FFFFFF] !font-[Kanit] uppercase max-w-[707px] leading-[40px] md:leading-[66px] max-md:!text-[36px] mb-4 md:mb-6 font-[600]">
-              Lock Your Founder Rate Before Doors Open
+            <h1 className="text-[#FFFFFF] !font-[Kanit] uppercase max-w-[707px] leading-[40px] md:leading-[72px] max-md:!text-[36px] mb-4 md:mb-6 font-[600]">
+              Lock Your Founder Rate for Life
             </h1>{" "}
-            <h3 className="text-[#FFFFFF] !text-[16px] !font-[400] !leading-[20px] !md:leading-[24px] mb-8 max-w-[350px] md:max-w-[606px] !font-[Kanit]">
-              Every founding member locks the same rate. Every rate goes up the day we open. Yours won't, if you join first.
+            <h3 className="text-[#FFFFFF] !text-[16px] !font-[400] !leading-[24px] mb-8 max-w-[350px] md:max-w-[606px] !font-[Kanit]">
+              Early access. Lifetime pricing. Lock founder rate now for $0. Rate goes up the day we open. Yours won't, if you join first.
             </h3>
             <div className="flex gap-2 flex-col items-start">
               <Link to="/founder-offer-payment?source=park-royal">

@@ -3,12 +3,12 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import UnmatchedAmenitiesImage1 from "../../../assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image1.webp";
-import UnmatchedAmenitiesImage2 from "../../../assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image2.webp";
-import UnmatchedAmenitiesImage3 from "../../../assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image3.webp";
-import UnmatchedAmenitiesImage4 from "../../../assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image4.webp";
-import UnmatchedAmenitiesImage5 from "../../../assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image5.webp";
-import UnmatchedAmenitiesImage6 from "../../../assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image6.webp";
+import UnmatchedAmenitiesImage1 from "@/assets/images/PresaleParkRoyal/amenity_gym_access.jpg";
+import UnmatchedAmenitiesImage2 from "@/assets/images/PresaleParkRoyal/amenity_parking.jpg";
+import UnmatchedAmenitiesImage3 from "@/assets/images/PresaleParkRoyal/amenity_waiting_area.jpg";
+import UnmatchedAmenitiesImage4 from "@/assets/images/PresaleParkRoyal/amenity_locker_rooms.jpg";
+import UnmatchedAmenitiesImage5 from "@/assets/images/PresaleParkRoyal/amenity_showers.jpg";
+import UnmatchedAmenitiesImage6 from "@/assets/images/PresaleParkRoyal/amenity_saunas.jpg";
 
 const unmatchedAmenities = [
   {
@@ -42,6 +42,7 @@ const UnmatchedAmenities = () => {
     {
       containScroll: "keepSnaps",
       loop: true,
+      align: "start",
     },
     [Autoplay({ delay: 3000, stopOnInteraction: true })]
   );
@@ -73,34 +74,36 @@ const UnmatchedAmenities = () => {
   return (
     <section className="py-8 md:py-16 bg-[#ffffff]">
       <div className="max-w-[1280px] mx-auto px-4   md:px-8 flex flex-col items-start gap-16 md:gap-8">
-        <div className="flex items-start flex-col gap-4">
-          <h2 className="text-[#000] uppercase ">The Basics,<br></br>Done Properly</h2>
-          {/* <h4 className=" !max-w-[800px]">
-          Experience the ultimate in training and recovery at Evolve Strength.
-          </h4> */}
+        <div className="flex items-start flex-col gap-2">
+          <p className="uppercase font-[500] font-[Kanit] text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] text-[#4ab04a]">
+            Amenities
+          </p>
+          <h2 className="text-[#000] uppercase font-[Kanit] !font-[600] !text-[28px] md:!text-[40px] !leading-[34px] md:!leading-[46px]">The Basics,<br></br>Done Properly</h2>
         </div>
         <div className="relative w-full">
-          <div className="overflow-hidden" ref={emblaRef}>
+          <div className="relative overflow-hidden" ref={emblaRef}>
             <div className="flex gap-4 pl-0 md:pl-4">
               {unmatchedAmenities.map((pro, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_100%] md:flex-[0_0_32.5%] relative"
+                  className="flex-[0_0_100%] md:flex-[0_0_26.5%] relative"
                 >
-                  {/* Desktop Image */}
                   <img
                     src={pro.image}
                     alt={pro.title}
-                    className="w-full h-[200px] md:h-[233px] object-cover rounded-lg"
+                    className="w-full h-[320px] md:h-[400px] md:w-[300px] object-cover rounded-lg"
                   />
-                  <h3 className="flex items-center mt-4 md:mt-6 text-[#000] leading-[20px] md:leading-[24px] font-[500] text-sm md:text-base">
-                    {pro.title}
-                  </h3>
+                  <div className="absolute left-3 bottom-3 md:left-4 md:bottom-4 bg-black/50 rounded-full px-3 py-2 md:px-4 md:py-2.5 max-w-[calc(100%-24px)]">
+                    <h3 className="flex items-center text-white !leading-[24px] md:!leading-[27px] font-[Kanit] !font-[500] !text-[14px] md:!text-[18px] truncate">
+                      {pro.title}
+                    </h3>
+                  </div>
                 </div>
               ))}
             </div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-24 bg-gradient-to-l from-white to-transparent md:block" />
           </div>
-          <div className="absolute -top-1/9 md:-top-1/6 -translate-y-1/2 left-[74%] md:left-[86%] z-10">
+          <div className="hidden md:block md:absolute md:-top-1/6 md:-translate-y-1/2 md:left-[86%] z-10">
             <button
               onClick={scrollPrev}
               className=" p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-300 cursor-pointer "
@@ -108,7 +111,7 @@ const UnmatchedAmenities = () => {
               <ArrowLeft className="w-4 h-4 md:w-6 md:h-6" />
             </button>
           </div>
-          <div className="absolute -top-1/9 md:-top-1/6 -translate-y-1/2 right-[4%] md:right-[6%] z-10">
+          <div className="hidden md:block md:absolute md:-top-1/6 md:-translate-y-1/2 md:right-[6%] z-10">
             <button
               onClick={scrollNext}
               className=" p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-300 cursor-pointer "
@@ -116,8 +119,22 @@ const UnmatchedAmenities = () => {
               <ArrowRight className="w-4 h-4 md:w-6 md:h-6" />
             </button>
           </div>
+          <div className="flex md:hidden justify-center gap-4 mt-3">
+            <button
+              onClick={scrollPrev}
+              className="p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-300 cursor-pointer"
+            >
+              <ArrowLeft className="w-4 h-4" />
+            </button>
+            <button
+              onClick={scrollNext}
+              className="p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-300 cursor-pointer"
+            >
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
-        <div className="w-full flex gap-2 flex-col items-center justify-center md:pt-4 pt-0">
+        <div className="w-full flex gap-2 flex-col items-center justify-center md:pt-4 -mt-4 md:mt-0">
               <Link to="/founder-offer-payment?source=park-royal">
                 {" "}
                 <button className="btnPrimary flex items-center !py-[14px] !px-[20px] gap-2 md:gap-[10px] uppercase">
@@ -141,7 +158,7 @@ const UnmatchedAmenities = () => {
                 </button>
               </Link>
               <p className="text-[#000] !text-[16px] !font-[400] !font-[Kanit] leading-[24px] md:leading-[24px]  max-w-[250px] md:max-w-[190px]">
-                Founding access is limited
+                Limited to 500 Members
               </p>
             </div>
       </div>

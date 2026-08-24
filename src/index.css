@@ -59,6 +59,14 @@
   font-style: normal;
 }
 
+/* Meow Script (certificate signature/member name) */
+@font-face {
+  font-family: "Meow Script";
+  src: url("./assets/fonts/MeowScript/MeowScript-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* Vazirmatn font weights */
 @font-face {
   font-family: "Vazirmatn";

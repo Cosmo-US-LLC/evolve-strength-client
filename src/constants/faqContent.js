@@ -254,7 +254,8 @@ export const southEdmontonCommonFAQs = {
 };
 
 export const parkRoyalFAQs = {
-  heading: "Frequently Asked Questions",
+  eyebrow: "Frequently Asked Questions",
+  heading: "Before You Lock In",
   subtext:
     "Got questions? We've got answers, about memberships, services, and what to expect on your first visit.",
   faqs: [
@@ -294,9 +295,9 @@ export const parkRoyalFAQs = {
         "Yes. If you'd like to train before we open, a temporary membership can be purchased at another Evolve Strength location.",
     },
     {
-      question: "Will there be early access for people who sign up during the presale?",
+      question: "How do I cancel or freeze my membership?",
       answer:
-        "Yes, we will give them early access for the weekend.",
+        "To make changes to your membership, visit your home club or submit a request through the Member Support page. Policies may vary depending on your membership type and location.",
     },
   ],
 };

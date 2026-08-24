@@ -188,9 +188,14 @@ function PresaleTrustedEquipmentBrands() {
   return (
     <section className="bg-[#EEEEEE] py-12 md:py-16 w-full overflow-hidden">
       <div className="w-full flex flex-col items-center gap-8 md:gap-10">
-        <h2 className="text-[#000] text-center uppercase font-bold text-[28px] md:text-[36px] leading-tight tracking-tight px-4">
-          Equipped Without Compromise
-        </h2>
+        <div className="flex flex-col items-center gap-2 px-4 text-center">
+          <p className="uppercase font-[500] font-[Kanit] text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] text-[#4ab04a]">
+            Equipped Without Compromise
+          </p>
+          <h2 className="text-[#000] text-center uppercase font-[Kanit] !font-[600] !text-[28px] md:!text-[40px] !leading-[34px] md:!leading-[46px]">
+            Not The Alternative. The Standard
+          </h2>
+        </div>
 
         <div className="w-full overflow-hidden">
           {isMobile ? (

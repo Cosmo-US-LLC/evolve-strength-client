@@ -11,6 +11,8 @@ import PresaleFrequentlyAskedQuestions from "@/components/PageComponents/Presale
 import UnmatchedAmenities from "@/components/PageComponents/PresaleParkRoyal/UnmatchedAmenities";
 import MetaTags from "@/components/Metatags/Meta";
 import PresaleWellnwssServices from "@/components/PageComponents/PresaleParkRoyal/PresaleWellnwssServices";
+import ParkRoyalFirstBanner from "@/components/PageComponents/PresaleParkRoyal/ParkRoyalFirstBanner";
+import ParkRoyalLocation from "@/components/PageComponents/PresaleParkRoyal/ParkRoyalLocation";
 
 function PresaleParkRoyal() {
   return (
@@ -23,11 +25,13 @@ function PresaleParkRoyal() {
       <FoundingMemberSavings />
       <RateLockCertificate />
       <GymZones />
+      <ParkRoyalFirstBanner />
       <BuiltBiggerEquippedBetter />
       <PresaleTrustedEquipmentBrands />
+      <ParkRoyalLocation />
       <UnmatchedAmenities />
       <PresaleWellnwssServices />
-      <CareerWithEvolve />
+      {/* <CareerWithEvolve /> */}
       <PresaleFrequentlyAskedQuestions {...parkRoyalFAQs} />
     </>
   );

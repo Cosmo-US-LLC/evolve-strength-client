@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import icon1 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_1.svg";
-import icon2 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_2.svg";
-import icon3 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_3.svg";
-import icon4 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_4.svg";
-import icon5 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_5.svg";
+import icon1 from "@/assets/images/PresaleParkRoyal/disclaimer_icon_lock.png";
+import icon2 from "@/assets/images/PresaleParkRoyal/disclaimer_icon_no_maintenance.png";
+import icon3 from "@/assets/images/PresaleParkRoyal/disclaimer_icon_no_initiation.png";
+import icon4 from "@/assets/images/PresaleParkRoyal/disclaimer_icon_no_payment.png";
+import icon5 from "@/assets/images/PresaleParkRoyal/disclaimer_icon_access.png";
+import pricingCardImage from "@/assets/images/PresaleParkRoyal/pricing_card.jpg";
 
 const LOCK_ICON = (
   <svg
@@ -49,32 +50,13 @@ function MembershipCardContent({
 }) {
   return (
     <>
-      {/* Limited ribbon - diagonal green, top-right (Figma) */}
-      <div className="absolute top-[-5%] right-[-4%] z-10 overflow-hidden w-28 h-28 max-md:hidden ">
-        <div
-          className="absolute bg-[#4ab04a] text-white font-[500] font-[Kanit] text-[12px] md:text-[24px] capitalize tracking-wide flex items-center justify-center w-[150%] h-8 left-[-15%] top-[25%] rotate-45 shadow-md"
-          aria-hidden
-        >
-          Limited
-        </div>
-      </div>
-
-      <div className="absolute top-[-53%] right-[-7%] z-10 overflow-hidden w-18 h-18 md:hidden">
-        <div
-          className="absolute bg-[#4ab04a] text-white font-[400] font-[Kanit] text-[12px] capitalize tracking-wide flex items-center justify-center w-[150%] h-6 left-[-15%] top-[25%] rotate-45 shadow-md"
-          aria-hidden
-        >
-          Limited
-        </div>
-      </div>
-
-      <p className="text-white text-[16px] md:text-[18px] text-center md:text-start font-[400] font-[Kanit] leading-[10px]">
+      <p className="text-white text-[14px] md:text-[18px] text-center md:text-start font-[400] font-[Kanit] leading-[20px]">
         {contractTerm}
       </p>
-      <p className="text-[40px] md:text-[60px] leading-[32px] md:leading-[48px] text-center md:text-start font-[500] font-[Kanit]">
+      <p className="text-[40px] md:text-[60px] leading-[18px] md:leading-[48px] text-center md:text-start font-[500] font-[Kanit]">
         <span className="text-[#4ab04a]">{price}</span>
 
-        <span className="text-[14px] md:text-[16px] leading-[6px] font-[500] font-[Kanit] text-[#4ab04a] ml-1">
+        <span className="text-[16px] md:text-[16px] leading-[6px] font-[500] font-[Kanit] text-[#4ab04a] ml-1">
           {priceSuffix}
         </span>
         <span className="text-[#ffffff] text-[14px] md:text-[16px] leading-[17px] font-[400] font-[Kanit] ml-1">
@@ -89,7 +71,7 @@ function MembershipCardContent({
             className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
             aria-hidden
           />
-          <p className="text-[16px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
+          <p className="text-[14px] leading-[16px] font-[500] font-[Kanit] text-white">
             {disclaimers1}
           </p>
         </div>
@@ -100,7 +82,7 @@ function MembershipCardContent({
             className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
             aria-hidden
           />
-          <p className="text-[16px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
+          <p className="text-[14px] leading-[16px] font-[500] font-[Kanit] text-white">
             {disclaimers2}
           </p>
         </div>
@@ -111,7 +93,7 @@ function MembershipCardContent({
             className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
             aria-hidden
           />
-          <p className="text-[16px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
+          <p className="text-[14px] leading-[16px] font-[500] font-[Kanit] text-white">
             {disclaimers3}
           </p>
         </div>
@@ -122,7 +104,7 @@ function MembershipCardContent({
             className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
             aria-hidden
           />
-          <p className="text-[16px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
+          <p className="text-[14px] leading-[16px] font-[500] font-[Kanit] text-white">
             {disclaimers4}
           </p>
         </div>
@@ -133,25 +115,25 @@ function MembershipCardContent({
             className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
             aria-hidden
           />
-          <p className="text-[16px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
+          <p className="text-[14px] leading-[16px] font-[500] font-[Kanit] text-white">
             {disclaimers5}
           </p>
         </div>
       </div>
       <div className="h-px w-full bg-white/30 my-3" aria-hidden />
       {/* Line 1: "Rate Locked For" - medium, normal weight */}
-      <p className="text-[16px] md:text-[18px] text-center md:text-start leading-[22px] font-[400] font-[Kanit] text-white ">
+      <p className="text-[14px] md:text-[18px] text-center md:text-start leading-[20px] font-[400] font-[Kanit] text-white ">
         {rateLockLabel}
       </p>
       {/* Line 2: "Lifetime" / "24 Months" - large, bold; "(T&C Apply)" - small, same line to the right */}
-      <p className="flex items-baseline gap-1.5 flex-wrap justify-center md:justify-start">
-        <span className="text-[32px] md:text-[40px] leading-[12px] md:leading-[17px] font-[500] md:font-[500] font-[Kanit] text-white">
+      <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-1.5 items-center md:justify-start">
+        <span className="text-[32px] md:text-[40px] leading-[34px] md:leading-[17px] font-[500] md:font-[500] font-[Kanit] text-white">
           {rateLockValue}
         </span>
         <span className="text-[14px] md:text-[14px] text-white/80 font-[400] font-[Kanit]">
           {rateLockNote}
         </span>
-      </p>
+      </div>
       <Link
         to={link}
         className="inline-flex pt-3 justify-center md:justify-start"
@@ -165,7 +147,7 @@ function MembershipCardContent({
         </button>
       </Link>
       <p className="flex justify-center md:justify-start text-[14px] md:text-[16px] leading-[20px] font-[400] font-[Kanit] text-white/90">
-      Founding access is limited
+      Limited to 500 Menmbers
       </p>
     </>
   );
@@ -268,30 +250,48 @@ function FoundingMemberSavings() {
           </TabsList>
 
           <TabsContent value="yearly" className="w-full mt-0 outline-none">
-            <div className="bg-[rgba(255,255,255,0.12)] backdrop-blur-[15px] rounded-[12px] w-full overflow-hidden flex flex-col md:flex-row p-4 md:p-6">
-              <div className="w-full md:max-w-[57%] md:flex-1 rounded-l-[12px] overflow-hidden shrink-0">
+            <div className="bg-[rgba(255,255,255,0.12)] backdrop-blur-[15px] rounded-[12px] w-full overflow-hidden flex flex-col md:flex-row gap-6 md:gap-10 p-4 md:p-6">
+              <div className="relative w-full md:w-[688px] md:max-w-[55%] shrink-0 rounded-[12px] overflow-hidden aspect-[323/215] md:aspect-[688/400]">
                 <img
-                  src="/assets/images/presaleCommonSouth/FoundingMemberSavingsImage.webp"
-                  alt="Gym members at Evolve Strength"
-                  className="w-full h-full min-h-[240px] md:min-h-[300px]"
+                  src={pricingCardImage}
+                  alt="Evolve Strength Park Royal equipment"
+                  className="w-full h-full object-cover"
                 />
+                {/* Limited ribbon (mobile only) - diagonal green, top-right of image (Figma) */}
+                <div className="absolute top-[-2%] right-[-1%] z-10 overflow-hidden w-16 h-16 md:hidden">
+                  <div
+                    className="absolute bg-[#4ab04a] text-white font-[500] font-[Kanit] text-[12px] capitalize tracking-wide flex items-center justify-center w-[150%] h-6 left-[-15%] top-[25%] rotate-45 shadow-md"
+                    aria-hidden
+                  >
+                    Limited
+                  </div>
+                </div>
               </div>
-              <div className="w-full md:flex-1 md:max-w-[43%] flex flex-col gap-4 md:gap-4 px-0 py-6 md:py-4 md:px-8 relative">
+              <div className="w-full md:flex-1 md:max-w-[43%] flex flex-col gap-4 md:gap-4 px-0 py-6 md:py-4 relative">
+                {/* Limited ribbon (desktop only) - diagonal green, top-right of details column (Figma) */}
+                <div className="hidden md:block absolute top-[-22px] right-[-24px] z-10 overflow-hidden w-[139px] h-[143px]">
+                  <div
+                    className="absolute bg-[#4ab04a] text-white font-[500] font-[Kanit] text-[24px] capitalize tracking-wide flex items-center justify-center w-[150%] h-8 left-[-15%] top-[25%] rotate-45 shadow-md"
+                    aria-hidden
+                  >
+                    Limited
+                  </div>
+                </div>
                 <MembershipCardContent
                   contractTerm="1 Year Contract"
                   // price="$24.39"
                   price={`${plansData?.yearlyPlan?.schedules ? `${plansData?.yearlyPlan?.schedules[0]?.schedulePreTaxAmount}` : "--.--"}`}
                   priceSuffix="+GST"
                   priceBiWeeklyCopy="/biweekly"
-                  disclaimers1="Founding access is limited"
+                  disclaimers1="Rate locked for life"
                   disclaimers1Icon={icon1}
-                  disclaimers2="Never increases while your membership stays active"
+                  disclaimers2="No Maintenance Fee"
                   disclaimers2Icon={icon2}
-                  disclaimers3="Founder Rate Lock Certificate"
+                  disclaimers3="No Initiation Fee"
                   disclaimers3Icon={icon3}
-                  disclaimers4="First access to tour and book"
+                  disclaimers4="Pay $0 Until Opening Day"
                   disclaimers4Icon={icon4}
-                  disclaimers5="Nothing due until opening day"
+                  disclaimers5="Early access before we officially open"
                   disclaimers5Icon={icon5}
                   rateLockLabel="Rate Locked For"
                   rateLockValue="Lifetime"
@@ -303,28 +303,46 @@ function FoundingMemberSavings() {
           </TabsContent>
 
           <TabsContent value="monthly" className="w-full mt-0 outline-none">
-            <div className="bg-[rgba(255,255,255,0.12)] backdrop-blur-[15px] rounded-[12px] w-full overflow-hidden flex flex-col md:flex-row p-4 md:p-6">
-              <div className="w-full md:max-w-[57%] md:flex-1 rounded-l-[12px] overflow-hidden shrink-0">
+            <div className="bg-[rgba(255,255,255,0.12)] backdrop-blur-[15px] rounded-[12px] w-full overflow-hidden flex flex-col md:flex-row gap-6 md:gap-10 p-4 md:p-6">
+              <div className="relative w-full md:w-[688px] md:max-w-[55%] shrink-0 rounded-[12px] overflow-hidden aspect-[323/215] md:aspect-[688/400]">
                 <img
-                  src="/assets/images/presaleCommonSouth/FoundingMemberSavingsImage.webp"
-                  alt="Gym members at Evolve Strength"
-                  className="w-full h-full min-h-[240px] md:min-h-[300px]"
+                  src={pricingCardImage}
+                  alt="Evolve Strength Park Royal equipment"
+                  className="w-full h-full object-cover"
                 />
+                {/* Limited ribbon (mobile only) - diagonal green, top-right of image (Figma) */}
+                <div className="absolute top-[-2%] right-[-1%] z-10 overflow-hidden w-16 h-16 md:hidden">
+                  <div
+                    className="absolute bg-[#4ab04a] text-white font-[500] font-[Kanit] text-[12px] capitalize tracking-wide flex items-center justify-center w-[150%] h-6 left-[-15%] top-[25%] rotate-45 shadow-md"
+                    aria-hidden
+                  >
+                    Limited
+                  </div>
+                </div>
               </div>
-              <div className="w-full md:flex-1 md:max-w-[43%] flex flex-col gap-4 md:gap-4 px-0 py-6 md:px-8 md:py-4 relative">
+              <div className="w-full md:flex-1 md:max-w-[43%] flex flex-col gap-4 md:gap-4 px-0 py-6 md:py-4 relative">
+                {/* Limited ribbon (desktop only) - diagonal green, top-right of details column (Figma) */}
+                <div className="hidden md:block absolute top-[-22px] right-[-24px] z-10 overflow-hidden w-[139px] h-[143px]">
+                  <div
+                    className="absolute bg-[#4ab04a] text-white font-[500] font-[Kanit] text-[24px] capitalize tracking-wide flex items-center justify-center w-[150%] h-8 left-[-15%] top-[25%] rotate-45 shadow-md"
+                    aria-hidden
+                  >
+                    Limited
+                  </div>
+                </div>
                 <MembershipCardContent
                   contractTerm="Month-to-Month"
                   // price="$28.79"
                   price={`${plansData?.monthlyPlan?.schedules ? `${plansData?.monthlyPlan?.schedules[0]?.schedulePreTaxAmount}` : "--.--"}`}
                   priceSuffix="+GST"
                   priceBiWeeklyCopy="/biweekly"
-                  disclaimers1="No Maintenance Fee"
+                  disclaimers1="Rate locked for life"
                   disclaimers1Icon={icon1}
-                  disclaimers2="No Initiation Fee"
+                  disclaimers2="No Maintenance Fee"
                   disclaimers2Icon={icon2}
-                  disclaimers3="Train Risk-Free for 10 Days"
+                  disclaimers3="No Initiation Fee"
                   disclaimers3Icon={icon3}
-                  disclaimers4="Zero Payments Until Opening Day"
+                  disclaimers4="Pay $0 Until Opening Day"
                   disclaimers4Icon={icon4}
                   disclaimers5="Early access before we officially open"
                   disclaimers5Icon={icon5}

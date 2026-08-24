@@ -96,10 +96,13 @@ const PresaleWellnwssServices = () => {
 
         <div className="relative z-10 max-w-[1280px] w-full mx-auto flex flex-row items-center justify-between px-8 gap-10">
           <div className="max-w-xl space-y-6">
+            <p className="uppercase font-[500] font-[Kanit] text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] text-[#4ab04a]">
+              A Complete Wellness
+            </p>
             <h2 className="uppercase text-[#ffffff] max-w-[420px]">
                 RECOVERY <br></br> EXPERIENCE.
             </h2>
-            <h4 className="text-[18px] md:!text-[18px] leading-[20px] text-[#ffffff] max-w-[420px]">
+            <h4 className="!text-[16px] !font-[400] !leading-[20px] md:!leading-[22px] text-[#ffffff] max-w-[420px]">
             Train hard. Recover harder. Chiropractic care, physiotherapy, massage and more, all under one roof. Charges may apply for select services.
             </h4>
             <div className="flex gap-2 justify-start w-full">

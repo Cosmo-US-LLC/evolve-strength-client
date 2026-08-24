@@ -1,9 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import builtBiggerBgDesktop from "@/assets/images/PresaleParkRoyal/built_bigger_bg.jpg";
+import builtBiggerBgMobile from "@/assets/images/PresaleParkRoyal/built_bigger_bg_mobile.jpg";
 
 function BuiltBiggerEquippedBetter() {
   return (
-    <section className="relative w-full h-[600px] md:h-[640px] BuiltBiggerEquippedBetterBG">
+    <section className="relative w-full h-[600px] md:h-[640px] overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-top bg-no-repeat md:hidden"
+        style={{ backgroundImage: `url(${builtBiggerBgMobile})` }}
+      />
+      <div
+        className="absolute inset-0 hidden bg-cover bg-top bg-no-repeat md:block"
+        style={{ backgroundImage: `url(${builtBiggerBgDesktop})` }}
+      />
       <div className="relative z-10 max-w-[1280px] mx-auto px-4 md:px-8 h-full flex items-end pb-8 md:pb-10">
         <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8 max-w-[1000px] mx-auto bg-[#17171780] backdrop-blur-[5px] rounded-[12px] p-4 md:p-6">
           {/* Heading and Description */}
@@ -11,7 +21,7 @@ function BuiltBiggerEquippedBetter() {
             <h2 className="uppercase md:!text-[28px] text-center md:text-start !text-[28px] leading-[36px] md:leading-[28px] !font-[600] text-[#fff]">
             Built Bigger. Equipped Better.
             </h2>
-            <p className="!text-[16px] !font-[Kanit] text-center md:text-start md:!text-[16px] leading-[20px] md:leading-[24px] font-[300] md:font-[400] text-white max-w-[642px]">
+            <p className="!text-[16px] !font-[Kanit] text-center md:text-start md:!text-[16px] leading-[20px] md:leading-[24px] font-[400] text-white max-w-[642px]">
             Full-scale training floors. Real recovery infrastructure. West Vancouver's first gym built like it means it.
             </p>
           </div>
