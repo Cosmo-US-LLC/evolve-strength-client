@@ -30,7 +30,9 @@ function PresaleParkRoyalHero() {
               Lock Your Founder Rate for Life
             </h1>{" "}
             <h3 className="text-[#FFFFFF] !text-[16px] !font-[400] !leading-[24px] mb-8 max-w-[350px] md:max-w-[606px] !font-[Kanit]">
-              Early access. Lifetime pricing. Lock founder rate now for $0. Rate goes up the day we open. Yours won't, if you join first.
+              Early access. Lifetime pricing. Lock founder rate now for $0.
+              <br className="hidden md:block" />
+               Rate goes up the day we open. Yours won't, if you join first.
             </h3>
             <div className="flex gap-2 flex-col items-start">
               <Link to="/founder-offer-payment?source=park-royal">
