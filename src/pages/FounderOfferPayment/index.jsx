@@ -1259,6 +1259,8 @@ function FounderOfferPayment() {
             <div className="w-full max-w-[904px]">
               <SuccessCertificate
                 primaryMember={completedMember || formData.primaryMember}
+                locationName={locationName}
+                submittedAt={successRecord?.verifiedAt}
                 onBack={() => {
                   clearStoredSuccess();
                   setSuccessRecord(null);
