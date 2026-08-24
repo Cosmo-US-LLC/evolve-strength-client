@@ -6,23 +6,23 @@ import founderBadge from "@/assets/images/PresaleParkRoyal/founder_badge.png";
 const steps = [
   {
     icon: noUpfront,
-    title: "1. Reserve Your Rate",
+    title: "Reserve Your Rate",
     description: "Reserve now, pay later. Ten-day refund guarantee.",
   },
   {
     icon: "/assets/images/presaleCommonSouth/icon2.svg",
-    title: "2. Get Certificate",
+    title: "Get Certificate",
     description: "Digital proof of your founding status, yours to keep.",
   },
   {
     icon: "/assets/images/presaleCommonSouth/icon3.svg",
-    title: "3. VIP Access",
+    title: "VIP Access",
     description:
       "Confirm your spot and get early access to the brand new facility.",
   },
   {
     icon: "/assets/images/presaleCommonSouth/icon_4.svg",
-    title: "4. Grand Opening",
+    title: "Grand Opening",
     description:
       "Doors open. Billing begins. Everything else stays the same.",
   },
@@ -129,10 +129,11 @@ function RateLockCertificate() {
                 Member Name
               </p>
               <p className="text-[13px] md:text-[14px] max-w-[500px] !leading-[16px] md:!leading-[17.5px] font-[300] font-[Kanit] text-[#ffffff]">
-                This certifies is granted founder access to Evolve Strength
-                Park Royal. This exclusive membership not only provides
-                unique privileges but also ensures protection from any future
-                rate increases, allowing for a seamless fitness experience.
+                This certifies that [Member Name]  is granted founder access to
+                Evolve Strength Park Royal. This exclusive membership not
+                only provides unique privileges but also ensures protection
+                from any future rate increases, allowing for a seamless
+                fitness experience.
               </p>
             </div>
 
@@ -148,10 +149,10 @@ function RateLockCertificate() {
               </div>
               <div className="flex flex-col items-center gap-0.5">
                 <p className="font-['Meow_Script'] text-[10px] !leading-[16px] font-[400] text-[#ffffff]">
-                  Jon Cheung
+                  Signature here
                 </p>
                 <p className="text-[10px] !leading-[16px] font-[500] font-[Kanit] text-[#ffffff] uppercase tracking-wide">
-                  Founder &amp; CEO, Evolve Strength
+                  Authorized Signature
                 </p>
               </div>
             </div>

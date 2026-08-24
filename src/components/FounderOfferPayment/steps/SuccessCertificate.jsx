@@ -362,11 +362,11 @@ function SuccessCertificate({ primaryMember, onBack, locationName, submittedAt }
                   {memberName}
                 </p>
                 <p className="text-[14px] max-w-[500px] !leading-[17.5px] font-[300] font-[Kanit] text-[#ffffff]">
-                  This certifies is granted founder access to Evolve
-                  Strength {certificateLocationName}. This exclusive
-                  membership not only provides unique privileges but also
-                  ensures protection from any future rate increases, allowing
-                  for a seamless fitness experience.
+                  This certifies that {memberName} is granted founder access
+                  to Evolve Strength {certificateLocationName}. This
+                  exclusive membership not only provides unique privileges
+                  but also ensures protection from any future rate
+                  increases, allowing for a seamless fitness experience.
                 </p>
               </div>
 

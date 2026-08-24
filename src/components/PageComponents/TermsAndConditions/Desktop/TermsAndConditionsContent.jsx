@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const TermsAgreementContent = ({ termsMain }) => {
   const [activeId, setActiveId] = useState("terms-agreement");
@@ -46,6 +47,14 @@ const TermsAgreementContent = ({ termsMain }) => {
               </button>
             </li>
           ))}
+          <li>
+            <Link
+              to="/park-royal-terms-and-conditions"
+              className="block w-full text-left cursor-pointer text-black"
+            >
+              Presale Park Royal T&amp;C
+            </Link>
+          </li>
         </ul>
       </div>
 
