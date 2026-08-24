@@ -12,6 +12,8 @@ function PresaleNavbar() {
   const location = useLocation();
   const isSouthEdmontonCommonPage =
     location.pathname === "/tour-south-edmonton-common";
+  const isParkRoyalTermsPage =
+    location.pathname === "/park-royal-terms-and-conditions";
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +38,7 @@ function PresaleNavbar() {
     <nav className="fixed top-0 w-full z-[9999] backdrop-blur-[7.5px] bg-[rgba(0,0,0,0.1)] overflow-hidden">
       <div
         className="absolute top-0 left-0 w-full bg-[rgba(0,0,0,0.8)] transition-[height] duration-[0.6s] ease-in-out pointer-events-none"
-        style={{ height: scrolled ? "100%" : "0%" }}
+        style={{ height: scrolled || isParkRoyalTermsPage ? "100%" : "0%" }}
       />
 
       <div className="relative z-10 max-w-[1280px] w-full h-[60px] md:h-[80px] mx-auto px-4 md:px-8 flex items-center justify-between">

@@ -1094,7 +1094,7 @@ function FounderOfferPayment() {
                 onToggleService={handleAddonToggle}
                 isLoading={isPlansLoading}
               />
-              <FounderBenefits />
+              <FounderBenefits isParkRoyalOrigin={isParkRoyalOrigin} />
             </div>
 
             <div className="hidden lg:block">
@@ -1175,7 +1175,7 @@ function FounderOfferPayment() {
             onToggleService={handleAddonToggle}
             isLoading={isPlansLoading}
           />
-          <FounderBenefits />
+          <FounderBenefits isParkRoyalOrigin={isParkRoyalOrigin} />
         </div>
       );
     }

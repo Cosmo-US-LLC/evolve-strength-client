@@ -12,7 +12,8 @@ function Layout() {
     location.pathname === "/presale-park-royal" ||
     location.pathname === "/spaces-for-south-edmonton-common" ||
     location.pathname === "/tour-south-edmonton-common" ||
-    location.pathname === "/park-royal-waitlist";
+    location.pathname === "/park-royal-waitlist" ||
+    location.pathname === "/park-royal-terms-and-conditions";
   const hideFooter = location.pathname === "/park-royal-waitlist";
   return (
     <div>
