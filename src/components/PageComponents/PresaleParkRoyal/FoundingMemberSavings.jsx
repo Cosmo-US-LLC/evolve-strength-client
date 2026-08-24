@@ -251,11 +251,11 @@ function FoundingMemberSavings() {
 
           <TabsContent value="yearly" className="w-full mt-0 outline-none">
             <div className="bg-[rgba(255,255,255,0.12)] backdrop-blur-[15px] rounded-[12px] w-full overflow-hidden flex flex-col md:flex-row gap-6 md:gap-10 p-4 md:p-6">
-              <div className="relative w-full md:w-[688px] md:max-w-[55%] shrink-0 rounded-[12px] overflow-hidden aspect-[323/215] md:aspect-[688/400]">
+              <div className="relative w-full md:w-[688px] md:max-w-[55%] shrink-0 rounded-[12px] overflow-hidden aspect-[323/215] md:aspect-[688/400] bg-black">
                 <img
                   src={pricingCardImage}
                   alt="Evolve Strength Park Royal equipment"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
                 {/* Limited ribbon (mobile only) - diagonal green, top-right of image (Figma) */}
                 <div className="absolute top-[-2%] right-[-1%] z-10 overflow-hidden w-16 h-16 md:hidden">
@@ -304,11 +304,11 @@ function FoundingMemberSavings() {
 
           <TabsContent value="monthly" className="w-full mt-0 outline-none">
             <div className="bg-[rgba(255,255,255,0.12)] backdrop-blur-[15px] rounded-[12px] w-full overflow-hidden flex flex-col md:flex-row gap-6 md:gap-10 p-4 md:p-6">
-              <div className="relative w-full md:w-[688px] md:max-w-[55%] shrink-0 rounded-[12px] overflow-hidden aspect-[323/215] md:aspect-[688/400]">
+              <div className="relative w-full md:w-[688px] md:max-w-[55%] shrink-0 rounded-[12px] overflow-hidden aspect-[323/215] md:aspect-[688/400] bg-black">
                 <img
                   src={pricingCardImage}
                   alt="Evolve Strength Park Royal equipment"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
                 {/* Limited ribbon (mobile only) - diagonal green, top-right of image (Figma) */}
                 <div className="absolute top-[-2%] right-[-1%] z-10 overflow-hidden w-16 h-16 md:hidden">

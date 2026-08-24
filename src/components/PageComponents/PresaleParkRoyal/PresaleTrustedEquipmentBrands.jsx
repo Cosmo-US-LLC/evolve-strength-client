@@ -19,135 +19,59 @@ import partnersLogo3 from "../../../assets/images/PresaleEdmontonSouthCommon/par
 import partnersLogo4 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_logo4.svg";
 import partnersLogo5 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_logo5.svg";
 import partnersLogo6 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_logo6.svg";
+import partnerGlutebuilderBg from "@/assets/images/PresaleParkRoyal/partner_glutebuilder_bg.jpg";
+import partnerGlutebuilderLogo from "@/assets/images/PresaleParkRoyal/partner_glutebuilder_logo.png";
 
-const EQUIPMENT_PARTNERS = [
+const EQUIPMENT_PARTNERS_BASE = [
   {
-    id: 1,
     name: "Newtech Strength Equipment",
     logo: partnersLogo1,
     backgroundImage: partnersImage1,
     alt: "Newtech Strength Equipment",
   },
   {
-    id: 2,
     name: "Eleiko",
     logo: partnersLogo2,
     backgroundImage: partnersImage2,
     alt: "Eleiko",
   },
   {
-    id: 3,
     name: "Technogym",
     logo: partnersLogo3,
     backgroundImage: partnersImage3,
     alt: "Technogym",
   },
   {
-    id: 4,
     name: "Atlantis",
     logo: partnersLogo4,
     backgroundImage: partnersImage4,
     alt: "Atlantis",
   },
   {
-    id: 5,
     name: "Precor",
     logo: partnersLogo5,
     backgroundImage: partnersImage5,
     alt: "Precor",
   },
   {
-    id: 6,
     name: "Rogue",
     logo: partnersLogo6,
     backgroundImage: partnersImage6,
     alt: "Rogue",
   },
   {
-    id: 7,
-    name: "Newtech Strength Equipment",
-    logo: partnersLogo1,
-    backgroundImage: partnersImage1,
-    alt: "Newtech Strength Equipment",
-  },
-  {
-    id: 8,
-    name: "Eleiko",
-    logo: partnersLogo2,
-    backgroundImage: partnersImage2,
-    alt: "Eleiko",
-  },
-  {
-    id: 9,
-    name: "Technogym",
-    logo: partnersLogo3,
-    backgroundImage: partnersImage3,
-    alt: "Technogym",
-  },
-  {
-    id: 10,
-    name: "Atlantis",
-    logo: partnersLogo4,
-    backgroundImage: partnersImage4,
-    alt: "Atlantis",
-  },
-  {
-    id: 11,
-    name: "Precor",
-    logo: partnersLogo5,
-    backgroundImage: partnersImage5,
-    alt: "Precor",
-  },
-  {
-    id: 12,
-    name: "Rogue",
-    logo: partnersLogo6,
-    backgroundImage: partnersImage6,
-    alt: "Rogue",
-  },
-  {
-    id: 13,
-    name: "Newtech Strength Equipment",
-    logo: partnersLogo1,
-    backgroundImage: partnersImage1,
-    alt: "Newtech Strength Equipment",
-  },
-  {
-    id: 14,
-    name: "Eleiko",
-    logo: partnersLogo2,
-    backgroundImage: partnersImage2,
-    alt: "Eleiko",
-  },
-  {
-    id: 15,
-    name: "Technogym",
-    logo: partnersLogo3,
-    backgroundImage: partnersImage3,
-    alt: "Technogym",
-  },
-  {
-    id: 16,
-    name: "Atlantis",
-    logo: partnersLogo4,
-    backgroundImage: partnersImage4,
-    alt: "Atlantis",
-  },
-  {
-    id: 17,
-    name: "Precor",
-    logo: partnersLogo5,
-    backgroundImage: partnersImage5,
-    alt: "Precor",
-  },
-  {
-    id: 18,
-    name: "Rogue",
-    logo: partnersLogo6,
-    backgroundImage: partnersImage6,
-    alt: "Rogue",
+    name: "Glutebuilder",
+    logo: partnerGlutebuilderLogo,
+    backgroundImage: partnerGlutebuilderBg,
+    alt: "Glutebuilder",
   },
 ];
+
+const EQUIPMENT_PARTNERS = [
+  ...EQUIPMENT_PARTNERS_BASE,
+  ...EQUIPMENT_PARTNERS_BASE,
+  ...EQUIPMENT_PARTNERS_BASE,
+].map((partner, index) => ({ ...partner, id: index + 1 }));
 
 function PartnerCard({ partner, className = "" }) {
   return (
@@ -228,6 +152,7 @@ function PresaleTrustedEquipmentBrands() {
             <Marquee
               speed={40}
               gradient={false}
+              pauseOnHover
               className="[&_.rfm-child]:flex [&_.rfm-child]:shrink-0 [&_.rfm-initial-child-container]:flex py-2"
             >
               {MARQUEE_PARTNERS.map((partner, index) => (

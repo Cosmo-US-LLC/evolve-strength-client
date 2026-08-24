@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import theSpaceImage from "@/assets/images/PresaleParkRoyal/the_space.jpg";
 import turfRecoveryImage from "@/assets/images/PresaleParkRoyal/turf_recovery.jpg";
 import cardioZoneImage from "@/assets/images/PresaleParkRoyal/cardio_zone.jpg";
@@ -48,21 +49,39 @@ const GymZones = () => {
         </div>
 
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-12">
-          <p className="hidden md:block md:w-1/3 font-[Kanit] text-[18px] font-[300] leading-[26px] text-[#000]">
-            {activeZone.description}
-          </p>
+          <div className="hidden md:block md:w-1/3 overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={activeIndex}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -24 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="font-[Kanit] text-[18px] font-[300] leading-[26px] text-[#000]"
+              >
+                {activeZone.description}
+              </motion.p>
+            </AnimatePresence>
+          </div>
 
-          <div className="mx-auto w-full max-w-[381px] shrink-0 overflow-hidden rounded-[16px] md:w-1/3 aspect-[381/500]">
-            <img
-              src={activeZone.image}
-              alt={activeZone.title}
-              className="h-full w-full object-cover transition-opacity duration-300"
-            />
+          <div className="relative mx-auto w-full max-w-[381px] shrink-0 overflow-hidden rounded-[16px] md:w-1/3 aspect-[381/500]">
+            <AnimatePresence mode="sync">
+              <motion.img
+                key={activeIndex}
+                src={activeZone.image}
+                alt={activeZone.title}
+                initial={{ opacity: 0, scale: 1.15 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </AnimatePresence>
           </div>
 
           <div className="flex w-full flex-col md:w-1/3 divide-y divide-[#e5e5e5] border-t border-[#e5e5e5]">
             {zones.map((zone, index) => (
-              <div key={zone.title} className="flex flex-col">
+              <div key={zone.title} className="flex flex-col overflow-hidden">
                 <button
                   type="button"
                   onClick={() => setActiveIndex(index)}
@@ -73,11 +92,19 @@ const GymZones = () => {
                 >
                   {zone.title}
                 </button>
-                {index === activeIndex && (
-                  <p className="pb-4 font-[Kanit] text-[16px] font-[300] leading-[24px] text-[#000] md:hidden">
-                    {zone.description}
-                  </p>
-                )}
+                <AnimatePresence initial={false}>
+                  {index === activeIndex && (
+                    <motion.p
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -16 }}
+                      transition={{ duration: 0.35, ease: "easeOut" }}
+                      className="pb-4 font-[Kanit] text-[16px] font-[300] leading-[24px] text-[#000] md:hidden"
+                    >
+                      {zone.description}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </div>

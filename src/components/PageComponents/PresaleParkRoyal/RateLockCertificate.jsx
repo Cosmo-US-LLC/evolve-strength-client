@@ -149,10 +149,10 @@ function RateLockCertificate() {
               </div>
               <div className="flex flex-col items-center gap-0.5">
                 <p className="font-['Meow_Script'] text-[10px] !leading-[16px] font-[400] text-[#ffffff]">
-                  Signature here
+                  Jon Cheung
                 </p>
                 <p className="text-[10px] !leading-[16px] font-[500] font-[Kanit] text-[#ffffff] uppercase tracking-wide">
-                  Authorized Signature
+                  CEO, Evolve Strength
                 </p>
               </div>
             </div>
