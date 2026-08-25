@@ -53,7 +53,7 @@ function SuccessCertificate({ primaryMember, onBack, locationName, submittedAt }
 
   const loadPdfLibraries = async () => {
     const html2CanvasUrl =
-      "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
+      "https://cdn.jsdelivr.net/npm/html2canvas-pro@2.4.0/dist/html2canvas-pro.min.js";
     const jsPdfUrl =
       "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js";
 
