@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import theSpaceImage from "@/assets/images/PresaleParkRoyal/the_space.jpg";
 import turfRecoveryImage from "@/assets/images/PresaleParkRoyal/turf_recovery.jpg";
@@ -35,9 +35,43 @@ const zones = [
 const GymZones = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeZone = zones[activeIndex];
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = sectionRef.current;
+      if (!el) return;
+
+      const rect = el.getBoundingClientRect();
+      const scrollableHeight = rect.height - window.innerHeight;
+      if (scrollableHeight <= 0) return;
+
+      const scrolled = Math.min(Math.max(-rect.top, 0), scrollableHeight);
+      const progress = scrolled / scrollableHeight;
+      const index = Math.min(
+        zones.length - 1,
+        Math.floor(progress * zones.length)
+      );
+
+      setActiveIndex((prev) => (prev === index ? prev : index));
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
 
   return (
-    <section className="bg-white px-4 py-12 md:px-8 md:py-20">
+    <section
+      ref={sectionRef}
+      className="relative"
+      style={{ height: `${zones.length * 100}vh` }}
+    >
+      <div className="sticky top-0 flex h-screen w-full flex-col justify-center overflow-hidden bg-white px-4 py-12 md:px-8 md:py-20">
       <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-6 md:gap-8">
         <div className="flex flex-col items-center gap-2 text-center">
           <p className="font-[Kanit] text-[14px] md:text-[16px] font-[500] uppercase leading-[20px] md:leading-[24px] text-[#4ab04a]">
@@ -109,6 +143,7 @@ const GymZones = () => {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
