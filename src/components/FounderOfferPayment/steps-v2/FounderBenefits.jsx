@@ -2,7 +2,7 @@ import React from "react";
 
 function FounderBenefits({ className = "", isParkRoyalOrigin = false }) {
   const residencyLocation = isParkRoyalOrigin
-    ? "West Vancouver, British Columbia"
+    ? "West or North Vancouver, British Columbia"
     : "Edmonton, Alberta";
   return (
     <div
