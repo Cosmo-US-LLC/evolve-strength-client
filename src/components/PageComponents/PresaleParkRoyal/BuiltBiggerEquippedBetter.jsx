@@ -22,7 +22,7 @@ function BuiltBiggerEquippedBetter() {
             Built Bigger. Equipped Better.
             </h2>
             <p className="!text-[16px] !font-[Kanit] text-center md:text-start md:!text-[16px] leading-[20px] md:leading-[24px] font-[400] text-white max-w-[642px]">
-            Full-scale training floors. Real recovery infrastructure. West Vancouver's first gym built like it means it.
+            Designed for those who demand more than sweat and guesswork. Our facility blends elite training spaces with data-driven assessment to turn effort into precise, science-backed results.
             </p>
           </div>
 
