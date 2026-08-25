@@ -130,9 +130,12 @@ function MembershipCardContent({
         <span className="text-[32px] md:text-[40px] leading-[34px] md:leading-[17px] font-[500] md:font-[500] font-[Kanit] text-white">
           {rateLockValue}
         </span>
-        <span className="text-[14px] md:text-[14px] text-white/80 font-[400] font-[Kanit]">
+        <Link
+          to="/park-royal-terms-and-conditions"
+          className="text-[14px] md:text-[14px] text-white/80 font-[400] font-[Kanit] underline hover:text-white"
+        >
           {rateLockNote}
-        </span>
+        </Link>
       </div>
       <Link
         to={link}

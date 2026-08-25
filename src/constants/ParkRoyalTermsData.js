@@ -11,7 +11,8 @@ export const parkroyaltermsMain = [
     id: "presale_membership_sign-Up",
     content: [
       "The Presale allows you to submit a membership sign-up before the club opens.",
-      "Availability is limited and sign-ups may close at any time based on capacity."
+      "Availability is limited and sign-ups may close at any time based on capacity.",
+      "Presale offers are available to new Evolve members living in West and North Vancouver only."
     ],
   },
   {
