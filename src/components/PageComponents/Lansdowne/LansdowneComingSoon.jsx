@@ -1,6 +1,6 @@
 import React from "react";
-import gymMainImage from "@/assets/images/gym/gym_gallery/img_1.webp";
-import gymAccentImage from "@/assets/images/gym/gym_gallery/img_2.webp";
+import gymMainImage from "@/assets/images/PresaleParkRoyal/turf_recovery.jpg";
+import gymAccentImage from "@/assets/images/PresaleParkRoyal/the_space.jpg";
 
 const infoItems = [
   {
@@ -106,7 +106,7 @@ function LansdowneComingSoon() {
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[20px] border border-white/10">
               <img
                 src={gymMainImage}
-                alt="Inside an Evolve Strength gym"
+                alt="Evolve Strength turf training area"
                 className="absolute inset-0 h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-black/10" />
@@ -115,7 +115,7 @@ function LansdowneComingSoon() {
             <div className="absolute bottom-0 left-0 w-[62%] aspect-[4/3] overflow-hidden rounded-[16px] border-4 border-[#08090A] shadow-2xl">
               <img
                 src={gymAccentImage}
-                alt="Evolve Strength turf training area"
+                alt="Evolve Strength equipment floor"
                 className="absolute inset-0 h-full w-full object-cover"
               />
             </div>
