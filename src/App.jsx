@@ -157,11 +157,12 @@ function App() {
             element={<SouthEdmontonCommonRules />}
           />
           <Route path="/park-royal-waitlist" element={<ParkRoyalWaitlist />} />
-          <Route path="/lansdowne" element={<LansdowneComingSoon />} />
         </Route>
 
         {/* Location-based Discover flow */}
         <Route path="/discover" element={<Discover />} />
+
+        <Route path="/lansdowne" element={<LansdowneComingSoon />} />
 
         <Route path="/join-the-wait-list" element={<EvolveSpacesForm />} />
         <Route

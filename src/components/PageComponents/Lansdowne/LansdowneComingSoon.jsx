@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import EdmontonSouthCommonForm from "@/components/Form/EdmontonSouthCommonForm";
-import EvolveStrengthWhiteLogo from "@/assets/images/home/navbar/Evolve-logo-light.svg";
+import { QRCodeSVG } from "qrcode.react";
+
+const mapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("5300 No 3 Rd, Richmond, BC, V6X 2X9");
 
 const infoItems = [
   {
@@ -42,7 +44,7 @@ const infoItems = [
 
 function LansdowneComingSoon() {
   return (
-    <div className="relative w-full min-h-screen bg-[#08090A] overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden bg-[#08090A]">
       {/* Ambient glow background */}
       <div className="pointer-events-none absolute -top-40 -left-40 w-[560px] h-[560px] rounded-full bg-[#4AB04A]/20 blur-[140px]" />
       <div className="pointer-events-none absolute bottom-0 right-0 w-[480px] h-[480px] rounded-full bg-[#4AB04A]/10 blur-[160px]" />
@@ -55,39 +57,29 @@ function LansdowneComingSoon() {
         }}
       />
 
-      {/* Header */}
-      <div className="relative z-10 max-w-[1280px] mx-auto px-4 md:px-8 pt-6 flex items-center justify-between">
-        <Link to="/">
-          <img src={EvolveStrengthWhiteLogo} alt="Evolve Strength" className="w-[150px] md:w-[176px]" />
-        </Link>
-        <span className="hidden md:inline-block text-[#8A8F8B] !font-[Kanit] text-[13px] uppercase tracking-[2px]">
-          Richmond, BC
-        </span>
-      </div>
-
-      <div className="relative z-10 max-w-[1280px] mx-auto px-4 md:px-8 py-14 md:py-20 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-8 items-start">
+      <div className="relative z-10 h-full max-w-[1280px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-8 items-center">
         {/* Left: Story */}
         <div>
-          <div className="inline-flex items-center gap-2 bg-[#4AB04A]/10 border border-[#4AB04A]/40 px-4 py-1.5 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 bg-[#4AB04A]/10 border border-[#4AB04A]/40 px-4 py-1.5 rounded-full mb-5 md:mb-6">
             <span className="w-[7px] h-[7px] rounded-full bg-[#4AB04A] animate-pulse" />
             <span className="text-[#4AB04A] !font-[Kanit] text-[12px] md:text-[13px] font-[600] uppercase tracking-[1.5px]">
               Next Location · Opening 2027
             </span>
           </div>
 
-          <h1 className="!font-[Kanit] uppercase text-[#FFFFFF] text-[42px] leading-[46px] md:text-[76px] md:leading-[76px] font-[600] mb-2">
+          <h1 className="!font-[Kanit] uppercase text-[#FFFFFF] text-[36px] leading-[40px] md:text-[68px] md:leading-[68px] font-[600] mb-2">
             Evolve
             <br />
             <span className="text-[#4AB04A]">Lansdowne</span>
           </h1>
 
-          <p className="text-[#B5BAB6] !font-[Kanit] !text-[16px] md:!text-[18px] !leading-[26px] max-w-[480px] mt-6 mb-10">
+          <p className="text-[#B5BAB6] !font-[Kanit] !text-[15px] md:!text-[17px] !leading-[24px] max-w-[480px] mt-5 mb-8">
             Vancouver's fastest-growing strength club is coming to Lansdowne
-            Centre. Reserve your spot now and lock a founding member rate
-            before it ever goes public.
+            Centre. Scan the code to save your spot and lock a founding
+            member rate before it ever goes public.
           </p>
 
-          <div className="flex flex-col gap-5 max-w-[440px]">
+          <div className="flex flex-col gap-4 max-w-[440px]">
             {infoItems.map((item) => (
               <div key={item.label} className="flex items-start gap-4">
                 <div className="shrink-0 w-10 h-10 rounded-[10px] bg-white/[0.04] border border-white/10 flex items-center justify-center">
@@ -111,19 +103,26 @@ function LansdowneComingSoon() {
           </div>
         </div>
 
-        {/* Right: Waitlist card */}
-        <div id="waitlist" className="scroll-mt-24 lg:sticky lg:top-10">
-          <div className="relative rounded-[20px] bg-white/[0.03] border border-white/10 backdrop-blur-xl p-6 md:p-8 overflow-hidden">
+        {/* Right: QR code card */}
+        <div className="flex justify-center lg:justify-end">
+          <div className="relative rounded-[20px] bg-white/[0.03] border border-white/10 backdrop-blur-xl p-6 md:p-8 overflow-hidden max-w-[340px] w-full">
             <div className="pointer-events-none absolute -top-24 -right-24 w-[220px] h-[220px] rounded-full bg-[#4AB04A]/20 blur-[80px]" />
-            <div className="relative">
-              <h4 className="text-[#FFFFFF] !font-[Kanit] !font-[600] text-[20px] md:text-[22px] uppercase mb-2">
-                Reserve Your Spot
+            <div className="relative flex flex-col items-center text-center">
+              <h4 className="text-[#FFFFFF] !font-[Kanit] !font-[600] text-[18px] md:text-[20px] uppercase mb-2">
+                Get Directions
               </h4>
-              <p className="text-[#9BA09C] !font-[Kanit] !text-[14px] !leading-[20px] mb-6">
-                Founding members get lifetime pricing, locked before doors
-                open. No payment required today.
+              <p className="text-[#9BA09C] !font-[Kanit] !text-[13px] !leading-[19px] mb-6">
+                Scan to find us inside Lansdowne Centre
               </p>
-              <EdmontonSouthCommonForm location="Lansdowne" />
+              <div className="bg-white p-4 rounded-[14px]">
+                <QRCodeSVG
+                  value={mapsUrl}
+                  size={180}
+                  level="H"
+                  fgColor="#08090A"
+                  bgColor="#FFFFFF"
+                />
+              </div>
             </div>
           </div>
         </div>
