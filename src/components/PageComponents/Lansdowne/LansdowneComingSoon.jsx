@@ -1,9 +1,6 @@
 import React from "react";
-import { QRCodeSVG } from "qrcode.react";
-
-const mapsUrl =
-  "https://www.google.com/maps/search/?api=1&query=" +
-  encodeURIComponent("5300 No 3 Rd, Richmond, BC, V6X 2X9");
+import gymMainImage from "@/assets/images/PresaleParkRoyal/turf_recovery.jpg";
+import gymAccentImage from "@/assets/images/PresaleParkRoyal/the_space.jpg";
 
 const infoItems = [
   {
@@ -68,15 +65,15 @@ function LansdowneComingSoon() {
           </div>
 
           <h1 className="!font-[Kanit] uppercase text-[#FFFFFF] text-[36px] leading-[40px] md:text-[68px] md:leading-[68px] font-[600] mb-2">
-            Evolve
+            Evolve Strength
             <br />
             <span className="text-[#4AB04A]">Lansdowne</span>
           </h1>
 
           <p className="text-[#B5BAB6] !font-[Kanit] !text-[15px] md:!text-[17px] !leading-[24px] max-w-[480px] mt-5 mb-8">
             Vancouver's fastest-growing strength club is coming to Lansdowne
-            Centre. Scan the code to save your spot and lock a founding
-            member rate before it ever goes public.
+            Centre. Be one of the first to know when doors open and lock a
+            founding member rate before it ever goes public.
           </p>
 
           <div className="flex flex-col gap-4 max-w-[440px]">
@@ -103,22 +100,27 @@ function LansdowneComingSoon() {
           </div>
         </div>
 
-        {/* Right: QR code card */}
+        {/* Right: Gym photo collage */}
         <div className="flex justify-center lg:justify-end">
-          <div className="relative rounded-[8px] bg-white/[0.03] border border-white/10 backdrop-blur-xl p-6 md:p-10 overflow-hidden max-w-[520px] w-full h-auto lg:h-[460px]">
-            <div className="pointer-events-none absolute -top-24 -right-24 w-[220px] h-[220px] rounded-full bg-[#4AB04A]/20 blur-[80px]" />
-            <div className="relative flex flex-col items-center justify-center text-center h-full">
-              <div className="bg-white p-3 sm:p-4 rounded-[8px] w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] md:w-[300px] md:h-[300px] lg:w-[348px] lg:h-[348px]">
-                <QRCodeSVG
-                  value={mapsUrl}
-                  size={348}
-                  level="H"
-                  fgColor="#08090A"
-                  bgColor="#FFFFFF"
-                  style={{ width: "100%", height: "100%" }}
-                />
-              </div>
+          <div className="relative w-full max-w-[420px] pb-8 pl-8">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[20px] border border-white/10">
+              <img
+                src={gymMainImage}
+                alt="Evolve Strength turf training area"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-black/10" />
             </div>
+
+            <div className="absolute bottom-0 left-0 w-[62%] aspect-[4/3] overflow-hidden rounded-[16px] border-4 border-[#08090A] shadow-2xl">
+              <img
+                src={gymAccentImage}
+                alt="Evolve Strength equipment floor"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+
+            <div className="pointer-events-none absolute -top-8 -right-8 w-[180px] h-[180px] rounded-full bg-[#4AB04A]/25 blur-[70px]" />
           </div>
         </div>
       </div>
