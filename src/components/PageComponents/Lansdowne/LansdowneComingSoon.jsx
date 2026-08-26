@@ -65,7 +65,7 @@ function LansdowneComingSoon() {
           </div>
 
           <h1 className="!font-[Kanit] uppercase text-[#FFFFFF] text-[36px] leading-[40px] md:text-[68px] md:leading-[68px] font-[600] mb-2">
-            Evolve Strength is coming to
+            Evolve Strength
             <br />
             <span className="text-[#4AB04A]">Lansdowne</span>
           </h1>
