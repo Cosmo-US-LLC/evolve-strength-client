@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams, Navigate } from "react-router-dom";
 import FormsHeader from "@/components/ui/FormsHeader";
 import ProgressTracker from "@/components/FounderOfferPayment/ProgressTracker";
 import MembershipSummaryCard from "@/components/FounderOfferPayment/MembershipSummaryCard";
@@ -1205,6 +1205,16 @@ function FounderOfferPayment() {
     return null;
   };
 
+  // Edmonton South Common founder offer has ended, and Park Royal's presale
+  // hasn't opened yet (targeted ~1 month out), so neither source is active
+  // on this shared route right now. Remove this block, and the eslint-disable
+  // below, to reactivate Park Royal via ?source=park-royal.
+  if (isParkRoyalOrigin) {
+    return <Navigate to="/park-royal-waitlist" replace />;
+  }
+  return <Navigate to="/" replace />;
+
+  // eslint-disable-next-line no-unreachable
   return (
     <>
       <MetaTags

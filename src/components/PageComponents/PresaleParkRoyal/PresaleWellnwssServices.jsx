@@ -106,7 +106,7 @@ const PresaleWellnwssServices = () => {
             Train hard. Recover harder. Chiropractic care, physiotherapy, massage and more, all under one roof. Charges may apply for select services.
             </h4>
             <div className="flex gap-2 justify-start w-full">
-          <Link to="/founder-offer-payment?source=park-royal">
+          <Link to="/park-royal-waitlist">
                 {" "}
                 <button className="btnPrimary flex items-center !py-[14px] !px-[20px] gap-2 md:gap-[10px] uppercase">
                   <svg
@@ -192,7 +192,7 @@ const PresaleWellnwssServices = () => {
           You put your body to work, we help you take care of it, recover faster, and stay injury-free. Recharge yourself with our full range of services (additional charges may apply).
           </h4>
           <div className="flex gap-2 justify-start w-full">
-          <Link to="/founder-offer-payment?source=park-royal">
+          <Link to="/park-royal-waitlist">
                 {" "}
                 <button className="btnPrimary flex items-center !py-[14px] !px-[20px] gap-2 md:gap-[10px] uppercase">
                   <svg

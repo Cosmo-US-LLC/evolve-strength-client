@@ -29,7 +29,7 @@ function BuiltBiggerEquippedBetter() {
           {/* CTA Button and Deposit Text */}
           <div className="flex flex-col gap-2 md:gap-4">
             <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-start md:items-center">
-              <Link to="/founder-offer-payment?source=park-royal">
+              <Link to="/park-royal-waitlist">
                 <button className="btnPrimary flex items-center gap-2 !py-[14px] !px-[20px] md:gap-[10px] uppercase">
                   {/* Lock Icon */}
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">

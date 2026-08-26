@@ -92,7 +92,7 @@ function RateLockCertificate() {
             </div>
 
             <Link
-              to="/founder-offer-payment?source=park-royal"
+              to="/park-royal-waitlist"
               className="flex w-full md:inline-flex md:w-auto"
             >
               <button className="btnPrimary flex w-full md:w-auto items-center justify-center gap-2 !py-[16px] !px-[20px] md:gap-[10px] uppercase">
