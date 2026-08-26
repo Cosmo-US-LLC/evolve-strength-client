@@ -135,7 +135,7 @@ const UnmatchedAmenities = () => {
           </div>
         </div>
         <div className="w-full flex gap-2 flex-col items-center justify-center md:pt-4 -mt-4 md:mt-0">
-              <Link to="/founder-offer-payment?source=park-royal">
+              <Link to="/park-royal-waitlist">
                 {" "}
                 <button className="btnPrimary flex items-center !py-[14px] !px-[20px] gap-2 md:gap-[10px] uppercase">
                   <svg

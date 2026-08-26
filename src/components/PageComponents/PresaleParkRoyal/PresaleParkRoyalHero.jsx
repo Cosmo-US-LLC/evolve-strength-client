@@ -35,7 +35,7 @@ function PresaleParkRoyalHero() {
               Rate goes up the day we open. Yours won't, if you join first.
             </h3>
             <div className="flex gap-2 flex-col items-start">
-              <Link to="/founder-offer-payment?source=park-royal">
+              <Link to="/park-royal-waitlist">
                 {" "}
                 <button className="btnPrimary flex items-center !py-[14px] !px-[20px] gap-2 md:gap-[10px] uppercase">
                   <svg

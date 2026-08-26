@@ -80,7 +80,7 @@ function FamilyHouseholdPackage() {
             </p>
 
             {/* CTA Button */}
-            <Link to="/founder-offer-payment?source=park-royal" className="w-full max-w-[198px]">
+            <Link to="/park-royal-waitlist" className="w-full max-w-[198px]">
               <button className="btnPrimary uppercase !py-[17px] !px-[26px] ">
                 Lock My Rate Now
               </button>
