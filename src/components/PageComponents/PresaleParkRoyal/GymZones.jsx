@@ -36,8 +36,25 @@ const GymZones = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeZone = zones[activeIndex];
   const sectionRef = useRef(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  // The scroll-scrubbed pin effect below is desktop-only: it relies on a
+  // tall (zones.length * 100vh) section + a sticky, fixed-height,
+  // overflow-hidden viewport. On mobile that fixed height clips the
+  // description text once it wraps past the viewport, and the scroll
+  // math gets thrown off by the address bar resizing window.innerHeight.
+  // So on mobile this just renders as a normal tap-to-expand accordion.
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
+    if (!isDesktop) return;
+
     const handleScroll = () => {
       const el = sectionRef.current;
       if (!el) return;
@@ -63,15 +80,19 @@ const GymZones = () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-  }, []);
+  }, [isDesktop]);
 
   return (
     <section
       ref={sectionRef}
       className="relative"
-      style={{ height: `${zones.length * 100}vh` }}
+      style={isDesktop ? { height: `${zones.length * 100}vh` } : undefined}
     >
-      <div className="sticky top-0 flex h-screen w-full flex-col justify-center overflow-hidden bg-white px-4 py-12 md:px-8 md:py-20">
+      <div
+        className={`flex w-full flex-col justify-center bg-white px-4 py-12 md:px-8 md:py-20 ${
+          isDesktop ? "sticky top-0 h-screen overflow-hidden" : ""
+        }`}
+      >
       <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-6 md:gap-8">
         <div className="flex flex-col items-center gap-2 text-center">
           <p className="font-[Kanit] text-[14px] md:text-[16px] font-[500] uppercase leading-[20px] md:leading-[24px] text-[#4ab04a]">
