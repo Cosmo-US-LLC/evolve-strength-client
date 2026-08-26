@@ -44,7 +44,7 @@ const infoItems = [
 
 function LansdowneComingSoon() {
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-[#08090A]">
+    <div className="relative w-full min-h-screen lg:h-screen overflow-y-auto lg:overflow-hidden bg-[#08090A]">
       {/* Ambient glow background */}
       <div className="pointer-events-none absolute -top-40 -left-40 w-[560px] h-[560px] rounded-full bg-[#4AB04A]/20 blur-[140px]" />
       <div className="pointer-events-none absolute bottom-0 right-0 w-[480px] h-[480px] rounded-full bg-[#4AB04A]/10 blur-[160px]" />
@@ -57,7 +57,7 @@ function LansdowneComingSoon() {
         }}
       />
 
-      <div className="relative z-10 h-full max-w-[1280px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-8 items-center">
+      <div className="relative z-10 min-h-screen lg:h-full max-w-[1280px] mx-auto px-4 md:px-8 py-16 lg:py-0 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-8 items-center">
         {/* Left: Story */}
         <div>
           <div className="inline-flex items-center gap-2 bg-[#4AB04A]/10 border border-[#4AB04A]/40 px-4 py-1.5 rounded-full mb-5 md:mb-6">
