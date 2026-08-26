@@ -134,6 +134,9 @@ function LansdowneComingSoon() {
         </React.Fragment>
       ))}
 
+      {/* Dark overlay for text legibility: solid black on the left, fading out by 50% */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/60 to-transparent" />
+
       {/* Slide indicators */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 lg:bottom-8">
         {bgSlides.map((slide, i) => (
