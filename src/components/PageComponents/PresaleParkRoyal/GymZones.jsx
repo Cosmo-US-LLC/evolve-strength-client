@@ -37,19 +37,25 @@ const GymZones = () => {
   const activeZone = zones[activeIndex];
   const sectionRef = useRef(null);
 
-  // Scroll-scrubbed pin effect: a tall (zones.length * 100dvh) section with
+  // Scroll-scrubbed pin effect: a tall (zones.length * 100svh) section with
   // a sticky, viewport-height, overflow-hidden frame inside. Scroll
-  // progress through the tall section drives which zone is active. Uses
-  // dvh (dynamic viewport height) rather than vh/window.innerHeight so it
-  // doesn't get thrown off by mobile browsers resizing the chrome (address
-  // bar) while scrolling. Content is sized compactly on mobile (see the
-  // image/list/text classes below) so it always fits within one screen
-  // instead of getting clipped by overflow-hidden.
+  // progress through the tall section drives which zone is active.
+  //
+  // svh (small viewport height) is used instead of dvh: dvh live-resizes
+  // as the mobile browser's address bar shows/hides mid-scroll, which
+  // forces continuous layout recalculation and makes the pin effect feel
+  // janky/jittery. svh stays constant during the scroll gesture. The
+  // scroll handler itself is rAF-throttled so the layout read
+  // (getBoundingClientRect) never runs more than once per frame, which is
+  // the other common source of scroll jank.
   useEffect(() => {
     const getViewportHeight = () =>
       window.visualViewport?.height ?? window.innerHeight;
 
-    const handleScroll = () => {
+    let ticking = false;
+
+    const computeActiveIndex = () => {
+      ticking = false;
       const el = sectionRef.current;
       if (!el) return;
 
@@ -67,6 +73,12 @@ const GymZones = () => {
       setActiveIndex((prev) => (prev === index ? prev : index));
     };
 
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(computeActiveIndex);
+    };
+
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll);
@@ -80,9 +92,9 @@ const GymZones = () => {
     <section
       ref={sectionRef}
       className="relative"
-      style={{ height: `${zones.length * 100}dvh` }}
+      style={{ height: `${zones.length * 100}svh` }}
     >
-      <div className="sticky top-0 flex h-[100dvh] w-full flex-col justify-center overflow-y-auto bg-white px-4 py-6 md:overflow-hidden md:px-8 md:py-20">
+      <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-center overflow-y-auto bg-white px-4 py-6 md:overflow-hidden md:px-8 md:py-20">
       <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-4 md:gap-8">
         <div className="flex flex-col items-center gap-1 text-center md:gap-2">
           <p className="font-[Kanit] text-[13px] md:text-[16px] font-[500] uppercase leading-[18px] md:leading-[24px] text-[#4ab04a]">
