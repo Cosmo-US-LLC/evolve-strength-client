@@ -26,6 +26,26 @@ const bgSlides = [
     mobile: "/assets/images/franchise/Evolvelooklike/image_6.webp",
     alt: "Evolve Strength turf training area",
   },
+  {
+    desktop: "/assets/images/franchise/Evolvelooklike/image_1.webp",
+    mobile: "/assets/images/franchise/Evolvelooklike/image_1.webp",
+    alt: "Evolve Strength dumbbell and rack floor",
+  },
+  {
+    desktop: "/assets/images/franchise/Evolvelooklike/image_2.webp",
+    mobile: "/assets/images/franchise/Evolvelooklike/image_2.webp",
+    alt: "Evolve Strength Olympic lifting platforms",
+  },
+  {
+    desktop: "/assets/images/franchise/Evolvelooklike/image_3.webp",
+    mobile: "/assets/images/franchise/Evolvelooklike/image_3.webp",
+    alt: "Evolve Strength turf and running track",
+  },
+  {
+    desktop: "/assets/images/franchise/Evolvelooklike/image_5.webp",
+    mobile: "/assets/images/franchise/Evolvelooklike/image_5.webp",
+    alt: "Evolve Strength wellness clinic hallway",
+  },
 ];
 
 const SLIDE_DURATION = 3000;
