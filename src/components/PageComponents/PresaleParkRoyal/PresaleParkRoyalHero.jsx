@@ -15,7 +15,7 @@ function PresaleParkRoyalHero() {
           style={{ objectFit: "cover", objectPosition: "bottom" }}
         >
           <source
-            src={"/assets/videos/waitlist_florida_video.webm"}
+            src={"/assets/videos/waitlist_florida_video_2.webm"}
             type="video/webm"
           />
           Your browser does not support the video tag.
