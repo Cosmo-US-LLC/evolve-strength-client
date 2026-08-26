@@ -2,28 +2,36 @@ import React, { useEffect, useState } from "react";
 
 const bgSlides = [
   {
-    src: "/assets/images/franchise/GotYourBack/franchise_business_process.webp",
+    desktop: "/assets/images/franchise/GotYourBack/franchise_business_process.webp",
+    mobile: "/assets/images/franchise/GotYourBack/gotYourBackBusinessMob.webp",
     alt: "Evolve Strength athlete training with a barbell",
   },
   {
-    src: "/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolve.webp",
+    desktop: "/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolve.webp",
+    mobile: "/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolveMob.webp",
     alt: "Evolve Strength personal training floor",
   },
   {
-    src: "/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp",
+    desktop: "/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp",
+    mobile: "/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp",
     alt: "Evolve Strength mobility and yoga area",
   },
   {
-    src: "/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp",
+    desktop: "/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp",
+    mobile: "/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide8.webp",
     alt: "Evolve Strength lifting platforms",
   },
   {
-    src: "/assets/images/franchise/Evolvelooklike/image_6.webp",
+    desktop: "/assets/images/franchise/Evolvelooklike/image_6.webp",
+    mobile: "/assets/images/franchise/Evolvelooklike/image_6.webp",
     alt: "Evolve Strength turf training area",
   },
 ];
 
 const SLIDE_DURATION = 3000;
+const FADE_MS = 1500;
+const ZOOM_MS = 7000;
+const slideTransition = `opacity ${FADE_MS}ms ease-in-out, transform ${ZOOM_MS}ms ease-out`;
 
 const infoItems = [
   {
@@ -76,28 +84,31 @@ function LansdowneComingSoon() {
     <div className="relative w-full min-h-screen lg:h-screen overflow-y-auto lg:overflow-hidden bg-[#08090A]">
       {/* Full-bleed background photo slideshow */}
       {bgSlides.map((slide, i) => (
-        <img
-          key={slide.src}
-          src={slide.src}
-          alt={slide.alt}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1200ms] ease-in-out ${
-            i === activeSlide
-              ? "opacity-100 scale-110 duration-[3800ms] ease-out"
-              : "opacity-0 scale-100 duration-0"
-          }`}
-          style={{ transitionProperty: "opacity, transform" }}
-        />
+        <React.Fragment key={slide.desktop}>
+          <img
+            src={slide.desktop}
+            alt={slide.alt}
+            className={`hidden md:block absolute inset-0 h-full w-full object-cover ${
+              i === activeSlide ? "opacity-100 scale-110" : "opacity-0 scale-100"
+            }`}
+            style={{ transition: slideTransition }}
+          />
+          <img
+            src={slide.mobile}
+            alt={slide.alt}
+            className={`md:hidden absolute inset-0 h-full w-full object-cover ${
+              i === activeSlide ? "opacity-100 scale-110" : "opacity-0 scale-100"
+            }`}
+            style={{ transition: slideTransition }}
+          />
+        </React.Fragment>
       ))}
-
-      {/* Dark overlay for text legibility */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
-      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
 
       {/* Slide indicators */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 lg:bottom-8">
         {bgSlides.map((slide, i) => (
           <span
-            key={slide.src}
+            key={slide.desktop}
             className={`h-[3px] rounded-full transition-all duration-500 ${
               i === activeSlide ? "w-6 bg-[#4AB04A]" : "w-3 bg-white/30"
             }`}
