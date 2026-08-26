@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const gymBgImage =
-  "/assets/images/franchise/GotYourBack/franchise_business_process.webp";
+const bgSlides = [
+  {
+    src: "/assets/images/franchise/GotYourBack/franchise_business_process.webp",
+    alt: "Evolve Strength athlete training with a barbell",
+  },
+  {
+    src: "/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolve.webp",
+    alt: "Evolve Strength personal training floor",
+  },
+  {
+    src: "/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp",
+    alt: "Evolve Strength mobility and yoga area",
+  },
+  {
+    src: "/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp",
+    alt: "Evolve Strength lifting platforms",
+  },
+  {
+    src: "/assets/images/franchise/Evolvelooklike/image_6.webp",
+    alt: "Evolve Strength turf training area",
+  },
+];
+
+const SLIDE_DURATION = 3000;
 
 const infoItems = [
   {
@@ -41,18 +63,49 @@ const infoItems = [
 ];
 
 function LansdowneComingSoon() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % bgSlides.length);
+    }, SLIDE_DURATION);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="relative w-full min-h-screen lg:h-screen overflow-y-auto lg:overflow-hidden bg-[#08090A]">
-      {/* Full-bleed background photo */}
-      <img
-        src={gymBgImage}
-        alt="Evolve Strength athlete training with a barbell"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
+      {/* Full-bleed background photo slideshow */}
+      {bgSlides.map((slide, i) => (
+        <img
+          key={slide.src}
+          src={slide.src}
+          alt={slide.alt}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1200ms] ease-in-out ${
+            i === activeSlide
+              ? "opacity-100 scale-110 duration-[3800ms] ease-out"
+              : "opacity-0 scale-100 duration-0"
+          }`}
+          style={{ transitionProperty: "opacity, transform" }}
+        />
+      ))}
 
-      <div className="relative z-10 min-h-screen lg:h-full max-w-[1280px] mx-auto px-4 md:px-8 py-16 lg:py-0 flex items-center">
+      {/* Dark overlay for text legibility */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
+
+      {/* Slide indicators */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 lg:bottom-8">
+        {bgSlides.map((slide, i) => (
+          <span
+            key={slide.src}
+            className={`h-[3px] rounded-full transition-all duration-500 ${
+              i === activeSlide ? "w-6 bg-[#4AB04A]" : "w-3 bg-white/30"
+            }`}
+          />
+        ))}
+      </div>
+
+      <div className="relative z-20 min-h-screen lg:h-full max-w-[1280px] mx-auto px-4 md:px-8 py-16 lg:py-0 flex items-center">
         <div className="max-w-[620px]">
           <div className="inline-flex items-center gap-2 bg-[#4AB04A]/10 border border-[#4AB04A]/40 px-4 py-1.5 rounded-full mb-5 md:mb-6">
             <span className="w-[7px] h-[7px] rounded-full bg-[#4AB04A] animate-pulse" />
