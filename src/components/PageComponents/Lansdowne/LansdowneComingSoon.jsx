@@ -1,5 +1,7 @@
 import React from "react";
-import gymBgImage from "@/assets/images/PresaleParkRoyal/first_banner.jpg";
+
+const gymBgImage =
+  "/assets/images/franchise/GotYourBack/franchise_business_process.webp";
 
 const infoItems = [
   {
@@ -44,7 +46,7 @@ function LansdowneComingSoon() {
       {/* Full-bleed background photo */}
       <img
         src={gymBgImage}
-        alt="Inside an Evolve Strength gym"
+        alt="Evolve Strength athlete training with a barbell"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
