@@ -38,11 +38,6 @@ const bgSlides = [
     alt: "Evolve Strength athlete training with a barbell",
   },
   {
-    desktop: "/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolve.webp",
-    mobile: "/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolveMob.webp",
-    alt: "Evolve Strength personal training floor",
-  },
-  {
     desktop: "/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp",
     mobile: "/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp",
     alt: "Evolve Strength mobility and yoga area",
