@@ -50,6 +50,7 @@ import Gym from "./pages/Gym";
 import Discover from "./pages/Discover";
 import PresaleEdmontonSouthCommon from "./pages/PresalePage/PresaleEdmontonSouthCommon";
 import PresaleParkRoyal from "./pages/PresalePage/PresaleParkRoyal";
+import LansdowneComingSoon from "./pages/PresalePage/LansdowneComingSoon";
 import FounderOfferPayment from "./pages/FounderOfferPayment";
 import EdmontonSouthTermsAndConditions from "./pages/PresalePage/EdmontonSouthTermsAndConditions";
 import ParkRoyalTermsAndConditions from "./pages/PresalePage/ParkRoyalTermsAndConditions";
@@ -156,6 +157,7 @@ function App() {
             element={<SouthEdmontonCommonRules />}
           />
           <Route path="/park-royal-waitlist" element={<ParkRoyalWaitlist />} />
+          <Route path="/lansdowne" element={<LansdowneComingSoon />} />
         </Route>
 
         {/* Location-based Discover flow */}
