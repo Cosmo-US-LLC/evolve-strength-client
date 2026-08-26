@@ -105,16 +105,17 @@ function LansdowneComingSoon() {
 
         {/* Right: QR code card */}
         <div className="flex justify-center lg:justify-end">
-          <div className="relative rounded-[24px] bg-white/[0.03] border border-white/10 backdrop-blur-xl p-6 md:p-10 overflow-hidden max-w-[420px] w-full">
+          <div className="relative rounded-[8px] bg-white/[0.03] border border-white/10 backdrop-blur-xl p-6 md:p-10 overflow-hidden max-w-[520px] w-full h-auto lg:h-[460px]">
             <div className="pointer-events-none absolute -top-24 -right-24 w-[220px] h-[220px] rounded-full bg-[#4AB04A]/20 blur-[80px]" />
-            <div className="relative flex flex-col items-center text-center">
-              <div className="bg-white p-5 rounded-[16px]">
+            <div className="relative flex flex-col items-center justify-center text-center h-full">
+              <div className="bg-white p-3 sm:p-4 rounded-[8px] w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] md:w-[300px] md:h-[300px] lg:w-[348px] lg:h-[348px]">
                 <QRCodeSVG
                   value={mapsUrl}
-                  size={260}
+                  size={348}
                   level="H"
                   fgColor="#08090A"
                   bgColor="#FFFFFF"
+                  style={{ width: "100%", height: "100%" }}
                 />
               </div>
             </div>
