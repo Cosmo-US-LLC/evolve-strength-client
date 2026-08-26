@@ -5,27 +5,27 @@ import { Pause, Play } from "lucide-react";
 const gymSlides = [
   {
     image:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1777897973779-6eeb5268-0fdd-4ffd-9ed7-ee79ab2cc52e.webp",
+      "https://assets.evolvestrength.ca/media/1777897973779-6eeb5268-0fdd-4ffd-9ed7-ee79ab2cc52e.webp",
     alt: "Gym zone image 1",
   },
   {
     image:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1777898177340-da92e5d0-a08e-4bd9-aff5-ec9c64ed32a1.webp",
+      "https://assets.evolvestrength.ca/media/1777898177340-da92e5d0-a08e-4bd9-aff5-ec9c64ed32a1.webp",
     alt: "Gym zone image 2",
   },
   {
     image:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1777898246913-c7771857-8834-4988-a3e9-8c8616c0513a.webp",
+      "https://assets.evolvestrength.ca/media/1777898246913-c7771857-8834-4988-a3e9-8c8616c0513a.webp",
     alt: "Gym zone image 3",
   },
   {
     image:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1777898426244-336ab9dd-4bcf-4900-a2b5-3a8971b67607.webp",
+      "https://assets.evolvestrength.ca/media/1777898426244-336ab9dd-4bcf-4900-a2b5-3a8971b67607.webp",
     alt: "Gym zone image 4",
   },
   {
     image:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1777898503097-cf0684c2-d7a1-4e5e-813b-b8d58a2f939a.webp",
+      "https://assets.evolvestrength.ca/media/1777898503097-cf0684c2-d7a1-4e5e-813b-b8d58a2f939a.webp",
     alt: "Gym zone image 5",
   },
 ];
@@ -246,21 +246,21 @@ const GymZones = () => {
             title: "Strength Zone",
             description:
               "Equip yourself with free weights, machines, and all the tools to build muscle and power.",
-            bgImage: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770305496673-9d5e6fef-a478-41eb-9abb-8a34058b41b7.webp",
+            bgImage: "https://assets.evolvestrength.ca/media/1770305496673-9d5e6fef-a478-41eb-9abb-8a34058b41b7.webp",
             icon: icon1,
             number: 1,
           },
           {
             title: "Cardio Zone",
             description: "Stay active and boost endurance with treadmills, bikes, rowers, and more.",
-            bgImage: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304391753-57bca423-49c1-40a6-9a25-9f3e25df5af8.webp",
+            bgImage: "https://assets.evolvestrength.ca/media/1770304391753-57bca423-49c1-40a6-9a25-9f3e25df5af8.webp",
             icon: icon2,
             number: 2,
           },
           {
             title: "Turf Area",
             description: "Train functionally with open space for agility, HIIT, and dynamic workouts.",
-            bgImage: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304404780-80b9f5db-508e-4f5a-9012-26fac72a4681.webp",
+            bgImage: "https://assets.evolvestrength.ca/media/1770304404780-80b9f5db-508e-4f5a-9012-26fac72a4681.webp",
             icon: icon3,
             number: 3,
           },
@@ -271,27 +271,27 @@ const GymZones = () => {
             title: "Strength Zone",
             description:
               "Equip yourself with free weights, machines, and all the tools to build muscle and power.",
-            bgImage: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770305496673-9d5e6fef-a478-41eb-9abb-8a34058b41b7.webp",
+            bgImage: "https://assets.evolvestrength.ca/media/1770305496673-9d5e6fef-a478-41eb-9abb-8a34058b41b7.webp",
             icon: icon1,
             number: 1,
           },
           {
             title: "Cardio Zone",
             description: "Stay active and boost endurance with treadmills, bikes, rowers, and more.",
-            bgImage: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304391753-57bca423-49c1-40a6-9a25-9f3e25df5af8.webp",
+            bgImage: "https://assets.evolvestrength.ca/media/1770304391753-57bca423-49c1-40a6-9a25-9f3e25df5af8.webp",
             icon: icon2,
             number: 2,
           },
           {
             title: "Turf Area",
             description: "Train functionally with open space for agility, HIIT, and dynamic workouts.",
-            bgImage: "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304404780-80b9f5db-508e-4f5a-9012-26fac72a4681.webp",
+            bgImage: "https://assets.evolvestrength.ca/media/1770304404780-80b9f5db-508e-4f5a-9012-26fac72a4681.webp",
             icon: icon3,
             number: 3,
           },
         ];
 
-        const defaultBg = "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304376936-6e908d28-3c87-41a7-97d8-c68d247a4e8f.webp";
+        const defaultBg = "https://assets.evolvestrength.ca/media/1770304376936-6e908d28-3c87-41a7-97d8-c68d247a4e8f.webp";
 
         const GymZones = () => {
           const [hoveredIndex, setHoveredIndex] = useState(null);

@@ -35,7 +35,7 @@ function WorkAtEvolve() {
           <div className="relative">
             <div className="relative h-auto md:h-[350px] rounded-[6px] overflow-hidden">
               <img
-                src="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/work_at_evolve.webp"
+                src="https://assets.evolvestrength.ca/assets/images/careers/careersHero/work_at_evolve.webp"
                 alt="Evolve Strength team of fitness and health professionals collaborating in a modern gym"
                 className="w-full h-full object-cover"
               />

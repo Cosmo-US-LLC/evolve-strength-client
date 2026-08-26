@@ -6,13 +6,13 @@ function ParkRoyalSpaceShowcase() {
       <div className="relative overflow-hidden w-full min-h-[420px] md:min-h-[667px]">
         {/* Desktop image */}
         <img
-          src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1784191958310-801be316-2715-4165-bf74-5c0a222e5833.webp"
+          src="https://assets.evolvestrength.ca/media/1784191958310-801be316-2715-4165-bf74-5c0a222e5833.webp"
           alt="Evolve Strength Park Royal training floor"
           className="hidden md:block absolute inset-0 w-full h-full object-cover"
         />
         {/* Mobile image — paste CDN URL in src */}
         <img
-          src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1784284481158-42228d3e-55ea-4326-8dd1-de9493b2c409.webp"
+          src="https://assets.evolvestrength.ca/media/1784284481158-42228d3e-55ea-4326-8dd1-de9493b2c409.webp"
           alt="Evolve Strength Park Royal training floor"
           className="block md:hidden absolute inset-0 w-full h-full object-cover"
         />

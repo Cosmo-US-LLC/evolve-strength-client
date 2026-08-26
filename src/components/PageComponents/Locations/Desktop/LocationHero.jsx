@@ -50,9 +50,9 @@ const LOCATION_HERO_DATA = {
     // desktop: "/assets/images/Locations/location-hero/hero_downtown.webp",
     // mobile: "/assets/images/Locations/location-hero/hero_downtown_mob.webp",
     desktop:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1776063403075-778fdaac-3779-49c2-8511-4102bfce6941.webp",
+      "https://assets.evolvestrength.ca/media/1776063403075-778fdaac-3779-49c2-8511-4102bfce6941.webp",
     mobile:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1776063482611-e3cca27d-6fcf-48c3-99d6-3178e53c8673.webp",
+      "https://assets.evolvestrength.ca/media/1776063482611-e3cca27d-6fcf-48c3-99d6-3178e53c8673.webp",
     locationTitle: "DOWNTOWN",
     city: "EDMONTON",
     fullTitle: "DOWNTOWN's Premier Fitness and Wellness Club",

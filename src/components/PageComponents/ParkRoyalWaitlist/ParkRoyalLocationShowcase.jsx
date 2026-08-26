@@ -6,13 +6,13 @@ function ParkRoyalLocationShowcase() {
       <div className="relative overflow-hidden w-full min-h-[420px] md:min-h-[667px]">
         {/* Desktop image */}
         <img
-          src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1784194417531-22c0ab72-7d3b-476e-96f4-9d9952580a94.webp"
+          src="https://assets.evolvestrength.ca/media/1784194417531-22c0ab72-7d3b-476e-96f4-9d9952580a94.webp"
           alt="Evolve Strength Park Royal location"
           className="hidden md:block absolute inset-0 w-full h-full object-cover object-center"
         />
         {/* Mobile image — paste CDN URL in src */}
         <img
-          src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1784284609508-abdf9fab-f121-43b0-9dfa-9c30cb771b3a.webp"
+          src="https://assets.evolvestrength.ca/media/1784284609508-abdf9fab-f121-43b0-9dfa-9c30cb771b3a.webp"
           alt="Evolve Strength Park Royal location"
           className="block md:hidden absolute inset-0 w-full h-full object-cover object-center"
         />

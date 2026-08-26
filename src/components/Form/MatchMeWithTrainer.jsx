@@ -298,7 +298,7 @@ export default function MatchMeWithTrainer() {
         <div className="w-full max-w-[40%] flex-shrink-0 flex flex-col max-md:hidden">
           <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white relative">
             <img
-              src="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessJourneySteps/step_1.webp"
+              src="https://assets.evolvestrength.ca/assets/images/wellness/WellnessJourneySteps/step_1.webp"
               alt="Personal Training Session"
               className="object-cover w-full h-[926px]"
             />

@@ -68,9 +68,9 @@ const LOCATION_BACKGROUNDS = {
   },
   "south-edmonton-common": {
     desktop:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1785739355529-67033363-353e-4c52-b1a1-b3f746f094b1.webp",
+      "https://assets.evolvestrength.ca/media/1785739355529-67033363-353e-4c52-b1a1-b3f746f094b1.webp",
     mobile:
-      "https://evolve-strength.tor1.digitaloceanspaces.com/media/1785739355529-67033363-353e-4c52-b1a1-b3f746f094b1.webp",
+      "https://assets.evolvestrength.ca/media/1785739355529-67033363-353e-4c52-b1a1-b3f746f094b1.webp",
     locationName: "South Edmonton Common",
     tourUrl: "/book-a-tour/?location=32176",
   },

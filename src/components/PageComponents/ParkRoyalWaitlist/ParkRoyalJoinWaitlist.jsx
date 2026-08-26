@@ -8,7 +8,7 @@ function ParkRoyalJoinWaitlist() {
       className="relative py-16 md:py-24 px-4 md:px-8 bg-cover bg-center "
       style={{
         backgroundImage:
-          "url('https://evolve-strength.tor1.digitaloceanspaces.com/media/1784034777603-f33e27dd-7938-4c90-be0f-42ea8ddae6f1.webp')",
+          "url('https://assets.evolvestrength.ca/media/1784034777603-f33e27dd-7938-4c90-be0f-42ea8ddae6f1.webp')",
       }}
     >
       <div className="max-w-3xl mx-auto relative z-10">

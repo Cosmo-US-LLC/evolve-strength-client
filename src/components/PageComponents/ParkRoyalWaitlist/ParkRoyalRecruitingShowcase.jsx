@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 // TODO: replace with CDN links when shared
 const desktopImage =
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784283892364-21f3d413-c5f3-4334-8d90-02f6e23d795d.webp";
+  "https://assets.evolvestrength.ca/media/1784283892364-21f3d413-c5f3-4334-8d90-02f6e23d795d.webp";
 const mobileImage =
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784283906214-dde155ef-7125-49e7-b506-3e4eae632b8c.webp";
+  "https://assets.evolvestrength.ca/media/1784283906214-dde155ef-7125-49e7-b506-3e4eae632b8c.webp";
 
 function ParkRoyalRecruitingShowcase() {
   return (

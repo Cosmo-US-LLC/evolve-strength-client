@@ -15,16 +15,16 @@ const scrollAnimation = `
 
 // TODO: swap with the real Park Royal office/facility photos once links are shared
 const firstColumn = [
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784200929617-4cf97ea3-1602-40e5-82f6-2fbcecd47c79.webp",
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784200949027-3c15788e-5342-4a29-b66d-083a6bc4e5a1.webp",
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784200968046-2d7af29b-40fd-43b2-98c2-fcb8d877ab01.webp",
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784200992507-3f9035b4-cce0-42da-a128-70be24edc566.webp",
+  "https://assets.evolvestrength.ca/media/1784200929617-4cf97ea3-1602-40e5-82f6-2fbcecd47c79.webp",
+  "https://assets.evolvestrength.ca/media/1784200949027-3c15788e-5342-4a29-b66d-083a6bc4e5a1.webp",
+  "https://assets.evolvestrength.ca/media/1784200968046-2d7af29b-40fd-43b2-98c2-fcb8d877ab01.webp",
+  "https://assets.evolvestrength.ca/media/1784200992507-3f9035b4-cce0-42da-a128-70be24edc566.webp",
 ];
 const secondColumn = [
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784201015590-c26736fa-1953-4c79-91b0-c14f0d1d6e50.webp",
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784201040401-1088f067-7ce6-45aa-a250-5b50b3b6d488.webp",
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784201065145-5946e514-d2e4-48ad-995f-7b83427e4243.webp",
-  "https://evolve-strength.tor1.digitaloceanspaces.com/media/1784201087034-916e649d-d6ac-47dc-ae02-295af2419e07.webp",
+  "https://assets.evolvestrength.ca/media/1784201015590-c26736fa-1953-4c79-91b0-c14f0d1d6e50.webp",
+  "https://assets.evolvestrength.ca/media/1784201040401-1088f067-7ce6-45aa-a250-5b50b3b6d488.webp",
+  "https://assets.evolvestrength.ca/media/1784201065145-5946e514-d2e4-48ad-995f-7b83427e4243.webp",
+  "https://assets.evolvestrength.ca/media/1784201087034-916e649d-d6ac-47dc-ae02-295af2419e07.webp",
 ];
 
 function ParkRoyalOfficeSpaceShowcase() {

@@ -7,7 +7,7 @@ const steps = [
     description:
       "Find from our team of physiotherapists, chiropractors, massage therapists, nutritionists, and more.",
     image:
-      "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessJourneySteps/step_5.webp",
+      "https://assets.evolvestrength.ca/assets/images/wellness/WellnessJourneySteps/step_5.webp",
     icon: <Search className="w-5 h-5 text-white" />,
   },
   {
