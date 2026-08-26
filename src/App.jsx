@@ -162,7 +162,7 @@ function App() {
         {/* Location-based Discover flow */}
         <Route path="/discover" element={<Discover />} />
 
-        <Route path="/lansdowne" element={<LansdowneComingSoon />} />
+        <Route path="/go/lansdowne" element={<LansdowneComingSoon />} />
 
         <Route path="/join-the-wait-list" element={<EvolveSpacesForm />} />
         <Route
