@@ -105,19 +105,13 @@ function LansdowneComingSoon() {
 
         {/* Right: QR code card */}
         <div className="flex justify-center lg:justify-end">
-          <div className="relative rounded-[20px] bg-white/[0.03] border border-white/10 backdrop-blur-xl p-6 md:p-8 overflow-hidden max-w-[340px] w-full">
+          <div className="relative rounded-[24px] bg-white/[0.03] border border-white/10 backdrop-blur-xl p-6 md:p-10 overflow-hidden max-w-[420px] w-full">
             <div className="pointer-events-none absolute -top-24 -right-24 w-[220px] h-[220px] rounded-full bg-[#4AB04A]/20 blur-[80px]" />
             <div className="relative flex flex-col items-center text-center">
-              <h4 className="text-[#FFFFFF] !font-[Kanit] !font-[600] text-[18px] md:text-[20px] uppercase mb-2">
-                Get Directions
-              </h4>
-              <p className="text-[#9BA09C] !font-[Kanit] !text-[13px] !leading-[19px] mb-6">
-                Scan to find us inside Lansdowne Centre
-              </p>
-              <div className="bg-white p-4 rounded-[14px]">
+              <div className="bg-white p-5 rounded-[16px]">
                 <QRCodeSVG
                   value={mapsUrl}
-                  size={180}
+                  size={260}
                   level="H"
                   fgColor="#08090A"
                   bgColor="#FFFFFF"
