@@ -72,13 +72,39 @@ const infoItems = [
 
 function LansdowneComingSoon() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [imagesReady, setImagesReady] = useState(false);
+
+  // Preload every slide (both desktop and mobile crops) up front so the
+  // crossfade never has to decode a large image mid-transition — that
+  // decode stall is what caused the freeze/flicker when a slide came in.
+  useEffect(() => {
+    let cancelled = false;
+    const sources = bgSlides.flatMap((slide) => [slide.desktop, slide.mobile]);
+    Promise.all(
+      sources.map(
+        (src) =>
+          new Promise((resolve) => {
+            const img = new Image();
+            img.onload = resolve;
+            img.onerror = resolve;
+            img.src = src;
+          })
+      )
+    ).then(() => {
+      if (!cancelled) setImagesReady(true);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
+    if (!imagesReady) return;
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % bgSlides.length);
     }, SLIDE_DURATION);
     return () => clearInterval(timer);
-  }, []);
+  }, [imagesReady]);
 
   return (
     <div className="relative w-full min-h-screen lg:h-screen overflow-y-auto lg:overflow-hidden bg-[#08090A]">
@@ -92,6 +118,8 @@ function LansdowneComingSoon() {
               i === activeSlide ? "opacity-100 scale-110" : "opacity-0 scale-100"
             }`}
             style={{ transition: slideTransition }}
+            loading="eager"
+            decoding="async"
           />
           <img
             src={slide.mobile}
@@ -100,6 +128,8 @@ function LansdowneComingSoon() {
               i === activeSlide ? "opacity-100 scale-110" : "opacity-0 scale-100"
             }`}
             style={{ transition: slideTransition }}
+            loading="eager"
+            decoding="async"
           />
         </React.Fragment>
       ))}
