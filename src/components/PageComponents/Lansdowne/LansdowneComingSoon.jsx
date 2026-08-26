@@ -1,21 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const bgSlides = [
-  {
-    desktop: "/assets/images/franchise/GotYourBack/franchise_business_process.webp",
-    mobile: "/assets/images/franchise/GotYourBack/gotYourBackBusinessMob.webp",
-    alt: "Evolve Strength athlete training with a barbell",
-  },
-  {
-    desktop: "/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolve.webp",
-    mobile: "/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolveMob.webp",
-    alt: "Evolve Strength personal training floor",
-  },
-  {
-    desktop: "/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp",
-    mobile: "/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp",
-    alt: "Evolve Strength mobility and yoga area",
-  },
+
   {
     desktop: "/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp",
     mobile: "/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide8.webp",
@@ -45,6 +31,21 @@ const bgSlides = [
     desktop: "/assets/images/franchise/Evolvelooklike/image_5.webp",
     mobile: "/assets/images/franchise/Evolvelooklike/image_5.webp",
     alt: "Evolve Strength wellness clinic hallway",
+  },
+    {
+    desktop: "/assets/images/franchise/GotYourBack/franchise_business_process.webp",
+    mobile: "/assets/images/franchise/GotYourBack/gotYourBackBusinessMob.webp",
+    alt: "Evolve Strength athlete training with a barbell",
+  },
+  {
+    desktop: "/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolve.webp",
+    mobile: "/assets/images/PersonalTraning/SwitchToEvolve/switchToEvolveMob.webp",
+    alt: "Evolve Strength personal training floor",
+  },
+  {
+    desktop: "/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp",
+    mobile: "/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp",
+    alt: "Evolve Strength mobility and yoga area",
   },
 ];
 
@@ -156,18 +157,6 @@ function LansdowneComingSoon() {
 
       {/* Dark overlay for text legibility: solid black on the left, fading out by 50% */}
       <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/60 to-transparent" />
-
-      {/* Slide indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 lg:bottom-8">
-        {bgSlides.map((slide, i) => (
-          <span
-            key={slide.desktop}
-            className={`h-[3px] rounded-full transition-all duration-500 ${
-              i === activeSlide ? "w-6 bg-[#4AB04A]" : "w-3 bg-white/30"
-            }`}
-          />
-        ))}
-      </div>
 
       <div className="relative z-20 min-h-screen lg:h-full max-w-[1280px] mx-auto px-4 md:px-8 py-16 lg:py-0 flex items-center">
         <div className="max-w-[620px]">
