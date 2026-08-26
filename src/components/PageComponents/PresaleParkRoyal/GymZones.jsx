@@ -36,31 +36,25 @@ const GymZones = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeZone = zones[activeIndex];
   const sectionRef = useRef(null);
-  const [isDesktop, setIsDesktop] = useState(false);
 
-  // The scroll-scrubbed pin effect below is desktop-only: it relies on a
-  // tall (zones.length * 100vh) section + a sticky, fixed-height,
-  // overflow-hidden viewport. On mobile that fixed height clips the
-  // description text once it wraps past the viewport, and the scroll
-  // math gets thrown off by the address bar resizing window.innerHeight.
-  // So on mobile this just renders as a normal tap-to-expand accordion.
+  // Scroll-scrubbed pin effect: a tall (zones.length * 100dvh) section with
+  // a sticky, viewport-height, overflow-hidden frame inside. Scroll
+  // progress through the tall section drives which zone is active. Uses
+  // dvh (dynamic viewport height) rather than vh/window.innerHeight so it
+  // doesn't get thrown off by mobile browsers resizing the chrome (address
+  // bar) while scrolling. Content is sized compactly on mobile (see the
+  // image/list/text classes below) so it always fits within one screen
+  // instead of getting clipped by overflow-hidden.
   useEffect(() => {
-    const mql = window.matchMedia("(min-width: 768px)");
-    const update = () => setIsDesktop(mql.matches);
-    update();
-    mql.addEventListener("change", update);
-    return () => mql.removeEventListener("change", update);
-  }, []);
-
-  useEffect(() => {
-    if (!isDesktop) return;
+    const getViewportHeight = () =>
+      window.visualViewport?.height ?? window.innerHeight;
 
     const handleScroll = () => {
       const el = sectionRef.current;
       if (!el) return;
 
       const rect = el.getBoundingClientRect();
-      const scrollableHeight = rect.height - window.innerHeight;
+      const scrollableHeight = rect.height - getViewportHeight();
       if (scrollableHeight <= 0) return;
 
       const scrolled = Math.min(Math.max(-rect.top, 0), scrollableHeight);
@@ -80,30 +74,26 @@ const GymZones = () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-  }, [isDesktop]);
+  }, []);
 
   return (
     <section
       ref={sectionRef}
       className="relative"
-      style={isDesktop ? { height: `${zones.length * 100}vh` } : undefined}
+      style={{ height: `${zones.length * 100}dvh` }}
     >
-      <div
-        className={`flex w-full flex-col justify-center bg-white px-4 py-12 md:px-8 md:py-20 ${
-          isDesktop ? "sticky top-0 h-screen overflow-hidden" : ""
-        }`}
-      >
-      <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-6 md:gap-8">
-        <div className="flex flex-col items-center gap-2 text-center">
-          <p className="font-[Kanit] text-[14px] md:text-[16px] font-[500] uppercase leading-[20px] md:leading-[24px] text-[#4ab04a]">
+      <div className="sticky top-0 flex h-[100dvh] w-full flex-col justify-center overflow-y-auto bg-white px-4 py-6 md:overflow-hidden md:px-8 md:py-20">
+      <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-4 md:gap-8">
+        <div className="flex flex-col items-center gap-1 text-center md:gap-2">
+          <p className="font-[Kanit] text-[13px] md:text-[16px] font-[500] uppercase leading-[18px] md:leading-[24px] text-[#4ab04a]">
             The Space
           </p>
-          <h2 className="font-[Kanit] !text-[28px] md:!text-[40px] !font-[600] uppercase !leading-[34px] md:!leading-[46px] text-[#000]">
+          <h2 className="font-[Kanit] !text-[22px] md:!text-[40px] !font-[600] uppercase !leading-[26px] md:!leading-[46px] text-[#000]">
             Built To Be Seen. Built To Be Used
           </h2>
         </div>
 
-        <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-12">
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-12">
           <div className="hidden md:block md:w-1/3 overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.p
@@ -119,7 +109,7 @@ const GymZones = () => {
             </AnimatePresence>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[381px] shrink-0 overflow-hidden rounded-[16px] md:w-1/3 aspect-[381/500]">
+          <div className="relative mx-auto h-[160px] w-full shrink-0 overflow-hidden rounded-[16px] md:h-auto md:w-1/3 md:max-w-[381px] md:aspect-[381/500]">
             <AnimatePresence mode="sync">
               <motion.img
                 key={activeIndex}
@@ -141,7 +131,7 @@ const GymZones = () => {
                   type="button"
                   onClick={() => setActiveIndex(index)}
                   onMouseEnter={() => setActiveIndex(index)}
-                  className={`py-4 text-left font-[Kanit] text-[24px] md:text-[36px] font-[600] uppercase leading-[1] transition-colors duration-200 cursor-pointer ${
+                  className={`py-2 md:py-4 text-left font-[Kanit] text-[18px] md:text-[36px] font-[600] uppercase leading-[1.15] md:leading-[1] transition-colors duration-200 cursor-pointer ${
                     index === activeIndex ? "text-[#4ab04a]" : "text-[#c4c4c4]"
                   }`}
                 >
@@ -154,7 +144,7 @@ const GymZones = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -16 }}
                       transition={{ duration: 0.35, ease: "easeOut" }}
-                      className="pb-4 font-[Kanit] text-[16px] font-[300] leading-[24px] text-[#000] md:hidden"
+                      className="pb-2 font-[Kanit] text-[13px] leading-[18px] font-[300] text-[#000] md:hidden"
                     >
                       {zone.description}
                     </motion.p>
