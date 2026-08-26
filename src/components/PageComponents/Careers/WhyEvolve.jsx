@@ -6,37 +6,37 @@ function WhyEvolve() {
       title: "Work Spaces",
       description:
         "Modern, flexible hubs for health pros.",
-      image: "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/work_spaces.webp",
+      image: "https://assets.evolvestrength.ca/assets/images/careers/careersHero/work_spaces.webp",
     },
     {
       title: "Professional environment",
       description:
         "Collaborate and grow with experts.",
-      image: "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/professional_environment.webp",
+      image: "https://assets.evolvestrength.ca/assets/images/careers/careersHero/professional_environment.webp",
     },
     {
       title: "Growth-focused culture",
       description:
         "A network that drives success.",
-      image: "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/groth_culture.webp",
+      image: "https://assets.evolvestrength.ca/assets/images/careers/careersHero/groth_culture.webp",
     },
       {
       title: "Premium Equipment",
       description:
         "Top-tier tools at your fingertips.",
-      image: "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/premium_equiqment.webp",
+      image: "https://assets.evolvestrength.ca/assets/images/careers/careersHero/premium_equiqment.webp",
     },
     {
       title: "Flexibility & Independence",
       description:
         "Set your own schedule.",
-      image: "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/flexibility.webp",
+      image: "https://assets.evolvestrength.ca/assets/images/careers/careersHero/flexibility.webp",
     },
     {
       title: "Strong Community",
       description:
         "Thrive with like-minded professionals.",
-      image: "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/strong_community.webp",
+      image: "https://assets.evolvestrength.ca/assets/images/careers/careersHero/strong_community.webp",
     },
   ];
 

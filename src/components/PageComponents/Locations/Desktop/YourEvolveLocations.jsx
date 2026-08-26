@@ -39,54 +39,54 @@ const YourEvolveLocations = () => {
     {
       name: "BRENTWOOD",
       mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/evolve_brentwood_mob.webp",
+        "https://assets.evolvestrength.ca/assets/images/Locations/yourEvolveLocations/evolve_brentwood_mob.webp",
       desktopImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/evolve_brentwood.webp",
+        "https://assets.evolvestrength.ca/assets/images/Locations/yourEvolveLocations/evolve_brentwood.webp",
       city: "burnaby",
       province: "British Columbia",
     },
     // {
     //   name: "SUNRIDGE",
     //   mobileImage:
-    //     "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/sunridge_mob.webp",
+    //     "https://assets.evolvestrength.ca/assets/images/Locations/yourEvolveLocations/sunridge_mob.webp",
     //   desktopImage:
-    //     "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/sunridge.webp",
+    //     "https://assets.evolvestrength.ca/assets/images/Locations/yourEvolveLocations/sunridge.webp",
     //   city: "Calgary",
     //   province: "Alberta",
     // },
     {
       name: "ROYAL OAK",
       mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/royal_oak_mob.webp",
+        "https://assets.evolvestrength.ca/assets/images/Locations/yourEvolveLocations/royal_oak_mob.webp",
       desktopImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/royal_oak.webp",
+        "https://assets.evolvestrength.ca/assets/images/Locations/yourEvolveLocations/royal_oak.webp",
       city: "Calgary",
       province: "Alberta",
     },
     {
       name: "NORTH",
       mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/north_mob.webp",
+        "https://assets.evolvestrength.ca/assets/images/Locations/yourEvolveLocations/north_mob.webp",
       desktopImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/north.webp",
+        "https://assets.evolvestrength.ca/assets/images/Locations/yourEvolveLocations/north.webp",
       city: "Edmonton",
       province: "Alberta",
     },
     {
       name: "SETON",
       mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/seton_mob.webp",
+        "https://assets.evolvestrength.ca/assets/images/Locations/yourEvolveLocations/seton_mob.webp",
       desktopImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/seton.webp",
+        "https://assets.evolvestrength.ca/assets/images/Locations/yourEvolveLocations/seton.webp",
       city: "Calgary",
       province: "Alberta",
     },
     {
       name: "VANCOUVER POST",
       mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/post_mob.webp",
+        "https://assets.evolvestrength.ca/assets/images/Locations/yourEvolveLocations/post_mob.webp",
       desktopImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/post.webp",
+        "https://assets.evolvestrength.ca/assets/images/Locations/yourEvolveLocations/post.webp",
       city: "Vancouver",
       province: "British Columbia",
     },
@@ -94,18 +94,18 @@ const YourEvolveLocations = () => {
     {
       name: "SOUTH COMMON",
       mobileImage:
-        "https://evolve-strength.tor1.digitaloceanspaces.com/media/1785739121416-cc3651c5-2296-4ab1-8006-00b8e72e048f.webp",
+        "https://assets.evolvestrength.ca/media/1785739121416-cc3651c5-2296-4ab1-8006-00b8e72e048f.webp",
       desktopImage:
-        "https://evolve-strength.tor1.digitaloceanspaces.com/media/1785739121416-cc3651c5-2296-4ab1-8006-00b8e72e048f.webp",
+        "https://assets.evolvestrength.ca/media/1785739121416-cc3651c5-2296-4ab1-8006-00b8e72e048f.webp",
       city: "Edmonton",
       province: "Alberta",
     },
     {
       name: "DOWNTOWN",
       mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/downtown_mob.webp",
+        "https://assets.evolvestrength.ca/assets/images/Locations/yourEvolveLocations/downtown_mob.webp",
       desktopImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/Locations/yourEvolveLocations/downtown.webp",
+        "https://assets.evolvestrength.ca/assets/images/Locations/yourEvolveLocations/downtown.webp",
       city: "Edmonton",
       province: "Alberta",
     },

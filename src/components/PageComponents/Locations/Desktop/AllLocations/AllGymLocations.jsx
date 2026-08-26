@@ -8,7 +8,7 @@ function AllGymLocations() {
       id: 10,
       name: "Park Royal",
       image:
-        "https://evolve-strength.tor1.digitaloceanspaces.com/media/1786105143131-79959a91-c6b9-45ee-8cfb-0cf50184d8c9.webp",
+        "https://assets.evolvestrength.ca/media/1786105143131-79959a91-c6b9-45ee-8cfb-0cf50184d8c9.webp",
       address: "815 Park Royal N, West Vancouver, BC",
       locationUrl: "/park-royal-waitlist",
       commonbtn: true,

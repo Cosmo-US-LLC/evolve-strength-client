@@ -19,7 +19,7 @@ const benefitItems = [
     description:
       "High retention and low churn through results-driven programming and community.",
     image:
-      "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/franchise/evolveSmarterInvestment/step-4.webp",
+      "https://assets.evolvestrength.ca/assets/images/franchise/evolveSmarterInvestment/step-4.webp",
   },
   {
     key: "scalable",

@@ -142,7 +142,7 @@ export const facilityLocations = [
     label: "Downtown",
     images: {
       desktop: [
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/home/facility/downtown_9.webp.webp",
+        "https://assets.evolvestrength.ca/assets/images/home/facility/downtown_9.webp.webp",
         "/assets/images/home/facility/downtown_1.webp",
         "/assets/images/home/facility/downtown_3.webp",
         "/assets/images/home/facility/downtown_2.webp",
@@ -153,7 +153,7 @@ export const facilityLocations = [
         "/assets/images/home/facility/downtown_8.webp",
       ],
       mobile: [
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/home/facility/downtown_9.webp.webp",
+        "https://assets.evolvestrength.ca/assets/images/home/facility/downtown_9.webp.webp",
         "/assets/images/home/facility/downtown_1Mob.webp",
         "/assets/images/home/facility/downtown_2Mob.webp",
         "/assets/images/home/facility/downtown_3Mob.webp",
@@ -224,14 +224,14 @@ export const facilityLocations = [
     label: "South Commons",
     images: {
       desktop: [
-        "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304404780-80b9f5db-508e-4f5a-9012-26fac72a4681.webp",
-        "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770305496673-9d5e6fef-a478-41eb-9abb-8a34058b41b7.webp",
-        "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304391753-57bca423-49c1-40a6-9a25-9f3e25df5af8.webp",
+        "https://assets.evolvestrength.ca/media/1770304404780-80b9f5db-508e-4f5a-9012-26fac72a4681.webp",
+        "https://assets.evolvestrength.ca/media/1770305496673-9d5e6fef-a478-41eb-9abb-8a34058b41b7.webp",
+        "https://assets.evolvestrength.ca/media/1770304391753-57bca423-49c1-40a6-9a25-9f3e25df5af8.webp",
       ],
       mobile: [
-        "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304404780-80b9f5db-508e-4f5a-9012-26fac72a4681.webp",
-        "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770305496673-9d5e6fef-a478-41eb-9abb-8a34058b41b7.webp",
-        "https://evolve-strength.tor1.digitaloceanspaces.com/media/1770304391753-57bca423-49c1-40a6-9a25-9f3e25df5af8.webp",
+        "https://assets.evolvestrength.ca/media/1770304404780-80b9f5db-508e-4f5a-9012-26fac72a4681.webp",
+        "https://assets.evolvestrength.ca/media/1770305496673-9d5e6fef-a478-41eb-9abb-8a34058b41b7.webp",
+        "https://assets.evolvestrength.ca/media/1770304391753-57bca423-49c1-40a6-9a25-9f3e25df5af8.webp",
       ],
     },
   },

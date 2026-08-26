@@ -105,9 +105,9 @@ function LocationsPersonalizedAssessment() {
       },
       "south-edmonton-common": {
         desktop:
-          "https://evolve-strength.tor1.digitaloceanspaces.com/media/1785738597537-5c32f8b5-812e-4d82-8a41-8d931bfd12fb.webp",
+          "https://assets.evolvestrength.ca/media/1785738597537-5c32f8b5-812e-4d82-8a41-8d931bfd12fb.webp",
         mobile:
-          "https://evolve-strength.tor1.digitaloceanspaces.com/media/1785738597537-5c32f8b5-812e-4d82-8a41-8d931bfd12fb.webp",
+          "https://assets.evolvestrength.ca/media/1785738597537-5c32f8b5-812e-4d82-8a41-8d931bfd12fb.webp",
       },
     };
 

@@ -10,7 +10,7 @@ const Navbar = () => {
             {/* Logo Image */}
             <a href="/" className='w-fit'>
               <img 
-                src={"https://evolve-strength.tor1.digitaloceanspaces.com/media/1763468266957-6752d638-c064-4522-9fdf-07204e850c71.svg"}
+                src={"https://assets.evolvestrength.ca/media/1763468266957-6752d638-c064-4522-9fdf-07204e850c71.svg"}
                 alt="Evolve Strength" 
                 className="w-[176px] h-[34px]"
               />

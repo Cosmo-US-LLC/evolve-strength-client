@@ -158,9 +158,9 @@ export const professionalServicesForLocations = [
     title: "Strength training",
     images: {
       desktopImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/strength_training.webp",
+        "https://assets.evolvestrength.ca/assets/images/wellness/WellnessServicesForEveryone/strength_training.webp",
       mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/strength_training_mob.webp",
+        "https://assets.evolvestrength.ca/assets/images/wellness/WellnessServicesForEveryone/strength_training_mob.webp",
     },
     icon: Strength_training,
   },
@@ -168,9 +168,9 @@ export const professionalServicesForLocations = [
     title: "group training",
     images: {
       desktopImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/group_training_desktop.webp",
+        "https://assets.evolvestrength.ca/assets/images/wellness/WellnessServicesForEveryone/group_training_desktop.webp",
       mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/group_training_mobile.webp",
+        "https://assets.evolvestrength.ca/assets/images/wellness/WellnessServicesForEveryone/group_training_mobile.webp",
     },
     icon: calisthenics,
   },
@@ -208,9 +208,9 @@ export const professionalServicesForLocations = [
     title: "Cardio",
     images: {
       desktopImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/cardio.webp",
+        "https://assets.evolvestrength.ca/assets/images/wellness/WellnessServicesForEveryone/cardio.webp",
       mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/cardio_mob.webp",
+        "https://assets.evolvestrength.ca/assets/images/wellness/WellnessServicesForEveryone/cardio_mob.webp",
     },
     icon: Cardio,
   },
@@ -218,9 +218,9 @@ export const professionalServicesForLocations = [
     title: "Weight Loss",
     images: {
       desktopImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/weight_loss.webp",
+        "https://assets.evolvestrength.ca/assets/images/wellness/WellnessServicesForEveryone/weight_loss.webp",
       mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/weight_loss_mob.webp",
+        "https://assets.evolvestrength.ca/assets/images/wellness/WellnessServicesForEveryone/weight_loss_mob.webp",
     },
     icon: Weight_Loss,
   },
@@ -258,9 +258,9 @@ export const professionalServicesForLocations = [
     title: "Mobility",
     images: {
       desktopImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/mobility.webp",
+        "https://assets.evolvestrength.ca/assets/images/wellness/WellnessServicesForEveryone/mobility.webp",
       mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/mobility_mob.webp",
+        "https://assets.evolvestrength.ca/assets/images/wellness/WellnessServicesForEveryone/mobility_mob.webp",
     },
     icon: Mobility_Olympic,
   },
@@ -268,9 +268,9 @@ export const professionalServicesForLocations = [
     title: "Olympic Lifting",
     images: {
       desktopImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/olympic_lifting.webp",
+        "https://assets.evolvestrength.ca/assets/images/wellness/WellnessServicesForEveryone/olympic_lifting.webp",
       mobileImage:
-        "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/wellness/WellnessServicesForEveryone/olympic_lifting_mob.webp",
+        "https://assets.evolvestrength.ca/assets/images/wellness/WellnessServicesForEveryone/olympic_lifting_mob.webp",
     },
     icon: Lifting,
   },

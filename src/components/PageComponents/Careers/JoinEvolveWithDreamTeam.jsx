@@ -39,7 +39,7 @@ function JoinEvolveWithDreamTeam() {
           <div className="relative">
             <div className="relative h-auto rounded-[10px] overflow-hidden">
               <img
-                src="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/join_evolve_dream_team.webp"
+                src="https://assets.evolvestrength.ca/assets/images/careers/careersHero/join_evolve_dream_team.webp"
                 alt="Fitness professional performing exercise in Evolve Strength gym with modern equipment and green turf floor"
                 className="w-full h-full object-cover"
               />

@@ -37,7 +37,7 @@ function ParkRoyalFacilityShowcase() {
         {/* Left tall image */}
         <div className="w-full lg:w-[400px] shrink-0">
           <img
-            src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1784188141013-f269da9b-8f20-4d5b-83c3-cf95f3b90545.webp"
+            src="https://assets.evolvestrength.ca/media/1784188141013-f269da9b-8f20-4d5b-83c3-cf95f3b90545.webp"
             alt="Evolve Strength Park Royal reception"
             className="w-full h-[320px] md:h-[500px] object-cover rounded-lg"
           />
@@ -58,7 +58,7 @@ function ParkRoyalFacilityShowcase() {
             {/* Middle image */}
             <div className="w-full md:flex-1 min-w-0">
               <img
-                src="https://evolve-strength.tor1.digitaloceanspaces.com/media/1784188164900-43763fe3-9495-4ddc-a5ac-b3e6800cc231.webp"
+                src="https://assets.evolvestrength.ca/media/1784188164900-43763fe3-9495-4ddc-a5ac-b3e6800cc231.webp"
                 alt="Evolve Strength Park Royal gym floor"
                 className="w-full h-[280px] md:h-full md:min-h-[400px] object-cover rounded-lg"
               />

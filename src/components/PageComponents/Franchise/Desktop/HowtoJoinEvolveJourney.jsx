@@ -6,7 +6,7 @@ const steps = [
     description:
       "Complete our simple application form to share your background, location of interest, and investment readiness.",
     image:
-      "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/franchise/howtoJoinEvolveJourney/step-1.webp",
+      "https://assets.evolvestrength.ca/assets/images/franchise/howtoJoinEvolveJourney/step-1.webp",
   },
   {
     number: "02",

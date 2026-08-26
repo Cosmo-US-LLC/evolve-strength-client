@@ -177,7 +177,7 @@ function LeftPanel() {
       <div className="relative h-full overflow-hidden rounded-xl bg-[#F8F8F8] shadow-sm">
         <img
           className="absolute inset-0 h-full w-full object-cover object-top opacity-100"
-          src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/book_a_tour/book-tour.webp"
+          src="https://assets.evolvestrength.ca/assets/book_a_tour/book-tour.webp"
           alt="Athlete training"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-black/10 to-transparent" />
@@ -725,7 +725,7 @@ function FormCard({ onSuccess, location = false }) {
           className="mb-4 lg:mb-2 inline-flex items-center gap-2 text-[16px] cursor-pointer lg:text-[20px] leading-[18px] font-[300] text-[#000]/90 font-[Kanit]"
         >
           <img
-            src="https://evolve-strength.tor1.cdn.digitaloceanspaces.com/assets/book_a_tour/Button-next-slide.png"
+            src="https://assets.evolvestrength.ca/assets/book_a_tour/Button-next-slide.png"
             alt="Back"
             width={32}
             height={32}

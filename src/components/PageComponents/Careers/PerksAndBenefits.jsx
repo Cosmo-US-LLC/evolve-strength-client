@@ -53,7 +53,7 @@ function PerksAndBenefits() {
       {/* Background Image */}
       <div className="relative">
         <img
-          src="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/careers/careersHero/perks_and_benefits.webp"
+          src="https://assets.evolvestrength.ca/assets/images/careers/careersHero/perks_and_benefits.webp"
           alt="Gym member training with premium equipment"
           className="w-full h-[420px] md:h-[700px] object-cover"
           loading="lazy"

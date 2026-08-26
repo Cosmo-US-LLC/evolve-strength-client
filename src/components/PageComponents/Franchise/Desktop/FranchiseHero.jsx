@@ -76,7 +76,7 @@ function FranchiseHero() {
     link.rel = "preload";
     link.as = "image";
     link.href =
-      "https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/franchise/EvolveFloorPlan/franchise_thumbnail_light.webp";
+      "https://assets.evolvestrength.ca/assets/images/franchise/EvolveFloorPlan/franchise_thumbnail_light.webp";
     link.fetchPriority = "high";
     document.head.appendChild(link);
 
@@ -155,7 +155,7 @@ function FranchiseHero() {
                 {showThumbnail && (
                   <div className="absolute inset-0 z-20">
                     <img
-                      src="https://tor1.digitaloceanspaces.com/evolve-strength/assets/images/franchise/EvolveFloorPlan/franchise_thumbnail_light.webp"
+                      src="https://assets.evolvestrength.ca/assets/images/franchise/EvolveFloorPlan/franchise_thumbnail_light.webp"
                       alt="Franchise with Evolve - Thumbnail"
                       className="w-full h-full object-cover"
                       width="600"
