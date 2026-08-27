@@ -94,7 +94,7 @@ const GymZones = () => {
       className="relative"
       style={{ height: `${zones.length * 100}svh` }}
     >
-      <div className="sticky top-0 flex h-[100svh] w-full flex-col justify-center overflow-y-auto bg-white px-4 py-6 md:overflow-hidden md:px-8 md:py-20">
+      <div className="sticky top-0 flex h-[80svh] md:h-[100svh] w-full flex-col justify-start pt-8 md:justify-center md:pt-0 overflow-y-auto bg-white px-4 py-6 md:overflow-hidden md:px-8 md:py-16">
       <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-4 md:gap-8">
         <div className="flex flex-col items-center gap-1 text-center md:gap-2">
           <p className="font-[Kanit] text-[13px] md:text-[16px] font-[500] uppercase leading-[18px] md:leading-[24px] text-[#4ab04a]">

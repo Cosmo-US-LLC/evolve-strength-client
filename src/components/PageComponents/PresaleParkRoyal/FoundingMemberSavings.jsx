@@ -258,7 +258,7 @@ function FoundingMemberSavings() {
                 <img
                   src={pricingCardImage}
                   alt="Evolve Strength Park Royal equipment"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover object-left"
                 />
                 {/* Limited ribbon (mobile only) - diagonal green, top-right of image (Figma) */}
                 <div className="absolute top-[-2%] right-[-1%] z-10 overflow-hidden w-16 h-16 md:hidden">
@@ -311,7 +311,7 @@ function FoundingMemberSavings() {
                 <img
                   src={pricingCardImage}
                   alt="Evolve Strength Park Royal equipment"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover object-left"
                 />
                 {/* Limited ribbon (mobile only) - diagonal green, top-right of image (Figma) */}
                 <div className="absolute top-[-2%] right-[-1%] z-10 overflow-hidden w-16 h-16 md:hidden">
