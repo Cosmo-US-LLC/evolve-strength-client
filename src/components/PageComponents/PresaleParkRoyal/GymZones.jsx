@@ -36,31 +36,44 @@ const GymZones = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeZone = zones[activeIndex];
   const sectionRef = useRef(null);
+  const pinRef = useRef(null);
+  const [pinHeight, setPinHeight] = useState(0);
 
-  // Scroll-scrubbed pin effect: a tall (zones.length * 100svh) section with
-  // a sticky, viewport-height, overflow-hidden frame inside. Scroll
-  // progress through the tall section drives which zone is active.
-  //
-  // svh (small viewport height) is used instead of dvh: dvh live-resizes
-  // as the mobile browser's address bar shows/hides mid-scroll, which
-  // forces continuous layout recalculation and makes the pin effect feel
-  // janky/jittery. svh stays constant during the scroll gesture. The
-  // scroll handler itself is rAF-throttled so the layout read
-  // (getBoundingClientRect) never runs more than once per frame, which is
-  // the other common source of scroll jank.
+  // The pinned card's height is auto (hugs its content) on mobile instead
+  // of a forced 100svh, so it never has leftover blank space below the
+  // last item; on desktop it's still forced to 100svh via CSS. Either
+  // way, the scroll math needs the box's *actual* rendered height - both
+  // for how tall the scroll track needs to be (zones.length * pinHeight)
+  // and for when to advance to the next zone - so it's measured directly
+  // off the element rather than assumed from the viewport.
   useEffect(() => {
-    const getViewportHeight = () =>
-      window.visualViewport?.height ?? window.innerHeight;
+    const measure = () => {
+      if (pinRef.current) setPinHeight(pinRef.current.offsetHeight);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    window.visualViewport?.addEventListener("resize", measure);
+    return () => {
+      window.removeEventListener("resize", measure);
+      window.visualViewport?.removeEventListener("resize", measure);
+    };
+  }, []);
 
+  // Scroll-scrubbed pin effect: a tall section with a sticky frame inside.
+  // Scroll progress through the tall section drives which zone is active.
+  // The scroll handler is rAF-throttled so the layout read
+  // (getBoundingClientRect) never runs more than once per frame, which is
+  // a common source of scroll jank.
+  useEffect(() => {
     let ticking = false;
 
     const computeActiveIndex = () => {
       ticking = false;
       const el = sectionRef.current;
-      if (!el) return;
+      if (!el || !pinHeight) return;
 
       const rect = el.getBoundingClientRect();
-      const scrollableHeight = rect.height - getViewportHeight();
+      const scrollableHeight = rect.height - pinHeight;
       if (scrollableHeight <= 0) return;
 
       const scrolled = Math.min(Math.max(-rect.top, 0), scrollableHeight);
@@ -86,15 +99,22 @@ const GymZones = () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-  }, []);
+  }, [pinHeight]);
 
   return (
     <section
       ref={sectionRef}
       className="relative"
-      style={{ height: `${zones.length * 100}svh` }}
+      style={{
+        height: pinHeight
+          ? `${pinHeight * zones.length}px`
+          : `${zones.length * 100}svh`,
+      }}
     >
-      <div className="sticky top-0 flex h-[80svh] md:h-[100svh] w-full flex-col justify-start pt-8 md:justify-center md:pt-0 overflow-y-auto bg-white px-4 py-6 md:overflow-hidden md:px-8 md:py-16">
+      <div
+        ref={pinRef}
+        className="sticky top-0 flex h-[100svh] w-full flex-col justify-start md:justify-center overflow-y-auto bg-white px-4 pt-[76px] pb-2 md:overflow-hidden md:px-8 md:py-16"
+      >
       <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-4 md:gap-8">
         <div className="flex flex-col items-center gap-1 text-center md:gap-2">
           <p className="font-[Kanit] text-[13px] md:text-[16px] font-[500] uppercase leading-[18px] md:leading-[24px] text-[#4ab04a]">
@@ -121,7 +141,7 @@ const GymZones = () => {
             </AnimatePresence>
           </div>
 
-          <div className="relative mx-auto h-[220px] w-full shrink-0 overflow-hidden rounded-[16px] md:h-auto md:w-1/3 md:max-w-[381px] md:aspect-[381/500]">
+          <div className="relative mx-auto h-[270px] w-full shrink-0 overflow-hidden rounded-[16px] md:h-auto md:w-1/3 md:max-w-[381px] md:aspect-[381/500]">
             <AnimatePresence mode="sync">
               <motion.img
                 key={activeIndex}
