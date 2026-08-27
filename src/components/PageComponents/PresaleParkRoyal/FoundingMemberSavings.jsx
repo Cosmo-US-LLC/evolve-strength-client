@@ -220,7 +220,7 @@ function FoundingMemberSavings() {
   }, [baseUrl]);
 
   return (
-    <section className="bg-black py-10 md:py-20">
+    <section id="founder-rate" className="bg-black py-10 md:py-20 scroll-mt-[60px] md:scroll-mt-[80px]">
       <div className="max-w-[1340px] mx-auto px-4 md:px-8 flex flex-col gap-8 md:gap-10 items-center">
         {/* Header - optional; Figma focuses on tabs + card */}
         {/* <div className="flex flex-col gap-2 items-center text-center">

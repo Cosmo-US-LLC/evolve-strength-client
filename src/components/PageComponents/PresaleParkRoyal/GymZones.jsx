@@ -121,7 +121,7 @@ const GymZones = () => {
             </AnimatePresence>
           </div>
 
-          <div className="relative mx-auto h-[160px] w-full shrink-0 overflow-hidden rounded-[16px] md:h-auto md:w-1/3 md:max-w-[381px] md:aspect-[381/500]">
+          <div className="relative mx-auto h-[220px] w-full shrink-0 overflow-hidden rounded-[16px] md:h-auto md:w-1/3 md:max-w-[381px] md:aspect-[381/500]">
             <AnimatePresence mode="sync">
               <motion.img
                 key={activeIndex}
@@ -156,7 +156,7 @@ const GymZones = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -16 }}
                       transition={{ duration: 0.35, ease: "easeOut" }}
-                      className="pb-2 font-[Kanit] text-[13px] leading-[18px] font-[300] text-[#000] md:hidden"
+                      className="pb-2 font-[Kanit] text-[16px] leading-[24px] font-[300] text-[#000] md:hidden"
                     >
                       {zone.description}
                     </motion.p>

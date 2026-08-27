@@ -8,7 +8,7 @@ import { Plus, Minus } from "lucide-react";
 
 const PresaleFrequentlyAskedQuestions = ({ eyebrow, heading, subtext, faqs }) => {
   return (
-    <section className="py-22 bg-[#fff]">
+    <section id="faq" className="py-22 bg-[#fff] scroll-mt-[60px] md:scroll-mt-[80px]">
       <div className="max-w-[1280px] md:px-8 px-4 mx-auto w-full h-full  flex flex-col justify-center items-center text-center">
         {eyebrow && (
           <p className="uppercase font-[500] font-[Kanit] text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] text-[#4ab04a] mb-2">
