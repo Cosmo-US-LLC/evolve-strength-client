@@ -1,26 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const bgSlides = [
-
-  {
-    desktop: "/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp",
-    mobile: "/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide8.webp",
-    alt: "Evolve Strength lifting platforms",
-  },
-  {
-    desktop: "/assets/images/franchise/Evolvelooklike/image_6.webp",
-    mobile: "/assets/images/franchise/Evolvelooklike/image_6.webp",
-    alt: "Evolve Strength turf training area",
-  },
-  {
-    desktop: "/assets/images/franchise/Evolvelooklike/image_1.webp",
-    mobile: "/assets/images/franchise/Evolvelooklike/image_1.webp",
-    alt: "Evolve Strength dumbbell and rack floor",
-  },
-  {
-    desktop: "/assets/images/franchise/Evolvelooklike/image_2.webp",
-    mobile: "/assets/images/franchise/Evolvelooklike/image_2.webp",
-    alt: "Evolve Strength Olympic lifting platforms",
+ {
+    desktop: "/assets/images/home/facility/north6.webp",
+    mobile: "/assets/images/home/facility/north6Mob.webp",
+    alt: "Evolve Strength North training area",
   },
   {
     desktop: "/assets/images/franchise/Evolvelooklike/image_3.webp",
@@ -32,22 +17,93 @@ const bgSlides = [
     mobile: "/assets/images/franchise/Evolvelooklike/image_5.webp",
     alt: "Evolve Strength wellness clinic hallway",
   },
-    {
-    desktop: "/assets/images/franchise/GotYourBack/franchise_business_process.webp",
-    mobile: "/assets/images/franchise/GotYourBack/gotYourBackBusinessMob.webp",
-    alt: "Evolve Strength athlete training with a barbell",
+   {
+    desktop: "/assets/images/home/facility/north4.webp",
+    mobile: "/assets/images/home/facility/north4Mob.webp",
+    alt: "Evolve Strength North equipment floor and turf",
+  },
+   {
+    desktop: "/assets/images/home/facility/post7.webp",
+    mobile: "/assets/images/home/facility/post7Mob.webp",
+    alt: "Evolve Strength Post equipment floor and turf",
+  },
+  {
+    desktop: "/assets/images/franchise/Evolvelooklike/image_6.webp",
+    mobile: "/assets/images/franchise/Evolvelooklike/image_6.webp",
+    alt: "Evolve Strength turf training area",
+  },
+ 
+   
+   
+  {
+    desktop: "/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp",
+    mobile: "/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide8.webp",
+    alt: "Evolve Strength lifting platforms",
+  },
+ 
+  {
+    desktop: "/assets/images/franchise/Evolvelooklike/image_1.webp",
+    mobile: "/assets/images/franchise/Evolvelooklike/image_1.webp",
+    alt: "Evolve Strength dumbbell and rack floor",
+  },
+  {
+    desktop: "/assets/images/franchise/Evolvelooklike/image_2.webp",
+    mobile: "/assets/images/franchise/Evolvelooklike/image_2.webp",
+    alt: "Evolve Strength Olympic lifting platforms",
+  },
+ 
+ 
+  
+  {
+    desktop: "/assets/images/home/facility/post9.webp",
+    mobile: "/assets/images/home/facility/post9Mob.webp",
+    alt: "Evolve Strength Post cardio and rowing equipment",
+  },
+  
+  {
+    desktop: "/assets/images/home/facility/brentwood7.webp",
+    mobile: "/assets/images/home/facility/brentwood7Mob.webp",
+    alt: "Evolve Strength Brentwood kettlebell rack",
+  },
+  {
+    desktop: "/assets/images/home/facility/brentwood10.webp",
+    mobile: "/assets/images/home/facility/brentwood10Mob.webp",
+    alt: "Evolve Strength Brentwood equipment floor",
+  },
+  {
+    desktop: "/assets/images/home/facility/royal_oak_6.webp",
+    mobile: "/assets/images/home/facility/royal_oak_6Mob.webp",
+    alt: "Evolve Strength Royal Oak equipment floor",
+  },
+  {
+    desktop: "/assets/images/home/facility/downtown_7.webp",
+    mobile: "/assets/images/home/facility/downtown_7Mob.webp",
+    alt: "Evolve Strength Downtown group training area",
+  },
+  {
+    desktop: "/assets/images/home/facility/downtown_3.webp",
+    mobile: "/assets/images/home/facility/downtown_3Mob.webp",
+    alt: "Evolve Strength Downtown cardio floor",
   },
   {
     desktop: "/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp",
     mobile: "/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp",
     alt: "Evolve Strength mobility and yoga area",
   },
+ 
+  {
+    desktop: "/assets/images/home/facility/seton6.webp",
+    mobile: "/assets/images/home/facility/seton6Mob.webp",
+    alt: "Evolve Strength Seton equipment floor",
+  },
+     {
+    desktop: "/assets/images/franchise/GotYourBack/franchise_business_process.webp",
+    mobile: "/assets/images/franchise/GotYourBack/gotYourBackBusinessMob.webp",
+    alt: "Evolve Strength athlete training with a barbell",
+  },
 ];
 
-const SLIDE_DURATION = 3000;
-const FADE_MS = 1500;
-const ZOOM_MS = 7000;
-const slideTransition = `opacity ${FADE_MS}ms ease-in-out, transform ${ZOOM_MS}ms ease-out`;
+const SLIDE_DURATION = 4000;
 
 const infoItems = [
   {
@@ -125,30 +181,40 @@ function LansdowneComingSoon() {
   return (
     <div className="relative w-full min-h-screen lg:h-screen overflow-y-auto lg:overflow-hidden bg-[#08090A]">
       {/* Full-bleed background photo slideshow */}
-      {bgSlides.map((slide, i) => (
-        <React.Fragment key={slide.desktop}>
-          <img
-            src={slide.desktop}
-            alt={slide.alt}
-            className={`hidden md:block absolute inset-0 h-full w-full object-cover ${
-              i === activeSlide ? "opacity-100 scale-110" : "opacity-0 scale-100"
-            }`}
-            style={{ transition: slideTransition }}
-            loading="eager"
-            decoding="async"
+      <div className="hidden md:block absolute inset-0 overflow-hidden">
+        <AnimatePresence mode="sync">
+          <motion.img
+            key={bgSlides[activeSlide].desktop}
+            src={bgSlides[activeSlide].desktop}
+            alt={bgSlides[activeSlide].alt}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              opacity: { duration: 1.2, ease: "easeInOut" },
+              scale: { duration: SLIDE_DURATION / 1000 + 1.2, ease: "easeOut" },
+            }}
+            className="absolute inset-0 h-full w-full object-cover"
           />
-          <img
-            src={slide.mobile}
-            alt={slide.alt}
-            className={`md:hidden absolute inset-0 h-full w-full object-cover ${
-              i === activeSlide ? "opacity-100 scale-110" : "opacity-0 scale-100"
-            }`}
-            style={{ transition: slideTransition }}
-            loading="eager"
-            decoding="async"
+        </AnimatePresence>
+      </div>
+      <div className="md:hidden absolute inset-0 overflow-hidden">
+        <AnimatePresence mode="sync">
+          <motion.img
+            key={bgSlides[activeSlide].mobile}
+            src={bgSlides[activeSlide].mobile}
+            alt={bgSlides[activeSlide].alt}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              opacity: { duration: 1.2, ease: "easeInOut" },
+              scale: { duration: SLIDE_DURATION / 1000 + 1.2, ease: "easeOut" },
+            }}
+            className="absolute inset-0 h-full w-full object-cover"
           />
-        </React.Fragment>
-      ))}
+        </AnimatePresence>
+      </div>
 
       {/* Dark overlay for text legibility: solid black on the left, fading out by 50% */}
       <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/60 to-transparent" />
