@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager: only on the approved production hostname, so Vercel previews/staging/localhost never report to GA4 -->
     <script>
       (function (w, d, s, l, i) {
+        var ALLOWED_HOSTS = ["www.evolvestrength.ca"];
+        if (ALLOWED_HOSTS.indexOf(w.location.hostname) === -1) return;
         w[l] = w[l] || [];
         w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
         var f = d.getElementsByTagName(s)[0],
@@ -35,16 +37,6 @@
     ></script>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-WMVH3DX8"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
