@@ -1,11 +1,82 @@
 {
-  "routes": [
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/.*",
-      "dest": "/index.html"
-    }
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/about", "destination": "/about-us", "permanent": true },
+    { "source": "/contact", "destination": "/contact-us", "permanent": true },
+    { "source": "/corporate", "destination": "/corporate-membership", "permanent": true },
+    { "source": "/spaces", "destination": "/work-spaces", "permanent": true },
+    { "source": "/become-a-trainer", "destination": "/join-as-trainer", "permanent": true },
+
+    { "source": "/burnaby-brentwood", "destination": "/locations/burnaby-brentwood", "permanent": true },
+    { "source": "/calgary-royal-oak", "destination": "/locations/calgary-royal-oak", "permanent": true },
+    { "source": "/calgary-seton", "destination": "/locations/calgary-seton", "permanent": true },
+    { "source": "/calgary-sunridge", "destination": "/locations/calgary-sunridge", "permanent": true },
+    { "source": "/edmonton-downtown", "destination": "/locations/edmonton-downtown", "permanent": true },
+    { "source": "/edmonton-north", "destination": "/locations/edmonton-north", "permanent": true },
+    { "source": "/edmonton-south", "destination": "/locations/edmonton-south", "permanent": true },
+    { "source": "/vancouver-post", "destination": "/locations/vancouver-post", "permanent": true },
+
+    { "source": "/our-team-brentwood", "destination": "/explore", "permanent": true },
+    { "source": "/our-team-downtown", "destination": "/explore", "permanent": true },
+    { "source": "/our-team-north", "destination": "/explore", "permanent": true },
+    { "source": "/our-team-royaloak", "destination": "/explore", "permanent": true },
+    { "source": "/our-team-seton", "destination": "/explore", "permanent": true },
+    { "source": "/our-team-south", "destination": "/explore", "permanent": true },
+    { "source": "/our-team-sunridge", "destination": "/explore", "permanent": true },
+    { "source": "/our-team", "destination": "/explore", "permanent": true },
+
+    { "source": "/recovery-brentwood", "destination": "/wellness", "permanent": true },
+    { "source": "/recovery-downtown", "destination": "/wellness", "permanent": true },
+    { "source": "/recovery-north", "destination": "/wellness", "permanent": true },
+    { "source": "/recovery-royaloak", "destination": "/wellness", "permanent": true },
+    { "source": "/recovery-seton", "destination": "/wellness", "permanent": true },
+    { "source": "/recovery-south", "destination": "/wellness", "permanent": true },
+    { "source": "/recovery-sunridge", "destination": "/wellness", "permanent": true },
+    { "source": "/recovery", "destination": "/wellness", "permanent": true },
+    { "source": "/services", "destination": "/wellness", "permanent": true },
+
+    { "source": "/spaces-brentwood", "destination": "/work-spaces", "permanent": true },
+    { "source": "/spaces-downtown", "destination": "/work-spaces", "permanent": true },
+    { "source": "/spaces-north", "destination": "/work-spaces", "permanent": true },
+    { "source": "/spaces-royaloak", "destination": "/work-spaces", "permanent": true },
+    { "source": "/spaces-seton", "destination": "/work-spaces", "permanent": true },
+    { "source": "/spaces-south", "destination": "/work-spaces", "permanent": true },
+    { "source": "/spaces-sunridge", "destination": "/work-spaces", "permanent": true },
+    { "source": "/workspace", "destination": "/work-spaces", "permanent": true },
+
+    { "source": "/training-brentwood", "destination": "/explore", "permanent": true },
+    { "source": "/training-downtown", "destination": "/explore", "permanent": true },
+    { "source": "/training-north", "destination": "/explore", "permanent": true },
+    { "source": "/training-royaloak", "destination": "/explore", "permanent": true },
+    { "source": "/training-seton", "destination": "/explore", "permanent": true },
+    { "source": "/training-south", "destination": "/explore", "permanent": true },
+    { "source": "/training-sunridge", "destination": "/explore", "permanent": true },
+
+    { "source": "/category", "destination": "/", "permanent": true },
+    { "source": "/christmas-promotions", "destination": "/", "permanent": true },
+    { "source": "/gym-new-year", "destination": "/", "permanent": true },
+    { "source": "/is-walking-good-exercise", "destination": "/", "permanent": true },
+    { "source": "/new-gym-georgetown", "destination": "/", "permanent": true },
+    { "source": "/business-and-coaching-conference", "destination": "/", "permanent": true },
+    { "source": "/project/downtown", "destination": "/", "permanent": true },
+    { "source": "/testhomepage", "destination": "/", "permanent": true },
+
+    { "source": "/facilities", "destination": "/locations", "permanent": true },
+    { "source": "/memberships", "destination": "/locations", "permanent": true },
+
+    { "source": "/brentwood", "destination": "/locations/burnaby-brentwood", "permanent": true },
+    { "source": "/locations/brentwood", "destination": "/locations/burnaby-brentwood", "permanent": true },
+    { "source": "/locations/downtown", "destination": "/locations/edmonton-downtown", "permanent": true },
+    { "source": "/locations/north", "destination": "/locations/edmonton-north", "permanent": true },
+    { "source": "/locations/post-contest", "destination": "/locations/vancouver-post", "permanent": true },
+    { "source": "/locations/royal-oak", "destination": "/locations/calgary-royal-oak", "permanent": true },
+    { "source": "/locations/seton", "destination": "/locations/calgary-seton", "permanent": true },
+    { "source": "/locations/south", "destination": "/locations/edmonton-south", "permanent": true },
+    { "source": "/locations/sunridge", "destination": "/locations", "permanent": true },
+    { "source": "/post-contest", "destination": "/locations/vancouver-post", "permanent": true },
+    { "source": "/royal-oak", "destination": "/locations/calgary-royal-oak", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
