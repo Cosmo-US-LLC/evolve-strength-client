@@ -55,6 +55,14 @@ import { fetchClubPlans } from "../lib/apis";
 import { ArrowLeft, LoaderCircle } from "lucide-react";
 import { AnimatedCircularProgressBar } from "@/components/ui/animated-circular-progress-bar";
 import EditMembershipBox from "../components/EditMembershipBox";
+import { submitJoinNowLead } from "../lib/hubspot";
+
+// Matches the toggle labels on the membership-type step (index 0/1 from the
+// `plan` query param) - used only to send a readable plan name to HubSpot.
+const PLAN_LABELS = {
+  0: "Month to Month",
+  1: "1 Year Contract",
+};
 
 const formSchema = z.object({
   firstName: z.string().min(1, "First name is required."),
@@ -388,6 +396,24 @@ const YourDetails = () => {
     };
     console.log(payload);
     localStorage.setItem("yourDetails", JSON.stringify(payload));
+
+    // Fire-and-forget: capture this lead in HubSpot as soon as they submit
+    // their details, regardless of whether they go on to finish payment.
+    // Never awaited/blocking so a HubSpot hiccup can't stop the real signup.
+    submitJoinNowLead({
+      firstName: values?.firstName,
+      lastName: values?.lastName,
+      email: values?.email,
+      phone: normalized,
+      address: values?.address,
+      city: values?.city,
+      postalCode: formattedPostalCode,
+      dob: selectedDate,
+      gender: values?.gender,
+      location,
+      plan: PLAN_LABELS[currentPlan] || "",
+    });
+
     navigate(
       `/join-now/payment-info?location=${location}&plan=${currentPlan}${
         services ? `&services=${services}` : ""
