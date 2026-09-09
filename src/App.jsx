@@ -230,7 +230,6 @@ function App() {
           <Route path="success" element={<JoinNowSuccess />} />
         </Route>
 
-        {/* Book a Tour flow (merged from evolve-strength-booking) */}
         <Route path="/book-a-tour" element={<BookTourPage />} />
         <Route
           path="/book-a-tour/thank-you"
