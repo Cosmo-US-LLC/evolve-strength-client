@@ -71,6 +71,20 @@ const GymZones = () => {
     };
   }, []);
 
+  // Mobile: instead of scroll-driven switching, the zone auto-advances
+  // every second (matches the reference site's behaviour - a plain timer,
+  // not tied to scroll position at all). Tapping a title jumps straight to
+  // it and resets the timer so it doesn't immediately flip away again.
+  useEffect(() => {
+    if (isDesktop) return;
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % zones.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [isDesktop, activeIndex]);
+
+  const selectZone = (index) => setActiveIndex(index);
+
   // Scroll-scrubbed pin effect: a tall section with a sticky frame inside.
   // Scroll progress through the tall section drives which zone is active.
   // The scroll handler is rAF-throttled so the layout read
@@ -131,20 +145,28 @@ const GymZones = () => {
     >
       <div
         ref={pinRef}
-        className="flex w-full flex-col justify-start bg-white px-4 py-10 md:sticky md:top-0 md:h-[100svh] md:justify-center md:overflow-hidden md:px-8 md:py-16"
+        className="flex w-full flex-col justify-start bg-white px-4 pb-10 md:sticky md:top-0 md:h-[100svh] md:justify-center md:overflow-hidden md:px-8 md:py-16"
       >
       <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-4 md:gap-8">
-        <div className="flex flex-col items-center gap-1 text-center md:gap-2">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex flex-col items-center gap-1 text-center md:gap-2"
+        >
           <p className="font-[Kanit] text-[13px] md:text-[16px] font-[500] uppercase leading-[18px] md:leading-[24px] text-[#4ab04a]">
             The Space
           </p>
           <h2 className="font-[Kanit] !text-[22px] md:!text-[40px] !font-[600] uppercase !leading-[26px] md:!leading-[46px] text-[#000]">
             Built To Be Seen. Built To Be Used
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-12">
-          <div className="hidden md:block md:w-1/3 overflow-hidden">
+        {/* Desktop: description / image / title-list, three columns, driven
+            by the scroll-pin effect above */}
+        <div className="hidden md:flex md:flex-row md:items-start md:gap-12">
+          <div className="md:block md:w-1/3 overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.p
                 key={activeIndex}
@@ -159,7 +181,7 @@ const GymZones = () => {
             </AnimatePresence>
           </div>
 
-          <div className="relative mx-auto h-[270px] w-full shrink-0 overflow-hidden rounded-[16px] md:h-auto md:w-1/3 md:max-w-[381px] md:aspect-[381/500]">
+          <div className="relative mx-auto h-auto w-full shrink-0 overflow-hidden rounded-[16px] md:w-1/3 md:max-w-[381px] md:aspect-[381/500]">
             <AnimatePresence mode="sync">
               <motion.img
                 key={activeIndex}
@@ -176,34 +198,81 @@ const GymZones = () => {
 
           <div className="flex w-full flex-col md:w-1/3 divide-y divide-[#e5e5e5] border-t border-[#e5e5e5]">
             {zones.map((zone, index) => (
-              <div key={zone.title} className="flex flex-col overflow-hidden">
-                <button
-                  type="button"
-                  onClick={() => setActiveIndex(index)}
-                  onMouseEnter={() => {
-                    if (isDesktop) setActiveIndex(index);
-                  }}
-                  className={`py-2 md:py-4 text-left font-[Kanit] text-[18px] md:text-[36px] font-[600] uppercase leading-[1.15] md:leading-[1] transition-colors duration-200 cursor-pointer ${
-                    index === activeIndex ? "text-[#4ab04a]" : "text-[#c4c4c4]"
-                  }`}
-                >
-                  {zone.title}
-                </button>
-                <AnimatePresence initial={false}>
-                  {index === activeIndex && (
-                    <motion.p
-                      initial={{ opacity: 0, y: 16 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -16 }}
-                      transition={{ duration: 0.35, ease: "easeOut" }}
-                      className="pb-2 font-[Kanit] text-[16px] leading-[24px] font-[300] text-[#000] md:hidden"
-                    >
-                      {zone.description}
-                    </motion.p>
-                  )}
-                </AnimatePresence>
-              </div>
+              <button
+                key={zone.title}
+                type="button"
+                onClick={() => selectZone(index)}
+                onMouseEnter={() => selectZone(index)}
+                className={`py-4 text-left font-[Kanit] text-[36px] font-[600] uppercase leading-[1] transition-colors duration-200 cursor-pointer ${
+                  index === activeIndex ? "text-[#4ab04a]" : "text-[#c4c4c4]"
+                }`}
+              >
+                {zone.title}
+              </button>
             ))}
+          </div>
+        </div>
+
+        {/* Mobile: single image + description that auto-advance through
+            the zones every second, with a 2-column grid of titles that
+            highlights whichever one is currently showing. Tapping a title
+            jumps straight to it. */}
+        <div className="flex flex-col gap-5 md:hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative mx-auto h-[270px] w-full overflow-hidden rounded-[16px]"
+          >
+            <AnimatePresence mode="sync">
+              <motion.img
+                key={activeIndex}
+                src={activeZone.image}
+                alt={activeZone.title}
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </AnimatePresence>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+            className="grid grid-cols-2 gap-x-4 gap-y-3"
+          >
+            {zones.map((zone, index) => (
+              <button
+                key={zone.title}
+                type="button"
+                onClick={() => selectZone(index)}
+                className={`text-left font-[Kanit] text-[16px] font-[600] uppercase leading-[1.2] transition-colors duration-200 cursor-pointer ${
+                  index === activeIndex ? "text-[#4ab04a]" : "text-[#c4c4c4]"
+                }`}
+              >
+                {zone.title}
+              </button>
+            ))}
+          </motion.div>
+
+          <div className="relative min-h-[60px]">
+            <AnimatePresence mode="sync">
+              <motion.p
+                key={activeIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="absolute inset-0 font-[Kanit] text-[16px] leading-[24px] font-[300] text-[#000]"
+              >
+                {activeZone.description}
+              </motion.p>
+            </AnimatePresence>
           </div>
         </div>
       </div>
