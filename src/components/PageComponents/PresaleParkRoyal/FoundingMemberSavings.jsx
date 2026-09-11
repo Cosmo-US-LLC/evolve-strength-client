@@ -299,7 +299,7 @@ function FoundingMemberSavings() {
                   rateLockLabel="Rate Locked For"
                   rateLockValue="Lifetime"
                   rateLockNote="(T&C Apply)"
-                  link="/park-royal-waitlist"
+                  link="/founder-offer-payment?source=park-royal"
                 />
               </div>
             </div>
@@ -352,7 +352,7 @@ function FoundingMemberSavings() {
                   rateLockLabel="Rate Locked For"
                   rateLockValue="Lifetime"
                   rateLockNote="(T&C Apply)"
-                  link="/park-royal-waitlist"
+                  link="/founder-offer-payment?source=park-royal"
                 />
               </div>
             </div>

@@ -1205,16 +1205,12 @@ function FounderOfferPayment() {
     return null;
   };
 
-  // Edmonton South Common founder offer has ended, and Park Royal's presale
-  // hasn't opened yet (targeted ~1 month out), so neither source is active
-  // on this shared route right now. Remove this block, and the eslint-disable
-  // below, to reactivate Park Royal via ?source=park-royal.
-  if (isParkRoyalOrigin) {
-    return <Navigate to="/park-royal-waitlist" replace />;
+  // Edmonton South Common founder offer has ended, so that source stays
+  // disabled on this shared route. Park Royal's presale is live again.
+  if (!isParkRoyalOrigin) {
+    return <Navigate to="/" replace />;
   }
-  return <Navigate to="/" replace />;
 
-  // eslint-disable-next-line no-unreachable
   return (
     <>
       <MetaTags

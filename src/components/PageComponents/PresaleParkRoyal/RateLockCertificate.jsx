@@ -92,7 +92,7 @@ function RateLockCertificate() {
             </div>
 
             <Link
-              to="/park-royal-waitlist"
+              to="/founder-offer-payment?source=park-royal"
               className="flex w-full md:inline-flex md:w-auto"
             >
               <button className="btnPrimary flex w-full md:w-auto items-center justify-center gap-2 !py-[16px] !px-[20px] md:gap-[10px] uppercase">
@@ -141,7 +141,7 @@ function RateLockCertificate() {
             <div className="flex flex-row justify-between items-start w-full pt-2 border-t border-white/15">
               <div className="flex flex-col items-center gap-0.5">
                 <p className="text-[10px] !leading-[16px] font-[300] font-[Kanit] text-[#ffffff]">
-                  20 August 2026
+                  7 September 2026
                 </p>
                 <p className="text-[10px] !leading-[16px] font-[500] font-[Kanit] text-[#ffffff] uppercase tracking-wide">
                   Date

@@ -96,7 +96,7 @@ function PresaleNavbar() {
                   {link.label}
                 </button>
               ))}
-              <RouterLink to="/park-royal-waitlist" className="w-fit">
+              <RouterLink to="/founder-offer-payment?source=park-royal" className="w-fit">
                 <button type="button" className="btnPrimary uppercase whitespace-nowrap">
                   Lock My Rate Now
                 </button>
@@ -127,7 +127,7 @@ function PresaleNavbar() {
                       </button>
                     ))}
                     <RouterLink
-                      to="/park-royal-waitlist"
+                      to="/founder-offer-payment?source=park-royal"
                       className="w-fit"
                       onClick={handleMobileLinkClick}
                     >

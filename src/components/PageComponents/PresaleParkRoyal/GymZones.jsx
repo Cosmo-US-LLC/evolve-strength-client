@@ -38,11 +38,23 @@ const GymZones = () => {
   const sectionRef = useRef(null);
   const pinRef = useRef(null);
   const [pinHeight, setPinHeight] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
 
-  // The pinned card's height is auto (hugs its content) on mobile instead
-  // of a forced 100svh, so it never has leftover blank space below the
-  // last item; on desktop it's still forced to 100svh via CSS. Either
-  // way, the scroll math needs the box's *actual* rendered height - both
+  // The scroll-scrubbed pin effect below is desktop-only. On mobile it
+  // never tracked scroll position reliably (mobile browsers resize their
+  // chrome mid-scroll, address bars, etc.), so mobile just gets a normal
+  // in-flow section with a tap-to-switch accordion instead.
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
+
+  // The pinned card's height is auto (hugs its content) instead of a
+  // forced 100svh, so it never has leftover blank space below the last
+  // item. The scroll math needs the box's *actual* rendered height - both
   // for how tall the scroll track needs to be (zones.length * pinHeight)
   // and for when to advance to the next zone - so it's measured directly
   // off the element rather than assumed from the viewport.
@@ -63,8 +75,10 @@ const GymZones = () => {
   // Scroll progress through the tall section drives which zone is active.
   // The scroll handler is rAF-throttled so the layout read
   // (getBoundingClientRect) never runs more than once per frame, which is
-  // a common source of scroll jank.
+  // a common source of scroll jank. Desktop only - see isDesktop above.
   useEffect(() => {
+    if (!isDesktop) return;
+
     let ticking = false;
 
     const computeActiveIndex = () => {
@@ -99,21 +113,25 @@ const GymZones = () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-  }, [pinHeight]);
+  }, [pinHeight, isDesktop]);
 
   return (
     <section
       ref={sectionRef}
       className="relative"
-      style={{
-        height: pinHeight
-          ? `${pinHeight * zones.length}px`
-          : `${zones.length * 100}svh`,
-      }}
+      style={
+        isDesktop
+          ? {
+              height: pinHeight
+                ? `${pinHeight * zones.length}px`
+                : `${zones.length * 100}svh`,
+            }
+          : undefined
+      }
     >
       <div
         ref={pinRef}
-        className="sticky top-0 flex h-[100svh] w-full flex-col justify-start md:justify-center overflow-y-auto bg-white px-4 pt-[76px] pb-2 md:overflow-hidden md:px-8 md:py-16"
+        className="flex w-full flex-col justify-start bg-white px-4 py-10 md:sticky md:top-0 md:h-[100svh] md:justify-center md:overflow-hidden md:px-8 md:py-16"
       >
       <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-4 md:gap-8">
         <div className="flex flex-col items-center gap-1 text-center md:gap-2">
@@ -162,7 +180,9 @@ const GymZones = () => {
                 <button
                   type="button"
                   onClick={() => setActiveIndex(index)}
-                  onMouseEnter={() => setActiveIndex(index)}
+                  onMouseEnter={() => {
+                    if (isDesktop) setActiveIndex(index);
+                  }}
                   className={`py-2 md:py-4 text-left font-[Kanit] text-[18px] md:text-[36px] font-[600] uppercase leading-[1.15] md:leading-[1] transition-colors duration-200 cursor-pointer ${
                     index === activeIndex ? "text-[#4ab04a]" : "text-[#c4c4c4]"
                   }`}
