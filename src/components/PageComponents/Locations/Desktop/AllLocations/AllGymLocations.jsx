@@ -10,11 +10,11 @@ function AllGymLocations() {
       image:
         "https://assets.evolvestrength.ca/media/1786105143131-79959a91-c6b9-45ee-8cfb-0cf50184d8c9.webp",
       address: "815 Park Royal N, West Vancouver, BC",
-      locationUrl: "/park-royal-waitlist",
+      locationUrl: "/presale-park-royal",
       commonbtn: true,
-      pillText: "Coming Soon",
-      ctaLabel: "JOIN WAITLIST",
-      overlayLabel: "Join the Waitlist",
+      pillText: "Presale is live",
+      ctaLabel: "Join the presale",
+      overlayLabel: "Join the presale",
     },
     {
       id: 9,

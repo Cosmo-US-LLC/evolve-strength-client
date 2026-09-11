@@ -29,7 +29,7 @@ function Hero({ title }) {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-95"></span>
                   <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-white"></span>
                 </span>
-                Opening 2026
+                Presale is live
               </div>
               {/* <div className="text-white text-[12px] md:text-[14px] font-[400] uppercase leading-[24px] bg-[#20202066] backdrop-blur-[14px] border border-[#ADADAD] px-4 py-1 rounded-full font-[Kanit]">
                 OPENING MAY 25TH
@@ -42,16 +42,16 @@ function Hero({ title }) {
             {/* // dangerouslySetInnerHTML={{ __html: title }} */}
 
             <h3 className="text-[#FFFFFF] !text-[16px] !font-[300] !leading-[20px] !md:leading-[24px] mb-8 max-w-[350px] md:max-w-[606px] !font-[Kanit]">
-              Join the waitlist to be first through the doors in West Vancouver.
+              Park Royal presale is now live. Secure your Founder Rate today.
             </h3>
             <div className="flex gap-2 md:gap-4 flex-col md:flex-row items-start">
               <a
-                href="https://evolvestrength.ca/park-royal-waitlist"
-                target="_blank"
+                href="/presale-park-royal"
+                // target="_blank"
                 rel="noopener noreferrer"
               >
                 <button className="btnPrimary uppercase">
-                  Join the Waitlist
+                  join the presale
                 </button>
               </a>
             </div>
