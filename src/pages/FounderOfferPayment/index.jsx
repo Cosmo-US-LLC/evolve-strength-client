@@ -11,6 +11,7 @@ import YourPlan from "@/components/FounderOfferPayment/steps-v2/YourPlan";
 import PlanSelect from "@/components/FounderOfferPayment/steps-v2/PlanSelect";
 import AdditionalServices from "@/components/FounderOfferPayment/steps-v2/AdditionalServices";
 import FounderBenefits from "@/components/FounderOfferPayment/steps-v2/FounderBenefits";
+import { submitPresaleParkRoyalLead } from "./hubspot";
 
 // Step to URL parameter mapping
 const stepToParam = {
@@ -619,6 +620,29 @@ function FounderOfferPayment() {
   }, [currentStep, currentPlan, formData.primaryMember, isSuccessModalOpen]);
 
   const handleNext = async () => {
+    // Fire a HubSpot lead the moment the visitor finishes "Enter Your
+    // Details" (step 1), before payment - so the resulting lead count is
+    // the sum of everyone who got that far, whether or not they go on to
+    // finish payment on the next step: people who dropped off mid-flow,
+    // plus people who actually joined. Mirrors the Join Now integration.
+    // Never awaited/blocking so a HubSpot hiccup can't stop the real flow.
+    if (currentStep === 1) {
+      const member = formData.primaryMember;
+      submitPresaleParkRoyalLead({
+        firstName: member?.firstName,
+        lastName: member?.lastName,
+        email: member?.email,
+        phone: (member?.phone || "").replace(/\D/g, ""),
+        address: member?.address,
+        city: member?.city,
+        postalCode: member?.postalCode,
+        dob: formatDobForSubmission(member?.dob),
+        gender: member?.gender,
+        location: locationName,
+        plan: planCards.find((card) => card.value === currentPlan)?.label,
+      });
+    }
+
     if (currentStep < MAX_STEP) {
       const nextStep = currentStep + 1;
       setCurrentStep(nextStep);
