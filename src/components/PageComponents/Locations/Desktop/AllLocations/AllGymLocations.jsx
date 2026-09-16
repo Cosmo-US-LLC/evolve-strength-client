@@ -6,7 +6,7 @@ function AllGymLocations() {
   const locations = [
     {
       id: 10,
-      name: "Park Royal",
+      name: "West Vancouver - Park Royal",
       image:
         "https://assets.evolvestrength.ca/media/1786105143131-79959a91-c6b9-45ee-8cfb-0cf50184d8c9.webp",
       address: "815 Park Royal N, West Vancouver, BC",
@@ -18,7 +18,7 @@ function AllGymLocations() {
     },
     {
       id: 9,
-      name: "South Edmonton Common",
+      name: "Edmonton - South Common",
       image: "/assets/all_locations/g_south_com.webp",
       address: "1910 102 St NW, Edmonton, AB T6N 1N3, Canada",
       phone: "+1 (587) 686-7622",
@@ -29,7 +29,7 @@ function AllGymLocations() {
     },
     {
       id: 1,
-      name: "Burnaby Brentwood",
+      name: "Burnaby - Brentwood",
       image: "/assets/all_locations/g_bun_brentwood.webp",
       address: "1920 Willingdon Ave #3105 Burnaby, British Columbia, V5C 0K3",
       phone: "+1 (236) 455-6573",
@@ -41,7 +41,7 @@ function AllGymLocations() {
     },
     {
       id: 2,
-      name: "Vancouver The Post",
+      name: "Vancouver - The Post",
       image: "/assets/all_locations/g_van_p.webp",
       address: "658 Homer St Vancouver, British Columbia, V6B 2R4",
       phone: "+1 (604) 555-0124",
@@ -53,7 +53,7 @@ function AllGymLocations() {
     },
     {
       id: 3,
-      name: "Calgary Seton",
+      name: "Calgary - Seton",
       image: "/assets/all_locations/g_cal_seton.webp",
       address: "710-19587 Seton Crescent SE Calgary, Alberta, T3M 2T5",
       phone: "+1 (825) 407-9015",
@@ -65,7 +65,7 @@ function AllGymLocations() {
     },
     {
       id: 4,
-      name: "Calgary Royal Oak",
+      name: "Calgary - Royal Oak",
       image: "/assets/all_locations/g_cal_royal_oak.webp",
       address: "456 Royal Oak Dr NW, Calgary, Alberta, T3G 5K3",
       phone: "+1 (403) 452-3169",
@@ -88,7 +88,7 @@ function AllGymLocations() {
     // },
     {
       id: 6,
-      name: "Edmonton Downtown",
+      name: "Edmonton - Downtown",
       image: "/assets/all_locations/g_ed_down.webp",
       address: "12328 102 ave nw Edmonton, Alberta, T5N 0L9",
       phone: "+1 (780) 784-2675",
@@ -112,7 +112,7 @@ function AllGymLocations() {
     // },
     {
       id: 8,
-      name: "Edmonton North",
+      name: "Edmonton - North",
       image: "/assets/all_locations/edmonton_north.webp",
       address: "13457 149 St Edmonton, Alberta, T5L 2T3",
       phone: "+1 (780) 784-7870",
@@ -211,7 +211,21 @@ function AllGymLocations() {
             </div>
 
             <div className="py-4 flex flex-col gap-3">
-              <h3 className="font-bold text-[#000]">{location.name}</h3>
+              <h3 className="text-[#000]">
+                {location.name.includes(" - ") ? (
+                  <>
+                    <span className="font-semibold">
+                      {location.name.split(" - ")[0]}
+                    </span>
+                    <span className="font-normal">
+                      {" "}
+                      - {location.name.split(" - ").slice(1).join(" - ")}
+                    </span>
+                  </>
+                ) : (
+                  <span className="font-semibold">{location.name}</span>
+                )}
+              </h3>
 
               {location.commonbtn ? (
                 <div className="flex gap-3">
