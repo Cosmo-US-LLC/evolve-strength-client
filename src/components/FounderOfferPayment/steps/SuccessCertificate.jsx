@@ -106,6 +106,19 @@ function SuccessCertificate({ primaryMember, onBack, locationName, submittedAt }
       await document.fonts.ready;
     }
 
+    const images = Array.from(certificateElement.querySelectorAll("img"));
+    await Promise.all(
+      images.map((img) => {
+        if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+        return new Promise((resolve) => {
+          img.addEventListener("load", resolve, { once: true });
+          img.addEventListener("error", resolve, { once: true });
+        });
+      })
+    );
+
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+
     const rect = certificateElement.getBoundingClientRect();
     const scale = Math.min(4, (window.devicePixelRatio || 1) * 2);
     const canvas = await window.html2canvas(certificateElement, {
@@ -113,6 +126,10 @@ function SuccessCertificate({ primaryMember, onBack, locationName, submittedAt }
       useCORS: true,
       backgroundColor: "#ffffff",
       logging: false,
+      x: 0,
+      y: 0,
+      scrollX: 0,
+      scrollY: 0,
       width: Math.ceil(rect.width),
       height: Math.ceil(rect.height),
       windowWidth: Math.ceil(rect.width),
@@ -331,7 +348,7 @@ function SuccessCertificate({ primaryMember, onBack, locationName, submittedAt }
 
           {/* Certificate (rendered offscreen for PDF capture) */}
           <div
-            className="fixed -left-[10000px] top-0 z-[-1] w-[700px] pointer-events-none"
+            className="absolute -left-[10000px] top-0 z-[-1] w-[700px] pointer-events-none"
             aria-hidden="true"
           >
             <div
