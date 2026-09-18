@@ -155,12 +155,18 @@ const GymZones = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col items-center gap-1 text-center md:gap-2"
         >
-          <p className="font-[Kanit] text-[13px] md:text-[16px] font-[500] uppercase leading-[18px] md:leading-[24px] text-[#4ab04a]">
+           <p className="uppercase font-[500] font-[Kanit] text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] text-[#4ab04a]">
+           The Space
+          </p>
+          <h2 className="uppercase text-center !text-[28px] md:!text-[40px] !font-[700] font-[Kanit] !leading-[34px] md:!leading-[39px] text-[#000]">
+            Design To Be Seen. Built To Be Used
+          </h2>
+          {/* <p className="font-[Kanit] text-[13px] md:text-[16px] font-[500] uppercase leading-[18px] md:leading-[24px] text-[#4ab04a]">
             The Space
           </p>
           <h2 className="font-[Kanit] !text-[22px] md:!text-[40px] !font-[600] uppercase !leading-[26px] md:!leading-[46px] text-[#000]">
-            Built To Be Seen. Built To Be Used
-          </h2>
+            Design To Be Seen. Built To Be Used
+          </h2> */}
         </motion.div>
 
         {/* Desktop: description / image / title-list, three columns, driven
@@ -268,7 +274,7 @@ const GymZones = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className="absolute inset-0 font-[Kanit] text-[16px] leading-[24px] font-[300] text-[#000]"
+                className="absolute inset-0 text-[16px] leading-[26px] font-[300] font-[Kanit] text-[#000]"
               >
                 {activeZone.description}
               </motion.p>
