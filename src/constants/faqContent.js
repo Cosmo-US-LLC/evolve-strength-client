@@ -287,7 +287,7 @@ export const parkRoyalFAQs = {
     {
       question: "When does Park Royal open?",
       answer:
-        "We're opening in 2026.",
+        "We are opening later this year.",
     },
     {
       question: "Can I use other Evolve locations before Park Royal opens?",

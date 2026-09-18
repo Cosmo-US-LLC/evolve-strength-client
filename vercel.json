@@ -74,7 +74,9 @@
     { "source": "/locations/south", "destination": "/locations/edmonton-south", "permanent": true },
     { "source": "/locations/sunridge", "destination": "/locations", "permanent": true },
     { "source": "/post-contest", "destination": "/locations/vancouver-post", "permanent": true },
-    { "source": "/royal-oak", "destination": "/locations/calgary-royal-oak", "permanent": true }
+    { "source": "/royal-oak", "destination": "/locations/calgary-royal-oak", "permanent": true },
+
+    { "source": "/park-royal-waitlist", "destination": "/presale-park-royal", "permanent": true }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
