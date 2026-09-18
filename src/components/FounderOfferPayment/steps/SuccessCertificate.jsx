@@ -246,6 +246,7 @@ function SuccessCertificate({ primaryMember, onBack, locationName, submittedAt }
       if (memberName) {
         formData.append("name", memberName);
       }
+      formData.append("location", certificateLocationName);
       formData.append("fileName", filename);
       formData.append("certificate", certificateBlob, filename);
 
