@@ -18,8 +18,8 @@ function PresaleParkRoyal() {
   return (
     <>
       <MetaTags
-        title="Evolve Strength South Edmonton Common Gym | Sign Up Free"
-        description="Join the presale risk-free! Sign up with $0 down and pay nothing until we open. Not satisfied? Cancel within 10 days of opening for a full refund."
+        title="Evolve Strength Park Royal Gym | Sign Up Free"
+        description="Join the Park Royal presale risk-free! Sign up with $0 down and pay nothing until we open. Not satisfied? Cancel within 10 days of opening for a full refund."
       />
       <PresaleParkRoyalHero />
       <FoundingMemberSavings />
