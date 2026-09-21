@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams, Navigate } from "react-router-dom";
+import { LoaderCircle } from "lucide-react";
+import ThreeDotLoader from "@/components/FounderOfferPayment/ThreeDotLoader";
 import FormsHeader from "@/components/ui/FormsHeader";
 import ProgressTracker from "@/components/FounderOfferPayment/ProgressTracker";
 import MembershipSummaryCard from "@/components/FounderOfferPayment/MembershipSummaryCard";
@@ -71,26 +73,33 @@ const formatDobForSubmission = (dobValue) => {
 };
 
 const provinceMap = {
-  Alberta: "AB",
-  "British Columbia": "BC",
-  Manitoba: "MB",
-  "New Brunswick": "NB",
-  Newfoundland: "NL",
-  "Northwest Territories": "NT",
-  "Nova Scotia": "NS",
-  Nunavut: "NU",
-  Ontario: "ON",
-  "Prince Edward Island": "PE",
-  Quebec: "QC",
-  Saskatchewan: "SK",
-  Yukon: "YT",
+  alberta: "AB",
+  "british columbia": "BC",
+  manitoba: "MB",
+  "new brunswick": "NB",
+  newfoundland: "NL",
+  "newfoundland and labrador": "NL", // Google Places' long_name for NL.
+  "northwest territories": "NT",
+  "nova scotia": "NS",
+  nunavut: "NU",
+  ontario: "ON",
+  "prince edward island": "PE",
+  quebec: "QC",
+  saskatchewan: "SK",
+  yukon: "YT",
 };
 
+// Province is a free-text field (matching Join Now's look), validated on
+// the form with isValidProvinceInput() in PrimaryMemberDetails.jsx before
+// the visitor can proceed. This still normalizes case/whitespace
+// differences (e.g. "british columbia", " BC ") to the two-letter code
+// the payment API requires, so anything that passed that validation
+// converts correctly here too.
 const normalizeProvince = (provinceValue) => {
   const value = (provinceValue || "").toString().trim();
   if (!value) return "";
   if (value.length === 2) return value.toUpperCase();
-  return provinceMap[value] || value;
+  return provinceMap[value.toLowerCase()] || value;
 };
 
 const extractApiMessage = (responseBody, responseStatusText = "") => {
@@ -113,6 +122,44 @@ const extractApiMessage = (responseBody, responseStatusText = "") => {
     (item) => typeof item === "string" && item.trim().length > 0,
   );
   return found ? found.trim() : "";
+};
+
+// Same keys the Join Now payment flow uses (src/features/joinNow/pages/PaymentInfo.jsx)
+// so a device flagged/blocked/rate-limited on one flow stays flagged on the other.
+const BROWSER_ID_KEY = "paymentBrowserId";
+const KNOWN_IPS_KEY = "knownPaymentIps";
+const BLOCKED_KEY = "paymentBlocked";
+const COOLDOWN_UNTIL_KEY = "paymentCooldownUntil";
+
+const ensureBrowserId = () => {
+  if (typeof window === "undefined") return "";
+  const existingBrowserId = window.localStorage.getItem(BROWSER_ID_KEY);
+  if (existingBrowserId) return existingBrowserId;
+
+  const browserId =
+    typeof crypto !== "undefined" && crypto.randomUUID
+      ? crypto.randomUUID()
+      : `browser_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+
+  window.localStorage.setItem(BROWSER_ID_KEY, browserId);
+  return browserId;
+};
+
+const getStoredBoolean = (key) =>
+  typeof window !== "undefined" && window.localStorage.getItem(key) === "true";
+
+const getStoredCooldownUntil = () => {
+  if (typeof window === "undefined") return null;
+  const value = window.localStorage.getItem(COOLDOWN_UNTIL_KEY);
+  return value ? Number(value) : null;
+};
+
+const formatDuration = (seconds) => {
+  if (seconds <= 60) {
+    return `${seconds} second${seconds === 1 ? "" : "s"}`;
+  }
+  const minutes = Math.ceil(seconds / 60);
+  return `${minutes} minute${minutes === 1 ? "" : "s"}`;
 };
 
 const PRIMARY_MEMBER_STORAGE_KEY = "founderOfferPayment.primaryMember.v1";
@@ -442,6 +489,72 @@ function FounderOfferPayment() {
   const [isPlansLoading, setIsPlansLoading] = useState(false);
   const [paymentError, setPaymentError] = useState("");
   const [isSubmittingPayment, setIsSubmittingPayment] = useState(false);
+  const [isAdvancingStep, setIsAdvancingStep] = useState(false);
+  const [browserId, setBrowserId] = useState("");
+  const [isBlocked, setIsBlocked] = useState(false);
+  const [cooldownUntil, setCooldownUntil] = useState(null);
+  const [cooldownSecondsLeft, setCooldownSecondsLeft] = useState(0);
+
+  useEffect(() => {
+    setBrowserId(ensureBrowserId());
+    setIsBlocked(getStoredBoolean(BLOCKED_KEY));
+    setCooldownUntil(getStoredCooldownUntil());
+  }, []);
+
+  useEffect(() => {
+    if (!cooldownUntil) {
+      setCooldownSecondsLeft(0);
+      if (typeof window !== "undefined") {
+        window.localStorage.removeItem(COOLDOWN_UNTIL_KEY);
+      }
+      return;
+    }
+
+    const updateCooldown = () => {
+      const secondsLeft = Math.max(
+        0,
+        Math.ceil((cooldownUntil - Date.now()) / 1000),
+      );
+      setCooldownSecondsLeft(secondsLeft);
+      if (secondsLeft === 0) {
+        setCooldownUntil(null);
+        if (typeof window !== "undefined") {
+          window.localStorage.removeItem(COOLDOWN_UNTIL_KEY);
+        }
+      }
+    };
+
+    updateCooldown();
+    const intervalId = window.setInterval(updateCooldown, 1000);
+    return () => window.clearInterval(intervalId);
+  }, [cooldownUntil]);
+
+  const setBlockedState = (blocked) => {
+    setIsBlocked(blocked);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(BLOCKED_KEY, blocked ? "true" : "false");
+    }
+  };
+
+  const setCooldownState = (retryAfterSeconds) => {
+    if (!retryAfterSeconds || retryAfterSeconds <= 0) {
+      setCooldownUntil(null);
+      if (typeof window !== "undefined") {
+        window.localStorage.removeItem(COOLDOWN_UNTIL_KEY);
+      }
+      return;
+    }
+    const nextCooldownUntil = Date.now() + retryAfterSeconds * 1000;
+    setCooldownUntil(nextCooldownUntil);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(COOLDOWN_UNTIL_KEY, `${nextCooldownUntil}`);
+    }
+  };
+
+  const updateKnownIps = (ips) => {
+    if (!Array.isArray(ips) || typeof window === "undefined") return;
+    window.localStorage.setItem(KNOWN_IPS_KEY, JSON.stringify(ips));
+  };
   const selectedPlanDetails = planDetailsByType[currentPlan] || null;
   const selectedAddonProfitCenters =
     selectedAddonProfitCentersByPlan?.[currentPlan] || [];
@@ -644,9 +757,15 @@ function FounderOfferPayment() {
     }
 
     if (currentStep < MAX_STEP) {
-      const nextStep = currentStep + 1;
-      setCurrentStep(nextStep);
-      syncUrlState(nextStep, currentPlan, { mode: "push" });
+      // Brief loading state so the Next button shows the three-dot loader
+      // instead of jumping to the next step with no feedback at all.
+      setIsAdvancingStep(true);
+      window.setTimeout(() => {
+        const nextStep = currentStep + 1;
+        setCurrentStep(nextStep);
+        syncUrlState(nextStep, currentPlan, { mode: "push" });
+        setIsAdvancingStep(false);
+      }, 350);
     }
   };
 
@@ -844,7 +963,10 @@ function FounderOfferPayment() {
         `${baseUrl}/submitAgreement?location=${locationParam}`,
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "x-browser-id": browserId || ensureBrowserId(),
+          },
           body: JSON.stringify(payload),
         },
       );
@@ -861,8 +983,31 @@ function FounderOfferPayment() {
         !response.ok ? response.statusText : "",
       );
 
-      if (message && message.toLowerCase() === "success") {
+      if (Array.isArray(res?.knownIps)) {
+        updateKnownIps(res.knownIps);
+      }
+
+      if (response.ok && message && message.toLowerCase() === "success") {
         return { success: true };
+      }
+
+      if (response.status === 403 || res?.blocked === true) {
+        return {
+          success: false,
+          blocked: true,
+          apiMessage:
+            message ||
+            apiMessage ||
+            "Payment submissions are blocked for this device or network.",
+        };
+      }
+
+      if (response.status === 429) {
+        return {
+          success: false,
+          retryAfterSeconds: res?.retryAfterSeconds || 0,
+          apiMessage: message || apiMessage,
+        };
       }
 
       console.error("Payment failed:", message || "Unknown error");
@@ -870,7 +1015,10 @@ function FounderOfferPayment() {
       return { success: false, apiMessage };
     } catch (error) {
       console.error("Payment error:", error?.message || error);
-      return { success: false, apiMessage: error?.message || "" };
+      return {
+        success: false,
+        apiMessage: "Payment failed. Please try again.",
+      };
     }
   };
 
@@ -934,6 +1082,20 @@ function FounderOfferPayment() {
   }) => {
     // console.log(selectedPlanDetails)
     // return true;
+    if (isBlocked) {
+      setPaymentError(
+        "Payment submissions are blocked for this device or network.",
+      );
+      return false;
+    }
+
+    if (cooldownSecondsLeft > 0) {
+      setPaymentError(
+        `Please wait ${formatDuration(cooldownSecondsLeft)} before trying again.`,
+      );
+      return false;
+    }
+
     if (!selectedPlanDetails?.planId || !selectedPlanDetails?.planValidation) {
       setPaymentError(
         plansError ||
@@ -966,11 +1128,41 @@ function FounderOfferPayment() {
     );
 
     if (!paymentResult?.success) {
-      const apiMessage = paymentResult?.apiMessage;
-      setPaymentError(apiMessage || "");
+      if (paymentResult?.blocked) {
+        setBlockedState(true);
+        setPaymentError(
+          paymentResult?.apiMessage ||
+            "Payment submissions are blocked for this device or network.",
+        );
+        setIsSubmittingPayment(false);
+        return false;
+      }
+
+      if (paymentResult?.retryAfterSeconds !== undefined) {
+        setCooldownState(paymentResult.retryAfterSeconds);
+        setPaymentError(
+          paymentResult?.apiMessage ||
+            `Please wait ${formatDuration(
+              paymentResult.retryAfterSeconds || 0,
+            )} before trying again.`,
+        );
+        setIsSubmittingPayment(false);
+        return false;
+      }
+
+      // Always fall back to a visible, generic message: an empty
+      // paymentError renders nothing, silently returning the button to
+      // its normal state with no explanation for why the payment didn't
+      // go through.
+      setPaymentError(
+        paymentResult?.apiMessage || "Payment failed. Please try again.",
+      );
       setIsSubmittingPayment(false);
       return false;
     }
+
+    setBlockedState(false);
+    setCooldownState(null);
 
     const personCreated = await createPerson(formData.primaryMember);
     if (!personCreated?.success && !ALLOW_CREATE_PERSON_FAILURE) {
@@ -1084,7 +1276,7 @@ function FounderOfferPayment() {
     switch (currentStep) {
       case 0:
         return (
-          <div className="flex min-h-full flex-col">
+          <div className="flex min-h-full flex-col pb-24 lg:pb-0">
             {/* Legacy rollback path:
             <PlanType
               onNext={handleNext}
@@ -1111,6 +1303,8 @@ function FounderOfferPayment() {
                 onPlanChange={handlePlanChange}
                 isLoading={isPlansLoading}
                 error={plansError}
+                displayPrice={formatCurrency(feeAmount)}
+                hasAddons={selectedAddonProfitCenters.length > 0}
               />
               <AdditionalServices
                 addons={addonCards}
@@ -1128,11 +1322,16 @@ function FounderOfferPayment() {
               />
             </div>
 
-            <div className="pt-4 lg:pt-[40vh] flex flex-col-reverse gap-3 lg:mt-auto lg:flex-row lg:items-center lg:justify-between">
+            {/* Sticky to the bottom on mobile/tablet so Next/Back stay
+                reachable without scrolling to the end of the page; reverts
+                to normal in-flow layout from lg up. On mobile, Back stays a
+                plain text link (30% width) and Next is a button (70%
+                width), side by side. */}
+            <div className="fixed inset-x-0 bottom-0 z-40 flex flex-row gap-3 border-t border-[#e5e5e5] bg-white px-4 py-3 lg:static lg:mt-auto lg:items-center lg:justify-between lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:pt-[40vh]">
               <button
                 type="button"
                 onClick={handleBack}
-                className="flex items-center justify-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black hover:cursor-pointer lg:justify-start"
+                className="flex w-[30%] items-center justify-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black hover:cursor-pointer lg:w-auto lg:justify-start"
               >
                 <span aria-hidden="true">←</span>
                 Back
@@ -1140,10 +1339,12 @@ function FounderOfferPayment() {
               <button
                 type="button"
                 onClick={handleNext}
-                className="btnPrimary w-full lg:w-auto"
-                disabled={isPlansLoading || !selectedPlanDetails}
+                className="btnPrimary w-[70%] lg:w-auto disabled:cursor-not-allowed disabled:opacity-70"
+                disabled={
+                  isPlansLoading || !selectedPlanDetails || isAdvancingStep
+                }
               >
-                Next
+                {isAdvancingStep ? <ThreeDotLoader /> : "Next"}
               </button>
             </div>
           </div>
@@ -1155,6 +1356,7 @@ function FounderOfferPayment() {
             updateFormData={(data) => updateFormData("primaryMember", data)}
             onNext={handleNext}
             onBack={handleBack}
+            isSubmitting={isAdvancingStep}
           />
         );
       case 2:
@@ -1168,6 +1370,8 @@ function FounderOfferPayment() {
             onSubmitPayment={handlePaymentSubmit}
             isSubmitting={isSubmittingPayment}
             submitError={paymentError}
+            isBlocked={isBlocked}
+            cooldownSecondsLeft={cooldownSecondsLeft}
             paymentAmount={selectedPlanAmount}
             feeAmount={feeAmount}
             planFeeAmount={planFeeAmount}
@@ -1192,6 +1396,8 @@ function FounderOfferPayment() {
             onPlanChange={handlePlanChange}
             isLoading={isPlansLoading}
             error={plansError}
+            displayPrice={formatCurrency(feeAmount)}
+            hasAddons={selectedAddonProfitCenters.length > 0}
           />
           <AdditionalServices
             addons={addonCards}
@@ -1298,6 +1504,24 @@ function FounderOfferPayment() {
                   navigate(presaleReturnPath);
                 }}
               />
+            </div>
+          </div>
+        )}
+        {/* Full-screen processing overlay — the payment step's submit
+            button spinner alone wasn't clear enough that a multi-second,
+            multi-request submission (submitAgreement + createPerson) was
+            under way. This blocks the whole page (desktop and mobile
+            alike) with an explicit message until it resolves. */}
+        {isSubmittingPayment && !isSuccessModalOpen && (
+          <div className="fixed top-0 left-0 z-[950] flex h-screen w-screen items-center justify-center bg-white/90 px-4 backdrop-blur-sm">
+            <div className="flex flex-col items-center gap-3 text-center">
+              <LoaderCircle className="size-10 animate-spin text-[#4AB04A]" />
+              <p className="font-['Kanit'] text-[18px] font-semibold text-black md:text-[20px]">
+                Processing your payment...
+              </p>
+              <p className="max-w-[280px] font-['Vazirmatn'] text-[14px] text-[#605E5E]">
+                Please don't close or refresh this page.
+              </p>
             </div>
           </div>
         )}
