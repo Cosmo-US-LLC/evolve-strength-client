@@ -5,6 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loadGoogleMaps } from "@/lib/loadGoogleMap";
 import { checkGoogleMapsKey } from "@/utils/checkEnv";
+import ThreeDotLoader from "@/components/FounderOfferPayment/ThreeDotLoader";
 import {
   Form,
   FormControl,
@@ -28,6 +29,56 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
+// Province stays a plain text field (matching the Join Now flow's look),
+// but is validated against this list so a typo/invalid value is caught
+// with an inline error instead of only surfacing later as the payment
+// API's "Invalid value for field state" error. Matching is case- and
+// whitespace-insensitive, and also accepts the two-letter abbreviation
+// directly (e.g. "bc", "BC", "British Columbia" all pass).
+const CANADIAN_PROVINCES = [
+  "Alberta",
+  "British Columbia",
+  "Manitoba",
+  "New Brunswick",
+  "Newfoundland",
+  "Newfoundland and Labrador",
+  "Northwest Territories",
+  "Nova Scotia",
+  "Nunavut",
+  "Ontario",
+  "Prince Edward Island",
+  "Quebec",
+  "Saskatchewan",
+  "Yukon",
+];
+const CANADIAN_PROVINCE_ABBREVIATIONS = new Set([
+  "AB",
+  "BC",
+  "MB",
+  "NB",
+  "NL",
+  "NT",
+  "NS",
+  "NU",
+  "ON",
+  "PE",
+  "QC",
+  "SK",
+  "YT",
+]);
+const CANADIAN_PROVINCE_NAMES_LOWER = new Set(
+  CANADIAN_PROVINCES.map((name) => name.toLowerCase()),
+);
+
+const isValidProvinceInput = (value) => {
+  const trimmed = (value || "").toString().trim();
+  if (!trimmed) return false;
+  if (trimmed.length === 2) {
+    return CANADIAN_PROVINCE_ABBREVIATIONS.has(trimmed.toUpperCase());
+  }
+  return CANADIAN_PROVINCE_NAMES_LOWER.has(trimmed.toLowerCase());
+};
 
 // Clean address string helper
 const cleanString = (str = "") =>
@@ -133,7 +184,13 @@ const formSchema = z.object({
     .string()
     .min(5, "Address must be at least 5 characters")
     .max(200, "Address must be less than 200 characters"),
-  province: z.string().min(1, "Province is required."),
+  province: z
+    .string()
+    .min(1, "Province is required.")
+    .refine(
+      isValidProvinceInput,
+      "Please enter a valid Canadian province (e.g. British Columbia or BC).",
+    ),
   city: z
     .string()
     .min(2, "City must be at least 2 characters")
@@ -169,7 +226,13 @@ const formSchema = z.object({
   gender: z.string().min(1, "Gender is required."),
 });
 
-function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
+function PrimaryMemberDetails({
+  formData,
+  updateFormData,
+  onNext,
+  onBack,
+  isSubmitting = false,
+}) {
   // const [isIOSDevice, setIsIOSDevice] = useState(false);
   const [
     autocompleteInitializedForAddress,
@@ -181,6 +244,10 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
   ] = useState(false);
   const addressRef = useRef(null);
   const postalCodeRef = useRef(null);
+  // Controls the DOB calendar popover so it only auto-closes when an
+  // actual day is picked — not when navigating the month/year dropdowns
+  // (captionLayout="dropdown"), which would otherwise close it too.
+  const [isDobPopoverOpen, setIsDobPopoverOpen] = useState(false);
 
   // Debug: Check environment variable on component mount
   useEffect(() => {
@@ -250,18 +317,23 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
           },
         );
 
-        autocomplete.setFields(["formatted_address", "address_components"]);
+        autocomplete.setFields([
+          "formatted_address",
+          "address_components",
+          "geometry",
+          "place_id",
+        ]);
 
-        autocomplete.addListener("place_changed", () => {
+        autocomplete.addListener("place_changed", async () => {
           const place = autocomplete.getPlace();
           let postalCode = "";
           let shortAddress = "";
           let province = "";
           let city = "";
 
-          if (place.address_components) {
-            for (const component of place.address_components) {
-              if (component.types.includes("postal_code")) {
+          const readComponents = (components) => {
+            for (const component of components) {
+              if (!postalCode && component.types.includes("postal_code")) {
                 postalCode = component.long_name;
               }
               if (component.types.includes("street_number")) {
@@ -276,15 +348,46 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                   shortAddress = cleanString(component.long_name);
                 }
               }
-              if (component.types.includes("administrative_area_level_1")) {
+              if (
+                !province &&
+                component.types.includes("administrative_area_level_1")
+              ) {
                 province = cleanString(component.long_name);
               }
               if (
-                component.types.includes("locality") ||
-                component.types.includes("administrative_area_level_3")
+                !city &&
+                (component.types.includes("locality") ||
+                  component.types.includes("administrative_area_level_3"))
               ) {
                 city = cleanString(component.long_name);
               }
+            }
+          };
+
+          if (place.address_components) {
+            readComponents(place.address_components);
+          }
+
+          // A precise street address doesn't always carry a postal_code in
+          // Google's data for that address (unlike a postal-code/region
+          // search, which reliably does). Fall back to reverse-geocoding
+          // the selected place so picking an address auto-fills postal
+          // code the same way picking a postal code auto-fills the address.
+          if (!postalCode && place.place_id) {
+            try {
+              const geocoder = new google.maps.Geocoder();
+              const { results } = await geocoder.geocode({
+                placeId: place.place_id,
+              });
+              const fullComponents = results?.[0]?.address_components;
+              if (fullComponents) {
+                readComponents(fullComponents);
+              }
+            } catch (geocodeError) {
+              console.error(
+                "Failed to reverse-geocode address for postal code:",
+                geocodeError,
+              );
             }
           }
 
@@ -296,9 +399,14 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
             form.setValue("address", cleanedAddress, { shouldValidate: true });
           }
 
-          if (postalCode) {
-            form.setValue("postalCode", postalCode, { shouldValidate: true });
-          }
+          // Postal code is set unconditionally (even to "") whenever a new
+          // address is picked. A bare street name (e.g. "Granville Street",
+          // no house number) can span many postal codes, so Google may not
+          // return one even after the geocode fallback above — in that
+          // case we must clear whatever was there before rather than leave
+          // a stale postal code from a previously-selected, different
+          // address sitting in the field looking correct when it isn't.
+          form.setValue("postalCode", postalCode, { shouldValidate: true });
           if (province) {
             form.setValue("province", province, { shouldValidate: true });
           }
@@ -417,7 +525,7 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
   // const dobLimits = getDobLimits();
 
   return (
-    <div className="w-full max-w-[720px]">
+    <div className="w-full max-w-[720px] pb-24 md:pb-0">
       {/* Mobile back (top, non-sticky) */}
       {/* <button
         type="button"
@@ -557,7 +665,12 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
             )}
           />
 
-          {/* Province */}
+          {/* Province — a plain text field (matching Join Now), but
+              validated against CANADIAN_PROVINCES above so a typo/invalid
+              value is caught here with an inline error instead of only
+              surfacing later as the payment API's "Invalid value for
+              field state" error. Google's autocomplete still auto-fills
+              this via form.setValue() above. */}
           <FormField
             control={form.control}
             name="province"
@@ -632,7 +745,10 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
               render={({ field }) => (
                 <>
                   <FormItem className="flex-1 flex flex-col">
-                    <Popover>
+                    <Popover
+                      open={isDobPopoverOpen}
+                      onOpenChange={setIsDobPopoverOpen}
+                    >
                       <PopoverTrigger asChild>
                         <FormControl>
                           <Button
@@ -681,7 +797,14 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
                         <Calendar
                           mode="single"
                           selected={field.value}
-                          onSelect={field.onChange}
+                          onSelect={(date) => {
+                            field.onChange(date);
+                            // Only a real day pick reaches onSelect; the
+                            // month/year dropdown navigation does not fire
+                            // this, so the popover stays open while
+                            // navigating and closes only on date select.
+                            setIsDobPopoverOpen(false);
+                          }}
                           disabled={(date) => date > subYears(new Date(), 18)}
                           defaultMonth={subYears(new Date(), 18)}
                           initialFocus
@@ -800,26 +923,26 @@ function PrimaryMemberDetails({ formData, updateFormData, onNext, onBack }) {
             /> */}
           </div>
 
-          {/* Navigation Buttons */}
-          <div className="mt-4 flex flex-col gap-3 md:mt-8 md:flex-row md:items-center md:justify-between">
+          {/* Navigation Buttons — sticky to the bottom on mobile so
+              Next/Back stay reachable without scrolling to the end of the
+              form; reverts to normal in-flow layout from md up. On mobile,
+              Back stays a plain text link (30% width) and Next is a
+              button (70% width), side by side. */}
+          <div className="fixed inset-x-0 bottom-0 z-40 flex flex-row gap-3 border-t border-[#e5e5e5] bg-white px-4 py-3 md:static md:mt-8 md:items-center md:justify-between md:border-0 md:bg-transparent md:px-0 md:py-0">
             <button
               type="button"
               onClick={onBack}
-              className="hidden items-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black hover:cursor-pointer md:flex"
+              className="flex w-[30%] items-center justify-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black hover:cursor-pointer md:w-auto md:justify-start"
             >
               <ArrowLeft className="size-4" />
               Back
             </button>
-            <button type="submit" className="btnPrimary w-full md:w-auto">
-              Next
-            </button>
             <button
-              type="button"
-              onClick={onBack}
-              className="flex items-center justify-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black hover:cursor-pointer md:hidden"
+              type="submit"
+              className="btnPrimary w-[70%] md:w-auto disabled:cursor-not-allowed disabled:opacity-70"
+              disabled={isSubmitting}
             >
-              <ArrowLeft className="size-4" />
-              Back
+              {isSubmitting ? <ThreeDotLoader /> : "Next"}
             </button>
           </div>
         </form>

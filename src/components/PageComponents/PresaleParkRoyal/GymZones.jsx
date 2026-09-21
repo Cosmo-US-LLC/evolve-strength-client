@@ -1,287 +1,212 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import theSpaceImage from "@/assets/images/PresaleParkRoyal/the_space.jpg";
-import turfRecoveryImage from "@/assets/images/PresaleParkRoyal/turf_recovery.jpg";
-import cardioZoneImage from "@/assets/images/PresaleParkRoyal/cardio_zone.jpg";
-import recoverySuiteImage from "@/assets/images/PresaleParkRoyal/recovery_suite.jpg";
+import { Minus, Plus } from "lucide-react";
 
-const zones = [
+// Hosted directly (not bundled) at the client's request.
+const strengthZoneWideImage =
+  "https://assets.evolvestrength.ca/media/1789998073968-d1d03ed2-de7f-406f-be52-1da977681a8f.webp";
+const cardioZoneWideImage =
+  "https://assets.evolvestrength.ca/media/1789998096647-c8b82ddd-0ae3-4bfb-b8fc-fea0c944d5b1.webp";
+const turfAreaWideImage =
+  "https://assets.evolvestrength.ca/media/1789998507648-c8a91475-4100-4c92-9a4e-42deb6c9a821.webp";
+
+// Desktop: one wide panoramic photo with the zone labels overlaid on it,
+// hover-driven (see below). Mobile: an accordion of the same three zones,
+// one photo card each, only one open (showing its description) at a time
+// - both per the updated Figma.
+const desktopZones = [
   {
     title: "Strength Zone",
     description:
       "Equip yourself with free weights, machines, and all the tools to build muscle and power.",
-    image: theSpaceImage,
+    image: strengthZoneWideImage,
   },
   {
     title: "Cardio Zone",
     description:
       "Stay active and boost endurance with treadmills, bikes, rowers, and more.",
-    image: cardioZoneImage,
+    image: cardioZoneWideImage,
   },
   {
     title: "Turf Area",
     description:
       "Train functionally with open space for agility, HIIT, and dynamic workouts.",
-    image: turfRecoveryImage,
-  },
-  {
-    title: "Recovery Suite",
-    description:
-      "Recover faster, stay injury-free, and recharge with our full range of recovery services.",
-    image: recoverySuiteImage,
+    image: turfAreaWideImage,
   },
 ];
 
 const GymZones = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activeZone = zones[activeIndex];
-  const sectionRef = useRef(null);
-  const pinRef = useRef(null);
-  const [pinHeight, setPinHeight] = useState(0);
-  const [isDesktop, setIsDesktop] = useState(false);
+  // Desktop hover state for the single-photo zone layout below.
+  const [hoveredDesktopIndex, setHoveredDesktopIndex] = useState(0);
+  const activeDesktopZone = desktopZones[hoveredDesktopIndex];
 
-  // The scroll-scrubbed pin effect below is desktop-only. On mobile it
-  // never tracked scroll position reliably (mobile browsers resize their
-  // chrome mid-scroll, address bars, etc.), so mobile just gets a normal
-  // in-flow section with a tap-to-switch accordion instead.
-  useEffect(() => {
-    const mql = window.matchMedia("(min-width: 768px)");
-    const update = () => setIsDesktop(mql.matches);
-    update();
-    mql.addEventListener("change", update);
-    return () => mql.removeEventListener("change", update);
-  }, []);
-
-  // The pinned card's height is auto (hugs its content) instead of a
-  // forced 100svh, so it never has leftover blank space below the last
-  // item. The scroll math needs the box's *actual* rendered height - both
-  // for how tall the scroll track needs to be (zones.length * pinHeight)
-  // and for when to advance to the next zone - so it's measured directly
-  // off the element rather than assumed from the viewport.
-  useEffect(() => {
-    const measure = () => {
-      if (pinRef.current) setPinHeight(pinRef.current.offsetHeight);
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    window.visualViewport?.addEventListener("resize", measure);
-    return () => {
-      window.removeEventListener("resize", measure);
-      window.visualViewport?.removeEventListener("resize", measure);
-    };
-  }, []);
-
-  // Mobile: instead of scroll-driven switching, the zone auto-advances
-  // every second (matches the reference site's behaviour - a plain timer,
-  // not tied to scroll position at all). Tapping a title jumps straight to
-  // it and resets the timer so it doesn't immediately flip away again.
-  useEffect(() => {
-    if (isDesktop) return;
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % zones.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [isDesktop, activeIndex]);
-
-  const selectZone = (index) => setActiveIndex(index);
-
-  // Scroll-scrubbed pin effect: a tall section with a sticky frame inside.
-  // Scroll progress through the tall section drives which zone is active.
-  // The scroll handler is rAF-throttled so the layout read
-  // (getBoundingClientRect) never runs more than once per frame, which is
-  // a common source of scroll jank. Desktop only - see isDesktop above.
-  useEffect(() => {
-    if (!isDesktop) return;
-
-    let ticking = false;
-
-    const computeActiveIndex = () => {
-      ticking = false;
-      const el = sectionRef.current;
-      if (!el || !pinHeight) return;
-
-      const rect = el.getBoundingClientRect();
-      const scrollableHeight = rect.height - pinHeight;
-      if (scrollableHeight <= 0) return;
-
-      const scrolled = Math.min(Math.max(-rect.top, 0), scrollableHeight);
-      const progress = scrolled / scrollableHeight;
-      const index = Math.min(
-        zones.length - 1,
-        Math.floor(progress * zones.length)
-      );
-
-      setActiveIndex((prev) => (prev === index ? prev : index));
-    };
-
-    const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(computeActiveIndex);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, [pinHeight, isDesktop]);
+  // Mobile accordion: only one zone card open (showing its description) at
+  // a time. Starts with the first one open, matching the Figma default
+  // state. Tapping an already-open card's toggle collapses it.
+  const [openMobileIndex, setOpenMobileIndex] = useState(0);
+  const toggleMobileZone = (index) => {
+    setOpenMobileIndex((prev) => (prev === index ? -1 : index));
+  };
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative"
-      style={
-        isDesktop
-          ? {
-              height: pinHeight
-                ? `${pinHeight * zones.length}px`
-                : `${zones.length * 100}svh`,
-            }
-          : undefined
-      }
-    >
-      <div
-        ref={pinRef}
-        className="flex w-full flex-col justify-start bg-white px-4 pb-10 md:sticky md:top-0 md:h-[100svh] md:justify-center md:overflow-hidden md:px-8 md:py-16"
-      >
-      <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-4 md:gap-8">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex flex-col items-center gap-1 text-center md:gap-2"
-        >
-           <p className="uppercase font-[500] font-[Kanit] text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] text-[#4ab04a]">
-           The Space
-          </p>
-          <h2 className="uppercase text-center !text-[28px] md:!text-[40px] !font-[700] font-[Kanit] !leading-[34px] md:!leading-[39px] text-[#000]">
-            Design To Be Seen. Built To Be Used
-          </h2>
-          {/* <p className="font-[Kanit] text-[13px] md:text-[16px] font-[500] uppercase leading-[18px] md:leading-[24px] text-[#4ab04a]">
-            The Space
-          </p>
-          <h2 className="font-[Kanit] !text-[22px] md:!text-[40px] !font-[600] uppercase !leading-[26px] md:!leading-[46px] text-[#000]">
-            Design To Be Seen. Built To Be Used
-          </h2> */}
-        </motion.div>
-
-        {/* Desktop: description / image / title-list, three columns, driven
-            by the scroll-pin effect above */}
-        <div className="hidden md:flex md:flex-row md:items-start md:gap-12">
-          <div className="md:block md:w-1/3 overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={activeIndex}
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -24 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="font-[Kanit] text-[18px] font-[300] leading-[26px] text-[#000]"
-              >
-                {activeZone.description}
-              </motion.p>
-            </AnimatePresence>
-          </div>
-
-          <div className="relative mx-auto h-auto w-full shrink-0 overflow-hidden rounded-[16px] md:w-1/3 md:max-w-[381px] md:aspect-[381/500]">
-            <AnimatePresence mode="sync">
-              <motion.img
-                key={activeIndex}
-                src={activeZone.image}
-                alt={activeZone.title}
-                initial={{ opacity: 0, scale: 1.15 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </AnimatePresence>
-          </div>
-
-          <div className="flex w-full flex-col md:w-1/3 divide-y divide-[#e5e5e5] border-t border-[#e5e5e5]">
-            {zones.map((zone, index) => (
-              <button
-                key={zone.title}
-                type="button"
-                onClick={() => selectZone(index)}
-                onMouseEnter={() => selectZone(index)}
-                className={`py-4 text-left font-[Kanit] text-[36px] font-[600] uppercase leading-[1] transition-colors duration-200 cursor-pointer ${
-                  index === activeIndex ? "text-[#4ab04a]" : "text-[#c4c4c4]"
-                }`}
-              >
-                {zone.title}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile: single image + description that auto-advance through
-            the zones every second, with a 2-column grid of titles that
-            highlights whichever one is currently showing. Tapping a title
-            jumps straight to it. */}
-        <div className="flex flex-col gap-5 md:hidden">
+    <section className="relative">
+      <div className="flex w-full flex-col justify-start bg-white pb-10 md:pb-0 md:pt-16">
+        <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-4 px-4 md:gap-8 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="relative mx-auto h-[270px] w-full overflow-hidden rounded-[16px]"
+            className="flex flex-col items-center gap-1 text-center md:gap-2"
           >
-            <AnimatePresence mode="sync">
-              <motion.img
-                key={activeIndex}
-                src={activeZone.image}
-                alt={activeZone.title}
-                initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </AnimatePresence>
+            <p className="uppercase font-[500] font-[Kanit] text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] text-[#4ab04a]">
+              The Space
+            </p>
+            <h2 className="uppercase text-center !text-[28px] md:!text-[40px] !font-[700] font-[Kanit] !leading-[34px] md:!leading-[39px] text-[#000]">
+              Design To Be Seen. Built To Be Used
+            </h2>
           </motion.div>
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            className="grid grid-cols-2 gap-x-4 gap-y-3"
-          >
-            {zones.map((zone, index) => (
-              <button
-                key={zone.title}
-                type="button"
-                onClick={() => selectZone(index)}
-                className={`text-left font-[Kanit] text-[16px] font-[600] uppercase leading-[1.2] transition-colors duration-200 cursor-pointer ${
-                  index === activeIndex ? "text-[#4ab04a]" : "text-[#c4c4c4]"
-                }`}
-              >
-                {zone.title}
-              </button>
-            ))}
-          </motion.div>
+        {/* Desktop: one wide panoramic photo, full viewport width and
+            height (not constrained by the max-w-[1280px] content column
+            above/below it), split into three hover columns (one per zone,
+            matching where that zone actually sits in the photo). Each
+            column carries its own name + (only when active) description,
+            with a numbered badge pinned to the bottom. Hovering a column
+            crossfades the photo to that zone - no auto-cycle, no
+            scroll-pin. */}
+        <div className="relative hidden w-full overflow-hidden md:mt-4 md:block md:h-screen">
+          <AnimatePresence mode="sync">
+            <motion.img
+              key={hoveredDesktopIndex}
+              src={activeDesktopZone.image}
+              alt={activeDesktopZone.title}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </AnimatePresence>
 
-          <div className="relative min-h-[60px]">
-            <AnimatePresence mode="sync">
-              <motion.p
-                key={activeIndex}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
-                className="absolute inset-0 text-[16px] leading-[26px] font-[300] font-[Kanit] text-[#000]"
-              >
-                {activeZone.description}
-              </motion.p>
-            </AnimatePresence>
+          {/* Gradient behind the overlay so text/markers stay legible over
+              any part of the photo. */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+
+          <div className="absolute inset-0 grid grid-cols-3">
+            {desktopZones.map((zone, index) => {
+              const isActive = index === hoveredDesktopIndex;
+              return (
+                <button
+                  key={zone.title}
+                  type="button"
+                  onMouseEnter={() => setHoveredDesktopIndex(index)}
+                  onFocus={() => setHoveredDesktopIndex(index)}
+                  className="group flex cursor-pointer flex-col items-center justify-end gap-2 px-4 pb-6 text-center lg:pb-10"
+                >
+                  <span
+                    className={`font-[Kanit] text-[16px] font-[600] uppercase leading-[1.1] transition-colors duration-200 lg:text-[20px] ${
+                      isActive ? "text-white" : "text-white/70 group-hover:text-white"
+                    }`}
+                  >
+                    {zone.title}
+                  </span>
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.p
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        transition={{ duration: 0.25, ease: "easeOut" }}
+                        className="max-w-[220px] font-[Kanit] text-[16px] font-[300] leading-[26px] text-white/90 lg:max-w-[280px]"
+                      >
+                        {zone.description}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                  <span
+                    className={`mt-6 font-[Kanit] text-[14px] font-[500] transition-colors duration-200 lg:mt-8 lg:text-[16px] ${
+                      isActive ? "text-white" : "text-white/70 group-hover:text-white"
+                    }`}
+                  >
+                    {index + 1}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
-      </div>
+
+        {/* Mobile: an accordion of the same three zones, one photo card
+            each. Only one card is open (showing its description) at a
+            time; tapping a card's toggle opens it and collapses whichever
+            one was open, tapping the open one again collapses it too. */}
+        <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-4 px-4 md:hidden">
+          {desktopZones.map((zone, index) => {
+            const isOpen = index === openMobileIndex;
+            return (
+              <motion.div
+                key={zone.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                animate={{ height: isOpen ? 220 : 150 }}
+                transition={{
+                  opacity: { duration: 0.5, ease: "easeOut", delay: index * 0.08 },
+                  y: { duration: 0.5, ease: "easeOut", delay: index * 0.08 },
+                  height: { duration: 0.3, ease: "easeOut" },
+                }}
+                className="relative w-full overflow-hidden rounded-[16px]"
+              >
+                <img
+                  src={zone.image}
+                  alt={zone.title}
+                  className={`absolute inset-0 h-full w-full object-cover transition-[filter] duration-300 ${
+                    isOpen ? "blur-[3px] scale-105" : "blur-0"
+                  }`}
+                />
+                <div
+                  className={`pointer-events-none absolute inset-0 transition-colors duration-300 ${
+                    isOpen ? "bg-black/50" : "bg-black/40"
+                  }`}
+                />
+
+                <button
+                  type="button"
+                  onClick={() => toggleMobileZone(index)}
+                  className="absolute inset-0 flex cursor-pointer flex-col justify-end p-4"
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="font-[Kanit] text-[16px] font-[600] uppercase leading-[1.1] text-white">
+                      {zone.title}
+                    </span>
+                    <span className="flex size-7 flex-shrink-0 items-center justify-center rounded-full border border-white/70 text-white">
+                      {isOpen ? (
+                        <Minus className="size-4" />
+                      ) : (
+                        <Plus className="size-4" />
+                      )}
+                    </span>
+                  </div>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.p
+                        initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                        animate={{ opacity: 1, height: "auto", marginTop: 8 }}
+                        exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                        transition={{ duration: 0.25, ease: "easeOut" }}
+                        className="overflow-hidden text-left font-[Kanit] text-[14px] font-[300] leading-[20px] text-white/90"
+                      >
+                        {zone.description}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                </button>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

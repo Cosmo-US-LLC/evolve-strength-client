@@ -13,27 +13,28 @@ import UnmatchedAmenitiesImage6 from "@/assets/images/PresaleParkRoyal/amenity_s
 const unmatchedAmenities = [
   {
     title: "Full Commercial Gym Access",
-    image: UnmatchedAmenitiesImage1,
+    image:
+      "https://assets.evolvestrength.ca/media/1789999064912-e9761590-6b57-4658-a74c-b0a37ee07993.webp",
   },
   {
     title: "On-Site Parking",
-    image: UnmatchedAmenitiesImage2,
+    image: "https://assets.evolvestrength.ca/media/1789999096081-d46a07c7-6c65-4624-8aee-b0c99e8042ee.webp",
   },
   {
     title: "Comfortable Waiting Area",
-    image: UnmatchedAmenitiesImage3,
+    image: "https://assets.evolvestrength.ca/media/1789999115094-d90dd3f3-9999-49f9-ac2b-0d81f3ae7d67.webp",
   },
   {
     title: "Executive Locker Rooms",
-    image: UnmatchedAmenitiesImage4,
+    image: "https://assets.evolvestrength.ca/media/1789999150240-9559e70f-61ff-489d-a510-54dca96d60de.webp",
   },
   {
     title: "Premium Showers",
-    image: UnmatchedAmenitiesImage5,
+    image: "https://assets.evolvestrength.ca/media/1789999134094-84251963-2cc3-4c00-895d-3ad1ed51f918.webp",
   },
   {
     title: "Saunas",
-    image: UnmatchedAmenitiesImage6,
+    image: "https://assets.evolvestrength.ca/media/1789999166721-47e17881-c231-4e63-b41e-8e0a1b67ce0e.webp",
   },
 ];
 
@@ -73,7 +74,7 @@ const UnmatchedAmenities = () => {
 
   return (
     <section className="py-8 md:py-16 bg-[#ffffff]">
-      <div className="max-w-[1280px] mx-auto px-4   md:px-8 flex flex-col items-start gap-16 md:gap-8">
+      <div className="max-w-[1280px] mx-auto px-4   md:px-8 flex flex-col items-start gap-6 md:gap-8">
         <div className="flex items-start flex-col gap-2">
           <p className="uppercase font-[500] font-[Kanit] text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] text-[#4ab04a]">
             Amenities
@@ -86,12 +87,12 @@ const UnmatchedAmenities = () => {
               {unmatchedAmenities.map((pro, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_100%] md:flex-[0_0_26.5%] relative"
+                  className="flex-[0_0_100%] md:flex-[0_0_30%] relative"
                 >
                   <img
                     src={pro.image}
                     alt={pro.title}
-                    className="w-full h-[320px] md:h-[400px] md:w-[300px] object-cover rounded-lg"
+                    className="w-full h-[320px] md:h-[400px] object-cover rounded-lg"
                   />
                   <div className="absolute left-3 bottom-3 md:left-4 md:bottom-4 bg-black/50 rounded-full px-3 py-2 md:px-4 md:py-2.5 max-w-[calc(100%-24px)]">
                     <h3 className="flex items-center text-white !leading-[24px] md:!leading-[27px] font-[Kanit] !font-[500] !text-[14px] md:!text-[18px] truncate">
@@ -101,17 +102,14 @@ const UnmatchedAmenities = () => {
                 </div>
               ))}
             </div>
-            <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-24 bg-gradient-to-l from-white to-transparent md:block" />
           </div>
-          <div className="hidden md:block md:absolute md:-top-1/6 md:-translate-y-1/2 md:left-[86%] z-10">
+          <div className="hidden md:flex md:absolute md:-top-1/6 md:right-0 md:-translate-y-1/2 md:gap-3 z-10">
             <button
               onClick={scrollPrev}
               className=" p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-300 cursor-pointer "
             >
               <ArrowLeft className="w-4 h-4 md:w-6 md:h-6" />
             </button>
-          </div>
-          <div className="hidden md:block md:absolute md:-top-1/6 md:-translate-y-1/2 md:right-[6%] z-10">
             <button
               onClick={scrollNext}
               className=" p-2 rounded-full border border-[#000000] text-[#000000] hover:bg-gray-300 cursor-pointer "
@@ -134,7 +132,7 @@ const UnmatchedAmenities = () => {
             </button>
           </div>
         </div>
-        <div className="w-full flex gap-2 flex-col items-center justify-center md:pt-4 -mt-4 md:mt-0">
+        <div className="w-full flex gap-2 flex-col items-center justify-center md:pt-4">
               <Link to="/founder-offer-payment?source=park-royal">
                 {" "}
                 <button className="btnPrimary flex items-center !py-[14px] !px-[20px] gap-2 md:gap-[10px] uppercase">

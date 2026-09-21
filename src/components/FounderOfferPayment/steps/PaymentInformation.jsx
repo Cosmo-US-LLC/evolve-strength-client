@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ArrowLeft, Info } from "lucide-react";
+import ThreeDotLoader from "@/components/FounderOfferPayment/ThreeDotLoader";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -23,6 +24,14 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 const TURNSTILE_SCRIPT_ID = "cf-turnstile-script";
 const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+
+const formatDuration = (seconds) => {
+  if (seconds <= 60) {
+    return `${seconds} second${seconds === 1 ? "" : "s"}`;
+  }
+  const minutes = Math.ceil(seconds / 60);
+  return `${minutes} minute${minutes === 1 ? "" : "s"}`;
+};
 
 // Zod Schema
 const formSchema = z.object({
@@ -165,6 +174,8 @@ function PaymentInformation({
   onSubmitPayment,
   isSubmitting,
   submitError,
+  isBlocked = false,
+  cooldownSecondsLeft = 0,
   paymentAmount,
   feeAmount,
   planFeeAmount,
@@ -210,7 +221,15 @@ function PaymentInformation({
 
   useEffect(() => {
     if (!submitError) return;
-    form.setValue("cfTurnstileResponse", "", { shouldValidate: true });
+    // shouldValidate is intentionally left false: this reset is an
+    // anti-abuse measure (require a fresh token after any failed
+    // payment attempt), not something the visitor did wrong. Validating
+    // immediately made "Please complete the security check." flash
+    // alongside the real submitError (e.g. a declined card), which
+    // wrongly looked like a second, unrelated problem. The field is
+    // still re-validated normally if they submit again with no token.
+    form.setValue("cfTurnstileResponse", "");
+    form.clearErrors("cfTurnstileResponse");
     setTurnstileResetCount((count) => count + 1);
   }, [form, submitError]);
 
@@ -344,7 +363,7 @@ function PaymentInformation({
   };
 
   return (
-    <div className="w-full max-w-[720px]">
+    <div className="w-full max-w-[720px] pb-28 md:pb-0">
       {/* Mobile back (top, non-sticky) */}
       {/* <button
         type="button"
@@ -397,6 +416,7 @@ function PaymentInformation({
                           onChange: field.onChange,
                           onBlur: field.onBlur,
                           value: field.value,
+                          disabled: isSubmitting,
                         })}
                         placeholder="1234 5678 9012 3456"
                         className={`pr-12 mt-2 ${
@@ -446,6 +466,7 @@ function PaymentInformation({
                           onChange: field.onChange,
                           onBlur: field.onBlur,
                           value: field.value,
+                          disabled: isSubmitting,
                         })}
                         placeholder="CVV"
                         className={`${
@@ -481,6 +502,7 @@ function PaymentInformation({
                           onChange: field.onChange,
                           onBlur: field.onBlur,
                           value: field.value,
+                          disabled: isSubmitting,
                         })}
                         placeholder="MM/YY"
                         className={`${
@@ -634,39 +656,64 @@ function PaymentInformation({
             )}
           />
 
-          {/* Navigation Buttons */}
-          <div className="mt-4 flex flex-col gap-3 md:mt-8 md:flex-row md:items-end md:justify-between">
+          {/* Navigation Buttons — sticky to the bottom on mobile so
+              Next/Back stay reachable without scrolling to the end of the
+              form; reverts to normal in-flow layout from md up. On mobile,
+              Back stays a plain text link (30% width) and the submit
+              button is 70% width, side by side. */}
+          <div className="fixed inset-x-0 bottom-0 z-40 flex flex-col gap-3 border-t border-[#e5e5e5] bg-white px-4 py-3 md:static md:mt-8 md:flex-row md:items-end md:justify-between md:border-0 md:bg-transparent md:px-0 md:py-0">
             <button
               type="button"
               onClick={onBack}
-              className="hidden items-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black hover:cursor-pointer md:flex"
+              disabled={isSubmitting}
+              className="hidden items-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black hover:cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 md:flex"
             >
               <ArrowLeft className="size-4" />
               Back
             </button>
             <div className="flex w-full flex-col items-end gap-2 md:w-auto">
-              {submitError && (
+              {isBlocked && (
+                <p className="text-[12px] md:text-[13px] text-red-600">
+                  Payment submissions are blocked for this device or network.
+                </p>
+              )}
+              {!isBlocked && cooldownSecondsLeft > 0 && (
+                <p className="text-[12px] md:text-[13px] text-red-600">
+                  Please wait {formatDuration(cooldownSecondsLeft)} before
+                  trying again.
+                </p>
+              )}
+              {!isBlocked && cooldownSecondsLeft === 0 && submitError && (
                 <p className="text-[12px] md:text-[13px] text-red-600">
                   {submitError}
                 </p>
               )}
 
-              <button
-                type="submit"
-                className="btnPrimary w-full md:w-auto"
-                disabled={isSubmitting || !turnstileSiteKey}
-              >
-                {isSubmitting ? "Processing..." : "Lock My Rate For $0"}
-              </button>
+              <div className="flex w-full flex-row gap-3 md:w-auto">
+                <button
+                  type="button"
+                  onClick={onBack}
+                  disabled={isSubmitting}
+                  className="flex w-[30%] items-center justify-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black hover:cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 md:hidden"
+                >
+                  <ArrowLeft className="size-4" />
+                  Back
+                </button>
+                <button
+                  type="submit"
+                  className="btnPrimary w-[70%] md:w-auto disabled:cursor-not-allowed disabled:opacity-70"
+                  disabled={
+                    isSubmitting ||
+                    !turnstileSiteKey ||
+                    isBlocked ||
+                    cooldownSecondsLeft > 0
+                  }
+                  aria-busy={isSubmitting}
+                >
+                  {isSubmitting ? <ThreeDotLoader /> : "Lock My Rate For $0"}
+                </button>
+              </div>
             </div>
-            <button
-              type="button"
-              onClick={onBack}
-              className="flex items-center justify-center gap-1.5 font-['Kanit'] text-[16px] font-light uppercase text-black hover:cursor-pointer md:hidden"
-            >
-              <ArrowLeft className="size-4" />
-              Back
-            </button>
           </div>
         </form>
       </Form>

@@ -1,10 +1,14 @@
 import React from "react";
-import firstBannerImageDesktop from "@/assets/images/PresaleParkRoyal/first_banner.jpg";
-import firstBannerImageMobile from "@/assets/images/PresaleParkRoyal/first_banner_mobile.jpg";
+
+// Hosted directly (not bundled) at the client's request.
+const firstBannerImageDesktop =
+  "https://assets.evolvestrength.ca/media/1790000431444-39ace88a-575d-4b74-a97b-c14168b9f1b5.webp";
+const firstBannerImageMobile =
+  "https://assets.evolvestrength.ca/media/1790000817464-8bb63a77-a0a2-403e-b597-10454c6b9f48.webp";
 
 function ParkRoyalFirstBanner() {
   return (
-    <section className="relative w-full h-[420px] md:h-[700px] overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center md:hidden"
         style={{ backgroundImage: `url(${firstBannerImageMobile})` }}

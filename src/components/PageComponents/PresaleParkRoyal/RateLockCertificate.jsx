@@ -141,7 +141,7 @@ function RateLockCertificate() {
             <div className="flex flex-row justify-between items-start w-full pt-2 border-t border-white/15">
               <div className="flex flex-col items-center gap-0.5">
                 <p className="text-[10px] !leading-[16px] font-[300] font-[Kanit] text-[#ffffff]">
-                  7 September 2026
+                  18 September 2026
                 </p>
                 <p className="text-[10px] !leading-[16px] font-[500] font-[Kanit] text-[#ffffff] uppercase tracking-wide">
                   Date

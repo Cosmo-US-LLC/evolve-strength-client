@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import builtBiggerBgDesktop from "@/assets/images/PresaleParkRoyal/built_bigger_bg.jpg";
-import builtBiggerBgMobile from "@/assets/images/PresaleParkRoyal/built_bigger_bg_mobile.jpg";
+
+// Hosted directly (not bundled) at the client's request.
+const builtBiggerBgDesktop =
+  "https://assets.evolvestrength.ca/media/1790000120983-9c36682f-9805-47f6-b8dd-0d551a2cf31e.webp";
+const builtBiggerBgMobile =
+  "https://assets.evolvestrength.ca/media/1790000713057-300b1064-fc7d-4a12-8ebd-2c84886d58c0.webp";
 
 function BuiltBiggerEquippedBetter() {
   return (
-    <section className="relative w-full h-[600px] md:h-[640px] overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-top bg-no-repeat md:hidden"
         style={{ backgroundImage: `url(${builtBiggerBgMobile})` }}
