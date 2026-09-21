@@ -26,9 +26,9 @@ function PresaleParkRoyal() {
       <RateLockCertificate />
       <GymZones />
       <ParkRoyalFirstBanner />
-      <BuiltBiggerEquippedBetter />
       <PresaleTrustedEquipmentBrands />
-      <ParkRoyalLocation />
+      <BuiltBiggerEquippedBetter />
+      {/* <ParkRoyalLocation /> */}
       <UnmatchedAmenities />
       <PresaleWellnwssServices />
       {/* <CareerWithEvolve /> */}

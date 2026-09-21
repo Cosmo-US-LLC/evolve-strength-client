@@ -7,8 +7,16 @@ function PlanSelect({
   isLoading = false,
   error = "",
   className = "",
+  displayPrice,
+  hasAddons = false,
 }) {
   const activePlan = plans.find((plan) => plan.value === currentPlan) || plans[0];
+  // When add-ons (e.g. Towel) are selected, `displayPrice` is the live
+  // plan + add-ons pre-tax total (computed from the same API data as the
+  // payment step), so the price shown here actually moves instead of
+  // staying pinned to the base plan price. Tax/GST is intentionally left
+  // out here — it's only shown at the final payment step.
+  const priceToShow = displayPrice || activePlan?.price;
 
   return (
     <div
@@ -47,10 +55,13 @@ function PlanSelect({
           <span className="font-medium text-black">{activePlan.label}</span>
           <div className="flex items-baseline">
             <span className="text-2xl font-bold text-[#4AB04A]">
-              {activePlan.price}
+              {priceToShow}
             </span>
             &nbsp;
-            <span className="text-xs text-[#605E5E]">{activePlan.taxLabel}</span>
+            <span className="text-xs text-[#605E5E]">
+              {activePlan.taxLabel}
+              {hasAddons && " + add-ons"}
+            </span>
           </div>
           <span className="text-sm text-[#393939]">{activePlan.billingLabel}</span>
         </div>
