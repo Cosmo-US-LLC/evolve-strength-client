@@ -79,6 +79,28 @@
     { "source": "/park-royal-waitlist", "destination": "/presale-park-royal", "permanent": true }
   ],
   "rewrites": [
+    {
+      "source": "/presale-park-royal",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(facebookexternalhit|Facebot|Twitterbot|LinkedInBot|Slackbot|WhatsApp|TelegramBot|Discordbot|SkypeUriPreview|vkShare|redditbot|Pinterest|Embedly|Applebot|iMessage).*"
+        }
+      ],
+      "destination": "/crawler/presale-park-royal.html"
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(facebookexternalhit|Facebot|Twitterbot|LinkedInBot|Slackbot|WhatsApp|TelegramBot|Discordbot|SkypeUriPreview|vkShare|redditbot|Pinterest|Embedly|Applebot|iMessage).*"
+        }
+      ],
+      "destination": "/crawler/default.html"
+    },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
