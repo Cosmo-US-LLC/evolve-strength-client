@@ -332,7 +332,6 @@ function SuccessCertificate({ primaryMember, onBack, locationName, submittedAt }
             <img
               src="https://assets.evolvestrength.ca/media/1770285600359-c4718eeb-3b12-4e95-bf3f-d4db2faf105e.png"
               alt="Certificate"
-              crossOrigin="anonymous"
               className="w-[162px] h-[162px] aspect-square"
             />
           </div>

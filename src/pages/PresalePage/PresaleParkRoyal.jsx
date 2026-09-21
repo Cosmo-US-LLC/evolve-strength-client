@@ -18,8 +18,8 @@ function PresaleParkRoyal() {
   return (
     <>
       <MetaTags
-        title="Evolve Strength South Edmonton Common Gym | Sign Up Free"
-        description="Join the presale risk-free! Sign up with $0 down and pay nothing until we open. Not satisfied? Cancel within 10 days of opening for a full refund."
+        title="Evolve Strength Park Royal | Founder Presale is Live"
+        description="Lock your founder rate for life at Evolve Strength Park Royal, West Vancouver's first gym designed like it means it. Limited founder spots. Join for $0 Today."
       />
       <PresaleParkRoyalHero />
       <FoundingMemberSavings />
