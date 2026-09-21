@@ -73,10 +73,10 @@ const EQUIPMENT_PARTNERS = [
   ...EQUIPMENT_PARTNERS_BASE,
 ].map((partner, index) => ({ ...partner, id: index + 1 }));
 
-function PartnerCard({ partner, className = "" }) {
+function PartnerCard({ partner, className = "", widthClassName = "w-[280px] md:w-[270px]" }) {
   return (
     <div
-      className={`relative shrink-0 w-[280px] md:w-[270px] h-[380px] rounded-2xl overflow-hidden ${className}`.trim()}
+      className={`relative shrink-0 ${widthClassName} h-[380px] rounded-2xl overflow-hidden ${className}`.trim()}
     >
       <img
         src={partner.backgroundImage}
@@ -139,9 +139,9 @@ function PresaleTrustedEquipmentBrands() {
                   {EQUIPMENT_PARTNERS.map((partner) => (
                     <CarouselItem
                       key={partner.id}
-                      className="pl-4 basis-[300px] shrink-0 "
+                      className="pl-4 basis-full shrink-0"
                     >
-                      <PartnerCard partner={partner} />
+                      <PartnerCard partner={partner} widthClassName="w-full" />
                     </CarouselItem>
                   ))}
                 </CarouselContent>

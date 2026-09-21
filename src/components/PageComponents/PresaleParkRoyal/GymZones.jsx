@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Minus, Plus } from "lucide-react";
+// Same zone icons already used on the South Common presale's GymZones
+// (src/components/PageComponents/PresaleEdmontonSouthCommon/GymZones.jsx).
+import strengthZoneIcon from "@/assets/images/presale/gym_presale_icon_3.svg";
+import cardioZoneIcon from "@/assets/images/presale/gym_presale_icon_2.svg";
+import turfAreaIcon from "@/assets/images/presale/gym_presale_icon_1.svg";
 
 // Hosted directly (not bundled) at the client's request.
 const strengthZoneWideImage =
@@ -20,18 +25,21 @@ const desktopZones = [
     description:
       "Equip yourself with free weights, machines, and all the tools to build muscle and power.",
     image: strengthZoneWideImage,
+    icon: strengthZoneIcon,
   },
   {
     title: "Cardio Zone",
     description:
       "Stay active and boost endurance with treadmills, bikes, rowers, and more.",
     image: cardioZoneWideImage,
+    icon: cardioZoneIcon,
   },
   {
     title: "Turf Area",
     description:
       "Train functionally with open space for agility, HIIT, and dynamic workouts.",
     image: turfAreaWideImage,
+    icon: turfAreaIcon,
   },
 ];
 
@@ -57,7 +65,7 @@ const GymZones = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-col items-center gap-1 text-center md:gap-2"
+            className="flex flex-col items-center gap-1 text-center md:gap-2 mb-4"
           >
             <p className="uppercase font-[500] font-[Kanit] text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] text-[#4ab04a]">
               The Space
@@ -106,6 +114,17 @@ const GymZones = () => {
                   className="group flex cursor-pointer flex-col items-center justify-end gap-2 px-4 pb-6 text-center lg:pb-10"
                 >
                   <span
+                    className={`flex size-9 items-center justify-center rounded-full transition-colors duration-200 lg:size-10 ${
+                      isActive ? "bg-[#4ab04a]/20" : "bg-white/10"
+                    }`}
+                  >
+                    <img
+                      src={zone.icon}
+                      alt=""
+                      className="size-5 object-contain lg:size-6"
+                    />
+                  </span>
+                  <span
                     className={`font-[Kanit] text-[16px] font-[600] uppercase leading-[1.1] transition-colors duration-200 lg:text-[20px] ${
                       isActive ? "text-white" : "text-white/70 group-hover:text-white"
                     }`}
@@ -142,7 +161,7 @@ const GymZones = () => {
             each. Only one card is open (showing its description) at a
             time; tapping a card's toggle opens it and collapses whichever
             one was open, tapping the open one again collapses it too. */}
-        <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-4 px-4 md:hidden">
+        <div className="flex w-full flex-col gap-4 md:hidden">
           {desktopZones.map((zone, index) => {
             const isOpen = index === openMobileIndex;
             return (
@@ -157,7 +176,7 @@ const GymZones = () => {
                   y: { duration: 0.5, ease: "easeOut", delay: index * 0.08 },
                   height: { duration: 0.3, ease: "easeOut" },
                 }}
-                className="relative w-full overflow-hidden rounded-[16px]"
+                className="relative w-full overflow-hidden"
               >
                 <img
                   src={zone.image}
@@ -175,12 +194,17 @@ const GymZones = () => {
                 <button
                   type="button"
                   onClick={() => toggleMobileZone(index)}
-                  className="absolute inset-0 flex cursor-pointer flex-col justify-end p-4"
+                  className="absolute inset-0 flex cursor-pointer flex-col justify-center p-4"
                 >
                   <div className="flex items-center justify-between gap-3">
-                    <span className="font-[Kanit] text-[16px] font-[600] uppercase leading-[1.1] text-white">
-                      {zone.title}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="flex size-7 flex-shrink-0 items-center justify-center rounded-full bg-[#4ab04a]/20">
+                        <img src={zone.icon} alt="" className="size-4 object-contain" />
+                      </span>
+                      <span className="font-[Kanit] text-[16px] font-[600] uppercase leading-[1.1] text-white">
+                        {zone.title}
+                      </span>
+                    </div>
                     <span className="flex size-7 flex-shrink-0 items-center justify-center rounded-full border border-white/70 text-white">
                       {isOpen ? (
                         <Minus className="size-4" />
