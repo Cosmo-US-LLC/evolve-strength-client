@@ -147,19 +147,25 @@ const GymZones = () => {
                   >
                     {zone.title}
                   </span>
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.p
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 8 }}
-                        transition={{ duration: 0.25, ease: "easeOut" }}
-                        className="max-w-[220px] font-[Kanit] text-[16px] font-[300] leading-[26px] text-white/90 lg:max-w-[280px]"
-                      >
-                        {zone.description}
-                      </motion.p>
-                    )}
-                  </AnimatePresence>
+                  {/* Fixed-height slot so the number badge below doesn't
+                      snap up the instant this unmounts - without it, the
+                      opacity/y fade looked smooth going in but the layout
+                      jump on the way out made closing feel abrupt. */}
+                  <div className="flex h-[54px] w-full max-w-[220px] items-start justify-center lg:h-[80px] lg:max-w-[320px]">
+                    <AnimatePresence>
+                      {isActive && (
+                        <motion.p
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 8 }}
+                          transition={{ duration: 0.25, ease: "easeOut" }}
+                          className="font-[Kanit] text-[16px] font-[300] leading-[26px] text-white/90"
+                        >
+                          {zone.description}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                  </div>
                   <span
                     className={`mt-6 font-[Kanit] text-[14px] font-[500] transition-colors duration-200 lg:mt-8 lg:text-[20px] ${
                       isActive ? "text-white" : "text-white/70 group-hover:text-white"
