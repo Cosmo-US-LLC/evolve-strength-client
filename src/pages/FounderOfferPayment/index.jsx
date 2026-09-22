@@ -130,6 +130,18 @@ const BROWSER_ID_KEY = "paymentBrowserId";
 const KNOWN_IPS_KEY = "knownPaymentIps";
 const BLOCKED_KEY = "paymentBlocked";
 const COOLDOWN_UNTIL_KEY = "paymentCooldownUntil";
+// Client-side escalating cooldown for plain payment failures (e.g. a
+// declined/invalid card) - separate from the backend's own 403 (blocked)
+// / 429 (rate-limited) responses handled below. 1st failure: 60s,
+// 2nd: 3 minutes, 3rd: 5 minutes, 4th+: treated as blocked outright.
+const FAILED_ATTEMPT_COUNT_KEY = "founderOfferPayment.failedAttempts.v1";
+const FAILED_ATTEMPT_COOLDOWNS = [60, 180, 300]; // seconds, indexed by attempt number - 1
+
+const getStoredAttemptCount = () => {
+  if (typeof window === "undefined") return 0;
+  const value = Number(window.localStorage.getItem(FAILED_ATTEMPT_COUNT_KEY));
+  return Number.isFinite(value) && value > 0 ? value : 0;
+};
 
 const ensureBrowserId = () => {
   if (typeof window === "undefined") return "";
@@ -554,6 +566,34 @@ function FounderOfferPayment() {
   const updateKnownIps = (ips) => {
     if (!Array.isArray(ips) || typeof window === "undefined") return;
     window.localStorage.setItem(KNOWN_IPS_KEY, JSON.stringify(ips));
+  };
+
+  // Client-side escalating cooldown for plain payment failures (see
+  // FAILED_ATTEMPT_COOLDOWNS above). Call on every non-blocked,
+  // non-rate-limited failure; returns what the caller should do next.
+  const registerFailedAttempt = () => {
+    const nextCount = getStoredAttemptCount() + 1;
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(FAILED_ATTEMPT_COUNT_KEY, `${nextCount}`);
+    }
+
+    if (nextCount > FAILED_ATTEMPT_COOLDOWNS.length) {
+      setBlockedState(true);
+      return {
+        blocked: true,
+        message:
+          "Your card has been blocked after multiple failed attempts. Please contact support or try a different card.",
+      };
+    }
+
+    const seconds = FAILED_ATTEMPT_COOLDOWNS[nextCount - 1];
+    setCooldownState(seconds);
+    return { blocked: false, seconds };
+  };
+
+  const clearFailedAttempts = () => {
+    if (typeof window === "undefined") return;
+    window.localStorage.removeItem(FAILED_ATTEMPT_COUNT_KEY);
   };
   const selectedPlanDetails = planDetailsByType[currentPlan] || null;
   const selectedAddonProfitCenters =
@@ -1153,12 +1193,17 @@ function FounderOfferPayment() {
         return false;
       }
 
-      // Always fall back to a visible, generic message: an empty
-      // paymentError renders nothing, silently returning the button to
-      // its normal state with no explanation for why the payment didn't
-      // go through.
+      // Every other failure (declined/invalid card, etc.) counts toward
+      // the client-side escalating cooldown: 60s, then 3 minutes, then 5
+      // minutes, then blocked outright - independent of whatever the
+      // backend itself does for 403/429.
+      const attemptResult = registerFailedAttempt();
+      const reason = paymentResult?.apiMessage || "Payment failed. Please try again.";
+      // Always keep the actual reason visible (e.g. "card is invalid"),
+      // even once blocked - so the visitor knows both why it failed and
+      // that they're now locked out, not just one or the other.
       setPaymentError(
-        paymentResult?.apiMessage || "Payment failed. Please try again.",
+        attemptResult.blocked ? `${reason} ${attemptResult.message}` : reason,
       );
       setIsSubmittingPayment(false);
       return false;
@@ -1166,6 +1211,7 @@ function FounderOfferPayment() {
 
     setBlockedState(false);
     setCooldownState(null);
+    clearFailedAttempts();
 
     const personCreated = await createPerson(formData.primaryMember);
     if (!personCreated?.success && !ALLOW_CREATE_PERSON_FAILURE) {
