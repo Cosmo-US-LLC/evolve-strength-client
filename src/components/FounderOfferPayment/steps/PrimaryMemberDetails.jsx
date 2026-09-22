@@ -171,7 +171,16 @@ const formSchema = z.object({
     .string()
     .min(1, "Email is required.")
     .email("Please enter a valid email address.")
-    .max(254, "Email must be less than 254 characters"),
+    .max(254, "Email must be less than 254 characters")
+    // The payment backend rejects "+" tag addressing (e.g.
+    // name+1@company.com) as an invalid format, even though it's a
+    // valid email technically. Catch it here instead of only at the
+    // payment step, where it previously surfaced as a confusing
+    // backend error after the visitor had already gotten that far.
+    .refine(
+      (val) => !val.includes("+"),
+      'Please remove the "+" from your email address (e.g. name@company.com).',
+    ),
   phone: z
     .string()
     .min(1, "Phone number is required.")
