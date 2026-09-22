@@ -24,9 +24,10 @@
       href="/src/assets/icons/Evolve-Favicon-Less-Circular.ico"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Preload Discover Service Card Background Images -->
-    <link rel="preload" as="image" href="/assets/images/Discover/Services (1).webp" />
-    <link rel="preload" as="image" href="/assets/images/Discover/Services (2).webp" />
+    <!-- Discover's Services card background images used to be preloaded
+         here for every route (including Presale Park Royal, which never
+         uses them) - removed since DiscoverServices.jsx already preloads
+         them itself via new Image() when that page mounts. -->
     <!-- HubSpot Tracking Code -->
     <script
       type="text/javascript"
