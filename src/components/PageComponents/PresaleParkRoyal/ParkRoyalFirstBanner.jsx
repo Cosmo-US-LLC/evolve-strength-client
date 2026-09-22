@@ -2,7 +2,7 @@ import React from "react";
 
 // Hosted directly (not bundled) at the client's request.
 const firstBannerImageDesktop =
-  "https://assets.evolvestrength.ca/media/1790000431444-39ace88a-575d-4b74-a97b-c14168b9f1b5.webp";
+  "https://assets.evolvestrength.ca/media/1790077528647-50dccbd4-6fa4-4d49-b8a4-2150a28d6354.webp";
 const firstBannerImageMobile =
   "https://assets.evolvestrength.ca/media/1790000817464-8bb63a77-a0a2-403e-b597-10454c6b9f48.webp";
 
