@@ -15,6 +15,14 @@ const cardioZoneWideImage =
 const turfAreaWideImage =
   "https://assets.evolvestrength.ca/media/1789998507648-c8a91475-4100-4c92-9a4e-42deb6c9a821.webp";
 
+// Mobile gets its own crop of each zone photo (client-provided).
+const strengthZoneMobileImage =
+  "https://assets.evolvestrength.ca/media/1790058827746-4d2aa46d-4da0-4a70-8159-9645f37fdc3e.webp";
+const cardioZoneMobileImage =
+  "https://assets.evolvestrength.ca/media/1790058851597-148f8707-422a-4915-a2fc-96b7144e178c.webp";
+const turfAreaMobileImage =
+  "https://assets.evolvestrength.ca/media/1790058866748-43fd5011-e08a-42a7-9818-ad511e6656c4.webp";
+
 // Desktop: one wide panoramic photo with the zone labels overlaid on it,
 // hover-driven (see below). Mobile: an accordion of the same three zones,
 // one photo card each, only one open (showing its description) at a time
@@ -43,6 +51,14 @@ const desktopZones = [
   },
 ];
 
+// Mobile accordion cards - same titles/descriptions/icons as desktop,
+// with the client's mobile-cropped photos.
+const mobileZones = [
+  { ...desktopZones[0], image: strengthZoneMobileImage },
+  { ...desktopZones[1], image: cardioZoneMobileImage },
+  { ...desktopZones[2], image: turfAreaMobileImage },
+];
+
 const GymZones = () => {
   // Desktop hover state for the single-photo zone layout below.
   const [hoveredDesktopIndex, setHoveredDesktopIndex] = useState(0);
@@ -58,8 +74,8 @@ const GymZones = () => {
 
   return (
     <section className="relative">
-      <div className="flex w-full flex-col justify-start bg-white pb-10 md:pb-0 md:pt-16">
-        <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-4 px-4 md:gap-8 md:px-8">
+      <div className="flex w-full flex-col justify-start bg-white pb-0 md:pt-6">
+        {/* <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-4 px-4 md:gap-8 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +90,7 @@ const GymZones = () => {
               Design To Be Seen. Built To Be Used
             </h2>
           </motion.div>
-        </div>
+        </div> */}
 
         {/* Desktop: one wide panoramic photo, full viewport width and
             height (not constrained by the max-w-[1280px] content column
@@ -100,7 +116,7 @@ const GymZones = () => {
 
           {/* Gradient behind the overlay so text/markers stay legible over
               any part of the photo. */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+          {/* <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" /> */}
 
           <div className="absolute inset-0 grid grid-cols-3">
             {desktopZones.map((zone, index) => {
@@ -111,7 +127,7 @@ const GymZones = () => {
                   type="button"
                   onMouseEnter={() => setHoveredDesktopIndex(index)}
                   onFocus={() => setHoveredDesktopIndex(index)}
-                  className="group flex cursor-pointer flex-col items-center justify-end gap-2 px-4 pb-6 text-center lg:pb-10"
+                  className="group flex cursor-pointer flex-col items-center justify-end gap-4 px-4 pb-6 text-center lg:pb-14"
                 >
                   <span
                     className={`flex size-9 items-center justify-center rounded-full transition-colors duration-200 lg:size-10 ${
@@ -145,7 +161,7 @@ const GymZones = () => {
                     )}
                   </AnimatePresence>
                   <span
-                    className={`mt-6 font-[Kanit] text-[14px] font-[500] transition-colors duration-200 lg:mt-8 lg:text-[16px] ${
+                    className={`mt-6 font-[Kanit] text-[14px] font-[500] transition-colors duration-200 lg:mt-8 lg:text-[20px] ${
                       isActive ? "text-white" : "text-white/70 group-hover:text-white"
                     }`}
                   >
@@ -160,23 +176,16 @@ const GymZones = () => {
         {/* Mobile: an accordion of the same three zones, one photo card
             each. Only one card is open (showing its description) at a
             time; tapping a card's toggle opens it and collapses whichever
-            one was open, tapping the open one again collapses it too. */}
-        <div className="flex w-full flex-col gap-4 md:hidden">
-          {desktopZones.map((zone, index) => {
+            one was open, tapping the open one again collapses it too.
+            Plain elements + CSS transitions here - no framer-motion. */}
+        <div className="flex w-full flex-col  md:hidden">
+          {mobileZones.map((zone, index) => {
             const isOpen = index === openMobileIndex;
             return (
-              <motion.div
+              <div
                 key={zone.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                animate={{ height: isOpen ? 220 : 150 }}
-                transition={{
-                  opacity: { duration: 0.5, ease: "easeOut", delay: index * 0.08 },
-                  y: { duration: 0.5, ease: "easeOut", delay: index * 0.08 },
-                  height: { duration: 0.3, ease: "easeOut" },
-                }}
-                className="relative w-full overflow-hidden"
+                style={{ height: isOpen ? 260 : 230 }}
+                className="relative w-full overflow-hidden transition-[height] duration-300 ease-out"
               >
                 <img
                   src={zone.image}
@@ -187,7 +196,7 @@ const GymZones = () => {
                 />
                 <div
                   className={`pointer-events-none absolute inset-0 transition-colors duration-300 ${
-                    isOpen ? "bg-black/50" : "bg-black/40"
+                    isOpen ? "bg-black/50" : "bg-black/20"
                   }`}
                 />
 
@@ -213,21 +222,13 @@ const GymZones = () => {
                       )}
                     </span>
                   </div>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.p
-                        initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                        animate={{ opacity: 1, height: "auto", marginTop: 8 }}
-                        exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                        transition={{ duration: 0.25, ease: "easeOut" }}
-                        className="overflow-hidden text-left font-[Kanit] text-[14px] font-[300] leading-[20px] text-white/90"
-                      >
-                        {zone.description}
-                      </motion.p>
-                    )}
-                  </AnimatePresence>
+                  {isOpen && (
+                    <p className="mt-4 overflow-hidden text-left font-[Kanit] text-[16px] font-[300] leading-[26px] text-white/90">
+                      {zone.description}
+                    </p>
+                  )}
                 </button>
-              </motion.div>
+              </div>
             );
           })}
         </div>
