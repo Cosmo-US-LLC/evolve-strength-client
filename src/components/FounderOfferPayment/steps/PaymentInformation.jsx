@@ -674,7 +674,8 @@ function PaymentInformation({
             <div className="flex w-full flex-col items-end gap-2 md:w-auto">
               {isBlocked && (
                 <p className="text-[12px] md:text-[13px] text-red-600">
-                  Payment submissions are blocked for this device or network.
+                  {submitError ||
+                    "Payment submissions are blocked for this device or network."}
                 </p>
               )}
               {!isBlocked && cooldownSecondsLeft > 0 && (
