@@ -17,7 +17,7 @@ function ParkRoyalFirstBanner() {
         className="absolute inset-0 hidden bg-cover bg-center md:block"
         style={{ backgroundImage: `url(${firstBannerImageDesktop})` }}
       />
-      <div className="absolute inset-0 bg-black/30" />
+      {/* <div className="absolute inset-0 bg-black/30" /> */}
       <div className="relative z-10 max-w-[1280px] mx-auto px-4 md:px-8 h-full flex flex-col items-center justify-end text-center pb-16 md:pb-20">
         <h2 className="font-[Kanit] !font-[700] uppercase text-white !text-[28px] md:!text-[40px] !leading-[34px] md:!leading-[39px] max-w-[800px]">
           {/* Not Everyone Gets<br></br> To Be First. You Do */}

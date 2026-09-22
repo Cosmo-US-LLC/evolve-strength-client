@@ -73,10 +73,15 @@ const EQUIPMENT_PARTNERS = [
   ...EQUIPMENT_PARTNERS_BASE,
 ].map((partner, index) => ({ ...partner, id: index + 1 }));
 
-function PartnerCard({ partner, className = "", widthClassName = "w-[280px] md:w-[270px]" }) {
+function PartnerCard({
+  partner,
+  className = "",
+  widthClassName = "w-[280px] md:w-[270px]",
+  radiusClassName = "rounded-2xl",
+}) {
   return (
     <div
-      className={`relative shrink-0 ${widthClassName} h-[380px] rounded-2xl overflow-hidden ${className}`.trim()}
+      className={`relative shrink-0 ${widthClassName} h-[380px] ${radiusClassName} overflow-hidden ${className}`.trim()}
     >
       <img
         src={partner.backgroundImage}
@@ -123,7 +128,8 @@ function PresaleTrustedEquipmentBrands() {
 
         <div className="w-full overflow-hidden">
           {isMobile ? (
-            /* Mobile: shadcn Carousel with autoplay */
+            /* Mobile: shadcn Carousel with autoplay - one full-width card
+               per view (basis-full), inside the normal page gutter. */
             <div className="w-full px-4">
               <Carousel
                 opts={{
@@ -133,13 +139,13 @@ function PresaleTrustedEquipmentBrands() {
                   dragFree: false,
                 }}
                 plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
-                className="w-full flex gap-4"
+                className="w-full"
               >
-                <CarouselContent className="-ml-4 py-2">
+                <CarouselContent className="ml-0">
                   {EQUIPMENT_PARTNERS.map((partner) => (
                     <CarouselItem
                       key={partner.id}
-                      className="pl-4 basis-full shrink-0"
+                      className="pl-0 basis-full shrink-0"
                     >
                       <PartnerCard partner={partner} widthClassName="w-full" />
                     </CarouselItem>
