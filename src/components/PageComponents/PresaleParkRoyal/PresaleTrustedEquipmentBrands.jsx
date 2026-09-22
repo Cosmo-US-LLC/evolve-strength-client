@@ -141,11 +141,11 @@ function PresaleTrustedEquipmentBrands() {
                 plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
                 className="w-full"
               >
-                <CarouselContent className="ml-0">
+                <CarouselContent className="-ml-3">
                   {EQUIPMENT_PARTNERS.map((partner) => (
                     <CarouselItem
                       key={partner.id}
-                      className="pl-0 basis-full shrink-0"
+                      className="pl-3 basis-full shrink-0"
                     >
                       <PartnerCard partner={partner} widthClassName="w-full" />
                     </CarouselItem>
