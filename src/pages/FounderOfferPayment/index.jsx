@@ -757,6 +757,10 @@ function FounderOfferPayment() {
     }
 
     if (currentStep < MAX_STEP) {
+      // A stale error from a previous payment attempt shouldn't still be
+      // showing once the visitor has navigated away to fix something and
+      // come back - it looked like their fix hadn't taken effect.
+      setPaymentError("");
       // Brief loading state so the Next button shows the three-dot loader
       // instead of jumping to the next step with no feedback at all.
       setIsAdvancingStep(true);
@@ -1140,12 +1144,11 @@ function FounderOfferPayment() {
 
       if (paymentResult?.retryAfterSeconds !== undefined) {
         setCooldownState(paymentResult.retryAfterSeconds);
-        setPaymentError(
-          paymentResult?.apiMessage ||
-            `Please wait ${formatDuration(
-              paymentResult.retryAfterSeconds || 0,
-            )} before trying again.`,
-        );
+        // Keep the actual reason (if the backend sent one) separate from
+        // the countdown - PaymentInformation shows both together instead
+        // of the reason getting silently dropped in favour of just the
+        // "please wait" text.
+        setPaymentError(paymentResult?.apiMessage || "");
         setIsSubmittingPayment(false);
         return false;
       }
@@ -1263,6 +1266,7 @@ function FounderOfferPayment() {
   };
 
   const handleBack = () => {
+    setPaymentError("");
     if (currentStep > 0) {
       const previousStep = currentStep - 1;
       setCurrentStep(previousStep);
