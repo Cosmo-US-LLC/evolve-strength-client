@@ -678,10 +678,21 @@ function PaymentInformation({
                 </p>
               )}
               {!isBlocked && cooldownSecondsLeft > 0 && (
-                <p className="text-[12px] md:text-[13px] text-red-600">
-                  Please wait {formatDuration(cooldownSecondsLeft)} before
-                  trying again.
-                </p>
+                <>
+                  {/* The actual reason the backend gave, shown alongside
+                      the countdown rather than replaced by it - otherwise
+                      the visitor sees "please wait" with no explanation
+                      for why. */}
+                  {submitError && (
+                    <p className="text-[12px] md:text-[13px] text-red-600">
+                      {submitError}
+                    </p>
+                  )}
+                  <p className="text-[12px] md:text-[13px] text-red-600">
+                    Please wait {formatDuration(cooldownSecondsLeft)} before
+                    trying again.
+                  </p>
+                </>
               )}
               {!isBlocked && cooldownSecondsLeft === 0 && submitError && (
                 <p className="text-[12px] md:text-[13px] text-red-600">
