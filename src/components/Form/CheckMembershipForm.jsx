@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import SuccessFullScreen from "../ui/SuccessFullScreen"; // added
 import FormsHeader from "../ui/FormsHeader"; // added
+import { pushEvent } from "@/lib/analytics";
 
 function CheckMembershipForm({ onBack, onCheckMembership }) {
   // === HubSpot constants ===
@@ -111,6 +112,7 @@ function CheckMembershipForm({ onBack, onCheckMembership }) {
       }
 
       // Success: show overlay first, then defer parent callback
+      pushEvent("generate_lead", { form_name: "check_membership" });
       setSubmitted(true);
       setTimeout(() => {
         onCheckMembership(form);

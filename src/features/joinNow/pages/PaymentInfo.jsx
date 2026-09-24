@@ -527,6 +527,7 @@ const PaymentInfo = () => {
         localStorage?.removeItem("pricing");
         localStorage?.setItem("date", format(new Date(), "M/d/yy"));
         localStorage?.setItem("plan", currentPlan);
+        localStorage?.setItem("joinNowLocation", location);
         localStorage?.setItem(
           "amount",
           plansDetails?.length > 0 &&

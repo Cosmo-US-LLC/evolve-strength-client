@@ -3,6 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { pushEvent } from "@/lib/analytics";
 const professionals = [
   {
     title: "Top Personal Trainers",
@@ -102,6 +103,9 @@ const LoWhyChooseEvolve = () => {
   };
 
   const subscriptionUrl = getSubscriptionUrl(locationKey);
+  const canonicalLocation = subscriptionUrl.includes("location=")
+    ? decodeURIComponent(subscriptionUrl.split("location=")[1])
+    : "";
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
@@ -116,7 +120,16 @@ const LoWhyChooseEvolve = () => {
             integrated health services, and top-tier facilities at a price you
             can afford.
           </h4>
-          <a href={subscriptionUrl}>
+          <a
+            href={subscriptionUrl}
+            onClick={() =>
+              pushEvent("select_promotion", {
+                promotion_name: "Join Now",
+                creative_slot: "locations_why_choose_evolve",
+                ...(canonicalLocation && { location: canonicalLocation }),
+              })
+            }
+          >
             <button className="btnPrimary">Join Now</button>
           </a>
         </div>

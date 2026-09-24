@@ -14,6 +14,14 @@ import { Calendar } from "@/components/ui/calendar";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
+// TourForm's own `clubName` list is a separate, independently-maintained
+// list from joinNow/lib/locations.js's canonical `name` field - the two are
+// aligned except here, where TourForm's "Vancouver Post" needs to match the
+// canonical "Vancouver, The Post" for the analytics `location` param.
+const CANONICAL_LOCATION_NAME_OVERRIDES = {
+  "Vancouver Post": "Vancouver, The Post",
+};
+
 export let locations = [
   {
     postalCode: "06967",
@@ -157,9 +165,9 @@ export default function TourForm() {
             </div>
           ) : (
             <FormCard
-              onSuccess={(location_name, date, time) => {
+              onSuccess={(location_name, date, time, canonicalLocation) => {
                 navigate(
-                  `/book-a-tour/thank-you?location_name=${location_name}&date=${date}&time=${time}`,
+                  `/book-a-tour/thank-you?location=${encodeURIComponent(canonicalLocation)}&location_name=${location_name}&date=${date}&time=${time}`,
                 );
               }}
               location={location}
@@ -706,7 +714,15 @@ function FormCard({ onSuccess, location = false }) {
         console.error("HubSpot submission failed:", hubspotError);
       }
 
-      onSuccess?.(formData.gymName, data.tourDate, data.tourTime);
+      const canonicalLocation =
+        CANONICAL_LOCATION_NAME_OVERRIDES[formData.gymName] ??
+        formData.gymName;
+      onSuccess?.(
+        formData.gymName,
+        data.tourDate,
+        data.tourTime,
+        canonicalLocation
+      );
     } catch (error) {
       console.error("Submission failed:", error);
       alert(`Submission failed: ${error.message}`);

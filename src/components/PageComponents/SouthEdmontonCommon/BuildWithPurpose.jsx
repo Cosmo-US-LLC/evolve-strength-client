@@ -3,6 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
+import { pushEvent } from "@/lib/analytics";
 
 const gymCards = [
   {
@@ -155,12 +156,28 @@ const BuildWithPurpose = () => {
             <a
               href={southEdmontonCommonBookTourHref()}
               className="relative w-fit"
+              onClick={() =>
+                pushEvent("select_promotion", {
+                  promotion_name: "Book a Tour",
+                  creative_slot: "sec_build_with_purpose",
+                  location: "South Edmonton Common",
+                })
+              }
             >
               <button className="btnPrimary uppercase" type="button">
                 Book a Free Tour
               </button>
             </a>{" "}
-            <a href={'/join-now/membership-type?location=South%20Edmonton%20Common'}>
+            <a
+              href={'/join-now/membership-type?location=South%20Edmonton%20Common'}
+              onClick={() =>
+                pushEvent("select_promotion", {
+                  promotion_name: "Join Now",
+                  creative_slot: "sec_build_with_purpose",
+                  location: "South Edmonton Common",
+                })
+              }
+            >
               <button className="btnSecondary">JOIN NOW</button>
             </a>
           </div>

@@ -1,6 +1,7 @@
 import React from "react";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
+import { pushEvent } from "@/lib/analytics";
 
 function SouthEdmontonCommonBiggerEverythingIntro() {
   return (
@@ -22,12 +23,30 @@ function SouthEdmontonCommonBiggerEverythingIntro() {
               yourself.
             </h4>
             <div className="flex gap-4 flex-row">
-              <a href={southEdmontonCommonBookTourHref()}>
+              <a
+                href={southEdmontonCommonBookTourHref()}
+                onClick={() =>
+                  pushEvent("select_promotion", {
+                    promotion_name: "Book a Tour",
+                    creative_slot: "sec_bigger_everything_intro",
+                    location: "South Edmonton Common",
+                  })
+                }
+              >
                 <button type="button" className="btnPrimary uppercase">
                   Book a Free Tour
                 </button>
               </a>
-              <a href={'/join-now/membership-type?location=South%20Edmonton%20Common'}>
+              <a
+                href={'/join-now/membership-type?location=South%20Edmonton%20Common'}
+                onClick={() =>
+                  pushEvent("select_promotion", {
+                    promotion_name: "Join Now",
+                    creative_slot: "sec_bigger_everything_intro",
+                    location: "South Edmonton Common",
+                  })
+                }
+              >
 
                 <button type="button" className='btnSecondary !text-[#000000] !bg-[#fff] !border !border-[#000000] hover:!bg-[#000000] hover:!text-white'>JOIN NOW</button>
               </a>

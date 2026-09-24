@@ -1,4 +1,5 @@
 import React from "react";
+import { pushEvent } from "@/lib/analytics";
 
 function LocationsPersonalizedAssessment() {
   // Get location from URL path
@@ -51,6 +52,9 @@ function LocationsPersonalizedAssessment() {
   };
 
   const tourUrl = getTourUrl(locationKey);
+  const canonicalLocation = tourUrl.includes("location=")
+    ? decodeURIComponent(tourUrl.split("location=")[1])
+    : "";
 
   // Location-specific background images (desktop and mobile)
   const getBackgroundImages = (locationKey) => {
@@ -141,6 +145,13 @@ function LocationsPersonalizedAssessment() {
           </h4>
           <a
             href={tourUrl}
+            onClick={() =>
+              pushEvent("select_promotion", {
+                promotion_name: "Join Now",
+                creative_slot: "locations_personalized_assessment",
+                ...(canonicalLocation && { location: canonicalLocation }),
+              })
+            }
             className="text-[#4AB04A] font-bold leading-[26px] underline underline-offset-4 decoration-solid decoration-auto [text-underline-position:from-font]"
           >
             Join Now

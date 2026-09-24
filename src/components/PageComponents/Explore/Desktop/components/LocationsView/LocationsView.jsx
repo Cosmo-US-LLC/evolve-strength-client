@@ -8,6 +8,7 @@ import {
 } from "@/services/trainerApi";
 import TrainerCard from "../shared/TrainerCard";
 import TrainerDetails from "../shared/TrainerDetails";
+import { pushEvent } from "@/lib/analytics";
 import { CircleChevronDown } from "lucide-react";
 
 const ESUITE_API_BASE =
@@ -208,7 +209,14 @@ function LocationsView() {
                     loc.name
                   )}`}
                   className="uppercase text-[16px] md:text-[20px] font-[400] leading-[20px] font-[kanit] text-[#4AB04A] hover:text-[#000] underline transition-colors duration-300"
-                  onClick={(e) => e.stopPropagation()}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    pushEvent("select_promotion", {
+                      promotion_name: "Join Now",
+                      creative_slot: "explore_locations_view",
+                      location: loc.name,
+                    });
+                  }}
                 >
                   JOIN NOW
                 </a>
