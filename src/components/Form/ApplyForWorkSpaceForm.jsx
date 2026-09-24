@@ -7,6 +7,7 @@ import MetaTags from "@/components/Metatags/Meta";
 import FormsHeader from "../ui/FormsHeader";
 import SuccessFullScreen from "../ui/SuccessFullScreen";
 import { ArrowLeft } from "lucide-react";
+import { pushEvent } from "@/lib/analytics";
 
 const initialState = {
   firstName: "",
@@ -270,6 +271,12 @@ export default function ApplyForWorkSpaceForm() {
           throw new Error("Submission failed");
         }
 
+        // location is a required field, so form.location is always set here
+        pushEvent("workspace_form_submit", {
+          location:
+            LOCATIONS.find((loc) => loc.location === form.location)
+              ?.cityName || form.location,
+        });
         setSubmitted(true);
         setForm(initialState); // Reset form
       } catch (error) {

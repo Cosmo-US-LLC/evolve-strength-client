@@ -4,6 +4,7 @@ import MetaTags from "@/components/Metatags/Meta";
 import FormsHeader from "../ui/FormsHeader";
 import SuccessFullScreen from "../ui/SuccessFullScreen";
 import { ArrowLeft } from "lucide-react";
+import { pushEvent } from "@/lib/analytics";
 
 const initialState = {
   firstName: "",
@@ -263,6 +264,13 @@ export default function MatchMeWithTrainer() {
           throw new Error("Submission failed");
         }
 
+        pushEvent("generate_lead", {
+          form_name: "match_me_with_trainer",
+          location: form.location
+            ? LOCATIONS.find((loc) => loc.location === form.location)
+                ?.cityName || form.location
+            : undefined,
+        });
         setSubmitted(true);
         setForm(initialState); // Reset form
       } catch (error) {

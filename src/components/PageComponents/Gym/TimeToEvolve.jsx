@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { pushEvent } from "@/lib/analytics";
 
 function TimeToEvolve() {
   return (
@@ -13,10 +14,26 @@ function TimeToEvolve() {
             Feel the energy, ride the momentum, and crush your next workout.
           </h4>
           <div className="flex gap-x-[24px]">
-            <a href="/book-a-tour/">
+            <a
+              href="/book-a-tour/"
+              onClick={() =>
+                pushEvent("select_promotion", {
+                  promotion_name: "Book a Tour",
+                  creative_slot: "gym_time_to_evolve",
+                })
+              }
+            >
               <button className="btnPrimary">BOOK A FREE TOUR</button>
             </a>
-            <a href="/join-now/">
+            <a
+              href="/join-now/"
+              onClick={() =>
+                pushEvent("select_promotion", {
+                  promotion_name: "Join Now",
+                  creative_slot: "gym_time_to_evolve",
+                })
+              }
+            >
               <button className="btnSecondary">join now</button>
             </a>
           </div>

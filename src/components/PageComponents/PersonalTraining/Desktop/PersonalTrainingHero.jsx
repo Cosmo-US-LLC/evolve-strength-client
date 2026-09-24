@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { pushEvent } from "@/lib/analytics";
 
 function PersonalTrainingHero() {
   return (
@@ -22,7 +23,15 @@ function PersonalTrainingHero() {
               <button className="btnSecondary">match me with a trainer</button>
             </Link>
           </div>
-          <a href="/join-now/">
+          <a
+            href="/join-now/"
+            onClick={() =>
+              pushEvent("select_promotion", {
+                promotion_name: "Join Now",
+                creative_slot: "personal_training_hero",
+              })
+            }
+          >
             <button className="description underline leading-[18px] !font-[Kanit] text-[#FFFFFF]  font-bold hover:cursor-pointer ">
               Personal training is available for an additional fee.
             </button>

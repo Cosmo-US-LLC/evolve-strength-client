@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { pushEvent } from "@/lib/analytics";
 
 function EasyStepsToStarted() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -124,13 +125,27 @@ function EasyStepsToStarted() {
         </div>
 
         <div className="text-center mt-[70px]">
-          <a href="/join-now/">
+          <a
+            href="/join-now/"
+            onClick={() =>
+              pushEvent("select_promotion", {
+                promotion_name: "Join Now",
+                creative_slot: "personal_training_easy_steps",
+              })
+            }
+          >
             <button className="btnPrimary mb-6">JOIN EVOLVE</button>
           </a>
           <p className="text-[#000] text-[16px] font-[300] leading-[24px] font-[kanit]">
             Not ready to commit?{" "}
             <a
               href="/book-a-tour/"
+              onClick={() =>
+                pushEvent("select_promotion", {
+                  promotion_name: "Book a Tour",
+                  creative_slot: "personal_training_easy_steps",
+                })
+              }
               className="text-[#4AB04A] font-[600] leading-[22px] font-[kanit] underline"
             >
               Book A Free Tour

@@ -1,11 +1,26 @@
 import { format } from "date-fns";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { pushEvent } from "@/lib/analytics";
 
 const Success = () => {
   const date = localStorage.getItem("date") || new Date();
   const type = localStorage.getItem("plan") || "";
   const amount = localStorage.getItem("amount") || "";
+
+  useEffect(() => {
+    const alreadyFired = sessionStorage.getItem(
+      "evolve_join_now_success_pushed"
+    );
+    if (alreadyFired) return;
+
+    const location = localStorage.getItem("joinNowLocation") || "";
+    if (!location) return; // no location on record - skip rather than push a broken event
+
+    pushEvent("join_now_success", { location, plan: type, amount });
+    sessionStorage.setItem("evolve_join_now_success_pushed", "1");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="min-h-screen bg-white flex flex-col">

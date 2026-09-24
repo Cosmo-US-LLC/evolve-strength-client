@@ -5,6 +5,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import "./styles.css";
 import EvolveStrengthLogo from "../../assets/images/home/navbar/Evolve-logo-light.svg";
 import ESFLogo from "../../assets/images/home/footer/Evolve-Strength-footer-Logo.svg";
+import { pushEvent } from "@/lib/analytics";
 import {
   Sheet,
   SheetContent,
@@ -179,7 +180,15 @@ function Navbar() {
 
               {/* Desktop CTA Button */}
               <div className="hidden md:flex items-center">
-                <a href="/book-a-tour">
+                <a
+                  href="/book-a-tour"
+                  onClick={() =>
+                    pushEvent("select_promotion", {
+                      promotion_name: "Book a Tour",
+                      creative_slot: "navbar_desktop",
+                    })
+                  }
+                >
                   <button className="btnSecondary">Book a Free Tour</button>
                 </a>
               </div>
@@ -253,7 +262,15 @@ function Navbar() {
                       })}
 
                       <div className="">
-                        <a href="/book-a-tour">
+                        <a
+                          href="/book-a-tour"
+                          onClick={() =>
+                            pushEvent("select_promotion", {
+                              promotion_name: "Book a Tour",
+                              creative_slot: "navbar_mobile",
+                            })
+                          }
+                        >
                           <button className="btnSecondary">
                             Book a Free Tour
                           </button>
