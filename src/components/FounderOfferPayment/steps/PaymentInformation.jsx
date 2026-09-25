@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ArrowLeft, Info } from "lucide-react";
+import DueTodayAmount from "../DueTodayAmount";
 import ThreeDotLoader from "@/components/FounderOfferPayment/ThreeDotLoader";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -183,6 +184,7 @@ function PaymentInformation({
   untaxedAddonFeeAmount,
   gstAmount,
   totalAmount,
+  dueToday = "$0.00",
 }) {
   const [turnstileResetCount, setTurnstileResetCount] = useState(0);
   const {
@@ -376,13 +378,24 @@ function PaymentInformation({
 
       <div
         role="note"
-        className="w-full mb-5 flex flex-row gap-3 rounded-[12px] bg-[#E2F2E2] px-3 py-3 sm:items-center md:mb-6 md:px-4"
+        className="mb-5 w-full overflow-hidden rounded-[12px] border border-[#4AB04A] md:mb-6"
       >
-        <Info className="size-4 text-[#2E7D32]" />
-        <p className="font-['Kanit'] text-[13px] font-light leading-[18px] text-black/70 md:text-[15px] md:leading-[20px]">
-          You won’t be billed until we officially open.
-          {/* <span className="font-medium text-black/80">25 May</span>. */}
-        </p>
+        <div className="flex items-center justify-between gap-4 bg-[#E2F2E2] px-4 py-3 md:px-5 md:py-4">
+          <span className="font-['Kanit'] text-[16px] font-semibold uppercase leading-none tracking-[0.12em] text-[#1B5E20] md:text-[18px]">
+            Due Today
+          </span>
+          <DueTodayAmount
+            value={dueToday}
+            className="text-[34px] text-[#1B5E20] md:text-[44px]"
+          />
+        </div>
+        <div className="flex items-center gap-2 bg-[#F1F8F1] px-4 py-2.5 md:px-5">
+          <Info className="size-4 flex-shrink-0 text-[#2E7D32]" />
+          <p className="font-['Kanit'] text-[13px] font-light leading-[18px] text-black/70 md:text-[15px] md:leading-[20px]">
+            You won’t be billed until we officially open.
+            {/* <span className="font-medium text-black/80">25 May</span>. */}
+          </p>
+        </div>
       </div>
 
       <div className="mb-6 flex flex-col gap-1 items-start md:mb-8">

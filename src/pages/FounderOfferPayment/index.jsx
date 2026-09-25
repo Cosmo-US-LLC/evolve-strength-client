@@ -1429,6 +1429,7 @@ function FounderOfferPayment() {
             untaxedAddonFeeAmount={towelAddonFeeAmount}
             gstAmount={gstAmount}
             totalAmount={totalAmount}
+            dueToday={dueTodayAmount}
           />
         );
       default:
