@@ -1,32 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { XCircle } from "lucide-react";
+import { assetUrl } from "@/lib/assetUrl";
 
 const amenities = [
   {
     title: "On-Site Parking",
-    image: "/assets/images/spaces/PremiumAmenities/space_parking.webp",
+    image: assetUrl("/assets/images/spaces/PremiumAmenities/space_parking.webp"),
   },
   {
     title: "Locker Rooms",
-    image: "/assets/images/spaces/PremiumAmenities/space_locker_rooms.webp",
+    image: assetUrl("/assets/images/spaces/PremiumAmenities/space_locker_rooms.webp"),
   },
   {
     title: "Showers",
-    image: "/assets/images/spaces/PremiumAmenities/showers_room.webp",
+    image: assetUrl("/assets/images/spaces/PremiumAmenities/showers_room.webp"),
   },
   {
     title: "Steam Rooms and Saunas",
     image:
-      "/assets/images/spaces/PremiumAmenities/space_steam_rooms_and_saunas.webp",
+      assetUrl("/assets/images/spaces/PremiumAmenities/space_steam_rooms_and_saunas.webp"),
   },
   {
     title: "Premium Waiting Area",
     image:
-      "/assets/images/spaces/PremiumAmenities/space_premium_waiting_area.webp",
+      assetUrl("/assets/images/spaces/PremiumAmenities/space_premium_waiting_area.webp"),
   },
   {
     title: "Full Commercial Gym Access",
-    image: "/assets/images/spaces/PremiumAmenities/gym_area.webp",
+    image: assetUrl("/assets/images/spaces/PremiumAmenities/gym_area.webp"),
   },
 ];
 

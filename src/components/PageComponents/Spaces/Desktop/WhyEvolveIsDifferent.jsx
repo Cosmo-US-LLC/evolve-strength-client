@@ -7,27 +7,28 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
+import { assetUrl } from "@/lib/assetUrl";
 const cardData = [
   {
     number: "01",
     title: "Worry-Free Entrepreneurship",
     description:
       "Start or grow your business without the usual stress. You don’t need to hire front desk staff or cleaners. We handle shared areas, gym maintenance, and all the facility details. You just show up and work with your clients.",
-    image: "/assets/images/spaces/WhyEvolveIsDifferent/Worry-Free.webp",
+    image: assetUrl("/assets/images/spaces/WhyEvolveIsDifferent/Worry-Free.webp"),
   },
   {
     number: "02",
     title: "All-Inclusive Rent",
     description:
       "No surprise bills: one flat monthly payment covers utilities, gym access, shared amenities, and more. You won't have to manage multiple service vendors.",
-    image: "/assets/images/spaces/WhyEvolveIsDifferent/All-Inclusive.webp",
+    image: assetUrl("/assets/images/spaces/WhyEvolveIsDifferent/All-Inclusive.webp"),
   },
   {
     number: "03",
     title: "Built-In Community",
     description:
       "Be part of a trusted network of wellness professionals. That makes it easy to connect, refer clients, and grow together. We don't charge finder's fees or take a cut of your earnings.",
-    image: "/assets/images/spaces/WhyEvolveIsDifferent/slide3.webp",
+    image: assetUrl("/assets/images/spaces/WhyEvolveIsDifferent/slide3.webp"),
   },
 ];
 

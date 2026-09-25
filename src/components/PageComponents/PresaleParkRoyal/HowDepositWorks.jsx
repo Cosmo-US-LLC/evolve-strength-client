@@ -1,25 +1,26 @@
 import React from "react";
+import { assetUrl } from "@/lib/assetUrl";
 
 const depositBenefits = [
   {
-    icon: "/assets/images/presaleCommonSouth/icon1.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/icon1.svg"),
     title: "Fully Refundable",
     description:
       "Your deposit is fully refundable up to 30 days before opening.",
   },
   {
-    icon: "/assets/images/presaleCommonSouth/icon2.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/icon2.svg"),
     title: "Applied to Your Membership",
     description:
       "The deposit is applied directly to your first billing. Nothing is lost.",
   },
   {
-    icon: "/assets/images/presaleCommonSouth/icon3.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/icon3.svg"),
     title: "Rate Guarantee",
     description: "Secures your $29.99 Bi-Weekly founder rate for 24 months.",
   },
   {
-    icon: "/assets/images/presaleCommonSouth/icon4.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/icon4.svg"),
     title: "No Deposit = No Guarantee",
     description:
       "Without a deposit, your rate is not guaranteed and prices may increase.",
@@ -34,14 +35,14 @@ function HowDepositWorks() {
           {/* Left Side - Image */}
           <div className="relative w-full md:px-0 px-6   md:w-[570px] h-[300px] md:h-auto md:block hidden flex-shrink-0">
             <img
-              src="/assets/images/presaleCommonSouth/hoeDepositImage.webp"
+              src={assetUrl("/assets/images/presaleCommonSouth/hoeDepositImage.webp")}
               alt="Gym members celebrating"
               className="w-full h-full md:object-cover max-md:rounded-[8px]"
             />
           </div>
             <div className="relative w-full md:px-0 px-6   md:w-[570px] h-[300px] md:h-auto md:hidden block flex-shrink-0">
             <img
-              src="/assets/images/presaleCommonSouth/hoeDepositImagemob.webp"
+              src={assetUrl("/assets/images/presaleCommonSouth/hoeDepositImagemob.webp")}
               alt="Gym members celebrating"
               className="w-full h-full object-cover max-md:rounded-[8px]"
             />

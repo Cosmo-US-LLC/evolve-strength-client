@@ -1,78 +1,79 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
+import { assetUrl } from "@/lib/assetUrl";
 
 const wellnessServices = [
   {
     name: "Esthetician",
-    icon: "/assets/images/presaleCommonSouth/w1.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w1.svg"),
   },
   {
     name: "Chiropractic Care",
-    icon: "/assets/images/presaleCommonSouth/w2.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w2.svg"),
   },
   {
     name: "Massage Therapy",
-    icon: "/assets/images/presaleCommonSouth/w3.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w3.svg"),
   },
   {
     name: "Pilates",
-    icon: "/assets/images/presaleCommonSouth/w4.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w4.svg"),
   },
   {
     name: "Acupuncture",
-    icon: "/assets/images/presaleCommonSouth/w5.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w5.svg"),
   },
   {
     name: "Dietitian Services",
-    icon: "/assets/images/presaleCommonSouth/w6.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w6.svg"),
   },
   {
     name: "Osteopathy",
-    icon: "/assets/images/presaleCommonSouth/w7.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w7.svg"),
   },
   {
     name: "Laser Therapy",
-    icon: "/assets/images/presaleCommonSouth/w8.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w8.svg"),
   },
   {
     name: "Mental health",
-    icon: "/assets/images/presaleCommonSouth/w9.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w9.svg"),
   },
   {
     name: "Esthetician",
-    icon: "/assets/images/presaleCommonSouth/w1.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w1.svg"),
   },
   {
     name: "Chiropractic Care",
-    icon: "/assets/images/presaleCommonSouth/w2.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w2.svg"),
   },
   {
     name: "Massage Therapy",
-    icon: "/assets/images/presaleCommonSouth/w3.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w3.svg"),
   },
   {
     name: "Pilates",
-    icon: "/assets/images/presaleCommonSouth/w4.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w4.svg"),
   },
   {
     name: "Acupuncture",
-    icon: "/assets/images/presaleCommonSouth/w5.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w5.svg"),
   },
   {
     name: "Dietitian Services",
-    icon: "/assets/images/presaleCommonSouth/w6.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w6.svg"),
   },
   {
     name: "Osteopathy",
-    icon: "/assets/images/presaleCommonSouth/w7.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w7.svg"),
   },
   {
     name: "Laser Therapy",
-    icon: "/assets/images/presaleCommonSouth/w8.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w8.svg"),
   },
   {
     name: "Mental health",
-    icon: "/assets/images/presaleCommonSouth/w9.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/w9.svg"),
   },
 ];
 

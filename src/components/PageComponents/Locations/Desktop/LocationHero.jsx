@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import Cancel from "@/assets/images/Locations/Cancel_Icon.svg";
 import { pushEvent } from "@/lib/analytics";
+import { assetUrl } from "@/lib/assetUrl";
 const LOCATION_HERO_DATA = {
   "calgary-seton": {
-    desktop: "/assets/images/Locations/location-hero/hero_seten.webp",
-    mobile: "/assets/images/Locations/location-hero/hero_seten_mob.webp",
+    desktop: assetUrl("/assets/images/Locations/location-hero/hero_seten.webp"),
+    mobile: assetUrl("/assets/images/Locations/location-hero/hero_seten_mob.webp"),
     locationTitle: "SETON",
     city: "CALGARY",
     fullTitle: "SETON's Premier Fitness and Wellness Club",
@@ -12,8 +13,8 @@ const LOCATION_HERO_DATA = {
     membershipUrl: "/join-now/membership-type?location=Calgary%20Seton",
   },
   "calgary-royal-oak": {
-    desktop: "/assets/images/Locations/location-hero/hero_royal_oak.webp",
-    mobile: "/assets/images/Locations/location-hero/hero_royal_oak_mob.webp",
+    desktop: assetUrl("/assets/images/Locations/location-hero/hero_royal_oak.webp"),
+    mobile: assetUrl("/assets/images/Locations/location-hero/hero_royal_oak_mob.webp"),
     locationTitle: "ROYAL OAK",
     city: "CALGARY",
     fullTitle: "ROYAL OAK's Premier Fitness and Wellness Club",
@@ -21,8 +22,8 @@ const LOCATION_HERO_DATA = {
     membershipUrl: "/join-now/membership-type?location=Calgary%20Royal%20Oak",
   },
   "calgary-sunridge": {
-    desktop: "/assets/images/Locations/location-hero/sunridge.webp",
-    mobile: "/assets/images/Locations/location-hero/sunridgeMob.webp",
+    desktop: assetUrl("/assets/images/Locations/location-hero/sunridge.webp"),
+    mobile: assetUrl("/assets/images/Locations/location-hero/sunridgeMob.webp"),
     locationTitle: "SUNRIDGE",
     city: "CALGARY",
     fullTitle: "SUNRIDGE's Premier Fitness and Wellness Club",
@@ -30,8 +31,8 @@ const LOCATION_HERO_DATA = {
     membershipUrl: "/join-now/membership-type?location=Calgary%20Sunridge",
   },
   "edmonton-south": {
-    desktop: "/assets/images/Locations/location-hero/south.webp",
-    mobile: "/assets/images/Locations/location-hero/southMob.webp",
+    desktop: assetUrl("/assets/images/Locations/location-hero/south.webp"),
+    mobile: assetUrl("/assets/images/Locations/location-hero/southMob.webp"),
     locationTitle: "SOUTH",
     city: "EDMONTON",
     fullTitle: "Edmonton South's Premier Fitness and Wellness Club",
@@ -39,8 +40,8 @@ const LOCATION_HERO_DATA = {
     membershipUrl: "/join-now/membership-type?location=Edmonton%20South",
   },
   "edmonton-north": {
-    desktop: "/assets/images/Locations/location-hero/north.webp",
-    mobile: "/assets/images/Locations/location-hero/northMob.webp",
+    desktop: assetUrl("/assets/images/Locations/location-hero/north.webp"),
+    mobile: assetUrl("/assets/images/Locations/location-hero/northMob.webp"),
     locationTitle: "NORTH",
     city: "EDMONTON",
     fullTitle: "Edmonton North's Premier Fitness and Wellness Club",
@@ -48,8 +49,8 @@ const LOCATION_HERO_DATA = {
     membershipUrl: "/join-now/membership-type?location=Edmonton%20North",
   },
   "edmonton-downtown": {
-    // desktop: "/assets/images/Locations/location-hero/hero_downtown.webp",
-    // mobile: "/assets/images/Locations/location-hero/hero_downtown_mob.webp",
+    // desktop: assetUrl("/assets/images/Locations/location-hero/hero_downtown.webp"),
+    // mobile: assetUrl("/assets/images/Locations/location-hero/hero_downtown_mob.webp"),
     desktop:
       "https://assets.evolvestrength.ca/media/1776063403075-778fdaac-3779-49c2-8511-4102bfce6941.webp",
     mobile:
@@ -61,8 +62,8 @@ const LOCATION_HERO_DATA = {
     membershipUrl: "/join-now/membership-type?location=Edmonton%20Downtown",
   },
   "burnaby-brentwood": {
-    desktop: "/assets/images/Locations/location-hero/hero_brentwood.webp",
-    mobile: "/assets/images/Locations/location-hero/hero_brentwood_mob.webp",
+    desktop: assetUrl("/assets/images/Locations/location-hero/hero_brentwood.webp"),
+    mobile: assetUrl("/assets/images/Locations/location-hero/hero_brentwood_mob.webp"),
     locationTitle: "BRENTWOOD",
     city: "BURNABY",
     fullTitle: "BRENTWOOD's Premier Fitness and Wellness Club",

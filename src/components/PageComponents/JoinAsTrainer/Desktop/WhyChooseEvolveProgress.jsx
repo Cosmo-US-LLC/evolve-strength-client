@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 const DEFAULT_STEPS = [
   {
     key: "earn",
@@ -6,8 +7,8 @@ const DEFAULT_STEPS = [
     description:
       "Set your own prices and keep every dollar. We charge a simple flat fee for space. No cuts, no percentages.",
     image:
-      "/media/1762433209383-7ec3d881-bf94-44b0-95a0-cabbb0f5cca7.webp",
-      image_mob:"/media/1763457725565-42ef4592-3a6f-4724-ae2f-fc7ce8e21f28.webp",
+      assetUrl("/media/1762433209383-7ec3d881-bf94-44b0-95a0-cabbb0f5cca7.webp"),
+      image_mob:assetUrl("/media/1763457725565-42ef4592-3a6f-4724-ae2f-fc7ce8e21f28.webp"),
     durationMs: 3500,
   },
   {
@@ -16,8 +17,8 @@ const DEFAULT_STEPS = [
     description:
       "Your clients stay fully yours. We never interfere, share, or manage them on your behalf.",
     image:
-      "/media/1762433458101-71922c48-efe5-4316-8819-cd9ab672915f.webp",
-      image_mob:"/media/1763452791053-81ef6470-60be-493c-9866-60f47bcab389.webp",
+      assetUrl("/media/1762433458101-71922c48-efe5-4316-8819-cd9ab672915f.webp"),
+      image_mob:assetUrl("/media/1763452791053-81ef6470-60be-493c-9866-60f47bcab389.webp"),
     durationMs: 3500,
   },
   {
@@ -26,8 +27,8 @@ const DEFAULT_STEPS = [
     description:
       "Choose your hours, training style, and schedule. Build a business that fits your lifestyle.",
     image:
-      "/media/1762433190127-7fe3d82a-da37-42f3-816c-ced00e592b31.webp",
-       image_mob:"/media/1763457755865-ae19e309-1495-415b-aeaf-4cec85dc2b5c.webp",
+      assetUrl("/media/1762433190127-7fe3d82a-da37-42f3-816c-ced00e592b31.webp"),
+       image_mob:assetUrl("/media/1763457755865-ae19e309-1495-415b-aeaf-4cec85dc2b5c.webp"),
     durationMs: 3500,
   },
   {
@@ -36,8 +37,8 @@ const DEFAULT_STEPS = [
     description:
       "Our leadership team started as trainers and business professionals.",
     image:
-      "/media/1763109275796-6d568ae9-f44c-4e21-8c35-23aa41b58318.webp",
-       image_mob:"/media/1763457774626-6e92df20-7a50-4161-9b6e-0c7c1909439c.webp",
+      assetUrl("/media/1763109275796-6d568ae9-f44c-4e21-8c35-23aa41b58318.webp"),
+       image_mob:assetUrl("/media/1763457774626-6e92df20-7a50-4161-9b6e-0c7c1909439c.webp"),
     durationMs: 3500,
   },
 ];

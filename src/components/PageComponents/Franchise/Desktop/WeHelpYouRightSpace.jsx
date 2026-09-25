@@ -9,37 +9,38 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { assetUrl } from "@/lib/assetUrl";
 
 const features = [
   {
     title: "Territory Mapping",
     desc: "We help you choose high-demand areas using population, income, and market data.",
-    icon: "/assets/images/franchise/weHelpYouRightSpace/icon1.svg",
+    icon: assetUrl("/assets/images/franchise/weHelpYouRightSpace/icon1.svg"),
   },
   {
     title: "Site Visits and Lease Negotiation",
     desc: "We visit sites with you and negotiate leases that match your needs.",
-    icon: "/assets/images/franchise/weHelpYouRightSpace/icon2.svg",
+    icon: assetUrl("/assets/images/franchise/weHelpYouRightSpace/icon2.svg"),
   },
   {
     title: "Architectural Planning",
     desc: "We design layouts based on Evolve's model and guide you through the build-out.",
-    icon: "/assets/images/franchise/weHelpYouRightSpace/icon3.svg",
+    icon: assetUrl("/assets/images/franchise/weHelpYouRightSpace/icon3.svg"),
   },
   {
     title: "Construction Support",
     desc: "You get access to reliable contractors and equipment vendors we trust.",
-    icon: "/assets/images/franchise/weHelpYouRightSpace/icon4.svg",
+    icon: assetUrl("/assets/images/franchise/weHelpYouRightSpace/icon4.svg"),
   },
   {
     title: "Space Design",
     desc: "We plan for smooth traffic flow and easy subleasing to trainers and health pros.",
-    icon: "/assets/images/franchise/weHelpYouRightSpace/icon5.svg",
+    icon: assetUrl("/assets/images/franchise/weHelpYouRightSpace/icon5.svg"),
   },
   {
     title: "Ongoing Support",
     desc: "We stay involved through each stage to make sure your setup works long term.",
-    icon: "/assets/images/franchise/weHelpYouRightSpace/icon6.svg",
+    icon: assetUrl("/assets/images/franchise/weHelpYouRightSpace/icon6.svg"),
   },
 ];
 

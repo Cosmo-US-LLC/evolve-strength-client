@@ -4,6 +4,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
 import { pushEvent } from "@/lib/analytics";
+import { assetUrl } from "@/lib/assetUrl";
 
 const gymCards = [
   {
@@ -13,9 +14,9 @@ const gymCards = [
       "Every zone is crafted with a specific purpose in mind, ensuring functionality and efficiency.",
     bgImage: {
       desktop:
-        "/assets/images/PersonalTraning/PersonalGymExperience/intentional_layout_desktop.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/intentional_layout_desktop.webp"),
       mobile:
-        "/assets/images/PersonalTraning/PersonalGymExperience/intentional_layout_mobile.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/intentional_layout_mobile.webp"),
     },
   },
   {
@@ -25,9 +26,9 @@ const gymCards = [
       "Built to perform, these spaces are designed to do more than just occupy square footage. ",
     bgImage: {
       desktop:
-        "/assets/images/PersonalTraning/PersonalGymExperience/premium_equipment_desktop.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/premium_equipment_desktop.webp"),
       mobile:
-        "/assets/images/PersonalTraning/PersonalGymExperience/premium_equipment_mobile.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/premium_equipment_mobile.webp"),
     },
   },
   {
@@ -37,9 +38,9 @@ const gymCards = [
       "Stay motivated in a vibrant, inspiring atmosphere with stunning aesthetics designed to elevate your experience.",
     bgImage: {
       desktop:
-        "/assets/images/PersonalTraning/PersonalGymExperience/atmosphere_desktop.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/atmosphere_desktop.webp"),
       mobile:
-        "/assets/images/PersonalTraning/PersonalGymExperience/atmosphere_mobile.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/atmosphere_mobile.webp"),
     },
   },
 ];

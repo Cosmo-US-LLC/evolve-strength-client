@@ -1,25 +1,26 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
+import { assetUrl } from "@/lib/assetUrl";
 
 const partnerLogos = [
   {
-    src: "/assets/images/corporateMembership/WhoItsFor/Air_canada_logo.svg",
+    src: assetUrl("/assets/images/corporateMembership/WhoItsFor/Air_canada_logo.svg"),
     alt: "AirCanadaLogo",
   },
   {
-    src: "/assets/images/corporateMembership/WhoItsFor/Amazon_logo.svg",
+    src: assetUrl("/assets/images/corporateMembership/WhoItsFor/Amazon_logo.svg"),
     alt: "AmazonLogo",
   },
   {
-    src: "/assets/images/corporateMembership/WhoItsFor/Sony_logo.svg",
+    src: assetUrl("/assets/images/corporateMembership/WhoItsFor/Sony_logo.svg"),
     alt: "sonyLogo",
   },
   {
-    src: "/assets/images/corporateMembership/WhoItsFor/WCB_logo.svg",
+    src: assetUrl("/assets/images/corporateMembership/WhoItsFor/WCB_logo.svg"),
     alt: "WCBLogo",
   },
   {
-    src: "/assets/images/corporateMembership/WhoItsFor/Alberta_health_services_logo.svg",
+    src: assetUrl("/assets/images/corporateMembership/WhoItsFor/Alberta_health_services_logo.svg"),
     alt: "albertaLogo",
   },
 ];

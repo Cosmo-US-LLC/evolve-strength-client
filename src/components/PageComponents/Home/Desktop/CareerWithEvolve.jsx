@@ -1,14 +1,15 @@
 import React from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
+import { assetUrl } from "@/lib/assetUrl";
 
 const tabData = {
   trainer: {
     title: "PERSONAL TRAINER",
 
     image: {
-      desktop: "/assets/images/home/CareerWithEvolve/career_1.webp",
-      mobile: "/assets/images/home/CareerWithEvolve/career_mob_1.webp",
+      desktop: assetUrl("/assets/images/home/CareerWithEvolve/career_1.webp"),
+      mobile: assetUrl("/assets/images/home/CareerWithEvolve/career_mob_1.webp"),
     },
     description:
       "Build your own personal training business inside Canada's most advanced fitness facility.",
@@ -24,8 +25,8 @@ const tabData = {
     title: "WELLNESS EXPERT",
 
     image: {
-      desktop: "/assets/images/home/CareerWithEvolve/career_2.webp",
-      mobile: "/assets/images/home/CareerWithEvolve/career_mob_2.webp",
+      desktop: assetUrl("/assets/images/home/CareerWithEvolve/career_2.webp"),
+      mobile: assetUrl("/assets/images/home/CareerWithEvolve/career_mob_2.webp"),
     },
     description:
       "Flexible workspace for wellness professionals inside Canada’s top fitness facilities.",

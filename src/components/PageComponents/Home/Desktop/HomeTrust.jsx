@@ -4,6 +4,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { assetUrl } from "@/lib/assetUrl";
 
 function HomeTrustedEquipmentBrands() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -40,25 +41,25 @@ function HomeTrustedEquipmentBrands() {
   const equipmentImages = [
     {
       id: 1,
-      src: "/assets/images/gym/eleiko_eq.webp",
+      src: assetUrl("/assets/images/gym/eleiko_eq.webp"),
       alt: "Woman performing barbell squat with Eleiko equipment",
       brand: "Eleiko",
     },
     {
       id: 2,
-      src: "/assets/images/gym/tech_eq.webp",
+      src: assetUrl("/assets/images/gym/tech_eq.webp"),
       alt: "Woman using Technogym chest press machine",
       brand: "Technogym",
     },
     {
       id: 3,
-      src: "/assets/images/gym/rogue_eq.webp",
+      src: assetUrl("/assets/images/gym/rogue_eq.webp"),
       alt: "Man using Rogue air bike",
       brand: "Rogue",
     },
     {
       id: 4,
-      src: "/assets/images/gym/atlantis_eq.webp",
+      src: assetUrl("/assets/images/gym/atlantis_eq.webp"),
       alt: "Woman using Atlantis strength training machine",
       brand: "Atlantis",
     },
@@ -67,22 +68,22 @@ function HomeTrustedEquipmentBrands() {
   const brandLogos = [
     {
       name: "Eleiko",
-      logo: "/assets/images/home/EquipmentPartners/Eleiko_logo.svg",
+      logo: assetUrl("/assets/images/home/EquipmentPartners/Eleiko_logo.svg"),
       alt: "Eleiko Logo",
     },
     {
       name: "Technogym",
-      logo: "/assets/images/gym/techno-gym-logo.svg",
+      logo: assetUrl("/assets/images/gym/techno-gym-logo.svg"),
       alt: "Technogym Logo",
     },
     {
       name: "Rogue",
-      logo: "/assets/images/gym/rogue-logo.svg",
+      logo: assetUrl("/assets/images/gym/rogue-logo.svg"),
       alt: "Rogue Logo",
     },
     {
       name: "Atlantis",
-      logo: "/assets/images/home/EquipmentPartners/Atlantis_logo.svg",
+      logo: assetUrl("/assets/images/home/EquipmentPartners/Atlantis_logo.svg"),
       alt: "Atlantis Logo",
     },
   ];

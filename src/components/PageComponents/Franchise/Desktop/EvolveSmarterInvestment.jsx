@@ -3,6 +3,7 @@ import slide0 from "../../../../assets/images/franchise/evolveSmarterInvestment/
 import slide1 from "../../../../assets/images/franchise/evolveSmarterInvestment/step-1.webp";
 import slide2 from "../../../../assets/images/franchise/evolveSmarterInvestment/step-2.webp";
 import slide3 from "../../../../assets/images/franchise/evolveSmarterInvestment/step-3.webp";
+import { assetUrl } from "@/lib/assetUrl";
 
 const benefitItems = [
   {
@@ -11,7 +12,7 @@ const benefitItems = [
     description:
       "Memberships, rentals, personal training, and healthcare subleasing",
     image:
-      "/assets/images/franchise/evolveSmarterInvestment/step-0.webp",
+      assetUrl("/assets/images/franchise/evolveSmarterInvestment/step-0.webp"),
   },
   {
     key: "experience",
@@ -27,7 +28,7 @@ const benefitItems = [
     description:
       "Standardized systems, national partnerships, and streamlined operations.",
     image:
-      "/assets/images/franchise/evolveSmarterInvestment/step-2.webp",
+      assetUrl("/assets/images/franchise/evolveSmarterInvestment/step-2.webp"),
   },
   {
     key: "ebitda",
@@ -35,7 +36,7 @@ const benefitItems = [
     description:
       "Our business model delivers healthy margins, with EBITDA reaching 22% to 28% by year three.",
     image:
-      "/assets/images/franchise/evolveSmarterInvestment/step-3.webp",
+      assetUrl("/assets/images/franchise/evolveSmarterInvestment/step-3.webp"),
   },
 ];
 

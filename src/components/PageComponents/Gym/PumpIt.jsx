@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { assetUrl } from "@/lib/assetUrl";
 
 function PumpIt({sliderDotsColor = "sliderDotsColor"}) {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -12,35 +13,35 @@ function PumpIt({sliderDotsColor = "sliderDotsColor"}) {
       id: "machines",
       title: "Machines Section",
       image:
-        "/assets/images/gym/machines_bg.webp",
+        assetUrl("/assets/images/gym/machines_bg.webp"),
       description: "State-of-the-art selectorized equipment",
     },
     {
       id: "strength",
       title: "Strength Training",
       image:
-        "/assets/images/gym/strength_training_bg.webp",
+        assetUrl("/assets/images/gym/strength_training_bg.webp"),
       description: "Power racks, squat cages, and free weights",
     },
     {
       id: "olympic",
       title: "Olympic Lifting",
       image:
-        "/assets/images/gym/olympic_lifting_bg.webp",
+        assetUrl("/assets/images/gym/olympic_lifting_bg.webp"),
       description: "Dedicated platforms for Olympic lifts",
     },
     {
       id: "cardio",
       title: "Cardio Zone",
       image:
-        "/assets/images/gym/cardio_zone_bg.webp",
+        assetUrl("/assets/images/gym/cardio_zone_bg.webp"),
       description: "Treadmills, bikes, and rowing machines",
     },
     {
       id: "turf",
       title: "Turf Area",
       image:
-        "/assets/images/gym/truf_area_bg.webp",
+        assetUrl("/assets/images/gym/truf_area_bg.webp"),
       description: "Functional training and agility work",
     },
   ];

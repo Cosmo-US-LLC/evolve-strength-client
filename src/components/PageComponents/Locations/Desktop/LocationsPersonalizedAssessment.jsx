@@ -1,5 +1,6 @@
 import React from "react";
 import { pushEvent } from "@/lib/analytics";
+import { assetUrl } from "@/lib/assetUrl";
 
 function LocationsPersonalizedAssessment() {
   // Get location from URL path
@@ -61,51 +62,51 @@ function LocationsPersonalizedAssessment() {
     const backgroundImages = {
       "vancouver-post": {
         desktop:
-          "/assets/images/Locations/assesment/assessment_post.webp",
+          assetUrl("/assets/images/Locations/assesment/assessment_post.webp"),
         mobile:
-          "/assets/images/Locations/assesment/assessment_post_mob.webp",
+          assetUrl("/assets/images/Locations/assesment/assessment_post_mob.webp"),
       },
       "burnaby-brentwood": {
         desktop:
-          "/assets/images/Locations/assesment/assessment_brentwood.webp",
+          assetUrl("/assets/images/Locations/assesment/assessment_brentwood.webp"),
         mobile:
-          "/assets/images/Locations/assesment/assessment_brentwood_mob.webp",
+          assetUrl("/assets/images/Locations/assesment/assessment_brentwood_mob.webp"),
       },
       "calgary-seton": {
         desktop:
-          "/assets/images/Locations/assesment/assessment_seten.webp",
+          assetUrl("/assets/images/Locations/assesment/assessment_seten.webp"),
         mobile:
-          "/assets/images/Locations/assesment/assessment_seten_mob.webp",
+          assetUrl("/assets/images/Locations/assesment/assessment_seten_mob.webp"),
       },
       "calgary-royal-oak": {
         desktop:
-          "/assets/images/Locations/assesment/assessment_royal_oak.webp",
+          assetUrl("/assets/images/Locations/assesment/assessment_royal_oak.webp"),
         mobile:
-          "/assets/images/Locations/assesment/assessment_royal_oak_mob.webp",
+          assetUrl("/assets/images/Locations/assesment/assessment_royal_oak_mob.webp"),
       },
       "calgary-sunridge": {
         desktop:
-          "/assets/images/Locations/assesment/Assesment.webp",
+          assetUrl("/assets/images/Locations/assesment/Assesment.webp"),
         mobile:
-          "/assets/images/Locations/assesment/LoAssesment.webp",
+          assetUrl("/assets/images/Locations/assesment/LoAssesment.webp"),
       },
       "edmonton-south": {
         desktop:
-          "/assets/images/Locations/assesment/Assesment.webp",
+          assetUrl("/assets/images/Locations/assesment/Assesment.webp"),
         mobile:
-          "/assets/images/Locations/assesment/LoAssesment.webp",
+          assetUrl("/assets/images/Locations/assesment/LoAssesment.webp"),
       },
       "edmonton-downtown": {
         desktop:
-          "/assets/images/Locations/assesment/assessment_downtown.webp",
+          assetUrl("/assets/images/Locations/assesment/assessment_downtown.webp"),
         mobile:
-          "/assets/images/Locations/assesment/assessment_downtown_mob.webp",
+          assetUrl("/assets/images/Locations/assesment/assessment_downtown_mob.webp"),
       },
       "edmonton-north": {
         desktop:
-          "/assets/images/Locations/assesment/Assesment.webp",
+          assetUrl("/assets/images/Locations/assesment/Assesment.webp"),
         mobile:
-          "/assets/images/Locations/assesment/LoAssesment.webp",
+          assetUrl("/assets/images/Locations/assesment/LoAssesment.webp"),
       },
       "south-edmonton-common": {
         desktop:

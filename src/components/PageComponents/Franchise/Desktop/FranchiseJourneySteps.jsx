@@ -5,6 +5,7 @@ import { ReactComponent as RetentionIcon } from "@/assets/images/franchise/Franc
 import { ReactComponent as ActiveMembersIcon } from "@/assets/images/franchise/FranchiseJourneySteps/active_members_icon.svg";
 import { ReactComponent as GymIcon } from "@/assets/images/franchise/FranchiseJourneySteps/gym_icon.svg";
 import { ReactComponent as ExpertIcon } from "@/assets/images/franchise/FranchiseJourneySteps/expert_icon.svg";
+import { assetUrl } from "@/lib/assetUrl";
 
 
 
@@ -16,13 +17,13 @@ const steps = [
         Wellness Providers
       </p>
     ),
-    image: "/assets/images/franchise/FranchiseJourneySteps/step_1.webp",
+    image: assetUrl("/assets/images/franchise/FranchiseJourneySteps/step_1.webp"),
     icon: <GymIcon />,
   },
   {
     title: "205+",
     description: <p>Certified Trainers</p>,
-    image: "/assets/images/franchise/FranchiseJourneySteps/step_2.webp",
+    image: assetUrl("/assets/images/franchise/FranchiseJourneySteps/step_2.webp"),
     icon: <ActiveMembersIcon />,
   },
   {
@@ -32,7 +33,7 @@ const steps = [
        Member Retention Rate
       </p>
     ),
-    image: "/assets/images/franchise/FranchiseJourneySteps/step_3.webp",
+    image: assetUrl("/assets/images/franchise/FranchiseJourneySteps/step_3.webp"),
     icon: <RetentionIcon />,
   },
   {
@@ -42,7 +43,7 @@ const steps = [
         Partnered Businesses
       </p>
     ),
-    image: "/assets/images/franchise/FranchiseJourneySteps/step_4.webp",
+    image: assetUrl("/assets/images/franchise/FranchiseJourneySteps/step_4.webp"),
     icon: <ExpertIcon />,
   },
 ];

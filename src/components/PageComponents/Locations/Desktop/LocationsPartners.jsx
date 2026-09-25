@@ -1,26 +1,27 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
+import { assetUrl } from "@/lib/assetUrl";
 
 const partnerLogos = [
   {
-    src: "/assets/images/home/EquipmentPartners/Eleiko_logo.svg",
+    src: assetUrl("/assets/images/home/EquipmentPartners/Eleiko_logo.svg"),
     alt: "Eleiko",
   },
   {
-    src: "/assets/images/home/EquipmentPartners/Eprecor_logo.svg",
+    src: assetUrl("/assets/images/home/EquipmentPartners/Eprecor_logo.svg"),
     alt: "Precor",
   },
   {
-    src: "/assets/images/home/EquipmentPartners/NewTech_logo.svg",
+    src: assetUrl("/assets/images/home/EquipmentPartners/NewTech_logo.svg"),
     alt: "Rogue",
   },
-  // { src: "/assets/images/home/EquipmentPartners/rogue.svg", alt: "rogueLogo" },
+  // { src: assetUrl("/assets/images/home/EquipmentPartners/rogue.svg"), alt: "rogueLogo" },
   {
-    src: "/assets/images/home/EquipmentPartners/Techno_gym_logo.svg",
+    src: assetUrl("/assets/images/home/EquipmentPartners/Techno_gym_logo.svg"),
     alt: "Technogym",
   },
   {
-    src: "/assets/images/home/EquipmentPartners/Atlantis_logo.svg",
+    src: assetUrl("/assets/images/home/EquipmentPartners/Atlantis_logo.svg"),
     alt: "Atlantis",
   },
 ];

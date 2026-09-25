@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { assetUrl } from "@/lib/assetUrl";
 
 const opportunities = [
   {
@@ -8,9 +9,9 @@ const opportunities = [
       "Set up your practice in our vibrant wellness hubs, with flexible, spacious spaces for health professionals.",
     image: {
       desktop:
-        "/assets/images/home/BusinessOpportunities/leasing_opportunities.webp",
+        assetUrl("/assets/images/home/BusinessOpportunities/leasing_opportunities.webp"),
       mobile:
-        "/assets/images/home/BusinessOpportunities/leasing_opportunities_mobile.webp",
+        assetUrl("/assets/images/home/BusinessOpportunities/leasing_opportunities_mobile.webp"),
     },
     link: "/work-spaces",
   },
@@ -20,9 +21,9 @@ const opportunities = [
       "Own an Evolve Strength gym with a proven model, trusted brand, and nationwide support.",
     image: {
       desktop:
-        "/assets/images/home/BusinessOpportunities/franchise_opportunities.webp",
+        assetUrl("/assets/images/home/BusinessOpportunities/franchise_opportunities.webp"),
       mobile:
-        "/assets/images/home/BusinessOpportunities/franchise_opportunities_mobile.webp",
+        assetUrl("/assets/images/home/BusinessOpportunities/franchise_opportunities_mobile.webp"),
     },
     link: "/franchise",
   },

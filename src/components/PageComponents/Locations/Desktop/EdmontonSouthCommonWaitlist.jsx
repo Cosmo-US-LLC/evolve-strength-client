@@ -2,6 +2,7 @@ import EdmontonSouthCommonForm from "@/components/Form/EdmontonSouthCommonForm";
 import EvolveStrengthBlackLogo from "@/assets/images/home/navbar/Evolve-logo-dark.svg";
 import { Link } from "react-router-dom";
 import React from "react";
+import { assetUrl } from "@/lib/assetUrl";
 
 function EdmontonSouthCommonWaitlist() {
   return (
@@ -32,7 +33,7 @@ function EdmontonSouthCommonWaitlist() {
           }}
         >
           <source
-            src="/assets/videos/ES_waitlist_desktop.webm"
+            src={assetUrl("/assets/videos/ES_waitlist_desktop.webm")}
             type="video/webm"
           />
           Your browser does not support the video tag.
@@ -51,7 +52,7 @@ function EdmontonSouthCommonWaitlist() {
           }}
         >
           <source
-            src="/assets/videos/ES_waitlist_mobile.webm"
+            src={assetUrl("/assets/videos/ES_waitlist_mobile.webm")}
             type="video/webm"
           />
           Your browser does not support the video tag.

@@ -1,5 +1,6 @@
 import React from "react";
 import { Search, CalendarCheck2, PersonStanding, Smile } from "lucide-react";
+import { assetUrl } from "@/lib/assetUrl";
 
 const steps = [
   {
@@ -15,7 +16,7 @@ const steps = [
     description:
       "Get the care and guidance you need directly from your chosen specialist.",
     image:
-      "/assets/images/wellness/WellnessJourneySteps/step_2.webp",
+      assetUrl("/assets/images/wellness/WellnessJourneySteps/step_2.webp"),
     icon: <CalendarCheck2 className="w-5 h-5 text-white" />,
   },
   {
@@ -23,14 +24,14 @@ const steps = [
     description:
       "Follow a personalized approach designed to support your health and well-being.",
     image:
-      "/assets/images/wellness/WellnessJourneySteps/step_3.webp",
+      assetUrl("/assets/images/wellness/WellnessJourneySteps/step_3.webp"),
     icon: <PersonStanding className="w-5 h-5 text-white" />,
   },
   {
     title: "Step 4: Feel the Difference",
     description: "Enjoy improved balance, recovery, and overall wellness.",
     image:
-      "/assets/images/wellness/WellnessJourneySteps/step_4.webp",
+      assetUrl("/assets/images/wellness/WellnessJourneySteps/step_4.webp"),
     icon: <Smile className="w-5 h-5 text-white" />,
   },
 ];

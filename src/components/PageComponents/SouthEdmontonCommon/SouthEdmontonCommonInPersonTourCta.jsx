@@ -2,6 +2,7 @@ import React from "react";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
 import { pushEvent } from "@/lib/analytics";
+import { assetUrl } from "@/lib/assetUrl";
 
 function SouthEdmontonCommonInPersonTourCta() {
   return (
@@ -64,7 +65,7 @@ function SouthEdmontonCommonInPersonTourCta() {
           className="absolute inset-0 h-full w-full object-cover object-center"
         >
           <source
-            src="/assets/videos/ES_waitlist_desktop.webm"
+            src={assetUrl("/assets/videos/ES_waitlist_desktop.webm")}
             type="video/webm"
           />
         </video>

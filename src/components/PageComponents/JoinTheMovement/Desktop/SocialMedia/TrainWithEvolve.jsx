@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from "@/assets/images/JoinTheMovement/SocialMedia/TrainWithEvolve/gymnastics_logo.svg"
+import { assetUrl } from "@/lib/assetUrl";
 
 
 function TrainWithEvolve() {
@@ -9,7 +10,7 @@ function TrainWithEvolve() {
       <div className="md:w-7 md:h-7 w-5 h-3 rounded-full bg-[#4AB04A] flex items-center justify-center">
         {/* Replace with your actual SVG/icon */}
         <div className=""></div>
-        <img src="/assets/images/JoinTheMovement/SocialMedia/TrainWithEvolve/gymnastics_logo.svg" className='' />
+        <img src={assetUrl("/assets/images/JoinTheMovement/SocialMedia/TrainWithEvolve/gymnastics_logo.svg")} className='' />
       </div>
 
       {/* Hashtag text */}

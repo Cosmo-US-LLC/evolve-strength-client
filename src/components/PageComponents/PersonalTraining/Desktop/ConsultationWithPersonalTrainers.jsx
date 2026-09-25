@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useCounter from "@/hooks/useCounter";
 import useSyncedCounter from "@/hooks/useSyncedCounter";
+import { assetUrl } from "@/lib/assetUrl";
 
 const scrollAnimation = `
 @keyframes scroll-up {
@@ -21,16 +22,16 @@ const ConsultationWithPersonalTrainers = () => {
   const specialisedOfferings = useSyncedCounter(150, 3000, hasStarted);
 
   const firstColumn = [
-    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide1.webp",
-    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide2.webp",
-    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide3.webp",
-    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide4.webp",
+    assetUrl("/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide1.webp"),
+    assetUrl("/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide2.webp"),
+    assetUrl("/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide3.webp"),
+    assetUrl("/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide4.webp"),
   ];
   const secondColumn = [
-    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide5.webp",
-    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide6.webp",
-    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide7.webp",
-    "/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide8.webp",
+    assetUrl("/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide5.webp"),
+    assetUrl("/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide6.webp"),
+    assetUrl("/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide7.webp"),
+    assetUrl("/assets/images/PersonalTraning/ConsultationWithPersonalTrainers/slide8.webp"),
   ];
 
   return (

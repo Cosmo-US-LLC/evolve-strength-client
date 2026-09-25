@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { assetUrl } from "@/lib/assetUrl";
 
 function PricingFitsYourBudget() {
   return (
@@ -20,7 +21,7 @@ function PricingFitsYourBudget() {
       </div>
       <div className="w-[100%] md:w-[50%] rounded-[10px]">
         <img
-          src="/assets/images/corporateMembership/PricingFitsYourBudget/pricingFits.webp"
+          src={assetUrl("/assets/images/corporateMembership/PricingFitsYourBudget/pricingFits.webp")}
           alt="Join the Movement"
           className="w-full h-full object-cover"
         />

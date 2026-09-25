@@ -1,0 +1,1 @@
+src/assets/icons/home/Wellness-Services/Physiotherapy.svg

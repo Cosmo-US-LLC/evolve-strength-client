@@ -8,6 +8,7 @@ import TrainerTestimonials from "@/components/PageComponents/JoinAsTrainer/Deskt
 import WhyChooseEvolveProgress from "@/components/PageComponents/JoinAsTrainer/Desktop/WhyChooseEvolveProgress";
 import TourOurFitness from "@/components/PageComponents/JoinAsTrainer/Desktop/TourOurFitness";
 import WhatTrainersAre from "@/components/PageComponents/JoinAsTrainer/Desktop/WhatTrainersAre";
+import { assetUrl } from "@/lib/assetUrl";
 
 function JoinAsTrainer() {
   return (
@@ -28,10 +29,10 @@ function JoinAsTrainer() {
         buttonLink="#"
         imagePosition="right"
         backgroundImage={
-          "/media/1763533871016-5adfd366-8cf6-4d52-b82a-14ce6c0db3cb.webp"
+          assetUrl("/media/1763533871016-5adfd366-8cf6-4d52-b82a-14ce6c0db3cb.webp")
         }
         backgroundImageMob={
-          "/media/1763533740489-55290d51-538f-4373-b5de-73c5333cd8da.webp"
+          assetUrl("/media/1763533740489-55290d51-538f-4373-b5de-73c5333cd8da.webp")
         }
         height={800}
       />
@@ -45,10 +46,10 @@ function JoinAsTrainer() {
         buttonLink="#"
         imagePosition="left"
         backgroundImage={
-          "/media/1763109300250-47d31d1b-6bdd-452f-bb33-6c334d55644d.webp"
+          assetUrl("/media/1763109300250-47d31d1b-6bdd-452f-bb33-6c334d55644d.webp")
         }
         backgroundImageMob={
-          "/media/1762851957642-85e47bed-980b-42f2-9111-672badc6579d.webp"
+          assetUrl("/media/1762851957642-85e47bed-980b-42f2-9111-672badc6579d.webp")
         }
         height={800}
       /> */}
@@ -68,10 +69,10 @@ function JoinAsTrainer() {
         buttonLink="/trainer-form"
         imagePosition="right"
         backgroundImage={
-          "/media/1762851098170-0165b620-0939-4da4-8806-51236f565a5d.webp"
+          assetUrl("/media/1762851098170-0165b620-0939-4da4-8806-51236f565a5d.webp")
         }
         backgroundImageMob={
-          "/media/1762851986658-3d3b9cab-583a-4500-8994-4acedf661cdd.webp"
+          assetUrl("/media/1762851986658-3d3b9cab-583a-4500-8994-4acedf661cdd.webp")
         }
         height={800}
       />

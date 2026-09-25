@@ -2,6 +2,7 @@ import React from "react";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
 import { pushEvent } from "@/lib/analytics";
+import { assetUrl } from "@/lib/assetUrl";
 
 function SouthEdmontonCommonHero() {
   return (
@@ -17,11 +18,11 @@ function SouthEdmontonCommonHero() {
           style={{ objectFit: "cover", objectPosition: "bottom" }}
         >
           <source
-            src="/assets/videos/Sun_rising_south_edmonton_common.mp4"
+            src={assetUrl("/assets/videos/Sun_rising_south_edmonton_common.mp4")}
             type="video/webm"
           />
           <source
-            src="/assets/images/Sun_rising_south_edmonton_common.webm"
+            src={assetUrl("/assets/images/Sun_rising_south_edmonton_common.webm")}
             type="video/webm"
           />
         </video>

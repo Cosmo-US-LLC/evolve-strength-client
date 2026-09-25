@@ -3,37 +3,38 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { assetUrl } from "@/lib/assetUrl";
 
 const professionals = [
   {
     title: "Strength Training",
     image:
-      "/assets/images/AboutUs/AboutUs_Trainers/Strenght_Training.webp",
+      assetUrl("/assets/images/AboutUs/AboutUs_Trainers/Strenght_Training.webp"),
   },
   {
     title: "Body Weight Training",
     image:
-      "/assets/images/AboutUs/AboutUs_Trainers/Weight_Training.webp",
+      assetUrl("/assets/images/AboutUs/AboutUs_Trainers/Weight_Training.webp"),
   },
   {
     title: "Cardio",
     image:
-      "/assets/images/AboutUs/AboutUs_Trainers/Cardio.webp",
+      assetUrl("/assets/images/AboutUs/AboutUs_Trainers/Cardio.webp"),
   },
   {
     title: "Turf Workout",
     image:
-      "/assets/images/AboutUs/AboutUs_Trainers/Turf_Workout.webp",
+      assetUrl("/assets/images/AboutUs/AboutUs_Trainers/Turf_Workout.webp"),
   },
   {
     title: "Olympic Lifting",
     image:
-      "/assets/images/AboutUs/AboutUs_Trainers/Olympic_Lifting.webp",
+      assetUrl("/assets/images/AboutUs/AboutUs_Trainers/Olympic_Lifting.webp"),
   },
   {
     title: "Yoga",
     image:
-      "/assets/images/AboutUs/AboutUs_Trainers/Yoga.webp",
+      assetUrl("/assets/images/AboutUs/AboutUs_Trainers/Yoga.webp"),
   },
 ];
 

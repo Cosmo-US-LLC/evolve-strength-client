@@ -7,6 +7,7 @@ import icon1 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_1.sv
 import icon2 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_2.svg";
 import icon3 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_3.svg";
 import icon4 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_5.svg";
+import { assetUrl } from "@/lib/assetUrl";
 
 const certificateBenefits = [
   {
@@ -35,18 +36,18 @@ const depositBenefits = [
       "Reserve now, pay later, 10-day refund guarantee.",
   },
   {
-    icon: "/assets/images/presaleCommonSouth/icon2.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/icon2.svg"),
     title: "Get Certificate",
     description:
       "Receive your digital Rate Lock Certificate.",
   },
   {
-    icon: "/assets/images/presaleCommonSouth/icon3.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/icon3.svg"),
     title: "VIP Access",
     description: "Enjoy exclusive early access before the gym opens.",
   },
   {
-    icon: "/assets/images/presaleCommonSouth/icon_4.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/icon_4.svg"),
     title: "Grand Opening",
     description:
       "Your billing only starts when our doors open.",

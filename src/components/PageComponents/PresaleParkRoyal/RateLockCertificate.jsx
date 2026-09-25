@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import noUpfront from "../../../assets/images/PresaleEdmontonSouthCommon/partners/no_upfront.svg";
 import founderBadge from "@/assets/images/PresaleParkRoyal/founder_badge.png";
+import { assetUrl } from "@/lib/assetUrl";
 
 const steps = [
   {
@@ -10,18 +11,18 @@ const steps = [
     description: "Reserve now, pay later. Ten-day refund guarantee.",
   },
   {
-    icon: "/assets/images/presaleCommonSouth/icon2.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/icon2.svg"),
     title: "Get Certificate",
     description: "Digital proof of your founding status, yours to keep.",
   },
   {
-    icon: "/assets/images/presaleCommonSouth/icon3.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/icon3.svg"),
     title: "VIP Access",
     description:
       "Confirm your spot and get early access to the brand new facility.",
   },
   {
-    icon: "/assets/images/presaleCommonSouth/icon_4.svg",
+    icon: assetUrl("/assets/images/presaleCommonSouth/icon_4.svg"),
     title: "Grand Opening",
     description:
       "Doors open. Billing begins. Everything else stays the same.",

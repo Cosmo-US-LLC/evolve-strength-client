@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import herovector from "../../../../assets/images/JoinTheMovement/JoinTheMovementHero/hero_vector (2).png";
 import herovector2 from "../../../../assets/images/JoinTheMovement/JoinTheMovementHero/hero_vector (1).png";
 import upload_icon from "../../../../assets/images/JoinTheMovement/JoinTheMovementHero/upload_icon.svg";
+import { assetUrl } from "@/lib/assetUrl";
 
 function JoinTheMovementHero() {
   const fileInputRef = useRef(null);
@@ -32,7 +33,7 @@ function JoinTheMovementHero() {
       <div className="w-full max-w-[1280px] px-8 mx-auto ">
         <div className="flex flex-row gap-10 relative">
           <div className="w-[70%] space-y-[24px]">
-            <img src="/assets/images/JoinTheMovement/JoinTheMovementHero/hero_vector%20(2).png" alt="hero_vector" />
+            <img src={assetUrl("/assets/images/JoinTheMovement/JoinTheMovementHero/hero_vector%20(2).png")} alt="hero_vector" />
             <h1 className="max-w-[707px] text-left leading-[56px] uppercase">
               Get Noticed by <br /> Thousands of <br /> Gym Fans for <br />{" "}
               <span className="text-[#4AB04A]">Free</span>
@@ -75,7 +76,7 @@ function JoinTheMovementHero() {
                   onDragOver={handleDragOver}
                 >
                   <div className="h-[43px] w-[43px] rounded-[100%] bg-[#F9F8F8] flex items-center justify-center">
-                    <img src="/assets/images/JoinTheMovement/JoinTheMovementHero/upload_icon.svg" alt="upload icon" className="" />
+                    <img src={assetUrl("/assets/images/JoinTheMovement/JoinTheMovementHero/upload_icon.svg")} alt="upload icon" className="" />
                   </div>
                   <h5 className="text-center !mb-[5px] !font-[500] text-[#4AB04A]">
                     Add Your Media (JPEG, PNG, MP4 Supported)
@@ -121,7 +122,7 @@ function JoinTheMovementHero() {
               </div>
             </div>
             <img
-              src="/assets/images/JoinTheMovement/JoinTheMovementHero/hero_vector%20(1).png"
+              src={assetUrl("/assets/images/JoinTheMovement/JoinTheMovementHero/hero_vector%20(1).png")}
               className="bottom-[-59px] right-[-6%] absolute"
               alt="hero_vector"
             />
@@ -133,7 +134,7 @@ function JoinTheMovementHero() {
       <div className="w-full max-w-[1280px] px-[16px] mx-auto ">
         <div className="flex flex-col gap-6 relative">
           <div className="space-y-[15px]">
-            <img src="/assets/images/JoinTheMovement/JoinTheMovementHero/hero_vector%20(2).png" alt="hero_vector" />
+            <img src={assetUrl("/assets/images/JoinTheMovement/JoinTheMovementHero/hero_vector%20(2).png")} alt="hero_vector" />
             <h1 className="text-left leading-[56px] uppercase">
               Get Noticed by <br /> Thousands  <br /> of Gym Fans <br />for Free
             </h1>
@@ -221,7 +222,7 @@ function JoinTheMovementHero() {
               </div>
             </div>
             <img
-              src="/assets/images/JoinTheMovement/JoinTheMovementHero/hero_vector%20(1).png"
+              src={assetUrl("/assets/images/JoinTheMovement/JoinTheMovementHero/hero_vector%20(1).png")}
               className="bottom-[-59px] right-[-6%] absolute"
               alt="hero_vector"
             />
