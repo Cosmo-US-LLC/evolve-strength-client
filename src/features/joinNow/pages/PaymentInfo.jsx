@@ -35,9 +35,14 @@ const formSchema = z.object({
   cardNumber: z.string().min(1, "Card number is required"),
   cvc: z.string().min(1, "CVV is required"),
   expiry: z.string().min(1, "Expiration date is required"),
-  cfTurnstileResponse: z
-    .string()
-    .min(1, "Please complete the security check"),
+  // import.meta.env.DEV is statically false in production builds, so this
+  // relaxation (Turnstile can't render on localhost) never ships to prod —
+  // it only exists to let the join flow be exercised locally for testing
+  // things like rate limiting, which the backend checks before Turnstile
+  // verification anyway.
+  cfTurnstileResponse: import.meta.env.DEV
+    ? z.string().optional().default("")
+    : z.string().min(1, "Please complete the security check"),
   termsAccepted: z.boolean().refine((val) => val, {
     message: "You must accept the terms",
   }),

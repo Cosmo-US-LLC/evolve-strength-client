@@ -944,7 +944,6 @@ function FounderOfferPayment() {
         pushNotification: "true",
       },
       cfTurnstileResponse: payment.cfTurnstileResponse || "",
-      skipIpCheck: true,
     };
 
     if (selectPlan !== "direct_debit") {
