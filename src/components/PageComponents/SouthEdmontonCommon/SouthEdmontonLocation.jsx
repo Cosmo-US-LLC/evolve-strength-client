@@ -2,6 +2,7 @@ import React from "react";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
 import buildingImage from "@/assets/images/spaces/AvailableOffices/south_edmonton_common_location.webp";
+import { pushEvent } from "@/lib/analytics";
 
 const LOCATION_TITLE = "South Edmonton Common";
 const ADDRESS = "1910 102 St NW, Edmonton, AB T6N 1N3, Canada";
@@ -45,12 +46,32 @@ function SouthEdmontonLocation() {
               </div>
 
               <div className="flex flex-row gap-4 items-center md:pt-1">
-                <a href={southEdmontonCommonBookTourHref()} className="shrink-0">
+                <a
+                  href={southEdmontonCommonBookTourHref()}
+                  className="shrink-0"
+                  onClick={() =>
+                    pushEvent("select_promotion", {
+                      promotion_name: "Book a Tour",
+                      creative_slot: "sec_location_details",
+                      location: "South Edmonton Common",
+                    })
+                  }
+                >
                   <button type="button" className="btnPrimary h-[50px] uppercase">
                     Book a Free Tour
                   </button>
                 </a>
-                <a className=" md:hidden flex-1 " href={'/join-now/membership-type?location=South%20Edmonton%20Common'}>
+                <a
+                  className=" md:hidden flex-1 "
+                  href={'/join-now/membership-type?location=South%20Edmonton%20Common'}
+                  onClick={() =>
+                    pushEvent("select_promotion", {
+                      promotion_name: "Join Now",
+                      creative_slot: "sec_location_details",
+                      location: "South Edmonton Common",
+                    })
+                  }
+                >
 
                   <button type="button" className='btnSecondary w-full justify-center !py-4 !text-[#000000] !bg-[#fff] !border !border-[#000000] hover:!bg-[#000000] hover:!text-white'>JOIN NOW</button>
                 </a>

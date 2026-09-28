@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { pushEvent } from "@/lib/analytics";
 
 function GymHero() {
   return (
@@ -31,10 +32,26 @@ function GymHero() {
           </h1>
 
           <div className="flex flex-row gap-x-[24px]">
-            <a href="/book-a-tour/">
+            <a
+              href="/book-a-tour/"
+              onClick={() =>
+                pushEvent("select_promotion", {
+                  promotion_name: "Book a Tour",
+                  creative_slot: "gym_hero",
+                })
+              }
+            >
               <button className="btnPrimary">Book a Free Tour</button>
             </a>
-            <a href="/join-now/">
+            <a
+              href="/join-now/"
+              onClick={() =>
+                pushEvent("select_promotion", {
+                  promotion_name: "Join Now",
+                  creative_slot: "gym_hero",
+                })
+              }
+            >
               <button className="btnSecondary">join now</button>
             </a>
           </div>

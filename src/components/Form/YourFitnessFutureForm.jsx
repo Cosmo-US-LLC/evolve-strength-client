@@ -8,6 +8,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import SuccessFullScreen from "../ui/SuccessFullScreen";
 import { ArrowLeft } from "lucide-react";
 import FormsHeader from "../ui/FormsHeader";
+import { pushEvent } from "@/lib/analytics";
 
 const initialState = {
   firstName: "",
@@ -163,6 +164,7 @@ function YourFitnessFutureForm() {
         );
 
         if (response.ok) {
+          pushEvent("generate_lead", { form_name: "your_fitness_future" });
           setSubmitted(true);
         } else {
           alert("There was an error submitting your form. Please try again.");

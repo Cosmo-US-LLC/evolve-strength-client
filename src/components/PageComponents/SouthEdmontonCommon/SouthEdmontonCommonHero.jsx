@@ -1,6 +1,7 @@
 import React from "react";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
+import { pushEvent } from "@/lib/analytics";
 
 function SouthEdmontonCommonHero() {
   return (
@@ -41,12 +42,30 @@ function SouthEdmontonCommonHero() {
               1st.
             </h3>
             <div className="flex flex-row gap-4">
-              <a href={southEdmontonCommonBookTourHref()}>
+              <a
+                href={southEdmontonCommonBookTourHref()}
+                onClick={() =>
+                  pushEvent("select_promotion", {
+                    promotion_name: "Book a Tour",
+                    creative_slot: "sec_hero",
+                    location: "South Edmonton Common",
+                  })
+                }
+              >
                 <button className="btnPrimary uppercase" type="button">
                   Book a Free Tour
                 </button>
               </a>{" "}
-              <a href={'/join-now/membership-type?location=South%20Edmonton%20Common'}>
+              <a
+                href={'/join-now/membership-type?location=South%20Edmonton%20Common'}
+                onClick={() =>
+                  pushEvent("select_promotion", {
+                    promotion_name: "Join Now",
+                    creative_slot: "sec_hero",
+                    location: "South Edmonton Common",
+                  })
+                }
+              >
                 <button className="btnSecondary">JOIN NOW</button>
               </a>
             </div>

@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import MetaTags from "@/components/Metatags/Meta";
 import FormsHeader from "../ui/FormsHeader";
 import SuccessFullScreen from "../ui/SuccessFullScreen";
+import { pushEvent } from "@/lib/analytics";
 import trainerImage from "@/assets/images/form/trainer-form.webp";
 
 function TrainerForm() {
@@ -208,6 +209,12 @@ function TrainerForm() {
       );
 
       if (response.ok) {
+        // location is a required field, so form.location is always set here
+        pushEvent("trainer_form_submit", {
+          location:
+            LOCATIONS.find((loc) => loc.location === form.location)
+              ?.cityName || form.location,
+        });
         setSubmitted(true);
       } else {
         const text = await response.text().catch(() => "");

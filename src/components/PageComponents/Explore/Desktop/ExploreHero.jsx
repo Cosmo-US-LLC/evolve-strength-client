@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { pushEvent } from "@/lib/analytics";
 
 function ExploreHero() {
   return (
@@ -15,11 +16,27 @@ function ExploreHero() {
             Choose an option below to get started.
           </h3> */}
           <div className="flex gap-6">
-            <a href="/book-a-tour/">
+            <a
+              href="/book-a-tour/"
+              onClick={() =>
+                pushEvent("select_promotion", {
+                  promotion_name: "Book a Tour",
+                  creative_slot: "explore_hero",
+                })
+              }
+            >
               <button className="btnPrimary">BOOK A FREE TOUR</button>
             </a>
 
-            <a href="/join-now/">
+            <a
+              href="/join-now/"
+              onClick={() =>
+                pushEvent("select_promotion", {
+                  promotion_name: "Join Now",
+                  creative_slot: "explore_hero",
+                })
+              }
+            >
               <button className="btnSecondary">Join Now</button>
             </a>
           </div>

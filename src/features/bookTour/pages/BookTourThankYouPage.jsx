@@ -1,11 +1,26 @@
+import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import { pushEvent } from "@/lib/analytics";
 
 export default function BookTourThankYouPage() {
   const [searchParams] = useSearchParams();
+  const location = searchParams?.get("location");
   const location_name = searchParams?.get("location_name");
   const date = searchParams?.get("date");
   const time = searchParams?.get("time");
+
+  useEffect(() => {
+    const alreadyFired = sessionStorage.getItem(
+      "evolve_book_tour_success_pushed"
+    );
+    if (alreadyFired) return;
+    if (!location) return; // no location on record - skip rather than push a broken event
+
+    pushEvent("book_tour_success", { location, location_name, date, time });
+    sessionStorage.setItem("evolve_book_tour_success_pushed", "1");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="min-h-dvh bg-white">

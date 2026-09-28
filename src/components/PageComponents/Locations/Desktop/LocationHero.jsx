@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Cancel from "@/assets/images/Locations/Cancel_Icon.svg";
+import { pushEvent } from "@/lib/analytics";
 const LOCATION_HERO_DATA = {
   "calgary-seton": {
     desktop: "/assets/images/Locations/location-hero/hero_seten.webp",
@@ -122,6 +123,12 @@ function LocationHero() {
     LOCATION_HERO_DATA[locationKey] || LOCATION_HERO_DATA["calgary-seton"];
   const fullTitle = dynamicData.fullTitle;
 
+  // Canonical location name, derived from the membershipUrl's own `location`
+  // query param rather than duplicated here - single source of truth.
+  const canonicalLocation = decodeURIComponent(
+    dynamicData.membershipUrl.split("location=")[1] || ""
+  );
+
   const heroVideoSrc = dynamicData.video;
   const heroVideoSources = dynamicData.sources;
   const heroVideoUrl = heroVideoSrc || heroVideoSources?.[0]?.src;
@@ -209,10 +216,28 @@ function LocationHero() {
         </h3>
         <div className="flex flex-col gap-6">
           <div className="flex flex-row gap-4">
-            <a href={dynamicData.tourUrl}>
+            <a
+              href={dynamicData.tourUrl}
+              onClick={() =>
+                pushEvent("select_promotion", {
+                  promotion_name: "Book a Tour",
+                  creative_slot: "location_hero",
+                  location: canonicalLocation,
+                })
+              }
+            >
               <button className="btnPrimary">BOOK A FREE TOUR</button>
             </a>
-            <a href={dynamicData.membershipUrl}>
+            <a
+              href={dynamicData.membershipUrl}
+              onClick={() =>
+                pushEvent("select_promotion", {
+                  promotion_name: "Join Now",
+                  creative_slot: "location_hero",
+                  location: canonicalLocation,
+                })
+              }
+            >
               <button className="btnSecondary">JOIN NOW</button>
             </a>
           </div>

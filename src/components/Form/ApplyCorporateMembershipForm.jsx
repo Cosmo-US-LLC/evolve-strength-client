@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import SuccessFullScreen from "../ui/SuccessFullScreen"; // added
 import FormsHeader from "../ui/FormsHeader"; // added
+import { pushEvent } from "@/lib/analytics";
 
 const provinceOptions = [
   "Alberta",
@@ -139,6 +140,8 @@ function ApplyCorporateMembershipForm({ onSubmit }) {
         console.error("HubSpot submission failed", res.status, text);
         throw new Error("Submission failed");
       }
+
+      pushEvent("generate_lead", { form_name: "apply_corporate_membership" });
 
       // Call onSubmit if provided, otherwise just show success
       if (onSubmit && typeof onSubmit === "function") {

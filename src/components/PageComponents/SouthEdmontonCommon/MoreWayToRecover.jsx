@@ -1,6 +1,7 @@
 import React from "react";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
+import { pushEvent } from "@/lib/analytics";
 
 function MoreWayToRecover() {
   return (
@@ -24,12 +25,28 @@ function MoreWayToRecover() {
             <a
               href={southEdmontonCommonBookTourHref()}
               className="shrink-0 "
+              onClick={() =>
+                pushEvent("select_promotion", {
+                  promotion_name: "Book a Tour",
+                  creative_slot: "sec_more_ways_to_recover",
+                  location: "South Edmonton Common",
+                })
+              }
             >
               <button type="button" className="btnPrimary uppercase">
                 Book a Free Tour
               </button>
             </a>
-            <a href={'/join-now/membership-type?location=South%20Edmonton%20Common'}>
+            <a
+              href={'/join-now/membership-type?location=South%20Edmonton%20Common'}
+              onClick={() =>
+                pushEvent("select_promotion", {
+                  promotion_name: "Join Now",
+                  creative_slot: "sec_more_ways_to_recover",
+                  location: "South Edmonton Common",
+                })
+              }
+            >
 
               <button type="button" className='btnSecondary !text-[#000000] !bg-[#fff] !border !border-[#000000] hover:!bg-[#000000] hover:!text-white'>JOIN NOW</button>
             </a>

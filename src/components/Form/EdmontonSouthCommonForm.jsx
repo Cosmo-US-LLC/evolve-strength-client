@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { pushEvent } from "@/lib/analytics";
 
 function EdmontonSouthCommonForm({ location = "South Edmonton Common" }) {
   const [formData, setFormData] = useState({
@@ -93,6 +94,10 @@ function EdmontonSouthCommonForm({ location = "South Edmonton Common" }) {
       );
 
       if (response.ok) {
+        pushEvent("generate_lead", {
+          form_name: "south_edmonton_common_waitlist",
+          location,
+        });
         setSubmitStatus("success");
         // Reset form
         setFormData({

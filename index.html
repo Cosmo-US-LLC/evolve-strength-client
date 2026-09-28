@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google Tag Manager: only on the approved production hostname, so Vercel previews/staging/localhost never report to GA4 -->
+    <!-- Google Tag Manager: each approved hostname loads its own container. Production reports to the live GA4 container; staging loads a separate test container so dataLayer events can be verified in Tag Assistant without touching production data. Any other host (localhost, Vercel previews) loads nothing. -->
     <script>
-      (function (w, d, s, l, i) {
-        var ALLOWED_HOSTS = ["www.evolvestrength.ca"];
-        if (ALLOWED_HOSTS.indexOf(w.location.hostname) === -1) return;
+      (function (w, d, s, l) {
+        var GTM_CONTAINERS = {
+          "www.evolvestrength.ca": "GTM-WMVH3DX8",
+          "evolve-strength-staging.vercel.app": "GTM-TSZWK6VF",
+        };
+        var i = GTM_CONTAINERS[w.location.hostname];
+        if (!i) return;
         w[l] = w[l] || [];
         w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
         var f = d.getElementsByTagName(s)[0],
@@ -14,7 +18,7 @@
         j.async = true;
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-WMVH3DX8");
+      })(window, document, "script", "dataLayer");
     </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />

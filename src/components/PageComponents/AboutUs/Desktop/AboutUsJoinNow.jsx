@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { pushEvent } from "@/lib/analytics";
 
 function JoinUs() {
   return (
@@ -18,10 +19,26 @@ function JoinUs() {
             fitness, not the queue.
           </h4>
           <div className="flex gap-6">
-            <a href="/join-now/">
+            <a
+              href="/join-now/"
+              onClick={() =>
+                pushEvent("select_promotion", {
+                  promotion_name: "Join Now",
+                  creative_slot: "about_us_hero",
+                })
+              }
+            >
               <button className="btnPrimary">join now</button>
             </a>
-            <a href="/book-a-tour/">
+            <a
+              href="/book-a-tour/"
+              onClick={() =>
+                pushEvent("select_promotion", {
+                  promotion_name: "Book a Tour",
+                  creative_slot: "about_us_hero",
+                })
+              }
+            >
               <button className="btnSecondary">BOOK A FREE TOUR</button>
             </a>
           </div>

@@ -944,7 +944,6 @@ function FounderOfferPayment() {
         pushNotification: "true",
       },
       cfTurnstileResponse: payment.cfTurnstileResponse || "",
-      skipIpCheck: true,
     };
 
     if (selectPlan !== "direct_debit") {
@@ -1429,6 +1428,7 @@ function FounderOfferPayment() {
             untaxedAddonFeeAmount={towelAddonFeeAmount}
             gstAmount={gstAmount}
             totalAmount={totalAmount}
+            dueToday={dueTodayAmount}
           />
         );
       default:

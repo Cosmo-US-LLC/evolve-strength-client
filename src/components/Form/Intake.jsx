@@ -6,6 +6,7 @@ import FormsHeader from "../ui/FormsHeader";
 import SuccessFullScreen from "../ui/SuccessFullScreen";
 import MetaTags from "../Metatags/Meta";
 import NotFoundPage from "@/pages/PageNotFound";
+import { pushEvent } from "@/lib/analytics";
 
 function Intake() {
   const { locationSlug } = useParams();
@@ -179,6 +180,11 @@ function Intake() {
 
       console.log("Form submitted successfully:", {
         ...formData,
+        location: displayLocationName,
+      });
+
+      pushEvent("generate_lead", {
+        form_name: "intake",
         location: displayLocationName,
       });
 
