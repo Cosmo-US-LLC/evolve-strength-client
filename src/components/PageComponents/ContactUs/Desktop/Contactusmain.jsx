@@ -6,6 +6,12 @@ const contactLocationsData = {
   heading: "OUR LOCATIONS",
   locations: [
     {
+      cityName: "Park Royal",
+      location: "815 Park Royal N West Vancouver, BC V7T 1H9",
+      number: null,
+      email: null,
+    },
+    {
       cityName: "South Edmonton Common",
       location: "1910 102 STREET NW, EDMONTON, AB T6N 1N3",
       number: "(587) 686-7622",
@@ -225,16 +231,18 @@ function Contactusmain() {
                   <span className="w-full md:w-[358px] h-auto md:h-[21px] break-words">
                     {location.location}
                   </span>
-                  <a
-                    href={
-                      location.email
-                        ? `mailto:${location.email}`
-                        : `tel:${location.number}`
-                    }
-                    className="h-[21px] block  text-[#000] transition-colors duration-200"
-                  >
-                    {location.email ? location.email : location.number}
-                  </a>
+                  {(location.email || location.number) && (
+                    <a
+                      href={
+                        location.email
+                          ? `mailto:${location.email}`
+                          : `tel:${location.number}`
+                      }
+                      className="h-[21px] block  text-[#000] transition-colors duration-200"
+                    >
+                      {location.email ? location.email : location.number}
+                    </a>
+                  )}
                 </div>
               </li>
             ))}
