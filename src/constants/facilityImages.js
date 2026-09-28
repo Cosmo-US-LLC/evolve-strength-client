@@ -143,7 +143,7 @@ export const facilityLocations = [
     label: "Downtown",
     images: {
       desktop: [
-        "https://assets.evolvestrength.ca/assets/images/home/facility/downtown_9.webp.webp",
+        assetUrl("/assets/images/home/facility/downtown_9.webp"),
         assetUrl("/assets/images/home/facility/downtown_1.webp"),
         assetUrl("/assets/images/home/facility/downtown_3.webp"),
         assetUrl("/assets/images/home/facility/downtown_2.webp"),
@@ -154,7 +154,7 @@ export const facilityLocations = [
         assetUrl("/assets/images/home/facility/downtown_8.webp"),
       ],
       mobile: [
-        "https://assets.evolvestrength.ca/assets/images/home/facility/downtown_9.webp.webp",
+        assetUrl("/assets/images/home/facility/downtown_9.webp"),
         assetUrl("/assets/images/home/facility/downtown_1Mob.webp"),
         assetUrl("/assets/images/home/facility/downtown_2Mob.webp"),
         assetUrl("/assets/images/home/facility/downtown_3Mob.webp"),
