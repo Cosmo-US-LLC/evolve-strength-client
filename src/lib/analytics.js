@@ -1,8 +1,7 @@
 // Thin wrapper around the GTM dataLayer. Self-initializes `window.dataLayer`
-// because the GTM snippet in index.html gates loading to production hosts
-// only (ALLOWED_HOSTS in index.html) and returns before setting up
-// `dataLayer` anywhere else - without this, pushEvent would throw on
-// localhost, Vercel previews, and staging.
+// because the GTM snippet in index.html only loads on hosts listed in
+// GTM_CONTAINERS and returns before setting up `dataLayer` anywhere else -
+// without this, pushEvent would throw on localhost and Vercel previews.
 export function pushEvent(name, params = {}) {
   try {
     if (typeof window === "undefined") return;
