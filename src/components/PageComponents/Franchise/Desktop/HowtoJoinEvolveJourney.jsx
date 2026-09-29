@@ -1,4 +1,5 @@
 import React from "react";
+import { assetUrl } from "@/lib/assetUrl";
 const steps = [
   {
     number: "01",
@@ -14,7 +15,7 @@ const steps = [
     description:
       "Our franchise development team will walk you through the model, answer questions, and help determine if Evolve is the right fit.",
     image:
-      "/assets/images/franchise/howtoJoinEvolveJourney/step-2.webp",
+      assetUrl("/assets/images/franchise/howtoJoinEvolveJourney/step-2.webp"),
   },
   {
     number: "03",
@@ -22,7 +23,7 @@ const steps = [
     description:
       "We'll review your target market, assess demographic data, and confirm territory availability.",
     image:
-      "/assets/images/franchise/howtoJoinEvolveJourney/step-3.webp",
+      assetUrl("/assets/images/franchise/howtoJoinEvolveJourney/step-3.webp"),
   },
   {
     number: "04",
@@ -30,7 +31,7 @@ const steps = [
     description:
       "You'll receive our Franchise Disclosure Document (FDD), outlining all the legal and financial details. We'll also connect you with existing franchisees.",
     image:
-      "/assets/images/franchise/howtoJoinEvolveJourney/step-4.webp",
+      assetUrl("/assets/images/franchise/howtoJoinEvolveJourney/step-4.webp"),
   },
   {
     number: "05",
@@ -38,7 +39,7 @@ const steps = [
     description:
       "Come see one of our flagship facilities, meet the leadership team, and get a feel for the operations and culture.",
     image:
-      "/assets/images/franchise/howtoJoinEvolveJourney/step-5.webp",
+      assetUrl("/assets/images/franchise/howtoJoinEvolveJourney/step-5.webp"),
   },
   {
     number: "06",
@@ -46,7 +47,7 @@ const steps = [
     description:
       "Once mutual alignment is confirmed and agreements are signed, you're officially part of the Evolve family.",
     image:
-      "/assets/images/franchise/howtoJoinEvolveJourney/step-6.webp",
+      assetUrl("/assets/images/franchise/howtoJoinEvolveJourney/step-6.webp"),
   },
 ];
 

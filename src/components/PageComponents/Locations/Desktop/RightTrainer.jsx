@@ -1,23 +1,24 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Link } from "react-router-dom";
 
 // Desktop images
-import fitness from "../../../../assets/images/PersonalTraning/PersonalGymExperience/fitness.webp";
-import wellness from "../../../../assets/images/PersonalTraning/PersonalGymExperience/bodyweight_training.webp";
-import atmosphere from "../../../../assets/images/PersonalTraning/PersonalGymExperience/cardio.webp";
-import turfWorkouts from "../../../../assets/images/PersonalTraning/PersonalGymExperience/turf_workouts.webp";
-import olympicLifting from "../../../../assets/images/PersonalTraning/PersonalGymExperience/olympic_lifting.webp";
-import yoga from "../../../../assets/images/PersonalTraning/PersonalGymExperience/yoga.webp";
+const fitness = assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/fitness.webp");
+const wellness = assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_training.webp");
+const atmosphere = assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/cardio.webp");
+const turfWorkouts = assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/turf_workouts.webp");
+const olympicLifting = assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/olympic_lifting.webp");
+const yoga = assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp");
 
 // Mobile images (currently using same images, replace with mobile-specific ones when available)
-import fitnessMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/fitnessMob.webp";
-import wellnessMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/bodyweight_trainingMob.webp";
-import atmosphereMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/cardioMob.webp";
-import turfWorkoutsMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/turf_workoutsMob.webp";
-import olympicLiftingMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/olympic_liftingMob.webp";
-import yogaMobile from "../../../../assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp";
+const fitnessMobile = assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/fitnessMob.webp");
+const wellnessMobile = assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_trainingMob.webp");
+const atmosphereMobile = assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/cardioMob.webp");
+const turfWorkoutsMobile = assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/turf_workoutsMob.webp");
+const olympicLiftingMobile = assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/olympic_liftingMob.webp");
+const yogaMobile = assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp");
 
 const gymCards = [
   {
@@ -30,9 +31,9 @@ const gymCards = [
     description: "",
     bgImage: {
       desktop:
-        "/assets/images/PersonalTraning/PersonalGymExperience/fitness.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/fitness.webp"),
       mobile:
-        "/assets/images/PersonalTraning/PersonalGymExperience/fitnessMob.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/fitnessMob.webp"),
     },
   },
   {
@@ -41,9 +42,9 @@ const gymCards = [
     description: "",
     bgImage: {
       desktop:
-        "/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_training.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_training.webp"),
       mobile:
-        "/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_trainingMob.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/bodyweight_trainingMob.webp"),
     },
   },
   {
@@ -56,9 +57,9 @@ const gymCards = [
     description: "",
     bgImage: {
       desktop:
-        "/assets/images/PersonalTraning/PersonalGymExperience/cardio.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/cardio.webp"),
       mobile:
-        "/assets/images/PersonalTraning/PersonalGymExperience/cardioMob.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/cardioMob.webp"),
     },
   },
   {
@@ -71,9 +72,9 @@ const gymCards = [
     description: "",
     bgImage: {
       desktop:
-        "/assets/images/PersonalTraning/PersonalGymExperience/turf_workouts.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/turf_workouts.webp"),
       mobile:
-        "/assets/images/PersonalTraning/PersonalGymExperience/turf_workoutsMob.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/turf_workoutsMob.webp"),
     },
   },
   {
@@ -86,9 +87,9 @@ const gymCards = [
     description: "",
     bgImage: {
       desktop:
-        "/assets/images/PersonalTraning/PersonalGymExperience/olympic_lifting.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/olympic_lifting.webp"),
       mobile:
-        "/assets/images/PersonalTraning/PersonalGymExperience/olympic_liftingMob.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/olympic_liftingMob.webp"),
     },
   },
   {
@@ -97,9 +98,9 @@ const gymCards = [
     description: "",
     bgImage: {
       desktop:
-        "/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp"),
       mobile:
-        "/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp",
+        assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp"),
     },
   },
 ];

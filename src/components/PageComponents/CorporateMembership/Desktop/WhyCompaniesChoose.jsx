@@ -5,6 +5,7 @@ import { ReactComponent as TopTierIcon } from "@/assets/images/corporateMembersh
 import { ReactComponent as WellnessSupportIcon } from "@/assets/images/corporateMembership/whyChoose/WellnessSupport.svg";
 import { ReactComponent as BetterOutcomesIcon } from "@/assets/images/corporateMembership/whyChoose/BetterOutcomes.svg";
 import { Link } from "react-router-dom";
+import { assetUrl } from "@/lib/assetUrl";
 
 const gymCards = [
   {
@@ -13,7 +14,7 @@ const gymCards = [
     description:
       "Employees can train, recover, and get healthcare support without leaving the facility. No need to travel between appointments.",
     bgImage:
-      "/assets/images/corporateMembership/whyChoose/everyThinkOnePlace.webp",
+      assetUrl("/assets/images/corporateMembership/whyChoose/everyThinkOnePlace.webp"),
     icon: OnePlaceIcon,
   },
   {
@@ -22,7 +23,7 @@ const gymCards = [
     description:
       "Each location offers physiotherapy, massage, chiropractic, acupuncture, and more. Plus steam rooms, saunas and showers.",
     bgImage:
-      "/assets/images/corporateMembership/whyChoose/gym_equipment.webp",
+      assetUrl("/assets/images/corporateMembership/whyChoose/gym_equipment.webp"),
     icon: TopTierIcon,
   },
   {
@@ -31,7 +32,7 @@ const gymCards = [
     description:
       "Our spaces feature Precor, Rogue, Eleiko, and Atlantis gear. That includes strength platforms, cardio machines, and turf zones.",
     bgImage:
-      "/assets/images/corporateMembership/whyChoose/wellness_support.webp",
+      assetUrl("/assets/images/corporateMembership/whyChoose/wellness_support.webp"),
     icon: WellnessSupportIcon,
   },
   {
@@ -40,7 +41,7 @@ const gymCards = [
     description:
       "When employees use their benefits, they feel better, get injured less, and take fewer sick days. That improves productivity and morale.",
     bgImage:
-      "/assets/images/corporateMembership/whyChoose/better_outcomes.webp",
+      assetUrl("/assets/images/corporateMembership/whyChoose/better_outcomes.webp"),
     icon: BetterOutcomesIcon,
   },
 ];

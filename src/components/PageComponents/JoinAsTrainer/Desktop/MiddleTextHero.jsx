@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Volume2, VolumeOff } from "lucide-react";
+import { assetUrl } from "@/lib/assetUrl";
 
 const MiddleTextHero = ({ title }) => {
   const videoRefDesktop = useRef(null);
@@ -56,7 +57,7 @@ const MiddleTextHero = ({ title }) => {
       <div
         className="relative overflow-hidden w-full h-[70vh] md:h-[100vh] "
         // style={{
-        //   backgroundImage: `url("/media/1762435890643-9a2fb639-e969-433c-afcc-8d225c2905bf.webp")`,
+        //   backgroundImage: `url(assetUrl("/media/1762435890643-9a2fb639-e969-433c-afcc-8d225c2905bf.webp"))`,
         // }}
       >
         {isDesktop && (
@@ -68,7 +69,7 @@ const MiddleTextHero = ({ title }) => {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="/assets/videos/jat-desk.mp4" type="video/mp4" />
+            <source src={assetUrl("/assets/videos/jat-desk.mp4")} type="video/mp4" />
           </video>
         )}
         {!isDesktop && (
@@ -80,7 +81,7 @@ const MiddleTextHero = ({ title }) => {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="/assets/videos/jat-mob.mp4" type="video/mp4" />
+            <source src={assetUrl("/assets/videos/jat-mob.mp4")} type="video/mp4" />
           </video>
         )}
 

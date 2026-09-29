@@ -1,4 +1,5 @@
 import React from "react";
+import { assetUrl } from "@/lib/assetUrl";
 
 function ParkRoyalHero() {
   const scrollToWaitlist = () => {
@@ -18,7 +19,7 @@ function ParkRoyalHero() {
           style={{ objectFit: "cover", objectPosition: "bottom" }}
         >
           <source
-            src="/assets/videos/waitlist_florida_video.webm"
+            src={assetUrl("/assets/videos/waitlist_florida_video.webm")}
             type="video/webm"
           />
           Your browser does not support the video tag.

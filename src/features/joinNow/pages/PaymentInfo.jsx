@@ -35,9 +35,14 @@ const formSchema = z.object({
   cardNumber: z.string().min(1, "Card number is required"),
   cvc: z.string().min(1, "CVV is required"),
   expiry: z.string().min(1, "Expiration date is required"),
-  cfTurnstileResponse: z
-    .string()
-    .min(1, "Please complete the security check"),
+  // import.meta.env.DEV is statically false in production builds, so this
+  // relaxation (Turnstile can't render on localhost) never ships to prod —
+  // it only exists to let the join flow be exercised locally for testing
+  // things like rate limiting, which the backend checks before Turnstile
+  // verification anyway.
+  cfTurnstileResponse: import.meta.env.DEV
+    ? z.string().optional().default("")
+    : z.string().min(1, "Please complete the security check"),
   termsAccepted: z.boolean().refine((val) => val, {
     message: "You must accept the terms",
   }),
@@ -178,15 +183,6 @@ const getStoredBoolean = (key) => localStorage.getItem(key) === "true";
 const getStoredCooldownUntil = () => {
   const value = localStorage.getItem(COOLDOWN_UNTIL_KEY);
   return value ? Number(value) : null;
-};
-
-const formatDuration = (seconds) => {
-  if (seconds <= 60) {
-    return `${seconds} second${seconds === 1 ? "" : "s"}`;
-  }
-
-  const minutes = Math.ceil(seconds / 60);
-  return `${minutes} minute${minutes === 1 ? "" : "s"}`;
 };
 
 const PaymentInfo = () => {
@@ -558,11 +554,6 @@ const PaymentInfo = () => {
       return;
     }
     if (cooldownSecondsLeft > 0) {
-      setApiError(
-        `Please wait ${formatDuration(
-          cooldownSecondsLeft
-        )} before trying again.`
-      );
       return;
     }
     if (!turnstileSiteKey) {
@@ -896,20 +887,12 @@ const PaymentInfo = () => {
                       </FormItem>
                     )}
                   />
-                  {(isBlocked || cooldownSecondsLeft > 0) && (
+                  {isBlocked && (
                     <div className="rounded-[5px] border border-[#D4D4D4] bg-[#F8F8F8] p-4 text-sm text-[#393939]">
-                      {isBlocked && (
-                        <p className="text-red-500">
-                          Payment submissions are blocked for this device or
-                          network.
-                        </p>
-                      )}
-                      {!isBlocked && cooldownSecondsLeft > 0 && (
-                        <p className="text-red-500">
-                          Please wait {formatDuration(cooldownSecondsLeft)}{" "}
-                          before trying again.
-                        </p>
-                      )}
+                      <p className="text-red-500">
+                        Payment submissions are blocked for this device or
+                        network.
+                      </p>
                     </div>
                   )}
                   {/* <div className="grid grid-cols-2 gap-4 items-center mt-5 lg:mt-50"> */}

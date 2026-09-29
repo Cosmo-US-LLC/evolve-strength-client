@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
@@ -17,48 +18,48 @@ import card_icon11 from "@/assets/images/gym/World-Class/world_card_icons (10).s
 import card_icon12 from "../../../../assets/images/gym/World-Class/standing_abductor1.svg";
 import card_icon13 from "@/assets/images/gym/World-Class/seal_row_bench.svg";
 
-import img_1 from "../../../../assets/images/gym/World-Class/img_1.webp";
-import img_2 from "../../../../assets/images/gym/World-Class/img_2.webp";
-import img_3 from "../../../../assets/images/gym/World-Class/img_3.webp";
-import img_4 from "../../../../assets/images/gym/World-Class/img_4.webp";
-import img_5 from "../../../../assets/images/gym/World-Class/img_5.webp";
-import img_6 from "../../../../assets/images/gym/World-Class/img_6.webp";
-import img_7 from "../../../../assets/images/gym/World-Class/img_7.webp";
-import img_8 from "../../../../assets/images/gym/World-Class/img_8.webp";
-import img_9 from "../../../../assets/images/gym/World-Class/img_9.webp";
-import img_10 from "../../../../assets/images/gym/World-Class/img_10.webp";
-import img_11 from "../../../../assets/images/gym/World-Class//airbike.webp";
-import img_12 from "../../../../assets/images/gym/World-Class/img_12.webp";
-import img_13 from "../../../../assets/images/gym/World-Class/img_13.webp";
+const img_1 = assetUrl("/assets/images/gym/World-Class/img_1.webp");
+const img_2 = assetUrl("/assets/images/gym/World-Class/img_2.webp");
+const img_3 = assetUrl("/assets/images/gym/World-Class/img_3.webp");
+const img_4 = assetUrl("/assets/images/gym/World-Class/img_4.webp");
+const img_5 = assetUrl("/assets/images/gym/World-Class/img_5.webp");
+const img_6 = assetUrl("/assets/images/gym/World-Class/img_6.webp");
+const img_7 = assetUrl("/assets/images/gym/World-Class/img_7.webp");
+const img_8 = assetUrl("/assets/images/gym/World-Class/img_8.webp");
+const img_9 = assetUrl("/assets/images/gym/World-Class/img_9.webp");
+const img_10 = assetUrl("/assets/images/gym/World-Class/img_10.webp");
+const img_11 = assetUrl("/assets/images/gym/World-Class/airbike.webp");
+const img_12 = assetUrl("/assets/images/gym/World-Class/img_12.webp");
+const img_13 = assetUrl("/assets/images/gym/World-Class/img_13.webp");
 
-import airbike from "../../../../assets/images/gym/World-Class/airbike.webp";
-import olympic_plates from "../../../../assets/images/gym/World-Class/olympic_plates.webp";
+const airbike = assetUrl("/assets/images/gym/World-Class/airbike.webp");
+const olympic_plates = assetUrl("/assets/images/gym/World-Class/olympic_plates.webp");
 
 // Equipment cards data - images from Figma
 const equipmentCards = [
   {
-    image: "/media/1763475792736-71352cf3-5d99-4274-b56d-0fb7df4b52df.png",
+    image: assetUrl("/media/1763475792736-71352cf3-5d99-4274-b56d-0fb7df4b52df.png"),
     label: "Powerlifting Barbells",
     mob_label: "Powerlifting Barbells",
     icon: card_icon1,
     mobimg: img_1,
   },
   {
-    image: "/media/1763475686412-1dd5f72b-5055-40f1-9372-1e7682aae443.png",
+    image: assetUrl("/media/1763475686412-1dd5f72b-5055-40f1-9372-1e7682aae443.png"),
     label: "Precor FTS Glide",
     mob_label: "Precor FTS Glide",
     icon: card_icon2,
     mobimg: img_7,
   },
   {
-    image: "/media/1763475746742-8ad065dd-6d3e-4cb4-82dc-279394f9445c.png",
+    image: assetUrl("/media/1763475746742-8ad065dd-6d3e-4cb4-82dc-279394f9445c.png"),
     label: "Medicine Ball Rack",
     mob_label: "Medicine Ball Rack",
     icon: card_icon3,
     mobimg: img_2,
   },
   {
-    image: "/media/1763475810851-b8bd92fb-73f1-48fa-9d47-119b7ad3f1ce.png",
+    image: assetUrl("/media/1763475810851-b8bd92fb-73f1-48fa-9d47-119b7ad3f1ce.png"),
     label: "Turf",
     mob_label: "Turf",
     icon: card_icon4,
@@ -72,35 +73,35 @@ const equipmentCards = [
     mobimg: img_3,
   },
   {
-    image: "/media/1763475667086-14bfcfdd-3100-40f6-ba00-ceb58e2c359e.png",
+    image: assetUrl("/media/1763475667086-14bfcfdd-3100-40f6-ba00-ceb58e2c359e.png"),
     label: "half rack",
     mob_label: "half rack",
     icon: card_icon6,
     mobimg: img_8,
   },
   {
-    image: "/media/1763475652507-cf0d78dd-b8c5-419d-8efc-589bebbcb59a.png",
+    image: assetUrl("/media/1763475652507-cf0d78dd-b8c5-419d-8efc-589bebbcb59a.png"),
     label: "SkiErgs & RowErgs",
     icon: card_icon7,
-    mobimg: "/media/1763475652507-cf0d78dd-b8c5-419d-8efc-589bebbcb59a.png",
+    mobimg: assetUrl("/media/1763475652507-cf0d78dd-b8c5-419d-8efc-589bebbcb59a.png"),
     mob_label: "SkiErgs & RowErgs",
   },
   {
-    image: "/media/1763475766737-a58111e6-5b2c-4117-be28-045503ce8df0.png",
+    image: assetUrl("/media/1763475766737-a58111e6-5b2c-4117-be28-045503ce8df0.png"),
     label: "Excite Synchro",
     mob_label: "Excite Synchro",
     icon: card_icon8,
     mobimg: img_4,
   },
   {
-    image: "/media/1763475635232-bf01088e-4f25-4d44-bae1-78070793cf60.png",
+    image: assetUrl("/media/1763475635232-bf01088e-4f25-4d44-bae1-78070793cf60.png"),
     label: "Incline Chest Press",
     mob_label: "Incline Chest Press",
     icon: card_icon9,
     mobimg: img_12,
   },
   {
-    image: "/media/1763475713646-1c3c1dba-5130-49b1-89a1-6f8c8ebe4337.png",
+    image: assetUrl("/media/1763475713646-1c3c1dba-5130-49b1-89a1-6f8c8ebe4337.png"),
     label: "Treadmill",
     mob_label: "Treadmill",
     icon: card_icon10,
@@ -114,14 +115,14 @@ const equipmentCards = [
     mobimg: img_9,
   },
   {
-    image: "/media/1763475700749-6b8a4803-155a-474a-995a-8daff781769a.png",
+    image: assetUrl("/media/1763475700749-6b8a4803-155a-474a-995a-8daff781769a.png"),
     label: "standing abductor",
     icon: card_icon12,
     mobimg: img_6,
     mob_label: "standing abductor",
   },
   {
-    image: "/media/1763475595156-4b97875e-7188-461f-a76b-d74d6d49ff7d.png",
+    image: assetUrl("/media/1763475595156-4b97875e-7188-461f-a76b-d74d6d49ff7d.png"),
     label: "seal row bench",
     icon: card_icon13,
     mobimg: img_13,

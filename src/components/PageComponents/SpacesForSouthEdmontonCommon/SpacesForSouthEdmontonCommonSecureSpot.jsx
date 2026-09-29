@@ -1,4 +1,5 @@
 import React from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import { Link } from "react-router-dom";
 import Autoplay from "embla-carousel-autoplay";
 import {
@@ -6,10 +7,10 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import spotCard1 from "../../../assets/images/SpacesCommon/spot_card_1.webp";
-import spotCard2 from "../../../assets/images/SpacesCommon/spot_card_2.webp";
-import spotCard3 from "../../../assets/images/SpacesCommon/spot_card_3.webp";
-import spotCard4 from "../../../assets/images/SpacesCommon/spot_card_4.webp";
+const spotCard1 = assetUrl("/assets/images/SpacesCommon/spot_card_1.webp");
+const spotCard2 = assetUrl("/assets/images/SpacesCommon/spot_card_2.webp");
+const spotCard3 = assetUrl("/assets/images/SpacesCommon/spot_card_3.webp");
+const spotCard4 = assetUrl("/assets/images/SpacesCommon/spot_card_4.webp");
 
 const GALLERY_IMAGES = [
   {

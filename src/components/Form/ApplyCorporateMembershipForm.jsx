@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import locationImg from "../../assets/images/form/spaces-form.webp";
+import { assetUrl } from "@/lib/assetUrl";
+const locationImg = assetUrl("/assets/images/form/spaces-form.webp");
 import { ArrowLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import SuccessFullScreen from "../ui/SuccessFullScreen"; // added

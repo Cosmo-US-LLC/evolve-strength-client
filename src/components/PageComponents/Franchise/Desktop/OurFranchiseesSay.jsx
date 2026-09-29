@@ -1,9 +1,10 @@
 import React, { useCallback } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import LeftArrowIcon from "@/assets/images/JoinAsTrainer/WhatTrainersAre/left-arrow.svg";
 import RightArrowIcon from "@/assets/images/JoinAsTrainer/WhatTrainersAre/right-arrow.svg";
-import Client from "@/assets/images/JoinAsTrainer/WhatTrainersAre/client.webp";
+const Client = assetUrl("/assets/images/JoinAsTrainer/WhatTrainersAre/client.webp");
 
 function OurFranchiseesSay() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [

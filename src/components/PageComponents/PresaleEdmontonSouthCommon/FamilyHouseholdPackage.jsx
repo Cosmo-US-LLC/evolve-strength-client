@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { assetUrl } from "@/lib/assetUrl";
 
 const packageFeatures = ["2 to 5 People", "One Deposit", "Everyone Saves"];
 
@@ -9,7 +10,7 @@ function FamilyHouseholdPackage() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/assets/images/presaleCommonSouth/familyPackageImage.webp"
+          src={assetUrl("/assets/images/presaleCommonSouth/familyPackageImage.webp")}
           alt="Evolve Strength gym interior"
           className="w-full h-full object-cover"
         />

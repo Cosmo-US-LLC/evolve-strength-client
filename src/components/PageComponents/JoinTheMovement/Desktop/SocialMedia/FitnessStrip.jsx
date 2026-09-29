@@ -1,4 +1,5 @@
 import React from 'react'
+import { assetUrl } from "@/lib/assetUrl";
 
 
 function FitnessStrip() {
@@ -8,7 +9,7 @@ function FitnessStrip() {
       <div className="w-7 h-7 rounded-full bg-[#4AB04A] flex items-center justify-center">
         
         <div className=""></div>
-        <img src="/assets/images/JoinTheMovement/SocialMedia/fitnessstrip/Fitness_Logo.svg" alt="Fitness Logo" className='w-4 h-4' />
+        <img src={assetUrl("/assets/images/JoinTheMovement/SocialMedia/fitnessstrip/Fitness_Logo.svg")} alt="Fitness Logo" className='w-4 h-4' />
       </div>
 
       <span className="text-[#4AB04A] font-medium text-sm">#fitness</span>

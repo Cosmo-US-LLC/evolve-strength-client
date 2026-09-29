@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import { Link } from "react-router-dom";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import icon1 from "@/assets/images/PresaleParkRoyal/disclaimer_icon_lock.png";
-import icon2 from "@/assets/images/PresaleParkRoyal/disclaimer_icon_no_maintenance.png";
-import icon3 from "@/assets/images/PresaleParkRoyal/disclaimer_icon_no_initiation.png";
-import icon4 from "@/assets/images/PresaleParkRoyal/disclaimer_icon_no_payment.png";
-import icon5 from "@/assets/images/PresaleParkRoyal/disclaimer_icon_access.png";
-import pricingCardImage from "@/assets/images/PresaleParkRoyal/pricing_card.jpg";
+const icon1 = assetUrl("/assets/images/PresaleParkRoyal/disclaimer_icon_lock.webp");
+const icon2 = assetUrl("/assets/images/PresaleParkRoyal/disclaimer_icon_no_maintenance.webp");
+const icon3 = assetUrl("/assets/images/PresaleParkRoyal/disclaimer_icon_no_initiation.webp");
+const icon4 = assetUrl("/assets/images/PresaleParkRoyal/disclaimer_icon_no_payment.webp");
+const icon5 = assetUrl("/assets/images/PresaleParkRoyal/disclaimer_icon_access.webp");
+const pricingCardImage = assetUrl("/assets/images/PresaleParkRoyal/pricing_card.webp");
 
 const LOCK_ICON = (
   <svg

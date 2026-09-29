@@ -5,6 +5,7 @@ import FormsHeader from "../ui/FormsHeader";
 import SuccessFullScreen from "../ui/SuccessFullScreen";
 import { ArrowLeft } from "lucide-react";
 import { pushEvent } from "@/lib/analytics";
+import { assetUrl } from "@/lib/assetUrl";
 
 const initialState = {
   firstName: "",
@@ -280,7 +281,7 @@ export default function WellnessInquiryForm() {
         <div className="w-full max-w-[40%] flex-shrink-0 flex flex-col max-md:hidden">
           <div className="rounded-[8px] max-w-[500px] overflow-hidden bg-white relative">
             <img
-              src="/assets/images/wellness/YogaAndRecoveryRoom/wellness_form.webp"
+              src={assetUrl("/assets/images/wellness/YogaAndRecoveryRoom/wellness_form.webp")}
               alt="Wellness Therapy Session"
               className="object-cover w-full h-[710px]"
             />

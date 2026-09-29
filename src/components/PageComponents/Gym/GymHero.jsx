@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { pushEvent } from "@/lib/analytics";
+import { assetUrl } from "@/lib/assetUrl";
 
 function GymHero() {
   return (
@@ -16,7 +17,7 @@ function GymHero() {
         style={{ objectFit: "cover", objectPosition: "bottom" }}
       >
         <source
-          src="/assets/videos/ExplorePages.webm"
+          src={assetUrl("/assets/videos/ExplorePages.webm")}
           type="video/webm"
         />
         Your browser does not support the video tag.

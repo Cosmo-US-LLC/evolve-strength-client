@@ -1,68 +1,69 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { assetUrl } from "@/lib/assetUrl";
 
 const LOCATION_BACKGROUNDS = {
   "calgary-seton": {
     desktop:
-      "/assets/images/Locations/join-evolve/join_evolve_seten.webp",
+      assetUrl("/assets/images/Locations/join-evolve/join_evolve_seten.webp"),
     mobile:
-      "/assets/images/Locations/join-evolve/join_evolve_seten_mob.webp",
+      assetUrl("/assets/images/Locations/join-evolve/join_evolve_seten_mob.webp"),
     locationName: "Calgary Seton",
     tourUrl: "/book-a-tour/?location=40097",
   },
   "calgary-royal-oak": {
     desktop:
-      "/assets/images/Locations/join-evolve/join_evolve_royal-oak.webp",
+      assetUrl("/assets/images/Locations/join-evolve/join_evolve_royal-oak.webp"),
     mobile:
-      "/assets/images/Locations/join-evolve/join_evolve_royal_oak_mob.webp",
+      assetUrl("/assets/images/Locations/join-evolve/join_evolve_royal_oak_mob.webp"),
     locationName: "Calgary Royal Oak",
     tourUrl: "/book-a-tour/?location=40142",
   },
   "calgary-sunridge": {
     desktop:
-      "/assets/images/Locations/join-evolve/sunridge.webp",
+      assetUrl("/assets/images/Locations/join-evolve/sunridge.webp"),
     mobile:
-      "/assets/images/Locations/join-evolve/sunridgeMob.webp",
+      assetUrl("/assets/images/Locations/join-evolve/sunridgeMob.webp"),
     locationName: "Calgary Sunridge",
     tourUrl: "/book-a-tour/?location=06973",
   },
   "edmonton-south": {
     desktop:
-      "/assets/images/Locations/join-evolve/south.webp",
+      assetUrl("/assets/images/Locations/join-evolve/south.webp"),
     mobile:
-      "/assets/images/Locations/join-evolve/southMob.webp",
+      assetUrl("/assets/images/Locations/join-evolve/southMob.webp"),
     locationName: "Edmonton South",
     tourUrl: "/book-a-tour/?location=06962",
   },
   "edmonton-north": {
     desktop:
-      "/assets/images/Locations/join-evolve/north.webp",
+      assetUrl("/assets/images/Locations/join-evolve/north.webp"),
     mobile:
-      "/assets/images/Locations/join-evolve/northMob.webp",
+      assetUrl("/assets/images/Locations/join-evolve/northMob.webp"),
     locationName: "Edmonton North",
     tourUrl: "/book-a-tour/?location=06964",
   },
   "edmonton-downtown": {
     desktop:
-      "/assets/images/Locations/join-evolve/join_evolve_downtown.webp",
+      assetUrl("/assets/images/Locations/join-evolve/join_evolve_downtown.webp"),
     mobile:
-      "/assets/images/Locations/join-evolve/join_evolve_downtown_mob.webp",
+      assetUrl("/assets/images/Locations/join-evolve/join_evolve_downtown_mob.webp"),
     locationName: "Edmonton Downtown",
     tourUrl: "/book-a-tour/?location=06967",
   },
   "burnaby-brentwood": {
     desktop:
-      "/assets/images/Locations/join-evolve/join_evolve_brentwood.webp",
+      assetUrl("/assets/images/Locations/join-evolve/join_evolve_brentwood.webp"),
     mobile:
-      "/assets/images/Locations/join-evolve/join_evolve_brentwood_mob.webp",
+      assetUrl("/assets/images/Locations/join-evolve/join_evolve_brentwood_mob.webp"),
     locationName: "Burnaby Brentwood",
     tourUrl: "/book-a-tour/?location=40248",
   },
   "vancouver-post": {
     desktop:
-      "/assets/images/Locations/join-evolve/join_evolve_post.webp",
+      assetUrl("/assets/images/Locations/join-evolve/join_evolve_post.webp"),
     mobile:
-      "/assets/images/Locations/join-evolve/join_evolve_post_mob.webp",
+      assetUrl("/assets/images/Locations/join-evolve/join_evolve_post_mob.webp"),
     locationName: "Vancouver The Post",
     tourUrl: "/book-a-tour/?location=40327",
   },

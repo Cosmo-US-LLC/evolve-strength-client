@@ -4,6 +4,7 @@ import {
   LOCATIONS_DATA,
   FACILITY_TIMINGS,
 } from "@/constants/locations_data/LocationsData";
+import { assetUrl } from "@/lib/assetUrl";
 
 function SetonLocation() {
   const currentPath = window.location.pathname;
@@ -129,7 +130,7 @@ function SetonLocation() {
         >
           FACILITY TIMINGS
           <img
-            src="/assets/images/Locations/Seton/icon.svg"
+            src={assetUrl("/assets/images/Locations/Seton/icon.svg")}
             alt=""
             className={`transition-transform duration-300 ${
               isTimingsExpanded ? "rotate-180" : ""

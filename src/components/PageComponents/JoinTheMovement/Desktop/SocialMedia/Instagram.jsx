@@ -1,4 +1,5 @@
 import React from "react";
+import { assetUrl } from "@/lib/assetUrl";
 
 
 const Instagram = () => {
@@ -12,7 +13,7 @@ return (
 
       <div className=" rounded-full">
         <img
-          src="/assets/images/JoinTheMovement/SocialMedia/instagram/insta_logo.svg"
+          src={assetUrl("/assets/images/JoinTheMovement/SocialMedia/instagram/insta_logo.svg")}
           alt="Instagram Logo"
         />
       </div>
@@ -21,7 +22,7 @@ return (
     {/* Runner emoji and Reach Number */}
     <div className="md:mt-3 mt-1 flex items-center justify-between">
       <img
-        src="/assets/images/JoinTheMovement/SocialMedia/instagram/Jogging_emoji.svg"
+        src={assetUrl("/assets/images/JoinTheMovement/SocialMedia/instagram/Jogging_emoji.svg")}
         alt="Jogging SVG"
         className="w-12 h-12 md:w-auto md:h-auto"
       />

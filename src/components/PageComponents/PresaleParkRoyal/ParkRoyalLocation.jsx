@@ -1,6 +1,7 @@
 import React from "react";
-import locationBgImageDesktop from "@/assets/images/PresaleParkRoyal/location_bg.jpg";
-import locationBgImageMobile from "@/assets/images/PresaleParkRoyal/location_bg_mobile.jpg";
+import { assetUrl } from "@/lib/assetUrl";
+const locationBgImageDesktop = assetUrl("/assets/images/PresaleParkRoyal/location_bg.webp");
+const locationBgImageMobile = assetUrl("/assets/images/PresaleParkRoyal/location_bg_mobile.webp");
 
 function ParkRoyalLocation() {
   return (

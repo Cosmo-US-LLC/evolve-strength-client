@@ -26,14 +26,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 const TURNSTILE_SCRIPT_ID = "cf-turnstile-script";
 const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
 
-const formatDuration = (seconds) => {
-  if (seconds <= 60) {
-    return `${seconds} second${seconds === 1 ? "" : "s"}`;
-  }
-  const minutes = Math.ceil(seconds / 60);
-  return `${minutes} minute${minutes === 1 ? "" : "s"}`;
-};
-
 // Zod Schema
 const formSchema = z.object({
   // Required fields; react-payment-inputs meta handles detailed validation
@@ -343,7 +335,6 @@ function PaymentInformation({
       cvv: values.cvv,
       cfTurnstileResponse: values.cfTurnstileResponse,
       cardType: meta.cardType?.type || "",
-      skipIpCheck: true,
     });
 
     if (onSubmitPayment) {
@@ -353,7 +344,6 @@ function PaymentInformation({
         cvv: values.cvv,
         cfTurnstileResponse: values.cfTurnstileResponse,
         cardType: meta.cardType?.type || "",
-        skipIpCheck: true,
       });
       if (success) {
         onNext();
@@ -691,24 +681,7 @@ function PaymentInformation({
                     "Payment submissions are blocked for this device or network."}
                 </p>
               )}
-              {!isBlocked && cooldownSecondsLeft > 0 && (
-                <>
-                  {/* The actual reason the backend gave, shown alongside
-                      the countdown rather than replaced by it - otherwise
-                      the visitor sees "please wait" with no explanation
-                      for why. */}
-                  {submitError && (
-                    <p className="text-[12px] md:text-[13px] text-red-600">
-                      {submitError}
-                    </p>
-                  )}
-                  <p className="text-[12px] md:text-[13px] text-red-600">
-                    Please wait {formatDuration(cooldownSecondsLeft)} before
-                    trying again.
-                  </p>
-                </>
-              )}
-              {!isBlocked && cooldownSecondsLeft === 0 && submitError && (
+              {!isBlocked && submitError && (
                 <p className="text-[12px] md:text-[13px] text-red-600">
                   {submitError}
                 </p>

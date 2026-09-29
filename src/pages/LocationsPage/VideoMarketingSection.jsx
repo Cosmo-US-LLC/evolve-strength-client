@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Volume2, VolumeOff } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import { assetUrl } from "@/lib/assetUrl";
 
 function VideoMarketingSection() {
   const { pathname } = useLocation();
@@ -17,7 +18,7 @@ function VideoMarketingSection() {
     <section className="relative w-full min-h-[88svh] h-[88svh] overflow-hidden bg-black">
       <video
         className="absolute inset-0 h-full w-full min-h-full min-w-full object-cover"
-        src="/videos/vancouver_post_video_with_music.webm"
+        src={assetUrl("/assets/videos/vancouver_post_video_with_music.webm")}
         autoPlay
         muted={isMuted}
         loop

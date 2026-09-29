@@ -2,6 +2,7 @@ import React from "react";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
 import { pushEvent } from "@/lib/analytics";
+import { assetUrl } from "@/lib/assetUrl";
 
 function MoreWayToRecover() {
   return (
@@ -63,7 +64,7 @@ function MoreWayToRecover() {
           preload="metadata"
           className="absolute inset-0 h-full w-full object-cover object-center"
         >
-          <source src="/assets/videos/evolve_loop.webm" type="video/webm" />
+          <source src={assetUrl("/assets/videos/evolve_loop.webm")} type="video/webm" />
         </video>
       </div>
     </section>

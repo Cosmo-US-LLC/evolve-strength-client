@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import locationImg from "../../assets/images/form/future-form.webp";
+import { assetUrl } from "@/lib/assetUrl";
+const locationImg = assetUrl("/assets/images/form/future-form.webp");
 import arrowUp from "../../assets/images/form/arrow-down (2).svg";
 import arrowDown from "../../assets/images/form/arrow-down (1).svg";
 import { Link } from "react-router-dom";

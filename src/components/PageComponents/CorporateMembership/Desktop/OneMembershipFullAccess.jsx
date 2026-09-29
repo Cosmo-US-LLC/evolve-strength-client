@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 
 const gymCards = [
   {
@@ -13,9 +14,9 @@ const gymCards = [
     ),
     description: "",
     bgImage:
-      "/assets/images/corporateMembership/OneMembershipFullAccess/slide6.webp",
+      assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/slide6.webp"),
     bgImageMobile:
-      "/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide6.webp",
+      assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide6.webp"),
   },
   {
     count: "",
@@ -26,9 +27,9 @@ const gymCards = [
     ),
     description: "",
     bgImage:
-      "/assets/images/corporateMembership/OneMembershipFullAccess/slide7.webp",
+      assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/slide7.webp"),
     bgImageMobile:
-      "/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide7.webp",
+      assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide7.webp"),
   },
   {
     count: "",
@@ -39,9 +40,9 @@ const gymCards = [
     ),
     description: "",
     bgImage:
-      "/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp",
+      assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp"),
     bgImageMobile:
-      "/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide8.webp",
+      assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide8.webp"),
   },
   {
     count: "",
@@ -52,9 +53,9 @@ const gymCards = [
     ),
     description: "",
     bgImage:
-      "/assets/images/corporateMembership/OneMembershipFullAccess/slide9.webp",
+      assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/slide9.webp"),
     bgImageMobile:
-      "/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide9.webp",
+      assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide9.webp"),
   },
   {
     count: "",
@@ -65,9 +66,9 @@ const gymCards = [
     ),
     description: "",
     bgImage:
-      "/assets/images/corporateMembership/OneMembershipFullAccess/slide10.webp",
+      assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/slide10.webp"),
     bgImageMobile:
-      "/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide10.webp",
+      assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide10.webp"),
   },
 ];
 

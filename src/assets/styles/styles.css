@@ -1,5 +1,5 @@
 .heroSection {
-  background-image: url("/assets/images/home/hero/evolve-hero.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/home/hero/evolve-hero.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -7,7 +7,7 @@
 }
 
 .someThinkNewBg {
-  background-image: url("/assets/images/home/someThinkNew/common_new_branch_desktop.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/home/someThinkNew/common_new_branch_desktop.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -16,7 +16,7 @@
 }
 
 .edmontonSouthCommon {
-  background-image: url("/assets/images/home/someThinkNew/common_new_branch_desktop.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/home/someThinkNew/common_new_branch_desktop.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -56,7 +56,7 @@
 }
 
 .personalTrainingHeroSection {
-  background-image: url("/assets/images/PersonalTraning/hero/evolve-personal-traning-hero.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/PersonalTraning/hero/evolve-personal-traning-hero.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -72,7 +72,7 @@
 }
 
 .personalTrainingFreeAssessment {
-  background-image: url("/assets/images/PersonalTraning/FreeAssessment/FreeAssessment.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/PersonalTraning/FreeAssessment/FreeAssessment.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -82,7 +82,7 @@
 
 /* wellness transition start */
 .wellnessHeroSection {
-  background-image: url("/assets/images/wellness/wellnessHero/wellnessHero.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/wellness/wellnessHero/wellnessHero.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -110,7 +110,7 @@
 }
 
 .YogaAndRecoveryRoomBG {
-  background-image: url("/assets/images/wellness/YogaAndRecoveryRoom/YogaAndRecoveryRoomBG.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/wellness/YogaAndRecoveryRoom/YogaAndRecoveryRoomBG.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -119,7 +119,7 @@
 }
 
 .SteamAndSaunaRoomBG {
-  background-image: url("/assets/images/wellness/SteamAndSaunaRoom/SteamAndSaunaRoomBG.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/wellness/SteamAndSaunaRoom/SteamAndSaunaRoomBG.webp");
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -128,7 +128,7 @@
 }
 
 .WellnessPricingRoomBG {
-  background-image: url("/assets/images/wellness/WellnessPricingRoom/WellnessPricingRoom.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/wellness/WellnessPricingRoom/WellnessPricingRoom.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -137,7 +137,7 @@
 }
 
 .gymHero {
-  background-image: url("/assets/images/gym/gym-hero-bg.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/gym/gym-hero-bg.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -154,7 +154,7 @@
   /* min-height: 900px; */
 }
 .timeToEvolve {
-  background-image: url("/assets/images/gym/time-to-evolve.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/gym/time-to-evolve.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -163,7 +163,7 @@
 }
 
 .grassIsIndeed {
-  background-image: url("/media/1763537295185-036db5c1-3bc0-4859-ace4-8ad0f62fd8ce.webp");
+  background-image: url("https://assets.evolvestrength.ca/media/1763537295185-036db5c1-3bc0-4859-ace4-8ad0f62fd8ce.webp");
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -174,7 +174,7 @@
 
 /* MembershipBenefitsHero start */
 .MembershipBenefitsHeroBG {
-  background-image: url("/assets/images/MembershipBenefits/membership_benefits_hero/membership_hero_section.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/MembershipBenefits/membership_benefits_hero/membership_hero_section.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -183,7 +183,7 @@
 }
 
 .allLocationsHero {
-  background-image: url("/assets/images/Locations/all_locations/all_locations_hero.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/Locations/all_locations/all_locations_hero.webp");
   background-size: cover;
   background-position: 100% 100%;
   background-repeat: no-repeat;
@@ -192,7 +192,7 @@
 }
 
 .MembershipBenefitsFreeAssessment {
-  background-image: url("/assets/images/MembershipBenefits/FreeAssessmentForMembership/free-assessment-BG.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/MembershipBenefits/FreeAssessmentForMembership/free-assessment-BG.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -201,7 +201,7 @@
 }
 
 .ReadyToEvolveBG {
-  background-image: url("/assets/images/MembershipBenefits/ReadyToEvolve/ready_to_evolve_find_trainer_desktop.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/MembershipBenefits/ReadyToEvolve/ready_to_evolve_find_trainer_desktop.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -210,7 +210,7 @@
 }
 
 .franchiseLetsBuildBigger {
-  background-image: url("/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -228,7 +228,7 @@
 }
 
 .spacesWhyChooseUs {
-  background-image: url("/assets/images/spaces/WhyProfessionalsChooseUs/why_professionals_choose_us.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/spaces/WhyProfessionalsChooseUs/why_professionals_choose_us.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -246,7 +246,7 @@
 }
 
 .SpacesHeroBG {
-  background-image: url("/assets/images/spaces/GrowYourBusinessSection/GrowYourBusinessSectionImage.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/spaces/GrowYourBusinessSection/GrowYourBusinessSectionImage.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -257,7 +257,7 @@
 /* MembershipBenefitsHero start */
 
 .ContactHeroBG {
-  background-image: url("/assets/images/ContactUs/contact_us_hero.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/ContactUs/contact_us_hero.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -266,7 +266,7 @@
 }
 
 .AboutUsHero {
-  background-image: url("/assets/images/AboutUs/about_us_hero.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/AboutUs/about_us_hero.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -292,7 +292,7 @@
   height: 700px;
 }
 .LoAssesment {
-  background-image: url("/assets/images/Locations/assesment/Assesment.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/Locations/assesment/Assesment.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -301,7 +301,7 @@
 }
 
 .Whatyouearn {
-  background-image: url("/assets/images/JoinAsTrainer/WhyChoose/why_choose%20(3).webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/JoinAsTrainer/WhyChoose/why_choose%20(3).webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -310,7 +310,7 @@
 }
 
 .Youkeepfull {
-  background-image: url("/assets/images/JoinAsTrainer/WhyChoose/why_choose%20(4).webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/JoinAsTrainer/WhyChoose/why_choose%20(4).webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -318,7 +318,7 @@
 }
 
 .Workonyour {
-  background-image: url("/assets/images/JoinAsTrainer/WhyChoose/why_choose%20(1).webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/JoinAsTrainer/WhyChoose/why_choose%20(1).webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -326,7 +326,7 @@
 }
 
 .Getrealsupport {
-  background-image: url("/assets/images/JoinAsTrainer/WhyChoose/why_choose%20(2).webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/JoinAsTrainer/WhyChoose/why_choose%20(2).webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -334,7 +334,7 @@
 }
 
 .BuildYourOwn {
-  background-image: url("/assets/images/JoinAsTrainer/WhyChoose/why_choose%20(5).webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/JoinAsTrainer/WhyChoose/why_choose%20(5).webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -342,7 +342,7 @@
 }
 
 .TourOurFitness {
-  background-image: url("/media/1763109300250-47d31d1b-6bdd-452f-bb33-6c334d55644d.webp");
+  background-image: url("https://assets.evolvestrength.ca/media/1763109300250-47d31d1b-6bdd-452f-bb33-6c334d55644d.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -351,7 +351,7 @@
 }
 
 .employeePlanBG {
-  background-image: url("/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanBG.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanBG.webp");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -360,35 +360,35 @@
 }
 
 .ReelsorWorkout {
-  background-image: url("/assets/images/JoinTheMovement/WhattoSubmit/service_1.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/JoinTheMovement/WhattoSubmit/service_1.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
 }
 .ProgressPhotos {
-  background-image: url("/assets/images/JoinTheMovement/WhattoSubmit/service_2.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/JoinTheMovement/WhattoSubmit/service_2.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
 }
 .TrainingStories {
-  background-image: url("/assets/images/JoinTheMovement/WhattoSubmit/service_3.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/JoinTheMovement/WhattoSubmit/service_3.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
 }
 .GrouporPartner {
-  background-image: url("/assets/images/JoinTheMovement/WhattoSubmit/service_4.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/JoinTheMovement/WhattoSubmit/service_4.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
 }
 .BehindtheScenes {
-  background-image: url("/assets/images/JoinTheMovement/WhattoSubmit/service_5.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/JoinTheMovement/WhattoSubmit/service_5.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -413,7 +413,7 @@
 }
 
 .aboutUsReadyToEvolve {
-  background-image: url("/assets/images/JoinTheMovement/TrainHere/Trainherebg.webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/JoinTheMovement/TrainHere/Trainherebg.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -421,7 +421,7 @@
   height: 700px;
 }
 .contact_us_map_bg {
-  background-image: url("/assets/images/ContactUs/contact_us_map.svg");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/ContactUs/contact_us_map.svg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -430,14 +430,14 @@
   margin-top: 160px;
 }
 .Servicecardbg_1 {
-  background-image: url("/assets/images/Discover/Services\ \(1\).webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/Discover/Services\ \(1\).webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
 }
 .Servicecardbg_2 {
-  background-image: url("/assets/images/Discover/Services\ \(2\).webp");
+  background-image: url("https://assets.evolvestrength.ca/assets/images/Discover/Services\ \(2\).webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -446,10 +446,10 @@
 
 @media (max-width: 768px) {
   .someThinkNewBg {
-    background-image: url("/assets/images/home/someThinkNew/common_new_branch_mob.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/home/someThinkNew/common_new_branch_mob.webp");
   }
   .edmontonSouthCommon {
-    background-image: url("/assets/images/home/someThinkNew/common_new_branch_mob.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/home/someThinkNew/common_new_branch_mob.webp");
   }
 
   .joinSouthCommonSection {
@@ -458,18 +458,18 @@
 
   .gymHero {
     height: 520px;
-    background-image: url("/assets/images/gym/gym_hero_mob.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/gym/gym_hero_mob.webp");
   }
   .grassIsIndeed {
-    background-image: url("/assets/images/gym/truf_that_last_mob_bg.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/gym/truf_that_last_mob_bg.webp");
     background-position: left;
   }
   .timeToEvolve {
-    background-image: url("/assets/images/gym/time-to-evolve-mob.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/gym/time-to-evolve-mob.webp");
   }
 
   .personalTrainingHeroSection {
-    background-image: url("/assets/images/PersonalTraning/hero/evolve-personal-training-mob.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/PersonalTraning/hero/evolve-personal-training-mob.webp");
     height: 646px;
   }
 
@@ -489,10 +489,10 @@
     background-image: url("@/assets/images/explore/exploreHero/evolve_mob_hero.webp");
   }
   .franchiseGotYourBack {
-    background-image: url("/assets/images/franchise/GotYourBack/gotYourBackBusinessMob.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/franchise/GotYourBack/gotYourBackBusinessMob.webp");
   }
   .personalTrainingFreeAssessment {
-    background-image: url("/assets/images/PersonalTraning/FreeAssessment/FreeAssessmentMob.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/PersonalTraning/FreeAssessment/FreeAssessmentMob.webp");
     height: 582px;
   }
   .switchToEvolve {
@@ -514,21 +514,21 @@
     background-image: url("/src/assets/images/wellness/YogaAndRecoveryRoom/YogaAndRecoveryRoomMobBG.webp");
   }
   .MembershipBenefitsHeroBG {
-    background-image: url("/assets/images/MembershipBenefits/membership_benefits_hero/membership_benefits_mob_BG.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/MembershipBenefits/membership_benefits_hero/membership_benefits_mob_BG.webp");
   }
   .MembershipBenefitsFreeAssessment {
-    background-image: url("/assets/images/MembershipBenefits/FreeAssessmentForMembership/free-assessment-mob-BG.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/MembershipBenefits/FreeAssessmentForMembership/free-assessment-mob-BG.webp");
     height: 582px;
   }
   .ReadyToEvolveBG {
-    background-image: url("/assets/images/MembershipBenefits/ReadyToEvolve/ready_to_evolve_find_trainer_mob.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/MembershipBenefits/ReadyToEvolve/ready_to_evolve_find_trainer_mob.webp");
   }
   .employeePlanBG {
-    background-image: url("/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanMobBG.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/corporateMembership/EvolveEmployeePlan/employeePlanMobBG.webp");
     height: 480px;
   }
   .ContactHeroBG {
-    background-image: url("/assets/images/ContactUs/contact_us_hero.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/ContactUs/contact_us_hero.webp");
     height: 468px;
   }
   .AboutUsHero {
@@ -536,16 +536,16 @@
     height: 463px;
   }
   .aboutUsReadyToEvolve {
-    background-image: url("/assets/images/JoinTheMovement/TrainHere/Trainherebg.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/JoinTheMovement/TrainHere/Trainherebg.webp");
   }
   /* .LocationsHero {
     background-image: url("@/assets/images/Locations/herosection_mob.webp");
   } */
   .LoAssesment {
-    background-image: url("/assets/images/Locations/assesment/LoAssesment.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/Locations/assesment/LoAssesment.webp");
   }
   .TourOurFitness {
-    background-image: url("/media/1762851957642-85e47bed-980b-42f2-9111-672badc6579d.webp");
+    background-image: url("https://assets.evolvestrength.ca/media/1762851957642-85e47bed-980b-42f2-9111-672badc6579d.webp");
     height: 478px;
   }
 
@@ -553,7 +553,7 @@
     background-image: url("@/assets/images/Locations/JoinToday_Mob.webp");
   }
   .franchiseLetsBuildBigger {
-    background-image: url("/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG-Mob.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/franchise/letsBuildBigger/lets-build-bigger-BG-Mob.webp");
   }
 
   .socialMedia {
@@ -561,14 +561,14 @@
   }
 
   .SpacesHeroBG {
-    background-image: url("/assets/images/spaces/GrowYourBusinessSection/Spaces_mob_hero.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/spaces/GrowYourBusinessSection/Spaces_mob_hero.webp");
     height: 233px;
   }
   .spacesWhyChooseUs {
-    background-image: url("/assets/images/spaces/WhyProfessionalsChooseUs/spacesWhyChooseUs_mob.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/spaces/WhyProfessionalsChooseUs/spacesWhyChooseUs_mob.webp");
   }
   .allLocationsHero {
-    background-image: url("/assets/images/Locations/all_locations/all_locations_heroMob.webp");
+    background-image: url("https://assets.evolvestrength.ca/assets/images/Locations/all_locations/all_locations_heroMob.webp");
     height: 460px;
   }
 }

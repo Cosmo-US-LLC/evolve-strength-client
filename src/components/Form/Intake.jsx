@@ -7,6 +7,7 @@ import SuccessFullScreen from "../ui/SuccessFullScreen";
 import MetaTags from "../Metatags/Meta";
 import NotFoundPage from "@/pages/PageNotFound";
 import { pushEvent } from "@/lib/analytics";
+import { assetUrl } from "@/lib/assetUrl";
 
 function Intake() {
   const { locationSlug } = useParams();
@@ -237,7 +238,7 @@ function Intake() {
           {/* Left side - Image */}
           <div className="hidden lg:block w-full lg:w-1/2 relative rounded-[8px] overflow-hidden bg-white mb-6 lg:mb-0 lg:mr-4">
             <img
-              src="/assets/images/intake/left-intake.webp"
+              src={assetUrl("/assets/images/intake/left-intake.webp")}
               alt="Fitness training"
               className="w-full h-[300px] lg:h-full object-cover"
             />
