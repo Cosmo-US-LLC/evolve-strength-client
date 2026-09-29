@@ -166,14 +166,6 @@ const getStoredCooldownUntil = () => {
   return value ? Number(value) : null;
 };
 
-const formatDuration = (seconds) => {
-  if (seconds <= 60) {
-    return `${seconds} second${seconds === 1 ? "" : "s"}`;
-  }
-  const minutes = Math.ceil(seconds / 60);
-  return `${minutes} minute${minutes === 1 ? "" : "s"}`;
-};
-
 const PRIMARY_MEMBER_STORAGE_KEY = "founderOfferPayment.primaryMember.v1";
 const SELECTED_PLAN_STORAGE_KEY = "founderOfferPayment.selectedPlan.v1";
 const SELECTED_PLAN_ADDONS_STORAGE_KEY =
@@ -1133,9 +1125,6 @@ function FounderOfferPayment() {
     }
 
     if (cooldownSecondsLeft > 0) {
-      setPaymentError(
-        `Please wait ${formatDuration(cooldownSecondsLeft)} before trying again.`,
-      );
       return false;
     }
 
