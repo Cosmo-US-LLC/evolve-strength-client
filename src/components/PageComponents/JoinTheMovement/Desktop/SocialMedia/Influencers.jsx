@@ -1,9 +1,9 @@
 import React from "react";
-import img1 from "@/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img1.webp";
-import img2 from "@/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img2.webp";
-import img3 from "@/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img3.webp";
-import logo from "@/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/Kettleball_logo.svg";
 import { assetUrl } from "@/lib/assetUrl";
+const img1 = assetUrl("/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img1.webp");
+const img2 = assetUrl("/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img2.webp");
+const img3 = assetUrl("/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img3.webp");
+import logo from "@/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/Kettleball_logo.svg";
 
 const Influencers = () => {
   const influencerImages = [img1, img2, img3];

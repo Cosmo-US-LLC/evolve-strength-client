@@ -1,9 +1,10 @@
 import React from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import Marquee from "react-fast-marquee";
 
 import lifeFitnessLogo from "@/assets/images/ParkRoyal/EquipmentPartners/life-fitness.svg";
-import glutbuilderLogo from "@/assets/images/ParkRoyal/EquipmentPartners/glutbuilder.png";
-import hammerStrengthLogo from "@/assets/images/ParkRoyal/EquipmentPartners/hammer-strength.png";
+const glutbuilderLogo = assetUrl("/assets/images/ParkRoyal/EquipmentPartners/glutbuilder.webp");
+const hammerStrengthLogo = assetUrl("/assets/images/ParkRoyal/EquipmentPartners/hammer-strength.webp");
 import atlantisLogo from "@/assets/images/ParkRoyal/EquipmentPartners/atlantis.svg";
 
 const partnerLogos = [

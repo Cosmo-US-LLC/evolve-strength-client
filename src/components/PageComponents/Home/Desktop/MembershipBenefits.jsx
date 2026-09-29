@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import { Link } from "react-router-dom";
 import { Dumbbell, Flame } from "lucide-react";
 
-import active_card_1 from "../../../../assets/images/home/MembershipBenefits/image_1.webp";
-import active_card_2 from "../../../../assets/images/home/MembershipBenefits/image_2.webp";
-import active_card_3 from "../../../../assets/images/home/MembershipBenefits/image_3.webp";
-import active_card_4 from "../../../../assets/images/home/MembershipBenefits/image_4.webp";
-import active_card_5 from "../../../../assets/images/home/MembershipBenefits/image_5.webp";
+const active_card_1 = assetUrl("/assets/images/home/MembershipBenefits/image_1.webp");
+const active_card_2 = assetUrl("/assets/images/home/MembershipBenefits/image_2.webp");
+const active_card_3 = assetUrl("/assets/images/home/MembershipBenefits/image_3.webp");
+const active_card_4 = assetUrl("/assets/images/home/MembershipBenefits/image_4.webp");
+const active_card_5 = assetUrl("/assets/images/home/MembershipBenefits/image_5.webp");
 
 import active_card_logo1 from "../../../../assets/images/home/MembershipBenefits/image_1_logo.svg";
 import active_card_logo4 from "../../../../assets/images/home/MembershipBenefits/image_5_logo.svg";

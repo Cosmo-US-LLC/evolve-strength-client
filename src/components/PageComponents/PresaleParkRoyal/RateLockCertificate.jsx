@@ -1,8 +1,8 @@
 import React from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import { Link } from "react-router-dom";
 import noUpfront from "../../../assets/images/PresaleEdmontonSouthCommon/partners/no_upfront.svg";
-import founderBadge from "@/assets/images/PresaleParkRoyal/founder_badge.png";
-import { assetUrl } from "@/lib/assetUrl";
+const founderBadge = assetUrl("/assets/images/PresaleParkRoyal/founder_badge.webp");
 
 const steps = [
   {

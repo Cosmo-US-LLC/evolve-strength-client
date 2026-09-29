@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
@@ -17,23 +18,22 @@ import card_icon11 from "@/assets/images/gym/World-Class/world_card_icons (10).s
 import card_icon12 from "../../../../assets/images/gym/World-Class/standing_abductor1.svg";
 import card_icon13 from "@/assets/images/gym/World-Class/seal_row_bench.svg";
 
-import img_1 from "../../../../assets/images/gym/World-Class/img_1.webp";
-import img_2 from "../../../../assets/images/gym/World-Class/img_2.webp";
-import img_3 from "../../../../assets/images/gym/World-Class/img_3.webp";
-import img_4 from "../../../../assets/images/gym/World-Class/img_4.webp";
-import img_5 from "../../../../assets/images/gym/World-Class/img_5.webp";
-import img_6 from "../../../../assets/images/gym/World-Class/img_6.webp";
-import img_7 from "../../../../assets/images/gym/World-Class/img_7.webp";
-import img_8 from "../../../../assets/images/gym/World-Class/img_8.webp";
-import img_9 from "../../../../assets/images/gym/World-Class/img_9.webp";
-import img_10 from "../../../../assets/images/gym/World-Class/img_10.webp";
-import img_11 from "../../../../assets/images/gym/World-Class//airbike.webp";
-import img_12 from "../../../../assets/images/gym/World-Class/img_12.webp";
-import img_13 from "../../../../assets/images/gym/World-Class/img_13.webp";
+const img_1 = assetUrl("/assets/images/gym/World-Class/img_1.webp");
+const img_2 = assetUrl("/assets/images/gym/World-Class/img_2.webp");
+const img_3 = assetUrl("/assets/images/gym/World-Class/img_3.webp");
+const img_4 = assetUrl("/assets/images/gym/World-Class/img_4.webp");
+const img_5 = assetUrl("/assets/images/gym/World-Class/img_5.webp");
+const img_6 = assetUrl("/assets/images/gym/World-Class/img_6.webp");
+const img_7 = assetUrl("/assets/images/gym/World-Class/img_7.webp");
+const img_8 = assetUrl("/assets/images/gym/World-Class/img_8.webp");
+const img_9 = assetUrl("/assets/images/gym/World-Class/img_9.webp");
+const img_10 = assetUrl("/assets/images/gym/World-Class/img_10.webp");
+const img_11 = assetUrl("/assets/images/gym/World-Class/airbike.webp");
+const img_12 = assetUrl("/assets/images/gym/World-Class/img_12.webp");
+const img_13 = assetUrl("/assets/images/gym/World-Class/img_13.webp");
 
-import airbike from "../../../../assets/images/gym/World-Class/airbike.webp";
-import olympic_plates from "../../../../assets/images/gym/World-Class/olympic_plates.webp";
-import { assetUrl } from "@/lib/assetUrl";
+const airbike = assetUrl("/assets/images/gym/World-Class/airbike.webp");
+const olympic_plates = assetUrl("/assets/images/gym/World-Class/olympic_plates.webp");
 
 // Equipment cards data - images from Figma
 const equipmentCards = [

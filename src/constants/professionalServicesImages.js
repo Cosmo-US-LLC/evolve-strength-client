@@ -13,6 +13,7 @@
 //   TrendingDown,
 // } from "lucide-react";
 import Esthetician from "../assets/icons/home/Wellness-Services/wellness_icons (8).svg";
+import { assetUrl } from "@/lib/assetUrl";
 import Chiropractic_Care from "../assets/icons/home/Wellness-Services/wellness_icons (14).svg";
 import Massage_Therapy from "../assets/icons/home/Wellness-Services/wellness_icons (1).svg";
 import Strength_training from "../assets/icons/home/Wellness-Services/wellness_icons (15).svg";
@@ -28,26 +29,25 @@ import Mental_Health from "../assets/icons/home/Wellness-Services/wellness_icons
 import Mobility_Olympic from "../assets/icons/home/Wellness-Services/wellness_icons (2).svg";
 import Lifting from "../assets/icons/home/Wellness-Services/wellness_icons (6).svg";
 
-import Services1 from "../assets/images/home/wellness-services/esthetician.webp"
-import Services2 from "../assets/images/home/wellness-services/chiropractic_care.webp"
-import Services3 from "../assets/images/home/wellness-services/chiropractic_head.webp"
-import Services4 from "../assets/images/home/wellness-services/physiotherapy.webp"
-import Services5 from "../assets/images/home/wellness-services/acupuncture.webp"
-import Services6 from "../assets/images/home/wellness-services/acupuncture_food.webp"
-import Services7 from "../assets/images/home/wellness-services/osteopathy.webp"
-import Services8 from "../assets/images/home/wellness-services/osteopathy_glass.webp"
-import Services9 from "../assets/images/home/wellness-services/mental_health.webp"
+const Services1 = assetUrl("/assets/images/home/wellness-services/esthetician.webp");
+const Services2 = assetUrl("/assets/images/home/wellness-services/chiropractic_care.webp");
+const Services3 = assetUrl("/assets/images/home/wellness-services/chiropractic_head.webp");
+const Services4 = assetUrl("/assets/images/home/wellness-services/physiotherapy.webp");
+const Services5 = assetUrl("/assets/images/home/wellness-services/acupuncture.webp");
+const Services6 = assetUrl("/assets/images/home/wellness-services/acupuncture_food.webp");
+const Services7 = assetUrl("/assets/images/home/wellness-services/osteopathy.webp");
+const Services8 = assetUrl("/assets/images/home/wellness-services/osteopathy_glass.webp");
+const Services9 = assetUrl("/assets/images/home/wellness-services/mental_health.webp");
 
-import ServicesMob1 from "../assets/images/home/wellness-services/esthetician_mobile.webp"
-import ServicesMob2 from "../assets/images/home/wellness-services/chiropractic_careMob.webp"
-import ServicesMob3 from "../assets/images/home/wellness-services/chiropractic_headMob.webp"
-import ServicesMob4 from "../assets/images/home/wellness-services/physiotherapyMob.webp"
-import ServicesMob5 from "../assets/images/home/wellness-services/acpunctureMob.webp"
-import ServicesMob6 from "../assets/images/home/wellness-services/dietitionMob.webp"
-import ServicesMob7 from "../assets/images/home/wellness-services/osteopathyMob.webp"
-import ServicesMob8 from "../assets/images/home/wellness-services/osteoathy_glassMob.webp"
-import ServicesMob9 from "../assets/images/home/wellness-services/mental_healthMob.webp"
-import { assetUrl } from "@/lib/assetUrl";
+const ServicesMob1 = assetUrl("/assets/images/home/wellness-services/esthetician_mobile.webp");
+const ServicesMob2 = assetUrl("/assets/images/home/wellness-services/chiropractic_careMob.webp");
+const ServicesMob3 = assetUrl("/assets/images/home/wellness-services/chiropractic_headMob.webp");
+const ServicesMob4 = assetUrl("/assets/images/home/wellness-services/physiotherapyMob.webp");
+const ServicesMob5 = assetUrl("/assets/images/home/wellness-services/acpunctureMob.webp");
+const ServicesMob6 = assetUrl("/assets/images/home/wellness-services/dietitionMob.webp");
+const ServicesMob7 = assetUrl("/assets/images/home/wellness-services/osteopathyMob.webp");
+const ServicesMob8 = assetUrl("/assets/images/home/wellness-services/osteoathy_glassMob.webp");
+const ServicesMob9 = assetUrl("/assets/images/home/wellness-services/mental_healthMob.webp");
 
 export const professionalServices = [
   {

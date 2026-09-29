@@ -18,12 +18,12 @@ function SouthEdmontonCommonHero() {
           style={{ objectFit: "cover", objectPosition: "bottom" }}
         >
           <source
-            src={assetUrl("/assets/videos/Sun_rising_south_edmonton_common.mp4")}
+            src={assetUrl("/assets/videos/Sun_rising_south_edmonton_common.webm")}
             type="video/webm"
           />
           <source
-            src={assetUrl("/assets/images/Sun_rising_south_edmonton_common.webm")}
-            type="video/webm"
+            src={assetUrl("/assets/videos/Sun_rising_south_edmonton_common.mp4")}
+            type="video/mp4"
           />
         </video>
 

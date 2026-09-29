@@ -71,7 +71,7 @@ const LOCATION_HERO_DATA = {
     membershipUrl: "/join-now/membership-type?location=Burnaby%20Brentwood",
   },
   "vancouver-post": {
-    video: "/videos/vancouver_post_video.webm",
+    video: assetUrl("/assets/videos/vancouver_post_video.webm"),
     poster: "",
     locationTitle: "THE POST",
     city: "VANCOUVER",
@@ -80,7 +80,7 @@ const LOCATION_HERO_DATA = {
     membershipUrl: "/join-now/membership-type?location=Vancouver,%20The%20Post",
   },
   "south-edmonton-common": {
-    video: "/videos/Sun_rising_south_edmonton_common.webm",
+    video: assetUrl("/assets/videos/Sun_rising_south_edmonton_common.webm"),
     poster: "",
     locationTitle: "SOUTH EDMONTON COMMON",
     city: "EDMONTON",

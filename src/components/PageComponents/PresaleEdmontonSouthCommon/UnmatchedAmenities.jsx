@@ -1,14 +1,15 @@
 import React, { useCallback } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import UnmatchedAmenitiesImage1 from "../../../assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image1.webp";
-import UnmatchedAmenitiesImage2 from "../../../assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image2.webp";
-import UnmatchedAmenitiesImage3 from "../../../assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image3.webp";
-import UnmatchedAmenitiesImage4 from "../../../assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image4.webp";
-import UnmatchedAmenitiesImage5 from "../../../assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image5.webp";
-import UnmatchedAmenitiesImage6 from "../../../assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image6.webp";
+const UnmatchedAmenitiesImage1 = assetUrl("/assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image1.webp");
+const UnmatchedAmenitiesImage2 = assetUrl("/assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image2.webp");
+const UnmatchedAmenitiesImage3 = assetUrl("/assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image3.webp");
+const UnmatchedAmenitiesImage4 = assetUrl("/assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image4.webp");
+const UnmatchedAmenitiesImage5 = assetUrl("/assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image5.webp");
+const UnmatchedAmenitiesImage6 = assetUrl("/assets/images/PresaleEdmontonSouthCommon/unmatched_amentities/unmatched_amentities_image6.webp");
 
 const unmatchedAmenities = [
   {

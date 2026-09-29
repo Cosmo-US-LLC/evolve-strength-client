@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import defaultVideo from "../../../../public/assets/videos/Default_Video.webm";
-import strengthZoneVideo from "../../../../public/assets/videos/Strength_Zone.webm";
-import cardioZoneVideo from "../../../../public/assets/videos/Cardio_Zone.webm";
-import turfAreaVideo from "../../../../public/assets/videos/Turf_Area.webm";
+import { assetUrl } from "@/lib/assetUrl";
+
+const defaultVideo = assetUrl("/assets/videos/Default_Video.webm");
+const strengthZoneVideo = assetUrl("/assets/videos/Strength_Zone.webm");
+const cardioZoneVideo = assetUrl("/assets/videos/Cardio_Zone.webm");
+const turfAreaVideo = assetUrl("/assets/videos/Turf_Area.webm");
 
 const gymZones = [
   {

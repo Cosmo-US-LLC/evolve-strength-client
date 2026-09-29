@@ -1,6 +1,6 @@
 import React from 'react'
-import phone from "../../../../../assets/images/JoinTheMovement/SocialMedia/PhoneMockUp/Mobile.webp"
 import { assetUrl } from "@/lib/assetUrl";
+const phone = assetUrl("/assets/images/JoinTheMovement/SocialMedia/PhoneMockUp/Mobile.webp");
 
 function PhoneMockUp() {
   return (

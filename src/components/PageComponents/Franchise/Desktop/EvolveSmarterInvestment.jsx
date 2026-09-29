@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import slide0 from "../../../../assets/images/franchise/evolveSmarterInvestment/step-0.webp";
-import slide1 from "../../../../assets/images/franchise/evolveSmarterInvestment/step-1.webp";
-import slide2 from "../../../../assets/images/franchise/evolveSmarterInvestment/step-2.webp";
-import slide3 from "../../../../assets/images/franchise/evolveSmarterInvestment/step-3.webp";
 import { assetUrl } from "@/lib/assetUrl";
+const slide0 = assetUrl("/assets/images/franchise/evolveSmarterInvestment/step-0.webp");
+const slide1 = assetUrl("/assets/images/franchise/evolveSmarterInvestment/step-1.webp");
+const slide2 = assetUrl("/assets/images/franchise/evolveSmarterInvestment/step-2.webp");
+const slide3 = assetUrl("/assets/images/franchise/evolveSmarterInvestment/step-3.webp");
 
 const benefitItems = [
   {

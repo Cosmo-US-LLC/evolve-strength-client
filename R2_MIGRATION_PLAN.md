@@ -1,9 +1,18 @@
 # R2 Image Migration — Status & Verification Plan
 
-**Date:** 2026-09-25
+**Date:** 2026-09-25 (updated 2026-09-29)
 **Branch:** `move-assets`
 **Owner:** Abdul Hadi
-**Next step:** Verify on Monday (2026-09-28)
+**Next step:** Visual QA of the changes below in the browser
+
+## Phase 2 (2026-09-29) — videos + remaining import-based images
+
+- **Videos fixed:** `ParkRoyalHero`/`Home Hero` used `assetUrl("/assets/videos/waitlist_florida_video.webm")` but that file (and 8 others: `waitlist_florida_video_2.webm`, `evolve_loop.webm`, `Default_Video.webm`, `Strength_Zone.webm`, `Cardio_Zone.webm`, `Turf_Area.webm`, `Sun_rising_south_edmonton_common.mp4`/`.webm`) had never actually been uploaded to R2 (404) — that's why the Park Royal hero showed a black box. Uploaded all 9 with correct `Content-Type`. Also uploaded `vancouver_post_video.webm` and `vancouver_post_video_with_music.webm` (previously served from local `/videos/...`, not R2).
+- **Bugs fixed in code:** `SouthEdmontonCommonHero.jsx` had a `<source>` pointed at `/assets/images/Sun_rising_south_edmonton_common.webm` (wrong folder — `images` instead of `videos`) and an `.mp4` source tagged `type="video/webm"`.
+- **Import-based videos migrated:** `SouthEdmontonCommonGymZone.jsx` (4 videos) and `DiscoverHero.jsx` (1 video) used JS imports instead of `assetUrl`; converted to `assetUrl()`.
+- **234 import-based images:** scoped down to 138 unique raster files (webp/png/jpg — SVGs excluded, see below) actually referenced via `import x from "../assets/..."` across 37 files. Converted all to `assetUrl()`. 21 png/jpg files were converted to `.webp` (Pillow, quality 90) before upload since the ask was "correct format webp"; R2 key keeps the same path but with `.webp` extension, and code was updated to reference the new `.webp` path. All 138 verified 200 + correct `Content-Type: image/webp` on R2.
+- **SVGs explicitly left alone:** this project uses `@svgr/rollup` (see `vite.config.js`), which can turn `import X from "./x.svg"` into a React component rather than a URL string. Swapping these to `assetUrl()` risks breaking icon rendering, so the ~119 SVG imports were left bundled as-is — not part of this phase.
+- **Verification:** `npm run build` clean, `npm run lint` — 172 problems, matching the pre-migration baseline exactly (no new issues introduced).
 
 ## What this is
 

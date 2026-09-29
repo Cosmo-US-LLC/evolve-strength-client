@@ -1,19 +1,19 @@
 import React from 'react';
-
-import build_img1 from '../../../../assets/images/JoinAsTrainer/BuildYour/build_your (2).webp';
-import build_img2 from '../../../../assets/images/JoinAsTrainer/BuildYour/build_your (1).webp';
-import build_img3 from '../../../../assets/images/JoinAsTrainer/BuildYour/build_your (3).webp';
-import build_img4 from '../../../../assets/images/JoinAsTrainer/BuildYour/build_your (4).webp';
-import build_img5 from '../../../../assets/images/JoinAsTrainer/BuildYour/build_your (5).webp';
-import build_img6 from '../../../../assets/images/JoinAsTrainer/BuildYour/build_your (6).webp';
-import build_img7 from '../../../../assets/images/JoinAsTrainer/BuildYour/build_your (7).webp';
-import build_img8 from '../../../../assets/images/JoinAsTrainer/BuildYour/build_your (8).webp';
-import build_img9 from '../../../../assets/images/JoinAsTrainer/BuildYour/build_your (9).webp';
-import build_img10 from '../../../../assets/images/JoinAsTrainer/BuildYour/build_your (10).webp';
-import build_img11 from '../../../../assets/images/JoinAsTrainer/BuildYour/build_your (11).webp';
-import build_img12 from '../../../../assets/images/JoinAsTrainer/BuildYour/build_your (12).webp';
-import build_img13 from '../../../../assets/images/JoinAsTrainer/BuildYour/build_your (13).webp';
 import { assetUrl } from "@/lib/assetUrl";
+
+const build_img1 = assetUrl("/assets/images/JoinAsTrainer/BuildYour/build_your%20(2).webp");
+const build_img2 = assetUrl("/assets/images/JoinAsTrainer/BuildYour/build_your%20(1).webp");
+const build_img3 = assetUrl("/assets/images/JoinAsTrainer/BuildYour/build_your%20(3).webp");
+const build_img4 = assetUrl("/assets/images/JoinAsTrainer/BuildYour/build_your%20(4).webp");
+const build_img5 = assetUrl("/assets/images/JoinAsTrainer/BuildYour/build_your%20(5).webp");
+const build_img6 = assetUrl("/assets/images/JoinAsTrainer/BuildYour/build_your%20(6).webp");
+const build_img7 = assetUrl("/assets/images/JoinAsTrainer/BuildYour/build_your%20(7).webp");
+const build_img8 = assetUrl("/assets/images/JoinAsTrainer/BuildYour/build_your%20(8).webp");
+const build_img9 = assetUrl("/assets/images/JoinAsTrainer/BuildYour/build_your%20(9).webp");
+const build_img10 = assetUrl("/assets/images/JoinAsTrainer/BuildYour/build_your%20(10).webp");
+const build_img11 = assetUrl("/assets/images/JoinAsTrainer/BuildYour/build_your%20(11).webp");
+const build_img12 = assetUrl("/assets/images/JoinAsTrainer/BuildYour/build_your%20(12).webp");
+const build_img13 = assetUrl("/assets/images/JoinAsTrainer/BuildYour/build_your%20(13).webp");
 
 function BuildYourCareer() {
   return (

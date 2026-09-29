@@ -1,5 +1,6 @@
 import React from "react";
-import locationImg from "../../assets/images/form/spaces-form.webp";
+import { assetUrl } from "@/lib/assetUrl";
+const locationImg = assetUrl("/assets/images/form/spaces-form.webp");
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";

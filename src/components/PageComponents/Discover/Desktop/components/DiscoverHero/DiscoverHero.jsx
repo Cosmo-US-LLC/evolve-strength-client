@@ -1,5 +1,7 @@
 import React from "react";
-import ExploreHeroVideo from "@/assets/videos/ExplorePages.webm";
+import { assetUrl } from "@/lib/assetUrl";
+
+const ExploreHeroVideo = assetUrl("/assets/videos/ExplorePages.webm");
 
 const DiscoverHero = ({ onStart, onTouchStart, onTouchMove, onTouchEnd }) => {
   return (

@@ -1,5 +1,6 @@
 import React from "react";
 import { LocationFaq } from "@/constants/faqContent";
+import { assetUrl } from "@/lib/assetUrl";
 
 import LocationHero from "@/components/PageComponents/Locations/Desktop/LocationHero";
 import LocationPartners from "@/components/PageComponents/Locations/Desktop/LocationsPartners";
@@ -39,7 +40,7 @@ function VancouverPost() {
         slides={getFloorPlanData("vancouverPost").slides}
         heading={getFloorPlanData("vancouverPost").heading}
         description={getFloorPlanData("vancouverPost").description}
-        videoSrc="/videos/vancouver_post_video_with_music.webm"
+        videoSrc={assetUrl("/assets/videos/vancouver_post_video_with_music.webm")}
       />
       {/* <LoWhyChooseEvolve /> */}
       {/* <VideoMarketingSection /> */}
