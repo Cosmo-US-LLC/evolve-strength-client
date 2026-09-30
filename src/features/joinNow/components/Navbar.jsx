@@ -1,5 +1,6 @@
 import React from 'react';
-import logoImage from '../assets/Evolve-Strength-Logo-and-Name-in-White-1.webp';
+import { assetUrl } from "@/lib/assetUrl";
+const logoImage = assetUrl("/assets/Evolve-Strength-Logo-and-Name-in-White-1.webp");
 
 const Navbar = () => {
   return (

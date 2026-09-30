@@ -20,7 +20,7 @@ const partnerLogos = [
     src: brand_logo3,
     alt: "Rogue",
   },
-  // { src: "/assets/images/home/EquipmentPartners/rogue.svg", alt: "rogueLogo" },
+  // { src: assetUrl("/assets/images/home/EquipmentPartners/rogue.svg"), alt: "rogueLogo" },
   {
     src: brand_logo4,
     alt: "Technogym",

@@ -1,13 +1,14 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import Evolvegallery from "../../Gym/Evolvegallery";
 
-import img_1 from "../../../../assets/images/gym/gym_gallery/img_1.webp";
-import img_2 from "../../../../assets/images/gym/gym_gallery/img_2.webp";
-import img_3 from "../../../../assets/images/gym/gym_gallery/img_3.webp";
-import img_4 from "../../../../assets/images/gym/gym_gallery/img_4.webp";
-import img_5 from "../../../../assets/images/gym/gym_gallery/img_5.webp";
-import img_6 from "../../../../assets/images/gym/gym_gallery/img_6.webp";
-import img_7 from "../../../../assets/images/gym/gym_gallery/img_7.webp";
+const img_1 = assetUrl("/assets/images/gym/gym_gallery/img_1.webp");
+const img_2 = assetUrl("/assets/images/gym/gym_gallery/img_2.webp");
+const img_3 = assetUrl("/assets/images/gym/gym_gallery/img_3.webp");
+const img_4 = assetUrl("/assets/images/gym/gym_gallery/img_4.webp");
+const img_5 = assetUrl("/assets/images/gym/gym_gallery/img_5.webp");
+const img_6 = assetUrl("/assets/images/gym/gym_gallery/img_6.webp");
+const img_7 = assetUrl("/assets/images/gym/gym_gallery/img_7.webp");
 
 const professionals = [
   {

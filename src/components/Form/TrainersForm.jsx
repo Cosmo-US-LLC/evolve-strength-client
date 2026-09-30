@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import MetaTags from "@/components/Metatags/Meta";
 import FormsHeader from "../ui/FormsHeader";
 import SuccessFullScreen from "../ui/SuccessFullScreen";
 import { pushEvent } from "@/lib/analytics";
-import trainerImage from "@/assets/images/form/trainer-form.webp";
+const trainerImage = assetUrl("/assets/images/form/trainer-form.webp");
 
 function TrainerForm() {
   const navigate = useNavigate();

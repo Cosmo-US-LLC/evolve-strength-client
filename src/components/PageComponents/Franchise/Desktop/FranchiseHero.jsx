@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { assetUrl } from "@/lib/assetUrl";
 
 function FranchiseHero() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -217,11 +218,11 @@ function FranchiseHero() {
                     muted={isMuted}
                   >
                     <source
-                      src="/assets/videos/FranchiseHero.mp4"
+                      src={assetUrl("/assets/videos/FranchiseHero.mp4")}
                       type="video/mp4"
                     />
                     <source
-                      src="/assets/videos/FranchiseHero.webm"
+                      src={assetUrl("/assets/videos/FranchiseHero.webm")}
                       type="video/webm"
                     />
                     Your browser does not support the video tag.

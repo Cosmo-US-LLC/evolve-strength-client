@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import fitness from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/slide6.webp";
-import wellness from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/slide7.webp";
-import atmosphere from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp";
-import turfWorkouts from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/slide9.webp";
-import olympicLifting from "../../../../assets/images/corporateMembership/OneMembershipFullAccess/slide10.webp";
+import { assetUrl } from "@/lib/assetUrl";
+const fitness = assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/slide6.webp");
+const wellness = assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/slide7.webp");
+const atmosphere = assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp");
+const turfWorkouts = assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/slide9.webp");
+const olympicLifting = assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/slide10.webp");
 
 const gymCards = [
   {

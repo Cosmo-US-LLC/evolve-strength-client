@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import { CATEGORY } from "../constants";
+import { assetUrl } from "@/lib/assetUrl";
 
 const DiscoverServices = ({ onCategorySelect }) => {
   // Preload background images
   useEffect(() => {
     const image1 = new Image();
-    image1.src = "/assets/images/Discover/Services (1).webp";
+    image1.src = assetUrl("/assets/images/Discover/Services (1).webp");
     
     const image2 = new Image();
-    image2.src = "/assets/images/Discover/Services (2).webp";
+    image2.src = assetUrl("/assets/images/Discover/Services (2).webp");
   }, []);
 
   return (

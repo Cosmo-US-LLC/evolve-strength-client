@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import Marquee from "react-fast-marquee";
 import Autoplay from "embla-carousel-autoplay";
 import {
@@ -6,12 +7,12 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import partnersImage1 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_image1.webp";
-import partnersImage2 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_image2.webp";
-import partnersImage3 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_image3.webp";
-import partnersImage4 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_image4.webp";
-import partnersImage5 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_image5.webp";
-import partnersImage6 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_image6.webp";
+const partnersImage1 = assetUrl("/assets/images/PresaleEdmontonSouthCommon/partners/partners_image1.webp");
+const partnersImage2 = assetUrl("/assets/images/PresaleEdmontonSouthCommon/partners/partners_image2.webp");
+const partnersImage3 = assetUrl("/assets/images/PresaleEdmontonSouthCommon/partners/partners_image3.webp");
+const partnersImage4 = assetUrl("/assets/images/PresaleEdmontonSouthCommon/partners/partners_image4.webp");
+const partnersImage5 = assetUrl("/assets/images/PresaleEdmontonSouthCommon/partners/partners_image5.webp");
+const partnersImage6 = assetUrl("/assets/images/PresaleEdmontonSouthCommon/partners/partners_image6.webp");
 
 import partnersLogo1 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_logo1.svg";
 import partnersLogo2 from "../../../assets/images/PresaleEdmontonSouthCommon/partners/partners_logo2.svg";

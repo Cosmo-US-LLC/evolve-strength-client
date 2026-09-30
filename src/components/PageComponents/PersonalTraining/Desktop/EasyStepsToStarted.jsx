@@ -3,6 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { pushEvent } from "@/lib/analytics";
+import { assetUrl } from "@/lib/assetUrl";
 
 function EasyStepsToStarted() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -30,7 +31,7 @@ function EasyStepsToStarted() {
       title: "Pick a Location",
       description: "Choose from 7 Evolve gyms across Canada.",
       image:
-        "/assets/images/PersonalTraning/FreeAssessment/pick_location.webp",
+        assetUrl("/assets/images/PersonalTraning/FreeAssessment/pick_location.webp"),
     },
     {
       number: "2",
@@ -38,21 +39,21 @@ function EasyStepsToStarted() {
       description:
         "Sign up with a simple biweekly fee and unlock full gym access.",
       image:
-        "/assets/images/PersonalTraning/FreeAssessment/join_evolve.webp",
+        assetUrl("/assets/images/PersonalTraning/FreeAssessment/join_evolve.webp"),
     },
     {
       number: "3",
       title: "Explore Trainers",
       description: "Browse personal trainers based on your goals.",
       image:
-        "/assets/images/PersonalTraning/FreeAssessment/explore_trainer.webp",
+        assetUrl("/assets/images/PersonalTraning/FreeAssessment/explore_trainer.webp"),
     },
     {
       number: "4",
       title: "Start Training",
       description: "Connect with your trainer and begin your journey.",
       image:
-        "/assets/images/PersonalTraning/FreeAssessment/start_training.webp",
+        assetUrl("/assets/images/PersonalTraning/FreeAssessment/start_training.webp"),
     },
   ];
 

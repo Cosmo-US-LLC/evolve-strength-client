@@ -1,7 +1,8 @@
 import React from "react";
+import { assetUrl } from "@/lib/assetUrl";
 
 import { southEdmontonCommonBookTourHref } from "@/constants/southEdmontonCommonTour";
-import buildingImage from "@/assets/images/spaces/AvailableOffices/south_edmonton_common_location.webp";
+const buildingImage = assetUrl("/assets/images/spaces/AvailableOffices/south_edmonton_common_location.webp");
 import { pushEvent } from "@/lib/analytics";
 
 const LOCATION_TITLE = "South Edmonton Common";

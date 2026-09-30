@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import useEmblaCarousel from "embla-carousel-react";
-import card_bg1 from "../../../../assets/images/home/gymEep/fitness.webp"
-import card_bg2 from "../../../../assets/images/home/gymEep/wellness.webp"
-import card_bg3 from "../../../../assets/images/home/gymEep/atmosphere.webp"
+const card_bg1 = assetUrl("/assets/images/home/gymEep/fitness.webp");
+const card_bg2 = assetUrl("/assets/images/home/gymEep/wellness.webp");
+const card_bg3 = assetUrl("/assets/images/home/gymEep/atmosphere.webp");
 
 const gymCards = [
   {

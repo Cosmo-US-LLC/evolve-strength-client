@@ -1,6 +1,7 @@
 import React from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import { Link, useNavigate } from "react-router-dom";
-import locationImg from "../../assets/images/form/spaces-form.webp";
+const locationImg = assetUrl("/assets/images/form/spaces-form.webp");
 import { Building2, ArrowLeft } from "lucide-react";
 import MetaTags from "@/components/Metatags/Meta";
 import { Helmet, HelmetProvider } from "react-helmet-async";

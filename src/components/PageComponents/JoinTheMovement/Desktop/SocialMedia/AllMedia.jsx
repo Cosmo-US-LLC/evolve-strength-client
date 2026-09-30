@@ -1,4 +1,5 @@
 import React from 'react'
+import { assetUrl } from "@/lib/assetUrl";
 
 function AllMedia() {
   return (
@@ -9,7 +10,7 @@ function AllMedia() {
         </p>
 
         <div className="absolute -right-[30px] md:-right-[50px]">
-          <img src="/assets/images/JoinTheMovement/SocialMedia/Allmedia/MediaUsers.webp" alt="Socialmedia Users" className="h-[35px] md:h-[47px]" />
+          <img src={assetUrl("/assets/images/JoinTheMovement/SocialMedia/Allmedia/MediaUsers.webp")} alt="Socialmedia Users" className="h-[35px] md:h-[47px]" />
         </div>
       </div>
 

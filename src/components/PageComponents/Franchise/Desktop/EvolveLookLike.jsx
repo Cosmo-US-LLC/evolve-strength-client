@@ -3,37 +3,38 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { assetUrl } from "@/lib/assetUrl";
 
 const professionals = [
   {
     title: "Physiotherapy",
     image:
-      "/assets/images/franchise/Evolvelooklike/image_1.webp",
+      assetUrl("/assets/images/franchise/Evolvelooklike/image_1.webp"),
   },
   {
     title: "Pilates",
     image:
-      "/assets/images/franchise/Evolvelooklike/image_2.webp",
+      assetUrl("/assets/images/franchise/Evolvelooklike/image_2.webp"),
   },
   {
     title: "Massage Therapy",
     image:
-      "/assets/images/franchise/Evolvelooklike/image_3.webp",
+      assetUrl("/assets/images/franchise/Evolvelooklike/image_3.webp"),
   },
   // {
   //   title: "Chiropractic Care",
   //   image:
-  //     "/assets/images/franchise/Evolvelooklike/image_4.webp",
+  //     assetUrl("/assets/images/franchise/Evolvelooklike/image_4.webp"),
   // },
   {
     title: "Acupuncture",
     image:
-      "/assets/images/franchise/Evolvelooklike/image_5.webp",
+      assetUrl("/assets/images/franchise/Evolvelooklike/image_5.webp"),
   },
   {
     title: "Dietitian Services",
     image:
-      "/assets/images/franchise/Evolvelooklike/image_6.webp",
+      assetUrl("/assets/images/franchise/Evolvelooklike/image_6.webp"),
   },
 ];
 

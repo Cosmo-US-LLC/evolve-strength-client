@@ -1,14 +1,15 @@
 import React, { useCallback } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import UnmatchedAmenitiesImage1 from "@/assets/images/PresaleParkRoyal/amenity_gym_access.jpg";
-import UnmatchedAmenitiesImage2 from "@/assets/images/PresaleParkRoyal/amenity_parking.jpg";
-import UnmatchedAmenitiesImage3 from "@/assets/images/PresaleParkRoyal/amenity_waiting_area.jpg";
-import UnmatchedAmenitiesImage4 from "@/assets/images/PresaleParkRoyal/amenity_locker_rooms.jpg";
-import UnmatchedAmenitiesImage5 from "@/assets/images/PresaleParkRoyal/amenity_showers.jpg";
-import UnmatchedAmenitiesImage6 from "@/assets/images/PresaleParkRoyal/amenity_saunas.jpg";
+const UnmatchedAmenitiesImage1 = assetUrl("/assets/images/PresaleParkRoyal/amenity_gym_access.webp");
+const UnmatchedAmenitiesImage2 = assetUrl("/assets/images/PresaleParkRoyal/amenity_parking.webp");
+const UnmatchedAmenitiesImage3 = assetUrl("/assets/images/PresaleParkRoyal/amenity_waiting_area.webp");
+const UnmatchedAmenitiesImage4 = assetUrl("/assets/images/PresaleParkRoyal/amenity_locker_rooms.webp");
+const UnmatchedAmenitiesImage5 = assetUrl("/assets/images/PresaleParkRoyal/amenity_showers.webp");
+const UnmatchedAmenitiesImage6 = assetUrl("/assets/images/PresaleParkRoyal/amenity_saunas.webp");
 
 const unmatchedAmenities = [
   {

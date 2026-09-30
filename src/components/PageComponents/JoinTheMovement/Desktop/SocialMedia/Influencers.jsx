@@ -1,7 +1,8 @@
 import React from "react";
-import img1 from "@/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img1.webp";
-import img2 from "@/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img2.webp";
-import img3 from "@/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img3.webp";
+import { assetUrl } from "@/lib/assetUrl";
+const img1 = assetUrl("/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img1.webp");
+const img2 = assetUrl("/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img2.webp");
+const img3 = assetUrl("/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img3.webp");
 import logo from "@/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/Kettleball_logo.svg";
 
 const Influencers = () => {
@@ -14,16 +15,16 @@ const Influencers = () => {
         Featured Influencers
       </h3>
       <img
-        src="/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/Kettleball_logo.svg"
+        src={assetUrl("/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/Kettleball_logo.svg")}
         alt=""
       />
     </div>
 
     <div className="flex md:mt-4 relative w-full bg-amber-300 h-20">
       {[
-        "/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img1.webp",
-        "/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img2.webp",
-        "/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img3.webp",
+        assetUrl("/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img1.webp"),
+        assetUrl("/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img2.webp"),
+        assetUrl("/assets/images/JoinTheMovement/SocialMedia/Featured_Influencers/img3.webp"),
       ].map((img, index) => (
         <img
           key={index}

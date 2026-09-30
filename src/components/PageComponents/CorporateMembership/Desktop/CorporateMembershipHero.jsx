@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { assetUrl } from "@/lib/assetUrl";
 
 function CorporateMembershipHero() {
   return (
@@ -28,11 +29,11 @@ function CorporateMembershipHero() {
         <div className="flex flex-col items-center justify-center">
           <picture>
             <source
-              srcSet="/assets/images/corporateMembership/corporateMemberHero/corporrate_hero.webp"
+              srcSet={assetUrl("/assets/images/corporateMembership/corporateMemberHero/corporrate_hero.webp")}
               media="(min-width: 768px)"
             />
             <img
-              src="/assets/images/corporateMembership/corporateMemberHero/corporate_hero_mob.webp"
+              src={assetUrl("/assets/images/corporateMembership/corporateMemberHero/corporate_hero_mob.webp")}
               alt="Corporate Membership Hero"
             />
           </picture>

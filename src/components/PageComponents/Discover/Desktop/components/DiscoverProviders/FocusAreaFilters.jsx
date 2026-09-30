@@ -1,34 +1,35 @@
 import React, { useState, useEffect, useRef } from "react";
 import { getAllAreasOfFocus } from "@/services/trainerApi";
 import { X } from "lucide-react";
+import { assetUrl } from "@/lib/assetUrl";
 
 // Mapping focus areas to their corresponding trainer icons
 const FOCUS_AREA_ICONS = {
-  "Weight Loss": "/assets/images/Discover/trainers_icon (1).svg",
-  "Strength Training": "/assets/images/Discover/trainers_icon (2).svg",
-  "Hypertrophy": "/assets/images/Discover/trainers_icon (3).svg",
-  "Powerlifting": "/assets/images/Discover/trainers_icon (4).svg",
-  "Olympic Weightlifting": "/assets/images/Discover/trainers_icon (5).svg",
-  "Sports Performance": "/assets/images/Discover/trainers_icon (6).svg",
-  "Athletic Conditioning": "/assets/images/Discover/trainers_icon (7).svg",
-  "Injury Rehab": "/assets/images/Discover/trainers_icon (8).svg",
-  "Pain Management": "/assets/images/Discover/trainers_icon (9).svg",
-  "Mobility and Flexibility": "/assets/images/Discover/trainers_icon (10).svg",
-  "Posture": "/assets/images/Discover/trainers_icon (11).svg",
-  "Technique and Movement": "/assets/images/Discover/trainers_icon (12).svg",
-  "Nutrition and Lifestyle": "/assets/images/Discover/trainers_icon (13).svg",
-  "Women's Health": "/assets/images/Discover/trainers_icon (14).svg",
-  "Prenatal and Postnatal": "/assets/images/Discover/trainers_icon (15).svg",
-  "General Fitness": "/assets/images/Discover/trainers_icon (16).svg",
-  "Beginners": "/assets/images/Discover/trainers_icon (17).svg",
-  "Seniors and Special Populations": "/assets/images/Discover/trainers_icon (18).svg",
-  "Functional Fitness": "/assets/images/Discover/trainers_icon (19).svg",
-  "HIIT and CrossFit": "/assets/images/Discover/trainers_icon (20).svg",
-  "Combat Sports": "/assets/images/Discover/trainers_icon (21).svg",
-  "Allied Health": "/assets/images/Discover/trainers_icon (22).svg",
+  "Weight Loss": assetUrl("/assets/images/Discover/trainers_icon (1).svg"),
+  "Strength Training": assetUrl("/assets/images/Discover/trainers_icon (2).svg"),
+  "Hypertrophy": assetUrl("/assets/images/Discover/trainers_icon (3).svg"),
+  "Powerlifting": assetUrl("/assets/images/Discover/trainers_icon (4).svg"),
+  "Olympic Weightlifting": assetUrl("/assets/images/Discover/trainers_icon (5).svg"),
+  "Sports Performance": assetUrl("/assets/images/Discover/trainers_icon (6).svg"),
+  "Athletic Conditioning": assetUrl("/assets/images/Discover/trainers_icon (7).svg"),
+  "Injury Rehab": assetUrl("/assets/images/Discover/trainers_icon (8).svg"),
+  "Pain Management": assetUrl("/assets/images/Discover/trainers_icon (9).svg"),
+  "Mobility and Flexibility": assetUrl("/assets/images/Discover/trainers_icon (10).svg"),
+  "Posture": assetUrl("/assets/images/Discover/trainers_icon (11).svg"),
+  "Technique and Movement": assetUrl("/assets/images/Discover/trainers_icon (12).svg"),
+  "Nutrition and Lifestyle": assetUrl("/assets/images/Discover/trainers_icon (13).svg"),
+  "Women's Health": assetUrl("/assets/images/Discover/trainers_icon (14).svg"),
+  "Prenatal and Postnatal": assetUrl("/assets/images/Discover/trainers_icon (15).svg"),
+  "General Fitness": assetUrl("/assets/images/Discover/trainers_icon (16).svg"),
+  "Beginners": assetUrl("/assets/images/Discover/trainers_icon (17).svg"),
+  "Seniors and Special Populations": assetUrl("/assets/images/Discover/trainers_icon (18).svg"),
+  "Functional Fitness": assetUrl("/assets/images/Discover/trainers_icon (19).svg"),
+  "HIIT and CrossFit": assetUrl("/assets/images/Discover/trainers_icon (20).svg"),
+  "Combat Sports": assetUrl("/assets/images/Discover/trainers_icon (21).svg"),
+  "Allied Health": assetUrl("/assets/images/Discover/trainers_icon (22).svg"),
 };
 
-const DEFAULT_FOCUS_ICON = "/assets/images/Discover/wellnessC (7).svg";
+const DEFAULT_FOCUS_ICON = assetUrl("/assets/images/Discover/wellnessC (7).svg");
 
 const FocusAreaFilters = ({
   selectedFocusAreas,

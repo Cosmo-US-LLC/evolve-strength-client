@@ -6,6 +6,7 @@ import icon2 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_2.sv
 import icon3 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_3.svg";
 import icon4 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_4.svg";
 import icon5 from "@/assets/images/PresaleEdmontonSouthCommon/priceTab/icon_5.svg";
+import { assetUrl } from "@/lib/assetUrl";
 
 const LOCK_ICON = (
   <svg
@@ -271,7 +272,7 @@ function FoundingMemberSavings() {
             <div className="bg-[rgba(255,255,255,0.12)] backdrop-blur-[15px] rounded-[12px] w-full overflow-hidden flex flex-col md:flex-row p-4 md:p-6">
               <div className="w-full md:max-w-[57%] md:flex-1 rounded-l-[12px] overflow-hidden shrink-0">
                 <img
-                  src="/assets/images/presaleCommonSouth/FoundingMemberSavingsImage.webp"
+                  src={assetUrl("/assets/images/presaleCommonSouth/FoundingMemberSavingsImage.webp")}
                   alt="Gym members at Evolve Strength"
                   className="w-full h-full min-h-[240px] md:min-h-[300px]"
                 />
@@ -306,7 +307,7 @@ function FoundingMemberSavings() {
             <div className="bg-[rgba(255,255,255,0.12)] backdrop-blur-[15px] rounded-[12px] w-full overflow-hidden flex flex-col md:flex-row p-4 md:p-6">
               <div className="w-full md:max-w-[57%] md:flex-1 rounded-l-[12px] overflow-hidden shrink-0">
                 <img
-                  src="/assets/images/presaleCommonSouth/FoundingMemberSavingsImage.webp"
+                  src={assetUrl("/assets/images/presaleCommonSouth/FoundingMemberSavingsImage.webp")}
                   alt="Gym members at Evolve Strength"
                   className="w-full h-full min-h-[240px] md:min-h-[300px]"
                 />

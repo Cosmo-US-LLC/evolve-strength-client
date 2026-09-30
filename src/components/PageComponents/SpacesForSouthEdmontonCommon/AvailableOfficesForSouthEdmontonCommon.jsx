@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react";
+import { assetUrl } from "@/lib/assetUrl";
 
 const OFFICES = [
   {
     title: "Premium Office Suite",
     location: "South Edmonton Common",
-    image: "/assets/images/spaces/AvailableOffices/south_edmonton_common.webp",
+    image: assetUrl("/assets/images/spaces/AvailableOffices/south_edmonton_common.webp"),
     size: "120-140 sq/ft",
     roomStatus: "Unfurnished | without a sink",
   },

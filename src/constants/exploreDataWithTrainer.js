@@ -6,11 +6,12 @@ import {
   getTrainersByLocation,
   getAvailableLocations,
 } from "./trainerData.js";
+import { assetUrl } from "@/lib/assetUrl";
 
 // category images
-import exploreLocations from "../assets/images/explore/discoverTWS/locations.webp";
-import exploreWellness from "../assets/images/explore/discoverTWS/wellness.webp";
-import exploreTrainers from "../assets/images/explore/discoverTWS/trainers.webp";
+const exploreLocations = assetUrl("/assets/images/explore/discoverTWS/locations.webp");
+const exploreWellness = assetUrl("/assets/images/explore/discoverTWS/wellness.webp");
+const exploreTrainers = assetUrl("/assets/images/explore/discoverTWS/trainers.webp");
 
 // icons
 import AllIcon from "@/assets/images/explore/locations/all-icon.svg";
@@ -26,14 +27,14 @@ import MentalHealthIcon from "@/assets/images/explore/locations/mental-health.sv
 // Using AllIcon for Personal Trainer since no specific icon exists
 const PersonalTrainerIcon = AllIcon;
 
-import southHero from "../assets/images/Locations/location-hero/south.webp";
-import northHero from "../assets/images/Locations/location-hero/north.webp";
-import royalOakHero from "../assets/images/Locations/location-hero/royal-oak.webp";
-import downtownHero from "../assets/images/Locations/location-hero/downtown.webp";
+const southHero = assetUrl("/assets/images/Locations/location-hero/south.webp");
+const northHero = assetUrl("/assets/images/Locations/location-hero/north.webp");
+const royalOakHero = assetUrl("/assets/images/Locations/location-hero/royal-oak.webp");
+const downtownHero = assetUrl("/assets/images/Locations/location-hero/downtown.webp");
 // import sunridgeHero from "../assets/images/Locations/location-hero/sunridge.webp";
-import brentwoodHero from "../assets/images/Locations/location-hero/brentwood.webp";
-import postHero from "../assets/images/Locations/location-hero/post.webp";
-import setonHero from "../assets/images/Locations/location-hero/seton.webp";
+const brentwoodHero = assetUrl("/assets/images/Locations/location-hero/brentwood.webp");
+const postHero = assetUrl("/assets/images/Locations/location-hero/post.webp");
+const setonHero = assetUrl("/assets/images/Locations/location-hero/seton.webp");
 
 // Helper function to get trainer IDs for a location
 const getTrainerIdsForLocation = (locationName) => {

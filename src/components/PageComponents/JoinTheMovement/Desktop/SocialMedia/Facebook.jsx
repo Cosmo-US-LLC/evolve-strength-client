@@ -1,4 +1,5 @@
 import React from 'react'
+import { assetUrl } from "@/lib/assetUrl";
 
 function Facebook() {
   return (
@@ -10,7 +11,7 @@ function Facebook() {
         </p>
 
         <div className="rounded-full">
-          <img src="/assets/images/JoinTheMovement/SocialMedia/facebook/facebook_logo.svg" alt="Facebook logo" />
+          <img src={assetUrl("/assets/images/JoinTheMovement/SocialMedia/facebook/facebook_logo.svg")} alt="Facebook logo" />
         </div>
       </div>
 

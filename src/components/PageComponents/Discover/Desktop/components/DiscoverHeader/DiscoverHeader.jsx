@@ -1,4 +1,5 @@
 import React from "react";
+import { assetUrl } from "@/lib/assetUrl";
 
 const DiscoverHeader = ({ step, STEP, handleBack, locationConfig, onHomeClick }) => {
   if (step === STEP.HERO) return null;
@@ -37,7 +38,7 @@ const DiscoverHeader = ({ step, STEP, handleBack, locationConfig, onHomeClick })
           <span className="">
             <img
               className="min-h-[50px]"
-              src="/images/logo.svg"
+              src={assetUrl("/assets/logo.svg")}
               alt="Discover at"
             />
           </span>

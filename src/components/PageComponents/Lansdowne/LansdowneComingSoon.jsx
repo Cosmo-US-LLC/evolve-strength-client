@@ -1,104 +1,105 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { assetUrl } from "@/lib/assetUrl";
 
 const bgSlides = [
  {
-    desktop: "/assets/images/home/facility/north6.webp",
-    mobile: "/assets/images/home/facility/north6Mob.webp",
+    desktop: assetUrl("/assets/images/home/facility/north6.webp"),
+    mobile: assetUrl("/assets/images/home/facility/north6Mob.webp"),
     alt: "Evolve Strength North training area",
   },
   {
-    desktop: "/assets/images/franchise/Evolvelooklike/image_3.webp",
-    mobile: "/assets/images/franchise/Evolvelooklike/image_3.webp",
+    desktop: assetUrl("/assets/images/franchise/Evolvelooklike/image_3.webp"),
+    mobile: assetUrl("/assets/images/franchise/Evolvelooklike/image_3.webp"),
     alt: "Evolve Strength turf and running track",
   },
   {
-    desktop: "/assets/images/franchise/Evolvelooklike/image_5.webp",
-    mobile: "/assets/images/franchise/Evolvelooklike/image_5.webp",
+    desktop: assetUrl("/assets/images/franchise/Evolvelooklike/image_5.webp"),
+    mobile: assetUrl("/assets/images/franchise/Evolvelooklike/image_5.webp"),
     alt: "Evolve Strength wellness clinic hallway",
   },
    {
-    desktop: "/assets/images/home/facility/north4.webp",
-    mobile: "/assets/images/home/facility/north4Mob.webp",
+    desktop: assetUrl("/assets/images/home/facility/north4.webp"),
+    mobile: assetUrl("/assets/images/home/facility/north4Mob.webp"),
     alt: "Evolve Strength North equipment floor and turf",
   },
    {
-    desktop: "/assets/images/home/facility/post7.webp",
-    mobile: "/assets/images/home/facility/post7Mob.webp",
+    desktop: assetUrl("/assets/images/home/facility/post7.webp"),
+    mobile: assetUrl("/assets/images/home/facility/post7Mob.webp"),
     alt: "Evolve Strength Post equipment floor and turf",
   },
   {
-    desktop: "/assets/images/franchise/Evolvelooklike/image_6.webp",
-    mobile: "/assets/images/franchise/Evolvelooklike/image_6.webp",
+    desktop: assetUrl("/assets/images/franchise/Evolvelooklike/image_6.webp"),
+    mobile: assetUrl("/assets/images/franchise/Evolvelooklike/image_6.webp"),
     alt: "Evolve Strength turf training area",
   },
  
    
    
   {
-    desktop: "/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp",
-    mobile: "/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide8.webp",
+    desktop: assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/slide8.webp"),
+    mobile: assetUrl("/assets/images/corporateMembership/OneMembershipFullAccess/mobSlide8.webp"),
     alt: "Evolve Strength lifting platforms",
   },
  
   {
-    desktop: "/assets/images/franchise/Evolvelooklike/image_1.webp",
-    mobile: "/assets/images/franchise/Evolvelooklike/image_1.webp",
+    desktop: assetUrl("/assets/images/franchise/Evolvelooklike/image_1.webp"),
+    mobile: assetUrl("/assets/images/franchise/Evolvelooklike/image_1.webp"),
     alt: "Evolve Strength dumbbell and rack floor",
   },
   {
-    desktop: "/assets/images/franchise/Evolvelooklike/image_2.webp",
-    mobile: "/assets/images/franchise/Evolvelooklike/image_2.webp",
+    desktop: assetUrl("/assets/images/franchise/Evolvelooklike/image_2.webp"),
+    mobile: assetUrl("/assets/images/franchise/Evolvelooklike/image_2.webp"),
     alt: "Evolve Strength Olympic lifting platforms",
   },
  
  
   
   {
-    desktop: "/assets/images/home/facility/post9.webp",
-    mobile: "/assets/images/home/facility/post9Mob.webp",
+    desktop: assetUrl("/assets/images/home/facility/post9.webp"),
+    mobile: assetUrl("/assets/images/home/facility/post9Mob.webp"),
     alt: "Evolve Strength Post cardio and rowing equipment",
   },
   
   {
-    desktop: "/assets/images/home/facility/brentwood7.webp",
-    mobile: "/assets/images/home/facility/brentwood7Mob.webp",
+    desktop: assetUrl("/assets/images/home/facility/brentwood7.webp"),
+    mobile: assetUrl("/assets/images/home/facility/brentwood7Mob.webp"),
     alt: "Evolve Strength Brentwood kettlebell rack",
   },
   {
-    desktop: "/assets/images/home/facility/brentwood10.webp",
-    mobile: "/assets/images/home/facility/brentwood10Mob.webp",
+    desktop: assetUrl("/assets/images/home/facility/brentwood10.webp"),
+    mobile: assetUrl("/assets/images/home/facility/brentwood10Mob.webp"),
     alt: "Evolve Strength Brentwood equipment floor",
   },
   {
-    desktop: "/assets/images/home/facility/royal_oak_6.webp",
-    mobile: "/assets/images/home/facility/royal_oak_6Mob.webp",
+    desktop: assetUrl("/assets/images/home/facility/royal_oak_6.webp"),
+    mobile: assetUrl("/assets/images/home/facility/royal_oak_6Mob.webp"),
     alt: "Evolve Strength Royal Oak equipment floor",
   },
   {
-    desktop: "/assets/images/home/facility/downtown_7.webp",
-    mobile: "/assets/images/home/facility/downtown_7Mob.webp",
+    desktop: assetUrl("/assets/images/home/facility/downtown_7.webp"),
+    mobile: assetUrl("/assets/images/home/facility/downtown_7Mob.webp"),
     alt: "Evolve Strength Downtown group training area",
   },
   {
-    desktop: "/assets/images/home/facility/downtown_3.webp",
-    mobile: "/assets/images/home/facility/downtown_3Mob.webp",
+    desktop: assetUrl("/assets/images/home/facility/downtown_3.webp"),
+    mobile: assetUrl("/assets/images/home/facility/downtown_3Mob.webp"),
     alt: "Evolve Strength Downtown cardio floor",
   },
   {
-    desktop: "/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp",
-    mobile: "/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp",
+    desktop: assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/yoga.webp"),
+    mobile: assetUrl("/assets/images/PersonalTraning/PersonalGymExperience/yogaMob.webp"),
     alt: "Evolve Strength mobility and yoga area",
   },
  
   {
-    desktop: "/assets/images/home/facility/seton6.webp",
-    mobile: "/assets/images/home/facility/seton6Mob.webp",
+    desktop: assetUrl("/assets/images/home/facility/seton6.webp"),
+    mobile: assetUrl("/assets/images/home/facility/seton6Mob.webp"),
     alt: "Evolve Strength Seton equipment floor",
   },
      {
-    desktop: "/assets/images/franchise/GotYourBack/franchise_business_process.webp",
-    mobile: "/assets/images/franchise/GotYourBack/gotYourBackBusinessMob.webp",
+    desktop: assetUrl("/assets/images/franchise/GotYourBack/franchise_business_process.webp"),
+    mobile: assetUrl("/assets/images/franchise/GotYourBack/gotYourBackBusinessMob.webp"),
     alt: "Evolve Strength athlete training with a barbell",
   },
 ];

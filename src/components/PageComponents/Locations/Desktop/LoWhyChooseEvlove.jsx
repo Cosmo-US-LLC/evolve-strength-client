@@ -4,41 +4,42 @@ import Autoplay from "embla-carousel-autoplay";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { pushEvent } from "@/lib/analytics";
+import { assetUrl } from "@/lib/assetUrl";
 const professionals = [
   {
     title: "Top Personal Trainers",
     image:
-      "/assets/images/Locations/WhyChooseEvolve/personal_trainer.webp",
+      assetUrl("/assets/images/Locations/WhyChooseEvolve/personal_trainer.webp"),
     dec: "Train with certified personal trainers ranked in the top 1% locally. Programs are tailored to your goals, pace, and ability.",
   },
   {
     title: "Top of the Line Equipment",
     image:
-      "/assets/images/Locations/WhyChooseEvolve/Equipments.webp",
+      assetUrl("/assets/images/Locations/WhyChooseEvolve/Equipments.webp"),
     dec: "Each gym is fully stocked with high-end machines, free weights, and tools built for strength, cardio, and recovery.",
   },
   {
     title: "Health and Wellness",
     image:
-      "/assets/images/Locations/WhyChooseEvolve/Health.webp",
+      assetUrl("/assets/images/Locations/WhyChooseEvolve/Health.webp"),
     dec: "Access licensed physiotherapists, massage therapists, nutritionists, and other wellness professionals all in one place.",
   },
   {
     title: "Top Personal Trainers",
     image:
-      "/assets/images/Locations/WhyChooseEvolve/personal_trainer.webp",
+      assetUrl("/assets/images/Locations/WhyChooseEvolve/personal_trainer.webp"),
     dec: "Train with certified personal trainers ranked in the top 1% locally. Programs are tailored to your goals, pace, and ability.",
   },
   {
     title: "Top of the Line Equipment",
     image:
-      "/assets/images/Locations/WhyChooseEvolve/Equipments.webp",
+      assetUrl("/assets/images/Locations/WhyChooseEvolve/Equipments.webp"),
     dec: "Each gym is fully stocked with high-end machines, free weights, and tools built for strength, cardio, and recovery.",
   },
   {
     title: "Health and Wellness",
     image:
-      "/assets/images/Locations/WhyChooseEvolve/Health.webp",
+      assetUrl("/assets/images/Locations/WhyChooseEvolve/Health.webp"),
     dec: "Access licensed physiotherapists, massage therapists, nutritionists, and other wellness professionals all in one place.",
   },
 ];

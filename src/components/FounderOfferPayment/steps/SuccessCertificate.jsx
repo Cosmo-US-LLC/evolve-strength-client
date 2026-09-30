@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 import { Download } from "lucide-react";
 
 import evolveLogoLight from "@/assets/images/home/navbar/Evolve-logo-light.svg";
-import founderBadge from "@/assets/images/PresaleParkRoyal/founder_badge.png";
+const founderBadge = assetUrl("/assets/images/PresaleParkRoyal/founder_badge.webp");
 
 function SuccessCertificate({ primaryMember, onBack, locationName, submittedAt }) {
   const [isDownloading, setIsDownloading] = useState(false);

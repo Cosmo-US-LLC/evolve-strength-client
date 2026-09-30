@@ -1,36 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { XCircle } from "lucide-react";
+import { assetUrl } from "@/lib/assetUrl";
 
 const amenities = [
   {
     title: "On-Site Parking",
     image:
-      "/assets/images/spaces/PremiumAmenities/onSite_parking.webp",
+      assetUrl("/assets/images/spaces/PremiumAmenities/onSite_parking.webp"),
   },
   {
     title: "Locker Rooms",
     image:
-      "/assets/images/spaces/PremiumAmenities/locker_rooms.webp",
+      assetUrl("/assets/images/spaces/PremiumAmenities/locker_rooms.webp"),
   },
   {
     title: "Showers",
     image:
-      "/assets/images/spaces/PremiumAmenities/showers_room.webp",
+      assetUrl("/assets/images/spaces/PremiumAmenities/showers_room.webp"),
   },
   {
     title: "Steam Rooms and Saunas",
     image:
-      "/assets/images/spaces/PremiumAmenities/steam_area.webp",
+      assetUrl("/assets/images/spaces/PremiumAmenities/steam_area.webp"),
   },
   {
     title: "Premium Waiting Area",
     image:
-      "/assets/images/spaces/PremiumAmenities/waiting_area.webp",
+      assetUrl("/assets/images/spaces/PremiumAmenities/waiting_area.webp"),
   },
   {
     title: "Full Commercial Gym Access",
     image:
-      "/assets/images/spaces/PremiumAmenities/gym_area.webp",
+      assetUrl("/assets/images/spaces/PremiumAmenities/gym_area.webp"),
   },
 ];
 

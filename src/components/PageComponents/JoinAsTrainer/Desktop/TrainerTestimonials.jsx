@@ -8,13 +8,14 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { assetUrl } from "@/lib/assetUrl";
 
 const testimonials = [
   {
     name: "Spencer Snashall",
     role: "Personal Trainer",
     avatar:
-      "/media/1762935143395-41d3fb7f-7e0c-4edd-8031-4beedb7b8cc8.png",
+      assetUrl("/media/1762935143395-41d3fb7f-7e0c-4edd-8031-4beedb7b8cc8.png"),
     rating: 5,
     text: "Operating Form Fitness out of Evolve Strength @ The Post has been a great experience. The space is modern, spacious, and fully equipped, making it easy to deliver high-quality sessions. I value being able to run my business independently while sharing the gym with a community of passionate trainers and business owners who are equally committed to their craft.",
   },
@@ -22,7 +23,7 @@ const testimonials = [
     name: "Linda Lewis",
     role: "Personal Trainer",
     avatar:
-      "/media/1762427331398-cef60fb0-7c19-4ab3-86fb-cd86fa569eb1.png",
+      assetUrl("/media/1762427331398-cef60fb0-7c19-4ab3-86fb-cd86fa569eb1.png"),
     rating: 5,
     text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
   },
@@ -30,7 +31,7 @@ const testimonials = [
     name: "Linda Lewis",
     role: "Personal Trainer",
     avatar:
-      "/media/1762427341507-b5511ecf-2d21-402f-a29d-10be486bcf12.png",
+      assetUrl("/media/1762427341507-b5511ecf-2d21-402f-a29d-10be486bcf12.png"),
     rating: 5,
     text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
   },
@@ -38,7 +39,7 @@ const testimonials = [
     name: "Linda Lewis",
     role: "Personal Trainer",
     avatar:
-      "/media/1762427331398-cef60fb0-7c19-4ab3-86fb-cd86fa569eb1.png",
+      assetUrl("/media/1762427331398-cef60fb0-7c19-4ab3-86fb-cd86fa569eb1.png"),
     rating: 5,
     text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
   },

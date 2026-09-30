@@ -1,19 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
 import { WELLNESS_SERVICES_DISCOVER } from "@/services/trainerApi";
 import { X } from "lucide-react";
+import { assetUrl } from "@/lib/assetUrl";
 
 const SERVICE_ICONS = {
-  "wellness-acupuncture": "/assets/images/Discover/wellnessC (11).svg",
-  "wellness-chiropractic-care": "/assets/images/Discover/wellnessC (8).svg",
-  "wellness-dietitian-services": "/assets/images/Discover/wellnessC (6).svg",
-  "wellness-esthetician": "/assets/images/Discover/wellnessC (5).svg",
-  "wellness-laser-therapy": "/assets/images/Discover/wellnessC (4).svg",
-  "wellness-massage-therapy": "/assets/images/Discover/wellnessC (3).svg",
-  "wellness-mental-health": "/assets/images/Discover/wellnessC (2).svg",
-  "wellness-osteopathy": "/assets/images/Discover/wellnessC (10).svg",
-  "wellness-physiotherapy": "/assets/images/Discover/wellnessC (1).svg",
-  "wellness-pilates": "/assets/images/Discover/wellnessC (9).svg",
-  "default": "/assets/images/Discover/wellnessC (2).svg",
+  "wellness-acupuncture": assetUrl("/assets/images/Discover/wellnessC (11).svg"),
+  "wellness-chiropractic-care": assetUrl("/assets/images/Discover/wellnessC (8).svg"),
+  "wellness-dietitian-services": assetUrl("/assets/images/Discover/wellnessC (6).svg"),
+  "wellness-esthetician": assetUrl("/assets/images/Discover/wellnessC (5).svg"),
+  "wellness-laser-therapy": assetUrl("/assets/images/Discover/wellnessC (4).svg"),
+  "wellness-massage-therapy": assetUrl("/assets/images/Discover/wellnessC (3).svg"),
+  "wellness-mental-health": assetUrl("/assets/images/Discover/wellnessC (2).svg"),
+  "wellness-osteopathy": assetUrl("/assets/images/Discover/wellnessC (10).svg"),
+  "wellness-physiotherapy": assetUrl("/assets/images/Discover/wellnessC (1).svg"),
+  "wellness-pilates": assetUrl("/assets/images/Discover/wellnessC (9).svg"),
+  "default": assetUrl("/assets/images/Discover/wellnessC (2).svg"),
 };
 
 const ServiceFilters = ({ selectedServiceIds, onServiceFilterSelect, onResetFilters, showSidebar = true, showChips = false }) => {
