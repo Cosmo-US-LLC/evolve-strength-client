@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { pushEvent } from "@/lib/analytics";
 import {
   Select,
   SelectContent,
@@ -439,6 +440,14 @@ const YourDetails = () => {
 
   const addressRef = useRef(null);
   const postalCodeRef = useRef(null);
+  const formStartPushed = useRef(false);
+
+  // Fires once per page load, on the first interaction with any field.
+  const handleFormStart = () => {
+    if (formStartPushed.current) return;
+    formStartPushed.current = true;
+    pushEvent("join_now_form_start", { location, plan: currentPlan });
+  };
 
   const cleanString = (str = "") =>
     str.replaceAll("é", "e").replace(/[^A-Za-z0-9 /#]/g, "");
@@ -767,6 +776,8 @@ const YourDetails = () => {
             <form
               className="max-lg:space-y-4 lg:col-span-3 grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8"
               onSubmit={form.handleSubmit(onSubmit)}
+              onFocus={handleFormStart}
+              onChange={handleFormStart}
             >
               <div className="max-lg:px-4 lg:col-span-2">
                 <EditMembershipBox className="lg:hidden" />
