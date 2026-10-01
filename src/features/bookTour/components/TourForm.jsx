@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { loadGoogleMaps } from "../utils/loadGoogleMaps";
 import { getCookie } from "../utils/cookieUtils";
 import { getUserIP } from "../utils/ipDetection";
+import { pushEvent } from "@/lib/analytics";
 import { format, parse, subYears } from "date-fns";
 import { Calendar as CalendarIcon, Clock } from "lucide-react";
 import {
@@ -288,6 +289,19 @@ function FormCard({ onSuccess, location = false }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const addressRef = useRef(null);
   const postalRef = useRef(null);
+  const formStartPushed = useRef(false);
+
+  // Fires once per page load, on the first interaction with any field.
+  const handleFormStart = () => {
+    if (formStartPushed.current) return;
+    formStartPushed.current = true;
+    const location_name = formData.gymName;
+    pushEvent("book_tour_form_start", {
+      location:
+        CANONICAL_LOCATION_NAME_OVERRIDES[location_name] ?? location_name,
+      location_name,
+    });
+  };
 
   useEffect(() => {
     let addressAutocomplete;
@@ -766,6 +780,8 @@ function FormCard({ onSuccess, location = false }) {
 
         <form
           onSubmit={handleSubmit}
+          onFocus={handleFormStart}
+          onChange={handleFormStart}
           className="space-y-4 lg:space-y-6 px-4 lg:px-6 py-4 lg:py-6"
           aria-busy={isSubmitting}
         >
