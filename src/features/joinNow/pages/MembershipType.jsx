@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import EditMembershipBox from "../components/EditMembershipBox";
 import { LoaderCircle } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { pushEvent } from "@/lib/analytics";
 
 const MembershipType = () => {
   const navigate = useNavigate();
@@ -38,6 +39,11 @@ const MembershipType = () => {
 
   useEffect(() => {
     fetchClubPlans(locationPostal, setPlansIds, setPlansDetails);
+  }, []);
+
+  // Step view for GTM: once per mount, location always present in the URL.
+  useEffect(() => {
+    pushEvent("join_now_membership_view", { location });
   }, []);
   useEffect(() => {
     if (plansDetails.length > 0) {
