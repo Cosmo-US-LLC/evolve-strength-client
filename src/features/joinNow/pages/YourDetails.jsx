@@ -442,6 +442,11 @@ const YourDetails = () => {
   const postalCodeRef = useRef(null);
   const formStartPushed = useRef(false);
 
+  // Step view for GTM: once per mount.
+  useEffect(() => {
+    pushEvent("join_now_details_view", { location, plan: currentPlan });
+  }, []);
+
   // Fires once per page load, on the first interaction with any field.
   const handleFormStart = () => {
     if (formStartPushed.current) return;
