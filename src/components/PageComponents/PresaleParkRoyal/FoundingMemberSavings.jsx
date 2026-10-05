@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { assetUrl } from "@/lib/assetUrl";
 import { Link } from "react-router-dom";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-const icon1 = assetUrl("/assets/images/PresaleParkRoyal/disclaimer_icon_lock.webp");
 const icon2 = assetUrl("/assets/images/PresaleParkRoyal/disclaimer_icon_no_maintenance.webp");
 const icon3 = assetUrl("/assets/images/PresaleParkRoyal/disclaimer_icon_no_initiation.webp");
 const icon4 = assetUrl("/assets/images/PresaleParkRoyal/disclaimer_icon_no_payment.webp");
@@ -34,19 +33,10 @@ function MembershipCardContent({
   price,
   priceSuffix,
   priceBiWeeklyCopy,
-  disclaimers1,
-  disclaimers2,
-  disclaimers3,
-  disclaimers4,
-  disclaimers5,
+  disclaimers,
   rateLockLabel,
   rateLockValue,
   rateLockNote,
-  disclaimers1Icon,
-  disclaimers2Icon,
-  disclaimers3Icon,
-  disclaimers4Icon,
-  disclaimers5Icon,
   link
 }) {
   return (
@@ -64,62 +54,20 @@ function MembershipCardContent({
           {priceBiWeeklyCopy}
         </span>
       </p>
-      <div className="flex flex-col gap-3 md:gap-3 px-1 md:px-0  w-full">
-        <div className="flex items-center gap-2 w-full">
-          <img
-            src={disclaimers1Icon}
-            alt=""
-            className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
-            aria-hidden
-          />
-          <p className="text-[14px] leading-[16px] font-[500] font-[Kanit] text-white">
-            {disclaimers1}
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
-          <img
-            src={disclaimers2Icon}
-            alt=""
-            className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
-            aria-hidden
-          />
-          <p className="text-[14px] leading-[16px] font-[500] font-[Kanit] text-white">
-            {disclaimers2}
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
-          <img
-            src={disclaimers3Icon}
-            alt=""
-            className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
-            aria-hidden
-          />
-          <p className="text-[14px] leading-[16px] font-[500] font-[Kanit] text-white">
-            {disclaimers3}
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
-          <img
-            src={disclaimers4Icon}
-            alt=""
-            className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
-            aria-hidden
-          />
-          <p className="text-[14px] leading-[16px] font-[500] font-[Kanit] text-white">
-            {disclaimers4}
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
-          <img
-            src={disclaimers5Icon}
-            alt=""
-            className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
-            aria-hidden
-          />
-          <p className="text-[14px] leading-[16px] font-[500] font-[Kanit] text-white">
-            {disclaimers5}
-          </p>
-        </div>
+      <div className="flex flex-col gap-3 md:gap-3 px-1 md:px-0 w-full">
+        {disclaimers.map(({ text, icon }) => (
+          <div key={text} className="flex items-center gap-2 w-full">
+            <img
+              src={icon}
+              alt=""
+              className="w-5 h-5 md:w-5 md:h-5 shrink-0 object-contain"
+              aria-hidden
+            />
+            <p className="text-[14px] leading-[16px] font-[500] font-[Kanit] text-white">
+              {text}
+            </p>
+          </div>
+        ))}
       </div>
       <div className="h-px w-full bg-white/30 my-3" aria-hidden />
       {/* Line 1: "Rate Locked For" - medium, normal weight */}
@@ -287,16 +235,12 @@ function FoundingMemberSavings() {
                   price={`${plansData?.yearlyPlan?.schedules ? `${plansData?.yearlyPlan?.schedules[0]?.schedulePreTaxAmount}` : "--.--"}`}
                   priceSuffix="+GST"
                   priceBiWeeklyCopy="/biweekly"
-                  disclaimers1="Rate locked for life"
-                  disclaimers1Icon={icon1}
-                  disclaimers2="No Maintenance Fee"
-                  disclaimers2Icon={icon2}
-                  disclaimers3="No Initiation Fee"
-                  disclaimers3Icon={icon3}
-                  disclaimers4="Pay $0 Until Opening Day"
-                  disclaimers4Icon={icon4}
-                  disclaimers5="Early access before we officially open"
-                  disclaimers5Icon={icon5}
+                  disclaimers={[
+                    { text: "No Maintenance Fee", icon: icon2 },
+                    { text: "No Initiation Fee", icon: icon3 },
+                    { text: "Train Risk-Free for 10 Days", icon: icon5 },
+                    { text: "$0 Payment Until Opening Day", icon: icon4 },
+                  ]}
                   rateLockLabel="Rate Locked For"
                   rateLockValue="Lifetime"
                   rateLockNote="(T&C Apply)"
@@ -340,16 +284,12 @@ function FoundingMemberSavings() {
                   price={`${plansData?.monthlyPlan?.schedules ? `${plansData?.monthlyPlan?.schedules[0]?.schedulePreTaxAmount}` : "--.--"}`}
                   priceSuffix="+GST"
                   priceBiWeeklyCopy="/biweekly"
-                  disclaimers1="Rate locked for life"
-                  disclaimers1Icon={icon1}
-                  disclaimers2="No Maintenance Fee"
-                  disclaimers2Icon={icon2}
-                  disclaimers3="No Initiation Fee"
-                  disclaimers3Icon={icon3}
-                  disclaimers4="Pay $0 Until Opening Day"
-                  disclaimers4Icon={icon4}
-                  disclaimers5="Early access before we officially open"
-                  disclaimers5Icon={icon5}
+                  disclaimers={[
+                    { text: "No Maintenance Fee", icon: icon2 },
+                    { text: "No Initiation Fee", icon: icon3 },
+                    { text: "Train Risk-Free for 10 Days", icon: icon5 },
+                    { text: "$0 Payment Until Opening Day", icon: icon4 },
+                  ]}
                   rateLockLabel="Rate Locked For"
                   rateLockValue="Lifetime"
                   rateLockNote="(T&C Apply)"
