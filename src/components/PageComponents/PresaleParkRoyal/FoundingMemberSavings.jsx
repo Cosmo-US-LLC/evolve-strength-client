@@ -238,7 +238,7 @@ function FoundingMemberSavings() {
                   disclaimers={[
                     { text: "No Maintenance Fee", icon: icon2 },
                     { text: "No Initiation Fee", icon: icon3 },
-                    { text: "Train Risk-Free for 10 Days", icon: icon5 },
+                    { text: "10-day Refund Guarantee", icon: icon5 },
                     { text: "$0 Payment Until Opening Day", icon: icon4 },
                   ]}
                   rateLockLabel="Rate Locked For"
@@ -287,7 +287,7 @@ function FoundingMemberSavings() {
                   disclaimers={[
                     { text: "No Maintenance Fee", icon: icon2 },
                     { text: "No Initiation Fee", icon: icon3 },
-                    { text: "Train Risk-Free for 10 Days", icon: icon5 },
+                    { text: "10-day Refund Guarantee", icon: icon5 },
                     { text: "$0 Payment Until Opening Day", icon: icon4 },
                   ]}
                   rateLockLabel="Rate Locked For"
