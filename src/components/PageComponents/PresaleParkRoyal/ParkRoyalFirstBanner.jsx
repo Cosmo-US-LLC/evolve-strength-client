@@ -26,6 +26,9 @@ function ParkRoyalFirstBanner() {
         <p className="mt-2 !text-[16px] md:!text-[18px] font-[300] font-[Kanit] !leading-[22px] md:!leading-[27px] text-white">
           Evolve Strength, Park Royal
         </p>
+        <p className="mt-1 !text-[16px] md:!text-[18px] font-[300] font-[Kanit] !leading-[22px] md:!leading-[27px] text-white">
+          815 Park Royal N West Vancouver, BC V7T 1H9
+        </p>
       </div>
     </section>
   );
