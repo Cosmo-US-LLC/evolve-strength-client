@@ -7,25 +7,18 @@ const founderBadge = assetUrl("/assets/images/PresaleParkRoyal/founder_badge.web
 const steps = [
   {
     icon: noUpfront,
-    title: "Reserve Your Rate",
-    description: "Reserve now, pay later. Ten-day refund guarantee.",
+    title: "No Upfront Payments",
+    description: "Reserve now, pay later, 10-day refund guarantee.",
   },
   {
     icon: assetUrl("/assets/images/presaleCommonSouth/icon2.svg"),
     title: "Get Certificate",
-    description: "Digital proof of your founding status, yours to keep.",
+    description: "Receive your digital Rate Lock Certificate.",
   },
   {
     icon: assetUrl("/assets/images/presaleCommonSouth/icon3.svg"),
     title: "VIP Access",
-    description:
-      "Confirm your spot and get early access to the brand new facility.",
-  },
-  {
-    icon: assetUrl("/assets/images/presaleCommonSouth/icon_4.svg"),
-    title: "Grand Opening",
-    description:
-      "Doors open. Billing begins. Everything else stays the same.",
+    description: "Enjoy exclusive early access before the gym opens.",
   },
 ];
 
@@ -61,8 +54,8 @@ function RateLockCertificate() {
             Some Things Are Worth The Wait
           </h2>
           <p className="!text-[15px] md:!text-[18px] leading-[22px] md:leading-[26px] font-[300] font-[Kanit] text-[#000] text-center max-w-[560px]">
-            By locking in during construction, you&apos;re rewarded with our
-            lowest rate possible. Forever.
+            Become a founding member in just 3 simple steps and secure your
+            lifetime benefits.
           </p>
         </div>
 
