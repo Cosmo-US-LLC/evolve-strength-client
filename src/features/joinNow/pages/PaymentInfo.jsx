@@ -22,6 +22,7 @@ import { format } from "date-fns";
 import { ArrowLeft, LoaderCircle } from "lucide-react";
 import PaymentSecureIcons from "../components/PaymentSecure";
 import { Checkbox } from "@/components/ui/checkbox";
+import { pushEvent } from "@/lib/analytics";
 import { AnimatedCircularProgressBar } from "@/components/ui/animated-circular-progress-bar";
 
 const TURNSTILE_SCRIPT_ID = "cf-turnstile-script";
@@ -215,6 +216,12 @@ const PaymentInfo = () => {
   useEffect(() => {
     setApiError(null);
     fetchClubPlans(locationPostal, setPlansIds, setPlansDetails);
+  }, []);
+
+  // Step view for GTM: once per mount.
+  useEffect(() => {
+    pushEvent("join_now_payment_view", { location, plan: currentPlan });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
