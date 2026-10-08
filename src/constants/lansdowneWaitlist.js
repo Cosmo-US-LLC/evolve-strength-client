@@ -23,12 +23,6 @@ export const LANSDOWNE = {
 
 // TODO: placeholders reused from Park Royal until real Lansdowne photography exists.
 export const LANSDOWNE_IMAGES = {
-  hero: {
-    desktop:
-      "https://assets.evolvestrength.ca/media/1784191958310-801be316-2715-4165-bf74-5c0a222e5833.webp",
-    mobile:
-      "https://assets.evolvestrength.ca/media/1784284481158-42228d3e-55ea-4326-8dd1-de9493b2c409.webp",
-  },
   facilityTall:
     "https://assets.evolvestrength.ca/media/1784188141013-f269da9b-8f20-4d5b-83c3-cf95f3b90545.webp",
   facilityFloor:
