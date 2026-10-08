@@ -24,7 +24,7 @@ function TrainerForm() {
     },
     {
       cityName: "Lansdowne",
-      location: "Lansdowne Centre, Richmond, BC",
+      location: "Unit 314, 5300 No 3 Rd, Richmond, BC, V6X 2X9",
     },
     {
       cityName: "South Edmonton Common",

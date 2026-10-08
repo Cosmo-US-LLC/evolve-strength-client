@@ -3,7 +3,7 @@
 export const LANSDOWNE = {
   name: "Lansdowne",
   openingYear: 2027, // not shown on the page since design v2
-  locationLine: "Inside Lansdowne Centre, Richmond BC",
+  locationLine: "Unit 314, 5300 No 3 Rd, Richmond, BC, V6X 2X9",
   disciplines: [
     "Bodybuilding",
     "Powerlifting",
