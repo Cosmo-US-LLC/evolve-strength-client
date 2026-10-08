@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import "./assets/styles/styles.css";
 import ScrollToTop from "./components/ScrollToTop";
@@ -50,7 +50,7 @@ import Gym from "./pages/Gym";
 import Discover from "./pages/Discover";
 import PresaleEdmontonSouthCommon from "./pages/PresalePage/PresaleEdmontonSouthCommon";
 import PresaleParkRoyal from "./pages/PresalePage/PresaleParkRoyal";
-import LansdowneComingSoon from "./pages/PresalePage/LansdowneComingSoon";
+import LansdowneWaitlist from "./pages/LansdowneWaitlist";
 import FounderOfferPayment from "./pages/FounderOfferPayment";
 import EdmontonSouthTermsAndConditions from "./pages/PresalePage/EdmontonSouthTermsAndConditions";
 import ParkRoyalTermsAndConditions from "./pages/PresalePage/ParkRoyalTermsAndConditions";
@@ -157,12 +157,13 @@ function App() {
             element={<SouthEdmontonCommonRules />}
           />
           <Route path="/park-royal-waitlist" element={<ParkRoyalWaitlist />} />
+          <Route path="/lansdowne-presale" element={<LansdowneWaitlist />} />
         </Route>
 
         {/* Location-based Discover flow */}
         <Route path="/discover" element={<Discover />} />
 
-        <Route path="/go/lansdowne" element={<LansdowneComingSoon />} />
+        <Route path="/go/lansdowne" element={<Navigate to="/lansdowne-presale" replace />} />
 
         <Route path="/join-the-wait-list" element={<EvolveSpacesForm />} />
         <Route

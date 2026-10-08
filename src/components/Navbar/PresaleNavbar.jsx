@@ -15,6 +15,7 @@ function PresaleNavbar() {
   const isParkRoyalTermsPage =
     location.pathname === "/park-royal-terms-and-conditions";
   const isParkRoyalPresalePage = location.pathname === "/presale-park-royal";
+  const isLansdownePage = location.pathname === "/lansdowne-presale";
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -80,6 +81,16 @@ function PresaleNavbar() {
               Book a Free Tour
             </button>
           </a>
+        )}
+
+        {isLansdownePage && (
+          <button
+            type="button"
+            onClick={() => scrollToSection("#waitlist")}
+            className="uppercase whitespace-nowrap text-white text-[12px] md:text-[14px] font-[600] font-[Kanit] px-4 md:px-6 py-2 md:py-3 rounded-[6px] border border-white bg-black/20 hover:bg-white hover:text-black transition-colors cursor-pointer"
+          >
+            Join Waitlist
+          </button>
         )}
 
         {isParkRoyalPresalePage && (
