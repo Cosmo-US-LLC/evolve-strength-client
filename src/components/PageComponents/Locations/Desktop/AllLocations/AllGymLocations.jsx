@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { assetUrl } from "@/lib/assetUrl";
+import { LANSDOWNE, LANSDOWNE_IMAGES } from "@/constants/lansdowneWaitlist";
 
 function AllGymLocations() {
   const locations = [
@@ -16,6 +17,17 @@ function AllGymLocations() {
       pillText: "Presale is live",
       ctaLabel: "Join the presale",
       overlayLabel: "Join the presale",
+    },
+    {
+      id: 11,
+      name: "Richmond - Lansdowne",
+      image: LANSDOWNE_IMAGES.facilityTall,
+      address: LANSDOWNE.locationLine,
+      locationUrl: "/lansdowne-presale",
+      commonbtn: true,
+      pillText: "Waitlist is open",
+      ctaLabel: "Join the waitlist",
+      overlayLabel: "Join the waitlist",
     },
     {
       id: 9,

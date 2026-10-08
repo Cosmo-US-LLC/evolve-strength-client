@@ -44,6 +44,10 @@ const LOCATIONS = [
     location: "815 Park Royal N West Vancouver, BC V7T 1H9",
   },
   {
+    cityName: "Lansdowne",
+    location: "Lansdowne Centre, Richmond, BC",
+  },
+  {
     cityName: "South Edmonton Common",
     location: "1910 102 STREET NW, EDMONTON, AB T6N 1N3",
   },

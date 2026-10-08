@@ -16,7 +16,7 @@ export const LANSDOWNE = {
   privateOffices: 20,
   anchorSpaces: 2,
   // Where the page's secondary CTAs send people
-  leasingUrl: "/join-the-wait-list",
+  leasingUrl: "/join-the-wait-list?location=Lansdowne",
   trainerUrl: "/join-as-trainer",
   privacyUrl: "/privacy-policy",
 };

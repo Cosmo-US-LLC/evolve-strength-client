@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function NoOfficeAvailable({ selectedLocation }) {
-  const isParkRoyal = selectedLocation === "Park Royal";
+  const isParkRoyal = ["Park Royal", "Lansdowne"].includes(selectedLocation);
 
   return (
     <div className="flex flex-col items-center justify-center h-[400px] bg-[#F5F5F5] rounded-[10px]">
