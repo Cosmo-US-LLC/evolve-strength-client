@@ -76,7 +76,8 @@
     { "source": "/post-contest", "destination": "/locations/vancouver-post", "permanent": true },
     { "source": "/royal-oak", "destination": "/locations/calgary-royal-oak", "permanent": true },
 
-    { "source": "/park-royal-waitlist", "destination": "/presale-park-royal", "permanent": true }
+    { "source": "/park-royal-waitlist", "destination": "/presale-park-royal", "permanent": true },
+    { "source": "/go/lansdowne", "destination": "/lansdowne-presale", "permanent": false }
   ],
   "rewrites": [
     {
