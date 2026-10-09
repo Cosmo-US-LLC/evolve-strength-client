@@ -1,6 +1,7 @@
 import React from "react";
 import { LANSDOWNE } from "@/constants/lansdowneWaitlist";
 import heroImage from "@/assets/images/Lansdowne/lansdowne-hero.webp";
+import heroImageMobile from "@/assets/images/Lansdowne/lansdowne-hero-mobile.webp";
 
 function LansdowneHero() {
   const scrollToWaitlist = () => {
@@ -10,13 +11,16 @@ function LansdowneHero() {
   return (
     <div>
       <div className="relative overflow-hidden w-full h-[700px] md:h-[760px] min-[1440px]:h-[52.78vw] bg-[#000000]">
-        <img
-          src={heroImage}
-          alt="Lansdowne Centre"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
+        <picture>
+          <source media="(max-width: 767px)" srcSet={heroImageMobile} />
+          <img
+            src={heroImage}
+            alt="Lansdowne Centre"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
+        </picture>
 
-        <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/[0.42]" />
+        <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/[0.42] md:bg-transparent md:bg-[linear-gradient(226.58deg,rgba(0,0,0,0.454)_47.561%,rgba(0,0,0,0.64)_77.758%)]" />
 
         <div className="max-w-[1280px] md:px-8 px-5 pb-[48px] md:pb-[96px] mx-auto w-full h-full relative z-2">
           <div className="relative z-2 flex flex-col items-start justify-end h-full text-left">
