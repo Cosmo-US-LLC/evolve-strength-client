@@ -23,6 +23,9 @@ export const LANSDOWNE = {
 
 // TODO: placeholders reused from Park Royal until real Lansdowne photography exists.
 export const LANSDOWNE_IMAGES = {
+  // Hero background (Figma crop with the dark gradient already baked in)
+  hero:
+    "https://assets.evolvestrength.ca/media/1791557591777-a5dfbf25-5832-4b6b-aeb2-f0a1db885b54.webp",
   facilityTall:
     "https://assets.evolvestrength.ca/media/1784188141013-f269da9b-8f20-4d5b-83c3-cf95f3b90545.webp",
   facilityFloor:
