@@ -20,7 +20,8 @@ function LansdowneHero() {
           />
         </picture>
 
-        <div className="absolute top-0 left-0 z-1 w-full h-full bg-black/[0.42] md:bg-transparent md:bg-[linear-gradient(226.58deg,rgba(0,0,0,0.454)_47.561%,rgba(0,0,0,0.64)_77.758%)]" />
+        {/* Desktop image already has the Figma gradient baked in; mobile gets the same gradient via CSS */}
+        <div className="absolute top-0 left-0 z-1 w-full h-full md:hidden bg-[linear-gradient(226.58deg,rgba(0,0,0,0.454)_47.561%,rgba(0,0,0,0.64)_77.758%)]" />
 
         <div className="max-w-[1280px] md:px-8 px-5 pb-[48px] md:pb-[96px] mx-auto w-full h-full relative z-2">
           <div className="relative z-2 flex flex-col items-start justify-end h-full text-left">
