@@ -5,7 +5,7 @@ import { LANSDOWNE } from "@/constants/lansdowneWaitlist";
 // full-bleed photo of two women in a training space (blurred blonde trainer in the
 // foreground, dark-haired trainer with a stopwatch behind). The real Chiropractic Care
 // photo is still needed; reusing the existing trainer photo as a placeholder.
-import servicesPhoto from "@/assets/images/Lansdowne/trainer.jpg";
+import servicesPhoto from "@/assets/images/Lansdowne/trainer.webp";
 
 function LansdowneServicesShowcase() {
   return (

@@ -2,10 +2,10 @@ import React from "react";
 import { assetUrl } from "@/lib/assetUrl";
 import Marquee from "react-fast-marquee";
 
-import lifeFitnessLogo from "@/assets/images/ParkRoyal/EquipmentPartners/life-fitness.svg";
+import lifeFitnessLogo from "@/assets/images/Lansdowne/lansdowne-logo-life-fitness.webp";
 const glutbuilderLogo = assetUrl("/assets/images/ParkRoyal/EquipmentPartners/glutbuilder.webp");
 const hammerStrengthLogo = assetUrl("/assets/images/ParkRoyal/EquipmentPartners/hammer-strength.webp");
-import atlantisLogo from "@/assets/images/ParkRoyal/EquipmentPartners/atlantis.svg";
+import atlantisLogo from "@/assets/images/Lansdowne/lansdowne-logo-atlantis.webp";
 
 const partnerLogos = [
   { src: lifeFitnessLogo, alt: "Life Fitness", box: "w-[250px] h-[55px]", img: "h-[55px] w-auto", mImg: "w-[101px] h-auto" },

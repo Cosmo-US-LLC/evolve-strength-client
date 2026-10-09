@@ -5,9 +5,9 @@ import parkingImg from "@/assets/images/Lansdowne/lansdowne-location-free-parkin
 import parkingImgMobile from "@/assets/images/Lansdowne/lansdowne-location-free-parking-mobile.webp";
 import centreImg from "@/assets/images/Lansdowne/lansdowne-location-lansdowne-centre.webp";
 import centreImgMobile from "@/assets/images/Lansdowne/lansdowne-location-lansdowne-centre-mobile.webp";
-import canadaLineIcon from "@/assets/images/Lansdowne/lansdowne-icon-canada-line.svg";
-import parkingIcon from "@/assets/images/Lansdowne/lansdowne-icon-free-parking.svg";
-import centreIcon from "@/assets/images/Lansdowne/lansdowne-icon-lansdowne-centre.svg";
+import canadaLineIcon from "@/assets/images/Lansdowne/lansdowne-icon-canada-line.webp";
+import parkingIcon from "@/assets/images/Lansdowne/lansdowne-icon-free-parking.webp";
+import centreIcon from "@/assets/images/Lansdowne/lansdowne-icon-lansdowne-centre.webp";
 
 const infoCards = [
   {

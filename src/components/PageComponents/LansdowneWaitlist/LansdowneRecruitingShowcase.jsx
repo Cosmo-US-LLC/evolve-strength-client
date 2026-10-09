@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { LANSDOWNE } from "@/constants/lansdowneWaitlist";
-import trainerPhoto from "@/assets/images/Lansdowne/trainer.jpg";
+import trainerPhoto from "@/assets/images/Lansdowne/trainer.webp";
 
 function LansdowneRecruitingShowcase() {
   return (
