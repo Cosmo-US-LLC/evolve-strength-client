@@ -19,7 +19,10 @@ function LansdowneOfficeSpaceShowcase() {
     LANSDOWNE.privateOffices,
     2000,
   );
-  const { count: anchorCount } = useCounter(LANSDOWNE.anchorSpaces, 2000);
+  // Same animation as the offices counter, so it starts when the section is in view
+  const anchorCount = Math.floor(
+    (officeCount / LANSDOWNE.privateOffices) * LANSDOWNE.anchorSpaces,
+  );
 
   return (
     <div

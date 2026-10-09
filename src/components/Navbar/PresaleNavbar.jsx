@@ -87,7 +87,11 @@ function PresaleNavbar() {
           <button
             type="button"
             onClick={() => scrollToSection("#waitlist")}
-            className="uppercase whitespace-nowrap text-white text-[12px] md:text-[14px] font-[600] font-[Kanit] px-4 md:px-6 py-2 md:py-3 rounded-[6px] border border-white bg-black/20 hover:bg-white hover:text-black transition-colors cursor-pointer"
+            className={`uppercase whitespace-nowrap text-white text-[12px] md:text-[14px] font-[600] font-[Kanit] px-4 md:px-6 py-2 md:py-3 rounded-[6px] border transition-colors duration-300 cursor-pointer ${
+              scrolled
+                ? "border-[#4AB04A] bg-[#4AB04A] hover:bg-[#3f9a3f] hover:border-[#3f9a3f]"
+                : "border-white bg-black/20 hover:bg-white hover:text-black"
+            }`}
           >
             Join The Waitlist
           </button>
