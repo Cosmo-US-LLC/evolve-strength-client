@@ -10,7 +10,7 @@ import servicesPhoto from "@/assets/images/Lansdowne/trainer.webp";
 function LansdowneServicesShowcase() {
   return (
     <section className="w-full bg-white">
-      <div className="relative overflow-hidden w-full min-h-[700px]">
+      <div className="relative overflow-hidden w-full min-h-[700px] min-[1440px]:min-h-[48.61vw]">
         <img
           src={servicesPhoto}
           alt="Evolve Strength Lansdowne trainers"
@@ -21,7 +21,7 @@ function LansdowneServicesShowcase() {
           className="absolute inset-0 pointer-events-none bg-black/[0.51]"
         />
 
-        <div className="relative z-10 flex items-end md:items-center justify-center min-h-[700px] max-w-[1440px] mx-auto px-4 py-12 md:px-[100px] md:py-[50px]">
+        <div className="relative z-10 flex items-end md:items-center justify-center min-h-[700px] min-[1440px]:min-h-[48.61vw] max-w-[1440px] mx-auto px-4 py-12 md:px-[100px] md:py-[50px]">
           <div className="w-full max-w-[800px] flex flex-col items-center gap-6 text-center">
             <div className="w-full flex flex-col items-center gap-2">
               <p className="!text-[16px] !font-[500] text-[#4AB04A] uppercase !font-[Kanit] leading-[24px] m-0">

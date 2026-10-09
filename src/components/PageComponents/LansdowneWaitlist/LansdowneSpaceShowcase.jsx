@@ -6,7 +6,7 @@ import spaceMobile from "@/assets/images/Lansdowne/lansdowne-space-mobile.webp";
 function LansdowneSpaceShowcase() {
   return (
     <section className="w-full bg-white">
-      <div className="relative overflow-hidden w-full min-h-[700px]">
+      <div className="relative overflow-hidden w-full min-h-[700px] min-[1440px]:min-h-[48.61vw]">
         <img
           src={spaceBanner}
           alt="Evolve Strength Lansdowne training floor"
@@ -27,7 +27,7 @@ function LansdowneSpaceShowcase() {
           className="hidden md:block absolute inset-0 pointer-events-none bg-[linear-gradient(233.34deg,rgba(0,0,0,0)_38.119%,rgba(0,0,0,0.8)_65.617%)]"
         />
 
-        <div className="relative z-10 flex md:items-center items-end min-h-[700px] max-w-[1440px] mx-auto px-4 py-[50px] md:px-[100px]">
+        <div className="relative z-10 flex md:items-center items-end min-h-[700px] min-[1440px]:min-h-[48.61vw] max-w-[1440px] mx-auto px-4 py-[50px] md:px-[100px]">
           <div className="w-full max-w-[500px] flex flex-col items-start gap-2">
             <p className="!text-[16px] !font-[500] text-[#4AB04A] uppercase !font-[Kanit] leading-[24px] m-0">
               The Space

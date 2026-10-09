@@ -9,7 +9,7 @@ function LansdowneHero() {
 
   return (
     <div>
-      <div className="relative overflow-hidden w-full h-[700px] md:h-[760px] bg-[#000000]">
+      <div className="relative overflow-hidden w-full h-[700px] md:h-[760px] min-[1440px]:h-[52.78vw] bg-[#000000]">
         <img
           src={heroImage}
           alt="Lansdowne Centre"
