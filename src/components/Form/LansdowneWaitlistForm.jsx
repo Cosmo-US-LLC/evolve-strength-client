@@ -22,7 +22,7 @@ const emptyForm = {
 };
 
 const inputClass =
-  "w-full px-4 py-3 bg-black/60 border border-white rounded-[6px] text-white placeholder-gray-400 focus:outline-none focus:border-green-400";
+  "w-full px-4 py-3 bg-white/10 backdrop-blur-[24px] border-[0.5px] border-transparent rounded-[5px] text-white text-[14px] !font-[Kanit] !font-[300] placeholder-white/50 focus:outline-none focus:border-white";
 
 function LansdowneWaitlistForm() {
   const [formData, setFormData] = useState(emptyForm);
@@ -107,7 +107,7 @@ function LansdowneWaitlistForm() {
 
   if (submitStatus === "success") {
     return (
-      <div className="bg-black/40 border-2 border-[#fff] rounded-lg p-8 w-full text-center">
+      <div className="bg-black/20 backdrop-blur-[12px] border border-white/50 rounded-[10px] px-6 py-8 w-full text-center">
         <h4 className="text-[#fff] font-medium">
           Thank you! You've been added to the {LANSDOWNE.name} waitlist.{" "}
           <Link
@@ -122,8 +122,8 @@ function LansdowneWaitlistForm() {
   }
 
   return (
-    <div className="bg-black/40 border-2 border-[#fff] rounded-lg p-8 w-full">
-      <form onSubmit={handleSubmit} className="space-y-6">
+    <div className="bg-black/20 backdrop-blur-[12px] border border-white/50 rounded-[10px] px-4 py-5 md:px-6 md:py-8 w-full">
+      <form onSubmit={handleSubmit} className="space-y-3">
         {/* Honeypot: hidden from people and assistive tech, bots fill it */}
         <div
           aria-hidden="true"
@@ -142,9 +142,9 @@ function LansdowneWaitlistForm() {
           </label>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div>
-            <label className="block text-white font-bold mb-2">
+            <label className="block text-white !font-[Kanit] !font-[500] text-[16px] mb-2">
               First Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -158,7 +158,7 @@ function LansdowneWaitlistForm() {
             />
           </div>
           <div>
-            <label className="block text-white font-bold mb-2">
+            <label className="block text-white !font-[Kanit] !font-[500] text-[16px] mb-2">
               Last Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -173,9 +173,9 @@ function LansdowneWaitlistForm() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div>
-            <label className="block text-white font-bold mb-2">
+            <label className="block text-white !font-[Kanit] !font-[500] text-[16px] mb-2">
               Email Address <span className="text-red-500">*</span>
             </label>
             <input
@@ -189,7 +189,7 @@ function LansdowneWaitlistForm() {
             />
           </div>
           <div>
-            <label className="block text-white font-bold mb-2">
+            <label className="block text-white !font-[Kanit] !font-[500] text-[16px] mb-2">
               Phone Number <span className="text-red-500">*</span>
             </label>
             <input
@@ -205,7 +205,7 @@ function LansdowneWaitlistForm() {
         </div>
 
         <div>
-          <label className="block text-white font-bold mb-2">
+          <label className="block text-white !font-[Kanit] !font-[500] text-[16px] mb-2">
             Are you currently an Evolve member?{" "}
             <span className="text-red-500">*</span>
           </label>
@@ -215,7 +215,7 @@ function LansdowneWaitlistForm() {
               value={formData.isCurrentMember}
               onChange={handleInputChange}
               className={`${inputClass} appearance-none pr-10 cursor-pointer ${
-                formData.isCurrentMember ? "text-white" : "text-gray-400"
+                formData.isCurrentMember ? "text-white" : "text-white/50"
               }`}
               required
             >
@@ -229,7 +229,7 @@ function LansdowneWaitlistForm() {
               ))}
             </select>
             <svg
-              className="pointer-events-none absolute inset-y-0 right-3 my-auto w-5 h-5 text-white"
+              className="pointer-events-none absolute inset-y-0 right-4 my-auto w-[10px] h-[10px] text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -248,12 +248,12 @@ function LansdowneWaitlistForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full btnPrimary py-4 px-6 rounded-[6px] uppercase disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full btnPrimary max-md:!mt-4 h-[50px] px-6 rounded-[5px] uppercase !font-[500] !text-[16px] disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? "Submitting..." : "Join the Waitlist"}
         </button>
 
-        <p className="text-center text-[12px] text-[#CFCFCF] !font-[Kanit] m-0">
+        <p className="text-center text-[12px] text-white/55 !font-[Kanit] !font-[300] m-0 pt-1">
           By joining, you agree to receive emails from Evolve Strength.
           Unsubscribe anytime.{" "}
           <Link to={LANSDOWNE.privacyUrl} className="underline">

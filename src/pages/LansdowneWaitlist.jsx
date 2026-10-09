@@ -5,8 +5,8 @@ import LansdowneEquipmentPartners from "@/components/PageComponents/LansdowneWai
 import LansdowneFacilityShowcase from "@/components/PageComponents/LansdowneWaitlist/LansdowneFacilityShowcase";
 import LansdowneSpaceShowcase from "@/components/PageComponents/LansdowneWaitlist/LansdowneSpaceShowcase";
 import LansdowneLocationShowcase from "@/components/PageComponents/LansdowneWaitlist/LansdowneLocationShowcase";
+import LansdowneServicesShowcase from "@/components/PageComponents/LansdowneWaitlist/LansdowneServicesShowcase";
 import LansdowneOfficeSpaceShowcase from "@/components/PageComponents/LansdowneWaitlist/LansdowneOfficeSpaceShowcase";
-import LansdowneRecruitingShowcase from "@/components/PageComponents/LansdowneWaitlist/LansdowneRecruitingShowcase";
 import LansdowneJoinWaitlist from "@/components/PageComponents/LansdowneWaitlist/LansdowneJoinWaitlist";
 import { LANSDOWNE } from "@/constants/lansdowneWaitlist";
 
@@ -23,8 +23,8 @@ function LansdowneWaitlist() {
         <LansdowneFacilityShowcase />
         <LansdowneSpaceShowcase />
         <LansdowneLocationShowcase />
+        <LansdowneServicesShowcase />
         <LansdowneOfficeSpaceShowcase />
-        <LansdowneRecruitingShowcase />
         <LansdowneJoinWaitlist />
       </div>
     </>

@@ -1,78 +1,99 @@
 import React from "react";
-
-const stroke = { stroke: "#4AB04A", strokeWidth: 1.6, fill: "none" };
+import canadaLineImg from "@/assets/images/Lansdowne/lansdowne-location-canada-line.webp";
+import canadaLineImgMobile from "@/assets/images/Lansdowne/lansdowne-location-canada-line-mobile.webp";
+import parkingImg from "@/assets/images/Lansdowne/lansdowne-location-free-parking.webp";
+import parkingImgMobile from "@/assets/images/Lansdowne/lansdowne-location-free-parking-mobile.webp";
+import centreImg from "@/assets/images/Lansdowne/lansdowne-location-lansdowne-centre.webp";
+import centreImgMobile from "@/assets/images/Lansdowne/lansdowne-location-lansdowne-centre-mobile.webp";
+import canadaLineIcon from "@/assets/images/Lansdowne/lansdowne-icon-canada-line.svg";
+import parkingIcon from "@/assets/images/Lansdowne/lansdowne-icon-free-parking.svg";
+import centreIcon from "@/assets/images/Lansdowne/lansdowne-icon-lansdowne-centre.svg";
 
 const infoCards = [
   {
-    title: "Lansdowne Centre",
-    detail: "Richmond, BC",
-    icon: (
-      <>
-        <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" {...stroke} />
-        <circle cx="12" cy="9" r="2.4" {...stroke} />
-      </>
-    ),
-  },
-  {
     title: "Canada Line",
+    image: canadaLineImg,
+    imageMobile: canadaLineImgMobile,
     detail: "Steps from Lansdowne Station",
-    icon: (
-      <>
-        <rect x="6" y="3" width="12" height="14" rx="2.5" {...stroke} />
-        <path d="M6 11h12M9 21l1.5-4M15 21l-1.5-4" {...stroke} strokeLinecap="round" />
-      </>
-    ),
+    icon: canadaLineIcon,
   },
   {
     title: "Free Parking",
+    image: parkingImg,
+    imageMobile: parkingImgMobile,
     detail: "On site at Lansdowne Centre",
-    icon: (
-      <>
-        <rect x="4" y="4" width="16" height="16" rx="3" {...stroke} />
-        <path d="M10 16V8h3a2.5 2.5 0 0 1 0 5h-3" {...stroke} strokeLinecap="round" />
-      </>
-    ),
+    icon: parkingIcon,
+  },
+  {
+    title: "Lansdowne Centre",
+    image: centreImg,
+    imageMobile: centreImgMobile,
+    detail: "Richmond, BC",
+    icon: centreIcon,
   },
 ];
 
 function LansdowneLocationShowcase() {
+  const scrollToWaitlist = () => {
+    document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section className="w-full bg-white py-12 md:py-[88px]">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col gap-8 md:gap-10">
-        <div className="flex flex-col items-start gap-2 md:gap-4">
-          <p className="!text-[16px] !font-[500] text-[#4AB04A] uppercase !font-[Kanit] leading-[24px] m-0">
+    <section className="w-full bg-white py-16 md:py-[50px]">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-8 flex flex-col items-stretch md:items-center gap-8 md:gap-12">
+        <div className="flex flex-col items-start md:items-center text-left md:text-center gap-3 md:gap-4 w-full md:w-auto md:max-w-[720px]">
+          <p className="!text-[16px] !font-[500] text-[#4AB04A] uppercase !font-[Kanit] leading-[normal] m-0">
             The Location
           </p>
-          <h2 className="text-black uppercase m-0 !text-[32px] md:!text-[40px] !leading-[34px] md:!leading-[39px]">
+          <h2 className="text-black uppercase m-0 !text-[32px] md:!text-[40px] !leading-[1.1] md:!leading-[44px]">
             Right in Lansdowne Centre
           </h2>
-          <p className="!text-[16px] md:!text-[18px] !font-[300] text-black !font-[Kanit] leading-[24px] md:leading-[27px] m-0">
+          <p className="!text-[16px] md:!text-[18px] !font-[300] text-black !font-[Kanit] leading-[1.5] md:leading-[27px] m-0">
             Easy to reach, easy to park, and right where Richmond already
             shops.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
           {infoCards.map((card) => (
-            <div
-              key={card.title}
-              className="bg-[#F9F9F9] rounded-[12px] p-5 md:p-7 flex items-center gap-4"
-            >
-              <div className="shrink-0 w-[52px] h-[52px] rounded-[10px] bg-[#4AB04A]/15 flex items-center justify-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-                  {card.icon}
-                </svg>
-              </div>
-              <div>
-                <p className="!font-[Kanit] !font-[600] uppercase text-black !text-[18px] leading-[24px] m-0">
-                  {card.title}
-                </p>
-                <p className="!font-[Kanit] !font-[300] text-black !text-[14px] leading-[22px] m-0">
-                  {card.detail}
-                </p>
+            <div key={card.title} className="flex flex-col gap-5">
+              <picture>
+                <source media="(max-width: 767px)" srcSet={card.imageMobile} />
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="w-full h-[204px] md:h-[360px] object-cover rounded-[14px]"
+                />
+              </picture>
+              <div className="flex items-center gap-5 py-3">
+                <img
+                  className="shrink-0"
+                  src={card.icon}
+                  width="38"
+                  height="38"
+                  alt=""
+                />
+                <div className="flex flex-col gap-1">
+                  <p className="!font-[Kanit] !font-[600] uppercase text-black !text-[20px] leading-[22px] m-0">
+                    {card.title}
+                  </p>
+                  <p className="!font-[Kanit] !font-[300] text-black !text-[16px] leading-[22px] m-0">
+                    {card.detail}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="hidden md:block">
+        <button
+          type="button"
+          className="btnPrimary uppercase md:w-[354px]"
+          onClick={scrollToWaitlist}
+        >
+          Join the Waitlist
+        </button>
         </div>
       </div>
     </section>
