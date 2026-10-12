@@ -23,7 +23,7 @@ function AllGymLocations() {
       name: "Richmond - Lansdowne",
       image: LANSDOWNE_IMAGES.facilityTall,
       address: LANSDOWNE.locationLine,
-      locationUrl: "/lansdowne-presale",
+      locationUrl: "/lansdowne-waitlist",
       commonbtn: true,
       pillText: "Waitlist is open",
       ctaLabel: "Join the waitlist",

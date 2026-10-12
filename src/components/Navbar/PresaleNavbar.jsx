@@ -15,7 +15,7 @@ function PresaleNavbar() {
   const isParkRoyalTermsPage =
     location.pathname === "/park-royal-terms-and-conditions";
   const isParkRoyalPresalePage = location.pathname === "/presale-park-royal";
-  const isLansdownePage = location.pathname === "/lansdowne-presale";
+  const isLansdownePage = location.pathname === "/lansdowne-waitlist";
 
   React.useEffect(() => {
     const handleScroll = () => {
