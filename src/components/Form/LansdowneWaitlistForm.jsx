@@ -214,16 +214,17 @@ function LansdowneWaitlistForm() {
               name="isCurrentMember"
               value={formData.isCurrentMember}
               onChange={handleInputChange}
-              className={`${inputClass} appearance-none pr-10 cursor-pointer ${
+              className={`${inputClass} [color-scheme:dark] appearance-none pr-10 cursor-pointer ${
                 formData.isCurrentMember ? "text-white" : "text-white/50"
               }`}
               required
             >
-              <option value="" disabled>
+              {/* Explicit colours: Windows draws the native list on its own background, so white inherited text would be invisible */}
+              <option value="" disabled className="bg-[#1a1a1a] text-white/60">
                 Select the option
               </option>
               {MEMBER_OPTIONS.map((opt) => (
-                <option key={opt} value={opt}>
+                <option key={opt} value={opt} className="bg-[#1a1a1a] text-white">
                   {opt}
                 </option>
               ))}
