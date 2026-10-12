@@ -18,7 +18,7 @@ function LansdowneEquipmentPartners() {
   return (
     <div className="w-full pt-12 pb-10 md:py-16">
       <div className="w-full max-w-[1280px] px-5 mx-auto flex flex-col items-center gap-7 md:gap-10">
-        <h2 className="text-[#000000] max-md:self-start max-md:text-left max-md:!text-[26px] max-md:!leading-[39px] uppercase">
+        <h2 className="text-[#000000] max-md:self-center max-md:text-center max-md:!text-[26px] max-md:!leading-[39px] uppercase">
           Our Equipment Partners
         </h2>
 
