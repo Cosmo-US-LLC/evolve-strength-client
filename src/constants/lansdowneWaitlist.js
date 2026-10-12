@@ -23,6 +23,9 @@ export const LANSDOWNE = {
 
 // TODO: placeholders reused from Park Royal until real Lansdowne photography exists.
 export const LANSDOWNE_IMAGES = {
+  // "Lansdowne Centre" location card photo (provided by the client, 1176x1080)
+  locationCentre:
+    "https://assets.evolvestrength.ca/media/1791805066830-88e29bf9-71fe-4778-a44c-58b05f42434a.webp",
   // Hero background (Figma crop with the dark gradient already baked in)
   hero:
     "https://assets.evolvestrength.ca/media/1791557591777-a5dfbf25-5832-4b6b-aeb2-f0a1db885b54.webp",

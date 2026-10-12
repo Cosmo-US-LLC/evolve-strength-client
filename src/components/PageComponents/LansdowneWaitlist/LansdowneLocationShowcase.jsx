@@ -3,8 +3,7 @@ import canadaLineImg from "@/assets/images/Lansdowne/lansdowne-location-canada-l
 import canadaLineImgMobile from "@/assets/images/Lansdowne/lansdowne-location-canada-line-mobile.webp";
 import parkingImg from "@/assets/images/Lansdowne/lansdowne-location-free-parking.webp";
 import parkingImgMobile from "@/assets/images/Lansdowne/lansdowne-location-free-parking-mobile.webp";
-import centreImg from "@/assets/images/Lansdowne/lansdowne-location-lansdowne-centre.webp";
-import centreImgMobile from "@/assets/images/Lansdowne/lansdowne-location-lansdowne-centre-mobile.webp";
+import { LANSDOWNE_IMAGES } from "@/constants/lansdowneWaitlist";
 import canadaLineIcon from "@/assets/images/Lansdowne/lansdowne-icon-canada-line.webp";
 import parkingIcon from "@/assets/images/Lansdowne/lansdowne-icon-free-parking.webp";
 import centreIcon from "@/assets/images/Lansdowne/lansdowne-icon-lansdowne-centre.webp";
@@ -26,8 +25,9 @@ const infoCards = [
   },
   {
     title: "Lansdowne Centre",
-    image: centreImg,
-    imageMobile: centreImgMobile,
+    image: LANSDOWNE_IMAGES.locationCentre,
+    imageMobile: LANSDOWNE_IMAGES.locationCentre,
+    mobilePosition: "max-md:object-[50%_20%]",
     detail: "Richmond, BC",
     icon: centreIcon,
   },
@@ -62,7 +62,7 @@ function LansdowneLocationShowcase() {
                 <img
                   src={card.image}
                   alt={card.title}
-                  className="w-full h-[204px] md:h-[360px] object-cover rounded-[14px]"
+                  className={`w-full h-[204px] md:h-[360px] object-cover rounded-[14px] ${card.mobilePosition || ""}`}
                 />
               </picture>
               <div className="flex items-center gap-5 py-3">
