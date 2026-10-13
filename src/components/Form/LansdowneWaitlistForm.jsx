@@ -21,8 +21,9 @@ const emptyForm = {
   isCurrentMember: "",
 };
 
+// iOS Safari zooms the page when a field under 16px is focused, so touch devices get 16px.
 const inputClass =
-  "w-full px-4 py-3 bg-white/10 backdrop-blur-[24px] border-[0.5px] border-transparent rounded-[5px] text-white text-[14px] !font-[Kanit] !font-[300] placeholder-white/50 focus:outline-none focus:border-white";
+  "w-full px-4 py-3 bg-white/10 backdrop-blur-[24px] border-[0.5px] border-transparent rounded-[5px] text-white text-[14px] [@media(pointer:coarse)]:!text-[16px] !font-[Kanit] !font-[300] placeholder-white/50 focus:outline-none focus:border-white";
 
 function LansdowneWaitlistForm() {
   const [formData, setFormData] = useState(emptyForm);
