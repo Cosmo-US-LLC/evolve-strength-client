@@ -21,7 +21,7 @@ function AllGymLocations() {
     {
       id: 11,
       name: "Richmond - Lansdowne",
-      image: LANSDOWNE_IMAGES.facilityTall,
+      image: LANSDOWNE_IMAGES.hero,
       address: LANSDOWNE.locationLine,
       locationUrl: "/lansdowne-waitlist",
       commonbtn: true,
