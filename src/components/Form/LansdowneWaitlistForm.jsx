@@ -89,6 +89,22 @@ function LansdowneWaitlistForm() {
       );
 
       if (response.ok) {
+        // Thank-you email from our backend. Fire-and-forget: a mail problem
+        // must never turn a successful signup into an error for the visitor.
+        const apiBase = import.meta.env.VITE_APP_API_URL;
+        if (apiBase) {
+          fetch(`${apiBase}/waitlist`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              firstName: formData.firstName,
+              lastName: formData.lastName,
+              email: formData.email,
+              location: LANSDOWNE.name,
+            }),
+          }).catch((err) => console.error("Waitlist email request failed:", err));
+        }
+
         pushEvent("generate_lead", {
           form_name: "lansdowne_waitlist",
           location: LANSDOWNE.name,
