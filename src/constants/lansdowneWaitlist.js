@@ -23,6 +23,9 @@ export const LANSDOWNE = {
 
 // TODO: placeholders reused from Park Royal until real Lansdowne photography exists.
 export const LANSDOWNE_IMAGES = {
+  // Photo for the Lansdowne card on the All Gym Locations page (bright, 2048x1365)
+  locationsCard:
+    "https://assets.evolvestrength.ca/media/1791971563293-9e2f2a90-a5de-4b0b-9fe5-e8d9edb3cc3c.webp",
   // "Lansdowne Centre" location card photo (provided by the client, 1176x1080)
   locationCentre:
     "https://assets.evolvestrength.ca/media/1791805066830-88e29bf9-71fe-4778-a44c-58b05f42434a.webp",
