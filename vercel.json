@@ -77,7 +77,8 @@
     { "source": "/royal-oak", "destination": "/locations/calgary-royal-oak", "permanent": true },
 
     { "source": "/park-royal-waitlist", "destination": "/presale-park-royal", "permanent": true },
-    { "source": "/go/lansdowne", "destination": "/lansdowne-presale", "permanent": false }
+    { "source": "/go/lansdowne", "destination": "/lansdowne-waitlist", "permanent": false },
+    { "source": "/lansdowne-presale", "destination": "/lansdowne-waitlist", "permanent": false }
   ],
   "rewrites": [
     {

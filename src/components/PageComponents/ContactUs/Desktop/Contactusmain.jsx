@@ -12,6 +12,12 @@ const contactLocationsData = {
       email: null,
     },
     {
+      cityName: "Lansdowne",
+      location: "Unit 314, 5300 No 3 Rd, Richmond, BC, V6X 2X9",
+      number: null,
+      email: null,
+    },
+    {
       cityName: "South Edmonton Common",
       location: "1910 102 STREET NW, EDMONTON, AB T6N 1N3",
       number: "(587) 686-7622",

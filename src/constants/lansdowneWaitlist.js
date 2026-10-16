@@ -3,7 +3,7 @@
 export const LANSDOWNE = {
   name: "Lansdowne",
   openingYear: 2027, // not shown on the page since design v2
-  locationLine: "Inside Lansdowne Centre, Richmond BC",
+  locationLine: "Unit 314, 5300 No 3 Rd, Richmond, BC, V6X 2X9",
   disciplines: [
     "Bodybuilding",
     "Powerlifting",
@@ -16,13 +16,22 @@ export const LANSDOWNE = {
   privateOffices: 20,
   anchorSpaces: 2,
   // Where the page's secondary CTAs send people
-  leasingUrl: "/join-the-wait-list",
+  leasingUrl: "/work-spaces",
   trainerUrl: "/join-as-trainer",
   privacyUrl: "/privacy-policy",
 };
 
 // TODO: placeholders reused from Park Royal until real Lansdowne photography exists.
 export const LANSDOWNE_IMAGES = {
+  // Photo for the Lansdowne card on the All Gym Locations page (bright, 2048x1365)
+  locationsCard:
+    "https://assets.evolvestrength.ca/media/1791971563293-9e2f2a90-a5de-4b0b-9fe5-e8d9edb3cc3c.webp",
+  // "Lansdowne Centre" location card photo (provided by the client, 1176x1080)
+  locationCentre:
+    "https://assets.evolvestrength.ca/media/1791805066830-88e29bf9-71fe-4778-a44c-58b05f42434a.webp",
+  // Hero background (Figma crop with the dark gradient already baked in)
+  hero:
+    "https://assets.evolvestrength.ca/media/1791557591777-a5dfbf25-5832-4b6b-aeb2-f0a1db885b54.webp",
   facilityTall:
     "https://assets.evolvestrength.ca/media/1784188141013-f269da9b-8f20-4d5b-83c3-cf95f3b90545.webp",
   facilityFloor:

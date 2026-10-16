@@ -2,34 +2,38 @@ import React from "react";
 import { assetUrl } from "@/lib/assetUrl";
 import Marquee from "react-fast-marquee";
 
-import lifeFitnessLogo from "@/assets/images/ParkRoyal/EquipmentPartners/life-fitness.svg";
+import lifeFitnessLogo from "@/assets/images/Lansdowne/lansdowne-logo-life-fitness.webp";
 const glutbuilderLogo = assetUrl("/assets/images/ParkRoyal/EquipmentPartners/glutbuilder.webp");
 const hammerStrengthLogo = assetUrl("/assets/images/ParkRoyal/EquipmentPartners/hammer-strength.webp");
-import atlantisLogo from "@/assets/images/ParkRoyal/EquipmentPartners/atlantis.svg";
+import atlantisLogo from "@/assets/images/Lansdowne/lansdowne-logo-atlantis.webp";
 
 const partnerLogos = [
-  { src: lifeFitnessLogo, alt: "Life Fitness" },
-  { src: glutbuilderLogo, alt: "GluteBuilder" },
-  { src: hammerStrengthLogo, alt: "Hammer Strength" },
-  { src: atlantisLogo, alt: "Atlantis" },
+  { src: lifeFitnessLogo, alt: "Life Fitness", box: "w-[250px] h-[55px]", img: "h-[55px] w-auto", mImg: "w-[101px] h-auto" },
+  { src: glutbuilderLogo, alt: "GluteBuilder", box: "w-[218px] h-[57px]", img: "w-[218px] h-auto", mImg: "w-[140px] h-auto" },
+  { src: hammerStrengthLogo, alt: "Hammer Strength", box: "w-[218px] h-[57px]", img: "w-[148px] h-auto", mImg: "w-[95px] h-auto" },
+  { src: atlantisLogo, alt: "Atlantis", box: "w-[188px] h-[55px]", img: "w-[188px] h-[55px]", mImg: "w-[137px] h-10" },
 ];
 
 function LansdowneEquipmentPartners() {
   return (
-    <div className="w-full py-16">
-      <div className="w-full max-w-[1280px] px-0 md:px-8 mx-auto flex flex-col items-center gap-10">
-        <h2 className="text-[#000000] max-md:text-center uppercase">
+    <div className="w-full pt-12 pb-10 md:py-16">
+      <div className="w-full max-w-[1280px] px-5 mx-auto flex flex-col items-center gap-7 md:gap-10">
+        <h2 className="text-[#000000] max-md:self-center max-md:text-center max-md:!text-[26px] max-md:!leading-[39px] uppercase">
           Our Equipment Partners
         </h2>
 
         <div className="hidden md:flex items-center justify-between gap-8 w-full">
           {partnerLogos.map((logo) => (
-            <img
+            <div
               key={logo.alt}
-              src={logo.src}
-              alt={logo.alt}
-              className="h-[48px] md:h-[55px] w-auto max-w-[250px] object-contain"
-            />
+              className={`${logo.box} shrink-0 flex items-center justify-center overflow-hidden`}
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className={`${logo.img} max-w-full object-contain`}
+              />
+            </div>
           ))}
         </div>
 
@@ -38,12 +42,12 @@ function LansdowneEquipmentPartners() {
             {partnerLogos.map((logo) => (
               <div
                 key={logo.alt}
-                className="mx-6 flex items-center justify-center"
+                className="mx-6 h-12 flex items-center justify-center"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-10 w-auto max-w-[140px] object-contain"
+                  className={`${logo.mImg} max-w-none object-contain`}
                 />
               </div>
             ))}
